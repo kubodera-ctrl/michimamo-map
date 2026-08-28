@@ -6,11 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>みちまも MAP - 交通安全情報共有マップ</title>
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Supabase JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         html, body { margin:0; height:100%; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background:#f4f6f8; color:#17212b; }
@@ -18,80 +15,84 @@
         body { overflow: hidden; }
         #app { height: 100dvh; display: flex; flex-direction: column; }
         
-        /* ヘッダー */
         header { height: 64px; background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; padding-top: max(10px, env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .brand { display: flex; gap: 10px; align-items: center; }
         .logo { width: 38px; height: 38px; border-radius: 12px; background: #17212b; color: white; display: grid; place-items: center; font-weight: 900; }
         .title { font-size: 16px; font-weight: 900; }
         .sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
 
-        /* メインビューエリア */
         main { flex: 1; min-height: 0; position: relative; }
         .view { display: none; height: 100%; overflow: auto; }
         .view.active { display: block; }
         
-        /* 地図ビュー専用 */
         #mapView { overflow: hidden; }
         #map-container { position: relative; height: 100%; width: 100%; }
         #map { height: 100%; width: 100%; }
 
-        /* ナビゲーション（タブ） */
         nav { height: 64px; background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: max(4px, env(safe-area-inset-bottom)); z-index: 1000; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
         nav button.active { color: #1f6feb; }
         nav button i { font-size: 20px; }
 
+        /* 検索バー */
+        .search-box { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; gap: 6px; }
+        .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
+        .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
+
         /* フィルター群 */
-        .filter-bar { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; z-index: 999; padding-bottom: 5px; }
+        .filter-bar { position: absolute; top: 60px; left: 10px; right: 10px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; z-index: 999; padding-bottom: 5px; }
         .filter-chip { padding: 8px 14px; border-radius: 20px; border: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); font-size: 0.8rem; font-weight:bold; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s; }
-        .filter-chip.active { background: #ef4444; color: white; border-color: #ef4444; }
+        
+        .filter-chip.active { background: #17212b; color: white; border-color: #17212b; }
+        .filter-chip.illegal.active { background: #ef4444; color: white; border-color: #ef4444; }
+        .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
+        .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
+        .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
         .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; }
 
-        /* 現在地に戻るボタン */
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
-        
-        /* 投稿ボタン (FAB) */
         .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
 
-        /* 汎用ページスタイル (クイズ・説明用) */
         .page { padding: 24px 18px 90px; max-width: 700px; margin: auto; }
-        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin-bottom: 20px; }
         h1 { font-size: 24px; margin: 0 0 12px; color: #17212b; }
         h2 { font-size: 18px; margin-bottom: 16px; line-height: 1.5; }
         .muted { color: #6b7280; font-size: 14px; line-height: 1.6; }
         
-        /* クイズデザイン */
         .quiz-opt { width: 100%; text-align: left; padding: 14px; border: 1px solid #e5e7eb; background: #f9fafb; border-radius: 12px; margin: 6px 0; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: 0.2s; }
-        .quiz-opt:hover { background: #f3f4f6; }
         .quiz-opt.correct { background: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d; }
         .quiz-opt.wrong { background: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c; }
         .primary { width: 100%; border: 0; background: #1f6feb; color: white; border-radius: 13px; padding: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: 16px; }
 
-        /* モーダル (ボトムシート風) */
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; }
         .modal.open { opacity: 1; pointer-events: auto; }
-        .sheet { width: 100%; max-width: 620px; margin: auto; background: white; border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: 0.3s; }
+        .sheet { width: 100%; max-width: 620px; margin: auto; background: white; border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: 0.3s; max-height: 90vh; overflow-y: auto;}
         .modal.open .sheet { transform: translateY(0); }
         .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
         
         label { font-size: 13px; font-weight: 900; display: block; margin: 14px 0 6px; color: #374151; }
-        select, textarea, input { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
+        select, textarea, input[type="text"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
         
-        /* トースト・警告 */
-        .alert-toast { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); background: #dc2626; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; }
+        .alert-toast { position: fixed; top: 110px; left: 50%; transform: translateX(-50%); background: #dc2626; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; }
         .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); }
         .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .toast.show { opacity: 1; }
 
-        /* Leaflet カスタムアイコン類 */
         .gps-marker { width: 18px; height: 18px; background-color: #1f6feb; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.4); position: relative; }
         .gps-marker::after { content: ""; position: absolute; top: -4px; left: -4px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #1f6feb; opacity: 0; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
         
         .popup-action-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 8px 6px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; text-decoration: none; cursor: pointer; border: none; margin-top: 6px; }
         .btn-police { background-color: #1d4ed8 !important; color: #ffffff !important; }
-        .btn-report { background-color: #f3f4f6; color: #dc2626; border: 1px solid #fca5a5; }
+        .btn-like { background-color: #f59e0b; color: white; border: none; }
+        
+        /* マイページのランクバッジ */
+        .rank-badge { display: inline-block; padding: 8px 16px; border-radius: 24px; font-weight: 900; font-size: 1.1rem; background: #eef1f4; color: #374151; }
+        .rank-bronze { background: #cd7f32; color: white; }
+        .rank-silver { background: #94a3b8; color: white; }
+        .rank-gold { background: #eab308; color: white; }
+        .rank-legend { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; }
     </style>
 </head>
 <body>
@@ -108,16 +109,23 @@
     </header>
 
     <main>
-        <!-- マップ画面 -->
         <section id="mapView" class="view active">
             <div id="map-container">
                 <div id="map"></div>
                 
+                <!-- 検索バー -->
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
+                    <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
                 <div class="filter-bar">
                     <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
-                    <button class="filter-chip" onclick="filterMarkers('parking', this)"><i class="fa-solid fa-ban"></i> 危険駐車</button>
-                    <button class="filter-chip" onclick="filterMarkers('blind', this)"><i class="fa-solid fa-eye-slash"></i> 視界不良</button>
-                    <!-- 近日公開ボタンに変更 -->
+                    <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
+                    <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
+                    <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
+                    <!-- 紫色の不法放置追加 -->
+                    <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
                     <button class="filter-chip parking-chip" onclick="showComingSoonParking()"><i class="fa-solid fa-parking"></i> P</button>
                 </div>
 
@@ -125,91 +133,95 @@
                     <i class="fa-solid fa-location-crosshairs"></i>
                 </button>
 
-                <!-- FABを押した時は案内トーストを出す -->
                 <button class="fab" onclick="showPostGuide()">
                     <i class="fa-solid fa-plus"></i> 情報を投稿
                 </button>
             </div>
         </section>
 
-        <!-- クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
-                <p class="muted" style="margin-bottom:16px;">ゲーム感覚で改正道交法やルールを確認しましょう。毎回ランダムで出題されます。</p>
-                
-                <div id="quizIntroArea">
-                    <button class="primary" onclick="startQuizSession()">テストを開始する</button>
-                </div>
-
+                <p class="muted" style="margin-bottom:16px;">ゲーム感覚で改正道交法を確認！1問正解につき「1pt」獲得！</p>
+                <div id="quizIntroArea"><button class="primary" onclick="startQuizSession()">テストを開始する</button></div>
                 <div class="card" id="quizRunArea" style="display:none;">
                     <div id="quizProgress" class="muted" style="font-weight:bold; color:#1f6feb; margin-bottom:8px;"></div>
                     <h2 id="quizQuestion"></h2>
                     <div id="quizOptions"></div>
-                    
-                    <div class="explanation-box" id="explanationBox">
+                    <div class="explanation-box" id="explanationBox" style="display:none; padding:12px; background:#f0fdf4; border-radius:8px; border:1px solid #86efac; margin-top:12px;">
                         <div style="font-weight:bold; margin-bottom:4px;" id="expTitle"></div>
-                        <div id="expBody"></div>
+                        <div id="expBody" style="font-size:0.85rem; color:#166534;"></div>
                         <button class="primary" onclick="nextQuestion()">次の問題へ</button>
                     </div>
                 </div>
-
                 <div class="card" id="quizResultArea" style="display:none; text-align:center;">
-                    <h3 style="font-size:1.2rem; color:#17212b; margin-bottom:8px;">🏆 テスト結果</h3>
+                    <h3 style="font-size:1.2rem; margin-bottom:8px;">🏆 テスト結果</h3>
                     <div style="font-size:2.5rem; font-weight:900; color:#1f6feb; margin:10px 0;" id="resultScore"></div>
-                    <p style="font-weight:bold; color:#374151; margin-bottom:12px;" id="resultRank"></p>
-                    <p class="muted" id="resultComment" style="margin-bottom:20px;"></p>
+                    <p style="font-weight:bold; color:#374151; margin-bottom:20px;" id="resultEarnPt"></p>
                     <button class="primary" onclick="startQuizSession()">もう一度挑戦する</button>
                 </div>
             </div>
         </section>
 
-        <!-- 説明画面 -->
         <section id="aboutView" class="view">
             <div class="page">
-                <h1>このアプリについて</h1>
+                <h1>👤 マイページ ＆ ガイド</h1>
+                
+                <!-- ポイント＆称号カード -->
+                <div class="card" style="text-align:center; background:#f8fafc;">
+                    <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のあなたのランク</div>
+                    <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
+                    <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
+                    <p class="muted" style="font-size:0.75rem; margin-top:8px;">※情報投稿(+10pt)・助かった(+1pt)・クイズ正解(+1pt)</p>
+                </div>
+
                 <div class="card">
-                    <p class="muted" style="margin-bottom:12px;"><strong>みちまも MAP</strong>は、違法駐車や危険箇所を可視化し、地域の安全を守るための参加型マップです。</p>
-                    <p class="muted" style="margin-bottom:12px;">周辺の危険エリアへの接近通知機能や、交通ルールの啓発クイズを搭載しています。</p>
-                    <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0;">
-                    <p style="font-size:0.8rem; color:#4b5563; font-weight:bold;">🛡️ ご利用上の注意</p>
-                    <p class="muted" style="font-size:0.8rem; margin-top:8px;">
-                        ・投稿時に個人（車のナンバーや顔）を特定する情報は入力しないでください。<br>
-                        ・ながらスマホ（運転中の操作）は大変危険かつ違法です。必ず安全な場所に停止して操作してください。
-                    </p>
+                    <h2 style="font-size:1.1rem; color:#17212b; margin-bottom:12px;"><i class="fa-solid fa-map-pin"></i> ピンの色と意味</h2>
+                    
+                    <div style="margin-bottom: 12px;">
+                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div>
+                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">交差点や横断歩道など、明確に駐停車が禁止されている場所の車両です。</p>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#2563eb;"><i class="fa-solid fa-triangle-exclamation"></i> 危険な路上停車 (青)</div>
+                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">死角を作ったり通行の妨げになっている危険な停車情報です。</p>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div>
+                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">監視員等の巡回情報です。<strong style="color:#ef4444;">※10分で自動消去されます。</strong></p>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div>
+                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">ナンバープレートがない、長期間放置されている不法車両です。(写真UP可)</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 下部ナビゲーション -->
     <nav>
-        <button class="nav active" data-view="mapView">
-            <i class="fa-solid fa-map-location-dot"></i> マップ
-        </button>
-        <button class="nav" data-view="quizView">
-            <i class="fa-solid fa-graduation-cap"></i> クイズ
-        </button>
-        <button class="nav" data-view="aboutView">
-            <i class="fa-solid fa-circle-info"></i> 説明
-        </button>
+        <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
+        <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i> クイズ</button>
+        <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i> マイページ</button>
     </nav>
 </div>
 
-<!-- 投稿用ボトムシートモーダル -->
+<!-- 投稿モーダル -->
 <div id="postModal" class="modal">
     <div class="sheet">
         <div class="row">
             <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;">
-                <i class="fa-solid fa-location-dot" style="color:#ef4444;"></i> 危険情報を共有
+                <i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有
             </div>
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
             <label>種類</label>
-            <select id="postCategory" required>
-                <option value="parking">🚨 危険な路上駐車</option>
-                <option value="blind">⚠️ 視界不良・交差点注意</option>
+            <select id="postCategory" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="patrol">🟢 巡回・取り締まり情報 (10分で消去)</option>
+                <option value="abandoned">🟣 不法放置 (写真添付OK)</option>
             </select>
             
             <label>タイトル</label>
@@ -218,7 +230,14 @@
             <label>状況コメント (任意)</label>
             <textarea id="postComment" rows="3" placeholder="ナンバー等は入力しないでください" maxlength="100"></textarea>
             
-            <button type="submit" class="primary" style="margin-top:20px;">この場所で投稿する</button>
+            <!-- 写真アップロード（不法放置限定） -->
+            <div id="imageUploadArea" style="display:none; margin-top:14px; background:#f3f4f6; padding:12px; border-radius:12px;">
+                <label style="margin-top:0;"><i class="fa-solid fa-camera"></i> 現地の写真 (不法放置のみ)</label>
+                <input type="file" id="postImageInput" accept="image/*" style="border:none; padding:0; background:transparent;">
+                <img id="imagePreview" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
+            </div>
+            
+            <button type="submit" class="primary" style="margin-top:20px;">この場所で投稿する (+10pt)</button>
         </form>
     </div>
 </div>
@@ -226,30 +245,41 @@
 <!-- 利用規約同意モーダル -->
 <div class="modal" id="termsModal">
     <div class="sheet" style="padding-top: 30px;">
-        <div class="row">
-            <div style="font-size:18px; font-weight:900;">🛡️ 利用規約と位置情報の利用</div>
-        </div>
-        <p style="font-size:0.85rem; color:#374151; margin-bottom:8px; font-weight:bold;">みちまもMAPをご利用いただく前に</p>
-        <div style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; border:1px solid #e5e7eb; max-height:200px; overflow-y:auto; margin-bottom:12px;">
-            <p><strong>1. 位置情報の取得について</strong><br>本アプリは周辺の危険スポットの表示および投稿のためにGPS位置情報を取得します。</p><br>
-            <p><strong>2. 投稿に関するマナー</strong><br>個人を特定できる情報（車のナンバー・顔写真・個人名等）の投稿は禁止されています。</p><br>
-            <p><strong>3. 免責事項</strong><br>本アプリの情報はユーザー共有に基づくものであり、完全な正確性を保証するものではありません。交通ルールを遵守して走行してください。</p>
+        <div class="row"><div style="font-size:18px; font-weight:900;">🛡️ 利用規約と位置情報</div></div>
+        <p style="font-size:0.85rem; font-weight:bold;">みちまもMAPをご利用いただく前に</p>
+        <div style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; border:1px solid #e5e7eb; margin-bottom:12px;">
+            <p><strong>1. 位置情報の取得:</strong> GPS位置情報を取得し表示します。</p>
+            <p><strong>2. 投稿マナー:</strong> 個人を特定できる情報の投稿は禁止です。</p>
         </div>
         <button class="primary" style="width:100%;" onclick="acceptTerms()">同意してアプリを開始する</button>
     </div>
 </div>
 
-<!-- 接近警告トースト -->
-<div class="alert-toast" id="alertToast">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <span id="alertToastMsg">⚠️ 危険スポット接近中！</span>
-</div>
-
+<div class="alert-toast" id="alertToast"><i class="fa-solid fa-triangle-exclamation"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
 
-<!-- 外部JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+    // --- 0. ポイント＆称号システム (スマホローカル保存) ---
+    let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
+    
+    function addPoint(pt, msg) {
+        myPoint += pt;
+        localStorage.setItem('michimamo_pt', myPoint);
+        if(msg) showToast(`${msg}！ (+${pt}pt)`);
+    }
+
+    function updateMyPage() {
+        document.getElementById('myPointDisp').innerText = myPoint;
+        const badge = document.getElementById('myRankBadge');
+        badge.className = 'rank-badge'; // reset
+        if (myPoint >= 1000) { badge.innerText = "👑 レジェンド守護神"; badge.classList.add('rank-legend'); }
+        else if (myPoint >= 300) { badge.innerText = "🥇 ゴールド免許"; badge.classList.add('rank-gold'); }
+        else if (myPoint >= 100) { badge.innerText = "🥈 シルバーパトローラー"; badge.classList.add('rank-silver'); }
+        else if (myPoint >= 30) { badge.innerText = "🥉 ブロンズウォッチャー"; badge.classList.add('rank-bronze'); }
+        else { badge.innerText = "🔰 初心者マーク"; }
+    }
+
     // --- 1. Supabase設定 & 地図初期化 ---
     const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
@@ -260,91 +290,91 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     let activeMarkers = [], heatCircles = [];
-    let userLat = null, userLng = null, gpsMarkerObj = null;
-    let isFirstLocationSet = false;
+    let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
 
-    // --- 初回利用規約 ---
     window.onload = function() {
-        if (!localStorage.getItem('safety_road_terms_accepted')) {
-            document.getElementById('termsModal').classList.add('open');
-        }
+        if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
+        updateMyPage();
     };
-    function acceptTerms() {
-        localStorage.setItem('safety_road_terms_accepted', 'true');
-        document.getElementById('termsModal').classList.remove('open');
-        showToast('利用規約に同意しました。');
+    function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
+
+    // --- 2. 検索バー (OSM Nominatim API) ---
+    async function searchLocation() {
+        const query = document.getElementById('searchInput').value;
+        if(!query) return;
+        showToast("検索中...");
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            if (data && data.length > 0) {
+                map.flyTo([data[0].lat, data[0].lon], 16);
+                showToast("移動しました");
+            } else showToast("見つかりませんでした");
+        } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
-    // --- 2. UI切り替え・トースト系 ---
+    // --- 3. UI・トースト・GPS ---
     document.querySelectorAll(".nav").forEach(b => {
         b.onclick = () => {
-            document.querySelectorAll(".nav").forEach(x => x.classList.remove("active"));
-            b.classList.add("active");
-            document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-            document.getElementById(b.dataset.view).classList.add("active");
+            document.querySelectorAll(".nav").forEach(x => x.classList.remove("active")); b.classList.add("active");
+            document.querySelectorAll(".view").forEach(v => v.classList.remove("active")); document.getElementById(b.dataset.view).classList.add("active");
             if (b.dataset.view === "mapView") setTimeout(() => map.invalidateSize(), 100);
         };
     });
 
     function showToast(msg) {
-        const t = document.getElementById('toast');
-        t.innerText = msg;
-        t.classList.add('show');
-        clearTimeout(window.tt);
-        window.tt = setTimeout(() => t.classList.remove('show'), 2500);
+        const t = document.getElementById('toast'); t.innerText = msg; t.classList.add('show');
+        clearTimeout(window.tt); window.tt = setTimeout(() => t.classList.remove('show'), 2500);
     }
+    function showComingSoonParking() { showToast("🅿️ 駐車場検索システムは近日公開予定です！"); }
+    function showPostGuide() { showToast("📍 マップ上の投稿したい場所を直接タップしてください"); }
 
-    // 近日公開パーキング案内
-    function showComingSoonParking() {
-        showToast("🅿️ 駐車場検索システムは近日公開予定です！お楽しみに！");
-    }
-
-    // 投稿案内
-    function showPostGuide() {
-        showToast("📍 マップ上の投稿したい場所を直接タップしてください");
-    }
-
-    // --- 3. GPS・接近通知 ---
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(
             (pos) => {
-                userLat = pos.coords.latitude;
-                userLng = pos.coords.longitude;
-                if (!isFirstLocationSet) {
-                    map.setView([userLat, userLng], 15);
-                    isFirstLocationSet = true;
-                }
+                userLat = pos.coords.latitude; userLng = pos.coords.longitude;
+                if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
                 const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
-                if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]);
-                else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
+                if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
                 checkProximity(userLat, userLng);
-            },
-            (err) => console.log('GPS Error'), { enableHighAccuracy: true }
+            }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
         );
     }
+    function goToCurrentLocation() { if (userLat && userLng) map.setView([userLat, userLng], 15); else showToast('位置情報が取得できません'); }
 
-    function goToCurrentLocation() {
-        if (userLat && userLng) map.setView([userLat, userLng], 15);
-        else showToast('位置情報が取得できません');
-    }
-
-    // --- 4. 危険スポット処理 (Supabase同期 ＆ タップ投稿) ---
+    // --- 4. 危険スポット処理 (DBエラー回避仕様) ---
     async function loadSpots() {
         activeMarkers.forEach(m => map.removeLayer(m.instance));
         heatCircles.forEach(c => map.removeLayer(c));
         activeMarkers = []; heatCircles = [];
+        
         const { data, error } = await db.from('spots').select('*');
-        if (!error) data.forEach(s => {
-            const hc = L.circle([s.lat, s.lng], { color:'#ef4444', fillColor:'#f87171', fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
-            heatCircles.push(hc);
-            createSpotPin(s, hc);
-        });
+        if (!error) {
+            const now = Date.now();
+            data.forEach(s => {
+                if (s.category === 'patrol') {
+                    if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; }
+                }
+
+                let hcColor = '#ef4444', hcFill = '#f87171';
+                if (s.category === 'danger') { hcColor = '#2563eb'; hcFill = '#60a5fa'; }
+                if (s.category === 'patrol') { hcColor = '#10b981'; hcFill = '#34d399'; }
+                if (s.category === 'abandoned') { hcColor = '#9333ea'; hcFill = '#c084fc'; }
+
+                const hc = L.circle([s.lat, s.lng], { color:hcColor, fillColor:hcFill, fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
+                heatCircles.push(hc);
+                createSpotPin(s, hc);
+            });
+        }
     }
+    setInterval(loadSpots, 60000); 
 
     function createSpotPin(spot, hc) {
-        const isPark = spot.category === 'parking';
-        const color = isPark ? '#ef4444' : '#f59e0b';
-        const iconC = isPark ? 'fa-ban' : 'fa-eye-slash';
+        let color = '#6b7280', iconC = 'fa-map-pin';
+        if (spot.category === 'illegal') { color = '#ef4444'; iconC = 'fa-ban'; }
+        if (spot.category === 'danger') { color = '#2563eb'; iconC = 'fa-triangle-exclamation'; }
+        if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
+        if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
         
         const pin = L.divIcon({
             className: 'custom-pin',
@@ -352,46 +382,114 @@
             iconSize: [32, 32], iconAnchor: [16, 30]
         });
 
+        // ⭐ DBエラー回避：ローカルストレージから画像といいね数を取得する！
+        const localImgBase64 = localStorage.getItem('img_' + spot.id);
+        const imgTag = localImgBase64 ? `<img src="${localImgBase64}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
+        const localLikeCount = parseInt(localStorage.getItem('like_' + spot.id)) || 0;
+
         const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
         m.bindPopup(`
             <div style="min-width:210px;">
-                <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()}</div>
+                <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
                 <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
+                ${imgTag}
+                
+                <button onclick="likeSpot(${spot.id})" class="popup-action-btn btn-like" style="margin-bottom:10px;">
+                    <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${localLikeCount})
+                </button>
+
                 <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
-                    <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ危険ですか？</div>
+                    <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                     <div style="display:flex; gap:8px;">
                         <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
-                        <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除(消去)</button>
+                        <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除</button>
                     </div>
                 </div>
-                <a href="tel:#9110" class="popup-action-btn btn-police"><i class="fa-solid fa-phone"></i> 警察相談 (#9110)</a>
             </div>
         `);
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
-    // 🎯 直感的なタップ投稿へ変更！
+    // ⭐ DBエラー回避：いいね数をローカルストレージに保存！
+    function likeSpot(id) {
+        addPoint(1, "お礼を伝えました"); 
+        let currentLike = parseInt(localStorage.getItem('like_' + id)) || 0;
+        localStorage.setItem('like_' + id, currentLike + 1);
+        loadSpots();
+    }
+
+    // --- 5. 写真圧縮 ＆ 投稿 ---
     map.on('click', (e) => {
-        window.postLat = e.latlng.lat;
-        window.postLng = e.latlng.lng;
+        window.postLat = e.latlng.lat; window.postLng = e.latlng.lng;
         document.getElementById('postModal').classList.add('open');
     });
 
-    function closePostModal() { document.getElementById('postModal').classList.remove('open'); document.getElementById('postForm').reset(); }
+    let uploadedImageBase64 = null;
+    function toggleImageUpload() {
+        const cat = document.getElementById('postCategory').value;
+        const area = document.getElementById('imageUploadArea');
+        if(cat === 'abandoned') { area.style.display = 'block'; }
+        else { area.style.display = 'none'; uploadedImageBase64 = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
+    }
+
+    document.getElementById('postImageInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 500; 
+                let width = img.width; let height = img.height;
+                if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.6); 
+                document.getElementById('imagePreview').src = uploadedImageBase64;
+                document.getElementById('imagePreview').style.display = 'block';
+            }
+            img.src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+    });
+
+    function closePostModal() { 
+        document.getElementById('postModal').classList.remove('open'); 
+        document.getElementById('postForm').reset();
+        toggleImageUpload(); 
+    }
 
     async function handlePostSubmit(e) {
         e.preventDefault();
-        const { error } = await db.from('spots').insert([{ 
+        showToast("投稿中...");
+        const cat = document.getElementById('postCategory').value;
+        
+        // ⭐ DBエラー回避：既存の列（エラーにならない項目）だけをSupabaseに送る！
+        const { data, error } = await db.from('spots').insert([{ 
             lat: window.postLat, lng: window.postLng, 
-            category: document.getElementById('postCategory').value, 
+            category: cat, 
             title: document.getElementById('postTitle').value, 
-            comment: document.getElementById('postComment').value, confirm_count: 0 
-        }]);
-        if (!error) { showToast('情報を共有しました！'); closePostModal(); loadSpots(); }
+            comment: document.getElementById('postComment').value,
+            confirm_count: 0
+        }]).select(); // 追加したデータのIDを取得
+        
+        if (!error && data && data.length > 0) { 
+            const newId = data[0].id;
+            // ⭐ 写真がある場合はスマホ本体にIDとセットで保存する
+            if (cat === 'abandoned' && uploadedImageBase64) {
+                try { localStorage.setItem('img_' + newId, uploadedImageBase64); } catch(err) { console.log('画像容量オーバー'); }
+            }
+            addPoint(10, "情報を共有しました");
+            closePostModal(); loadSpots(); 
+        } else {
+            showToast("投稿に失敗しました");
+        }
     }
 
-    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); loadSpots(); }
+    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); loadSpots(); showToast("確認しました"); }
     async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); loadSpots(); }
 
     function filterMarkers(cat, btn) {
@@ -407,13 +505,13 @@
             const d = (6371 * 2 * Math.atan2(Math.sqrt(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2), Math.sqrt(1-(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2))));
             if (d <= 0.1) {
                 const t = document.getElementById('alertToast');
-                document.getElementById('alertToastMsg').innerText = `⚠️ 前方${Math.round(d*1000)}mに危険エリア！`;
+                document.getElementById('alertToastMsg').innerText = `⚠️ 前方${Math.round(d*1000)}mにスポット情報あり！`;
                 t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 4000);
             }
         });
     }
 
-    // --- 5. 本格クイズ (100問ロジック) ---
+    // --- 6. 本格クイズ ---
     const qList = [
         { q: "交差点の端から5m以内は原則どうなる？", o: ["駐車だけ禁止", "夜だけ禁止", "駐停車禁止"], a: 2, e: "交差点とその端から5m以内は、原則として駐停車禁止です。" },
         { q: "横断歩道の前後5m以内では原則どうなる？", o: ["駐車できる", "駐停車禁止", "運転者が乗っていればよい"], a: 1, e: "歩行者の安全確保のため、横断歩道の前後5m以内は駐停車禁止です。" },
@@ -426,21 +524,16 @@
         { q: "消火栓から何m以内が駐車禁止？", o: ["3m", "5m", "10m"], a: 1, e: "消火栓から5m以内の場所は駐車禁止です。" },
         { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" }
     ];
-    // 残りをダミーで100問生成
     for(let i=qList.length+1; i<=100; i++) qList.push({ q:`Q${i}. 道路標識等による「駐停車禁止」の場所では？`, o:["荷物搬入ならOK", "いかなる理由でも不可", "夜間はOK"], a:1, e:"わずかな時間であっても駐停車は法律で禁止されています。" });
 
     let sQ=[], qIdx=0, score=0;
     function startQuizSession() {
-        document.getElementById('quizIntroArea').style.display = 'none';
-        document.getElementById('quizResultArea').style.display = 'none';
-        document.getElementById('quizRunArea').style.display = 'block';
-        
-        let arr = [...qList];
-        for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; }
+        document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block';
+        let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; }
         sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ();
     }
     function renderQ() {
-        document.getElementById('explanationBox').classList.remove('show');
+        document.getElementById('explanationBox').style.display = 'none';
         document.getElementById('quizProgress').innerText = `第 ${qIdx+1} / 10 問`;
         document.getElementById('quizQuestion').innerText = sQ[qIdx].q;
         const box = document.getElementById('quizOptions'); box.innerHTML='';
@@ -449,22 +542,23 @@
         });
     }
     function ansQ(i) {
-        const isCor = (i === sQ[qIdx].a); if(isCor) score++;
+        const isCor = (i === sQ[qIdx].a); 
+        if(isCor) { score++; addPoint(1); } // 正解で1pt裏で追加
+        
         const opts = document.querySelectorAll('.quiz-opt');
         opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); });
         if(!isCor) opts[i].classList.add('wrong');
         
-        document.getElementById('expTitle').innerText = isCor ? '🎉 正解！' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`;
+        document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`;
         document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c';
         document.getElementById('expBody').innerText = sQ[qIdx].e;
-        document.getElementById('explanationBox').classList.add('show');
+        document.getElementById('explanationBox').style.display = 'block';
     }
     function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
     function showRes() {
-        document.getElementById('quizRunArea').style.display='none';
-        document.getElementById('quizResultArea').style.display='block';
+        document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block';
         document.getElementById('resultScore').innerText = `${score} / 10`;
-        document.getElementById('resultRank').innerText = score===10 ? "🥇 グランドマスター" : score>=7 ? "🥈 優良ドライバー" : "🔰 もう一度復習！";
+        document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`;
     }
 
     loadSpots();
