@@ -29,20 +29,22 @@
         #map-container { position: relative; height: 100%; width: 100%; }
         #map { height: 100%; width: 100%; }
 
-        nav { height: 64px; background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: max(4px, env(safe-area-inset-bottom)); z-index: 1000; }
+        .ad-banner { height: 50px; background: #fff; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; text-decoration: none; flex-shrink: 0; z-index: 1000; }
+        .ad-banner:active { background: #f9fafb; }
+        .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
+
+        nav { height: 64px; background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: max(4px, env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0;}
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
         nav button.active { color: #1f6feb; }
         nav button i { font-size: 20px; }
 
-        /* 検索バー */
         .search-box { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; gap: 6px; }
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
         .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
 
-        /* フィルター群 */
         .filter-bar { position: absolute; top: 60px; left: 10px; right: 10px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; z-index: 999; padding-bottom: 5px; }
         .filter-chip { padding: 8px 14px; border-radius: 20px; border: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); font-size: 0.8rem; font-weight:bold; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s; }
-        
         .filter-chip.active { background: #17212b; color: white; border-color: #17212b; }
         .filter-chip.illegal.active { background: #ef4444; color: white; border-color: #ef4444; }
         .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
@@ -63,6 +65,7 @@
         .quiz-opt.correct { background: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d; }
         .quiz-opt.wrong { background: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c; }
         .primary { width: 100%; border: 0; background: #1f6feb; color: white; border-radius: 13px; padding: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: 16px; }
+        .affiliate-btn { display: block; width: 100%; text-align: center; text-decoration: none; padding: 14px; border-radius: 12px; font-weight: bold; margin-bottom: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; }
         .modal.open { opacity: 1; pointer-events: auto; }
@@ -74,9 +77,11 @@
         label { font-size: 13px; font-weight: 900; display: block; margin: 14px 0 6px; color: #374151; }
         select, textarea, input[type="text"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
         
-        .alert-toast { position: fixed; top: 110px; left: 50%; transform: translateX(-50%); background: #dc2626; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; }
-        .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); }
-        .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        /* 接近ポップアップ用デザイン変更 */
+        .alert-toast { position: fixed; top: 110px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
+        .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); pointer-events: auto; }
+        
+        .toast { position: fixed; bottom: 130px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .toast.show { opacity: 1; }
 
         .gps-marker { width: 18px; height: 18px; background-color: #1f6feb; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.4); position: relative; }
@@ -84,15 +89,38 @@
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
         
         .popup-action-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 8px 6px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; text-decoration: none; cursor: pointer; border: none; margin-top: 6px; }
-        .btn-police { background-color: #1d4ed8 !important; color: #ffffff !important; }
         .btn-like { background-color: #f59e0b; color: white; border: none; }
+        .btn-report-flag { background-color: #f3f4f6; color: #dc2626; border: 1px solid #fca5a5; }
         
-        /* マイページのランクバッジ */
         .rank-badge { display: inline-block; padding: 8px 16px; border-radius: 24px; font-weight: 900; font-size: 1.1rem; background: #eef1f4; color: #374151; }
         .rank-bronze { background: #cd7f32; color: white; }
         .rank-silver { background: #94a3b8; color: white; }
         .rank-gold { background: #eab308; color: white; }
         .rank-legend { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; }
+
+        #aiLoading { position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 10; display: none; flex-direction: column; align-items: center; justify-content: center; border-radius: 24px 24px 0 0; }
+        .spinner { border: 4px solid #e5e7eb; border-top: 4px solid #1f6feb; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 12px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .sns-btn-group { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+        .sns-btn { flex: 1; padding: 12px 0; border: none; border-radius: 12px; color: white; font-weight: bold; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-x { background: #000000; }
+        .btn-line { background: #06C755; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        .tab-menu { display: flex; background: #e5e7eb; border-radius: 12px; padding: 4px; margin-bottom: 16px; }
+        .tab-btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; cursor: pointer; color: #6b7280; border: none; background: transparent; }
+        .tab-btn.active { background: #fff; color: #17212b; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .profile-edit { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .avatar-circle { width: 60px; height: 60px; border-radius: 50%; background: #eef1f4; display: grid; place-items: center; font-size: 2rem; cursor: pointer; border: 2px solid #d9dee4; }
+        .ranking-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
+        .ranking-row:last-child { border-bottom: none; }
+        .medal-1 { color: #fbbf24; font-size: 1.2rem; }
+        .medal-2 { color: #94a3b8; font-size: 1.2rem; }
+        .medal-3 { color: #b45309; font-size: 1.2rem; }
     </style>
 </head>
 <body>
@@ -112,33 +140,24 @@
         <section id="mapView" class="view active">
             <div id="map-container">
                 <div id="map"></div>
-                
-                <!-- 検索バー -->
                 <div class="search-box">
                     <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
                     <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-
                 <div class="filter-bar">
                     <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
                     <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
                     <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
                     <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
-                    <!-- 紫色の不法放置追加 -->
                     <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
-                    <button class="filter-chip parking-chip" onclick="showComingSoonParking()"><i class="fa-solid fa-parking"></i> P</button>
+                    <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
                 </div>
-
-                <button id="currentLocationBtn" onclick="goToCurrentLocation()">
-                    <i class="fa-solid fa-location-crosshairs"></i>
-                </button>
-
-                <button class="fab" onclick="showPostGuide()">
-                    <i class="fa-solid fa-plus"></i> 情報を投稿
-                </button>
+                <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
             </div>
         </section>
 
+        <!-- クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
@@ -158,46 +177,95 @@
                     <h3 style="font-size:1.2rem; margin-bottom:8px;">🏆 テスト結果</h3>
                     <div style="font-size:2.5rem; font-weight:900; color:#1f6feb; margin:10px 0;" id="resultScore"></div>
                     <p style="font-weight:bold; color:#374151; margin-bottom:20px;" id="resultEarnPt"></p>
-                    <button class="primary" onclick="startQuizSession()">もう一度挑戦する</button>
+                    <p style="font-size:0.8rem; font-weight:bold; color:#4b5563; margin-bottom:4px;">結果をシェアして安全の輪を広げよう！</p>
+                    <div class="sns-btn-group">
+                        <button class="sns-btn btn-x" onclick="shareToSNS('x')"><i class="fa-brands fa-x-twitter"></i> ポスト</button>
+                        <button class="sns-btn btn-line" onclick="shareToSNS('line')"><i class="fa-brands fa-line"></i> 送る</button>
+                        <button class="sns-btn btn-insta" onclick="shareToSNS('insta')"><i class="fa-brands fa-instagram"></i> シェア</button>
+                    </div>
+                    <button class="primary" onclick="startQuizSession()" style="background:#e5e7eb; color:#374151; margin-top:20px;">もう一度挑戦する</button>
                 </div>
             </div>
         </section>
 
+        <!-- マイページ -->
         <section id="aboutView" class="view">
             <div class="page">
-                <h1>👤 マイページ ＆ ガイド</h1>
-                
-                <!-- ポイント＆称号カード -->
-                <div class="card" style="text-align:center; background:#f8fafc;">
-                    <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のあなたのランク</div>
-                    <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
-                    <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
-                    <p class="muted" style="font-size:0.75rem; margin-top:8px;">※情報投稿(+10pt)・助かった(+1pt)・クイズ正解(+1pt)</p>
+                <h1>👤 マイページ</h1>
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="switchTab('profileTab', this)">マイデータ＆設定</button>
+                    <button class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 全国ランキング</button>
                 </div>
 
-                <div class="card">
-                    <h2 style="font-size:1.1rem; color:#17212b; margin-bottom:12px;"><i class="fa-solid fa-map-pin"></i> ピンの色と意味</h2>
-                    
-                    <div style="margin-bottom: 12px;">
-                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div>
-                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">交差点や横断歩道など、明確に駐停車が禁止されている場所の車両です。</p>
+                <div id="profileTab" class="tab-content active">
+                    <div class="card" style="background:#f8fafc;">
+                        <div class="profile-edit">
+                            <div class="avatar-circle" id="myAvatarDisplay" onclick="changeAvatar()">👤</div>
+                            <div style="flex:1;">
+                                <label style="margin-top:0;">ニックネーム (タップで変更)</label>
+                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;">
+                            </div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のランク</div>
+                            <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
+                            <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
+                        </div>
                     </div>
-                    <div style="margin-bottom: 12px;">
-                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#2563eb;"><i class="fa-solid fa-triangle-exclamation"></i> 危険な路上停車 (青)</div>
-                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">死角を作ったり通行の妨げになっている危険な停車情報です。</p>
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#17212b; margin-bottom:12px;"><i class="fa-solid fa-map-pin"></i> ピンの色と意味</h2>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#2563eb;"><i class="fa-solid fa-triangle-exclamation"></i> 危険な路上停車 (青)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div></div>
                     </div>
-                    <div style="margin-bottom: 12px;">
-                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div>
-                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">監視員等の巡回情報です。<strong style="color:#ef4444;">※10分で自動消去されます。</strong></p>
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#ef4444; margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i> 投稿時の重要なお願い</h2>
+                        <p class="muted" style="margin-bottom:0;">個人を制裁するためのツールではありません。ナンバーや顔が特定できる写真、誹謗中傷はAIや通報により自動削除されます。</p>
                     </div>
-                    <div style="margin-bottom: 12px;">
-                        <div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div>
-                        <p class="muted" style="font-size:0.85rem; margin-top:4px;">ナンバープレートがない、長期間放置されている不法車両です。(写真UP可)</p>
+                </div>
+
+                <div id="rankingTab" class="tab-content">
+                    <div style="background:#fff3cd; color:#856404; padding:10px; border-radius:8px; font-size:0.8rem; font-weight:bold; margin-bottom:16px;">
+                        🚧 現在サーバー構築中です。以下は将来実装されるランキングのイメージです。
+                    </div>
+                    <div class="card">
+                        <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神（個人）</h2>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><i class="fa-solid fa-medal medal-1"></i> 1位 🚓 パトロールおじさん</div>
+                            <div style="font-weight:bold; color:#1f6feb;">1,250 pt</div>
+                        </div>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><i class="fa-solid fa-medal medal-2"></i> 2位 🔰 安全第一丸</div>
+                            <div style="font-weight:bold; color:#1f6feb;">980 pt</div>
+                        </div>
+                        <div class="ranking-row" style="background:#f8fafc; padding:8px; border-radius:8px; margin-top:8px;">
+                            <div style="font-weight:bold; color:#6b7280;">... 1,420位 <span id="rankMyNameDisp">あなた</span></div>
+                            <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 報告数ワースト3</h2>
+                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">※先月のデータに基づく危険エリア</p>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><span style="color:#ef4444;">1位</span> 東京都 新宿区</div>
+                            <div style="font-weight:bold;">142件</div>
+                        </div>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><span style="color:#ef4444;">2位</span> 大阪府 中央区</div>
+                            <div style="font-weight:bold;">98件</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- 車検アフィリエイト -->
+    <a href="#" target="_blank" class="ad-banner">
+        <div class="ad-banner-title"><i class="fa-solid fa-wrench" style="color:#1f6feb;"></i>お近くの【格安車検】無料見積もり</div>
+        <span class="ad-pr-tag">PR</span>
+    </a>
 
     <nav>
         <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
@@ -206,81 +274,130 @@
     </nav>
 </div>
 
-<!-- 投稿モーダル -->
-<div id="postModal" class="modal">
+<!-- ポップアップ用のIDを追加（アラートトーストを兼用） -->
+<div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
+<div class="toast" id="toast"></div>
+
+<!-- 駐車場モーダル -->
+<div id="parkingModal" class="modal">
     <div class="sheet">
         <div class="row">
-            <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;">
-                <i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有
-            </div>
+            <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-parking" style="color:#2563eb;"></i> 駐車場を予約する</div>
+            <button class="close" onclick="closeParkingModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p class="muted" style="margin-bottom:20px; font-weight:bold;">お出かけ先の格安駐車場を事前に予約できます。</p>
+        <a href="#" target="_blank" class="affiliate-btn" style="background:#ff7f50;">特P（とくぴー）で探す ➔</a>
+        <a href="#" target="_blank" class="affiliate-btn" style="background:#1e90ff;">軒先パーキングで探す ➔</a>
+    </div>
+</div>
+
+<!-- 投稿モーダル -->
+<div id="postModal" class="modal">
+    <div class="sheet" style="position:relative;">
+        <div id="aiLoading">
+            <div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>
+        </div>
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有</div>
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
             <label>種類</label>
             <select id="postCategory" required onchange="toggleImageUpload()">
-                <option value="illegal">🔴 違法駐車</option>
-                <option value="danger">🔵 危険な路上停車</option>
-                <option value="patrol">🟢 巡回・取り締まり情報 (10分で消去)</option>
-                <option value="abandoned">🟣 不法放置 (写真添付OK)</option>
+                <option value="illegal">🔴 違法駐車</option><option value="danger">🔵 危険な路上停車</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option><option value="abandoned">🟣 不法放置 (写真OK)</option>
             </select>
-            
-            <label>タイトル</label>
-            <input type="text" id="postTitle" placeholder="例：交差点の角のトラック" required maxlength="30">
-            
-            <label>状況コメント (任意)</label>
-            <textarea id="postComment" rows="3" placeholder="ナンバー等は入力しないでください" maxlength="100"></textarea>
-            
-            <!-- 写真アップロード（不法放置限定） -->
+            <label>タイトル</label><input type="text" id="postTitle" required maxlength="30">
+            <label>状況コメント</label><textarea id="postComment" rows="3" maxlength="100"></textarea>
             <div id="imageUploadArea" style="display:none; margin-top:14px; background:#f3f4f6; padding:12px; border-radius:12px;">
-                <label style="margin-top:0;"><i class="fa-solid fa-camera"></i> 現地の写真 (不法放置のみ)</label>
+                <label style="margin-top:0;"><i class="fa-solid fa-camera"></i> 現地の写真</label>
                 <input type="file" id="postImageInput" accept="image/*" style="border:none; padding:0; background:transparent;">
                 <img id="imagePreview" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
             </div>
-            
-            <button type="submit" class="primary" style="margin-top:20px;">この場所で投稿する (+10pt)</button>
+            <button type="submit" class="primary" style="margin-top:20px;">AI検閲を通して投稿 (+10pt)</button>
         </form>
     </div>
 </div>
 
-<!-- 利用規約同意モーダル -->
 <div class="modal" id="termsModal">
     <div class="sheet" style="padding-top: 30px;">
-        <div class="row"><div style="font-size:18px; font-weight:900;">🛡️ 利用規約と位置情報</div></div>
-        <p style="font-size:0.85rem; font-weight:bold;">みちまもMAPをご利用いただく前に</p>
-        <div style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; border:1px solid #e5e7eb; margin-bottom:12px;">
-            <p><strong>1. 位置情報の取得:</strong> GPS位置情報を取得し表示します。</p>
-            <p><strong>2. 投稿マナー:</strong> 個人を特定できる情報の投稿は禁止です。</p>
-        </div>
-        <button class="primary" style="width:100%;" onclick="acceptTerms()">同意してアプリを開始する</button>
+        <div class="row"><div style="font-size:18px; font-weight:900;">🛡️ 利用規約</div></div>
+        <p style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; margin-bottom:12px;">AIによる検閲があり、ナンバー等個人情報の投稿は禁止です。</p>
+        <button class="primary" style="width:100%;" onclick="acceptTerms()">同意して開始する</button>
     </div>
 </div>
 
-<div class="alert-toast" id="alertToast"><i class="fa-solid fa-triangle-exclamation"></i> <span id="alertToastMsg"></span></div>
-<div class="toast" id="toast"></div>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // --- 0. ポイント＆称号システム (スマホローカル保存) ---
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
+    let myName = localStorage.getItem('michimamo_name') || "";
+    let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
+
+    function saveProfile() {
+        myName = document.getElementById('myNameInput').value || "名無しドライバー";
+        localStorage.setItem('michimamo_name', myName);
+        showToast("プロフィールを保存しました");
+        updateMyPage();
+    }
     
+    function changeAvatar() {
+        const avatars = ["👤", "🚗", "🚓", "🐶", "🐱", "😎", "👻", "🦸‍♂️"];
+        let currentIndex = avatars.indexOf(myAvatar);
+        myAvatar = avatars[(currentIndex + 1) % avatars.length];
+        localStorage.setItem('michimamo_avatar', myAvatar);
+        updateMyPage();
+    }
+
     function addPoint(pt, msg) {
-        myPoint += pt;
-        localStorage.setItem('michimamo_pt', myPoint);
+        myPoint += pt; localStorage.setItem('michimamo_pt', myPoint);
         if(msg) showToast(`${msg}！ (+${pt}pt)`);
+        updateMyPage();
     }
 
     function updateMyPage() {
+        document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName;
+        document.getElementById('myAvatarDisplay').innerText = myAvatar;
         document.getElementById('myPointDisp').innerText = myPoint;
+        document.getElementById('rankMyPtDisp').innerText = myPoint;
+        document.getElementById('rankMyNameDisp').innerText = myName || "あなた";
+
         const badge = document.getElementById('myRankBadge');
-        badge.className = 'rank-badge'; // reset
-        if (myPoint >= 1000) { badge.innerText = "👑 レジェンド守護神"; badge.classList.add('rank-legend'); }
-        else if (myPoint >= 300) { badge.innerText = "🥇 ゴールド免許"; badge.classList.add('rank-gold'); }
-        else if (myPoint >= 100) { badge.innerText = "🥈 シルバーパトローラー"; badge.classList.add('rank-silver'); }
-        else if (myPoint >= 30) { badge.innerText = "🥉 ブロンズウォッチャー"; badge.classList.add('rank-bronze'); }
-        else { badge.innerText = "🔰 初心者マーク"; }
+        badge.className = 'rank-badge';
+        let rankStr = "🔰 初心者マーク";
+        if (myPoint >= 1000) { rankStr = "👑 レジェンド守護神"; badge.classList.add('rank-legend'); }
+        else if (myPoint >= 300) { rankStr = "🥇 ゴールド免許"; badge.classList.add('rank-gold'); }
+        else if (myPoint >= 100) { rankStr = "🥈 シルバーパトローラー"; badge.classList.add('rank-silver'); }
+        else if (myPoint >= 30) { rankStr = "🥉 ブロンズウォッチャー"; badge.classList.add('rank-bronze'); }
+        badge.innerText = rankStr;
+        window.myCurrentRankStr = rankStr;
     }
 
-    // --- 1. Supabase設定 & 地図初期化 ---
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function shareToSNS(platform) {
+        const appUrl = "https://michimamo-map.vercel.app";
+        let text = "";
+        if (document.getElementById('quizResultArea').style.display === 'block') {
+            text = `みちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#みちまもMAP #交通安全`;
+        } else {
+            text = `地域の危険駐車を共有するアプリ「みちまもMAP」を使っています！\n#みちまもMAP #交通安全`;
+        }
+        if (platform === 'x') { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(appUrl)}`, '_blank'); } 
+        else if (platform === 'line') { window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text + "\n" + appUrl)}`, '_blank'); } 
+        else if (platform === 'insta') {
+            const copyText = text + "\n" + appUrl;
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸");
+                window.location.href = "instagram://camera";
+            }).catch(err => { alert("コピーに失敗しました。"); });
+        }
+    }
+
     const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -297,8 +414,9 @@
         updateMyPage();
     };
     function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
+    function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
+    function closeParkingModal() { document.getElementById('parkingModal').classList.remove('open'); }
 
-    // --- 2. 検索バー (OSM Nominatim API) ---
     async function searchLocation() {
         const query = document.getElementById('searchInput').value;
         if(!query) return;
@@ -306,14 +424,11 @@
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
             const data = await res.json();
-            if (data && data.length > 0) {
-                map.flyTo([data[0].lat, data[0].lon], 16);
-                showToast("移動しました");
-            } else showToast("見つかりませんでした");
+            if (data && data.length > 0) { map.flyTo([data[0].lat, data[0].lon], 16); showToast("移動しました"); } 
+            else showToast("見つかりませんでした");
         } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
-    // --- 3. UI・トースト・GPS ---
     document.querySelectorAll(".nav").forEach(b => {
         b.onclick = () => {
             document.querySelectorAll(".nav").forEach(x => x.classList.remove("active")); b.classList.add("active");
@@ -326,7 +441,6 @@
         const t = document.getElementById('toast'); t.innerText = msg; t.classList.add('show');
         clearTimeout(window.tt); window.tt = setTimeout(() => t.classList.remove('show'), 2500);
     }
-    function showComingSoonParking() { showToast("🅿️ 駐車場検索システムは近日公開予定です！"); }
     function showPostGuide() { showToast("📍 マップ上の投稿したい場所を直接タップしてください"); }
 
     if (navigator.geolocation) {
@@ -336,13 +450,13 @@
                 if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
                 const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
                 if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
-                checkProximity(userLat, userLng);
+                
+                checkProximity(userLat, userLng); // GPS更新時に接近チェック
             }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
         );
     }
     function goToCurrentLocation() { if (userLat && userLng) map.setView([userLat, userLng], 15); else showToast('位置情報が取得できません'); }
 
-    // --- 4. 危険スポット処理 (DBエラー回避仕様) ---
     async function loadSpots() {
         activeMarkers.forEach(m => map.removeLayer(m.instance));
         heatCircles.forEach(c => map.removeLayer(c));
@@ -355,6 +469,8 @@
                 if (s.category === 'patrol') {
                     if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; }
                 }
+                const reportCount = parseInt(localStorage.getItem('report_' + s.id)) || 0;
+                if (reportCount >= 3) return;
 
                 let hcColor = '#ef4444', hcFill = '#f87171';
                 if (s.category === 'danger') { hcColor = '#2563eb'; hcFill = '#60a5fa'; }
@@ -382,7 +498,6 @@
             iconSize: [32, 32], iconAnchor: [16, 30]
         });
 
-        // ⭐ DBエラー回避：ローカルストレージから画像といいね数を取得する！
         const localImgBase64 = localStorage.getItem('img_' + spot.id);
         const imgTag = localImgBase64 ? `<img src="${localImgBase64}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const localLikeCount = parseInt(localStorage.getItem('like_' + spot.id)) || 0;
@@ -395,9 +510,14 @@
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                 ${imgTag}
                 
-                <button onclick="likeSpot(${spot.id})" class="popup-action-btn btn-like" style="margin-bottom:10px;">
-                    <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${localLikeCount})
-                </button>
+                <div style="display:flex; gap:6px; margin-bottom:10px;">
+                    <button onclick="likeSpot(${spot.id})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
+                        <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${localLikeCount})
+                    </button>
+                    <button onclick="reportSpot(${spot.id})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;">
+                        <i class="fa-solid fa-flag"></i> 通報
+                    </button>
+                </div>
 
                 <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
                     <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
@@ -411,7 +531,6 @@
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
-    // ⭐ DBエラー回避：いいね数をローカルストレージに保存！
     function likeSpot(id) {
         addPoint(1, "お礼を伝えました"); 
         let currentLike = parseInt(localStorage.getItem('like_' + id)) || 0;
@@ -419,7 +538,16 @@
         loadSpots();
     }
 
-    // --- 5. 写真圧縮 ＆ 投稿 ---
+    function reportSpot(id) {
+        if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから一時的に非表示になります)")) return;
+        let reportCount = parseInt(localStorage.getItem('report_' + id)) || 0;
+        reportCount++;
+        localStorage.setItem('report_' + id, reportCount);
+        if (reportCount >= 3) { showToast("通報が3件に達したため、マップから非表示にしました"); } 
+        else { showToast(`通報しました（現在 ${reportCount}件 / 3件で非表示）`); }
+        loadSpots(); 
+    }
+
     map.on('click', (e) => {
         window.postLat = e.latlng.lat; window.postLng = e.latlng.lng;
         document.getElementById('postModal').classList.add('open');
@@ -459,32 +587,59 @@
     function closePostModal() { 
         document.getElementById('postModal').classList.remove('open'); 
         document.getElementById('postForm').reset();
+        document.getElementById('aiLoading').style.display = 'none';
         toggleImageUpload(); 
+    }
+
+    function checkWithAI(title, comment) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const text = title + " " + comment;
+                const ngWords = ["天気", "ひま", "暇", "疲れた", "腹減った", "クソ", "死ね", "うざい", "バカ", "あつい", "寒い"];
+                for (let word of ngWords) {
+                    if (text.includes(word)) {
+                        resolve({ safe: false, reason: "交通情報に関係のない日常会話、または不適切な言葉が含まれているためブロックしました。" });
+                        return;
+                    }
+                }
+                if (text.length < 4) {
+                    resolve({ safe: false, reason: "情報が短すぎます。具体的な状況を記載してください。" });
+                    return;
+                }
+                resolve({ safe: true });
+            }, 1500); 
+        });
     }
 
     async function handlePostSubmit(e) {
         e.preventDefault();
-        showToast("投稿中...");
-        const cat = document.getElementById('postCategory').value;
+        const title = document.getElementById('postTitle').value;
+        const comment = document.getElementById('postComment').value;
+
+        document.getElementById('aiLoading').style.display = 'flex';
+        const aiResult = await checkWithAI(title, comment);
         
-        // ⭐ DBエラー回避：既存の列（エラーにならない項目）だけをSupabaseに送る！
+        if (!aiResult.safe) {
+            document.getElementById('aiLoading').style.display = 'none';
+            alert(`【AI検閲エラー】\n${aiResult.reason}`);
+            return;
+        }
+
+        const cat = document.getElementById('postCategory').value;
         const { data, error } = await db.from('spots').insert([{ 
             lat: window.postLat, lng: window.postLng, 
-            category: cat, 
-            title: document.getElementById('postTitle').value, 
-            comment: document.getElementById('postComment').value,
-            confirm_count: 0
-        }]).select(); // 追加したデータのIDを取得
+            category: cat, title: title, comment: comment, confirm_count: 0
+        }]).select(); 
         
         if (!error && data && data.length > 0) { 
             const newId = data[0].id;
-            // ⭐ 写真がある場合はスマホ本体にIDとセットで保存する
             if (cat === 'abandoned' && uploadedImageBase64) {
                 try { localStorage.setItem('img_' + newId, uploadedImageBase64); } catch(err) { console.log('画像容量オーバー'); }
             }
-            addPoint(10, "情報を共有しました");
+            addPoint(10, "安全情報を共有しました");
             closePostModal(); loadSpots(); 
         } else {
+            document.getElementById('aiLoading').style.display = 'none';
             showToast("投稿に失敗しました");
         }
     }
@@ -500,18 +655,37 @@
         });
     }
 
+    // ▼ 変更：不法放置車両への接近検知システム ▼
+    let notifiedSpots = new Set(); // 1回通知したピンのIDを保持
+
     function checkProximity(lat, lng) {
         activeMarkers.forEach(m => {
+            // 不法放置（紫ピン）以外は警報を出さない
+            if (m.category !== 'abandoned') return;
+
+            // 距離計算 (km)
             const d = (6371 * 2 * Math.atan2(Math.sqrt(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2), Math.sqrt(1-(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2))));
-            if (d <= 0.1) {
+            
+            // 50m (0.05km) 以内に近づき、かつまだ通知していない場合
+            if (d <= 0.05 && !notifiedSpots.has(m.id)) {
+                notifiedSpots.add(m.id);
+                
                 const t = document.getElementById('alertToast');
-                document.getElementById('alertToastMsg').innerText = `⚠️ 前方${Math.round(d*1000)}mにスポット情報あり！`;
-                t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 4000);
+                document.getElementById('alertToastMsg').innerHTML = `近くの不法放置車両はまだありますか？<br><span style="font-size:0.75rem; text-decoration:underline;">タップして情報更新 (+1pt)</span>`;
+                t.classList.add('show'); 
+                
+                // トーストをタップしたらそのピンのポップアップを開く
+                t.onclick = () => { 
+                    m.instance.openPopup(); 
+                    t.classList.remove('show'); 
+                };
+
+                // 7秒後に自動で消える
+                setTimeout(() => t.classList.remove('show'), 7000);
             }
         });
     }
 
-    // --- 6. 本格クイズ ---
     const qList = [
         { q: "交差点の端から5m以内は原則どうなる？", o: ["駐車だけ禁止", "夜だけ禁止", "駐停車禁止"], a: 2, e: "交差点とその端から5m以内は、原則として駐停車禁止です。" },
         { q: "横断歩道の前後5m以内では原則どうなる？", o: ["駐車できる", "駐停車禁止", "運転者が乗っていればよい"], a: 1, e: "歩行者の安全確保のため、横断歩道の前後5m以内は駐停車禁止です。" },
@@ -543,7 +717,7 @@
     }
     function ansQ(i) {
         const isCor = (i === sQ[qIdx].a); 
-        if(isCor) { score++; addPoint(1); } // 正解で1pt裏で追加
+        if(isCor) { score++; addPoint(1); } 
         
         const opts = document.querySelectorAll('.quiz-opt');
         opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); });
