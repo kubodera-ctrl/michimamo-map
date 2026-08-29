@@ -15,7 +15,7 @@
         body { overflow: hidden; }
         #app { height: 100dvh; display: flex; flex-direction: column; }
         
-        header { height: 64px; background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; padding-top: max(10px, env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
         .brand { display: flex; gap: 10px; align-items: center; }
         .logo { width: 38px; height: 38px; border-radius: 12px; background: #17212b; color: white; display: grid; place-items: center; font-weight: 900; }
         .title { font-size: 16px; font-weight: 900; }
@@ -29,13 +29,13 @@
         #map-container { position: relative; height: 100%; width: 100%; }
         #map { height: 100%; width: 100%; }
 
-        .ad-banner { height: 50px; background: #fff; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; text-decoration: none; flex-shrink: 0; z-index: 1000; }
+        .ad-banner { height: 50px; background: #fff; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; text-decoration: none; flex-shrink: 0; z-index: 1000; transition: background 0.2s;}
         .ad-banner:active { background: #f9fafb; }
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        nav { height: 64px; background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: max(4px, env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0;}
-        nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
+        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
+        nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
         nav button.active { color: #1f6feb; }
         nav button i { font-size: 20px; }
 
@@ -77,11 +77,10 @@
         label { font-size: 13px; font-weight: 900; display: block; margin: 14px 0 6px; color: #374151; }
         select, textarea, input[type="text"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
         
-        /* 接近ポップアップ用デザイン変更 */
-        .alert-toast { position: fixed; top: 110px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
+        .alert-toast { position: fixed; top: 130px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
         .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); pointer-events: auto; }
         
-        .toast { position: fixed; bottom: 130px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .toast { position: fixed; bottom: 140px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .toast.show { opacity: 1; }
 
         .gps-marker { width: 18px; height: 18px; background-color: #1f6feb; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.4); position: relative; }
@@ -121,6 +120,10 @@
         .medal-1 { color: #fbbf24; font-size: 1.2rem; }
         .medal-2 { color: #94a3b8; font-size: 1.2rem; }
         .medal-3 { color: #b45309; font-size: 1.2rem; }
+
+        .emoji-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
+        .emoji-item { font-size: 2.5rem; text-align: center; padding: 12px; background: #f3f4f6; border-radius: 12px; cursor: pointer; transition: 0.2s; }
+        .emoji-item:active { background: #e5e7eb; transform: scale(0.95); }
     </style>
 </head>
 <body>
@@ -157,7 +160,6 @@
             </div>
         </section>
 
-        <!-- クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
@@ -188,7 +190,6 @@
             </div>
         </section>
 
-        <!-- マイページ -->
         <section id="aboutView" class="view">
             <div class="page">
                 <h1>👤 マイページ</h1>
@@ -200,10 +201,10 @@
                 <div id="profileTab" class="tab-content active">
                     <div class="card" style="background:#f8fafc;">
                         <div class="profile-edit">
-                            <div class="avatar-circle" id="myAvatarDisplay" onclick="changeAvatar()">👤</div>
+                            <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
                             <div style="flex:1;">
                                 <label style="margin-top:0;">ニックネーム (タップで変更)</label>
-                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;">
+                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;" maxlength="15">
                             </div>
                         </div>
                         <div style="text-align:center;">
@@ -244,26 +245,13 @@
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 報告数ワースト3</h2>
-                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">※先月のデータに基づく危険エリア</p>
-                        <div class="ranking-row">
-                            <div style="font-weight:bold;"><span style="color:#ef4444;">1位</span> 東京都 新宿区</div>
-                            <div style="font-weight:bold;">142件</div>
-                        </div>
-                        <div class="ranking-row">
-                            <div style="font-weight:bold;"><span style="color:#ef4444;">2位</span> 大阪府 中央区</div>
-                            <div style="font-weight:bold;">98件</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 車検アフィリエイト -->
-    <a href="#" target="_blank" class="ad-banner">
-        <div class="ad-banner-title"><i class="fa-solid fa-wrench" style="color:#1f6feb;"></i>お近くの【格安車検】無料見積もり</div>
+    <a href="#" target="_blank" class="ad-banner" id="randomAdBanner">
+        <div class="ad-banner-title" id="randomAdTitle"></div>
         <span class="ad-pr-tag">PR</span>
     </a>
 
@@ -274,11 +262,19 @@
     </nav>
 </div>
 
-<!-- ポップアップ用のIDを追加（アラートトーストを兼用） -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
 
-<!-- 駐車場モーダル -->
+<div id="avatarModal" class="modal">
+    <div class="sheet">
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;">アバターを選択</div>
+            <button class="close" onclick="closeAvatarModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+    </div>
+</div>
+
 <div id="parkingModal" class="modal">
     <div class="sheet">
         <div class="row">
@@ -291,7 +287,6 @@
     </div>
 </div>
 
-<!-- 投稿モーダル -->
 <div id="postModal" class="modal">
     <div class="sheet" style="position:relative;">
         <div id="aiLoading">
@@ -329,30 +324,50 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+    const adList = [
+        { title: "【インズウェブ】自動車保険を一括見積もり", icon: "fa-car-burst", iconColor: "#ef4444", url: "#" },
+        { title: "お近くの【格安車検】無料見積もり", icon: "fa-wrench", iconColor: "#1f6feb", url: "#" }
+    ];
+
+    function setRandomAd() {
+        const randomAd = adList[Math.floor(Math.random() * adList.length)];
+        const banner = document.getElementById('randomAdBanner');
+        const titleArea = document.getElementById('randomAdTitle');
+        banner.href = randomAd.url;
+        titleArea.innerHTML = `<i class="fa-solid ${randomAd.icon}" style="color:${randomAd.iconColor};"></i> ${randomAd.title}`;
+    }
+
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
 
-    function saveProfile() {
-        myName = document.getElementById('myNameInput').value || "名無しドライバー";
-        localStorage.setItem('michimamo_name', myName);
-        showToast("プロフィールを保存しました");
-        updateMyPage();
-    }
+    const avatarList = ["👤", "🚗", "🚓", "🚕", "🚙", "🚌", "🐶", "🐱", "😎", "👻", "🦸‍♂️", "👮‍♀️"];
     
-    function changeAvatar() {
-        const avatars = ["👤", "🚗", "🚓", "🐶", "🐱", "😎", "👻", "🦸‍♂️"];
-        let currentIndex = avatars.indexOf(myAvatar);
-        myAvatar = avatars[(currentIndex + 1) % avatars.length];
-        localStorage.setItem('michimamo_avatar', myAvatar);
-        updateMyPage();
+    function openAvatarModal() {
+        const grid = document.getElementById('emojiGrid');
+        grid.innerHTML = "";
+        avatarList.forEach(emoji => {
+            const div = document.createElement('div');
+            div.className = 'emoji-item';
+            div.innerText = emoji;
+            div.onclick = () => selectAvatar(emoji);
+            grid.appendChild(div);
+        });
+        document.getElementById('avatarModal').classList.add('open');
+    }
+    function closeAvatarModal() { document.getElementById('avatarModal').classList.remove('open'); }
+    function selectAvatar(emoji) { myAvatar = emoji; localStorage.setItem('michimamo_avatar', myAvatar); updateMyPage(); closeAvatarModal(); showToast("アバターを変更しました"); }
+
+    function saveProfile() {
+        let inputName = document.getElementById('myNameInput').value.trim();
+        const ngWords = ["ちんちん", "うんこ", "バカ", "アホ", "死ね", "クソ", "殺す", "うざい", "カス", "マンコ"];
+        let isNG = false;
+        for (let word of ngWords) { if (inputName.includes(word)) { isNG = true; break; } }
+        if (isNG) { alert("不適切な単語が含まれているため、そのニックネームは使用できません。"); document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName; return; }
+        myName = inputName || "名無しドライバー"; localStorage.setItem('michimamo_name', myName); showToast("プロフィールを保存しました"); updateMyPage();
     }
 
-    function addPoint(pt, msg) {
-        myPoint += pt; localStorage.setItem('michimamo_pt', myPoint);
-        if(msg) showToast(`${msg}！ (+${pt}pt)`);
-        updateMyPage();
-    }
+    function addPoint(pt, msg) { myPoint += pt; localStorage.setItem('michimamo_pt', myPoint); if(msg) showToast(`${msg}！ (+${pt}pt)`); updateMyPage(); }
 
     function updateMyPage() {
         document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName;
@@ -382,19 +397,13 @@
     function shareToSNS(platform) {
         const appUrl = "https://michimamo-map.vercel.app";
         let text = "";
-        if (document.getElementById('quizResultArea').style.display === 'block') {
-            text = `みちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#みちまもMAP #交通安全`;
-        } else {
-            text = `地域の危険駐車を共有するアプリ「みちまもMAP」を使っています！\n#みちまもMAP #交通安全`;
-        }
+        if (document.getElementById('quizResultArea').style.display === 'block') { text = `みちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#みちまもMAP #交通安全`; } 
+        else { text = `地域の危険駐車を共有するアプリ「みちまもMAP」を使っています！\n#みちまもMAP #交通安全`; }
         if (platform === 'x') { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(appUrl)}`, '_blank'); } 
         else if (platform === 'line') { window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text + "\n" + appUrl)}`, '_blank'); } 
         else if (platform === 'insta') {
             const copyText = text + "\n" + appUrl;
-            navigator.clipboard.writeText(copyText).then(() => {
-                alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸");
-                window.location.href = "instagram://camera";
-            }).catch(err => { alert("コピーに失敗しました。"); });
+            navigator.clipboard.writeText(copyText).then(() => { alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸"); window.location.href = "instagram://camera"; }).catch(err => { alert("コピーに失敗しました。"); });
         }
     }
 
@@ -412,7 +421,17 @@
     window.onload = function() {
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
         updateMyPage();
+        setRandomAd();
+        
+        // ▼ 追加：リアルタイム自動更新（リスナー） ▼
+        db.channel('custom-all-channel')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
+              console.log('他人の変更を検知しました！自動更新します', payload);
+              loadSpots();
+          })
+          .subscribe();
     };
+
     function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
     function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
     function closeParkingModal() { document.getElementById('parkingModal').classList.remove('open'); }
@@ -450,8 +469,7 @@
                 if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
                 const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
                 if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
-                
-                checkProximity(userLat, userLng); // GPS更新時に接近チェック
+                checkProximity(userLat, userLng);
             }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
         );
     }
@@ -469,7 +487,7 @@
                 if (s.category === 'patrol') {
                     if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; }
                 }
-                const reportCount = parseInt(localStorage.getItem('report_' + s.id)) || 0;
+                const reportCount = s.report_count || 0;
                 if (reportCount >= 3) return;
 
                 let hcColor = '#ef4444', hcFill = '#f87171';
@@ -483,7 +501,8 @@
             });
         }
     }
-    setInterval(loadSpots, 60000); 
+    // リアルタイム更新を入れたため、1分ごとの定期更新は負荷対策で止めておきます（最初の1回と誰かが更新した時だけ動くようにします）
+    // setInterval(loadSpots, 60000); 
 
     function createSpotPin(spot, hc) {
         let color = '#6b7280', iconC = 'fa-map-pin';
@@ -500,7 +519,10 @@
 
         const localImgBase64 = localStorage.getItem('img_' + spot.id);
         const imgTag = localImgBase64 ? `<img src="${localImgBase64}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
-        const localLikeCount = parseInt(localStorage.getItem('like_' + spot.id)) || 0;
+        
+        // ▼ 古いピン（null）の対策 ▼
+        const likeCount = spot.like_count || 0;
+        const reportCount = spot.report_count || 0;
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
         m.bindPopup(`
@@ -511,10 +533,10 @@
                 ${imgTag}
                 
                 <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <button onclick="likeSpot(${spot.id})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
-                        <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${localLikeCount})
+                    <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
+                        <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})
                     </button>
-                    <button onclick="reportSpot(${spot.id})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;">
+                    <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;">
                         <i class="fa-solid fa-flag"></i> 通報
                     </button>
                 </div>
@@ -531,81 +553,52 @@
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
-    function likeSpot(id) {
+    async function likeSpot(id, currentLike) {
         addPoint(1, "お礼を伝えました"); 
-        let currentLike = parseInt(localStorage.getItem('like_' + id)) || 0;
-        localStorage.setItem('like_' + id, currentLike + 1);
-        loadSpots();
+        await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id);
+        // loadSpots(); はリアルタイム通知がやってくれるのでここから削除しました
     }
 
-    function reportSpot(id) {
+    async function reportSpot(id, currentReport) {
         if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから一時的に非表示になります)")) return;
-        let reportCount = parseInt(localStorage.getItem('report_' + id)) || 0;
-        reportCount++;
-        localStorage.setItem('report_' + id, reportCount);
-        if (reportCount >= 3) { showToast("通報が3件に達したため、マップから非表示にしました"); } 
-        else { showToast(`通報しました（現在 ${reportCount}件 / 3件で非表示）`); }
-        loadSpots(); 
+        let newReportCount = currentReport + 1;
+        await db.from('spots').update({ report_count: newReportCount }).eq('id', id);
+        if (newReportCount >= 3) { showToast("通報が3件に達したため、マップから非表示にしました"); } 
+        else { showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`); }
     }
 
-    map.on('click', (e) => {
-        window.postLat = e.latlng.lat; window.postLng = e.latlng.lng;
-        document.getElementById('postModal').classList.add('open');
-    });
+    map.on('click', (e) => { window.postLat = e.latlng.lat; window.postLng = e.latlng.lng; document.getElementById('postModal').classList.add('open'); });
 
     let uploadedImageBase64 = null;
     function toggleImageUpload() {
-        const cat = document.getElementById('postCategory').value;
-        const area = document.getElementById('imageUploadArea');
-        if(cat === 'abandoned') { area.style.display = 'block'; }
-        else { area.style.display = 'none'; uploadedImageBase64 = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
+        const cat = document.getElementById('postCategory').value; const area = document.getElementById('imageUploadArea');
+        if(cat === 'abandoned') { area.style.display = 'block'; } else { area.style.display = 'none'; uploadedImageBase64 = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
     }
 
     document.getElementById('postImageInput').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if(!file) return;
+        const file = e.target.files[0]; if(!file) return;
         const reader = new FileReader();
         reader.onload = function(event) {
             const img = new Image();
             img.onload = function() {
-                const canvas = document.createElement('canvas');
-                const MAX_WIDTH = 500; 
-                let width = img.width; let height = img.height;
+                const canvas = document.createElement('canvas'); const MAX_WIDTH = 500; let width = img.width; let height = img.height;
                 if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
-                canvas.width = width; canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.6); 
-                document.getElementById('imagePreview').src = uploadedImageBase64;
-                document.getElementById('imagePreview').style.display = 'block';
+                canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0, width, height);
+                uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.6); document.getElementById('imagePreview').src = uploadedImageBase64; document.getElementById('imagePreview').style.display = 'block';
             }
             img.src = event.target.result;
         }
         reader.readAsDataURL(file);
     });
 
-    function closePostModal() { 
-        document.getElementById('postModal').classList.remove('open'); 
-        document.getElementById('postForm').reset();
-        document.getElementById('aiLoading').style.display = 'none';
-        toggleImageUpload(); 
-    }
+    function closePostModal() { document.getElementById('postModal').classList.remove('open'); document.getElementById('postForm').reset(); document.getElementById('aiLoading').style.display = 'none'; toggleImageUpload(); }
 
     function checkWithAI(title, comment) {
         return new Promise((resolve) => {
             setTimeout(() => {
-                const text = title + " " + comment;
-                const ngWords = ["天気", "ひま", "暇", "疲れた", "腹減った", "クソ", "死ね", "うざい", "バカ", "あつい", "寒い"];
-                for (let word of ngWords) {
-                    if (text.includes(word)) {
-                        resolve({ safe: false, reason: "交通情報に関係のない日常会話、または不適切な言葉が含まれているためブロックしました。" });
-                        return;
-                    }
-                }
-                if (text.length < 4) {
-                    resolve({ safe: false, reason: "情報が短すぎます。具体的な状況を記載してください。" });
-                    return;
-                }
+                const text = title + " " + comment; const ngWords = ["天気", "ひま", "暇", "疲れた", "腹減った", "クソ", "死ね", "うざい", "バカ", "あつい", "寒い"];
+                for (let word of ngWords) { if (text.includes(word)) { resolve({ safe: false, reason: "交通情報に関係のない日常会話、または不適切な言葉が含まれているためブロックしました。" }); return; } }
+                if (text.length < 4) { resolve({ safe: false, reason: "情報が短すぎます。具体的な状況を記載してください。" }); return; }
                 resolve({ safe: true });
             }, 1500); 
         });
@@ -613,76 +606,38 @@
 
     async function handlePostSubmit(e) {
         e.preventDefault();
-        const title = document.getElementById('postTitle').value;
-        const comment = document.getElementById('postComment').value;
-
+        const title = document.getElementById('postTitle').value; const comment = document.getElementById('postComment').value;
         document.getElementById('aiLoading').style.display = 'flex';
         const aiResult = await checkWithAI(title, comment);
         
-        if (!aiResult.safe) {
-            document.getElementById('aiLoading').style.display = 'none';
-            alert(`【AI検閲エラー】\n${aiResult.reason}`);
-            return;
-        }
+        if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【AI検閲エラー】\n${aiResult.reason}`); return; }
 
         const cat = document.getElementById('postCategory').value;
-        const { data, error } = await db.from('spots').insert([{ 
-            lat: window.postLat, lng: window.postLng, 
-            category: cat, title: title, comment: comment, confirm_count: 0
-        }]).select(); 
+        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0 }]).select(); 
         
         if (!error && data && data.length > 0) { 
             const newId = data[0].id;
-            if (cat === 'abandoned' && uploadedImageBase64) {
-                try { localStorage.setItem('img_' + newId, uploadedImageBase64); } catch(err) { console.log('画像容量オーバー'); }
-            }
-            addPoint(10, "安全情報を共有しました");
-            closePostModal(); loadSpots(); 
+            if (cat === 'abandoned' && uploadedImageBase64) { try { localStorage.setItem('img_' + newId, uploadedImageBase64); } catch(err) { console.log('画像容量オーバー'); } }
+            addPoint(10, "安全情報を共有しました"); closePostModal(); 
         } else {
-            document.getElementById('aiLoading').style.display = 'none';
-            showToast("投稿に失敗しました");
+            document.getElementById('aiLoading').style.display = 'none'; showToast("投稿に失敗しました");
         }
     }
 
-    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); loadSpots(); showToast("確認しました"); }
-    async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); loadSpots(); }
+    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
+    async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
 
     function filterMarkers(cat, btn) {
         document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
-        activeMarkers.forEach(m => {
-            if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); }
-            else { map.removeLayer(m.instance); map.removeLayer(m.circle); }
-        });
+        activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); } else { map.removeLayer(m.instance); map.removeLayer(m.circle); } });
     }
 
-    // ▼ 変更：不法放置車両への接近検知システム ▼
-    let notifiedSpots = new Set(); // 1回通知したピンのIDを保持
-
+    let notifiedSpots = new Set();
     function checkProximity(lat, lng) {
         activeMarkers.forEach(m => {
-            // 不法放置（紫ピン）以外は警報を出さない
             if (m.category !== 'abandoned') return;
-
-            // 距離計算 (km)
             const d = (6371 * 2 * Math.atan2(Math.sqrt(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2), Math.sqrt(1-(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2))));
-            
-            // 50m (0.05km) 以内に近づき、かつまだ通知していない場合
-            if (d <= 0.05 && !notifiedSpots.has(m.id)) {
-                notifiedSpots.add(m.id);
-                
-                const t = document.getElementById('alertToast');
-                document.getElementById('alertToastMsg').innerHTML = `近くの不法放置車両はまだありますか？<br><span style="font-size:0.75rem; text-decoration:underline;">タップして情報更新 (+1pt)</span>`;
-                t.classList.add('show'); 
-                
-                // トーストをタップしたらそのピンのポップアップを開く
-                t.onclick = () => { 
-                    m.instance.openPopup(); 
-                    t.classList.remove('show'); 
-                };
-
-                // 7秒後に自動で消える
-                setTimeout(() => t.classList.remove('show'), 7000);
-            }
+            if (d <= 0.05 && !notifiedSpots.has(m.id)) { notifiedSpots.add(m.id); const t = document.getElementById('alertToast'); document.getElementById('alertToastMsg').innerHTML = `近くの不法放置車両はまだありますか？<br><span style="font-size:0.75rem; text-decoration:underline;">タップして情報更新 (+1pt)</span>`; t.classList.add('show'); t.onclick = () => { m.instance.openPopup(); t.classList.remove('show'); }; setTimeout(() => t.classList.remove('show'), 7000); }
         });
     }
 
@@ -701,39 +656,11 @@
     for(let i=qList.length+1; i<=100; i++) qList.push({ q:`Q${i}. 道路標識等による「駐停車禁止」の場所では？`, o:["荷物搬入ならOK", "いかなる理由でも不可", "夜間はOK"], a:1, e:"わずかな時間であっても駐停車は法律で禁止されています。" });
 
     let sQ=[], qIdx=0, score=0;
-    function startQuizSession() {
-        document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block';
-        let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; }
-        sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ();
-    }
-    function renderQ() {
-        document.getElementById('explanationBox').style.display = 'none';
-        document.getElementById('quizProgress').innerText = `第 ${qIdx+1} / 10 問`;
-        document.getElementById('quizQuestion').innerText = sQ[qIdx].q;
-        const box = document.getElementById('quizOptions'); box.innerHTML='';
-        sQ[qIdx].o.forEach((txt, i) => {
-            const b = document.createElement('button'); b.className='quiz-opt'; b.innerText=`${i+1}. ${txt}`; b.onclick=()=>ansQ(i); box.appendChild(b);
-        });
-    }
-    function ansQ(i) {
-        const isCor = (i === sQ[qIdx].a); 
-        if(isCor) { score++; addPoint(1); } 
-        
-        const opts = document.querySelectorAll('.quiz-opt');
-        opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); });
-        if(!isCor) opts[i].classList.add('wrong');
-        
-        document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`;
-        document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c';
-        document.getElementById('expBody').innerText = sQ[qIdx].e;
-        document.getElementById('explanationBox').style.display = 'block';
-    }
+    function startQuizSession() { document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block'; let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; } sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ(); }
+    function renderQ() { document.getElementById('explanationBox').style.display = 'none'; document.getElementById('quizProgress').innerText = `第 ${qIdx+1} / 10 問`; document.getElementById('quizQuestion').innerText = sQ[qIdx].q; const box = document.getElementById('quizOptions'); box.innerHTML=''; sQ[qIdx].o.forEach((txt, i) => { const b = document.createElement('button'); b.className='quiz-opt'; b.innerText=`${i+1}. ${txt}`; b.onclick=()=>ansQ(i); box.appendChild(b); }); }
+    function ansQ(i) { const isCor = (i === sQ[qIdx].a); if(isCor) { score++; addPoint(1); } const opts = document.querySelectorAll('.quiz-opt'); opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); }); if(!isCor) opts[i].classList.add('wrong'); document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`; document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c'; document.getElementById('expBody').innerText = sQ[qIdx].e; document.getElementById('explanationBox').style.display = 'block'; }
     function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
-    function showRes() {
-        document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block';
-        document.getElementById('resultScore').innerText = `${score} / 10`;
-        document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`;
-    }
+    function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
 
     loadSpots();
 </script>
