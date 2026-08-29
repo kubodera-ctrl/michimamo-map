@@ -160,7 +160,6 @@
             </div>
         </section>
 
-        <!-- クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
@@ -191,7 +190,6 @@
             </div>
         </section>
 
-        <!-- マイページ -->
         <section id="aboutView" class="view">
             <div class="page">
                 <h1>👤 マイページ</h1>
@@ -247,18 +245,6 @@
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 報告数ワースト3</h2>
-                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">※先月のデータに基づく危険エリア</p>
-                        <div class="ranking-row">
-                            <div style="font-weight:bold;"><span style="color:#ef4444;">1位</span> 東京都 新宿区</div>
-                            <div style="font-weight:bold;">142件</div>
-                        </div>
-                        <div class="ranking-row">
-                            <div style="font-weight:bold;"><span style="color:#ef4444;">2位</span> 大阪府 中央区</div>
-                            <div style="font-weight:bold;">98件</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -279,7 +265,6 @@
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
 
-<!-- アバター選択モーダル -->
 <div id="avatarModal" class="modal">
     <div class="sheet">
         <div class="row">
@@ -290,7 +275,6 @@
     </div>
 </div>
 
-<!-- 駐車場モーダル -->
 <div id="parkingModal" class="modal">
     <div class="sheet">
         <div class="row">
@@ -303,7 +287,6 @@
     </div>
 </div>
 
-<!-- 投稿モーダル -->
 <div id="postModal" class="modal">
     <div class="sheet" style="position:relative;">
         <div id="aiLoading">
@@ -326,7 +309,7 @@
                 <input type="file" id="postImageInput" accept="image/*" style="border:none; padding:0; background:transparent;">
                 <img id="imagePreview" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
             </div>
-            <button type="submit" class="primary" style="margin-top:20px;">AI検閲を通して投稿 (+10pt)</button>
+            <button type="submit" class="primary" style="margin-top:20px;">情報を投稿 (+10pt)</button>
         </form>
     </div>
 </div>
@@ -440,31 +423,18 @@
         updateMyPage();
         setRandomAd();
         
-        // ▼ 修正：プロ仕様のリアルタイム処理（強制削除＆ラグ回避） ▼
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
-              console.log('リアルタイム検知:', payload);
-              
-              if (payload.eventType === 'DELETE') {
-                  removeMarkerFromMap(payload.old.id);
-              } 
+              if (payload.eventType === 'DELETE') { removeMarkerFromMap(payload.old.id); } 
               else if (payload.eventType === 'UPDATE') {
-                  // もし通報が3回以上になったら、再読み込みを待たずに強制的に消す！
-                  if (payload.new.report_count >= 3) {
-                      removeMarkerFromMap(payload.new.id);
-                  } else {
-                      // いいね等の場合は、通信のラグを回避するため1秒待ってから最新データを取得
-                      setTimeout(loadSpots, 1000);
-                  }
+                  if (payload.new.report_count >= 3) { removeMarkerFromMap(payload.new.id); } 
+                  else { setTimeout(loadSpots, 1000); }
               } 
-              else if (payload.eventType === 'INSERT') {
-                  setTimeout(loadSpots, 1000);
-              }
+              else if (payload.eventType === 'INSERT') { setTimeout(loadSpots, 1000); }
           })
           .subscribe();
     };
 
-    // ▼ 追加：画面から直接ピンを消し去る魔法の関数 ▼
     function removeMarkerFromMap(id) {
         const idx = activeMarkers.findIndex(m => m.id === id);
         if (idx !== -1) {
@@ -557,9 +527,8 @@
             iconSize: [32, 32], iconAnchor: [16, 30]
         });
 
-        const localImgBase64 = localStorage.getItem('img_' + spot.id);
-        const imgTag = localImgBase64 ? `<img src="${localImgBase64}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
-        
+        // ▼ 変更：クラウドからの画像読み込み ▼
+        const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0;
         const reportCount = spot.report_count || 0;
 
@@ -607,24 +576,26 @@
 
     map.on('click', (e) => { window.postLat = e.latlng.lat; window.postLng = e.latlng.lng; document.getElementById('postModal').classList.add('open'); });
 
-    let uploadedImageBase64 = null;
+    // ▼ 変更：画像ファイル本体を保持する ▼
+    let uploadedImageFile = null;
+
     function toggleImageUpload() {
         const cat = document.getElementById('postCategory').value; const area = document.getElementById('imageUploadArea');
-        if(cat === 'abandoned') { area.style.display = 'block'; } else { area.style.display = 'none'; uploadedImageBase64 = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
+        if(cat === 'abandoned') { area.style.display = 'block'; } 
+        else { area.style.display = 'none'; uploadedImageFile = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
     }
 
     document.getElementById('postImageInput').addEventListener('change', function(e) {
-        const file = e.target.files[0]; if(!file) return;
+        const file = e.target.files[0]; 
+        if(!file) return;
+        
+        uploadedImageFile = file; // サーバーに送る用のファイルを保持
+
+        // プレビュー用にローカルで読み込み
         const reader = new FileReader();
         reader.onload = function(event) {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas'); const MAX_WIDTH = 500; let width = img.width; let height = img.height;
-                if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
-                canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0, width, height);
-                uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.6); document.getElementById('imagePreview').src = uploadedImageBase64; document.getElementById('imagePreview').style.display = 'block';
-            }
-            img.src = event.target.result;
+            document.getElementById('imagePreview').src = event.target.result; 
+            document.getElementById('imagePreview').style.display = 'block';
         }
         reader.readAsDataURL(file);
     });
@@ -644,21 +615,51 @@
 
     async function handlePostSubmit(e) {
         e.preventDefault();
-        const title = document.getElementById('postTitle').value; const comment = document.getElementById('postComment').value;
-        document.getElementById('aiLoading').style.display = 'flex';
-        const aiResult = await checkWithAI(title, comment);
+        const title = document.getElementById('postTitle').value; 
+        const comment = document.getElementById('postComment').value;
+        const cat = document.getElementById('postCategory').value;
         
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>';
+        document.getElementById('aiLoading').style.display = 'flex';
+        
+        const aiResult = await checkWithAI(title, comment);
         if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【AI検閲エラー】\n${aiResult.reason}`); return; }
 
-        const cat = document.getElementById('postCategory').value;
-        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0 }]).select(); 
+        let finalImageUrl = null;
+
+        // ▼ 変更：Supabase Storage への画像アップロード処理 ▼
+        if (cat === 'abandoned' && uploadedImageFile) {
+            document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">画像をアップロード中...</div>';
+            
+            const fileName = `img_${Date.now()}_${Math.floor(Math.random()*1000)}.jpg`;
+            const { data: uploadData, error: uploadError } = await db.storage
+                .from('spot-images')
+                .upload(fileName, uploadedImageFile);
+
+            if (uploadError) {
+                document.getElementById('aiLoading').style.display = 'none';
+                alert('画像のアップロードに失敗しました。');
+                return;
+            }
+
+            // アップロード成功後、公開URLを取得
+            const { data: publicUrlData } = db.storage.from('spot-images').getPublicUrl(fileName);
+            finalImageUrl = publicUrlData.publicUrl;
+        }
+
+        const { data, error } = await db.from('spots').insert([{ 
+            lat: window.postLat, lng: window.postLng, 
+            category: cat, title: title, comment: comment, confirm_count: 0, 
+            like_count: 0, report_count: 0,
+            image_url: finalImageUrl // 取得したURLを保存
+        }]).select(); 
         
         if (!error && data && data.length > 0) { 
-            const newId = data[0].id;
-            if (cat === 'abandoned' && uploadedImageBase64) { try { localStorage.setItem('img_' + newId, uploadedImageBase64); } catch(err) { console.log('画像容量オーバー'); } }
-            addPoint(10, "安全情報を共有しました"); closePostModal(); 
+            addPoint(10, "安全情報を共有しました"); 
+            closePostModal(); 
         } else {
-            document.getElementById('aiLoading').style.display = 'none'; showToast("投稿に失敗しました");
+            document.getElementById('aiLoading').style.display = 'none'; 
+            showToast("投稿に失敗しました");
         }
     }
 
