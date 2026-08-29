@@ -337,7 +337,6 @@
         titleArea.innerHTML = `<i class="fa-solid ${randomAd.icon}" style="color:${randomAd.iconColor};"></i> ${randomAd.title}`;
     }
 
-    // ▼ 追加：ユーザーのID管理 ▼
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
@@ -347,7 +346,6 @@
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // ▼ 追加：アプリ起動時に裏側でユーザーIDを発行・同期する魔法 ▼
     async function syncProfile() {
         if (!myUserId) {
             const { data, error } = await db.from('profiles').insert([{ name: myName || '名無しドライバー', avatar: myAvatar, point: myPoint }]).select();
@@ -436,11 +434,9 @@
         if (tabId === 'rankingTab') loadRanking();
     }
 
-    // ▼ 追加：ダミーと本物をミックスした最新のランキング生成魔法 ▼
     async function loadRanking() {
         const { data: profiles } = await db.from('profiles').select('*').order('point', { ascending: false }).limit(50);
         
-        // 過疎感を出さないためのダミーデータ（強いユーザー）
         let allUsers = [
             { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 1250 },
             { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 980 },
@@ -448,14 +444,12 @@
             { id: 'dummy4', name: 'タクシードライバー', avatar: '🚕', point: 120 }
         ];
         
-        // クラウドから本物のユーザーデータを合流させる
         if (profiles) {
             profiles.forEach(p => {
                 allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point });
             });
         }
         
-        // 重複排除（同じ人が何度も入らないように）とポイント順での並び替え
         const uniqueUsers = []; const map = new Map();
         for (const item of allUsers) {
             if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); }
@@ -468,7 +462,7 @@
         
         uniqueUsers.forEach((u, idx) => {
             if (u.id === myUserId) myRankPos = `${idx + 1}位`;
-            if (idx >= 5) return; // 表示はトップ5まで
+            if (idx >= 5) return; 
             
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
@@ -491,11 +485,9 @@
         
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
 
-        // 【エリア別ワーストランキングの集計】
         const { data: spotsData } = await db.from('spots').select('address').eq('category', 'illegal');
         let areaCount = {};
         
-        // ダミーのワーストエリア（初期の賑やかし）
         areaCount['東京都 新宿区'] = 142;
         areaCount['大阪府 中央区'] = 98;
         areaCount['愛知県 名古屋市'] = 76;
@@ -503,7 +495,7 @@
         if (spotsData) {
             spotsData.forEach(s => {
                 if(s.address && s.address !== '不明なエリア') {
-                    areaCount[s.address] = (areaCount[s.address] || 0) + 1; // 実際の投稿があればカウントを足す
+                    areaCount[s.address] = (areaCount[s.address] || 0) + 1; 
                 }
             });
         }
@@ -544,7 +536,7 @@
 
     window.onload = function() {
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
-        syncProfile(); // ★アプリ起動時にプロフィールを同期
+        syncProfile(); 
         updateMyPage();
         setRandomAd();
         
@@ -750,7 +742,6 @@
         const aiResult = await checkWithAI(title, comment);
         if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【AI検閲エラー】\n${aiResult.reason}`); return; }
 
-        // ▼ 追加：ピンの住所を自動で特定する魔法 ▼
         document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">エリアを特定中...</div>';
         let spotAddress = "不明なエリア";
         try {
@@ -778,7 +769,7 @@
             category: cat, title: title, comment: comment, confirm_count: 0, 
             like_count: 0, report_count: 0,
             image_url: finalImageUrl,
-            address: spotAddress // ★ 取得した住所を保存
+            address: spotAddress
         }]).select(); 
         
         if (!error && data && data.length > 0) { 
@@ -786,6 +777,8 @@
             closePostModal(); 
         } else {
             document.getElementById('aiLoading').style.display = 'none'; 
+            // ▼ 今回追加：エラーの原因を画面に表示する ▼
+            alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした"));
             showToast("投稿に失敗しました");
         }
     }
