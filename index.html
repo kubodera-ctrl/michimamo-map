@@ -43,14 +43,70 @@
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
         .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
 
-        .filter-bar { position: absolute; top: 60px; left: 10px; right: 10px; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; z-index: 999; padding-bottom: 5px; }
-        .filter-chip { padding: 8px 14px; border-radius: 20px; border: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); font-size: 0.8rem; font-weight:bold; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s; }
-        .filter-chip.active { background: #17212b; color: white; border-color: #17212b; }
+        /* ▼ 修正：伸縮するフィルターバーのスタイル ▼ */
+        .filter-wrapper {
+            position: absolute;
+            top: 60px; left: 10px; right: 10px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-toggle-btn {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid #17212b;
+            background: #17212b;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .filter-content {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 0;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        .filter-wrapper.open .filter-content {
+            max-width: 80vw;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .filter-chip { 
+            padding: 8px 12px; 
+            border-radius: 20px; 
+            border: 1px solid #e5e7eb; 
+            background: rgba(255,255,255,0.95); 
+            font-size: 0.78rem; 
+            font-weight:bold; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 4px; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+            flex-shrink: 0;
+        }
+        .filter-chip.active { background: #374151; color: white; border-color: #374151; }
         .filter-chip.illegal.active { background: #ef4444; color: white; border-color: #ef4444; }
         .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
         .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
         .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
-        .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; }
+        .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
         .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
@@ -147,14 +203,22 @@
                     <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
                     <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div class="filter-bar">
-                    <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
-                    <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
-                    <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
-                    <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
-                    <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+                
+                <!-- ▼ 修正：開閉式フィルターバー ▼ -->
+                <div class="filter-wrapper" id="filterWrapper">
+                    <button class="filter-toggle-btn" onclick="toggleFilterMenu()">
+                        <i class="fa-solid fa-filter"></i> 表示選択 <i class="fa-solid fa-chevron-right" id="filterArrow" style="transition:0.3s;"></i>
+                    </button>
+                    <div class="filter-content">
+                        <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
+                        <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
+                        <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
+                        <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
+                        <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+                    </div>
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
                 </div>
+
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
             </div>
@@ -190,7 +254,6 @@
             </div>
         </section>
 
-        <!-- ▼ 修正：ランキング表示エリアを動的生成用に変更 ▼ -->
         <section id="aboutView" class="view">
             <div class="page">
                 <h1>👤 マイページ</h1>
@@ -337,6 +400,18 @@
         titleArea.innerHTML = `<i class="fa-solid ${randomAd.icon}" style="color:${randomAd.iconColor};"></i> ${randomAd.title}`;
     }
 
+    // ▼ 追加：フィルター開閉関数 ▼
+    function toggleFilterMenu() {
+        const wrapper = document.getElementById('filterWrapper');
+        const arrow = document.getElementById('filterArrow');
+        wrapper.classList.toggle('open');
+        if(wrapper.classList.contains('open')) {
+            arrow.style.transform = 'rotate(90deg)';
+        } else {
+            arrow.style.transform = 'rotate(0deg)';
+        }
+    }
+
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
@@ -378,7 +453,7 @@
     function selectAvatar(emoji) { 
         myAvatar = emoji; 
         localStorage.setItem('michimamo_avatar', myAvatar); 
-        if (myUserId) db.from('profiles').update({ avatar: myAvatar }).eq('id', myUserId); // クラウド同期
+        if (myUserId) db.from('profiles').update({ avatar: myAvatar }).eq('id', myUserId);
         updateMyPage(); closeAvatarModal(); showToast("アバターを変更しました"); 
     }
 
@@ -391,7 +466,7 @@
         
         myName = inputName || "名無しドライバー"; 
         localStorage.setItem('michimamo_name', myName); 
-        if (myUserId) db.from('profiles').update({ name: myName }).eq('id', myUserId); // クラウド同期
+        if (myUserId) db.from('profiles').update({ name: myName }).eq('id', myUserId);
         
         showToast("プロフィールを保存しました"); updateMyPage();
     }
@@ -401,7 +476,7 @@
         localStorage.setItem('michimamo_pt', myPoint); 
         if(msg) showToast(`${msg}！ (+${pt}pt)`); 
         
-        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId); // クラウド同期
+        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
         
         updateMyPage(); 
     }
@@ -777,7 +852,6 @@
             closePostModal(); 
         } else {
             document.getElementById('aiLoading').style.display = 'none'; 
-            // ▼ 今回追加：エラーの原因を画面に表示する ▼
             alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした"));
             showToast("投稿に失敗しました");
         }
@@ -786,9 +860,18 @@
     async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
     async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
 
+    // ▼ 修正：フィルター選択時に自動で閉じる仕組み ▼
     function filterMarkers(cat, btn) {
-        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
-        activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); } else { map.removeLayer(m.instance); map.removeLayer(m.circle); } });
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); 
+        btn.classList.add('active');
+        activeMarkers.forEach(m => { 
+            if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); } 
+            else { map.removeLayer(m.instance); map.removeLayer(m.circle); } 
+        });
+        
+        // 選択したらメニューを閉じる
+        document.getElementById('filterWrapper').classList.remove('open');
+        document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
 
     let notifiedSpots = new Set();
