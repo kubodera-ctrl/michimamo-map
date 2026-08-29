@@ -160,6 +160,7 @@
             </div>
         </section>
 
+        <!-- クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
@@ -190,6 +191,7 @@
             </div>
         </section>
 
+        <!-- マイページ -->
         <section id="aboutView" class="view">
             <div class="page">
                 <h1>👤 マイページ</h1>
@@ -245,6 +247,18 @@
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 報告数ワースト3</h2>
+                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">※先月のデータに基づく危険エリア</p>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><span style="color:#ef4444;">1位</span> 東京都 新宿区</div>
+                            <div style="font-weight:bold;">142件</div>
+                        </div>
+                        <div class="ranking-row">
+                            <div style="font-weight:bold;"><span style="color:#ef4444;">2位</span> 大阪府 中央区</div>
+                            <div style="font-weight:bold;">98件</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -265,6 +279,7 @@
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
 
+<!-- アバター選択モーダル -->
 <div id="avatarModal" class="modal">
     <div class="sheet">
         <div class="row">
@@ -275,6 +290,7 @@
     </div>
 </div>
 
+<!-- 駐車場モーダル -->
 <div id="parkingModal" class="modal">
     <div class="sheet">
         <div class="row">
@@ -287,6 +303,7 @@
     </div>
 </div>
 
+<!-- 投稿モーダル -->
 <div id="postModal" class="modal">
     <div class="sheet" style="position:relative;">
         <div id="aiLoading">
@@ -423,14 +440,39 @@
         updateMyPage();
         setRandomAd();
         
-        // ▼ 追加：リアルタイム自動更新（リスナー） ▼
+        // ▼ 修正：プロ仕様のリアルタイム処理（強制削除＆ラグ回避） ▼
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
-              console.log('他人の変更を検知しました！自動更新します', payload);
-              loadSpots();
+              console.log('リアルタイム検知:', payload);
+              
+              if (payload.eventType === 'DELETE') {
+                  removeMarkerFromMap(payload.old.id);
+              } 
+              else if (payload.eventType === 'UPDATE') {
+                  // もし通報が3回以上になったら、再読み込みを待たずに強制的に消す！
+                  if (payload.new.report_count >= 3) {
+                      removeMarkerFromMap(payload.new.id);
+                  } else {
+                      // いいね等の場合は、通信のラグを回避するため1秒待ってから最新データを取得
+                      setTimeout(loadSpots, 1000);
+                  }
+              } 
+              else if (payload.eventType === 'INSERT') {
+                  setTimeout(loadSpots, 1000);
+              }
           })
           .subscribe();
     };
+
+    // ▼ 追加：画面から直接ピンを消し去る魔法の関数 ▼
+    function removeMarkerFromMap(id) {
+        const idx = activeMarkers.findIndex(m => m.id === id);
+        if (idx !== -1) {
+            map.removeLayer(activeMarkers[idx].instance);
+            if (activeMarkers[idx].circle) map.removeLayer(activeMarkers[idx].circle);
+            activeMarkers.splice(idx, 1);
+        }
+    }
 
     function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
     function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
@@ -496,13 +538,11 @@
                 if (s.category === 'abandoned') { hcColor = '#9333ea'; hcFill = '#c084fc'; }
 
                 const hc = L.circle([s.lat, s.lng], { color:hcColor, fillColor:hcFill, fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
-                heatCircles.push(hc);
+                heatCircles.push({ id: s.id, circle: hc });
                 createSpotPin(s, hc);
             });
         }
     }
-    // リアルタイム更新を入れたため、1分ごとの定期更新は負荷対策で止めておきます（最初の1回と誰かが更新した時だけ動くようにします）
-    // setInterval(loadSpots, 60000); 
 
     function createSpotPin(spot, hc) {
         let color = '#6b7280', iconC = 'fa-map-pin';
@@ -520,7 +560,6 @@
         const localImgBase64 = localStorage.getItem('img_' + spot.id);
         const imgTag = localImgBase64 ? `<img src="${localImgBase64}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         
-        // ▼ 古いピン（null）の対策 ▼
         const likeCount = spot.like_count || 0;
         const reportCount = spot.report_count || 0;
 
@@ -556,7 +595,6 @@
     async function likeSpot(id, currentLike) {
         addPoint(1, "お礼を伝えました"); 
         await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id);
-        // loadSpots(); はリアルタイム通知がやってくれるのでここから削除しました
     }
 
     async function reportSpot(id, currentReport) {
@@ -662,7 +700,6 @@
     function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
     function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
 
-    loadSpots();
 </script>
 </body>
 </html>
