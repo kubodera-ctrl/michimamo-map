@@ -43,7 +43,6 @@
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
         .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
 
-        /* ▼ 修正：伸縮するフィルターバーのスタイル ▼ */
         .filter-wrapper {
             position: absolute;
             top: 60px; left: 10px; right: 10px;
@@ -168,7 +167,34 @@
         .tab-btn.active { background: #fff; color: #17212b; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        
+
+        /* ▼ 新機能：ジャンル別スワイプカテゴリタブ ▼ */
+        .category-tab-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .cat-sub-btn {
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: 1px solid #d9dee4;
+            background: #f3f4f6;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #4b5563;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .cat-sub-btn.active {
+            background: #17212b;
+            color: white;
+            border-color: #17212b;
+        }
+
         .profile-edit { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
         .avatar-circle { width: 60px; height: 60px; border-radius: 50%; background: #eef1f4; display: grid; place-items: center; font-size: 2rem; cursor: pointer; border: 2px solid #d9dee4; }
         .ranking-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
@@ -204,7 +230,6 @@
                     <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 
-                <!-- ▼ 修正：開閉式フィルターバー ▼ -->
                 <div class="filter-wrapper" id="filterWrapper">
                     <button class="filter-toggle-btn" onclick="toggleFilterMenu()">
                         <i class="fa-solid fa-filter"></i> 表示選択 <i class="fa-solid fa-chevron-right" id="filterArrow" style="transition:0.3s;"></i>
@@ -292,7 +317,7 @@
 
                 <div id="rankingTab" class="tab-content">
                     <div class="card">
-                        <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ5</h2>
+                        <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
                         <div id="nationalRankingArea">
                             <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
@@ -301,9 +326,19 @@
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
+
+                    <!-- ▼ 拡張：ジャンル切り替え機能つきワーストエリアランキング (トップ10) ▼ -->
                     <div class="card">
-                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 報告数ワースト3</h2>
-                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">※先月〜現在のデータに基づく危険エリア</p>
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 報告数ワースト10</h2>
+                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
+                        
+                        <div class="category-tab-bar">
+                            <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('danger', this)">🔵 危険停車</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('patrol', this)">🟢 巡回情報</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
+                        </div>
+
                         <div id="areaRankingArea">
                             <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
@@ -400,7 +435,6 @@
         titleArea.innerHTML = `<i class="fa-solid ${randomAd.icon}" style="color:${randomAd.iconColor};"></i> ${randomAd.title}`;
     }
 
-    // ▼ 追加：フィルター開閉関数 ▼
     function toggleFilterMenu() {
         const wrapper = document.getElementById('filterWrapper');
         const arrow = document.getElementById('filterArrow');
@@ -416,6 +450,7 @@
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
+    let currentCategoryRank = 'illegal'; // 現在選択中のジャンル
 
     const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
@@ -509,14 +544,29 @@
         if (tabId === 'rankingTab') loadRanking();
     }
 
+    // ▼ 切り替えタブ用関数 ▼
+    function switchCategoryRanking(cat, btn) {
+        document.querySelectorAll('.cat-sub-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategoryRank = cat;
+        loadAreaRanking();
+    }
+
     async function loadRanking() {
+        // トップ10まで取得
         const { data: profiles } = await db.from('profiles').select('*').order('point', { ascending: false }).limit(50);
         
         let allUsers = [
             { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 1250 },
             { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 980 },
             { id: 'dummy3', name: 'ご近所ウォッチャー', avatar: '👀', point: 450 },
-            { id: 'dummy4', name: 'タクシードライバー', avatar: '🚕', point: 120 }
+            { id: 'dummy4', name: 'タクシードライバー', avatar: '🚕', point: 120 },
+            { id: 'dummy5', name: 'セーフティライダー', avatar: '🛵', point: 95 },
+            { id: 'dummy6', name: 'ママチャリパトロール', avatar: '🚲', point: 80 },
+            { id: 'dummy7', name: 'ゴールドドライバー', avatar: '🚘', point: 65 },
+            { id: 'dummy8', name: '防犯ボランティア', avatar: '👮‍♂️', point: 40 },
+            { id: 'dummy9', name: '通りすがり', avatar: '🏃', point: 25 },
+            { id: 'dummy10', name: '安全歩行者', avatar: '🚶', point: 10 }
         ];
         
         if (profiles) {
@@ -537,7 +587,7 @@
         
         uniqueUsers.forEach((u, idx) => {
             if (u.id === myUserId) myRankPos = `${idx + 1}位`;
-            if (idx >= 5) return; 
+            if (idx >= 10) return; // ★ トップ10まで表示
             
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
@@ -559,14 +609,30 @@
         });
         
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
+        loadAreaRanking();
+    }
 
-        const { data: spotsData } = await db.from('spots').select('address').eq('category', 'illegal');
+    // ▼ エリア別（カテゴリ別）ワースト10集計処理 ▼
+    async function loadAreaRanking() {
+        const { data: spotsData } = await db.from('spots').select('address').eq('category', currentCategoryRank);
         let areaCount = {};
         
-        areaCount['東京都 新宿区'] = 142;
-        areaCount['大阪府 中央区'] = 98;
-        areaCount['愛知県 名古屋市'] = 76;
-        
+        // カテゴリごとのダミーワーストデータ（過疎対策）
+        if (currentCategoryRank === 'illegal') {
+            areaCount['東京都 新宿区'] = 142; areaCount['大阪府 中央区'] = 98; areaCount['愛知県 名古屋市'] = 76;
+            areaCount['福岡県 博多区'] = 62; areaCount['神奈川県 横浜市'] = 55; areaCount['北海道 札幌市'] = 48;
+            areaCount['埼玉県 さいたま市'] = 39; areaCount['千葉県 千葉市'] = 31; areaCount['兵庫県 神戸市'] = 27; areaCount['京都府 京都市'] = 22;
+        } else if (currentCategoryRank === 'danger') {
+            areaCount['東京都 渋谷区'] = 110; areaCount['大阪府 北区'] = 85; areaCount['神奈川県 川崎市'] = 60;
+            areaCount['東京都 港区'] = 54; areaCount['愛知県 一宮市'] = 41; areaCount['福岡県 天神'] = 38;
+        } else if (currentCategoryRank === 'patrol') {
+            areaCount['東京都 千代田区'] = 88; areaCount['大阪府 浪速区'] = 70; areaCount['埼玉県 川口市'] = 52;
+            areaCount['千葉県 船橋市'] = 43; areaCount['神奈川県 相模原市'] = 35;
+        } else if (currentCategoryRank === 'abandoned') {
+            areaCount['東京都 足立区'] = 65; areaCount['大阪府 西成区'] = 58; areaCount['埼玉県 八潮市'] = 42;
+            areaCount['千葉県 市川市'] = 36; areaCount['神奈川県 大和市'] = 29;
+        }
+
         if (spotsData) {
             spotsData.forEach(s => {
                 if(s.address && s.address !== '不明なエリア') {
@@ -579,10 +645,20 @@
         const areaArea = document.getElementById('areaRankingArea');
         areaArea.innerHTML = '';
         
-        sortedAreas.slice(0, 3).forEach((a, idx) => {
+        if (sortedAreas.length === 0) {
+            areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>';
+            return;
+        }
+
+        sortedAreas.slice(0, 10).forEach((a, idx) => { // ★ ワースト10まで表示
+            let rankColor = "#6b7280";
+            if (idx === 0) rankColor = "#ef4444";
+            else if (idx === 1) rankColor = "#f97316";
+            else if (idx === 2) rankColor = "#eab308";
+
             areaArea.innerHTML += `
                 <div class="ranking-row">
-                    <div style="font-weight:bold;"><span style="color:#ef4444;">${idx+1}位</span> ${a.name}</div>
+                    <div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div>
                     <div style="font-weight:bold;">${a.count}件</div>
                 </div>
             `;
@@ -860,7 +936,6 @@
     async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
     async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
 
-    // ▼ 修正：フィルター選択時に自動で閉じる仕組み ▼
     function filterMarkers(cat, btn) {
         document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); 
         btn.classList.add('active');
@@ -869,7 +944,6 @@
             else { map.removeLayer(m.instance); map.removeLayer(m.circle); } 
         });
         
-        // 選択したらメニューを閉じる
         document.getElementById('filterWrapper').classList.remove('open');
         document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
