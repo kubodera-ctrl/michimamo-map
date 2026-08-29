@@ -281,7 +281,8 @@
 
         <section id="aboutView" class="view">
             <div class="page">
-                <h1>👤 マイページ</h1>
+                <!-- ▼ onclick="adminTap()" を追加（5回タップで隠しコマンド解放） ▼ -->
+                <h1 onclick="adminTap()" style="cursor:pointer; user-select:none;">👤 マイページ</h1>
                 <div class="tab-menu">
                     <button class="tab-btn active" onclick="switchTab('profileTab', this)">マイデータ＆設定</button>
                     <button class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 全国ランキング</button>
@@ -313,6 +314,13 @@
                         <h2 style="font-size:1.1rem; color:#ef4444; margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i> 投稿時の重要なお願い</h2>
                         <p class="muted" style="margin-bottom:0;">個人を制裁するためのツールではありません。ナンバーや顔が特定できる写真、誹謗中傷はAIや通報により自動削除されます。</p>
                     </div>
+
+                    <!-- ▼ 管理者専用の隠しCSVダウンロードボタン（初期状態は非表示） ▼ -->
+                    <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
+                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
+                        <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
+                        <button class="primary" style="margin-top:0; background:#166534;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSVをダウンロード</button>
+                    </div>
                 </div>
 
                 <div id="rankingTab" class="tab-content">
@@ -327,7 +335,6 @@
                         </div>
                     </div>
 
-                    <!-- ▼ 拡張：ジャンル切り替え機能つきワーストエリアランキング (トップ10) ▼ -->
                     <div class="card">
                         <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 報告数ワースト10</h2>
                         <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
@@ -803,6 +810,10 @@
         const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0;
         const reportCount = spot.report_count || 0;
+        
+        // ▼ 共有用データのエラー回避（シングルクォートなどのエスケープ処理） ▼
+        const safeTitle = (spot.title || "").replace(/'/g, "\\'");
+        const safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
         m.bindPopup(`
@@ -812,12 +823,16 @@
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                 ${imgTag}
                 
+                <!-- ▼ 追加：共有（シェア）ボタン ▼ -->
                 <div style="display:flex; gap:6px; margin-bottom:10px;">
                     <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
                         <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})
                     </button>
                     <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;">
                         <i class="fa-solid fa-flag"></i> 通報
+                    </button>
+                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}')" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;">
+                        <i class="fa-solid fa-share-nodes"></i> 共有
                     </button>
                 </div>
 
@@ -977,6 +992,98 @@
     function ansQ(i) { const isCor = (i === sQ[qIdx].a); if(isCor) { score++; addPoint(1); } const opts = document.querySelectorAll('.quiz-opt'); opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); }); if(!isCor) opts[i].classList.add('wrong'); document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`; document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c'; document.getElementById('expBody').innerText = sQ[qIdx].e; document.getElementById('explanationBox').style.display = 'block'; }
     function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
     function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
+
+    // ==========================================
+    // ▼ 追加機能 1: 各ピンのSNSシェア機能 ▼
+    // ==========================================
+    function shareSpot(title, address, category) {
+        let catStr = "";
+        if (category === 'illegal') catStr = "🔴違法駐車";
+        if (category === 'danger') catStr = "🔵危険停車";
+        if (category === 'patrol') catStr = "🟢巡回情報";
+        if (category === 'abandoned') catStr = "🟣不法放置";
+
+        const text = `📍 ${address} で「${catStr}: ${title}」の報告があります！\n地域の安全のために確認しよう🚗\n#みちまもMAP #交通安全`;
+        const url = "https://michimamo-map.vercel.app";
+
+        if (navigator.share) {
+            navigator.share({
+                title: 'みちまもMAP - 安全情報',
+                text: text,
+                url: url
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(text + "\n" + url);
+            showToast("シェア用の文章をコピーしました！");
+        }
+    }
+
+    // ==========================================
+    // ▼ 追加機能 2: 管理者用 裏コマンド（5回連続タップで解放） ▼
+    // ==========================================
+    let adminTapCount = 0;
+    let adminTapTimer = null;
+
+    function adminTap() {
+        adminTapCount++;
+        
+        clearTimeout(adminTapTimer);
+        adminTapTimer = setTimeout(() => { 
+            adminTapCount = 0; 
+        }, 2000);
+
+        if (adminTapCount >= 5) {
+            const csvCard = document.getElementById('adminCsvCard');
+            if (csvCard.style.display === 'none') {
+                csvCard.style.display = 'block';
+                showToast("🔓 管理者モードが解放されました");
+            } else {
+                csvCard.style.display = 'none';
+                showToast("🔒 管理者モードを終了しました");
+            }
+            adminTapCount = 0; // リセット
+        }
+    }
+
+    // ==========================================
+    // ▼ 追加機能 3: 自治体報告用 CSVダウンロード機能 ▼
+    // ==========================================
+    async function downloadCSV() {
+        showToast("データを準備中...");
+        
+        const { data, error } = await db.from('spots').select('*').order('created_at', { ascending: false });
+        
+        if (error || !data) { 
+            showToast("データ取得に失敗しました"); 
+            return; 
+        }
+        
+        let csvContent = "投稿日時,ジャンル,場所,タイトル,詳細コメント\n";
+        const catMap = { 'illegal': '違法駐車', 'danger': '危険停車', 'patrol': '巡回', 'abandoned': '不法放置' };
+        
+        data.forEach(row => {
+            const date = new Date(row.created_at).toLocaleString('ja-JP');
+            const cat = catMap[row.category] || row.category;
+            
+            const address = (row.address || "不明").replace(/,/g, " ");
+            const title = (row.title || "").replace(/,/g, " ");
+            const comment = (row.comment || "").replace(/,/g, " ").replace(/\n/g, " ");
+            
+            csvContent += `${date},${cat},${address},${title},${comment}\n`;
+        });
+        
+        const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        
+        link.setAttribute("href", url);
+        link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        showToast("ダウンロードが完了しました");
+    }
 
 </script>
 </body>
