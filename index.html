@@ -692,11 +692,17 @@
     let activeMarkers = [], heatCircles = [];
     let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
 
+    // ==========================================
+    // ▼ 修正点: 初期表示時に loadSpots() を追加 ▼
+    // ==========================================
     window.onload = function() {
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
         syncProfile(); 
         updateMyPage();
         setRandomAd();
+        
+        // アプリを開いた瞬間に全てのピンを読み込む
+        loadSpots(); 
         
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
@@ -811,7 +817,6 @@
         const likeCount = spot.like_count || 0;
         const reportCount = spot.report_count || 0;
         
-        // ▼ 共有用データのエラー回避（シングルクォートなどのエスケープ処理） ▼
         const safeTitle = (spot.title || "").replace(/'/g, "\\'");
         const safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
@@ -823,7 +828,6 @@
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                 ${imgTag}
                 
-                <!-- ▼ 追加：共有（シェア）ボタン ▼ -->
                 <div style="display:flex; gap:6px; margin-bottom:10px;">
                     <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
                         <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})
@@ -993,9 +997,6 @@
     function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
     function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
 
-    // ==========================================
-    // ▼ 追加機能 1: 各ピンのSNSシェア機能 ▼
-    // ==========================================
     function shareSpot(title, address, category) {
         let catStr = "";
         if (category === 'illegal') catStr = "🔴違法駐車";
@@ -1018,9 +1019,6 @@
         }
     }
 
-    // ==========================================
-    // ▼ 追加機能 2: 管理者用 裏コマンド（5回連続タップで解放） ▼
-    // ==========================================
     let adminTapCount = 0;
     let adminTapTimer = null;
 
@@ -1045,9 +1043,6 @@
         }
     }
 
-    // ==========================================
-    // ▼ 追加機能 3: 自治体報告用 CSVダウンロード機能 ▼
-    // ==========================================
     async function downloadCSV() {
         showToast("データを準備中...");
         
