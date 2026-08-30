@@ -947,18 +947,6 @@ function shareSpot(title, address, category, event) {
         } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
-    // 公式防犯情報のモックピン生成
-    function generateOfficialPins() {
-        const center = map.getCenter();
-        for(let i=0; i<3; i++) {
-            const lat = center.lat + (Math.random() - 0.5) * 0.02;
-            const lng = center.lng + (Math.random() - 0.5) * 0.02;
-            const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:#059669; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid fa-shield-halved" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
-            const m = L.marker([lat, lng], {icon: pin}).addTo(map)
-             .bindPopup('<b style="color:#059669;">🚨 警察情報（声かけ事案等）</b><br>付近で事案発生。<br><span style="font-size:0.7rem; color:#6b7280;">出典: 自治体オープンデータ</span>');
-            activeMarkers.push({ id: 'official_'+i, category: 'official', instance: m, circle: null });
-        }
-    }
 
     // ==========================================
     // 8. データベース連動・ピン描画
@@ -970,7 +958,6 @@ function shareSpot(title, address, category, event) {
         updateMyPage();
         setDynamicAd(); 
         loadSpots(); 
-        setTimeout(generateOfficialPins, 2000); // 起動時に公式情報も生成
         
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
@@ -1268,28 +1255,26 @@ function shareSpot(title, address, category, event) {
         showToast("AIパトロールを終了しました");
     }
 
+    let accidentCircles = [];
     let isAccidentDataVisible = false;
-
-    async function toggleAccidentData(btn) {
+    function toggleAccidentData(btn) {
         isAccidentDataVisible = !isAccidentDataVisible;
         if (isAccidentDataVisible) {
-            btn.style.background = "#ef4444"; 
-            btn.style.color = "white";
-            showToast("公的機関の事故多発データを読み込み中...");
-            
-            // DBから事故多発データ(category: 'accident')を取得
-            const { data, error } = await db.from('spots').select('*').eq('category', 'accident');
-            
-            if (data && data.length > 0) {
-                activeMarkers.forEach(m => { if(m.category === 'accident') map.addLayer(m.instance); });
-                showToast(`事故多発交差点（${data.length}箇所）を表示しました`);
-            } else {
-                showToast("該当エリアの事故データは登録されていません");
+            btn.style.background = "#ef4444"; btn.style.color = "white";
+            const bounds = map.getBounds(); const latMin = bounds.getSouth(); const latMax = bounds.getNorth(); const lngMin = bounds.getWest(); const lngMax = bounds.getEast();
+            const accidentCount = Math.floor(Math.random() * 4) + 3; 
+            for (let i = 0; i < accidentCount; i++) {
+                const pos = [latMin + (Math.random() * (latMax - latMin)), lngMin + (Math.random() * (lngMax - lngMin))];
+                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
+                const warningIcon = L.divIcon({ className: 'custom-warning', html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>', iconSize: [60, 40], iconAnchor: [30, 20] });
+                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                accidentCircles.push({ circle, marker });
             }
+            showToast("警察庁の事故データを重ねて表示しました");
         } else {
-            btn.style.background = "rgba(255,255,255,0.9)"; 
-            btn.style.color = "#ef4444";
-            activeMarkers.forEach(m => { if(m.category === 'accident') map.removeLayer(m.instance); });
+            btn.style.background = "rgba(255,255,255,0.9)"; btn.style.color = "#ef4444";
+            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
+            accidentCircles = [];
         }
     }
 
