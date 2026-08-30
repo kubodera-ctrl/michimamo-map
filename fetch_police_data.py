@@ -1,5 +1,6 @@
 import os
 import re
+import html
 import urllib.parse
 import requests
 import xml.etree.ElementTree as ET
@@ -37,11 +38,17 @@ def geocode_address(address):
         pass
     return None, None
 
-# 3. 全国の警察・公的防犯（不審者・子ども安全）専用フィードの自動取得
+# 3. XML構文エラー（undefined entity）の自動クリーニング処理
+def clean_xml_content(raw_xml):
+    # 実体参照エラーの原因となる記号を除去
+    cleaned = html.unescape(raw_xml)
+    cleaned = re.sub(r'&(?!(amp|lt|gt|quot|apos);)', '&amp;', cleaned)
+    return cleaned
+
+# 4. 全国の不審者・防犯情報の自動取得
 def fetch_real_official_rss():
     fetched_data = []
     
-    # 警察・防犯専門のデータフィードURL（ニュース記事は排除）
     rss_sources = [
         {"name": "全国不審者・防犯情報", "url": "https://mcap.jp/feed/safety"} 
     ]
@@ -50,28 +57,22 @@ def fetch_real_official_rss():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
 
-    # キーワードフィルター（防犯に関係ないニュースを完全に弾く）
-    valid_keywords = ["不審者", "声かけ", "露出", "追随", "ちかん", "公然わいせつ", "危険", "注意", "防犯", "警察", "事件"]
-
     for source in rss_sources:
         try:
             res = requests.get(source["url"], headers=headers, timeout=12)
             if res.status_code == 200:
-                root = ET.fromstring(res.content)
+                # 特殊文字による構文エラーを防止
+                cleaned_text = clean_xml_content(res.text)
+                root = ET.fromstring(cleaned_text)
                 items = root.findall(".//item")
                 
-                # 最大50件まで全国データを一括スキャン
                 for item in items[:50]:
                     title = item.find("title").text if item.find("title") is not None else ""
                     comment = item.find("description").text if item.find("description") is not None else ""
                     full_text = title + " " + comment
                     
-                    # 防犯キーワードが含まれていない一般的な記事はスキップ
-                    if not any(keyword in full_text for keyword in valid_keywords):
-                        continue
-                    
-                    # 日本の具体住所（〇〇県〇〇市/区）を判定
-                    match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|町|村)[一-龠0-9丁目-]*)', full_text)
+                    # 住所パターン検出
+                    match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村)[一-龠0-9丁目-]*)', full_text)
                     if match:
                         raw_addr = match.group(0)
                         addr = raw_addr
