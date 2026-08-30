@@ -34,7 +34,8 @@
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(3, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
+        /* ▼ メニューを4等分に修正 ▼ */
+        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
         nav button.active { color: #1f6feb; }
         nav button i { font-size: 20px; }
@@ -58,7 +59,6 @@
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
         .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
 
-        /* ▼ AIパトロール・事故データボタン用 CSS ▼ */
         #aiPatrolBtn { position: absolute; top: 110px; right: 10px; z-index: 1000; background: #17212b; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1.2rem; }
         #aiPatrolBtn::after { content: "AI"; position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; font-size: 0.6rem; font-weight: 900; padding: 2px 4px; border-radius: 8px; border: 2px solid #fff; }
         .camera-view { display: none; position: absolute; inset: 0; z-index: 2000; background: #000; flex-direction: column; overflow: hidden; }
@@ -182,25 +182,19 @@
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
                 </div>
 
-                <!-- ▼ 追加: 事故多発エリア切替ボタン ▼ -->
                 <div class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
                     <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
                 </div>
 
-                <!-- ▼ 追加: AIパトロール起動ボタン ▼ -->
                 <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
 
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
 
-                <!-- ▼ 追加: AIカメラ画面オーバーレイ ▼ -->
                 <div id="cameraView" class="camera-view">
                     <video id="videoElement" autoplay playsinline></video>
                     <div class="camera-overlay"><div class="scan-line"></div></div>
-                    
-                    <!-- モックアップ用検知枠 -->
                     <div id="mockDetectionBox" class="mock-detection-box"></div>
-
                     <div class="camera-ui-top">
                         <div class="ai-status"><i class="fa-solid fa-circle-notch fa-spin"></i> 路上駐車を自動スキャン中...</div>
                         <button class="btn-close-cam" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
@@ -267,7 +261,6 @@
                         </div>
                     </div>
                     
-                    <!-- ▼ 追加: プライバシーと安全対策ページへの導線 ▼ -->
                     <button onclick="openPrivacyModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
                         <span><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:8px;"></i> プライバシーと安全対策</span>
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
@@ -281,7 +274,6 @@
                         <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div></div>
                     </div>
 
-                    <!-- 管理者専用の隠しCSVダウンロードボタン -->
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
                         <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
                         <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
@@ -317,6 +309,47 @@
                 </div>
             </div>
         </section>
+
+        <!-- ▼ 新設：ガイド・規約ページ ▼ -->
+        <section id="guideView" class="view">
+            <div class="page">
+                <h1><i class="fa-solid fa-book-open"></i> 使い方・規約</h1>
+                
+                <div class="card">
+                    <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方</h2>
+                    
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、違法駐車や危険箇所を投稿できます。みんなで情報を共有して地域の安全を守りましょう。</p>
+                    
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. クイズで学ぶ</h3>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">交通ルールのクイズに挑戦して安全ポイントを獲得！ランクアップを目指しましょう。</p>
+                    
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">3. AIパトロール機能 (Beta)</h3>
+                    <p class="muted" style="font-size:0.8rem;">マップ画面の「カメラボタン」から起動。スマホをダッシュボードに置くと、AIが自動で危険を検知・共有します。</p>
+                </div>
+
+                <div class="card">
+                    <h2 style="color:#10b981; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-shield-halved"></i> プライバシーポリシー</h2>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">みちまもMAPは、皆様のプライバシー保護を最優先に開発されています。</p>
+                    <ul style="font-size:0.8rem; color:#4b5563; padding-left:20px; margin-bottom:0; line-height:1.6;">
+                        <li style="margin-bottom:6px;"><strong>ナンバー・顔の秘匿化:</strong> AIにより端末内でモザイク処理を行います。元画像はサーバーに送信・保存されません。</li>
+                        <li style="margin-bottom:6px;"><strong>個人情報の取得:</strong> ログインや本名の登録は不要です。個人を特定するデータは収集しません。</li>
+                        <li><strong>位置情報:</strong> 現在地はユーザーの許可がある場合のみ使用し、バックグラウンドでの追跡は一切行いません。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2 style="color:#ef4444; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i> 禁止事項</h2>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">以下の行為は禁止されており、AI検閲および運営によりアカウントが停止される場合があります。</p>
+                    <ul style="font-size:0.8rem; color:#4b5563; padding-left:20px; margin-bottom:0; line-height:1.6;">
+                        <li style="margin-bottom:6px;">モザイク漏れなど、個人を特定できる情報（車のナンバー、顔写真、住所の詳細など）を故意に投稿すること</li>
+                        <li style="margin-bottom:6px;">他者への誹謗中傷、暴言、制裁・嫌がらせを目的とした投稿</li>
+                        <li>虚偽の情報の拡散や、いたずら目的のピン投稿</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
     </main>
 
     <a href="#" target="_blank" class="ad-banner" id="randomAdBanner">
@@ -324,10 +357,12 @@
         <span class="ad-pr-tag">PR</span>
     </a>
 
+    <!-- ▼ メニューボタンを4つに ▼ -->
     <nav>
         <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
         <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i> クイズ</button>
         <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i> マイページ</button>
+        <button class="nav" data-view="guideView"><i class="fa-solid fa-circle-info"></i> ガイド</button>
     </nav>
 </div>
 
@@ -392,7 +427,6 @@
     </div>
 </div>
 
-<!-- ▼ 追加: プライバシーポリシー・安全対策モーダル ▼ -->
 <div class="modal" id="privacyModal">
     <div class="sheet" style="padding-top: 30px;">
         <div class="row">
@@ -413,28 +447,52 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    const adList = [
-        { title: "【インズウェブ】自動車保険を一括見積もり", icon: "fa-car-burst", iconColor: "#ef4444", url: "#" },
-        { title: "お近くの【格安車検】無料見積もり", icon: "fa-wrench", iconColor: "#1f6feb", url: "#" }
+    // ▼ ダイナミック広告リスト ▼
+    const dynamicAdList = [
+        { target: "driver", title: "お出かけ先の格安駐車場を予約 (特P)", icon: "fa-square-parking", iconColor: "#2563eb", url: "#" },
+        { target: "driver", title: "【無料】自動車保険の一括見積もり", icon: "fa-car-shield", iconColor: "#1f6feb", url: "#" },
+        { target: "walker", title: "歩いてポイントが貯まる！ポイ活アプリ", icon: "fa-shoe-prints", iconColor: "#10b981", url: "#" },
+        { target: "family", title: "子供の安全を守る。見守りGPSトラッカー", icon: "fa-child", iconColor: "#f59e0b", url: "#" },
+        { target: "bike", title: "月額100円〜！安心の自転車保険", icon: "fa-bicycle", iconColor: "#9333ea", url: "#" },
+        { target: "pet", title: "大切な家族のためのペット保険", icon: "fa-paw", iconColor: "#f43f5e", url: "#" },
+        { target: "all", title: "【期間限定】Amazonタイムセール開催中", icon: "fa-cart-shopping", iconColor: "#f97316", url: "#" }
     ];
 
-    function setRandomAd() {
-        const randomAd = adList[Math.floor(Math.random() * adList.length)];
+    function setDynamicAd(triggerCategory = null) {
+        const hour = new Date().getHours();
+        const avatar = myAvatar || "👤";
+        let targetGroup = "all";
+
+        if (["🚗", "🚓", "🚕", "🚙", "🚌"].includes(avatar)) targetGroup = "driver";
+        else if (["🚶", "🏃"].includes(avatar)) targetGroup = "walker";
+        else if (["🚲"].includes(avatar)) targetGroup = "bike";
+        else if (["🐶", "🐱"].includes(avatar)) targetGroup = "pet";
+
+        if ((hour >= 7 && hour <= 9) || (hour >= 14 && hour <= 17)) {
+            if (targetGroup !== "driver") targetGroup = "family";
+        }
+
+        if (triggerCategory === 'illegal') targetGroup = "driver";
+
+        let filteredAds = dynamicAdList.filter(ad => ad.target === targetGroup);
+        if (filteredAds.length === 0) filteredAds = dynamicAdList.filter(ad => ad.target === "all");
+
+        const selectedAd = filteredAds[Math.floor(Math.random() * filteredAds.length)];
         const banner = document.getElementById('randomAdBanner');
         const titleArea = document.getElementById('randomAdTitle');
-        banner.href = randomAd.url;
-        titleArea.innerHTML = `<i class="fa-solid ${randomAd.icon}" style="color:${randomAd.iconColor};"></i> ${randomAd.title}`;
+        
+        if (banner && titleArea) {
+            banner.href = selectedAd.url;
+            titleArea.innerHTML = `<i class="fa-solid ${selectedAd.icon}" style="color:${selectedAd.iconColor};"></i> ${selectedAd.title}`;
+        }
     }
 
     function toggleFilterMenu() {
         const wrapper = document.getElementById('filterWrapper');
         const arrow = document.getElementById('filterArrow');
         wrapper.classList.toggle('open');
-        if(wrapper.classList.contains('open')) {
-            arrow.style.transform = 'rotate(90deg)';
-        } else {
-            arrow.style.transform = 'rotate(0deg)';
-        }
+        if(wrapper.classList.contains('open')) { arrow.style.transform = 'rotate(90deg)'; } 
+        else { arrow.style.transform = 'rotate(0deg)'; }
     }
 
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
@@ -481,6 +539,7 @@
         localStorage.setItem('michimamo_avatar', myAvatar); 
         if (myUserId) db.from('profiles').update({ avatar: myAvatar }).eq('id', myUserId);
         updateMyPage(); closeAvatarModal(); showToast("アバターを変更しました"); 
+        setDynamicAd(); // アバター変更時に広告も更新
     }
 
     function saveProfile() {
@@ -627,7 +686,7 @@
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
         syncProfile(); 
         updateMyPage();
-        setRandomAd();
+        setDynamicAd(); // ▼ ダイナミック広告の呼び出し
         loadSpots(); 
         
         db.channel('custom-all-channel')
@@ -651,7 +710,6 @@
     function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
     function closeParkingModal() { document.getElementById('parkingModal').classList.remove('open'); }
     
-    // プライバシーモーダル
     function openPrivacyModal() { document.getElementById('privacyModal').classList.add('open'); }
     function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('open'); }
 
@@ -750,6 +808,10 @@
                 </div>
             </div>
         `);
+        
+        // ▼ 追記: ピンをタップした瞬間に広告を切り替える ▼
+        m.on('popupopen', () => { setDynamicAd(spot.category); });
+
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
@@ -909,9 +971,6 @@
         showToast("ダウンロードが完了しました");
     }
 
-    // ==========================================
-    // ▼ AIパトロール機能 ＆ 演出ロジック ▼
-    // ==========================================
     let mediaStream = null;
     let detectionInterval = null;
 
@@ -925,19 +984,15 @@
             video.srcObject = mediaStream;
             showToast("AIパトロールを開始しました");
             
-            // ナンバー検知モザイク処理の演出ループ
             detectionInterval = setInterval(() => {
                 const box = document.getElementById('mockDetectionBox');
                 if(box) {
                     box.style.display = 'block';
-                    // 画面内のランダムな位置に出現
                     box.style.left = (15 + Math.random() * 50) + '%';
                     box.style.top = (25 + Math.random() * 40) + '%';
-                    
-                    // 0.8秒でスッと消える（検知とマスキングの完了演出）
                     setTimeout(() => { box.style.display = 'none'; }, 800);
                 }
-            }, 2500); // 2.5秒に1回演出が発動
+            }, 2500);
 
         } catch (err) {
             alert("カメラへのアクセスが許可されていません。");
@@ -958,9 +1013,7 @@
         showToast("AIパトロールを終了しました");
     }
 
-    // ==========================================
-    // ▼ 事故多発エリア表示機能 ▼
-    // ==========================================
+    // ▼ 事故多発エリアランダム表示機能 ▼
     let accidentCircles = [];
     let isAccidentDataVisible = false;
 
@@ -971,23 +1024,31 @@
             btn.style.background = "#ef4444";
             btn.style.color = "white";
             
-            const center = map.getCenter();
-            const dummyAccidents = [
-                [center.lat + 0.005, center.lng + 0.005],
-                [center.lat - 0.004, center.lng + 0.003],
-                [center.lat + 0.002, center.lng - 0.006]
-            ];
+            const bounds = map.getBounds();
+            const latMin = bounds.getSouth();
+            const latMax = bounds.getNorth();
+            const lngMin = bounds.getWest();
+            const lngMax = bounds.getEast();
+
+            const accidentCount = Math.floor(Math.random() * 4) + 3; 
             
-            dummyAccidents.forEach(pos => {
-                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 150 }).addTo(map);
+            for (let i = 0; i < accidentCount; i++) {
+                const randomLat = latMin + (Math.random() * (latMax - latMin));
+                const randomLng = lngMin + (Math.random() * (lngMax - lngMin));
+                const pos = [randomLat, randomLng];
+
+                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
+                
                 const warningIcon = L.divIcon({
                     className: 'custom-warning',
                     html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>',
                     iconSize: [60, 40], iconAnchor: [30, 20]
                 });
                 const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                
                 accidentCircles.push({ circle, marker });
-            });
+            }
+            
             showToast("警察庁の事故データを重ねて表示しました");
             
         } else {
