@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>みちまもMAP - みんなで作る安全マップ</title>
+    <!-- 既存のライブラリ（Leaflet地図 ＆ FontAwesomeアイコン） -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        /* 基本スタイル */
+        :root {
+            --primary: #3b82f6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --bg: #f3f4f6;
+            --text: #1f2937;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); overflow: hidden; }
+
+        /* ヘッダー */
+        header {
+            background: #fff; padding: 12px 16px; display: flex; justify-content: space-between;
+            align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000; position: relative;
+        }
+        header h1 { font-size: 1.2rem; color: var(--primary); font-weight: 900; }
+        .points { background: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+
+        /* マップとフィルター */
+        #map { height: calc(100vh - 120px); width: 100%; z-index: 1; }
+        .filters {
+            position: absolute; top: 70px; left: 10px; z-index: 1000; display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .filters label {
+            background: #fff; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px;
+        }
+
+        /* ボトムナビゲーション */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; background: #fff; display: flex;
+            justify-content: space-around; padding: 10px 0 20px; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 1000;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; color: #9ca3af;
+            font-size: 0.7rem; cursor: pointer; transition: 0.2s;
+        }
+        .nav-item.active { color: var(--primary); }
+        .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
+
+        /* 画面レイヤー（マイページ等） */
+        .sheet {
+            position: fixed; bottom: -100%; left: 0; right: 0; height: 85vh; background: #f9fafb;
+            border-radius: 20px 20px 0 0; z-index: 2000; transition: bottom 0.3s ease-in-out;
+            padding: 20px; overflow-y: auto; box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+        .sheet.open { bottom: 0; }
+        .sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .close-btn { background: #e5e7eb; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+
+        /* タブメニュー（マイページ用） */
+        .tabs { display: flex; margin-bottom: 16px; background: #e5e7eb; border-radius: 12px; padding: 4px; }
+        .tab { flex: 1; text-align: center; padding: 8px; font-size: 0.85rem; font-weight: bold; color: #6b7280; border-radius: 8px; cursor: pointer; }
+        .tab.active { background: #fff; color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* モーダル共通 */
+        .modal {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
+            z-index: 3000; display: none; justify-content: center; align-items: center;
+        }
+        .modal.open { display: flex; }
+        .modal-content { background: #fff; width: 90%; max-width: 400px; border-radius: 16px; padding: 20px; position: relative; }
+
+        /* トースト通知 */
+        #toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(31, 41, 55, 0.9); color: #fff; padding: 12px 24px; border-radius: 30px;
+            font-size: 0.9rem; font-weight: bold; z-index: 9999; display: none; opacity: 0; transition: opacity 0.3s;
+        }
+
+        /* ガチャアニメーション用 */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .gacha-shake { animation: shake 0.5s infinite; }
+        .gacha-pop { animation: pop 0.5s ease-out forwards; }
+        @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.5); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <h1>みちまもMAP</h1>
+        <div class="points"><i class="fa-solid fa-coins"></i> <span id="headerPt">0</span> pt</div>
+    </header>
+
+    <!-- フィルター -->
+    <div class="filters">
+        <label><input type="checkbox" id="filter-danger" checked> 🚨 危険箇所</label>
+        <label><input type="checkbox" id="filter-official" checked> 👮 公式防犯情報</label>
+    </div>
+
+    <!-- マップ表示領域 -->
+    <div id="map"></div>
+<!-- ボトムナビゲーション -->
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('map')">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>マップ</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('camera')">
+            <i class="fa-solid fa-camera"></i>
+            <span>AIパトロール</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('profile')">
+            <i class="fa-solid fa-user"></i>
+            <span>マイページ</span>
+        </div>
+    </div>
+
+    <!-- AIカメラ（パトロール）画面 -->
+    <div id="cameraView" class="sheet" style="background: #000; height: 100vh; top: 0; border-radius: 0; z-index: 2500; display: none;">
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 2501;">
+            <button onclick="closeCamera()" style="background: rgba(255,255,255,0.2); color: #fff; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <!-- カメラ映像のモック -->
+        <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <i class="fa-solid fa-expand" style="color: rgba(255,255,255,0.3); font-size: 8rem; margin-bottom: 20px;"></i>
+            <div style="color: #fff; text-align: center; font-weight: bold;">カメラ起動中...<br>
+                <span style="font-size: 0.8rem; color: #9ca3af; font-weight: normal;">(エッジAIによる自動モザイク処理待機中)</span>
+            </div>
+        </div>
+        
+        <!-- デモ版（開発中）のアラート -->
+        <div style="position: absolute; bottom: 80px; left: 0; right: 0; text-align: center; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+            こちらの機能は現在デモ版（開発中）です<br>
+            <span style="font-size:0.8rem; color:#93c5fd;">実際の投稿は、地図上を直接タップして行ってください</span>
+        </div>
+    </div>
+
+    <!-- ピン投稿モーダル -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <h3 style="font-size: 1.1rem;"><i class="fa-solid fa-thumbtack" style="color: var(--danger);"></i> 危険を報告する</h3>
+                <button class="close-btn" onclick="closeModal('postModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div style="margin-bottom: 15px; text-align: center;">
+                <label for="photoInput" style="display: block; background: #e5e7eb; padding: 30px 10px; border-radius: 12px; cursor: pointer; border: 2px dashed #9ca3af;">
+                    <i class="fa-solid fa-camera" style="font-size: 2rem; color: #6b7280; margin-bottom: 10px;"></i>
+                    <div style="font-weight: bold; font-size: 0.9rem;">いま現場で写真を撮影</div>
+                    <!-- セキュリティアピールとカメラ強制 -->
+                    <div style="font-size: 0.7rem; color: var(--danger); margin-top: 5px;">※不正防止のため、アルバムの画像は選べません</div>
+                    <div style="font-size: 0.65rem; color: var(--primary); margin-top: 3px;">※撮影データはAIで完全秘匿化されます（ゼロトラスト）</div>
+                </label>
+                <!-- capture="environment" でアルバムを禁止し、外側カメラを強制起動 -->
+                <input type="file" id="photoInput" accept="image/*" capture="environment" onchange="previewImage(event)" style="display:none;">
+                <img id="imagePreview" style="max-width: 100%; margin-top: 10px; border-radius: 8px; display: none;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px;">カテゴリを選択</label>
+                <select id="reportCategory" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 1rem;">
+                    <option value="駐車">違法駐車</option>
+                    <option value="停車">危険な一時停車</option>
+                    <option value="暴走">暴走・騒音車両</option>
+                    <option value="交差点">見通しの悪い交差点</option>
+                </select>
+            </div>
+
+            <button onclick="submitReport()" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);">
+                報告して 10 pt 獲得！
+            </button>
+        </div>
+    </div>
+<!-- マイページ（スライドアップシート） -->
+    <div id="profileSheet" class="sheet">
+        <div class="sheet-header">
+            <h2 style="font-size: 1.2rem; color: var(--primary);"><i class="fa-solid fa-user"></i> マイページ</h2>
+            <button class="close-btn" onclick="closeSheet('profileSheet')"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <!-- タブメニュー（3つ） -->
+        <div class="tabs">
+            <div class="tab active" id="tab-mydata" onclick="switchProfileTab('mydata')">設定・データ</div>
+            <div class="tab" id="tab-poikatsu" onclick="switchProfileTab('poikatsu')">🎁 ポイ活＆ガチャ</div>
+            <div class="tab" id="tab-ranking" onclick="switchProfileTab('ranking')">🏆 ランキング</div>
+        </div>
+
+        <!-- 【タブ1：設定・データ】 -->
+        <div id="content-mydata" class="tab-content active">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff" alt="User Avatar" style="width: 80px; height: 80px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 10px;">ゲストユーザー</h3>
+                <p style="font-size: 0.8rem; color: #6b7280; margin-top: 5px;">アカウント未登録（データは端末保存）</p>
+            </div>
+
+            <!-- アカウント登録（マジックリンクへの布石） -->
+            <button style="width:100%; padding: 12px; background: #fff; border: 1px solid var(--primary); color: var(--primary); border-radius: 8px; font-weight: bold; margin-bottom: 20px; cursor: pointer;" onclick="showToast('アカウント登録機能は次回アップデートで公開予定！')">
+                <i class="fa-regular fa-envelope"></i> メールアドレスでデータ保存
+            </button>
+
+            <!-- プライバシーと安全対策（自治体向けアピール） -->
+            <div style="background: #eef2ff; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="color: #4f46e5; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-shield-halved"></i> プライバシー保護について</h4>
+                <p style="font-size: 0.8rem; line-height: 1.5; color: #374151;">
+                    ・投稿写真はエッジAI（スマホ端末内）で処理され、サーバーに生画像は送信されません（ゼロトラスト）。<br>
+                    ・本アプリは各自治体の公式オープンデータを取得し、防犯情報をマップに反映しています。
+                </p>
+            </div>
+
+            <!-- スポンサー募集への導線 -->
+            <button onclick="openSponsorModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+                <span><i class="fa-solid fa-store" style="color:#f59e0b; margin-right:8px;"></i> 店舗・企業の皆様へ (スポンサー募集)</span>
+                <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
+            </button>
+        </div>
+
+        <!-- 【タブ2：ポイ活＆ガチャ】 -->
+        <div id="content-poikatsu" class="tab-content" style="display:none;">
+            <div style="background:linear-gradient(135deg, #fbbf24, #f59e0b); padding:20px; border-radius:16px; text-align:center; color:#fff; margin-bottom:20px; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);">
+                <div style="font-size:0.9rem; margin-bottom:5px; font-weight: bold;">現在の保有ポイント</div>
+                <div style="font-size:2.5rem; font-weight:900;"><span id="gachaPointDisplay">0</span> pt</div>
+                <div style="font-size:0.8rem; margin-top:5px; opacity:0.9; font-weight: bold;">換金まであと <span id="pointsToCash">300,000</span> pt (3,000円分〜)</div>
+            </div>
+
+            <!-- ガチャボタン -->
+            <button onclick="playGacha()" style="width:100%; padding:16px; background:#ef4444; color:#fff; font-size:1.2rem; font-weight:bold; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(239, 68, 68, 0.4); cursor:pointer; margin-bottom:30px;">
+                <i class="fa-solid fa-gem"></i> ガチャを回す（1回 100pt）
+            </button>
+
+            <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
+                💰 ポイントを一気に稼ごう！
+            </h3>
+            
+            <!-- アフィリエイト案件リスト -->
+            <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
+                <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <span style="background:#dbeafe; color:#1d4ed8; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">車・バイク</span>
+                        <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem;">自動車保険の無料一括見積もり</div>
+                    </div>
+                    <button style="background:#10b981; color:#fff; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; cursor:pointer; white-space: nowrap;" onclick="showToast('※事前のアカウント登録が必要です（近日公開）')">15,000 pt</button>
+                </div>
+                
+                <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <span style="background:#fce7f3; color:#be185d; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">生活・クレカ</span>
+                        <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem;">〇〇カードの新規無料発行</div>
+                    </div>
+                    <button style="background:#10b981; color:#fff; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; cursor:pointer; white-space: nowrap;" onclick="showToast('※事前のアカウント登録が必要です（近日公開）')">50,000 pt</button>
+                </div>
+            </div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-align: center;">※アフィリエイトでのポイント獲得には、近日公開予定のアカウント登録が必須となります。</div>
+        </div>
+
+        <!-- 【タブ3：ランキング】 -->
+        <div id="content-ranking" class="tab-content" style="display:none;">
+            <h3 style="margin-bottom: 15px; color: #4b5563; font-size: 1rem;"><i class="fa-solid fa-crown" style="color: #f59e0b;"></i> 今週の地域貢献ランキング</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <div><span style="color: #f59e0b; font-weight: bold; margin-right: 10px;">1位</span> ユーザーAさん</div>
+                    <div style="font-weight: bold; color: var(--primary);">240 pt</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <div><span style="color: #9ca3af; font-weight: bold; margin-right: 10px;">2位</span> ユーザーBさん</div>
+                    <div style="font-weight: bold; color: var(--primary);">180 pt</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <div><span style="color: #b45309; font-weight: bold; margin-right: 10px;">3位</span> ユーザーCさん</div>
+                    <div style="font-weight: bold; color: var(--primary);">120 pt</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- スポンサー募集モーダル -->
+    <div class="modal" id="sponsorModal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <div style="font-size:1.1rem; font-weight:900;"><i class="fa-solid fa-store" style="color:#f59e0b;"></i> 地域スポンサー募集</div>
+                <button class="close-btn" onclick="closeModal('sponsorModal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
+                みちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
+            </div>
+            <div style="background:#fef3c7; border:1px solid #fcd34d; padding:12px; border-radius:8px; margin-bottom:20px;">
+                <strong style="color:#b45309; font-size:0.9rem;">✨ 月額 3,000円 で専用ピンを表示！</strong><br>
+                <span style="font-size:0.8rem; color:#92400e; display: inline-block; margin-top: 5px;">お店の場所やPR情報を、地域を歩くユーザーに直接アピールできます。地域貢献企業としてのブランディングにも最適です。</span>
+            </div>
+            <button style="width: 100%; padding: 12px; background: #f59e0b; color: #fff; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;" onclick="showToast('現在準備中です。近日中にお申し込み受付を開始します！'); closeModal('sponsorModal');">
+                詳細・お申し込みはこちら
+            </button>
+        </div>
+    </div>
+
+    <!-- ガチャ演出用フルスクリーンモーダル -->
+    <div id="gachaModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; flex-direction:column; justify-content:center; align-items:center;">
+        <div id="gachaAnimation" style="font-size:6rem; margin-bottom:20px; animation: none;">🎁</div>
+        <div id="gachaResultText" style="color:#fff; font-size:2.5rem; font-weight:900; text-align:center; display:none; text-shadow: 0 0 15px rgba(255,215,0,0.8);"></div>
+        <div id="gachaSubText" style="color:#fbbf24; font-size:1.2rem; font-weight:bold; margin-top:10px; display:none;"></div>
+        <button id="gachaCloseBtn" style="display:none; margin-top:40px; padding:15px 40px; background:#fff; color:#000; border-radius:30px; font-weight:bold; font-size: 1.1rem; cursor:pointer; border:none; box-shadow: 0 4px 10px rgba(255,255,255,0.3);" onclick="closeGacha()">閉じる</button>
+    </div>
+
+    <!-- トースト通知 -->
+    <div id="toast">ポイントを獲得しました！</div>
+<script>
+        // ==========================================
+        // 1. データ管理・初期化（LocalStorage）
+        // ==========================================
+        let points = parseInt(localStorage.getItem('michimamo_pt')) || 0;
+        
+        // 1日の上限管理（投稿5回、いいね5回、シェア2回/6h）
+        let actionLimits = JSON.parse(localStorage.getItem('michimamo_limits')) || {
+            postDate: '', postCount: 0,
+            likeDate: '', likeCount: 0,
+            shareTime: 0, shareCount: 0, shareDate: ''
+        };
+
+        // 今日の日付を取得
+        const getToday = () => new Date().toISOString().split('T')[0];
+
+        // 制限のリセットチェック
+        function checkLimitsReset() {
+            const today = getToday();
+            if (actionLimits.postDate !== today) { actionLimits.postDate = today; actionLimits.postCount = 0; }
+            if (actionLimits.likeDate !== today) { actionLimits.likeDate = today; actionLimits.likeCount = 0; }
+            if (actionLimits.shareDate !== today) { actionLimits.shareDate = today; actionLimits.shareCount = 0; }
+            saveLimits();
+        }
+        function saveLimits() {
+            localStorage.setItem('michimamo_limits', JSON.stringify(actionLimits));
+        }
+
+        // 初期表示の更新
+        function updatePointsDisplay() {
+            document.getElementById('headerPt').textContent = points;
+            const gachaDisplay = document.getElementById('gachaPointDisplay');
+            if(gachaDisplay) gachaDisplay.textContent = points;
+            
+            const toCash = 300000 - points;
+            const cashDisplay = document.getElementById('pointsToCash');
+            if(cashDisplay) cashDisplay.textContent = toCash > 0 ? toCash.toLocaleString() : "0";
+            
+            localStorage.setItem('michimamo_pt', points);
+        }
+
+        // ==========================================
+        // 2. UI制御（タブ・モーダル・トースト）
+        // ==========================================
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.opacity = '1'; }, 10);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => { toast.style.display = 'none'; }, 300);
+            }, 3000);
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // パトロール画面（デモ版）の表示
+            if (tabId === 'camera') {
+                document.getElementById('cameraView').style.display = 'block';
+                setTimeout(() => { document.getElementById('cameraView').classList.add('open'); }, 10);
+            } else {
+                closeCamera();
+            }
+
+            // マイページの表示
+            if (tabId === 'profile') {
+                updatePointsDisplay(); // マイページを開く時にポイント更新
+                document.getElementById('profileSheet').classList.add('open');
+            } else {
+                closeSheet('profileSheet');
+            }
+        }
+
+        function closeCamera() {
+            const cam = document.getElementById('cameraView');
+            cam.classList.remove('open');
+            setTimeout(() => { cam.style.display = 'none'; }, 300);
+            // マップタブをアクティブに戻す
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelector('.nav-item[onclick="switchTab(\'map\')"]').classList.add('active');
+        }
+
+        function closeSheet(id) {
+            document.getElementById(id).classList.remove('open');
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelector('.nav-item[onclick="switchTab(\'map\')"]').classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+
+        function openSponsorModal() {
+            document.getElementById('sponsorModal').classList.add('open');
+        }
+
+        function switchProfileTab(tabName) {
+            document.querySelectorAll('.tabs .tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.getElementById('content-' + tabName).classList.add('active');
+        }
+
+        // ==========================================
+        // 3. マップ初期化とアイコン設定
+        // ==========================================
+        const map = L.map('map', { zoomControl: false }).setView([35.681236, 139.767125], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // アイコン定義
+        const createIcon = (color, faClass) => {
+            return L.divIcon({
+                className: 'custom-div-icon',
+                html: `<div style="background-color:${color}; width:30px; height:30px; border-radius:50%; display:flex; justify-content:center; align-items:center; border:2px solid white; box-shadow:0 2px 5px rgba(0,0,0,0.3); color:white; font-size:14px;"><i class="${faClass}"></i></div>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+        };
+        const icons = {
+            '駐車': createIcon('#ef4444', 'fa-solid fa-car'),
+            '停車': createIcon('#3b82f6', 'fa-solid fa-car-side'),
+            '暴走': createIcon('#f59e0b', 'fa-solid fa-motorcycle'),
+            '交差点': createIcon('#8b5cf6', 'fa-solid fa-triangle-exclamation'),
+            '公式': createIcon('#10b981', 'fa-solid fa-shield-halved') // 警察・自治体用
+        };
+
+        // 公式情報（防犯・不審者）のモックデータをランダム表示
+        function generateOfficialPins() {
+            const center = map.getCenter();
+            for(let i=0; i<3; i++) {
+                const lat = center.lat + (Math.random() - 0.5) * 0.01;
+                const lng = center.lng + (Math.random() - 0.5) * 0.01;
+                L.marker([lat, lng], {icon: icons['公式']}).addTo(map)
+                 .bindPopup('<b style="color:#10b981;">🚨 警察情報（声かけ事案）</b><br>〇〇町〇丁目付近で事案発生。<br><span style="font-size:0.7rem; color:#6b7280;">出典: 自治体オープンデータ</span>');
+            }
+        }
+        
+        // 初回実行
+        checkLimitsReset();
+        updatePointsDisplay();
+        generateOfficialPins();
+// ==========================================
+        // 4. 投稿機能（上限管理・プレビュー）
+        // ==========================================
+        let tempLatLng = null;
+
+        // マップをタップした時の処理
+        map.on('click', function(e) {
+            tempLatLng = e.latlng;
+            document.getElementById('postModal').classList.add('open');
+            // 画像プレビューをリセット
+            document.getElementById('imagePreview').style.display = 'none';
+            document.getElementById('imagePreview').src = '';
+            document.getElementById('photoInput').value = '';
+        });
+
+        // 撮影した写真のプレビュー表示
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('imagePreview');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            };
+            if(event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        // 報告の送信（ポイント付与と上限判定）
+        function submitReport() {
+            checkLimitsReset();
+            
+            // 1日の上限チェック（5回）
+            if (actionLimits.postCount >= 5) {
+                showToast('【上限到達】本日の安全ポイント（投稿）は5回までです。明日またお願いします！');
+                closeModal('postModal');
+                return;
+            }
+
+            const category = document.getElementById('reportCategory').value;
+            const photo = document.getElementById('photoInput').files[0];
+
+            if (!photo) {
+                showToast('現場の写真を撮影してください。');
+                return;
+            }
+
+            // ピンをマップに追加
+            L.marker([tempLatLng.lat, tempLatLng.lng], {icon: icons[category]}).addTo(map)
+             .bindPopup(`<b>${category}</b><br>ユーザー報告`);
+             
+            // ポイント付与と回数カウント更新
+            points += 10;
+            actionLimits.postCount++;
+            saveLimits();
+            updatePointsDisplay();
+
+            showToast(`報告ありがとうございます！10 pt獲得しました（本日 ${actionLimits.postCount}/5 回）`);
+            closeModal('postModal');
+        }
+
+        // ==========================================
+        // 5. ガチャシステム（確率制御・アニメーション）
+        // ==========================================
+        function playGacha() {
+            if (points < 100) {
+                showToast('ポイントが足りません。100ptから回せます！');
+                return;
+            }
+
+            // ポイント消費
+            points -= 100;
+            updatePointsDisplay();
+
+            // モーダル表示＆アニメーション開始（揺れる）
+            const modal = document.getElementById('gachaModal');
+            const anim = document.getElementById('gachaAnimation');
+            const resultText = document.getElementById('gachaResultText');
+            const subText = document.getElementById('gachaSubText');
+            const closeBtn = document.getElementById('gachaCloseBtn');
+            
+            modal.style.display = 'flex';
+            anim.className = 'gacha-shake'; 
+            anim.textContent = '🎁';
+            resultText.style.display = 'none';
+            subText.style.display = 'none';
+            closeBtn.style.display = 'none';
+
+            // ▼ ガチャの確率抽選処理 ▼
+            const rand = Math.random() * 100; // 0.0 〜 100.0 の乱数
+            let prizeStr = "";
+            let prizePt = 0;
+            
+            // 1等: 0.0001% (10万pt)
+            if (rand <= 0.0001) {
+                prizeStr = "✨ 1等 ✨";
+                prizePt = 100000;
+            } 
+            // 2等: 0.01% (1万pt) ※累積確率
+            else if (rand <= 0.0101) { 
+                prizeStr = "🌟 2等 🌟";
+                prizePt = 10000;
+            } 
+            // 3等: 10% (50pt)
+            else if (rand <= 10.0101) { 
+                prizeStr = "🎉 3等 🎉";
+                prizePt = 50;
+            } 
+            // 4等: 89.9899% (1pt)
+            else {
+                prizeStr = "4等";
+                prizePt = 1;
+            }
+
+            // 当選ポイントの付与
+            points += prizePt;
+
+            // 演出（2秒後にパカッと割れて結果表示）
+            setTimeout(() => {
+                anim.className = 'gacha-pop'; 
+                anim.textContent = prizeStr === "4等" ? '💊' : '💎'; // ハズレ枠とアタリ枠でアイコンを変える
+                
+                resultText.textContent = `${prizePt.toLocaleString()} pt`;
+                resultText.style.display = 'block';
+                
+                subText.textContent = `${prizeStr} おめでとうございます！`;
+                subText.style.display = 'block';
+                
+                closeBtn.style.display = 'block';
+                updatePointsDisplay();
+            }, 2000);
+        }
+
+        function closeGacha() {
+            document.getElementById('gachaModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
