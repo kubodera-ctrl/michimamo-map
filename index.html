@@ -43,63 +43,11 @@
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
         .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
 
-        .filter-wrapper {
-            position: absolute;
-            top: 60px; left: 10px; right: 10px;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-toggle-btn {
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: 1px solid #17212b;
-            background: #17212b;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-
-        .filter-content {
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            white-space: nowrap;
-            max-width: 0;
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-            pointer-events: none;
-        }
-
-        .filter-wrapper.open .filter-content {
-            max-width: 80vw;
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .filter-chip { 
-            padding: 8px 12px; 
-            border-radius: 20px; 
-            border: 1px solid #e5e7eb; 
-            background: rgba(255,255,255,0.95); 
-            font-size: 0.78rem; 
-            font-weight:bold; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            gap: 4px; 
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
-            flex-shrink: 0;
-        }
+        .filter-wrapper { position: absolute; top: 60px; left: 10px; right: 10px; z-index: 999; display: flex; align-items: center; gap: 6px; }
+        .filter-toggle-btn { padding: 8px 14px; border-radius: 20px; border: 1px solid #17212b; background: #17212b; color: white; font-size: 0.8rem; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); white-space: nowrap; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .filter-content { display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; max-width: 0; opacity: 0; transition: all 0.3s ease-in-out; pointer-events: none; }
+        .filter-wrapper.open .filter-content { max-width: 80vw; opacity: 1; pointer-events: auto; }
+        .filter-chip { padding: 8px 12px; border-radius: 20px; border: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); font-size: 0.78rem; font-weight:bold; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
         .filter-chip.active { background: #374151; color: white; border-color: #374151; }
         .filter-chip.illegal.active { background: #ef4444; color: white; border-color: #ef4444; }
         .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
@@ -109,6 +57,21 @@
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
         .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+        /* ▼ AIパトロール・事故データボタン用 CSS ▼ */
+        #aiPatrolBtn { position: absolute; top: 110px; right: 10px; z-index: 1000; background: #17212b; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1.2rem; }
+        #aiPatrolBtn::after { content: "AI"; position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; font-size: 0.6rem; font-weight: 900; padding: 2px 4px; border-radius: 8px; border: 2px solid #fff; }
+        .camera-view { display: none; position: absolute; inset: 0; z-index: 2000; background: #000; flex-direction: column; overflow: hidden; }
+        .camera-view.active { display: flex; }
+        #videoElement { width: 100%; height: 100%; object-fit: cover; }
+        .camera-overlay { position: absolute; inset: 0; pointer-events: none; border: 4px solid rgba(31, 111, 235, 0.5); }
+        .scan-line { width: 100%; height: 4px; background: rgba(31, 111, 235, 0.8); position: absolute; box-shadow: 0 0 15px rgba(31, 111, 235, 1); animation: scan 3s linear infinite; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .camera-ui-top { position: absolute; top: calc(20px + env(safe-area-inset-top)); left: 20px; right: 20px; display: flex; justify-content: space-between; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8); pointer-events: auto; }
+        .btn-close-cam { background: rgba(0,0,0,0.5); border: 2px solid white; color: white; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(4px); }
+        .ai-status { background: rgba(31, 111, 235, 0.8); padding: 8px 16px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(4px); }
+        .mock-detection-box { display: none; position: absolute; border: 3px solid #facc15; width: 120px; height: 60px; background: rgba(250, 204, 21, 0.2); pointer-events: none; transition: top 0.2s, left 0.2s; }
+        .mock-detection-box::after { content: "[検知] ナンバーマスキング中..."; position: absolute; top: -25px; left: -3px; background: #facc15; color: black; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; white-space: nowrap; }
 
         .page { padding: 24px 18px 90px; max-width: 700px; margin: auto; }
         .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin-bottom: 20px; }
@@ -134,7 +97,6 @@
         
         .alert-toast { position: fixed; top: 130px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
         .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); pointer-events: auto; }
-        
         .toast { position: fixed; bottom: 140px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .toast.show { opacity: 1; }
 
@@ -167,33 +129,9 @@
         .tab-btn.active { background: #fff; color: #17212b; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-
-        /* ▼ 新機能：ジャンル別スワイプカテゴリタブ ▼ */
-        .category-tab-bar {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-            -webkit-overflow-scrolling: touch;
-        }
-        .cat-sub-btn {
-            padding: 6px 12px;
-            border-radius: 16px;
-            border: 1px solid #d9dee4;
-            background: #f3f4f6;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #4b5563;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .cat-sub-btn.active {
-            background: #17212b;
-            color: white;
-            border-color: #17212b;
-        }
+        .category-tab-bar { display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; padding-bottom: 8px; margin-bottom: 12px; -webkit-overflow-scrolling: touch; }
+        .cat-sub-btn { padding: 6px 12px; border-radius: 16px; border: 1px solid #d9dee4; background: #f3f4f6; font-size: 0.8rem; font-weight: bold; color: #4b5563; cursor: pointer; flex-shrink: 0; }
+        .cat-sub-btn.active { background: #17212b; color: white; border-color: #17212b; }
 
         .profile-edit { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
         .avatar-circle { width: 60px; height: 60px; border-radius: 50%; background: #eef1f4; display: grid; place-items: center; font-size: 2rem; cursor: pointer; border: 2px solid #d9dee4; }
@@ -244,8 +182,34 @@
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
                 </div>
 
+                <!-- ▼ 追加: 事故多発エリア切替ボタン ▼ -->
+                <div class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
+                </div>
+
+                <!-- ▼ 追加: AIパトロール起動ボタン ▼ -->
+                <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
+
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
+
+                <!-- ▼ 追加: AIカメラ画面オーバーレイ ▼ -->
+                <div id="cameraView" class="camera-view">
+                    <video id="videoElement" autoplay playsinline></video>
+                    <div class="camera-overlay"><div class="scan-line"></div></div>
+                    
+                    <!-- モックアップ用検知枠 -->
+                    <div id="mockDetectionBox" class="mock-detection-box"></div>
+
+                    <div class="camera-ui-top">
+                        <div class="ai-status"><i class="fa-solid fa-circle-notch fa-spin"></i> 路上駐車を自動スキャン中...</div>
+                        <button class="btn-close-cam" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div style="position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                        スマホをダッシュボードに設置してください<br>
+                        <span style="font-size:0.75rem; color:#93c5fd;">※プライバシー保護のため、スマホ内でモザイク処理を行ってから送信されます</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -281,7 +245,6 @@
 
         <section id="aboutView" class="view">
             <div class="page">
-                <!-- ▼ onclick="adminTap()" を追加（5回タップで隠しコマンド解放） ▼ -->
                 <h1 onclick="adminTap()" style="cursor:pointer; user-select:none;">👤 マイページ</h1>
                 <div class="tab-menu">
                     <button class="tab-btn active" onclick="switchTab('profileTab', this)">マイデータ＆設定</button>
@@ -303,6 +266,13 @@
                             <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
                         </div>
                     </div>
+                    
+                    <!-- ▼ 追加: プライバシーと安全対策ページへの導線 ▼ -->
+                    <button onclick="openPrivacyModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+                        <span><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:8px;"></i> プライバシーと安全対策</span>
+                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
+                    </button>
+
                     <div class="card">
                         <h2 style="font-size:1.1rem; color:#17212b; margin-bottom:12px;"><i class="fa-solid fa-map-pin"></i> ピンの色と意味</h2>
                         <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
@@ -310,12 +280,8 @@
                         <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div></div>
                         <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div></div>
                     </div>
-                    <div class="card">
-                        <h2 style="font-size:1.1rem; color:#ef4444; margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i> 投稿時の重要なお願い</h2>
-                        <p class="muted" style="margin-bottom:0;">個人を制裁するためのツールではありません。ナンバーや顔が特定できる写真、誹謗中傷はAIや通報により自動削除されます。</p>
-                    </div>
 
-                    <!-- ▼ 管理者専用の隠しCSVダウンロードボタン（初期状態は非表示） ▼ -->
+                    <!-- 管理者専用の隠しCSVダウンロードボタン -->
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
                         <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
                         <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
@@ -338,14 +304,12 @@
                     <div class="card">
                         <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 報告数ワースト10</h2>
                         <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
-                        
                         <div class="category-tab-bar">
                             <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('danger', this)">🔵 危険停車</button>
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('patrol', this)">🟢 巡回情報</button>
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
                         </div>
-
                         <div id="areaRankingArea">
                             <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
@@ -367,6 +331,7 @@
     </nav>
 </div>
 
+<!-- 各種モーダル -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
 
@@ -427,6 +392,25 @@
     </div>
 </div>
 
+<!-- ▼ 追加: プライバシーポリシー・安全対策モーダル ▼ -->
+<div class="modal" id="privacyModal">
+    <div class="sheet" style="padding-top: 30px;">
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> プライバシーと安全対策</div>
+            <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
+            みちまもMAPは、皆さまに安心してご利用いただけるよう、以下のコンプライアンス・プライバシー保護対策を徹底しています。
+        </div>
+        <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:20px;">
+            <li style="margin-bottom:12px;"><strong>エッジAIによるナンバー・顔の秘匿化</strong><br><span style="color:#6b7280; font-size:0.8rem;">AIパトロール機能で撮影された映像は、サーバーへ送信される前にスマートフォン端末内でAIが解析し、ナンバープレート等へ自動でモザイク処理を行います。元画像は一切保存・送信されません。</span></li>
+            <li style="margin-bottom:12px;"><strong>不適切コンテンツのAI自動検閲</strong><br><span style="color:#6b7280; font-size:0.8rem;">投稿されるテキストはAIにより瞬時に判定され、誹謗中傷や個人を特定する情報はブロックされます。</span></li>
+            <li style="margin-bottom:12px;"><strong>スパム報告の自動非表示システム</strong><br><span style="color:#6b7280; font-size:0.8rem;">他のユーザーから通報が一定数（3件）集まったピンは自動的にマップから非表示となり、悪意のある投稿や虚偽の情報を防ぎます。</span></li>
+        </ul>
+        <button class="primary" style="background:#e5e7eb; color:#374151;" onclick="closePrivacyModal()">閉じる</button>
+    </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     const adList = [
@@ -457,7 +441,7 @@
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
-    let currentCategoryRank = 'illegal'; // 現在選択中のジャンル
+    let currentCategoryRank = 'illegal'; 
 
     const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
@@ -517,9 +501,7 @@
         myPoint += pt; 
         localStorage.setItem('michimamo_pt', myPoint); 
         if(msg) showToast(`${msg}！ (+${pt}pt)`); 
-        
         if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
-        
         updateMyPage(); 
     }
 
@@ -551,7 +533,6 @@
         if (tabId === 'rankingTab') loadRanking();
     }
 
-    // ▼ 切り替えタブ用関数 ▼
     function switchCategoryRanking(cat, btn) {
         document.querySelectorAll('.cat-sub-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -560,9 +541,7 @@
     }
 
     async function loadRanking() {
-        // トップ10まで取得
         const { data: profiles } = await db.from('profiles').select('*').order('point', { ascending: false }).limit(50);
-        
         let allUsers = [
             { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 1250 },
             { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 980 },
@@ -575,17 +554,10 @@
             { id: 'dummy9', name: '通りすがり', avatar: '🏃', point: 25 },
             { id: 'dummy10', name: '安全歩行者', avatar: '🚶', point: 10 }
         ];
-        
-        if (profiles) {
-            profiles.forEach(p => {
-                allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point });
-            });
-        }
+        if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
         
         const uniqueUsers = []; const map = new Map();
-        for (const item of allUsers) {
-            if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); }
-        }
+        for (const item of allUsers) { if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); } }
         uniqueUsers.sort((a, b) => b.point - a.point);
         
         const rankingArea = document.getElementById('nationalRankingArea');
@@ -594,81 +566,41 @@
         
         uniqueUsers.forEach((u, idx) => {
             if (u.id === myUserId) myRankPos = `${idx + 1}位`;
-            if (idx >= 10) return; // ★ トップ10まで表示
-            
+            if (idx >= 10) return;
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
             else if (idx === 1) medal = '<i class="fa-solid fa-medal medal-2"></i> 2位';
             else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
             else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
             
-            const isMe = (u.id === myUserId);
-            const bg = isMe ? 'background:#eff6ff;' : '';
-            
-            rankingArea.innerHTML += `
-                <div class="ranking-row" style="${bg}">
-                    <div style="font-weight:bold; display:flex; align-items:center; gap:8px;">
-                        ${medal} <span>${u.avatar} ${u.name}</span>
-                    </div>
-                    <div style="font-weight:bold; color:#1f6feb;">${u.point} pt</div>
-                </div>
-            `;
+            const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal} <span>${u.avatar} ${u.name}</span></div><div style="font-weight:bold; color:#1f6feb;">${u.point} pt</div></div>`;
         });
-        
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
         loadAreaRanking();
     }
 
-    // ▼ エリア別（カテゴリ別）ワースト10集計処理 ▼
     async function loadAreaRanking() {
         const { data: spotsData } = await db.from('spots').select('address').eq('category', currentCategoryRank);
         let areaCount = {};
         
-        // カテゴリごとのダミーワーストデータ（過疎対策）
-        if (currentCategoryRank === 'illegal') {
-            areaCount['東京都 新宿区'] = 142; areaCount['大阪府 中央区'] = 98; areaCount['愛知県 名古屋市'] = 76;
-            areaCount['福岡県 博多区'] = 62; areaCount['神奈川県 横浜市'] = 55; areaCount['北海道 札幌市'] = 48;
-            areaCount['埼玉県 さいたま市'] = 39; areaCount['千葉県 千葉市'] = 31; areaCount['兵庫県 神戸市'] = 27; areaCount['京都府 京都市'] = 22;
-        } else if (currentCategoryRank === 'danger') {
-            areaCount['東京都 渋谷区'] = 110; areaCount['大阪府 北区'] = 85; areaCount['神奈川県 川崎市'] = 60;
-            areaCount['東京都 港区'] = 54; areaCount['愛知県 一宮市'] = 41; areaCount['福岡県 天神'] = 38;
-        } else if (currentCategoryRank === 'patrol') {
-            areaCount['東京都 千代田区'] = 88; areaCount['大阪府 浪速区'] = 70; areaCount['埼玉県 川口市'] = 52;
-            areaCount['千葉県 船橋市'] = 43; areaCount['神奈川県 相模原市'] = 35;
-        } else if (currentCategoryRank === 'abandoned') {
-            areaCount['東京都 足立区'] = 65; areaCount['大阪府 西成区'] = 58; areaCount['埼玉県 八潮市'] = 42;
-            areaCount['千葉県 市川市'] = 36; areaCount['神奈川県 大和市'] = 29;
-        }
+        if (currentCategoryRank === 'illegal') { areaCount['東京都 新宿区'] = 142; areaCount['大阪府 中央区'] = 98; areaCount['愛知県 名古屋市'] = 76; areaCount['福岡県 博多区'] = 62; areaCount['神奈川県 横浜市'] = 55; areaCount['北海道 札幌市'] = 48; areaCount['埼玉県 さいたま市'] = 39; areaCount['千葉県 千葉市'] = 31; areaCount['兵庫県 神戸市'] = 27; areaCount['京都府 京都市'] = 22; }
+        else if (currentCategoryRank === 'danger') { areaCount['東京都 渋谷区'] = 110; areaCount['大阪府 北区'] = 85; areaCount['神奈川県 川崎市'] = 60; areaCount['東京都 港区'] = 54; areaCount['愛知県 一宮市'] = 41; areaCount['福岡県 天神'] = 38; }
+        else if (currentCategoryRank === 'patrol') { areaCount['東京都 千代田区'] = 88; areaCount['大阪府 浪速区'] = 70; areaCount['埼玉県 川口市'] = 52; areaCount['千葉県 船橋市'] = 43; areaCount['神奈川県 相模原市'] = 35; }
+        else if (currentCategoryRank === 'abandoned') { areaCount['東京都 足立区'] = 65; areaCount['大阪府 西成区'] = 58; areaCount['埼玉県 八潮市'] = 42; areaCount['千葉県 市川市'] = 36; areaCount['神奈川県 大和市'] = 29; }
 
-        if (spotsData) {
-            spotsData.forEach(s => {
-                if(s.address && s.address !== '不明なエリア') {
-                    areaCount[s.address] = (areaCount[s.address] || 0) + 1; 
-                }
-            });
-        }
+        if (spotsData) spotsData.forEach(s => { if(s.address && s.address !== '不明なエリア') areaCount[s.address] = (areaCount[s.address] || 0) + 1; });
         
         let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
         areaArea.innerHTML = '';
         
-        if (sortedAreas.length === 0) {
-            areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>';
-            return;
-        }
+        if (sortedAreas.length === 0) { areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>'; return; }
 
-        sortedAreas.slice(0, 10).forEach((a, idx) => { // ★ ワースト10まで表示
+        sortedAreas.slice(0, 10).forEach((a, idx) => {
             let rankColor = "#6b7280";
-            if (idx === 0) rankColor = "#ef4444";
-            else if (idx === 1) rankColor = "#f97316";
-            else if (idx === 2) rankColor = "#eab308";
-
-            areaArea.innerHTML += `
-                <div class="ranking-row">
-                    <div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div>
-                    <div style="font-weight:bold;">${a.count}件</div>
-                </div>
-            `;
+            if (idx === 0) rankColor = "#ef4444"; else if (idx === 1) rankColor = "#f97316"; else if (idx === 2) rankColor = "#eab308";
+            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
         });
     }
 
@@ -680,8 +612,7 @@
         if (platform === 'x') { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(appUrl)}`, '_blank'); } 
         else if (platform === 'line') { window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text + "\n" + appUrl)}`, '_blank'); } 
         else if (platform === 'insta') {
-            const copyText = text + "\n" + appUrl;
-            navigator.clipboard.writeText(copyText).then(() => { alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸"); window.location.href = "instagram://camera"; }).catch(err => { alert("コピーに失敗しました。"); });
+            navigator.clipboard.writeText(text + "\n" + appUrl).then(() => { alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸"); window.location.href = "instagram://camera"; }).catch(err => { alert("コピーに失敗しました。"); });
         }
     }
 
@@ -692,28 +623,19 @@
     let activeMarkers = [], heatCircles = [];
     let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
 
-    // ==========================================
-    // ▼ 修正点: 初期表示時に loadSpots() を追加 ▼
-    // ==========================================
     window.onload = function() {
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
         syncProfile(); 
         updateMyPage();
         setRandomAd();
-        
-        // アプリを開いた瞬間に全てのピンを読み込む
         loadSpots(); 
         
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
               if (payload.eventType === 'DELETE') { removeMarkerFromMap(payload.old.id); } 
-              else if (payload.eventType === 'UPDATE') {
-                  if (payload.new.report_count >= 3) { removeMarkerFromMap(payload.new.id); } 
-                  else { setTimeout(loadSpots, 1000); }
-              } 
+              else if (payload.eventType === 'UPDATE') { if (payload.new.report_count >= 3) { removeMarkerFromMap(payload.new.id); } else { setTimeout(loadSpots, 1000); } } 
               else if (payload.eventType === 'INSERT') { setTimeout(loadSpots, 1000); }
-          })
-          .subscribe();
+          }).subscribe();
     };
 
     function removeMarkerFromMap(id) {
@@ -728,6 +650,10 @@
     function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
     function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
     function closeParkingModal() { document.getElementById('parkingModal').classList.remove('open'); }
+    
+    // プライバシーモーダル
+    function openPrivacyModal() { document.getElementById('privacyModal').classList.add('open'); }
+    function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('open'); }
 
     async function searchLocation() {
         const query = document.getElementById('searchInput').value;
@@ -736,8 +662,7 @@
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
             const data = await res.json();
-            if (data && data.length > 0) { map.flyTo([data[0].lat, data[0].lon], 16); showToast("移動しました"); } 
-            else showToast("見つかりませんでした");
+            if (data && data.length > 0) { map.flyTo([data[0].lat, data[0].lon], 16); showToast("移動しました"); } else showToast("見つかりませんでした");
         } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
@@ -769,24 +694,16 @@
     function goToCurrentLocation() { if (userLat && userLng) map.setView([userLat, userLng], 15); else showToast('位置情報が取得できません'); }
 
     async function loadSpots() {
-        activeMarkers.forEach(m => {
-            if(m.instance) map.removeLayer(m.instance);
-            if(m.circle) map.removeLayer(m.circle);
-        });
-        heatCircles.forEach(c => {
-            try { if(c) map.removeLayer(c); } catch(e){}
-        });
+        activeMarkers.forEach(m => { if(m.instance) map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
+        heatCircles.forEach(c => { try { if(c) map.removeLayer(c); } catch(e){} });
         activeMarkers = []; heatCircles = [];
         
         const { data, error } = await db.from('spots').select('*');
         if (!error) {
             const now = Date.now();
             data.forEach(s => {
-                if (s.category === 'patrol') {
-                    if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; }
-                }
-                const reportCount = s.report_count || 0;
-                if (reportCount >= 3) return;
+                if (s.category === 'patrol') { if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; } }
+                if ((s.report_count || 0) >= 3) return;
 
                 let hcColor = '#ef4444', hcFill = '#f87171';
                 if (s.category === 'danger') { hcColor = '#2563eb'; hcFill = '#60a5fa'; }
@@ -794,8 +711,7 @@
                 if (s.category === 'abandoned') { hcColor = '#9333ea'; hcFill = '#c084fc'; }
 
                 const hc = L.circle([s.lat, s.lng], { color:hcColor, fillColor:hcFill, fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
-                heatCircles.push(hc); 
-                createSpotPin(s, hc);
+                heatCircles.push(hc); createSpotPin(s, hc);
             });
         }
     }
@@ -807,18 +723,11 @@
         if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
         if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
         
-        const pin = L.divIcon({
-            className: 'custom-pin',
-            html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`,
-            iconSize: [32, 32], iconAnchor: [16, 30]
-        });
+        const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
         const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
-        const likeCount = spot.like_count || 0;
-        const reportCount = spot.report_count || 0;
-        
-        const safeTitle = (spot.title || "").replace(/'/g, "\\'");
-        const safeAddress = (spot.address || "").replace(/'/g, "\\'");
+        const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
+        const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
         m.bindPopup(`
@@ -827,19 +736,11 @@
                 <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                 ${imgTag}
-                
                 <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;">
-                        <i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})
-                    </button>
-                    <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;">
-                        <i class="fa-solid fa-flag"></i> 通報
-                    </button>
-                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}')" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;">
-                        <i class="fa-solid fa-share-nodes"></i> 共有
-                    </button>
+                    <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
+                    <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 通報</button>
+                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}')" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
                 </div>
-
                 <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
                     <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                     <div style="display:flex; gap:8px;">
@@ -852,38 +753,27 @@
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
-    async function likeSpot(id, currentLike) {
-        addPoint(1, "お礼を伝えました"); 
-        await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id);
-    }
-
+    async function likeSpot(id, currentLike) { addPoint(1, "お礼を伝えました"); await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id); }
     async function reportSpot(id, currentReport) {
         if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから一時的に非表示になります)")) return;
         let newReportCount = currentReport + 1;
         await db.from('spots').update({ report_count: newReportCount }).eq('id', id);
-        if (newReportCount >= 3) { showToast("通報が3件に達したため、マップから非表示にしました"); } 
-        else { showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`); }
+        if (newReportCount >= 3) showToast("通報が3件に達したため、マップから非表示にしました"); else showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
     }
 
     map.on('click', (e) => { window.postLat = e.latlng.lat; window.postLng = e.latlng.lng; document.getElementById('postModal').classList.add('open'); });
 
     let uploadedImageFile = null;
-
     function toggleImageUpload() {
         const cat = document.getElementById('postCategory').value; const area = document.getElementById('imageUploadArea');
-        if(cat === 'abandoned') { area.style.display = 'block'; } 
-        else { area.style.display = 'none'; uploadedImageFile = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
+        if(cat === 'abandoned') { area.style.display = 'block'; } else { area.style.display = 'none'; uploadedImageFile = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
     }
 
     document.getElementById('postImageInput').addEventListener('change', function(e) {
-        const file = e.target.files[0]; 
-        if(!file) return;
+        const file = e.target.files[0]; if(!file) return;
         uploadedImageFile = file; 
         const reader = new FileReader();
-        reader.onload = function(event) {
-            document.getElementById('imagePreview').src = event.target.result; 
-            document.getElementById('imagePreview').style.display = 'block';
-        }
+        reader.onload = function(event) { document.getElementById('imagePreview').src = event.target.result; document.getElementById('imagePreview').style.display = 'block'; }
         reader.readAsDataURL(file);
     });
 
@@ -902,12 +792,9 @@
 
     async function handlePostSubmit(e) {
         e.preventDefault();
-        const title = document.getElementById('postTitle').value; 
-        const comment = document.getElementById('postComment').value;
-        const cat = document.getElementById('postCategory').value;
+        const title = document.getElementById('postTitle').value; const comment = document.getElementById('postComment').value; const cat = document.getElementById('postCategory').value;
         
-        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>';
-        document.getElementById('aiLoading').style.display = 'flex';
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>'; document.getElementById('aiLoading').style.display = 'flex';
         
         const aiResult = await checkWithAI(title, comment);
         if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【AI検閲エラー】\n${aiResult.reason}`); return; }
@@ -934,37 +821,19 @@
             finalImageUrl = publicUrlData.publicUrl;
         }
 
-        const { data, error } = await db.from('spots').insert([{ 
-            lat: window.postLat, lng: window.postLng, 
-            category: cat, title: title, comment: comment, confirm_count: 0, 
-            like_count: 0, report_count: 0,
-            image_url: finalImageUrl,
-            address: spotAddress
-        }]).select(); 
+        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress }]).select(); 
         
-        if (!error && data && data.length > 0) { 
-            addPoint(10, "安全情報を共有しました"); 
-            closePostModal(); 
-        } else {
-            document.getElementById('aiLoading').style.display = 'none'; 
-            alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした"));
-            showToast("投稿に失敗しました");
-        }
+        if (!error && data && data.length > 0) { addPoint(10, "安全情報を共有しました"); closePostModal(); } 
+        else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); showToast("投稿に失敗しました"); }
     }
 
     async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
     async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
 
     function filterMarkers(cat, btn) {
-        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); 
-        btn.classList.add('active');
-        activeMarkers.forEach(m => { 
-            if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); } 
-            else { map.removeLayer(m.instance); map.removeLayer(m.circle); } 
-        });
-        
-        document.getElementById('filterWrapper').classList.remove('open');
-        document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
+        activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); map.addLayer(m.circle); } else { map.removeLayer(m.instance); map.removeLayer(m.circle); } });
+        document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
 
     let notifiedSpots = new Set();
@@ -999,59 +868,30 @@
 
     function shareSpot(title, address, category) {
         let catStr = "";
-        if (category === 'illegal') catStr = "🔴違法駐車";
-        if (category === 'danger') catStr = "🔵危険停車";
-        if (category === 'patrol') catStr = "🟢巡回情報";
-        if (category === 'abandoned') catStr = "🟣不法放置";
-
+        if (category === 'illegal') catStr = "🔴違法駐車"; else if (category === 'danger') catStr = "🔵危険停車"; else if (category === 'patrol') catStr = "🟢巡回情報"; else if (category === 'abandoned') catStr = "🟣不法放置";
         const text = `📍 ${address} で「${catStr}: ${title}」の報告があります！\n地域の安全のために確認しよう🚗\n#みちまもMAP #交通安全`;
         const url = "https://michimamo-map.vercel.app";
-
-        if (navigator.share) {
-            navigator.share({
-                title: 'みちまもMAP - 安全情報',
-                text: text,
-                url: url
-            }).catch(console.error);
-        } else {
-            navigator.clipboard.writeText(text + "\n" + url);
-            showToast("シェア用の文章をコピーしました！");
-        }
+        if (navigator.share) { navigator.share({ title: 'みちまもMAP - 安全情報', text: text, url: url }).catch(console.error); } 
+        else { navigator.clipboard.writeText(text + "\n" + url); showToast("シェア用の文章をコピーしました！"); }
     }
 
-    let adminTapCount = 0;
-    let adminTapTimer = null;
-
+    let adminTapCount = 0; let adminTapTimer = null;
     function adminTap() {
         adminTapCount++;
-        
         clearTimeout(adminTapTimer);
-        adminTapTimer = setTimeout(() => { 
-            adminTapCount = 0; 
-        }, 2000);
-
+        adminTapTimer = setTimeout(() => { adminTapCount = 0; }, 2000);
         if (adminTapCount >= 5) {
             const csvCard = document.getElementById('adminCsvCard');
-            if (csvCard.style.display === 'none') {
-                csvCard.style.display = 'block';
-                showToast("🔓 管理者モードが解放されました");
-            } else {
-                csvCard.style.display = 'none';
-                showToast("🔒 管理者モードを終了しました");
-            }
-            adminTapCount = 0; // リセット
+            if (csvCard.style.display === 'none') { csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました"); } 
+            else { csvCard.style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
+            adminTapCount = 0;
         }
     }
 
     async function downloadCSV() {
         showToast("データを準備中...");
-        
         const { data, error } = await db.from('spots').select('*').order('created_at', { ascending: false });
-        
-        if (error || !data) { 
-            showToast("データ取得に失敗しました"); 
-            return; 
-        }
+        if (error || !data) { showToast("データ取得に失敗しました"); return; }
         
         let csvContent = "投稿日時,ジャンル,場所,タイトル,詳細コメント\n";
         const catMap = { 'illegal': '違法駐車', 'danger': '危険停車', 'patrol': '巡回', 'abandoned': '不法放置' };
@@ -1059,25 +899,103 @@
         data.forEach(row => {
             const date = new Date(row.created_at).toLocaleString('ja-JP');
             const cat = catMap[row.category] || row.category;
-            
-            const address = (row.address || "不明").replace(/,/g, " ");
-            const title = (row.title || "").replace(/,/g, " ");
-            const comment = (row.comment || "").replace(/,/g, " ").replace(/\n/g, " ");
-            
+            const address = (row.address || "不明").replace(/,/g, " "), title = (row.title || "").replace(/,/g, " "), comment = (row.comment || "").replace(/,/g, " ").replace(/\n/g, " ");
             csvContent += `${date},${cat},${address},${title},${comment}\n`;
         });
         
         const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement("a");
-        const url = URL.createObjectURL(blob);
-        
-        link.setAttribute("href", url);
-        link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
+        const link = document.createElement("a"); link.setAttribute("href", URL.createObjectURL(blob)); link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        document.body.appendChild(link); link.click(); document.body.removeChild(link);
         showToast("ダウンロードが完了しました");
+    }
+
+    // ==========================================
+    // ▼ AIパトロール機能 ＆ 演出ロジック ▼
+    // ==========================================
+    let mediaStream = null;
+    let detectionInterval = null;
+
+    async function startAIPatrol() {
+        const camView = document.getElementById('cameraView');
+        const video = document.getElementById('videoElement');
+        camView.classList.add('active');
+        
+        try {
+            mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+            video.srcObject = mediaStream;
+            showToast("AIパトロールを開始しました");
+            
+            // ナンバー検知モザイク処理の演出ループ
+            detectionInterval = setInterval(() => {
+                const box = document.getElementById('mockDetectionBox');
+                if(box) {
+                    box.style.display = 'block';
+                    // 画面内のランダムな位置に出現
+                    box.style.left = (15 + Math.random() * 50) + '%';
+                    box.style.top = (25 + Math.random() * 40) + '%';
+                    
+                    // 0.8秒でスッと消える（検知とマスキングの完了演出）
+                    setTimeout(() => { box.style.display = 'none'; }, 800);
+                }
+            }, 2500); // 2.5秒に1回演出が発動
+
+        } catch (err) {
+            alert("カメラへのアクセスが許可されていません。");
+            stopAIPatrol();
+        }
+    }
+
+    function stopAIPatrol() {
+        const camView = document.getElementById('cameraView');
+        camView.classList.remove('active');
+        if (mediaStream) {
+            mediaStream.getTracks().forEach(track => track.stop());
+            mediaStream = null;
+        }
+        if (detectionInterval) {
+            clearInterval(detectionInterval);
+        }
+        showToast("AIパトロールを終了しました");
+    }
+
+    // ==========================================
+    // ▼ 事故多発エリア表示機能 ▼
+    // ==========================================
+    let accidentCircles = [];
+    let isAccidentDataVisible = false;
+
+    function toggleAccidentData(btn) {
+        isAccidentDataVisible = !isAccidentDataVisible;
+        
+        if (isAccidentDataVisible) {
+            btn.style.background = "#ef4444";
+            btn.style.color = "white";
+            
+            const center = map.getCenter();
+            const dummyAccidents = [
+                [center.lat + 0.005, center.lng + 0.005],
+                [center.lat - 0.004, center.lng + 0.003],
+                [center.lat + 0.002, center.lng - 0.006]
+            ];
+            
+            dummyAccidents.forEach(pos => {
+                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 150 }).addTo(map);
+                const warningIcon = L.divIcon({
+                    className: 'custom-warning',
+                    html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>',
+                    iconSize: [60, 40], iconAnchor: [30, 20]
+                });
+                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                accidentCircles.push({ circle, marker });
+            });
+            showToast("警察庁の事故データを重ねて表示しました");
+            
+        } else {
+            btn.style.background = "rgba(255,255,255,0.9)";
+            btn.style.color = "#ef4444";
+            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
+            accidentCircles = [];
+        }
     }
 
 </script>
