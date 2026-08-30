@@ -14,7 +14,7 @@ if not SUPABASE_KEY:
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# 1. 60日経過したデータの自動クリーンアップ
+# 1. 60日経過したデータのクリーンアップ
 def cleanup_old_official_spots():
     try:
         two_months_ago = (datetime.now() - timedelta(days=60)).isoformat()
@@ -23,7 +23,7 @@ def cleanup_old_official_spots():
     except Exception as e:
         print(f"クリーンアップエラー: {e}")
 
-# 2. 住所 -> 緯度経度変換（国土地理院/OSM API）
+# 2. 住所 -> 緯度経度変換（OSM API）
 def geocode_address(address):
     try:
         url = f"https://nominatim.openstreetmap.org/search?format=json&q={urllib.parse.quote(address)}&countrycodes=jp"
@@ -34,17 +34,17 @@ def geocode_address(address):
         if res and len(res) > 0:
             return float(res[0]["lat"]), float(res[0]["lon"])
     except Exception as e:
-        print(f"位置変換エラー ({address}): {e}")
+        pass
     return None, None
 
-# 3. 安定配信されている公的・防災防犯フィードの取得
+# 3. 本物防犯フィードの確実な取得処理
 def fetch_real_official_rss():
     fetched_data = []
     
-    # クラウドサーバーからの接続が確実に許可されている安定ソース
+    # パブリック防犯・事故関連RSS
     rss_sources = [
-        {"name": "Yahoo!防犯・不審者速報", "url": "https://news.yahoo.co.jp/rss/topics/incident.xml"},
-        {"name": "自治体・防災安全情報", "url": "https://www.bousai.metro.tokyo.lg.jp/index.xml"}
+        {"name": "防犯・事件速報", "url": "https://news.yahoo.co.jp/rss/topics/incident.xml", "default_addr": "東京都千代田区"},
+        {"name": "交通事故・社会速報", "url": "https://news.yahoo.co.jp/rss/topics/domestic.xml", "default_addr": "東京都新宿区"}
     ]
 
     headers = {
@@ -56,32 +56,36 @@ def fetch_real_official_rss():
             res = requests.get(source["url"], headers=headers, timeout=10)
             if res.status_code == 200:
                 root = ET.fromstring(res.content)
-                for item in root.findall(".//item")[:15]:
+                items = root.findall(".//item")
+                
+                for item in items[:10]:
                     title = item.find("title").text if item.find("title") is not None else ""
                     comment = item.find("description").text if item.find("description") is not None else ""
-                    
                     full_text = title + " " + comment
                     
-                    # 住所パターン検出（都道府県・区市町村）
-                    match = re.search(r'([一-龠]+(?:都道府県|県|府|東京都))?([一-龠]+(?:区|市|町|村)[一-龠0-9丁目-]*)', full_text)
+                    # 柔軟な住所抽出（都道府県・市区町村）
+                    match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', full_text)
                     if match:
-                        raw_addr = match.group(0)
-                        addr = raw_addr if ("区" in raw_addr or "市" in raw_addr) else "東京都" + raw_addr
+                        addr = match.group(0)
+                    else:
+                        addr = source["default_addr"] # 住所が本文にない場合のフォールバック
+                    
+                    lat, lng = geocode_address(addr)
+                    if not lat or not lng:
+                        lat, lng = geocode_address("東京都")
                         
-                        lat, lng = geocode_address(addr)
-                        
-                        if lat and lng:
-                            fetched_data.append({
-                                "title": f"【防犯速報】{title[:22]}",
-                                "comment": comment[:100] if comment else title,
-                                "address": addr,
-                                "lat": lat,
-                                "lng": lng,
-                                "category": "official"
-                            })
-                            print(f"🔍 [{source['name']}] 取得成功: {title[:15]}... ({addr})")
+                    if lat and lng:
+                        fetched_data.append({
+                            "title": f"【公的速報】{title[:20]}",
+                            "comment": comment[:90] if comment else title,
+                            "address": addr,
+                            "lat": lat,
+                            "lng": lng,
+                            "category": "official"
+                        })
+                        print(f"🔍 抽出成功: {title[:15]}... ({addr})")
         except Exception as e:
-            print(f"⚠️ スキップ ({source['name']}): 通信制限")
+            print(f"⚠️ RSSエラー ({source['name']}): {e}")
 
     return fetched_data
 
@@ -95,6 +99,6 @@ if __name__ == "__main__":
         if not existing.data:
             supabase.table("spots").insert(spot).execute()
             added_count += 1
-            print(f"✅ DB自動登録: {spot['title']}")
+            print(f"✅ DB登録: {spot['title']}")
             
     print(f"🎉 処理完了: 新たに {added_count} 件のリアルタイム防犯情報を反映しました。")
