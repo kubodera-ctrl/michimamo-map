@@ -3,7 +3,6 @@ import re
 import html
 import urllib.parse
 import requests
-import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from supabase import create_client, Client
 
@@ -29,7 +28,7 @@ def geocode_address(address):
     try:
         url = f"https://nominatim.openstreetmap.org/search?format=json&q={urllib.parse.quote(address)}&countrycodes=jp"
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
         }
         res = requests.get(url, headers=headers, timeout=10).json()
         if res and len(res) > 0:
@@ -38,14 +37,7 @@ def geocode_address(address):
         pass
     return None, None
 
-# 3. XML構文エラー（undefined entity）の自動クリーニング処理
-def clean_xml_content(raw_xml):
-    # 実体参照エラーの原因となる記号を除去
-    cleaned = html.unescape(raw_xml)
-    cleaned = re.sub(r'&(?!(amp|lt|gt|quot|apos);)', '&amp;', cleaned)
-    return cleaned
-
-# 4. 全国の不審者・防犯情報の自動取得
+# 3. 崩れたXML/HTMLタグに強い正規表現パーサーで全国データを抽出
 def fetch_real_official_rss():
     fetched_data = []
     
@@ -54,24 +46,33 @@ def fetch_real_official_rss():
     ]
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
 
     for source in rss_sources:
         try:
             res = requests.get(source["url"], headers=headers, timeout=12)
             if res.status_code == 200:
-                # 特殊文字による構文エラーを防止
-                cleaned_text = clean_xml_content(res.text)
-                root = ET.fromstring(cleaned_text)
-                items = root.findall(".//item")
+                content = res.text
                 
-                for item in items[:50]:
-                    title = item.find("title").text if item.find("title") is not None else ""
-                    comment = item.find("description").text if item.find("description") is not None else ""
+                # <item>...</item> タグの中身を正規表現で全件スキャン（タグ構文エラー無視）
+                items = re.findall(r'<item>(.*?)</item>', content, re.DOTALL)
+                
+                for item_str in items[:50]:
+                    # タイトルと説明文を抽出
+                    title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
+                    desc_match = re.search(r'<description>(.*?)</description>', item_str, re.DOTALL)
+                    
+                    title = html.unescape(title_match.group(1)).strip() if title_match else ""
+                    comment = html.unescape(desc_match.group(1)).strip() if desc_match else ""
+                    
+                    # HTMLタグ（<br>, <p>等）を文字からきれいに除去
+                    title = re.sub(r'<[^>]+>', '', title)
+                    comment = re.sub(r'<[^>]+>', '', comment)
+                    
                     full_text = title + " " + comment
                     
-                    # 住所パターン検出
+                    # 日本の住所パターン（〇〇県〇〇市/区）を判定
                     match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村)[一-龠0-9丁目-]*)', full_text)
                     if match:
                         raw_addr = match.group(0)
