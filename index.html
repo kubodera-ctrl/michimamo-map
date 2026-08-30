@@ -1255,29 +1255,57 @@ function shareSpot(title, address, category, event) {
         showToast("AIパトロールを終了しました");
     }
 
-    let accidentCircles = [];
+    let accidentMarkers = []; // 事故多発専用のマーカー配列
     let isAccidentDataVisible = false;
-    function toggleAccidentData(btn) {
+
+    async function toggleAccidentData(btn) {
         isAccidentDataVisible = !isAccidentDataVisible;
+        
+        // 1. 画面上に残っている事故多発マーカー・円をすべて一旦削除（リセット）
+        accidentMarkers.forEach(item => map.removeLayer(item));
+        accidentMarkers = [];
+
         if (isAccidentDataVisible) {
-            btn.style.background = "#ef4444"; btn.style.color = "white";
-            const bounds = map.getBounds(); const latMin = bounds.getSouth(); const latMax = bounds.getNorth(); const lngMin = bounds.getWest(); const lngMax = bounds.getEast();
-            const accidentCount = Math.floor(Math.random() * 4) + 3; 
-            for (let i = 0; i < accidentCount; i++) {
-                const pos = [latMin + (Math.random() * (latMax - latMin)), lngMin + (Math.random() * (lngMax - lngMin))];
-                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
-                const warningIcon = L.divIcon({ className: 'custom-warning', html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>', iconSize: [60, 40], iconAnchor: [30, 20] });
-                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
-                accidentCircles.push({ circle, marker });
+            btn.style.background = "#ef4444"; 
+            btn.style.color = "white";
+            showToast("公的機関の事故多発データを読み込み中...");
+            
+            // 2. DBから最新の事故多発データ(category: 'accident')を直接取得
+            const { data, error } = await db.from('spots').select('*').eq('category', 'accident');
+            
+            if (data && data.length > 0) {
+                data.forEach(spot => {
+                    const pos = [spot.lat, spot.lng];
+                    
+                    // 赤い警戒円
+                    const circle = L.circle(pos, { 
+                        color: '#ef4444', 
+                        fillColor: '#f87171', 
+                        fillOpacity: 0.4, 
+                        radius: 100 
+                    }).addTo(map);
+                    
+                    // ⚠️ アイコン
+                    const warningIcon = L.divIcon({ 
+                        className: 'custom-warning', 
+                        html: `<div style="font-size:18px; color:#ef4444; filter:drop-shadow(0 0 4px rgba(0,0,0,0.5)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:#ef4444; padding:2px 6px; border-radius:4px; white-space:nowrap;">${spot.title.replace('⚠️【事故多発】', '')}</span></div>`, 
+                        iconSize: [120, 40], 
+                        iconAnchor: [60, 20] 
+                    });
+                    const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                    
+                    // 削除用に管理配列へ保存
+                    accidentMarkers.push(circle, marker);
+                });
+                showToast(`事故多発交差点（${data.length}箇所）を表示しました`);
+            } else {
+                showToast("該当エリアの事故データは登録されていません");
             }
-            showToast("警察庁の事故データを重ねて表示しました");
         } else {
-            btn.style.background = "rgba(255,255,255,0.9)"; btn.style.color = "#ef4444";
-            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
-            accidentCircles = [];
+            btn.style.background = "rgba(255,255,255,0.9)"; 
+            btn.style.color = "#ef4444";
         }
     }
-
     // ==========================================
     // 11. 啓発テスト（クイズ機能）
     // ==========================================
