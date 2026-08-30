@@ -1028,36 +1028,47 @@ function shareSpot(title, address, category, event) {
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
-        m.bindPopup(`
-            <div style="min-width:210px;">
-                <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
-                <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
-                <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
-                ${imgTag}
-                <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.user_id || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
-                    <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
+        let popupContent = "";
+        
+        if (spot.category === 'official') {
+            // 🚨 警察・自治体の公式情報用（スッキリ表示）
+            popupContent = `
+                <div style="min-width:220px;">
+                    <div style="font-size:0.75rem; color:#059669; font-weight:bold;">🛡️ 公的機関・警察情報</div>
+                    <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
+                    <div style="font-size:0.85rem; color:#374151; margin-bottom:12px; line-height:1.4;">${spot.comment}</div>
+                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> SNSで注意喚起・共有</button>
                 </div>
-                <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 緊急通報(110)</a>
-                    <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 警察相談(#9110)</a>
-                </div>
-                <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> SNS共有</button>
-                </div>
-                <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 警察へ通報(110)</a>
-                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> SNS共有</button>
-                </div>
-                <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
-                    <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
-                    <div style="display:flex; gap:8px;">
-                        <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
-                        <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除</button>
+            `;
+        } else {
+            // 👤 一般ユーザーの投稿用
+            popupContent = `
+                <div style="min-width:210px;">
+                    <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
+                    <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
+                    <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
+                    ${imgTag}
+                    <div style="display:flex; gap:6px; margin-bottom:10px;">
+                        <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.user_id || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
+                        <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
+                    </div>
+                    <div style="display:flex; gap:6px; margin-bottom:10px;">
+                        <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
+                        <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
+                        <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
+                    </div>
+                    <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
+                        <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
+                        <div style="display:flex; gap:8px;">
+                            <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
+                            <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `);
+            `;
+        }
+
+        m.bindPopup(popupContent);
         m.on('popupopen', () => { setDynamicAd(spot.category); });
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
