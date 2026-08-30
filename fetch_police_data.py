@@ -14,7 +14,7 @@ if not SUPABASE_KEY:
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# 1. 60日経過したデータのクリーンアップ
+# 1. 60日経過したデータの自動クリーンアップ
 def cleanup_old_official_spots():
     try:
         two_months_ago = (datetime.now() - timedelta(days=60)).isoformat()
@@ -37,13 +37,15 @@ def geocode_address(address):
         print(f"位置変換エラー ({address}): {e}")
     return None, None
 
-# 3. 警視庁・自治体防犯ポータルのリアルタイムRSS自動巡回
+# 3. 公的防犯RSSソースの並列自動巡回
 def fetch_real_official_rss():
     fetched_data = []
     
-    # 巡回先RSSリスト（正しい公的ドメイン）
+    # 冗長化した公的防犯RSSリスト
     rss_sources = [
-        {"name": "東京都防犯ポータル", "url": "https://www.anzen.metro.tokyo.jp/rss/index.xml"}
+        {"name": "東京都防犯ポータル1", "url": "https://www.anzen.metro.tokyo.lg.jp/rss/index.xml"},
+        {"name": "東京都防犯ポータル2", "url": "https://www.anzen.metro.tokyo.jp/rss/index.xml"},
+        {"name": "警視庁地域防犯情報", "url": "https://www.keishicho.metro.tokyo.lg.jp/rss/bouhan.xml"}
     ]
 
     headers = {
@@ -52,7 +54,7 @@ def fetch_real_official_rss():
 
     for source in rss_sources:
         try:
-            res = requests.get(source["url"], headers=headers, timeout=10)
+            res = requests.get(source["url"], headers=headers, timeout=8)
             if res.status_code == 200:
                 root = ET.fromstring(res.content)
                 for item in root.findall(".//item")[:15]:
@@ -61,8 +63,8 @@ def fetch_real_official_rss():
                     
                     full_text = title + " " + comment
                     
-                    # 本文・タイトルから正規表現で日本の住所（市区町村・町名）を検出
-                    match = re.search(r'(東京都)?([一-龠]+区[一-龠]+[0-9丁目-]*)', full_text)
+                    # 日本の住所パターン検出（東京都＋各区市町村）
+                    match = re.search(r'(東京都)?([一-龠]+(?:区|市|町|村)[一-龠0-9丁目-]*)', full_text)
                     if match:
                         raw_addr = match.group(0)
                         addr = raw_addr if raw_addr.startswith("東京都") else "東京都" + raw_addr
@@ -78,9 +80,9 @@ def fetch_real_official_rss():
                                 "lng": lng,
                                 "category": "official"
                             })
-                            print(f"🔍 リアルタイムデータ検出: {title[:15]}... ({addr})")
+                            print(f"🔍 [{source['name']}] リアルタイムデータ検出: {title[:15]}... ({addr})")
         except Exception as e:
-            print(f"RSS取得失敗 ({source['name']}): {e}")
+            print(f"⚠️ スキップ ({source['name']}): 通信失敗")
 
     return fetched_data
 
