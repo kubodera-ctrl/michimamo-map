@@ -484,17 +484,17 @@
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
            <label>種類</label>
-            <select id="postCategory" required onchange="toggleImageUpload()">
+           <select id="postCategory" required onchange="toggleImageUpload()">
                 <option value="illegal">🔴 違法駐車</option>
                 <option value="danger">🔵 危険な路上停車</option>
-                <option value="patrol">🟢 巡回・取り締まり情報</option>
                 <option value="reckless">🟡 暴走・騒音車両</option>
                 <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
             </select>
             <label>タイトル</label><input type="text" id="postTitle" required maxlength="30">
             <label>状況コメント</label><textarea id="postComment" rows="3" maxlength="100"></textarea>
             
-            <label style="display:flex; align-items:center; gap:8px; margin-top:14px; padding:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; cursor:pointer; color:#1e3a8a;">
+            <label id="reportCheckArea" style="display:flex; align-items:center; gap:8px; margin-top:14px; padding:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; cursor:pointer; color:#1e3a8a;">
                 <input type="checkbox" id="postIsReported" style="width:20px; height:20px;">
                 <span style="font-weight:bold;">🚓 通報済み</span>
             </label>
@@ -1005,7 +1005,7 @@
                 <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                 ${imgTag}
                 <div style="display:flex; gap:6px; margin-bottom:10px;">
-                    <button onclick="likeSpot(${spot.id}, ${likeCount})" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
+                    <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.user_id || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
                     <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 通報</button>
                     <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}')" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
                 </div>
@@ -1028,12 +1028,26 @@
         document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
 
-    async function likeSpot(id, currentLike) { addPoint(1, "お礼を伝えました"); await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id); }
+    async function likeSpot(id, currentLike, spotUserId) { 
+        // 自分の投稿かどうかを判定（投稿者のIDと自分のIDを比較）
+        if (spotUserId && spotUserId === myUserId) {
+            showToast("自分の投稿には「助かった！」を押せません");
+            return;
+        }
+        addPoint(1, "お礼を伝えました"); 
+        await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id); 
+    }
     async function reportSpot(id, currentReport) {
         if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから非表示になります)")) return;
         let newReportCount = currentReport + 1;
         await db.from('spots').update({ report_count: newReportCount }).eq('id', id);
-        if (newReportCount >= 3) showToast("通報が3件に達したため非表示にしました"); else showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
+        
+        if (newReportCount >= 3) {
+            removeMarkerFromMap(id);
+            showToast("通報が3件に達したため非表示にしました");
+        } else { 
+            showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
+        }
     }
     async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
     async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
@@ -1052,8 +1066,24 @@
     });
 
     function toggleImageUpload() {
-        const cat = document.getElementById('postCategory').value; const area = document.getElementById('imageUploadArea');
-        if(cat === 'abandoned') { area.style.display = 'block'; } else { area.style.display = 'none'; uploadedImageFile = null; document.getElementById('imagePreview').style.display='none'; document.getElementById('postImageInput').value=''; }
+        const cat = document.getElementById('postCategory').value; 
+        const area = document.getElementById('imageUploadArea');
+        const reportArea = document.getElementById('reportCheckArea');
+        
+        if(cat === 'abandoned') { 
+            area.style.display = 'block'; 
+        } else { 
+            area.style.display = 'none'; 
+            uploadedImageFile = null; 
+            if(document.getElementById('imagePreview')) document.getElementById('imagePreview').style.display='none'; 
+        }
+        
+        if(cat === 'patrol') { 
+            reportArea.style.display = 'none'; 
+            document.getElementById('postIsReported').checked = false;
+        } else { 
+            reportArea.style.display = 'flex'; 
+        }
     }
 
     document.getElementById('postImageInput').addEventListener('change', function(e) {
