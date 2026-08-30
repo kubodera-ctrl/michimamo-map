@@ -54,6 +54,7 @@
         .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
         .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
         .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
+　　　　.filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
         .filter-chip.official.active { background: #059669; color: white; border-color: #059669; } /* 公式防犯用 */
         .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
 
@@ -200,6 +201,7 @@
                         <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
                         <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
                         <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+　　　　　　　　　　　　<button class="filter-chip reckless" onclick="filterMarkers('reckless', this)"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
                         <!-- ▼ 追加: 公式防犯情報フィルター ▼ -->
                         <button class="filter-chip official" onclick="filterMarkers('official', this)"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
                     </div>
@@ -481,15 +483,21 @@
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
-            <label>種類</label>
+           <label>種類</label>
             <select id="postCategory" required onchange="toggleImageUpload()">
                 <option value="illegal">🔴 違法駐車</option>
                 <option value="danger">🔵 危険な路上停車</option>
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
                 <option value="abandoned">🟣 不法放置 (写真必須)</option>
             </select>
             <label>タイトル</label><input type="text" id="postTitle" required maxlength="30">
             <label>状況コメント</label><textarea id="postComment" rows="3" maxlength="100"></textarea>
+            
+            <label style="display:flex; align-items:center; gap:8px; margin-top:14px; padding:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; cursor:pointer; color:#1e3a8a;">
+                <input type="checkbox" id="postIsReported" style="width:20px; height:20px;">
+                <span style="font-weight:bold;">🚓 通報済み</span>
+            </label>
             
             <div id="imageUploadArea" style="display:none; margin-top:14px; background:#f3f4f6; padding:12px; border-radius:12px;">
                 <label style="margin-top:0; color:#ef4444;"><i class="fa-solid fa-camera"></i> 現地の写真 (その場で撮影)</label>
@@ -720,7 +728,7 @@
     }
     function saveProfile() {
         let inputName = document.getElementById('myNameInput').value.trim();
-        const ngWords = ["ちんちん", "うんこ", "バカ", "アホ", "死ね", "クソ", "殺す", "うざい", "カス", "マンコ"];
+        const ngWords = ["ちんちん", "うんこ", "バカ", "アホ", "死ね", "クソ", "殺す", "うざい", "カス", "マンコ", "ドパガキ"];
         let isNG = false;
         for (let word of ngWords) { if (inputName.includes(word)) { isNG = true; break; } }
         if (isNG) { alert("不適切な単語が含まれているため、そのニックネームは使用できません。"); document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName; return; }
@@ -981,6 +989,7 @@
         if (spot.category === 'danger') { color = '#2563eb'; iconC = 'fa-triangle-exclamation'; }
         if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
         if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
+        if (spot.category === 'reckless') { color = '#f59e0b'; iconC = 'fa-motorcycle'; }
         
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
@@ -1079,7 +1088,14 @@
             return;
         }
 
-        const title = document.getElementById('postTitle').value; const comment = document.getElementById('postComment').value; const cat = document.getElementById('postCategory').value;
+        let title = document.getElementById('postTitle').value; 
+        const comment = document.getElementById('postComment').value; 
+        const cat = document.getElementById('postCategory').value;
+        const isReported = document.getElementById('postIsReported').checked;
+
+        if (isReported) {
+            title = "【通報済】" + title;
+        }
         
         if (cat === 'abandoned' && !uploadedImageFile) { alert('不法放置の報告には現地の写真（その場での撮影）が必要です。'); return; }
 
