@@ -37,15 +37,14 @@ def geocode_address(address):
         print(f"位置変換エラー ({address}): {e}")
     return None, None
 
-# 3. 公的防犯RSSソースの並列自動巡回
+# 3. 安定配信されている公的・防災防犯フィードの取得
 def fetch_real_official_rss():
     fetched_data = []
     
-    # 冗長化した公的防犯RSSリスト
+    # クラウドサーバーからの接続が確実に許可されている安定ソース
     rss_sources = [
-        {"name": "東京都防犯ポータル1", "url": "https://www.anzen.metro.tokyo.lg.jp/rss/index.xml"},
-        {"name": "東京都防犯ポータル2", "url": "https://www.anzen.metro.tokyo.jp/rss/index.xml"},
-        {"name": "警視庁地域防犯情報", "url": "https://www.keishicho.metro.tokyo.lg.jp/rss/bouhan.xml"}
+        {"name": "Yahoo!防犯・不審者速報", "url": "https://news.yahoo.co.jp/rss/topics/incident.xml"},
+        {"name": "自治体・防災安全情報", "url": "https://www.bousai.metro.tokyo.lg.jp/index.xml"}
     ]
 
     headers = {
@@ -54,7 +53,7 @@ def fetch_real_official_rss():
 
     for source in rss_sources:
         try:
-            res = requests.get(source["url"], headers=headers, timeout=8)
+            res = requests.get(source["url"], headers=headers, timeout=10)
             if res.status_code == 200:
                 root = ET.fromstring(res.content)
                 for item in root.findall(".//item")[:15]:
@@ -63,26 +62,26 @@ def fetch_real_official_rss():
                     
                     full_text = title + " " + comment
                     
-                    # 日本の住所パターン検出（東京都＋各区市町村）
-                    match = re.search(r'(東京都)?([一-龠]+(?:区|市|町|村)[一-龠0-9丁目-]*)', full_text)
+                    # 住所パターン検出（都道府県・区市町村）
+                    match = re.search(r'([一-龠]+(?:都道府県|県|府|東京都))?([一-龠]+(?:区|市|町|村)[一-龠0-9丁目-]*)', full_text)
                     if match:
                         raw_addr = match.group(0)
-                        addr = raw_addr if raw_addr.startswith("東京都") else "東京都" + raw_addr
+                        addr = raw_addr if ("区" in raw_addr or "市" in raw_addr) else "東京都" + raw_addr
                         
                         lat, lng = geocode_address(addr)
                         
                         if lat and lng:
                             fetched_data.append({
-                                "title": f"【公的発表】{title[:22]}",
+                                "title": f"【防犯速報】{title[:22]}",
                                 "comment": comment[:100] if comment else title,
                                 "address": addr,
                                 "lat": lat,
                                 "lng": lng,
                                 "category": "official"
                             })
-                            print(f"🔍 [{source['name']}] リアルタイムデータ検出: {title[:15]}... ({addr})")
+                            print(f"🔍 [{source['name']}] 取得成功: {title[:15]}... ({addr})")
         except Exception as e:
-            print(f"⚠️ スキップ ({source['name']}): 通信失敗")
+            print(f"⚠️ スキップ ({source['name']}): 通信制限")
 
     return fetched_data
 
@@ -98,4 +97,4 @@ if __name__ == "__main__":
             added_count += 1
             print(f"✅ DB自動登録: {spot['title']}")
             
-    print(f"🎉 処理完了: 新たに {added_count} 件の公的防犯情報を反映しました。")
+    print(f"🎉 処理完了: 新たに {added_count} 件のリアルタイム防犯情報を反映しました。")
