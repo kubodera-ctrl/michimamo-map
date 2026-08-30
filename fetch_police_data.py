@@ -14,12 +14,15 @@ if not SUPABASE_KEY:
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# 1. 2ヶ月以上前の古いデータを削除
+# 1. 古いデータおよび誤った事故交差点データのクリーンアップ
 def cleanup_old_official_spots():
     try:
         two_months_ago = (datetime.now() - timedelta(days=60)).isoformat()
+        # 60日経過データの削除
         supabase.table("spots").delete().in_("category", ["official", "accident"]).lt("created_at", two_months_ago).execute()
-        print("🧹 古い公的データを削除しました。")
+        # タイポで入ってしまった誤データを削除
+        supabase.table("spots").delete().eq("title", "⚠️【事故多発】甲府駅前交差点").execute()
+        print("🧹 データのクリーンアップを行いました。")
     except Exception as e:
         print(f"削除エラー: {e}")
 
@@ -70,7 +73,7 @@ def fetch_real_police_data():
         {"name": "池袋六ツ又交差点", "addr": "東京都豊島区東池袋", "desc": "追突・右折時事故が頻発する多角形複雑交差点"},
         {"name": "新宿大ガード東交差点", "addr": "東京都新宿区新宿", "desc": "交通量が極めて多く歩行者・車両事故多発"},
         {"name": "渋谷スクランブル交差点付近", "addr": "東京都渋谷区道玄坂", "desc": "歩行者横断中のトラブル・二輪車巻き込み多発"},
-        {"name": "甲府駅前交差点", "addr": "東京都千代田区麹町", "desc": "駅前につき人通りおよび右左折事故注意ゾーン"}
+        {"name": "甲府駅前交差点", "addr": "山梨県甲府市丸の内", "desc": "駅前につき人通りおよび右左折事故注意ゾーン"} # 住所を正常化！
     ]
 
     for acc in real_accident_intersections:
