@@ -39,16 +39,15 @@ def geocode_address(address):
 # 3. 集約メディアとニュースからのハイブリッド大量取得
 def fetch_aggregator_and_news():
     fetched_data = []
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
-    # ① 警察情報集約メディア（mcap.jp）から過去3ページ分（約50件）を一気に抽出
+    # ① 警察情報集約メディア（mcap.jp）からの取得
     print("📡 警察情報集約メディア（全国防犯メール）へアクセス中...")
     for page in range(1, 4):
         try:
             mcap_url = f"https://mcap.jp/feed/safety?paged={page}"
             res = requests.get(mcap_url, headers=headers, timeout=15)
             if res.status_code == 200:
-                # 相手側のタグ構文エラーを無視して、正規表現で強引にテキストだけを抜く
                 items = re.findall(r'<item>(.*?)</item>', res.text, re.DOTALL)
                 for item_str in items:
                     title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
@@ -58,7 +57,6 @@ def fetch_aggregator_and_news():
                         t = re.sub(r'<[^>]+>', '', title_match.group(1).replace('<![CDATA[', '').replace(']]>', '')).strip()
                         d = re.sub(r'<[^>]+>', '', desc_match.group(1).replace('<![CDATA[', '').replace(']]>', '')).strip() if desc_match else t
                         
-                        # 住所抽出（都道府県・市区町村）
                         addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村)[一-龠0-9丁目-]*)', t + " " + d)
                         if addr_match:
                             fetched_data.append({
@@ -71,31 +69,42 @@ def fetch_aggregator_and_news():
             print(f"⚠️ 集約メディア取得エラー (page {page}): {e}")
         time.sleep(1)
 
-    # ② 検索ワードを強化したGoogle News（ニュースでしか出ない事案を補完）
+    # ② Google Newsの検索レーン分離（対人トラブル枠とクマ枠を分ける）
     print("📡 Google News 防犯特化フィードへアクセス中...")
-    try:
-        # 港区の例にあったようなお堅い警察用語を網羅
-        query = urllib.parse.quote("不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両 OR クマ出没")
-        google_url = f"https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
-        res = requests.get(google_url, headers=headers, timeout=15)
-        if res.status_code == 200:
-            items = re.findall(r'<item>(.*?)</item>', res.text, re.DOTALL)
-            for item_str in items[:20]:
-                title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
-                if title_match:
-                    t = re.sub(r'<[^>]+>', '', title_match.group(1)).replace(' - Yahoo!ニュース', '').strip()
-                    addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
-                    if addr_match:
-                        fetched_data.append({
-                            "title": f"【防犯ニュース】{t[:25]}",
-                            "comment": "報道メディア・自治体発表に基づく地域の安全情報です。",
-                            "address": addr_match.group(0),
-                            "category": "official"
-                        })
-    except Exception as e:
-        print(f"⚠️ Google News取得エラー: {e}")
+    
+    # 検索クエリと、それぞれの取得上限件数を独立して設定
+    search_lanes = [
+        {"query": "不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両", "limit": 20}, # 対人トラブル（メイン）
+        {"query": "クマ出没", "limit": 5} # クマ枠（マップを埋め尽くさないよう控えめに）
+    ]
+    
+    for lane in search_lanes:
+        try:
+            query_encoded = urllib.parse.quote(lane["query"])
+            google_url = f"https://news.google.com/rss/search?q={query_encoded}&hl=ja&gl=JP&ceid=JP:ja"
+            res = requests.get(google_url, headers=headers, timeout=15)
+            if res.status_code == 200:
+                items = re.findall(r'<item>(.*?)</item>', res.text, re.DOTALL)
+                
+                # 指定した上限件数（limit）までしか取得しない
+                for item_str in items[:lane["limit"]]:
+                    title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
+                    if title_match:
+                        t = re.sub(r'<[^>]+>', '', title_match.group(1)).replace(' - Yahoo!ニュース', '').strip()
+                        addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
+                        if addr_match:
+                            prefix = "【野生動物】" if "クマ出没" in lane["query"] else "【防犯ニュース】"
+                            fetched_data.append({
+                                "title": f"{prefix}{t[:25]}",
+                                "comment": "報道メディア・自治体発表に基づく地域の安全情報です。",
+                                "address": addr_match.group(0),
+                                "category": "official"
+                            })
+        except Exception as e:
+            print(f"⚠️ Google News取得エラー ({lane['query']}): {e}")
+        time.sleep(1)
 
-    # 重複排除（同じ事件が複数回登録されるのを防ぐ）
+    # 重複排除
     unique_data = []
     seen_titles = set()
     for d in fetched_data:
@@ -114,7 +123,6 @@ if __name__ == "__main__":
     
     added_count = 0
     for spot in raw_spots:
-        # すでにDBにあるかチェック
         existing = supabase.table("spots").select("id").ilike("title", f"{spot['title'][:15]}%").execute()
         if existing.data:
             continue
