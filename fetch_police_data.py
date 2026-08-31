@@ -104,6 +104,17 @@ def fetch_data_via_ghost_browser():
         for ward in tokyo_23_wards:
             search_lanes.append({"query": f"東京都{ward} ({crime_kws})", "limit": 15})
             
+       for article in articles[:lane["limit"]]:
+                    t = article.text.strip()
+                    
+                    # ▼ここから追加（NGワードフィルター）▼
+                    ng_words = ["熱中症", "プロジェクト", "キャンペーン", "映画", "ドラマ", "対策", "イベント", "アウト？", "コラム", "週間", "パトロール", "呼びかけ", "講座"]
+                    if any(ng in t for ng in ng_words):
+                        continue
+                    # ▲ここまで追加▲
+                    
+                    addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
+        
         # 2. 東京多摩 ＆ 46道府県（大都市20件、その他15件）
         big_cities = ["神奈川", "埼玉", "千葉", "愛知", "大阪", "兵庫", "福岡"]
         search_lanes.append({"query": f"東京都多摩 ({crime_kws})", "limit": 15})
