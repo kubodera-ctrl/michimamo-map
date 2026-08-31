@@ -45,7 +45,7 @@ def fetch_real_suspicious_data():
     fetched_data = []
     
     # 検索キーワードをURLエンコード（不審者 OR 声かけ OR 痴漢）
-    query = urllib.parse.quote("不審者 OR 声かけ OR 痴漢")
+    query = urllib.parse.quote("不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両 OR クマ出没")
     google_news_url = f"https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
 
     headers = {
