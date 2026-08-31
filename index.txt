@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>みちまも MAP - 交通安全情報共有マップ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        html, body { margin:0; height:100%; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background:#f4f6f8; color:#17212b; }
+        * { box-sizing: border-box; }
+        body { overflow: hidden; }
+        #app { height: 100dvh; display: flex; flex-direction: column; }
+        
+        header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
+        .brand { display: flex; gap: 10px; align-items: center; }
+        .logo { width: 38px; height: 38px; border-radius: 12px; background: #17212b; color: white; display: grid; place-items: center; font-weight: 900; }
+        .title { font-size: 16px; font-weight: 900; }
+        .sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
+
+        main { flex: 1; min-height: 0; position: relative; }
+        .view { display: none; height: 100%; overflow: auto; }
+        .view.active { display: block; }
+        
+        #mapView { overflow: hidden; }
+        #map-container { position: relative; height: 100%; width: 100%; }
+        #map { height: 100%; width: 100%; }
+
+        .ad-banner { height: 50px; background: #fff; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; text-decoration: none; flex-shrink: 0; z-index: 1000; transition: background 0.2s;}
+        .ad-banner:active { background: #f9fafb; }
+        .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
+
+        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
+        nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
+        nav button.active { color: #1f6feb; }
+        nav button i { font-size: 20px; }
+
+        .search-box { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; gap: 6px; }
+        .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
+        .search-box button { background: #1f6feb; color: white; border: none; border-radius: 24px; padding: 0 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; }
+
+        .filter-wrapper { position: absolute; top: 60px; left: 10px; right: 10px; z-index: 999; display: flex; align-items: center; gap: 6px; }
+        .filter-toggle-btn { padding: 8px 14px; border-radius: 20px; border: 1px solid #17212b; background: #17212b; color: white; font-size: 0.8rem; font-weight: bold; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); white-space: nowrap; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .filter-content { display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; max-width: 0; opacity: 0; transition: all 0.3s ease-in-out; pointer-events: none; }
+        .filter-wrapper.open .filter-content { max-width: 80vw; opacity: 1; pointer-events: auto; }
+        .filter-chip { padding: 8px 12px; border-radius: 20px; border: 1px solid #e5e7eb; background: rgba(255,255,255,0.95); font-size: 0.78rem; font-weight:bold; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .filter-chip.active { background: #374151; color: white; border-color: #374151; }
+        .filter-chip.illegal.active { background: #ef4444; color: white; border-color: #ef4444; }
+        .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
+        .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
+        .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
+        .filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
+        .filter-chip.official.active { background: #059669; color: white; border-color: #059669; }
+        .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
+
+        #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
+        .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+        #aiPatrolBtn { position: absolute; top: 110px; right: 10px; z-index: 1000; background: #17212b; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1.2rem; }
+        #aiPatrolBtn::after { content: "AI"; position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; font-size: 0.6rem; font-weight: 900; padding: 2px 4px; border-radius: 8px; border: 2px solid #fff; }
+        .camera-view { display: none; position: absolute; inset: 0; z-index: 2000; background: #000; flex-direction: column; overflow: hidden; }
+        .camera-view.active { display: flex; }
+        #videoElement { width: 100%; height: 100%; object-fit: cover; }
+        .camera-overlay { position: absolute; inset: 0; pointer-events: none; border: 4px solid rgba(31, 111, 235, 0.5); }
+        .scan-line { width: 100%; height: 4px; background: rgba(31, 111, 235, 0.8); position: absolute; box-shadow: 0 0 15px rgba(31, 111, 235, 1); animation: scan 3s linear infinite; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .camera-ui-top { position: absolute; top: calc(20px + env(safe-area-inset-top)); left: 20px; right: 20px; display: flex; justify-content: space-between; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8); pointer-events: auto; }
+        .btn-close-cam { background: rgba(0,0,0,0.5); border: 2px solid white; color: white; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(4px); }
+        .ai-status { background: rgba(31, 111, 235, 0.8); padding: 8px 16px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(4px); }
+        .mock-detection-box { display: none; position: absolute; border: 3px solid #facc15; width: 120px; height: 60px; background: rgba(250, 204, 21, 0.2); pointer-events: none; transition: top 0.2s, left 0.2s; }
+        .mock-detection-box::after { content: "[検知] ナンバーマスキング中..."; position: absolute; top: -25px; left: -3px; background: #facc15; color: black; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; white-space: nowrap; }
+
+        .page { padding: 24px 18px 90px; max-width: 700px; margin: auto; }
+        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin-bottom: 20px; }
+        h1 { font-size: 24px; margin: 0 0 12px; color: #17212b; }
+        h2 { font-size: 18px; margin-bottom: 16px; line-height: 1.5; }
+        .muted { color: #6b7280; font-size: 14px; line-height: 1.6; }
+        
+        .quiz-opt { width: 100%; text-align: left; padding: 14px; border: 1px solid #e5e7eb; background: #f9fafb; border-radius: 12px; margin: 6px 0; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: 0.2s; }
+        .quiz-opt.correct { background: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d; }
+        .quiz-opt.wrong { background: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c; }
+        .primary { width: 100%; border: 0; background: #1f6feb; color: white; border-radius: 13px; padding: 14px; font-weight: 900; font-size: 1rem; cursor: pointer; margin-top: 16px; }
+        .affiliate-btn { display: block; width: 100%; text-align: center; text-decoration: none; padding: 14px; border-radius: 12px; font-weight: bold; margin-bottom: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .modal.open { opacity: 1; pointer-events: auto; }
+        .sheet { width: 100%; max-width: 620px; margin: auto; background: white; border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: 0.3s; max-height: 90vh; overflow-y: auto;}
+        .modal.open .sheet { transform: translateY(0); }
+        .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
+        
+        label { font-size: 13px; font-weight: 900; display: block; margin: 14px 0 6px; color: #374151; }
+        select, textarea, input[type="text"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
+        
+        .alert-toast { position: fixed; top: 130px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
+        .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); pointer-events: auto; }
+        .toast { position: fixed; bottom: 140px; left: 50%; transform: translateX(-50%); background: #17212b; color: white; padding: 12px 20px; border-radius: 24px; font-size: 0.85rem; font-weight:bold; opacity: 0; transition: opacity 0.3s; z-index: 3000; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .toast.show { opacity: 1; }
+
+        .gps-marker { width: 18px; height: 18px; background-color: #1f6feb; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.4); position: relative; }
+        .gps-marker::after { content: ""; position: absolute; top: -4px; left: -4px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #1f6feb; opacity: 0; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
+        
+        .popup-action-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 8px 6px; border-radius: 8px; font-size: 0.8rem; font-weight: bold; text-decoration: none; cursor: pointer; border: none; margin-top: 6px; }
+        .btn-like { background-color: #f59e0b; color: white; border: none; }
+        .btn-report-flag { background-color: #f3f4f6; color: #dc2626; border: 1px solid #fca5a5; }
+        
+        .rank-badge { display: inline-block; padding: 8px 16px; border-radius: 24px; font-weight: 900; font-size: 1.1rem; background: #eef1f4; color: #374151; }
+        .rank-bronze { background: #cd7f32; color: white; }
+        .rank-silver { background: #94a3b8; color: white; }
+        .rank-gold { background: #eab308; color: white; }
+        .rank-legend { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; }
+
+        #aiLoading { position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 10; display: none; flex-direction: column; align-items: center; justify-content: center; border-radius: 24px 24px 0 0; }
+        .spinner { border: 4px solid #e5e7eb; border-top: 4px solid #1f6feb; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 12px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .sns-btn-group { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+        .sns-btn { flex: 1; padding: 12px 0; border: none; border-radius: 12px; color: white; font-weight: bold; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-x { background: #000000; }
+        .btn-line { background: #06C755; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        .tab-menu { display: flex; background: #e5e7eb; border-radius: 12px; padding: 4px; margin-bottom: 16px; }
+        .tab-btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; cursor: pointer; color: #6b7280; border: none; background: transparent; }
+        .tab-btn.active { background: #fff; color: #17212b; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .category-tab-bar { display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; padding-bottom: 8px; margin-bottom: 12px; -webkit-overflow-scrolling: touch; }
+        .cat-sub-btn { padding: 6px 12px; border-radius: 16px; border: 1px solid #d9dee4; background: #f3f4f6; font-size: 0.8rem; font-weight: bold; color: #4b5563; cursor: pointer; flex-shrink: 0; }
+        .cat-sub-btn.active { background: #17212b; color: white; border-color: #17212b; }
+
+        .profile-edit { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .avatar-circle { width: 60px; height: 60px; border-radius: 50%; background: #eef1f4; display: grid; place-items: center; font-size: 2rem; cursor: pointer; border: 2px solid #d9dee4; }
+        .ranking-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
+        .ranking-row:last-child { border-bottom: none; }
+        .medal-1 { color: #fbbf24; font-size: 1.2rem; }
+        .medal-2 { color: #94a3b8; font-size: 1.2rem; }
+        .medal-3 { color: #b45309; font-size: 1.2rem; }
+
+        .emoji-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
+        .emoji-item { font-size: 2.5rem; text-align: center; padding: 12px; background: #f3f4f6; border-radius: 12px; cursor: pointer; transition: 0.2s; }
+        .emoji-item:active { background: #e5e7eb; transform: scale(0.95); }
+
+        /* ガチャアニメーション用 CSS 追加 */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .gacha-shake { animation: shake 0.5s infinite; }
+        .gacha-pop { animation: pop 0.5s ease-out forwards; }
+        @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.5); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <!-- ヘッダー -->
+    <header>
+        <div class="brand">
+            <div class="logo"><i class="fa-solid fa-shield-dog"></i></div>
+            <div>
+                <div class="title">みちまも MAP</div>
+                <div class="sub">交通安全情報共有マップ</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. マップ画面 -->
+        <section id="mapView" class="view active">
+            <div id="map-container">
+                <div id="map"></div>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
+                    <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
+                <div class="filter-wrapper" id="filterWrapper">
+                    <button class="filter-toggle-btn" onclick="toggleFilterMenu()">
+                        <i class="fa-solid fa-filter"></i> 表示選択 <i class="fa-solid fa-chevron-right" id="filterArrow" style="transition:0.3s;"></i>
+                    </button>
+                    <div class="filter-content">
+                        <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
+                        <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
+                        <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
+                        <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
+                        <button class="filter-chip reckless" onclick="filterMarkers('reckless', this)"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
+                        <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+                        <button class="filter-chip official" onclick="filterMarkers('official', this)"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
+                    </div>
+                    <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
+                </div>
+
+                <!-- 事故多発エリア -->
+                <div class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
+                </div>
+
+                <!-- AIパトロール起動ボタン -->
+                <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
+
+                <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
+
+                <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
+                <div id="cameraView" class="camera-view">
+                    <video id="videoElement" autoplay playsinline></video>
+                    <div class="camera-overlay"><div class="scan-line"></div></div>
+                    <div id="mockDetectionBox" class="mock-detection-box"></div>
+                    <div class="camera-ui-top">
+                        <div class="ai-status"><i class="fa-solid fa-circle-notch fa-spin"></i> 路上駐車を自動スキャン中...</div>
+                        <button class="btn-close-cam" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div style="position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                        スマホをダッシュボードに設置してください<br>
+                        <span style="font-size:0.75rem; color:#93c5fd;">※プライバシー保護のため、スマホ内でモザイク処理を行ってから送信されます</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. クイズ画面 -->
+        <section id="quizView" class="view">
+            <div class="page">
+                <h1>🔰 啓発テスト (全10問)</h1>
+                <p class="muted" style="margin-bottom:16px;">ゲーム感覚で改正道交法を確認！1問正解につき「1pt」獲得！</p>
+                <div id="quizIntroArea"><button class="primary" onclick="startQuizSession()">テストを開始する</button></div>
+                
+                <div class="card" id="quizRunArea" style="display:none;">
+                    <div id="quizProgress" class="muted" style="font-weight:bold; color:#1f6feb; margin-bottom:8px;"></div>
+                    <h2 id="quizQuestion"></h2>
+                    <div id="quizOptions"></div>
+                    <div class="explanation-box" id="explanationBox" style="display:none; padding:12px; background:#f0fdf4; border-radius:8px; border:1px solid #86efac; margin-top:12px;">
+                        <div style="font-weight:bold; margin-bottom:4px;" id="expTitle"></div>
+                        <div id="expBody" style="font-size:0.85rem; color:#166534;"></div>
+                        <button class="primary" onclick="nextQuestion()">次の問題へ</button>
+                    </div>
+                </div>
+                
+                <div class="card" id="quizResultArea" style="display:none; text-align:center;">
+                    <h3 style="font-size:1.2rem; margin-bottom:8px;">🏆 テスト結果</h3>
+                    <div style="font-size:2.5rem; font-weight:900; color:#1f6feb; margin:10px 0;" id="resultScore"></div>
+                    <p style="font-weight:bold; color:#374151; margin-bottom:20px;" id="resultEarnPt"></p>
+                    <p style="font-size:0.8rem; font-weight:bold; color:#4b5563; margin-bottom:4px;">結果をシェアして安全の輪を広げよう！</p>
+                    <div class="sns-btn-group">
+                        <button class="sns-btn btn-x" onclick="shareToSNS('x')"><i class="fa-brands fa-x-twitter"></i> ポスト</button>
+                        <button class="sns-btn btn-line" onclick="shareToSNS('line')"><i class="fa-brands fa-line"></i> 送る</button>
+                        <button class="sns-btn btn-insta" onclick="shareToSNS('insta')"><i class="fa-brands fa-instagram"></i> シェア</button>
+                    </div>
+                    <button class="primary" onclick="startQuizSession()" style="background:#e5e7eb; color:#374151; margin-top:20px;">もう一度挑戦する</button>
+                </div>
+            </div>
+        </section>
+<!-- 3. マイページ（Gacha・Sponsor機能統合版） -->
+        <section id="aboutView" class="view">
+            <div class="page">
+                <h1 onclick="adminTap()" style="cursor:pointer; user-select:none;">👤 マイページ</h1>
+                
+                <!-- タブメニュー（3つに拡張） -->
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="switchTab('profileTab', this)">設定・データ</button>
+                    <button class="tab-btn" onclick="switchTab('poikatsuTab', this)">🎁 ポイ活＆ガチャ</button>
+                    <button class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 ランキング</button>
+                </div>
+
+                <!-- 【タブ1：設定・データ】 -->
+                <div id="profileTab" class="tab-content active">
+                    <div class="card" style="background:#f8fafc;">
+                        <div class="profile-edit">
+                            <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
+                            <div style="flex:1;">
+                                <label style="margin-top:0;">ニックネーム (タップで変更)</label>
+                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;" maxlength="15">
+                            </div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のランク</div>
+                            <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
+                            <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openPrivacyModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+                        <span><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:8px;"></i> プライバシーと安全対策</span>
+                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
+                    </button>
+
+                    <button onclick="openSponsorModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+                        <span><i class="fa-solid fa-store" style="color:#f59e0b; margin-right:8px;"></i> 店舗・企業の皆様へ (スポンサー募集)</span>
+                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
+                    </button>
+
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#17212b; margin-bottom:12px;"><i class="fa-solid fa-map-pin"></i> ピンの色と意味</h2>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#2563eb;"><i class="fa-solid fa-triangle-exclamation"></i> 危険な路上停車 (青)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div></div>
+                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-weight:bold; color:#059669;"><i class="fa-solid fa-shield-halved"></i> 警察情報 (深緑)</div></div>
+                    </div>
+
+                    <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
+                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
+                        <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
+                        <button class="primary" style="margin-top:0; background:#166534;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSVをダウンロード</button>
+                    </div>
+                </div>
+
+                <!-- 【タブ2：ポイ活＆ガチャ】 -->
+                <div id="poikatsuTab" class="tab-content">
+                    <div style="background:linear-gradient(135deg, #fbbf24, #f59e0b); padding:20px; border-radius:16px; text-align:center; color:#fff; margin-bottom:20px; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);">
+                        <div style="font-size:0.9rem; margin-bottom:5px; font-weight: bold;">現在の保有ポイント</div>
+                        <div style="font-size:2.5rem; font-weight:900;"><span id="gachaPointDisplay">0</span> pt</div>
+                        <div style="font-size:0.8rem; margin-top:5px; opacity:0.9; font-weight: bold;">換金まであと <span id="pointsToCash">300,000</span> pt (3,000円分〜)</div>
+                    </div>
+
+                    <button onclick="playGacha()" style="width:100%; padding:16px; background:#ef4444; color:#fff; font-size:1.2rem; font-weight:bold; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(239, 68, 68, 0.4); cursor:pointer; margin-bottom:30px;">
+                        <i class="fa-solid fa-gem"></i> ガチャを回す（1回 100pt）
+                    </button>
+
+                    <!-- ガチャ報酬一覧 -->
+                    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:30px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                        <h3 style="font-size:1rem; text-align:center; border-bottom:2px solid #60a5fa; padding-bottom:8px; margin-top:0; margin-bottom:12px; color:#1f2937;">🎁 あもガチャ 報酬一覧</h3>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#fefce8; border:1px solid #fef08a; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#ca8a04; font-size:1.1rem;">🥇 1等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">Amazonギフト券 10,000円分</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#f3f4f6; border:1px solid #d1d5db; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#6b7280; font-size:1.1rem;">🥈 2等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">選べる電子マネー 5,000円分</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#ea580c; font-size:1.1rem;">🥉 3等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">オリジナルグッズ</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px;">
+                            <span style="font-weight:bold; color:#3b82f6; font-size:1.1rem;">🏅 4等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">アプリ内ポイント 100pt</span>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
+                        💰 ポイントを一気に稼ごう！
+                    </h3>
+                    
+                    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
+                        <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                            <div>
+                                <span style="background:#dbeafe; color:#1d4ed8; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">車・バイク</span>
+                                <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem;">自動車保険の無料見積もり</div>
+                            </div>
+                            <button style="background:#10b981; color:#fff; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; cursor:pointer; white-space: nowrap;" onclick="showToast('※事前のアカウント登録が必要です（近日公開）')">15,000 pt</button>
+                        </div>
+                        <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                            <div>
+                                <span style="background:#fce7f3; color:#be185d; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">生活・クレカ</span>
+                                <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem;">〇〇カードの新規発行</div>
+                            </div>
+                            <button style="background:#10b981; color:#fff; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; cursor:pointer; white-space: nowrap;" onclick="showToast('※事前のアカウント登録が必要です（近日公開）')">50,000 pt</button>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: #6b7280; text-align: center;">※アフィリエイトでのポイント獲得には、近日公開予定のアカウント登録が必須となります。</div>
+                </div>
+
+                <!-- 【タブ3：ランキング】 -->
+                <div id="rankingTab" class="tab-content">
+                    <div class="card">
+                        <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
+                        <div id="nationalRankingArea">
+                            <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
+                        </div>
+                        <div class="ranking-row" style="background:#f8fafc; padding:8px; border-radius:8px; margin-top:8px;">
+                            <div style="font-weight:bold; color:#6b7280;">... <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
+                            <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 報告数ワースト10</h2>
+                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
+                        <div class="category-tab-bar">
+                            <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('danger', this)">🔵 危険停車</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('patrol', this)">🟢 巡回情報</button>
+                            <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
+                        </div>
+                        <div id="areaRankingArea">
+                            <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ガイド・規約ページ -->
+        <section id="guideView" class="view">
+            <div class="page">
+                <h1><i class="fa-solid fa-book-open"></i> 使い方・規約</h1>
+                
+                <div class="card">
+                    <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方</h2>
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、違法駐車や危険箇所を投稿できます。みんなで情報を共有して地域の安全を守りましょう。</p>
+                    
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. 警察への通報先の使い分け</h3>
+                    <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px; margin-bottom:12px; font-size:0.8rem; line-height:1.5;">
+                        <div style="color:#dc2626; font-weight:bold;"><i class="fa-solid fa-phone"></i> 緊急通報 (110番)</div>
+                        <div style="color:#475569; margin-bottom:8px;">暴走行為、事故発生、今まさに危険が迫っている緊急時</div>
+                        <div style="color:#2563eb; font-weight:bold;"><i class="fa-solid fa-headset"></i> 警察相談専用窓口 (#9110)</div>
+                        <div style="color:#475569;">恒常的な違法駐車、近所の危険箇所の相談など緊急性の低い場合</div>
+                    </div>
+
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">3. クイズで学ぶ</h3>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">交通ルールのクイズに挑戦して安全ポイントを獲得！ランクアップを目指しましょう。</p>
+                    
+                    <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">4. AIパトロール機能 (Beta)</h3>
+                    <p class="muted" style="font-size:0.8rem;">マップ画面の「カメラボタン」から起動。スマホをダッシュボードに置くと、AIが自動で危険を検知・共有します。</p>
+                </div>
+
+                <div class="card">
+                    <h2 style="color:#10b981; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-shield-halved"></i> プライバシーポリシー</h2>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">みちまもMAPは、皆様のプライバシー保護を最優先に開発されています。</p>
+                    <ul style="font-size:0.8rem; color:#4b5563; padding-left:20px; margin-bottom:0; line-height:1.6;">
+                        <li style="margin-bottom:6px;"><strong>ナンバー・顔の秘匿化:</strong> AIにより端末内でモザイク処理を行います。元画像はサーバーに送信・保存されません。</li>
+                        <li style="margin-bottom:6px;"><strong>個人情報の取得:</strong> ログインや本名の登録は不要です。個人を特定するデータは収集しません。</li>
+                        <li><strong>位置情報:</strong> 現在地はユーザーの許可がある場合のみ使用し、バックグラウンドでの追跡は一切行いません。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2 style="color:#ef4444; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i> 禁止事項</h2>
+                    <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">以下の行為は禁止されており、AI検閲および運営によりアカウントが停止される場合があります。</p>
+                    <ul style="font-size:0.8rem; color:#4b5563; padding-left:20px; margin-bottom:0; line-height:1.6;">
+                        <li style="margin-bottom:6px;">モザイク漏れなど、個人を特定できる情報（車のナンバー、顔写真、住所の詳細など）を故意に投稿すること</li>
+                        <li style="margin-bottom:6px;">他者への誹謗中傷、暴言、制裁・嫌がらせを目的とした投稿</li>
+                        <li>虚偽の情報の拡散や、いたずら目的のピン投稿</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ダイナミック広告 -->
+    <a href="#" target="_blank" class="ad-banner" id="randomAdBanner">
+        <div class="ad-banner-title" id="randomAdTitle"></div>
+        <span class="ad-pr-tag">PR</span>
+    </a>
+
+    <!-- 4等分のナビゲーションメニュー -->
+    <nav>
+        <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
+        <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i> クイズ</button>
+        <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i> マイページ</button>
+        <button class="nav" data-view="guideView"><i class="fa-solid fa-circle-info"></i> ガイド</button>
+    </nav>
+</div>
+<!-- 各種モーダル（ポップアップ画面） -->
+<div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
+<div class="toast" id="toast"></div>
+
+<!-- アバター選択モーダル -->
+<div id="avatarModal" class="modal">
+    <div class="sheet">
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;">アバターを選択</div>
+            <button class="close" onclick="closeAvatarModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+    </div>
+</div>
+
+<!-- 駐車場予約モーダル -->
+<div id="parkingModal" class="modal">
+    <div class="sheet">
+        <div class="row">
+            <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-parking" style="color:#2563eb;"></i> 駐車場を予約する</div>
+            <button class="close" onclick="closeParkingModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p class="muted" style="margin-bottom:20px; font-weight:bold;">お出かけ先の格安駐車場を事前に予約できます。</p>
+        <a href="#" target="_blank" class="affiliate-btn" style="background:#ff7f50;">特P（とくぴー）で探す ➔</a>
+        <a href="#" target="_blank" class="affiliate-btn" style="background:#1e90ff;">軒先パーキングで探す ➔</a>
+    </div>
+</div>
+
+<!-- 危険情報投稿モーダル -->
+<div id="postModal" class="modal">
+    <div class="sheet" style="position:relative;">
+        <div id="aiLoading">
+            <div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>
+        </div>
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有</div>
+            <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="postForm" onsubmit="handlePostSubmit(event)">
+           <label>種類</label>
+           <select id="postCategory" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
+                <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
+            </select>
+            <label>タイトル</label><input type="text" id="postTitle" required maxlength="30">
+            <label>状況コメント</label><textarea id="postComment" rows="3" maxlength="100"></textarea>
+            
+            <label id="reportCheckArea" style="display:flex; align-items:center; gap:8px; margin-top:14px; padding:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; cursor:pointer; color:#1e3a8a;">
+                <input type="checkbox" id="postIsReported" style="width:20px; height:20px;">
+                <span style="font-weight:bold;">🚓 通報済み</span>
+            </label>
+            
+            <div id="imageUploadArea" style="display:none; margin-top:14px; background:#f3f4f6; padding:12px; border-radius:12px;">
+                <label style="margin-top:0; color:#ef4444;"><i class="fa-solid fa-camera"></i> 現地の写真 (その場で撮影)</label>
+                <div style="font-size: 0.7rem; color: #ef4444; margin-bottom: 5px;">※不正防止のため、アルバムの画像は選べません</div>
+                <!-- capture="environment" でカメラを強制起動（アルバム禁止） -->
+                <input type="file" id="postImageInput" accept="image/*" capture="environment" style="border:none; padding:0; background:transparent;">
+                <img id="imagePreview" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
+            </div>
+            
+            <button type="submit" class="primary" style="margin-top:20px;">情報を投稿 (+10pt)</button>
+        </form>
+    </div>
+</div>
+
+<!-- 利用規約モーダル -->
+<div class="modal" id="termsModal">
+    <div class="sheet" style="padding-top: 30px;">
+        <div class="row"><div style="font-size:18px; font-weight:900;">🛡️ 利用規約</div></div>
+        <p style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; margin-bottom:12px;">AIによる検閲があり、ナンバー等個人情報の投稿は禁止です。</p>
+        <button class="primary" style="width:100%;" onclick="acceptTerms()">同意して開始する</button>
+    </div>
+</div>
+
+<!-- プライバシー保護モーダル -->
+<div class="modal" id="privacyModal">
+    <div class="sheet" style="padding-top: 30px;">
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> プライバシーと安全対策</div>
+            <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
+            みちまもMAPは、皆さまに安心してご利用いただけるよう、以下のコンプライアンス・プライバシー保護対策を徹底しています。
+        </div>
+        <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:20px;">
+            <li style="margin-bottom:12px;"><strong>エッジAIによるナンバー・顔の秘匿化</strong><br><span style="color:#6b7280; font-size:0.8rem;">AIパトロール機能で撮影された映像は、サーバーへ送信される前にスマートフォン端末内でAIが解析し、ナンバープレート等へ自動でモザイク処理を行います。元画像は一切保存・送信されません。</span></li>
+            <li style="margin-bottom:12px;"><strong>不適切コンテンツのAI自動検閲</strong><br><span style="color:#6b7280; font-size:0.8rem;">投稿されるテキストはAIにより瞬時に判定され、誹謗中傷や個人を特定する情報はブロックされます。</span></li>
+            <li style="margin-bottom:12px;"><strong>スパム報告の自動非表示システム</strong><br><span style="color:#6b7280; font-size:0.8rem;">他のユーザーから通報が一定数（3件）集まったピンは自動的にマップから非表示となり、悪意のある投稿や虚偽の情報を防ぎます。</span></li>
+        </ul>
+        <button class="primary" style="background:#e5e7eb; color:#374151;" onclick="closePrivacyModal()">閉じる</button>
+    </div>
+</div>
+
+<!-- 新設：スポンサー募集モーダル -->
+<div class="modal" id="sponsorModal">
+    <div class="sheet">
+        <div class="row">
+            <div style="font-size:1.1rem; font-weight:900;"><i class="fa-solid fa-store" style="color:#f59e0b;"></i> 地域スポンサー募集</div>
+            <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
+            みちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
+        </div>
+        <div style="background:#fef3c7; border:1px solid #fcd34d; padding:12px; border-radius:8px; margin-bottom:20px;">
+            <strong style="color:#b45309; font-size:0.9rem;">✨ 月額 3,000円 で専用ピンを表示！</strong><br>
+            <span style="font-size:0.8rem; color:#92400e; display: inline-block; margin-top: 5px;">お店の場所やPR情報を、地域を歩くユーザーに直接アピールできます。地域貢献企業としてのブランディングにも最適です。</span>
+        </div>
+        <button style="width: 100%; padding: 12px; background: #f59e0b; color: #fff; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;" onclick="showToast('現在準備中です。近日中にお申し込み受付を開始します！'); document.getElementById('sponsorModal').classList.remove('open');">
+            詳細・お申し込みはこちら
+        </button>
+    </div>
+</div>
+
+<!-- 新設：ガチャ演出用フルスクリーンモーダル -->
+<div id="gachaModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; flex-direction:column; justify-content:center; align-items:center;">
+    <div id="gachaAnimation" style="font-size:6rem; margin-bottom:20px; animation: none;">🎁</div>
+    <div id="gachaResultText" style="color:#fff; font-size:2.5rem; font-weight:900; text-align:center; display:none; text-shadow: 0 0 15px rgba(255,215,0,0.8);"></div>
+    <div id="gachaSubText" style="color:#fbbf24; font-size:1.2rem; font-weight:bold; margin-top:10px; display:none;"></div>
+    <button id="gachaCloseBtn" style="display:none; margin-top:40px; padding:15px 40px; background:#fff; color:#000; border-radius:30px; font-weight:bold; font-size: 1.1rem; cursor:pointer; border:none; box-shadow: 0 4px 10px rgba(255,255,255,0.3);" onclick="closeGacha()">閉じる</button>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // ==========================================
+    // 1. データ初期化とポイント上限管理
+    // ==========================================
+    let myUserId = localStorage.getItem('michimamo_user_id') || null;
+    let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
+    let myName = localStorage.getItem('michimamo_name') || "";
+    let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
+    let currentCategoryRank = 'illegal'; 
+
+    // 1日の上限管理（投稿5回、いいね5回など）
+    let actionLimits = JSON.parse(localStorage.getItem('michimamo_limits')) || {
+        postDate: '', postCount: 0,
+        likeDate: '', likeCount: 0,
+        shareTime: 0, shareCount: 0, shareDate: ''
+    };
+
+    const getToday = () => new Date().toISOString().split('T')[0];
+    function checkLimitsReset() {
+        const today = getToday();
+        if (actionLimits.postDate !== today) { actionLimits.postDate = today; actionLimits.postCount = 0; }
+        if (actionLimits.likeDate !== today) { actionLimits.likeDate = today; actionLimits.likeCount = 0; }
+        if (actionLimits.shareDate !== today) { actionLimits.shareDate = today; actionLimits.shareCount = 0; }
+        saveLimits();
+    }
+    function saveLimits() { localStorage.setItem('michimamo_limits', JSON.stringify(actionLimits)); }
+
+    // ==========================================
+    // 2. データベース接続 (Supabase) と同期
+    // ==========================================
+    const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
+    const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function syncProfile() {
+        if (!myUserId) {
+            const { data, error } = await db.from('profiles').insert([{ name: myName || '名無しドライバー', avatar: myAvatar, point: myPoint }]).select();
+            if (data && data.length > 0) {
+                myUserId = data[0].id;
+                localStorage.setItem('michimamo_user_id', myUserId);
+            }
+        } else {
+            await db.from('profiles').update({ name: myName || '名無しドライバー', avatar: myAvatar, point: myPoint }).eq('id', myUserId);
+        }
+        loadRanking();
+    }
+
+    // ==========================================
+    // 3. ダイナミック広告（時間・アバター別）
+    // ==========================================
+    const dynamicAdList = [
+        { target: "driver", title: "お出かけ先の格安駐車場を予約 (特P)", icon: "fa-square-parking", iconColor: "#2563eb", url: "#" },
+        { target: "driver", title: "【無料】自動車保険の一括見積もり", icon: "fa-car-shield", iconColor: "#1f6feb", url: "#" },
+        { target: "walker", title: "歩いてポイントが貯まる！ポイ活アプリ", icon: "fa-shoe-prints", iconColor: "#10b981", url: "#" },
+        { target: "family", title: "子供の安全を守る。見守りGPSトラッカー", icon: "fa-child", iconColor: "#f59e0b", url: "#" },
+        { target: "bike", title: "月額100円〜！安心の自転車保険", icon: "fa-bicycle", iconColor: "#9333ea", url: "#" },
+        { target: "pet", title: "大切な家族のためのペット保険", icon: "fa-paw", iconColor: "#f43f5e", url: "#" },
+        { target: "all", title: "【期間限定】Amazonタイムセール開催中", icon: "fa-cart-shopping", iconColor: "#f97316", url: "#" }
+    ];
+
+    function setDynamicAd(triggerCategory = null) {
+        const hour = new Date().getHours();
+        const avatar = myAvatar || "👤";
+        let targetGroup = "all";
+
+        if (["🚗", "🚓", "🚕", "🚙", "🚌"].includes(avatar)) targetGroup = "driver";
+        else if (["🚶", "🏃"].includes(avatar)) targetGroup = "walker";
+        else if (["🚲"].includes(avatar)) targetGroup = "bike";
+        else if (["🐶", "🐱"].includes(avatar)) targetGroup = "pet";
+
+        if ((hour >= 7 && hour <= 9) || (hour >= 14 && hour <= 17)) {
+            if (targetGroup !== "driver") targetGroup = "family";
+        }
+        if (triggerCategory === 'illegal') targetGroup = "driver";
+
+        let filteredAds = dynamicAdList.filter(ad => ad.target === targetGroup);
+        if (filteredAds.length === 0) filteredAds = dynamicAdList.filter(ad => ad.target === "all");
+
+        const selectedAd = filteredAds[Math.floor(Math.random() * filteredAds.length)];
+        const banner = document.getElementById('randomAdBanner');
+        const titleArea = document.getElementById('randomAdTitle');
+        
+        if (banner && titleArea) {
+            banner.href = selectedAd.url;
+            titleArea.innerHTML = `<i class="fa-solid ${selectedAd.icon}" style="color:${selectedAd.iconColor};"></i> ${selectedAd.title}`;
+        }
+    }
+
+    // ==========================================
+    // 4. UI・ナビゲーション・各種モーダル制御
+    // ==========================================
+    function showToast(msg) {
+        const t = document.getElementById('toast'); t.innerText = msg; t.classList.add('show');
+        clearTimeout(window.tt); window.tt = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+    function showPostGuide() { showToast("📍 マップ上の投稿したい場所を直接タップしてください"); }
+
+    document.querySelectorAll(".nav").forEach(b => {
+        b.onclick = () => {
+            document.querySelectorAll(".nav").forEach(x => x.classList.remove("active")); b.classList.add("active");
+            document.querySelectorAll(".view").forEach(v => v.classList.remove("active")); document.getElementById(b.dataset.view).classList.add("active");
+            if (b.dataset.view === "mapView") setTimeout(() => map.invalidateSize(), 100);
+        };
+    });
+
+    function toggleFilterMenu() {
+        const wrapper = document.getElementById('filterWrapper');
+        const arrow = document.getElementById('filterArrow');
+        wrapper.classList.toggle('open');
+        if(wrapper.classList.contains('open')) { arrow.style.transform = 'rotate(90deg)'; } 
+        else { arrow.style.transform = 'rotate(0deg)'; }
+    }
+
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        if (tabId === 'rankingTab') loadRanking();
+    }
+
+    function switchCategoryRanking(cat, btn) {
+        document.querySelectorAll('.cat-sub-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategoryRank = cat;
+        loadAreaRanking();
+    }
+
+    // 各種モーダルの開閉処理
+    function openSponsorModal() { document.getElementById('sponsorModal').classList.add('open'); }
+    function openParkingModal() { document.getElementById('parkingModal').classList.add('open'); }
+    function closeParkingModal() { document.getElementById('parkingModal').classList.remove('open'); }
+    function openPrivacyModal() { document.getElementById('privacyModal').classList.add('open'); }
+    function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('open'); }
+    function acceptTerms() { localStorage.setItem('safety_road_terms_accepted', 'true'); document.getElementById('termsModal').classList.remove('open'); }
+    
+    // アバター設定
+    const avatarList = ["👤", "🚗", "🚓", "🚕", "🚙", "🚌", "🐶", "🐱", "😎", "👻", "🦸‍♂️", "👮‍♀️"];
+    function openAvatarModal() {
+        const grid = document.getElementById('emojiGrid');
+        grid.innerHTML = "";
+        avatarList.forEach(emoji => {
+            const div = document.createElement('div');
+            div.className = 'emoji-item';
+            div.innerText = emoji;
+            div.onclick = () => selectAvatar(emoji);
+            grid.appendChild(div);
+        });
+        document.getElementById('avatarModal').classList.add('open');
+    }
+    function closeAvatarModal() { document.getElementById('avatarModal').classList.remove('open'); }
+    function selectAvatar(emoji) { 
+        myAvatar = emoji; 
+        localStorage.setItem('michimamo_avatar', myAvatar); 
+        if (myUserId) db.from('profiles').update({ avatar: myAvatar }).eq('id', myUserId);
+        updateMyPage(); closeAvatarModal(); showToast("アバターを変更しました"); 
+        setDynamicAd();
+    }
+    function saveProfile() {
+        let inputName = document.getElementById('myNameInput').value.trim();
+        const ngWords = ["ちんちん", "うんこ", "バカ", "アホ", "死ね", "クソ", "殺す", "うざい", "カス", "マンコ", "ドパガキ"];
+        let isNG = false;
+        for (let word of ngWords) { if (inputName.includes(word)) { isNG = true; break; } }
+        if (isNG) { alert("不適切な単語が含まれているため、そのニックネームは使用できません。"); document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName; return; }
+        myName = inputName || "名無しドライバー"; 
+        localStorage.setItem('michimamo_name', myName); 
+        if (myUserId) db.from('profiles').update({ name: myName }).eq('id', myUserId);
+        showToast("プロフィールを保存しました"); updateMyPage();
+    }
+
+    // ==========================================
+    // 5. ポイント付与・マイページ（ガチャ連携）の更新
+    // ==========================================
+    function addPoint(pt, msg) { 
+        myPoint += pt; 
+        localStorage.setItem('michimamo_pt', myPoint); 
+        if(msg) showToast(`${msg}！ (+${pt}pt)`); 
+        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
+        updateMyPage(); 
+    }
+
+    function updateMyPage() {
+        // 基本プロフィールの更新
+        document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName;
+        document.getElementById('myAvatarDisplay').innerText = myAvatar;
+        document.getElementById('myPointDisp').innerText = myPoint;
+        document.getElementById('rankMyPtDisp').innerText = myPoint;
+        document.getElementById('rankMyNameDisp').innerText = myName || "あなた";
+
+        // ガチャ画面のポイント表示の更新
+        const gachaDisplay = document.getElementById('gachaPointDisplay');
+        if(gachaDisplay) gachaDisplay.textContent = myPoint.toLocaleString();
+        const toCash = 300000 - myPoint;
+        const cashDisplay = document.getElementById('pointsToCash');
+        if(cashDisplay) cashDisplay.textContent = toCash > 0 ? toCash.toLocaleString() : "0";
+
+        // バッジの更新
+        const badge = document.getElementById('myRankBadge');
+        badge.className = 'rank-badge';
+        let rankStr = "🔰 初心者マーク";
+        if (myPoint >= 1000) { rankStr = "👑 レジェンド守護神"; badge.classList.add('rank-legend'); }
+        else if (myPoint >= 300) { rankStr = "🥇 ゴールド免許"; badge.classList.add('rank-gold'); }
+        else if (myPoint >= 100) { rankStr = "🥈 シルバーパトローラー"; badge.classList.add('rank-silver'); }
+        else if (myPoint >= 30) { rankStr = "🥉 ブロンズウォッチャー"; badge.classList.add('rank-bronze'); }
+        badge.innerText = rankStr;
+        window.myCurrentRankStr = rankStr;
+        
+        loadRanking();
+    }
+
+    // ==========================================
+    // 6. ランキング機能とSNSシェア
+    // ==========================================
+    async function loadRanking() {
+        const { data: profiles } = await db.from('profiles').select('*').order('point', { ascending: false }).limit(50);
+        let allUsers = [
+            { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 1250 },
+            { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 980 },
+            { id: 'dummy3', name: 'ご近所ウォッチャー', avatar: '👀', point: 450 },
+            { id: 'dummy4', name: 'タクシードライバー', avatar: '🚕', point: 120 },
+            { id: 'dummy5', name: 'セーフティライダー', avatar: '🛵', point: 95 },
+            { id: 'dummy6', name: 'ママチャリパトロール', avatar: '🚲', point: 80 }
+        ];
+        if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
+        
+        const uniqueUsers = []; const map = new Map();
+        for (const item of allUsers) { if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); } }
+        uniqueUsers.sort((a, b) => b.point - a.point);
+        
+        const rankingArea = document.getElementById('nationalRankingArea');
+        rankingArea.innerHTML = '';
+        let myRankPos = '圏外';
+        
+        uniqueUsers.forEach((u, idx) => {
+            if (u.id === myUserId) myRankPos = `${idx + 1}位`;
+            if (idx >= 10) return;
+            let medal = '';
+            if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
+            else if (idx === 1) medal = '<i class="fa-solid fa-medal medal-2"></i> 2位';
+            else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
+            else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
+            
+            const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal} <span>${u.avatar} ${u.name}</span></div><div style="font-weight:bold; color:#1f6feb;">${u.point} pt</div></div>`;
+        });
+        document.getElementById('rankMyPosDisp').innerText = myRankPos;
+        loadAreaRanking();
+    }
+
+    async function loadAreaRanking() {
+        const { data: spotsData } = await db.from('spots').select('address').eq('category', currentCategoryRank);
+        let areaCount = {};
+        
+        if (currentCategoryRank === 'illegal') { areaCount['東京都 新宿区'] = 142; areaCount['大阪府 中央区'] = 98; areaCount['愛知県 名古屋市'] = 76; }
+        else if (currentCategoryRank === 'danger') { areaCount['東京都 渋谷区'] = 110; areaCount['大阪府 北区'] = 85; }
+        else if (currentCategoryRank === 'patrol') { areaCount['東京都 千代田区'] = 88; areaCount['大阪府 浪速区'] = 70; }
+        else if (currentCategoryRank === 'abandoned') { areaCount['東京都 足立区'] = 65; areaCount['大阪府 西成区'] = 58; }
+
+        if (spotsData) spotsData.forEach(s => { if(s.address && s.address !== '不明なエリア') areaCount[s.address] = (areaCount[s.address] || 0) + 1; });
+        
+        let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
+        const areaArea = document.getElementById('areaRankingArea');
+        areaArea.innerHTML = '';
+        
+        if (sortedAreas.length === 0) { areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>'; return; }
+
+        sortedAreas.slice(0, 10).forEach((a, idx) => {
+            let rankColor = "#6b7280";
+            if (idx === 0) rankColor = "#ef4444"; else if (idx === 1) rankColor = "#f97316"; else if (idx === 2) rankColor = "#eab308";
+            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
+        });
+    }
+
+function shareSpot(title, address, category, event) {
+        if(event) event.stopPropagation();
+        let catStr = "危険箇所";
+        if (category === 'illegal') catStr = "🔴違法駐車"; 
+        else if (category === 'danger') catStr = "🔵危険停車"; 
+        else if (category === 'reckless') catStr = "🟡暴走・騒音"; 
+        else if (category === 'patrol') catStr = "🟢巡回情報"; 
+        else if (category === 'abandoned') catStr = "🟣不法放置";
+        
+        const text = `📍【みちまもMAP安全情報】\n${address} 近辺で「${catStr}: ${title}」の報告があります。\n地域の安全のために確認しよう！`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+            navigator.share({
+                title: 'みちまもMAP - 交通安全情報',
+                text: text,
+                url: url
+            }).catch(() => {});
+        } else {
+            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=みちまもMAP,交通安全`;
+            window.open(shareUrl, '_blank');
+        }
+    }
+    function shareToSNS(platform) {
+        const appUrl = "https://michimamo-map.vercel.app";
+        let text = "";
+        if (document.getElementById('quizResultArea').style.display === 'block') { text = `みちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#みちまもMAP #交通安全`; } 
+        else { text = `地域の危険駐車を共有するアプリ「みちまもMAP」を使っています！\n#みちまもMAP #交通安全`; }
+        
+        if (platform === 'x') { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(appUrl)}`, '_blank'); } 
+        else if (platform === 'line') { window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text + "\n" + appUrl)}`, '_blank'); } 
+        else if (platform === 'insta') {
+            navigator.clipboard.writeText(text + "\n" + appUrl).then(() => { alert("投稿用の文章とURLをコピーしました！\nInstagramを開いて、ストーリーや投稿にペースト（貼り付け）してください📸"); window.location.href = "instagram://camera"; }).catch(err => { alert("コピーに失敗しました。"); });
+        }
+    }
+
+    // CSVダウンロード（管理者）
+    let adminTapCount = 0; let adminTapTimer = null;
+    function adminTap() {
+        adminTapCount++; clearTimeout(adminTapTimer);
+        adminTapTimer = setTimeout(() => { adminTapCount = 0; }, 2000);
+        if (adminTapCount >= 5) {
+            const csvCard = document.getElementById('adminCsvCard');
+            if (csvCard.style.display === 'none') { csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました"); } 
+            else { csvCard.style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
+            adminTapCount = 0;
+        }
+    }
+    async function downloadCSV() {
+        showToast("データを準備中...");
+        const { data, error } = await db.from('spots').select('*').order('created_at', { ascending: false });
+        if (error || !data) { showToast("データ取得に失敗しました"); return; }
+        let csvContent = "投稿日時,ジャンル,場所,タイトル,詳細コメント\n";
+        const catMap = { 'illegal': '違法駐車', 'danger': '危険停車', 'patrol': '巡回', 'abandoned': '不法放置' };
+        data.forEach(row => {
+            const date = new Date(row.created_at).toLocaleString('ja-JP');
+            const cat = catMap[row.category] || row.category;
+            const address = (row.address || "不明").replace(/,/g, " "), title = (row.title || "").replace(/,/g, " "), comment = (row.comment || "").replace(/,/g, " ").replace(/\n/g, " ");
+            csvContent += `${date},${cat},${address},${title},${comment}\n`;
+        });
+        const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a"); link.setAttribute("href", URL.createObjectURL(blob)); link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        showToast("ダウンロードが完了しました");
+    }
+
+    // ==========================================
+    // 7. マップ初期化・現在地・公式ピン（モック）
+    // ==========================================
+    const map = L.map('map', { attributionControl: false, zoomControl: false }).setView([35.681236, 139.767125], 13);
+    L.control.zoom({ position: 'bottomleft' }).addTo(map); // ズームボタン復活！
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    let activeMarkers = [], heatCircles = [];
+    let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(
+            (pos) => {
+                userLat = pos.coords.latitude; userLng = pos.coords.longitude;
+                if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
+                const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
+                if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
+                checkProximity(userLat, userLng);
+            }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
+        );
+    }
+    function goToCurrentLocation() { if (userLat && userLng) map.setView([userLat, userLng], 15); else showToast('位置情報が取得できません'); }
+
+    async function searchLocation() {
+        const query = document.getElementById('searchInput').value;
+        if(!query) return;
+        showToast("検索中...");
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            if (data && data.length > 0) { map.flyTo([data[0].lat, data[0].lon], 16); showToast("移動しました"); } else showToast("見つかりませんでした");
+        } catch(e) { showToast("検索エラーが発生しました"); }
+    }
+
+
+    // ==========================================
+    // 8. データベース連動・ピン描画
+    // ==========================================
+    window.onload = function() {
+        if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
+        checkLimitsReset();
+        syncProfile(); 
+        updateMyPage();
+        setDynamicAd(); 
+        loadSpots(); 
+        
+        db.channel('custom-all-channel')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
+              if (payload.eventType === 'DELETE') { removeMarkerFromMap(payload.old.id); } 
+              else if (payload.eventType === 'UPDATE') { if (payload.new.report_count >= 3) { removeMarkerFromMap(payload.new.id); } else { setTimeout(loadSpots, 1000); } } 
+              else if (payload.eventType === 'INSERT') { setTimeout(loadSpots, 1000); }
+          }).subscribe();
+    };
+
+    function removeMarkerFromMap(id) {
+        const idx = activeMarkers.findIndex(m => m.id === id);
+        if (idx !== -1) {
+            if (activeMarkers[idx].instance) map.removeLayer(activeMarkers[idx].instance);
+            if (activeMarkers[idx].circle) map.removeLayer(activeMarkers[idx].circle);
+            activeMarkers.splice(idx, 1);
+        }
+    }
+
+    async function loadSpots() {
+        // ★修正箇所：公式ピンを含めて全てリセット
+        activeMarkers.forEach(m => { if(m.instance) map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
+        activeMarkers = [];
+        
+        heatCircles.forEach(c => { try { if(c) map.removeLayer(c); } catch(e){} });
+        heatCircles = [];
+        
+        const { data, error } = await db.from('spots').select('*');
+        if (!error) {
+            const now = Date.now();
+            data.forEach(s => {
+                if (s.category === 'patrol') { if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; } }
+                if ((s.report_count || 0) >= 3) return;
+
+                let hcColor = '#ef4444', hcFill = '#f87171';
+                if (s.category === 'danger') { hcColor = '#2563eb'; hcFill = '#60a5fa'; }
+                if (s.category === 'patrol') { hcColor = '#10b981'; hcFill = '#34d399'; }
+                if (s.category === 'abandoned') { hcColor = '#9333ea'; hcFill = '#c084fc'; }
+
+                const hc = L.circle([s.lat, s.lng], { color:hcColor, fillColor:hcFill, fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
+                heatCircles.push(hc); createSpotPin(s, hc);
+            });
+        }
+    }
+
+    function createSpotPin(spot, hc) {
+        let color = '#6b7280', iconC = 'fa-map-pin';
+        if (spot.category === 'illegal') { color = '#ef4444'; iconC = 'fa-ban'; }
+        if (spot.category === 'danger') { color = '#2563eb'; iconC = 'fa-triangle-exclamation'; }
+        if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
+        if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
+        if (spot.category === 'reckless') { color = '#f59e0b'; iconC = 'fa-motorcycle'; }
+        if (spot.category === 'official') { color = '#059669'; iconC = 'fa-shield-halved'; }
+        
+        const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
+
+        const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
+        const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
+        const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
+
+        const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
+        let popupContent = "";
+        
+        if (spot.category === 'official') {
+            // ★公式情報用（ユーザーが削除できないようにそのまま）
+            popupContent = `
+                <div style="min-width:220px;">
+                    <div style="font-size:0.75rem; color:#059669; font-weight:bold;">🛡️ 公的機関・警察情報</div>
+                    <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
+                    <div style="font-size:0.85rem; color:#374151; margin-bottom:12px; line-height:1.4;">${spot.comment}</div>
+                    <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> SNSで注意喚起・共有</button>
+                </div>
+            `;
+        } else {
+            // 👤 一般ユーザーの投稿用
+            popupContent = `
+                <div style="min-width:210px;">
+                    <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
+                    <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
+                    <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
+                    ${imgTag}
+                    <div style="display:flex; gap:6px; margin-bottom:10px;">
+                        <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.user_id || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
+                        <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
+                    </div>
+                    <div style="display:flex; gap:6px; margin-bottom:10px;">
+                        <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
+                        <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
+                        <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
+                    </div>
+                    <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
+                        <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
+                        <div style="display:flex; gap:8px;">
+                            <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
+                            <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        m.bindPopup(popupContent);
+        m.on('popupopen', () => { setDynamicAd(spot.category); });
+        activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
+    }
+
+    function filterMarkers(cat, btn) {
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
+        activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); if(m.circle) map.addLayer(m.circle); } else { map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); } });
+        document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
+    }
+
+    async function likeSpot(id, currentLike, spotUserId) { 
+        if (spotUserId && spotUserId === myUserId) {
+            showToast("自分の投稿には「助かった！」を押せません");
+            return;
+        }
+        addPoint(1, "お礼を伝えました"); 
+        await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id); 
+    }
+    async function reportSpot(id, currentReport) {
+        if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから非表示になります)")) return;
+        let newReportCount = currentReport + 1;
+        await db.from('spots').update({ report_count: newReportCount }).eq('id', id);
+        
+        if (newReportCount >= 3) {
+            removeMarkerFromMap(id);
+            showToast("通報が3件に達したため非表示にしました");
+        } else { 
+            showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
+        }
+    }
+    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
+    async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
+
+    // ==========================================
+    // 9. 投稿機能（上限管理付き）
+    // ==========================================
+    let uploadedImageFile = null;
+
+    map.on('click', (e) => { 
+        window.postLat = e.latlng.lat; window.postLng = e.latlng.lng; 
+        document.getElementById('postModal').classList.add('open'); 
+        document.getElementById('imagePreview').style.display = 'none';
+        document.getElementById('postImageInput').value = '';
+        toggleImageUpload(); 
+    });
+
+    function toggleImageUpload() {
+        const cat = document.getElementById('postCategory').value; 
+        const area = document.getElementById('imageUploadArea');
+        const reportArea = document.getElementById('reportCheckArea');
+        
+        if(cat === 'abandoned') { 
+            area.style.display = 'block'; 
+        } else { 
+            area.style.display = 'none'; 
+            uploadedImageFile = null; 
+            if(document.getElementById('imagePreview')) document.getElementById('imagePreview').style.display='none'; 
+        }
+        
+        if(cat === 'patrol') { 
+            reportArea.style.display = 'none'; 
+            document.getElementById('postIsReported').checked = false;
+        } else { 
+            reportArea.style.display = 'flex'; 
+        }
+    }
+
+    document.getElementById('postImageInput').addEventListener('change', function(e) {
+        const file = e.target.files[0]; if(!file) return;
+        uploadedImageFile = file; 
+        const reader = new FileReader();
+        reader.onload = function(event) { document.getElementById('imagePreview').src = event.target.result; document.getElementById('imagePreview').style.display = 'block'; }
+        reader.readAsDataURL(file);
+    });
+
+    function closePostModal() { document.getElementById('postModal').classList.remove('open'); document.getElementById('postForm').reset(); document.getElementById('aiLoading').style.display = 'none'; toggleImageUpload(); }
+
+    function checkWithAI(title, comment) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const text = title + " " + comment; const ngWords = ["天気", "ひま", "暇", "疲れた", "腹減った", "クソ", "死ね", "うざい", "バカ", "あつい", "寒い"];
+                for (let word of ngWords) { if (text.includes(word)) { resolve({ safe: false, reason: "交通情報に関係のない日常会話、または不適切な言葉が含まれているためブロックしました。" }); return; } }
+                if (text.length < 4) { resolve({ safe: false, reason: "情報が短すぎます。具体的な状況を記載してください。" }); return; }
+                resolve({ safe: true });
+            }, 1500); 
+        });
+    }
+
+    async function handlePostSubmit(e) {
+        e.preventDefault();
+        checkLimitsReset();
+        
+        if (actionLimits.postCount >= 5) {
+            alert('【上限到達】本日の安全ポイント獲得（投稿）は5回までです。明日またお願いします！');
+            closePostModal();
+            return;
+        }
+
+        let title = document.getElementById('postTitle').value; 
+        const comment = document.getElementById('postComment').value; 
+        const cat = document.getElementById('postCategory').value;
+        const isReported = document.getElementById('postIsReported').checked;
+
+        if (isReported) {
+            title = "【通報済】" + title;
+        }
+        
+        if (cat === 'abandoned' && !uploadedImageFile) { alert('不法放置の報告には現地の写真（その場での撮影）が必要です。'); return; }
+
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">AIが内容を検閲中...</div>'; document.getElementById('aiLoading').style.display = 'flex';
+        
+        const aiResult = await checkWithAI(title, comment);
+        if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【AI検閲エラー】\n${aiResult.reason}`); return; }
+
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">エリアを特定中...</div>';
+        let spotAddress = "不明なエリア";
+        try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${window.postLat}&lon=${window.postLng}`);
+            const addrData = await res.json();
+            if(addrData && addrData.address) {
+                const pref = addrData.address.province || addrData.address.state || "";
+                const city = addrData.address.city || addrData.address.town || addrData.address.village || addrData.address.suburb || "";
+                if(pref || city) spotAddress = `${pref} ${city}`.trim();
+            }
+        } catch(err) { console.log("住所の取得に失敗しました"); }
+
+        let finalImageUrl = null;
+        if (cat === 'abandoned' && uploadedImageFile) {
+            document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">画像をモザイク処理・アップロード中...</div>';
+            const fileName = `img_${Date.now()}_${Math.floor(Math.random()*1000)}.jpg`;
+            const { data: uploadData, error: uploadError } = await db.storage.from('spot-images').upload(fileName, uploadedImageFile);
+            if (uploadError) { document.getElementById('aiLoading').style.display = 'none'; alert('画像のアップロードに失敗しました。'); return; }
+            const { data: publicUrlData } = db.storage.from('spot-images').getPublicUrl(fileName);
+            finalImageUrl = publicUrlData.publicUrl;
+        }
+
+        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress }]).select(); 
+        
+        if (!error && data && data.length > 0) { 
+            actionLimits.postCount++;
+            saveLimits();
+            addPoint(10, `安全情報を共有しました (本日 ${actionLimits.postCount}/5 回)`); 
+            closePostModal(); 
+        } 
+        else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); }
+    }
+
+    let notifiedSpots = new Set();
+    function checkProximity(lat, lng) {
+        activeMarkers.forEach(m => {
+            if (m.category !== 'abandoned') return;
+            const d = (6371 * 2 * Math.atan2(Math.sqrt(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2), Math.sqrt(1-(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2))));
+            if (d <= 0.05 && !notifiedSpots.has(m.id)) { notifiedSpots.add(m.id); const t = document.getElementById('alertToast'); document.getElementById('alertToastMsg').innerHTML = `近くの不法放置車両はまだありますか？<br><span style="font-size:0.75rem; text-decoration:underline;">タップして情報更新 (+1pt)</span>`; t.classList.add('show'); t.onclick = () => { m.instance.openPopup(); t.classList.remove('show'); }; setTimeout(() => t.classList.remove('show'), 7000); }
+        });
+    }
+
+    // ==========================================
+    // 10. AIパトロール・事故多発エリア（オリジナル機能）
+    // ==========================================
+    let mediaStream = null;
+    let detectionInterval = null;
+
+    async function startAIPatrol() {
+        const camView = document.getElementById('cameraView');
+        const video = document.getElementById('videoElement');
+        camView.classList.add('active');
+        
+        try {
+            mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+            video.srcObject = mediaStream;
+            showToast("AIパトロールを開始しました");
+            
+            detectionInterval = setInterval(() => {
+                const box = document.getElementById('mockDetectionBox');
+                if(box) {
+                    box.style.display = 'block';
+                    box.style.left = (15 + Math.random() * 50) + '%';
+                    box.style.top = (25 + Math.random() * 40) + '%';
+                    setTimeout(() => { box.style.display = 'none'; }, 800);
+                }
+            }, 2500);
+
+        } catch (err) {
+            alert("カメラへのアクセスが許可されていません。");
+            stopAIPatrol();
+        }
+    }
+
+    function stopAIPatrol() {
+        const camView = document.getElementById('cameraView');
+        camView.classList.remove('active');
+        if (mediaStream) { mediaStream.getTracks().forEach(track => track.stop()); mediaStream = null; }
+        if (detectionInterval) { clearInterval(detectionInterval); }
+        showToast("AIパトロールを終了しました");
+    }
+
+    let accidentCircles = [];
+    let isAccidentDataVisible = false;
+    function toggleAccidentData(btn) {
+        isAccidentDataVisible = !isAccidentDataVisible;
+        if (isAccidentDataVisible) {
+            btn.style.background = "#ef4444"; btn.style.color = "white";
+            const bounds = map.getBounds(); const latMin = bounds.getSouth(); const latMax = bounds.getNorth(); const lngMin = bounds.getWest(); const lngMax = bounds.getEast();
+            const accidentCount = Math.floor(Math.random() * 4) + 3; 
+            for (let i = 0; i < accidentCount; i++) {
+                const pos = [latMin + (Math.random() * (latMax - latMin)), lngMin + (Math.random() * (lngMax - lngMin))];
+                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
+                const warningIcon = L.divIcon({ className: 'custom-warning', html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>', iconSize: [60, 40], iconAnchor: [30, 20] });
+                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                accidentCircles.push({ circle, marker });
+            }
+            showToast("警察庁の事故データを重ねて表示しました");
+        } else {
+            btn.style.background = "rgba(255,255,255,0.9)"; btn.style.color = "#ef4444";
+            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
+            accidentCircles = [];
+        }
+    }
+
+    // ==========================================
+    // 11. 啓発テスト（クイズ機能）
+    // ==========================================
+    // ★修正箇所：問題を追加（全15問）
+    const qList = [
+        { q: "交差点の端から5m以内は原則どうなる？", o: ["駐車だけ禁止", "夜だけ禁止", "駐停車禁止"], a: 2, e: "交差点とその端から5m以内は、原則として駐停車禁止です。" },
+        { q: "横断歩道の前後5m以内では原則どうなる？", o: ["駐車できる", "駐停車禁止", "運転者が乗っていればよい"], a: 1, e: "歩行者の安全確保のため、横断歩道の前後5m以内は駐停車禁止です。" },
+        { q: "自転車のながらスマホの罰則は？", o: ["罰金なし", "懲役または罰金", "注意のみ"], a: 1, e: "厳罰化され、1年以下の懲役または30万円以下の罰金の対象となります。" },
+        { q: "自転車のヘルメット着用ルールは？", o: ["13歳未満のみ", "全員に努力義務", "高速道路のみ"], a: 1, e: "年齢問わず全員に努力義務が課されています。" },
+        { q: "夜間の自転車無灯火走行の罰則は？", o: ["違法ではない", "5万円以下の罰金", "注意のみ"], a: 1, e: "夜間の無灯火は5万円以下の罰金対象です。" },
+        { q: "自転車で歩道を走れる例外時、どこを走る？", o: ["真ん中", "車道寄りを徐行", "壁際"], a: 1, e: "歩道では車道寄りをすぐ止まれる速度で徐行する義務があります。" },
+        { q: "自転車で傘をさしての運転は？", o: ["原則禁止", "時速10km以下ならOK", "雨の日だけOK"], a: 0, e: "片手運転と視野不良になるため原則禁止です。" },
+        { q: "踏切とその前後の端から何m以内が駐停車禁止？", o: ["5m", "10m", "20m"], a: 1, e: "踏切とその前後10m以内は駐停車禁止です。" },
+        { q: "消火栓から何m以内が駐車禁止？", o: ["3m", "5m", "10m"], a: 1, e: "消火栓から5m以内の場所は駐車禁止です。" },
+        { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" },
+        { q: "運転中のスマホ操作（保持）の罰則は？", o: ["罰金のみ", "6ヶ月以下の懲役または10万円以下の罰金", "注意のみ"], a: 1, e: "「ながらスマホ」は厳罰化されており、保持だけでも懲役または罰金の対象です。" },
+        { q: "横断歩道に歩行者がいる場合、車はどうする？", o: ["徐行して通り抜ける", "一時停止して進路を譲る", "クラクションを鳴らす"], a: 1, e: "歩行者優先です。必ず一時停止して横断を妨げないようにしなければなりません。" },
+        { q: "「止まれ」の標識がある交差点での正しい行動は？", o: ["徐行して進む", "停止線の直前で一時停止する", "左右を確認してそのまま進む"], a: 1, e: "停止線の直前（ない場合は交差点の直前）で必ず一時停止する必要があります。" },
+        { q: "車間距離を詰めてあおり運転をした場合の罰則は？", o: ["1年以下の懲役", "3年以下の懲役または50万円以下の罰金", "免許証の没収のみ"], a: 1, e: "妨害運転罪が適用され、最大3年以下の懲役または50万円以下の罰金となります。" },
+        { q: "幼児を車に乗せるとき、チャイルドシートの着用義務は何歳未満？", o: ["4歳未満", "6歳未満", "8歳未満"], a: 1, e: "道路交通法により、6歳未満の幼児にはチャイルドシートの使用が義務付けられています。" }
+    ];
+    let sQ=[], qIdx=0, score=0;
+    function startQuizSession() { document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block'; let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; } sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ(); }
+    function renderQ() { document.getElementById('explanationBox').style.display = 'none'; document.getElementById('quizProgress').innerText = `第 ${qIdx+1} / 10 問`; document.getElementById('quizQuestion').innerText = sQ[qIdx].q; const box = document.getElementById('quizOptions'); box.innerHTML=''; sQ[qIdx].o.forEach((txt, i) => { const b = document.createElement('button'); b.className='quiz-opt'; b.innerText=`${i+1}. ${txt}`; b.onclick=()=>ansQ(i); box.appendChild(b); }); }
+    function ansQ(i) { const isCor = (i === sQ[qIdx].a); if(isCor) { score++; addPoint(1); } const opts = document.querySelectorAll('.quiz-opt'); opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); }); if(!isCor) opts[i].classList.add('wrong'); document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`; document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c'; document.getElementById('expBody').innerText = sQ[qIdx].e; document.getElementById('explanationBox').style.display = 'block'; }
+    function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
+    function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
+
+    // ==========================================
+    // 12. 激アツ！ガチャシステム（確率抽選）
+    // ==========================================
+    function playGacha() {
+        if (myPoint < 100) { showToast('ポイントが足りません。100ptから回せます！'); return; }
+
+        myPoint -= 100;
+        localStorage.setItem('michimamo_pt', myPoint);
+        updateMyPage();
+
+        const modal = document.getElementById('gachaModal');
+        const anim = document.getElementById('gachaAnimation');
+        const resultText = document.getElementById('gachaResultText');
+        const subText = document.getElementById('gachaSubText');
+        const closeBtn = document.getElementById('gachaCloseBtn');
+        
+        modal.style.display = 'flex';
+        anim.className = 'gacha-shake'; 
+        anim.textContent = '🎁';
+        resultText.style.display = 'none';
+        subText.style.display = 'none';
+        closeBtn.style.display = 'none';
+
+        // 確率抽選
+        const rand = Math.random() * 100;
+        let prizeStr = ""; let prizePt = 0;
+        
+        if (rand <= 0.0001) { prizeStr = "✨ 1等 ✨"; prizePt = 100000; } // 0.0001%
+        else if (rand <= 0.0101) { prizeStr = "🌟 2等 🌟"; prizePt = 10000; } // 約0.01%
+        else if (rand <= 10.0101) { prizeStr = "🎉 3等 🎉"; prizePt = 50; }  // 10%
+        else { prizeStr = "4等"; prizePt = 1; } // 約90%
+
+        // ポイント追加
+        myPoint += prizePt;
+        localStorage.setItem('michimamo_pt', myPoint);
+        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
+
+        setTimeout(() => {
+            anim.className = 'gacha-pop'; 
+            anim.textContent = prizeStr === "4等" ? '💊' : '💎'; 
+            resultText.textContent = `${prizePt.toLocaleString()} pt`;
+            resultText.style.display = 'block';
+            subText.textContent = `${prizeStr} おめでとうございます！`;
+            subText.style.display = 'block';
+            closeBtn.style.display = 'block';
+            updateMyPage();
+        }, 2000);
+    }
+    function closeGacha() { document.getElementById('gachaModal').style.display = 'none'; }
+
+</script>
+</body>
+</html>
