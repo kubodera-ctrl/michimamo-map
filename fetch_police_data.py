@@ -80,7 +80,6 @@ def fetch_data_via_ghost_browser():
 
         print("📡 [フェーズ2] 東京23区＆全国46道府県の超精密スキャンを開始...")
         
-        # 46道府県（東京以外）
         prefectures = [
             "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島",
             "茨城", "栃木", "群馬", "埼玉", "千葉", "神奈川",
@@ -90,32 +89,21 @@ def fetch_data_via_ghost_browser():
             "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"
         ]
         
-        # 東京23区
         tokyo_23_wards = [
             "千代田区", "中央区", "港区", "新宿区", "文京区", "台東区", "墨田区", "江東区",
             "品川区", "目黒区", "大田区", "世田谷区", "渋谷区", "中野区", "杉並区", "豊島区",
             "北区", "荒川区", "板橋区", "練馬区", "足立区", "葛飾区", "江戸川区"
         ]
         
+        # カスタマイズ済みの犯罪キーワード
         crime_kws = "不審者 OR 声かけ OR 公然わいせつ OR つきまとい OR 強盗 OR 不審車両"
         search_lanes = []
         
-        # 1. 東京23区（各区 15件ずつ確実に確保）
+        # 1. 東京23区 (15件)
         for ward in tokyo_23_wards:
             search_lanes.append({"query": f"東京都{ward} ({crime_kws})", "limit": 15})
             
-       for article in articles[:lane["limit"]]:
-                    t = article.text.strip()
-                    
-                    # ▼ここから追加（NGワードフィルター）▼
-                    ng_words = ["熱中症", "プロジェクト", "キャンペーン", "映画", "ドラマ", "対策", "イベント", "アウト？", "コラム", "週間", "パトロール", "呼びかけ", "講座"]
-                    if any(ng in t for ng in ng_words):
-                        continue
-                    # ▲ここまで追加▲
-                    
-                    addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
-        
-        # 2. 東京多摩 ＆ 46道府県（大都市20件、その他15件）
+        # 2. 東京多摩 & 46道府県 (大都市20件、その他15件)
         big_cities = ["神奈川", "埼玉", "千葉", "愛知", "大阪", "兵庫", "福岡"]
         search_lanes.append({"query": f"東京都多摩 ({crime_kws})", "limit": 15})
         
@@ -123,10 +111,10 @@ def fetch_data_via_ghost_browser():
             limit_num = 20 if pref in big_cities else 15
             search_lanes.append({"query": f"{pref} ({crime_kws})", "limit": limit_num})
         
-        # 3. 警察直通＆野生動物レーン
+        # 3. 警察直通＆野生動物レーン (30件)
         police_kws = "メールけいしちょう OR ピーポくん OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報"
         search_lanes.append({"query": f"({police_kws}) ({crime_kws})", "limit": 30})
-        search_lanes.append({"query": "クマ出没 OR サル出没", "limit": 20})
+        search_lanes.append({"query": "クマ出没 OR サル出没", "limit": 5})
         
         for lane in search_lanes:
             try:
@@ -142,6 +130,13 @@ def fetch_data_via_ghost_browser():
                 articles = soup.find_all('a', class_='JtKRv')
                 for article in articles[:lane["limit"]]:
                     t = article.text.strip()
+                    
+                    # ▼ NGワードフィルター ▼
+                    ng_words = ["熱中症", "プロジェクト", "キャンペーン", "映画", "ドラマ", "対策", "イベント", "アウト？", "コラム", "週間", "パトロール", "呼びかけ", "講座"]
+                    if any(ng in t for ng in ng_words):
+                        continue
+                    # ▲ NGワードフィルター ▲
+                    
                     addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
                     if addr_match:
                         prefix = "【野生動物】" if "出没" in lane["query"] else "【防犯ニュース】"
@@ -171,7 +166,7 @@ if __name__ == "__main__":
     cleanup_old_official_spots()
     
     raw_spots = fetch_data_via_ghost_browser()
-    print(f"🔍 [Ghost Browser] 合計 {len(raw_spots)} 件の強力な事案を抽出。座標変換を開始します...")
+    print(f"🔍 [Ghost Browser] 合計 {len(raw_spots)} 件の事案を抽出。座標変換を開始します...")
     
     added_count = 0
     for spot in raw_spots:
@@ -191,4 +186,4 @@ if __name__ == "__main__":
             except Exception:
                 pass
             
-    print(f"🎉 処理完了: 新たに {added_count} 件の【超精密データ】を全国マップに反映しました。")
+    print(f"🎉 処理完了: 新たに {added_count} 件のデータを反映しました。")
