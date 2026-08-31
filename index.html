@@ -34,7 +34,6 @@
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        /* メニュー（4等分） */
         nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
         nav button.active { color: #1f6feb; }
@@ -54,8 +53,8 @@
         .filter-chip.danger.active { background: #2563eb; color: white; border-color: #2563eb; }
         .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
         .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
-　　　　.filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
-        .filter-chip.official.active { background: #059669; color: white; border-color: #059669; } /* 公式防犯用 */
+        .filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
+        .filter-chip.official.active { background: #059669; color: white; border-color: #059669; }
         .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
@@ -219,7 +218,6 @@
                 <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
-                <!-- デモ版ではなく、実際のカメラ（videoタグ）を復活させています -->
                 <div id="cameraView" class="camera-view">
                     <video id="videoElement" autoplay playsinline></video>
                     <div class="camera-overlay"><div class="scan-line"></div></div>
@@ -236,7 +234,7 @@
             </div>
         </section>
 
-        <!-- 2. クイズ画面（ベースコードの機能をそのまま保持） -->
+        <!-- 2. クイズ画面 -->
         <section id="quizView" class="view">
             <div class="page">
                 <h1>🔰 啓発テスト (全10問)</h1>
@@ -302,7 +300,6 @@
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
                     </button>
 
-                    <!-- 新設：スポンサー募集への導線 -->
                     <button onclick="openSponsorModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
                         <span><i class="fa-solid fa-store" style="color:#f59e0b; margin-right:8px;"></i> 店舗・企業の皆様へ (スポンサー募集)</span>
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
@@ -335,25 +332,27 @@
                     <button onclick="playGacha()" style="width:100%; padding:16px; background:#ef4444; color:#fff; font-size:1.2rem; font-weight:bold; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(239, 68, 68, 0.4); cursor:pointer; margin-bottom:30px;">
                         <i class="fa-solid fa-gem"></i> ガチャを回す（1回 100pt）
                     </button>
-<div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:30px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-    <h3 style="font-size:1rem; text-align:center; border-bottom:2px solid #60a5fa; padding-bottom:8px; margin-top:0; margin-bottom:12px; color:#1f2937;">🎁 あもガチャ 報酬一覧</h3>
-    <div style="display:flex; justify-content:space-between; padding:10px; background:#fefce8; border:1px solid #fef08a; border-radius:8px; margin-bottom:8px;">
-        <span style="font-weight:bold; color:#ca8a04; font-size:1.1rem;">🥇 1等</span>
-        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">Amazonギフト券 10,000円分</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; padding:10px; background:#f3f4f6; border:1px solid #d1d5db; border-radius:8px; margin-bottom:8px;">
-        <span style="font-weight:bold; color:#6b7280; font-size:1.1rem;">🥈 2等</span>
-        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">選べる電子マネー 5,000円分</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; padding:10px; background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; margin-bottom:8px;">
-        <span style="font-weight:bold; color:#ea580c; font-size:1.1rem;">🥉 3等</span>
-        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">オリジナルグッズ</span>
-    </div>
-    <div style="display:flex; justify-content:space-between; padding:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px;">
-        <span style="font-weight:bold; color:#3b82f6; font-size:1.1rem;">🏅 4等</span>
-        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">アプリ内ポイント 100pt</span>
-    </div>
-</div>
+
+                    <!-- ガチャ報酬一覧 -->
+                    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:30px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                        <h3 style="font-size:1rem; text-align:center; border-bottom:2px solid #60a5fa; padding-bottom:8px; margin-top:0; margin-bottom:12px; color:#1f2937;">🎁 あもガチャ 報酬一覧</h3>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#fefce8; border:1px solid #fef08a; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#ca8a04; font-size:1.1rem;">🥇 1等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">Amazonギフト券 10,000円分</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#f3f4f6; border:1px solid #d1d5db; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#6b7280; font-size:1.1rem;">🥈 2等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">選べる電子マネー 5,000円分</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; margin-bottom:8px;">
+                            <span style="font-weight:bold; color:#ea580c; font-size:1.1rem;">🥉 3等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">オリジナルグッズ</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px;">
+                            <span style="font-weight:bold; color:#3b82f6; font-size:1.1rem;">🏅 4等</span>
+                            <span style="font-weight:bold; color:#374151; font-size:0.9rem;">アプリ内ポイント 100pt</span>
+                        </div>
+                    </div>
 
                     <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
                         💰 ポイントを一気に稼ごう！
@@ -498,7 +497,7 @@
     </div>
 </div>
 
-<!-- 危険情報投稿モーダル（※不正防止用のカメラ制限追加） -->
+<!-- 危険情報投稿モーダル -->
 <div id="postModal" class="modal">
     <div class="sheet" style="position:relative;">
         <div id="aiLoading">
@@ -932,7 +931,8 @@ function shareSpot(title, address, category, event) {
         document.body.appendChild(link); link.click(); document.body.removeChild(link);
         showToast("ダウンロードが完了しました");
     }
-// ==========================================
+
+    // ==========================================
     // 7. マップ初期化・現在地・公式ピン（モック）
     // ==========================================
     const map = L.map('map', { attributionControl: false, zoomControl: false }).setView([35.681236, 139.767125], 13);
@@ -996,9 +996,11 @@ function shareSpot(title, address, category, event) {
     }
 
     async function loadSpots() {
-        // 【これに書き換える】
-activeMarkers.forEach(m => { if(m.instance) map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
-activeMarkers = [];
+        // ★修正箇所：公式ピンを含めて全てリセット
+        activeMarkers.forEach(m => { if(m.instance) map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
+        activeMarkers = [];
+        
+        heatCircles.forEach(c => { try { if(c) map.removeLayer(c); } catch(e){} });
         heatCircles = [];
         
         const { data, error } = await db.from('spots').select('*');
@@ -1026,6 +1028,7 @@ activeMarkers = [];
         if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
         if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
         if (spot.category === 'reckless') { color = '#f59e0b'; iconC = 'fa-motorcycle'; }
+        if (spot.category === 'official') { color = '#059669'; iconC = 'fa-shield-halved'; }
         
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
@@ -1037,7 +1040,7 @@ activeMarkers = [];
         let popupContent = "";
         
         if (spot.category === 'official') {
-            // 🚨 警察・自治体の公式情報用（スッキリ表示）
+            // ★公式情報用（ユーザーが削除できないようにそのまま）
             popupContent = `
                 <div style="min-width:220px;">
                     <div style="font-size:0.75rem; color:#059669; font-weight:bold;">🛡️ 公的機関・警察情報</div>
@@ -1086,7 +1089,6 @@ activeMarkers = [];
     }
 
     async function likeSpot(id, currentLike, spotUserId) { 
-        // 自分の投稿かどうかを判定（投稿者のIDと自分のIDを比較）
         if (spotUserId && spotUserId === myUserId) {
             showToast("自分の投稿には「助かった！」を押せません");
             return;
@@ -1168,7 +1170,6 @@ activeMarkers = [];
         e.preventDefault();
         checkLimitsReset();
         
-        // ▼ 1日の上限チェック（5回） ▼
         if (actionLimits.postCount >= 5) {
             alert('【上限到達】本日の安全ポイント獲得（投稿）は5回までです。明日またお願いします！');
             closePostModal();
@@ -1216,7 +1217,6 @@ activeMarkers = [];
         const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress }]).select(); 
         
         if (!error && data && data.length > 0) { 
-            // 投稿成功時にカウント追加
             actionLimits.postCount++;
             saveLimits();
             addPoint(10, `安全情報を共有しました (本日 ${actionLimits.postCount}/5 回)`); 
@@ -1300,6 +1300,7 @@ activeMarkers = [];
     // ==========================================
     // 11. 啓発テスト（クイズ機能）
     // ==========================================
+    // ★修正箇所：問題を追加（全15問）
     const qList = [
         { q: "交差点の端から5m以内は原則どうなる？", o: ["駐車だけ禁止", "夜だけ禁止", "駐停車禁止"], a: 2, e: "交差点とその端から5m以内は、原則として駐停車禁止です。" },
         { q: "横断歩道の前後5m以内では原則どうなる？", o: ["駐車できる", "駐停車禁止", "運転者が乗っていればよい"], a: 1, e: "歩行者の安全確保のため、横断歩道の前後5m以内は駐停車禁止です。" },
@@ -1310,7 +1311,7 @@ activeMarkers = [];
         { q: "自転車で傘をさしての運転は？", o: ["原則禁止", "時速10km以下ならOK", "雨の日だけOK"], a: 0, e: "片手運転と視野不良になるため原則禁止です。" },
         { q: "踏切とその前後の端から何m以内が駐停車禁止？", o: ["5m", "10m", "20m"], a: 1, e: "踏切とその前後10m以内は駐停車禁止です。" },
         { q: "消火栓から何m以内が駐車禁止？", o: ["3m", "5m", "10m"], a: 1, e: "消火栓から5m以内の場所は駐車禁止です。" },
-        { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" }
+        { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" },
         { q: "運転中のスマホ操作（保持）の罰則は？", o: ["罰金のみ", "6ヶ月以下の懲役または10万円以下の罰金", "注意のみ"], a: 1, e: "「ながらスマホ」は厳罰化されており、保持だけでも懲役または罰金の対象です。" },
         { q: "横断歩道に歩行者がいる場合、車はどうする？", o: ["徐行して通り抜ける", "一時停止して進路を譲る", "クラクションを鳴らす"], a: 1, e: "歩行者優先です。必ず一時停止して横断を妨げないようにしなければなりません。" },
         { q: "「止まれ」の標識がある交差点での正しい行動は？", o: ["徐行して進む", "停止線の直前で一時停止する", "左右を確認してそのまま進む"], a: 1, e: "停止線の直前（ない場合は交差点の直前）で必ず一時停止する必要があります。" },
