@@ -74,8 +74,9 @@ def fetch_aggregator_and_news():
     
     # 検索クエリと、それぞれの取得上限件数を独立して設定
     search_lanes = [
-        {"query": "不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両", "limit": 20}, # 対人トラブル（メイン）
-        {"query": "クマ出没", "limit": 5} # クマ枠（マップを埋め尽くさないよう控えめに）
+        {"query": "不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 強盗 OR　窃盗 OR　不審車両", "limit": 20}, # 対人トラブル（メイン）
+        {"query": "クマ出没", "limit": 5} # クマ枠
+    　　{"query": '("メールけいしちょう" OR "防犯メール" OR "安全安心メール") (不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 強盗 OR　窃盗 OR　不審車両)', "limit": 15}
     ]
     
     for lane in search_lanes:
