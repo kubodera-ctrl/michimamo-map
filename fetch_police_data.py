@@ -75,25 +75,47 @@ def fetch_data_via_ghost_browser():
                         "address": addr_match.group(0),
                         "category": "official"
                     })
-        except Exception as e:
-            print(f"⚠️ アグリゲーター抽出エラー: {e}")
+        except Exception:
+            pass
 
-        print("📡 [フェーズ2] Google News エリア別絨毯爆撃＆警察特化検索を開始...")
+        print("📡 [フェーズ2] 東京23区＆全国46道府県の超精密スキャンを開始...")
         
-        # ★ ここが復活！ 47都道府県を網羅する最強の検索レーン
-        crime_kws = "不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 強盗 OR 窃盗 OR 不審車両"
-        police_kws = "メールけいしちょう OR ピーポくん OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報"
-        
-        search_lanes = [
-            {"query": f"(北海道 OR 青森 OR 岩手 OR 宮城 OR 秋田 OR 山形 OR 福島) ({crime_kws})", "limit": 50},
-            {"query": f"(茨城 OR 栃木 OR 群馬 OR 埼玉 OR 千葉 OR 東京 OR 神奈川) ({crime_kws})", "limit": 50},
-            {"query": f"(新潟 OR 富山 OR 石川 OR 福井 OR 山梨 OR 長野 OR 岐阜 OR 静岡 OR 愛知) ({crime_kws})", "limit": 50},
-            {"query": f"(三重 OR 滋賀 OR 京都 OR 大阪 OR 兵庫 OR 奈良 OR 和歌山) ({crime_kws})", "limit": 50},
-            {"query": f"(鳥取 OR 島根 OR 岡山 OR 広島 OR 山口 OR 徳島 OR 香川 OR 愛媛 OR 高知) ({crime_kws})", "limit": 50},
-            {"query": f"(福岡 OR 佐賀 OR 長崎 OR 熊本 OR 大分 OR 宮崎 OR 鹿児島 OR 沖縄) ({crime_kws})", "limit": 50},
-            {"query": f"({police_kws}) ({crime_kws})", "limit": 50},
-            {"query": "クマ出没 OR サル出没", "limit": 30}
+        # 46道府県（東京以外）
+        prefectures = [
+            "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島",
+            "茨城", "栃木", "群馬", "埼玉", "千葉", "神奈川",
+            "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知",
+            "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山",
+            "鳥取", "島根", "岡山", "広島", "山口", "徳島", "香川", "愛媛", "高知",
+            "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"
         ]
+        
+        # 東京23区
+        tokyo_23_wards = [
+            "千代田区", "中央区", "港区", "新宿区", "文京区", "台東区", "墨田区", "江東区",
+            "品川区", "目黒区", "大田区", "世田谷区", "渋谷区", "中野区", "杉並区", "豊島区",
+            "北区", "荒川区", "板橋区", "練馬区", "足立区", "葛飾区", "江戸川区"
+        ]
+        
+        crime_kws = "不審者 OR 声かけ OR 公然わいせつ OR つきまとい OR 強盗 OR 不審車両"
+        search_lanes = []
+        
+        # 1. 東京23区（各区 15件ずつ確実に確保）
+        for ward in tokyo_23_wards:
+            search_lanes.append({"query": f"東京都{ward} ({crime_kws})", "limit": 15})
+            
+        # 2. 東京多摩 ＆ 46道府県（大都市20件、その他15件）
+        big_cities = ["神奈川", "埼玉", "千葉", "愛知", "大阪", "兵庫", "福岡"]
+        search_lanes.append({"query": f"東京都多摩 ({crime_kws})", "limit": 15})
+        
+        for pref in prefectures:
+            limit_num = 20 if pref in big_cities else 15
+            search_lanes.append({"query": f"{pref} ({crime_kws})", "limit": limit_num})
+        
+        # 3. 警察直通＆野生動物レーン
+        police_kws = "メールけいしちょう OR ピーポくん OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報"
+        search_lanes.append({"query": f"({police_kws}) ({crime_kws})", "limit": 30})
+        search_lanes.append({"query": "クマ出没 OR サル出没", "limit": 20})
         
         for lane in search_lanes:
             try:
@@ -109,7 +131,6 @@ def fetch_data_via_ghost_browser():
                 articles = soup.find_all('a', class_='JtKRv')
                 for article in articles[:lane["limit"]]:
                     t = article.text.strip()
-                    # 都道府県＋市区町村を正確に抜き出す正規表現
                     addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
                     if addr_match:
                         prefix = "【野生動物】" if "出没" in lane["query"] else "【防犯ニュース】"
@@ -159,4 +180,4 @@ if __name__ == "__main__":
             except Exception:
                 pass
             
-    print(f"🎉 処理完了: 新たに {added_count} 件の【究極防犯データ】を全国マップに反映しました。")
+    print(f"🎉 処理完了: 新たに {added_count} 件の【超精密データ】を全国マップに反映しました。")
