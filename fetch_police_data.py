@@ -3,7 +3,6 @@ import re
 import time
 import urllib.parse
 import requests
-import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from supabase import create_client, Client
 
@@ -15,92 +14,117 @@ if not SUPABASE_KEY:
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# 1. 古いデータのクリーンアップ（60日経過）
+# 1. 古い公的データのクリーンアップ
 def cleanup_old_official_spots():
     try:
         two_months_ago = (datetime.now() - timedelta(days=60)).isoformat()
-        supabase.table("spots").delete().in_("category", ["official", "accident"]).lt("created_at", two_months_ago).execute()
-        print("🧹 古い情報をクリーンアップしました。")
+        supabase.table("spots").delete().in_("category", ["official"]).lt("created_at", two_months_ago).execute()
+        print("🧹 古い公的情報をクリーンアップしました。")
     except Exception as e:
         print(f"クリーンアップエラー: {e}")
 
-# 2. 住所 -> 緯度経度変換（OSM API / 制限回避のため1秒スリープ必須）
+# 2. 住所 -> 緯度経度変換（API制限を厳守）
 def geocode_address(address):
     try:
         url = f"https://nominatim.openstreetmap.org/search?format=json&q={urllib.parse.quote(address)}&countrycodes=jp"
-        headers = {"User-Agent": "MichimamoMap-SafetyApp/1.0"}
+        headers = {"User-Agent": "MichimamoMap-SafetyApp/3.0"}
         res = requests.get(url, headers=headers, timeout=10).json()
-        
-        # OpenStreetMapのAPI制限（1秒に1回）を守るための待機時間
-        time.sleep(1)
-        
+        time.sleep(1.2) # OSMのAPIブロックを防ぐため必ず1秒以上待機
         if res and len(res) > 0:
             return float(res[0]["lat"]), float(res[0]["lon"])
-    except Exception as e:
+    except Exception:
         pass
     return None, None
 
-# 3. Google News RSSから「不審者・声かけ・痴漢」のみを厳選取得
-def fetch_real_suspicious_data():
+# 3. 集約メディアとニュースからのハイブリッド大量取得
+def fetch_aggregator_and_news():
     fetched_data = []
-    
-    # 検索キーワードをURLエンコード（不審者 OR 声かけ OR 痴漢）
-    query = urllib.parse.quote("不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両 OR クマ出没")
-    google_news_url = f"https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-    }
+    # ① 警察情報集約メディア（mcap.jp）から過去3ページ分（約50件）を一気に抽出
+    print("📡 警察情報集約メディア（全国防犯メール）へアクセス中...")
+    for page in range(1, 4):
+        try:
+            mcap_url = f"https://mcap.jp/feed/safety?paged={page}"
+            res = requests.get(mcap_url, headers=headers, timeout=15)
+            if res.status_code == 200:
+                # 相手側のタグ構文エラーを無視して、正規表現で強引にテキストだけを抜く
+                items = re.findall(r'<item>(.*?)</item>', res.text, re.DOTALL)
+                for item_str in items:
+                    title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
+                    desc_match = re.search(r'<description>(.*?)</description>', item_str, re.DOTALL)
+                    
+                    if title_match:
+                        t = re.sub(r'<[^>]+>', '', title_match.group(1).replace('<![CDATA[', '').replace(']]>', '')).strip()
+                        d = re.sub(r'<[^>]+>', '', desc_match.group(1).replace('<![CDATA[', '').replace(']]>', '')).strip() if desc_match else t
+                        
+                        # 住所抽出（都道府県・市区町村）
+                        addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村)[一-龠0-9丁目-]*)', t + " " + d)
+                        if addr_match:
+                            fetched_data.append({
+                                "title": f"【警察アラート】{t[:25]}",
+                                "comment": d[:90] + "...",
+                                "address": addr_match.group(0),
+                                "category": "official"
+                            })
+        except Exception as e:
+            print(f"⚠️ 集約メディア取得エラー (page {page}): {e}")
+        time.sleep(1)
 
+    # ② 検索ワードを強化したGoogle News（ニュースでしか出ない事案を補完）
+    print("📡 Google News 防犯特化フィードへアクセス中...")
     try:
-        res = requests.get(google_news_url, headers=headers, timeout=15)
+        # 港区の例にあったようなお堅い警察用語を網羅
+        query = urllib.parse.quote("不審者 OR 声かけ OR 痴漢 OR 公然わいせつ OR つきまとい OR 不審車両 OR クマ出没")
+        google_url = f"https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
+        res = requests.get(google_url, headers=headers, timeout=15)
         if res.status_code == 200:
-            root = ET.fromstring(res.text)
-            items = root.findall(".//item")
-            
-            for item in items[:40]:  # 最新40件を解析
-                title = item.find("title").text if item.find("title") is not None else ""
-                
-                # ニュースサイト名などを除去し、純粋な記事タイトルにする
-                clean_title = re.sub(r' - [^\-]+$', '', title)
-                
-                # 日本の住所（都道府県・市区町村）をタイトルから抽出
-                # 例: "女子生徒に声かけ、不審な男逃走…横浜市" -> "横浜市"
-                match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:市|区|町|村))', clean_title)
-                
-                if match:
-                    addr = match.group(0)
-                    
-                    # ニュースから抽出した住所を緯度経度に変換
-                    lat, lng = geocode_address(addr)
-                    
-                    if lat and lng:
+            items = re.findall(r'<item>(.*?)</item>', res.text, re.DOTALL)
+            for item_str in items[:20]:
+                title_match = re.search(r'<title>(.*?)</title>', item_str, re.DOTALL)
+                if title_match:
+                    t = re.sub(r'<[^>]+>', '', title_match.group(1)).replace(' - Yahoo!ニュース', '').strip()
+                    addr_match = re.search(r'([一-龠]+(?:都|道|府|県))?([一-龠]+(?:区|市|郡|町|村))', t)
+                    if addr_match:
                         fetched_data.append({
-                            "title": f"【不審者/声かけ】{clean_title[:30]}",
-                            "comment": "学校・地域周辺での安全情報。詳細は各ニュースサイト・自治体発表をご確認ください。",
-                            "address": addr,
-                            "lat": lat,
-                            "lng": lng,
-                            "category": "official"  # アプリ上の公式（青/緑ピン）として扱う
+                            "title": f"【防犯ニュース】{t[:25]}",
+                            "comment": "報道メディア・自治体発表に基づく地域の安全情報です。",
+                            "address": addr_match.group(0),
+                            "category": "official"
                         })
-                        print(f"🔍 [検知] {addr}: {clean_title[:20]}...")
     except Exception as e:
-        print(f"⚠️ RSS取得エラー: {e}")
+        print(f"⚠️ Google News取得エラー: {e}")
 
-    return fetched_data
+    # 重複排除（同じ事件が複数回登録されるのを防ぐ）
+    unique_data = []
+    seen_titles = set()
+    for d in fetched_data:
+        short_title = d["title"][:15]
+        if short_title not in seen_titles:
+            seen_titles.add(short_title)
+            unique_data.append(d)
+
+    return unique_data
 
 if __name__ == "__main__":
     cleanup_old_official_spots()
     
-    print("📡 Google News防犯フィードへアクセス中...")
-    real_spots = fetch_real_suspicious_data()
+    raw_spots = fetch_aggregator_and_news()
+    print(f"🔍 合計 {len(raw_spots)} 件の事案候補を検出しました。座標変換を開始します...")
     
     added_count = 0
-    for spot in real_spots:
-        # 重複チェック（同じタイトルの事案はスキップ）
-        existing = supabase.table("spots").select("id").eq("title", spot["title"]).execute()
-        if not existing.data:
+    for spot in raw_spots:
+        # すでにDBにあるかチェック
+        existing = supabase.table("spots").select("id").ilike("title", f"{spot['title'][:15]}%").execute()
+        if existing.data:
+            continue
+            
+        lat, lng = geocode_address(spot["address"])
+        if lat and lng:
+            spot["lat"] = lat
+            spot["lng"] = lng
             supabase.table("spots").insert(spot).execute()
             added_count += 1
+            print(f"✅ 登録成功: {spot['title'][:20]}... ({spot['address']})")
             
-    print(f"🎉 処理完了: 新たに {added_count} 件の【不審者・声かけデータ】を反映しました。")
+    print(f"🎉 処理完了: 新たに {added_count} 件の【本物防犯データ】を全国マップに反映しました。")
