@@ -85,14 +85,14 @@ def fetch_data_via_ghost_browser():
         police_kws = "メールけいしちょう OR ピーポくん OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報"
         
         search_lanes = [
-            {"query": f"(北海道 OR 青森 OR 岩手 OR 宮城 OR 秋田 OR 山形 OR 福島) ({crime_kws})", "limit": 10},
-            {"query": f"(茨城 OR 栃木 OR 群馬 OR 埼玉 OR 千葉 OR 東京 OR 神奈川) ({crime_kws})", "limit": 15},
-            {"query": f"(新潟 OR 富山 OR 石川 OR 福井 OR 山梨 OR 長野 OR 岐阜 OR 静岡 OR 愛知) ({crime_kws})", "limit": 10},
-            {"query": f"(三重 OR 滋賀 OR 京都 OR 大阪 OR 兵庫 OR 奈良 OR 和歌山) ({crime_kws})", "limit": 10},
-            {"query": f"(鳥取 OR 島根 OR 岡山 OR 広島 OR 山口 OR 徳島 OR 香川 OR 愛媛 OR 高知) ({crime_kws})", "limit": 8},
-            {"query": f"(福岡 OR 佐賀 OR 長崎 OR 熊本 OR 大分 OR 宮崎 OR 鹿児島 OR 沖縄) ({crime_kws})", "limit": 10},
-            {"query": f"({police_kws}) ({crime_kws})", "limit": 20},
-            {"query": "クマ出没 OR サル出没", "limit": 5}
+            {"query": f"(北海道 OR 青森 OR 岩手 OR 宮城 OR 秋田 OR 山形 OR 福島) ({crime_kws})", "limit": 50},
+            {"query": f"(茨城 OR 栃木 OR 群馬 OR 埼玉 OR 千葉 OR 東京 OR 神奈川) ({crime_kws})", "limit": 50},
+            {"query": f"(新潟 OR 富山 OR 石川 OR 福井 OR 山梨 OR 長野 OR 岐阜 OR 静岡 OR 愛知) ({crime_kws})", "limit": 50},
+            {"query": f"(三重 OR 滋賀 OR 京都 OR 大阪 OR 兵庫 OR 奈良 OR 和歌山) ({crime_kws})", "limit": 50},
+            {"query": f"(鳥取 OR 島根 OR 岡山 OR 広島 OR 山口 OR 徳島 OR 香川 OR 愛媛 OR 高知) ({crime_kws})", "limit": 50},
+            {"query": f"(福岡 OR 佐賀 OR 長崎 OR 熊本 OR 大分 OR 宮崎 OR 鹿児島 OR 沖縄) ({crime_kws})", "limit": 50},
+            {"query": f"({police_kws}) ({crime_kws})", "limit": 50},
+            {"query": "クマ出没 OR サル出没", "limit": 30}
         ]
         
         for lane in search_lanes:
