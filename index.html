@@ -335,6 +335,25 @@
                     <button onclick="playGacha()" style="width:100%; padding:16px; background:#ef4444; color:#fff; font-size:1.2rem; font-weight:bold; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(239, 68, 68, 0.4); cursor:pointer; margin-bottom:30px;">
                         <i class="fa-solid fa-gem"></i> ガチャを回す（1回 100pt）
                     </button>
+<div style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:30px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+    <h3 style="font-size:1rem; text-align:center; border-bottom:2px solid #60a5fa; padding-bottom:8px; margin-top:0; margin-bottom:12px; color:#1f2937;">🎁 あもガチャ 報酬一覧</h3>
+    <div style="display:flex; justify-content:space-between; padding:10px; background:#fefce8; border:1px solid #fef08a; border-radius:8px; margin-bottom:8px;">
+        <span style="font-weight:bold; color:#ca8a04; font-size:1.1rem;">🥇 1等</span>
+        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">Amazonギフト券 10,000円分</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; padding:10px; background:#f3f4f6; border:1px solid #d1d5db; border-radius:8px; margin-bottom:8px;">
+        <span style="font-weight:bold; color:#6b7280; font-size:1.1rem;">🥈 2等</span>
+        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">選べる電子マネー 5,000円分</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; padding:10px; background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; margin-bottom:8px;">
+        <span style="font-weight:bold; color:#ea580c; font-size:1.1rem;">🥉 3等</span>
+        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">オリジナルグッズ</span>
+    </div>
+    <div style="display:flex; justify-content:space-between; padding:10px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px;">
+        <span style="font-weight:bold; color:#3b82f6; font-size:1.1rem;">🏅 4等</span>
+        <span style="font-weight:bold; color:#374151; font-size:0.9rem;">アプリ内ポイント 100pt</span>
+    </div>
+</div>
 
                     <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
                         💰 ポイントを一気に稼ごう！
@@ -977,9 +996,9 @@ function shareSpot(title, address, category, event) {
     }
 
     async function loadSpots() {
-        activeMarkers.forEach(m => { if(m.instance && m.category !== 'official') map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
-        heatCircles.forEach(c => { try { if(c) map.removeLayer(c); } catch(e){} });
-        activeMarkers = activeMarkers.filter(m => m.category === 'official'); // 公式ピンは残す
+        // 【これに書き換える】
+activeMarkers.forEach(m => { if(m.instance) map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); });
+activeMarkers = [];
         heatCircles = [];
         
         const { data, error } = await db.from('spots').select('*');
@@ -1255,57 +1274,29 @@ function shareSpot(title, address, category, event) {
         showToast("AIパトロールを終了しました");
     }
 
-    let accidentMarkers = []; // 事故多発専用のマーカー配列
+    let accidentCircles = [];
     let isAccidentDataVisible = false;
-
-    async function toggleAccidentData(btn) {
+    function toggleAccidentData(btn) {
         isAccidentDataVisible = !isAccidentDataVisible;
-        
-        // 1. 画面上に残っている事故多発マーカー・円をすべて一旦削除（リセット）
-        accidentMarkers.forEach(item => map.removeLayer(item));
-        accidentMarkers = [];
-
         if (isAccidentDataVisible) {
-            btn.style.background = "#ef4444"; 
-            btn.style.color = "white";
-            showToast("公的機関の事故多発データを読み込み中...");
-            
-            // 2. DBから最新の事故多発データ(category: 'accident')を直接取得
-            const { data, error } = await db.from('spots').select('*').eq('category', 'accident');
-            
-            if (data && data.length > 0) {
-                data.forEach(spot => {
-                    const pos = [spot.lat, spot.lng];
-                    
-                    // 赤い警戒円
-                    const circle = L.circle(pos, { 
-                        color: '#ef4444', 
-                        fillColor: '#f87171', 
-                        fillOpacity: 0.4, 
-                        radius: 100 
-                    }).addTo(map);
-                    
-                    // ⚠️ アイコン
-                    const warningIcon = L.divIcon({ 
-                        className: 'custom-warning', 
-                        html: `<div style="font-size:18px; color:#ef4444; filter:drop-shadow(0 0 4px rgba(0,0,0,0.5)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:#ef4444; padding:2px 6px; border-radius:4px; white-space:nowrap;">${spot.title.replace('⚠️【事故多発】', '')}</span></div>`, 
-                        iconSize: [120, 40], 
-                        iconAnchor: [60, 20] 
-                    });
-                    const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
-                    
-                    // 削除用に管理配列へ保存
-                    accidentMarkers.push(circle, marker);
-                });
-                showToast(`事故多発交差点（${data.length}箇所）を表示しました`);
-            } else {
-                showToast("該当エリアの事故データは登録されていません");
+            btn.style.background = "#ef4444"; btn.style.color = "white";
+            const bounds = map.getBounds(); const latMin = bounds.getSouth(); const latMax = bounds.getNorth(); const lngMin = bounds.getWest(); const lngMax = bounds.getEast();
+            const accidentCount = Math.floor(Math.random() * 4) + 3; 
+            for (let i = 0; i < accidentCount; i++) {
+                const pos = [latMin + (Math.random() * (latMax - latMin)), lngMin + (Math.random() * (lngMax - lngMin))];
+                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
+                const warningIcon = L.divIcon({ className: 'custom-warning', html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>', iconSize: [60, 40], iconAnchor: [30, 20] });
+                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
+                accidentCircles.push({ circle, marker });
             }
+            showToast("警察庁の事故データを重ねて表示しました");
         } else {
-            btn.style.background = "rgba(255,255,255,0.9)"; 
-            btn.style.color = "#ef4444";
+            btn.style.background = "rgba(255,255,255,0.9)"; btn.style.color = "#ef4444";
+            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
+            accidentCircles = [];
         }
     }
+
     // ==========================================
     // 11. 啓発テスト（クイズ機能）
     // ==========================================
@@ -1320,6 +1311,11 @@ function shareSpot(title, address, category, event) {
         { q: "踏切とその前後の端から何m以内が駐停車禁止？", o: ["5m", "10m", "20m"], a: 1, e: "踏切とその前後10m以内は駐停車禁止です。" },
         { q: "消火栓から何m以内が駐車禁止？", o: ["3m", "5m", "10m"], a: 1, e: "消火栓から5m以内の場所は駐車禁止です。" },
         { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" }
+        { q: "運転中のスマホ操作（保持）の罰則は？", o: ["罰金のみ", "6ヶ月以下の懲役または10万円以下の罰金", "注意のみ"], a: 1, e: "「ながらスマホ」は厳罰化されており、保持だけでも懲役または罰金の対象です。" },
+        { q: "横断歩道に歩行者がいる場合、車はどうする？", o: ["徐行して通り抜ける", "一時停止して進路を譲る", "クラクションを鳴らす"], a: 1, e: "歩行者優先です。必ず一時停止して横断を妨げないようにしなければなりません。" },
+        { q: "「止まれ」の標識がある交差点での正しい行動は？", o: ["徐行して進む", "停止線の直前で一時停止する", "左右を確認してそのまま進む"], a: 1, e: "停止線の直前（ない場合は交差点の直前）で必ず一時停止する必要があります。" },
+        { q: "車間距離を詰めてあおり運転をした場合の罰則は？", o: ["1年以下の懲役", "3年以下の懲役または50万円以下の罰金", "免許証の没収のみ"], a: 1, e: "妨害運転罪が適用され、最大3年以下の懲役または50万円以下の罰金となります。" },
+        { q: "幼児を車に乗せるとき、チャイルドシートの着用義務は何歳未満？", o: ["4歳未満", "6歳未満", "8歳未満"], a: 1, e: "道路交通法により、6歳未満の幼児にはチャイルドシートの使用が義務付けられています。" }
     ];
     let sQ=[], qIdx=0, score=0;
     function startQuizSession() { document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block'; let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; } sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ(); }
