@@ -334,7 +334,7 @@
                     <div class="card">
                         <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
                         <div id="nationalRankingArea">
-                            <!-- ダミーデータがJSから挿入されます -->
+                            <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
                         <div class="ranking-row" style="background:#f8fafc; padding:8px; border-radius:8px; margin-top:8px;">
                             <div style="font-weight:bold; color:#6b7280;">... <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
@@ -365,7 +365,7 @@
             </div>
         </section>
 
-        <!-- 4. ポイ活＆ガチャページ（新設・完全独立） -->
+        <!-- 4. ポイ活＆ガチャページ -->
         <section id="poikatsuView" class="view">
             <div class="page">
                 <h1><i class="fa-solid fa-gift" style="color:#ef4444;"></i> ポイ活＆ガチャ</h1>
@@ -745,7 +745,6 @@
     }
 
     async function loadRanking() {
-        // ★ データベース接続失敗時にも綺麗に表示させるダミーデータ群
         let allUsers = [
             { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 12500 },
             { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 9800 },
@@ -784,27 +783,37 @@
         loadAreaRanking();
     }
 
-   async function loadAreaRanking() {
+    const capitals = {"北海道":"札幌市","青森県":"青森市","岩手県":"盛岡市","宮城県":"仙台市","秋田県":"秋田市","山形県":"山形市","福島県":"福島市","茨城県":"水戸市","栃木県":"宇都宮市","群馬県":"前橋市","埼玉県":"さいたま市","千葉県":"千葉市","東京都":"","神奈川県":"横浜市","新潟県":"新潟市","富山県":"富山市","石川県":"金沢市","福井県":"福井市","山梨県":"甲府市","長野県":"長野市","岐阜県":"岐阜市","静岡県":"静岡市","愛知県":"名古屋市","三重県":"津市","滋賀県":"大津市","京都府":"京都市","大阪府":"大阪市","兵庫県":"神戸市","奈良県":"奈良市","和歌山県":"和歌山市","鳥取県":"鳥取市","島根県":"松江市","岡山県":"岡山市","広島県":"広島市","山口県":"山口市","徳島県":"徳島市","香川県":"高松市","愛媛県":"松山市","高知県":"高知市","福岡県":"福岡市","佐賀県":"佐賀市","長崎県":"長崎市","熊本県":"熊本市","大分県":"大分市","宮崎県":"宮崎市","鹿児島県":"鹿児島市","沖縄県":"那覇市"};
+
+    async function loadAreaRanking() {
         const prefFilterElement = document.getElementById('prefFilter');
         const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
         
-        // 1. ダミーデータの生成（10件以上）
         let dummies = {};
         if (selectedPref === 'ALL') {
             if (currentCategoryRank === 'illegal') { dummies = {'東京都 新宿区':142, '大阪府 中央区':98, '愛知県 名古屋市':76, '福岡県 福岡市':54, '北海道 札幌市':45, '神奈川県 横浜市':38, '埼玉県 大宮区':31, '千葉県 船橋市':25, '広島県 広島市':20, '宮城県 仙台市':15, '京都府 京都市':12}; }
             else if (currentCategoryRank === 'danger') { dummies = {'東京都 渋谷区':110, '大阪府 北区':85, '神奈川県 横浜市':62, '愛知県 中区':45, '福岡県 博多区':40, '北海道 札幌市':30, '埼玉県 川口市':25, '千葉県 柏市':20, '兵庫県 神戸市':18, '京都府 京都市':14}; }
             else if (currentCategoryRank === 'patrol') { dummies = {'東京都 千代田区':88, '大阪府 浪速区':70, '北海道 札幌市':45, '神奈川県 横浜市':40, '愛知県 名古屋市':35, '福岡県 天神':30, '埼玉県 さいたま市':25, '千葉県 千葉市':20, '広島県 広島市':15, '静岡県 浜松市':10}; }
-            else if (currentCategoryRank === 'abandoned') { dummies = {'東京都 足立区':65, '大阪府 西成区':58, '埼玉県 川口市':39, '神奈川県 川崎市':35, '千葉県 松戸市':30, '愛知県 豊田市':25, '福岡県 北九州市':20, '北海道 函館市':15, '兵庫県 尼崎市':10, '茨城県 宇都宮市':8}; }
+            else if (currentCategoryRank === 'abandoned') { dummies = {'東京都 足立区':65, '大阪府 西成区':58, '埼玉県 川口市':39, '神奈川県 川崎市':35, '千葉県 松戸市':30, '愛知県 豊田市':25, '福岡県 北九州市':20, '北海道 函館市':15, '兵庫県 尼崎市':10, '茨城県 宇巨宮市':8}; }
         } else {
-            // 選ばれた都道府県専用のダミーを即座に自動生成
             const baseCount = currentCategoryRank === 'illegal' ? 50 : currentCategoryRank === 'danger' ? 40 : 30;
-            const dummyCities = ['中央区','南区','北区','東区','西区','中区','駅前エリア','繁華街','住宅街','工業団地'];
+            let dummyCities = [];
+            if (selectedPref === '東京都') {
+                dummyCities = ['新宿区','渋谷区','港区','中央区','千代田区','豊島区','品川区','目黒区','世田谷区','大田区'];
+            } else if (selectedPref === '大阪府') {
+                dummyCities = ['大阪市中央区','大阪市北区','大阪市浪速区','大阪市西成区','堺市','東大阪市','豊中市','吹田市','枚方市','茨木市'];
+            } else if (selectedPref === '北海道') {
+                dummyCities = ['札幌市中央区','札幌市北区','旭川市','函館市','苫小牧市','帯広市','釧路市','江別市','北見市','小樽市'];
+            } else {
+                const cap = capitals[selectedPref] || "";
+                dummyCities = [cap, cap+'中央区', cap+'北区', cap+'南区', '駅前エリア', '繁華街周辺', '主要幹線道路', '商業エリア', '住宅街', '郊外エリア'];
+            }
             dummyCities.forEach((city, i) => {
+                const space = city.includes('エリア') || city.includes('周辺') || city.includes('道路') || city.includes('街') ? ' ' : '';
                 dummies[`${selectedPref} ${city}`] = baseCount - (i * 3) + Math.floor(Math.random()*5);
             });
         }
 
-        // 2. 実データ（前月分）の抽出
         const now = new Date();
         const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
         const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
@@ -815,8 +824,8 @@
             const { data: spotsData } = await db.from('spots')
                 .select('address')
                 .eq('category', currentCategoryRank)
-                .gte('created_at', firstDayOfLastMonth) // 先月1日以上
-                .lt('created_at', firstDayOfThisMonth); // 今月1日未満
+                .gte('created_at', firstDayOfLastMonth)
+                .lt('created_at', firstDayOfThisMonth);
                 
             if (spotsData) {
                 spotsData.forEach(s => { 
@@ -830,13 +839,11 @@
             }
         } catch (e) { console.log("DBエリアランキング取得スキップ"); }
 
-        // 3. 自動判別：実データが10件以上集まったら正規のワーストに完全移行
         let areaCount = {};
         if (totalRealCount >= 10) {
             areaCount = realDataCount;
         } else {
             areaCount = dummies;
-            // 10件未満のうちはリアルデータも加算して表示
             for(let k in realDataCount) {
                 areaCount[k] = (areaCount[k] || 0) + realDataCount[k];
             }
