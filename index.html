@@ -343,7 +343,7 @@
                     </div>
 
                     <div class="card">
-                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 報告数ワースト10</h2>
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 前月報告数ワースト10</h2>
                         <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
                         <div class="category-tab-bar">
                             <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
@@ -351,8 +351,14 @@
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('patrol', this)">🟢 巡回情報</button>
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
                         </div>
+                        <div style="margin-bottom:12px;">
+                            <select id="prefFilter" onchange="loadAreaRanking()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #d9dee4; font-weight:bold; background:#f9fafb; color:#17212b;">
+                                <option value="ALL">🗾 全国すべて</option>
+                                <!-- JSで47都道府県が自動追加されます -->
+                            </select>
+                        </div>
                         <div id="areaRankingArea">
-                            <!-- ダミーデータがJSから挿入されます -->
+                            <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
                     </div>
                 </div>
@@ -778,18 +784,63 @@
         loadAreaRanking();
     }
 
-    async function loadAreaRanking() {
-        // ★ エリア用ダミーデータ群
-        let areaCount = {};
-        if (currentCategoryRank === 'illegal') { areaCount['東京都 新宿区'] = 142; areaCount['大阪府 中央区'] = 98; areaCount['愛知県 名古屋市'] = 76; areaCount['福岡県 福岡市'] = 54; }
-        else if (currentCategoryRank === 'danger') { areaCount['東京都 渋谷区'] = 110; areaCount['大阪府 北区'] = 85; areaCount['神奈川県 横浜市'] = 62; }
-        else if (currentCategoryRank === 'patrol') { areaCount['東京都 千代田区'] = 88; areaCount['大阪府 浪速区'] = 70; areaCount['北海道 札幌市'] = 45; }
-        else if (currentCategoryRank === 'abandoned') { areaCount['東京都 足立区'] = 65; areaCount['大阪府 西成区'] = 58; areaCount['埼玉県 川口市'] = 39; }
+   async function loadAreaRanking() {
+        const prefFilterElement = document.getElementById('prefFilter');
+        const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
+        
+        // 1. ダミーデータの生成（10件以上）
+        let dummies = {};
+        if (selectedPref === 'ALL') {
+            if (currentCategoryRank === 'illegal') { dummies = {'東京都 新宿区':142, '大阪府 中央区':98, '愛知県 名古屋市':76, '福岡県 福岡市':54, '北海道 札幌市':45, '神奈川県 横浜市':38, '埼玉県 大宮区':31, '千葉県 船橋市':25, '広島県 広島市':20, '宮城県 仙台市':15, '京都府 京都市':12}; }
+            else if (currentCategoryRank === 'danger') { dummies = {'東京都 渋谷区':110, '大阪府 北区':85, '神奈川県 横浜市':62, '愛知県 中区':45, '福岡県 博多区':40, '北海道 札幌市':30, '埼玉県 川口市':25, '千葉県 柏市':20, '兵庫県 神戸市':18, '京都府 京都市':14}; }
+            else if (currentCategoryRank === 'patrol') { dummies = {'東京都 千代田区':88, '大阪府 浪速区':70, '北海道 札幌市':45, '神奈川県 横浜市':40, '愛知県 名古屋市':35, '福岡県 天神':30, '埼玉県 さいたま市':25, '千葉県 千葉市':20, '広島県 広島市':15, '静岡県 浜松市':10}; }
+            else if (currentCategoryRank === 'abandoned') { dummies = {'東京都 足立区':65, '大阪府 西成区':58, '埼玉県 川口市':39, '神奈川県 川崎市':35, '千葉県 松戸市':30, '愛知県 豊田市':25, '福岡県 北九州市':20, '北海道 函館市':15, '兵庫県 尼崎市':10, '茨城県 宇都宮市':8}; }
+        } else {
+            // 選ばれた都道府県専用のダミーを即座に自動生成
+            const baseCount = currentCategoryRank === 'illegal' ? 50 : currentCategoryRank === 'danger' ? 40 : 30;
+            const dummyCities = ['中央区','南区','北区','東区','西区','中区','駅前エリア','繁華街','住宅街','工業団地'];
+            dummyCities.forEach((city, i) => {
+                dummies[`${selectedPref} ${city}`] = baseCount - (i * 3) + Math.floor(Math.random()*5);
+            });
+        }
 
+        // 2. 実データ（前月分）の抽出
+        const now = new Date();
+        const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+        const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
+
+        let realDataCount = {};
+        let totalRealCount = 0;
         try {
-            const { data: spotsData } = await db.from('spots').select('address').eq('category', currentCategoryRank);
-            if (spotsData) spotsData.forEach(s => { if(s.address && s.address !== '不明なエリア') areaCount[s.address] = (areaCount[s.address] || 0) + 1; });
+            const { data: spotsData } = await db.from('spots')
+                .select('address')
+                .eq('category', currentCategoryRank)
+                .gte('created_at', firstDayOfLastMonth) // 先月1日以上
+                .lt('created_at', firstDayOfThisMonth); // 今月1日未満
+                
+            if (spotsData) {
+                spotsData.forEach(s => { 
+                    if(s.address && s.address !== '不明なエリア') {
+                        if(selectedPref === 'ALL' || s.address.startsWith(selectedPref)) {
+                            realDataCount[s.address] = (realDataCount[s.address] || 0) + 1;
+                            totalRealCount++;
+                        }
+                    }
+                });
+            }
         } catch (e) { console.log("DBエリアランキング取得スキップ"); }
+
+        // 3. 自動判別：実データが10件以上集まったら正規のワーストに完全移行
+        let areaCount = {};
+        if (totalRealCount >= 10) {
+            areaCount = realDataCount;
+        } else {
+            areaCount = dummies;
+            // 10件未満のうちはリアルデータも加算して表示
+            for(let k in realDataCount) {
+                areaCount[k] = (areaCount[k] || 0) + realDataCount[k];
+            }
+        }
         
         let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
@@ -900,12 +951,25 @@ function shareSpot(title, address, category, event) {
         } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
+    const prefList = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'];
+
     window.onload = function() {
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
+        
+        const prefSelect = document.getElementById('prefFilter');
+        if (prefSelect && prefSelect.options.length === 1) {
+            prefList.forEach(pref => {
+                const opt = document.createElement('option');
+                opt.value = pref; opt.innerText = pref;
+                prefSelect.appendChild(opt);
+            });
+        }
+
         checkLimitsReset();
         syncProfile(); 
         updateMyPage();
-        loadSpots(); 
+        setDynamicAd(); 
+        loadSpots();
         
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
