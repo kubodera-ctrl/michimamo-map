@@ -543,8 +543,18 @@
 <!-- 利用規約モーダル -->
 <div class="modal" id="termsModal">
     <div class="sheet" style="padding-top: 30px;">
-        <div class="row"><div style="font-size:18px; font-weight:900;">🛡️ 利用規約</div></div>
-        <p style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; margin-bottom:12px;">AIによる検閲があり、ナンバー等個人情報の投稿は禁止です。</p>
+        <div class="row">
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-file-contract" style="color:#ef4444;"></i> 利用規約・安全の約束</div>
+            <button class="close" onclick="document.getElementById('termsModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul style="font-size:0.85rem; color:#4b5563; line-height:1.6; padding-left:20px; margin-bottom:16px;">
+            <li style="margin-bottom:8px;"><strong>運転中の操作禁止：</strong> 投稿や閲覧は安全な場所に停車後に行ってください。</li>
+            <li style="margin-bottom:8px;"><strong>個人情報の投稿禁止：</strong> 故意にナンバーや顔など個人を特定できる情報を投稿する行為は禁止です（プライバシー保護機能の強化も進めています）。</li>
+            <li style="margin-bottom:8px;"><strong>不正行為の禁止：</strong> 虚偽の投稿や複数アカウントによるポイント不正取得はアカウント停止の対象となります。</li>
+        </ul>
+        <div style="text-align:center; margin-bottom:20px;">
+            <a href="/terms" target="_blank" style="font-size:0.8rem; color:#1f6feb; text-decoration:underline;">利用規約の全文を読む</a>
+        </div>
         <button class="primary" style="width:100%;" onclick="acceptTerms()">同意して開始する</button>
     </div>
 </div>
@@ -557,17 +567,19 @@
             <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
-            みちまもMAPは、皆さまに安心してご利用いただけるよう、以下のコンプライアンス・プライバシー保護対策を徹底しています。
+            みちまもMAPは、皆さまに安心してご利用いただけるよう、以下のプライバシー保護対策と機能強化を進めています。
         </div>
-        <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:20px;">
-            <li style="margin-bottom:12px;"><strong>エッジAIによるナンバー・顔の秘匿化</strong><br><span style="color:#6b7280; font-size:0.8rem;">AIパトロール機能で撮影された映像は、サーバーへ送信される前にスマートフォン端末内でAIが解析し、ナンバープレート等へ自動でモザイク処理を行います。元画像は一切保存・送信されません。</span></li>
-            <li style="margin-bottom:12px;"><strong>不適切コンテンツのAI自動検閲</strong><br><span style="color:#6b7280; font-size:0.8rem;">投稿されるテキストはAIにより瞬時に判定され、誹謗中傷や個人を特定する情報はブロックされます。</span></li>
-            <li style="margin-bottom:12px;"><strong>スパム報告の自動非表示システム</strong><br><span style="color:#6b7280; font-size:0.8rem;">他のユーザーから通報が一定数（3件）集まったピンは自動的にマップから非表示となり、悪意のある投稿や虚偽の情報を防ぎます。</span></li>
+        <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:16px;">
+            <li style="margin-bottom:8px;"><strong>ナンバー・顔等の保護：</strong> 個人情報保護のため、画像処理機能（モザイク処理等）の導入・検証を進めています。</li>
+            <li style="margin-bottom:8px;"><strong>EXIF等のメタデータ：</strong> 画像からのメタデータ自動削除機能の実装を進めています。意図しない情報が含まれないようご自身での確認をお願いします。</li>
+            <li style="margin-bottom:8px;"><strong>不適切コンテンツへの対応：</strong> 誹謗中傷や個人情報は、運営の判断または通報機能により非表示化される場合があります。</li>
         </ul>
-        <button class="primary" style="background:#e5e7eb; color:#374151;" onclick="closePrivacyModal()">閉じる</button>
+        <div style="text-align:center; margin-bottom:20px;">
+            <a href="/privacy" target="_blank" style="font-size:0.8rem; color:#1f6feb; text-decoration:underline;">プライバシーポリシーの全文を読む</a>
+        </div>
+        <button class="primary" style="background:#e5e7eb; color:#374151; width:100%;" onclick="closePrivacyModal()">閉じる</button>
     </div>
 </div>
-
 <!-- スポンサー募集モーダル -->
 <div class="modal" id="sponsorModal">
     <div class="sheet">
