@@ -293,7 +293,31 @@
                             <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
                         </div>
                     </div>
+
+                    <!-- アカウント連携カード -->
+                    <div class="card" id="authStatusCard" style="background:#f8fafc; border:1px solid #e2e8f0; margin-top:20px;">
+                        <h2 style="font-size:1rem; margin-bottom:12px; color:#1e293b;"><i class="fa-solid fa-user-lock"></i> アカウント連携</h2>
+                        
+                        <!-- 未ログイン時の表示 -->
+                        <div id="authUnlogged" style="display:block;">
+                            <p style="font-size:0.8rem; color:#64748b; margin-bottom:12px; line-height:1.5;">LINEアカウント連携のテスト中です。今後、ポイントや投稿履歴を安全に引き継げるようになります。</p>
+                            <button onclick="signInWithLine()" style="width:100%; padding:14px; background:#06C755; color:white; border:none; border-radius:12px; font-weight:bold; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 2px 4px rgba(6, 199, 85, 0.2);">
+                                <i class="fa-brands fa-line" style="font-size:1.3rem;"></i> LINEで続ける
+                            </button>
+                        </div>
+                        
+                        <!-- ログイン済みの表示 -->
+                        <div id="authLogged" style="display:none;">
+                            <div style="display:flex; align-items:center; gap:8px; color:#10b981; font-weight:bold; margin-bottom:16px; justify-content:center; padding:12px; background:#d1fae5; border-radius:8px;">
+                                <i class="fa-solid fa-circle-check"></i> <span id="authProviderText">アカウント連携済み</span>
+                            </div>
+                            <button onclick="signOutAuth()" style="width:100%; padding:12px; background:#e2e8f0; color:#475569; border:none; border-radius:12px; font-weight:bold; font-size:0.9rem; cursor:pointer;">
+                                ログアウト
+                            </button>
+                        </div>
+                    </div>
                     
+
                     <button onclick="openPrivacyModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
                         <span><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:8px;"></i> プライバシーと安全対策</span>
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
@@ -580,6 +604,7 @@
         <button class="primary" style="background:#e5e7eb; color:#374151; width:100%;" onclick="closePrivacyModal()">閉じる</button>
     </div>
 </div>
+
 <!-- スポンサー募集モーダル -->
 <div class="modal" id="sponsorModal">
     <div class="sheet">
@@ -1021,6 +1046,8 @@ function shareSpot(title, address, category, event) {
     }
 
     window.onload = function() {
+        checkAuthSession(); // Auth状態の監視を開始
+
         if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
         
         const prefSelect = document.getElementById('prefFilter');
@@ -1417,6 +1444,83 @@ function shareSpot(title, address, category, event) {
         }, 2000);
     }
     function closeGacha() { document.getElementById('gachaModal').style.display = 'none'; }
+// ==========================================
+    // Supabase Auth 処理
+    // ==========================================
+    let authSubscription = null;
+
+    // LINEログインを開始する
+    async function signInWithLine() {
+        showToast("LINEを起動しています...");
+        const { data, error } = await db.auth.signInWithOAuth({
+            provider: 'custom:line',
+            options: {
+                redirectTo: window.location.origin
+            }
+        });
+        if (error) {
+            console.error("Auth Error:", error.message);
+            showToast("ログイン処理に失敗しました");
+        }
+    }
+
+    // ログアウトする
+    async function signOutAuth() {
+        const { error } = await db.auth.signOut();
+        if (error) {
+            console.error("SignOut Error:", error.message);
+        } else {
+            showToast("ログアウトしました");
+        }
+    }
+
+    // セッション状態を確認し、UIを切り替える
+    async function checkAuthSession() {
+        // 初回ロード時のセッション取得
+        const { data: { session } } = await db.auth.getSession();
+        updateAuthUI(session);
+
+        // イベントリスナーの重複登録を防止
+        if (!authSubscription) {
+            const { data: { subscription } } = db.auth.onAuthStateChange((_event, currentSession) => {
+                updateAuthUI(currentSession);
+            });
+            authSubscription = subscription;
+        }
+    }
+
+    // UIの表示/非表示切り替え
+    function updateAuthUI(session) {
+        const unloggedDiv = document.getElementById('authUnlogged');
+        const loggedDiv = document.getElementById('authLogged');
+        const providerText = document.getElementById('authProviderText');
+        
+        if (session) {
+            // ログイン済みの場合
+            if(unloggedDiv) unloggedDiv.style.display = 'none';
+            if(loggedDiv) loggedDiv.style.display = 'block';
+            
+            // プロバイダー情報を取得して表示を動的に変更
+            let providerStr = "アカウント連携済み";
+            if (session.user && session.user.app_metadata && session.user.app_metadata.provider) {
+                const providerName = session.user.app_metadata.provider;
+                if (providerName === 'custom:line') {
+                    providerStr = 'LINEでログイン中';
+                } else if (providerName === 'google') {
+                    providerStr = 'Googleでログイン中';
+                } else {
+                    providerStr = providerName + 'でログイン中';
+                }
+            }
+            if(providerText) providerText.innerText = providerStr;
+            
+            console.log("Logged in as:", session.user.id);
+        } else {
+            // 未ログインの場合
+            if(unloggedDiv) unloggedDiv.style.display = 'block';
+            if(loggedDiv) loggedDiv.style.display = 'none';
+        }
+    }
 </script>
 </body>
 </html>
