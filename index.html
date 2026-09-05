@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>みちまも MAP - 交通安全情報共有マップ</title>
@@ -333,7 +334,7 @@
                         <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方・ガイド</h2>
                         
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
-                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、違法駐車や危険箇所を投稿できます。</p>
+                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、危険が発生しやすい場所や状況を共有できます。みちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
                         
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. ピンの色と意味</h3>
                         <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
@@ -349,6 +350,26 @@
                             <div style="color:#2563eb; font-weight:bold;"><i class="fa-solid fa-headset"></i> 警察相談専用窓口 (#9110)</div>
                             <div style="color:#475569;">恒常的な違法駐車など緊急性の低い場合</div>
                         </div>
+
+                        <h3 style="font-size:0.9rem; margin-top:14px; color:#17212b;">4. 地域で働く人への配慮</h3>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.6; color:#475569;">
+                            <div style="font-weight:900; color:#17212b; margin-bottom:6px;"><i class="fa-solid fa-truck" style="color:#2563eb;"></i> みちまもMAPは、街で働く人を排除するためのサービスではありません。</div>
+                            配送・荷下ろし・訪問作業・建物管理など、地域の生活を支える業務への配慮を大切にします。投稿や通報の前に、歩行者・車いす・ベビーカー・緊急車両などの通行を妨げているか、周囲に継続的な危険が生じているかをご確認ください。<br><br>
+                            ただし、事故につながる危険な駐停車や緊急性のある状況では、安全を最優先してください。
+                        </div>
+
+                        <h3 style="font-size:0.9rem; margin-top:14px; color:#17212b;">5. 投稿する前に確認してください</h3>
+                        <div style="background:#fff7ed; border:1px solid #fed7aa; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.7; color:#7c2d12;">
+                            <div>・荷下ろし、配送、訪問作業などの業務中ではありませんか？</div>
+                            <div>・ハザードや作業表示など、作業中と分かる表示はありますか？</div>
+                            <div>・出入口、横断歩道、点字ブロックなどを塞いでいませんか？</div>
+                            <div>・一時的な停車ではなく、危険な状態が続いていますか？</div>
+                            <div>・ナンバーや作業員の顔など、個人を特定できる情報が写っていませんか？</div>
+                        </div>
+
+                        <p class="muted" style="font-size:0.75rem; margin-top:8px; margin-bottom:0;">
+                            ※道路交通法上の扱いをアプリ独自に変更するものではありません。業務中であることだけを理由に駐停車を正当化するものでもありません。
+                        </p>
                     </div>
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
@@ -1446,81 +1467,531 @@ function shareSpot(title, address, category, event) {
     function closeGacha() { document.getElementById('gachaModal').style.display = 'none'; }
 // ==========================================
     // Supabase Auth 処理
+    // Edge Function + Exchange PKCE
     // ==========================================
+
     let authSubscription = null;
 
-    // LINEログインを開始する
+    const EDGE_FUNCTION_BASE_URL =
+        'https://ckftozjhdszlwqnylmxv.supabase.co/functions/v1/line-auth';
+
+
+    // ==========================================
+    // PKCE Utility
+    // ==========================================
+
+    function generateAuthRandomString(length = 64) {
+        const array = new Uint8Array(length);
+        crypto.getRandomValues(array);
+
+        let binary = '';
+
+        for (let i = 0; i < array.byteLength; i++) {
+            binary += String.fromCharCode(array[i]);
+        }
+
+        return btoa(binary)
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=+$/, '');
+    }
+
+
+    async function generateAuthCodeChallenge(codeVerifier) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(codeVerifier);
+
+        const digest = await crypto.subtle.digest(
+            'SHA-256',
+            data
+        );
+
+        let binary = '';
+        const bytes = new Uint8Array(digest);
+
+        for (let i = 0; i < bytes.byteLength; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+
+        return btoa(binary)
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=+$/, '');
+    }
+
+
+    // ==========================================
+    // LINE Login Start
+    // ==========================================
+
     async function signInWithLine() {
+
         showToast("LINEを起動しています...");
-        const { data, error } = await db.auth.signInWithOAuth({
-            provider: 'custom:line',
-            options: {
-                redirectTo: window.location.origin
+
+        try {
+
+            // Exchange用PKCE
+            // 64bytes → Base64URL 約86文字
+            const exchangeVerifier =
+                generateAuthRandomString(64);
+
+            const exchangeChallenge =
+                await generateAuthCodeChallenge(
+                    exchangeVerifier
+                );
+
+            // LINEへ飛ぶ直前に保存
+            sessionStorage.setItem(
+                'michimamo_exchange_verifier',
+                exchangeVerifier
+            );
+
+
+            const res = await fetch(
+                `${EDGE_FUNCTION_BASE_URL}/start`,
+                {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type':
+                            'application/json'
+                    },
+
+                    body: JSON.stringify({
+                        exchange_challenge:
+                            exchangeChallenge
+                    })
+                }
+            );
+
+
+            const data = await res.json()
+                .catch(() => ({}));
+
+
+            if (
+                !res.ok ||
+                !data ||
+                typeof data.url !== 'string'
+            ) {
+
+                sessionStorage.removeItem(
+                    'michimamo_exchange_verifier'
+                );
+
+                throw new Error(
+                    'LINE auth start failed'
+                );
             }
-        });
-        if (error) {
-            console.error("Auth Error:", error.message);
-            showToast("ログイン処理に失敗しました");
+
+
+            window.location.assign(data.url);
+
+
+        } catch (e) {
+
+            // 開始失敗時は使わないVerifierを残さない
+            sessionStorage.removeItem(
+                'michimamo_exchange_verifier'
+            );
+
+            console.error(
+                "LINE auth start failed"
+            );
+
+            showToast(
+                "ログインの開始に失敗しました"
+            );
         }
     }
 
-    // ログアウトする
+
+    // ==========================================
+    // Logout
+    // ==========================================
+
     async function signOutAuth() {
-        const { error } = await db.auth.signOut();
+
+        const { error } =
+            await db.auth.signOut();
+
+
         if (error) {
-            console.error("SignOut Error:", error.message);
-        } else {
-            showToast("ログアウトしました");
+
+            console.error(
+                "SignOut failed"
+            );
+
+            showToast(
+                "ログアウトに失敗しました"
+            );
+
+            return;
         }
+
+
+        // 表示専用情報
+        localStorage.removeItem(
+            'michimamo_auth_provider'
+        );
+
+        // 念のため一時Verifierも削除
+        sessionStorage.removeItem(
+            'michimamo_exchange_verifier'
+        );
+
+
+        showToast(
+            "ログアウトしました"
+        );
     }
 
-    // セッション状態を確認し、UIを切り替える
+
+    // ==========================================
+    // Session Check / Exchange
+    // ==========================================
+
     async function checkAuthSession() {
-        // 初回ロード時のセッション取得
-        const { data: { session } } = await db.auth.getSession();
-        updateAuthUI(session);
 
-        // イベントリスナーの重複登録を防止
-        if (!authSubscription) {
-            const { data: { subscription } } = db.auth.onAuthStateChange((_event, currentSession) => {
-                updateAuthUI(currentSession);
-            });
-            authSubscription = subscription;
+        const currentUrl =
+            new URL(window.location.href);
+
+        const loginCode =
+            currentUrl.searchParams.get(
+                'login_code'
+            );
+
+        const errorMsg =
+            currentUrl.searchParams.get(
+                'error'
+            );
+
+
+        // ======================================
+        // login_code / errorだけURLから即削除
+        // 他のQuery Parameterは残す
+        // ======================================
+
+        if (loginCode || errorMsg) {
+
+            currentUrl.searchParams.delete(
+                'login_code'
+            );
+
+            currentUrl.searchParams.delete(
+                'error'
+            );
+
+            const cleanedUrl =
+                currentUrl.pathname +
+                currentUrl.search +
+                currentUrl.hash;
+
+            window.history.replaceState(
+                {},
+                document.title,
+                cleanedUrl
+            );
         }
-    }
 
-    // UIの表示/非表示切り替え
-    function updateAuthUI(session) {
-        const unloggedDiv = document.getElementById('authUnlogged');
-        const loggedDiv = document.getElementById('authLogged');
-        const providerText = document.getElementById('authProviderText');
-        
-        if (session) {
-            // ログイン済みの場合
-            if(unloggedDiv) unloggedDiv.style.display = 'none';
-            if(loggedDiv) loggedDiv.style.display = 'block';
-            
-            // プロバイダー情報を取得して表示を動的に変更
-            let providerStr = "アカウント連携済み";
-            if (session.user && session.user.app_metadata && session.user.app_metadata.provider) {
-                const providerName = session.user.app_metadata.provider;
-                if (providerName === 'custom:line') {
-                    providerStr = 'LINEでログイン中';
-                } else if (providerName === 'google') {
-                    providerStr = 'Googleでログイン中';
-                } else {
-                    providerStr = providerName + 'でログイン中';
+
+        // ======================================
+        // LINE Callback後のSession Exchange
+        // ======================================
+
+        if (loginCode) {
+
+            const exchangeVerifier =
+                sessionStorage.getItem(
+                    'michimamo_exchange_verifier'
+                );
+
+
+            // 一度使ったら再利用しない
+            sessionStorage.removeItem(
+                'michimamo_exchange_verifier'
+            );
+
+
+            if (!exchangeVerifier) {
+
+                showToast(
+                    "ログイン情報の確認に失敗しました。もう一度LINEログインをお試しください"
+                );
+
+            } else {
+
+                showToast(
+                    "認証情報を確認中..."
+                );
+
+
+                try {
+
+                    const res = await fetch(
+                        `${EDGE_FUNCTION_BASE_URL}/exchange`,
+                        {
+                            method: 'POST',
+
+                            headers: {
+                                'Content-Type':
+                                    'application/json'
+                            },
+
+                            body: JSON.stringify({
+                                login_code:
+                                    loginCode,
+
+                                exchange_verifier:
+                                    exchangeVerifier
+                            })
+                        }
+                    );
+
+
+                    const data =
+                        await res.json()
+                            .catch(() => ({}));
+
+
+                    if (
+                        !res.ok ||
+                        !data?.session?.access_token ||
+                        !data?.session?.refresh_token
+                    ) {
+
+                        throw new Error(
+                            'Session exchange failed'
+                        );
+                    }
+
+
+                    const { error } =
+                        await db.auth.setSession({
+                            access_token:
+                                data.session.access_token,
+
+                            refresh_token:
+                                data.session.refresh_token
+                        });
+
+
+                    if (error) {
+                        throw error;
+                    }
+
+
+                    // 表示用途のみ
+                    // 認証/RLS/ポイント判定には使用しない
+                    localStorage.setItem(
+                        'michimamo_auth_provider',
+                        'line'
+                    );
+
+
+                    showToast(
+                        "LINEでログインしました！"
+                    );
+
+
+                } catch (e) {
+
+                    console.error(
+                        "Session exchange failed"
+                    );
+
+                    showToast(
+                        "ログイン処理中にエラーが発生しました"
+                    );
                 }
             }
-            if(providerText) providerText.innerText = providerStr;
-            
-            console.log("Logged in as:", session.user.id);
-        } else {
-            // 未ログインの場合
-            if(unloggedDiv) unloggedDiv.style.display = 'block';
-            if(loggedDiv) loggedDiv.style.display = 'none';
+
+
+        } else if (errorMsg) {
+
+            // LINE認証をキャンセルした場合など
+            sessionStorage.removeItem(
+                'michimamo_exchange_verifier'
+            );
+
+            showToast(
+                "ログインがキャンセルされたか、エラーが発生しました"
+            );
+        }
+
+
+        // ======================================
+        // 現在Session取得
+        // ======================================
+
+        const {
+            data: { session },
+            error: sessionError
+        } =
+            await db.auth.getSession();
+
+
+        if (sessionError) {
+
+            console.error(
+                "Session check failed"
+            );
+        }
+
+
+        updateAuthUI(session);
+
+
+        // ======================================
+        // Auth State Listener
+        // ======================================
+
+        if (!authSubscription) {
+
+            const {
+                data: { subscription }
+            } =
+                db.auth.onAuthStateChange(
+                    (
+                        _event,
+                        currentSession
+                    ) => {
+
+                        // Sessionが無くなった場合は
+                        // 表示情報も消す
+                        if (!currentSession) {
+
+                            localStorage.removeItem(
+                                'michimamo_auth_provider'
+                            );
+                        }
+
+                        updateAuthUI(
+                            currentSession
+                        );
+                    }
+                );
+
+
+            authSubscription =
+                subscription;
         }
     }
+
+
+    // ==========================================
+    // Auth UI
+    // ==========================================
+
+    function updateAuthUI(session) {
+
+        const unloggedDiv =
+            document.getElementById(
+                'authUnlogged'
+            );
+
+        const loggedDiv =
+            document.getElementById(
+                'authLogged'
+            );
+
+        const providerText =
+            document.getElementById(
+                'authProviderText'
+            );
+
+
+        // ======================================
+        // Logged In
+        // ======================================
+
+        if (session) {
+
+            if (unloggedDiv) {
+                unloggedDiv.style.display =
+                    'none';
+            }
+
+            if (loggedDiv) {
+                loggedDiv.style.display =
+                    'block';
+            }
+
+
+            let providerStr =
+                "アカウント連携済み";
+
+
+            // 表示専用
+            const savedProvider =
+                localStorage.getItem(
+                    'michimamo_auth_provider'
+                );
+
+
+            if (
+                savedProvider === 'line'
+            ) {
+
+                providerStr =
+                    'LINEでログイン中';
+
+            } else {
+
+                const providerName =
+                    session?.user
+                        ?.app_metadata
+                        ?.provider;
+
+
+                if (
+                    providerName === 'google'
+                ) {
+
+                    providerStr =
+                        'Googleでログイン中';
+
+                } else if (
+                    providerName &&
+                    providerName !== 'email'
+                ) {
+
+                    providerStr =
+                        `${providerName}でログイン中`;
+                }
+            }
+
+
+            if (providerText) {
+                providerText.innerText =
+                    providerStr;
+            }
+
+
+        // ======================================
+        // Logged Out
+        // ======================================
+
+        } else {
+
+            // Sessionが無いのにLINE表示が残るのを防ぐ
+            localStorage.removeItem(
+                'michimamo_auth_provider'
+            );
+
+
+            if (unloggedDiv) {
+                unloggedDiv.style.display =
+                    'block';
+            }
+
+            if (loggedDiv) {
+                loggedDiv.style.display =
+                    'none';
+            }
+        }
+    }
+
 </script>
 </body>
 </html>
