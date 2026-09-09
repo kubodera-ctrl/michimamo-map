@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>みちまも MAP - 交通安全情報共有マップ</title>
+    <title>まちまも MAP - 交通安全情報共有マップ</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- FontAwesome Icons -->
@@ -101,7 +101,7 @@
         <div class="brand">
             <div class="logo"><i class="fa-solid fa-shield-dog"></i></div>
             <div>
-                <div class="title">みちまも MAP</div>
+                <div class="title">まちまも MAP</div>
                 <div class="sub">交通安全情報共有マップ</div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                     <button class="filter-chip" onclick="filterMarkers('parking', this)"><i class="fa-solid fa-ban"></i> 危険駐車</button>
                     <button class="filter-chip" onclick="filterMarkers('blind', this)"><i class="fa-solid fa-eye-slash"></i> 視界不良</button>
                     <!-- 近日公開ボタンに変更 -->
-                    <button class="filter-chip parking-chip" onclick="showComingSoonParking()"><i class="fa-solid fa-parking"></i> P</button>
+                    <button class="filter-chip parking-chip" onclick="showComingSoonParking()"><i class="fa-solid fa-parking"></i> 駐車場予約</button>
                 </div>
 
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()">
@@ -169,7 +169,7 @@
             <div class="page">
                 <h1>このアプリについて</h1>
                 <div class="card">
-                    <p class="muted" style="margin-bottom:12px;"><strong>みちまも MAP</strong>は、違法駐車や危険箇所を可視化し、地域の安全を守るための参加型マップです。</p>
+                    <p class="muted" style="margin-bottom:12px;"><strong>まちまも MAP</strong>は、違法駐車や危険箇所を可視化し、地域の安全を守るための参加型マップです。</p>
                     <p class="muted" style="margin-bottom:12px;">周辺の危険エリアへの接近通知機能や、交通ルールの啓発クイズを搭載しています。</p>
                     <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0;">
                     <p style="font-size:0.8rem; color:#4b5563; font-weight:bold;">🛡️ ご利用上の注意</p>
@@ -229,7 +229,7 @@
         <div class="row">
             <div style="font-size:18px; font-weight:900;">🛡️ 利用規約と位置情報の利用</div>
         </div>
-        <p style="font-size:0.85rem; color:#374151; margin-bottom:8px; font-weight:bold;">みちまもMAPをご利用いただく前に</p>
+        <p style="font-size:0.85rem; color:#374151; margin-bottom:8px; font-weight:bold;">まちまもMAPをご利用いただく前に</p>
         <div style="font-size:0.8rem; color:#4b5563; line-height:1.5; background:#f9fafb; padding:12px; border-radius:8px; border:1px solid #e5e7eb; max-height:200px; overflow-y:auto; margin-bottom:12px;">
             <p><strong>1. 位置情報の取得について</strong><br>本アプリは周辺の危険スポットの表示および投稿のためにGPS位置情報を取得します。</p><br>
             <p><strong>2. 投稿に関するマナー</strong><br>個人を特定できる情報（車のナンバー・顔写真・個人名等）の投稿は禁止されています。</p><br>
