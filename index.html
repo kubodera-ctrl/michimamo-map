@@ -409,11 +409,23 @@
                     </div>
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
-                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
-                        <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
+                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】運営管理</h2>
+                        <p class="muted" style="margin-bottom:12px; font-size:0.82rem;">退会申請、通報投稿、ポイント異常、利用停止を管理します。</p>
                         <label for="adminExportPassword" style="font-size:0.8rem; color:#166534; font-weight:bold;">管理者パスワード</label>
-                        <input type="password" id="adminExportPassword" autocomplete="off" placeholder="CSV出力用パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') downloadCSV()">
-                        <button id="adminExportButton" class="primary" style="margin-top:10px; background:#166534;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSVをダウンロード</button>
+                        <input type="password" id="adminExportPassword" autocomplete="off" placeholder="管理者パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') loadAdminDashboard()">
+                        <button class="primary" style="margin-top:10px; background:#166534;" onclick="loadAdminDashboard()"><i class="fa-solid fa-gauge-high"></i> 管理画面を読み込む</button>
+                        <button id="adminExportButton" style="width:100%; margin-top:8px; padding:11px; background:white; color:#166534; border:1px solid #86efac; border-radius:10px; font-weight:bold; cursor:pointer;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> 投稿CSVをダウンロード</button>
+                        <div id="adminDashboardArea" style="display:none; margin-top:18px;">
+                            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:14px; text-align:center;">
+                                <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminDeletionCount">0</strong><div class="muted" style="font-size:.65rem;">退会申請</div></div>
+                                <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminReportCount">0</strong><div class="muted" style="font-size:.65rem;">通報投稿</div></div>
+                                <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminAlertCount">0</strong><div class="muted" style="font-size:.65rem;">要確認</div></div>
+                            </div>
+                            <h3 style="font-size:.92rem; color:#991b1b; margin:16px 0 6px;">退会・削除申請</h3><div id="adminDeletionArea"></div>
+                            <h3 style="font-size:.92rem; color:#9f1239; margin:16px 0 6px;">通報された投稿</h3><div id="adminReportedArea"></div>
+                            <h3 style="font-size:.92rem; color:#92400e; margin:16px 0 6px;">ポイント要確認</h3><div id="adminPointAlertArea"></div>
+                            <h3 style="font-size:.92rem; color:#475569; margin:16px 0 6px;">管理者操作履歴</h3><div id="adminAuditArea"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -1167,13 +1179,73 @@ function shareSpot(title, address, category, event) {
     let adminTapCount = 0; let adminTapTimer = null;
     function adminTap() {
         adminTapCount++; clearTimeout(adminTapTimer);
-        adminTapTimer = setTimeout(() => { adminTapCount = 0; }, 2000);
-        if (adminTapCount >= 5) {
+        adminTapTimer = setTimeout(() => { adminTapCount = 0; }, 5000);
+        if (adminTapCount >= 3) {
             const csvCard = document.getElementById('adminCsvCard');
             if (csvCard.style.display === 'none') { csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました"); }
-            else { csvCard.style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
+            else { csvCard.style.display = 'none'; document.getElementById('adminExportPassword').value = ''; document.getElementById('adminDashboardArea').style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
             adminTapCount = 0;
         }
+    }
+
+    function getAdminPassword() {
+        const password = document.getElementById('adminExportPassword').value;
+        if (!password) showToast('管理者パスワードを入力してください');
+        return password;
+    }
+
+    function adminButton(label, action, color = '#166534') {
+        return `<button onclick="${action}" style="border:1px solid ${color};color:${color};background:white;border-radius:7px;padding:6px 8px;font-size:.7rem;font-weight:bold;cursor:pointer;">${label}</button>`;
+    }
+
+    async function loadAdminDashboard() {
+        const password = getAdminPassword(); if (!password) return;
+        const { data, error } = await db.rpc('admin_get_dashboard', { p_password: password });
+        if (error || !data) {
+            showToast(error?.message?.includes('invalid_password') ? 'パスワードが違います' : '管理データの取得に失敗しました'); return;
+        }
+        const deletions = Array.isArray(data.deletions) ? data.deletions : [];
+        const reports = Array.isArray(data.reportedSpots) ? data.reportedSpots : [];
+        const alerts = Array.isArray(data.pointAlerts) ? data.pointAlerts : [];
+        const audit = Array.isArray(data.audit) ? data.audit : [];
+        document.getElementById('adminDashboardArea').style.display = 'block';
+        document.getElementById('adminDeletionCount').textContent = deletions.filter(x => ['pending','processing'].includes(x.status)).length;
+        document.getElementById('adminReportCount').textContent = reports.length;
+        document.getElementById('adminAlertCount').textContent = alerts.length;
+
+        document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
+
+        document.getElementById('adminReportedArea').innerHTML = reports.length ? reports.map(x => `<div style="background:white;border:1px solid #fecdd3;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.title || '名称なし')}</strong>　🚩${Number(x.report_count || 0)}</div><div class="muted" style="margin:4px 0;">${escapeHtml(x.address || '場所不明')}・投稿者 ${escapeHtml(x.name || '名称未設定')}</div>${adminButton(x.is_hidden ? '投稿を復元' : '一時非表示', `moderateAdminSpot(${Number(x.id)},${x.is_hidden ? 'false' : 'true'})`, x.is_hidden ? '#166534' : '#b91c1c')}</div>`).join('') : '<div class="muted" style="font-size:.75rem;">通報された投稿はありません。</div>';
+
+        document.getElementById('adminPointAlertArea').innerHTML = alerts.length ? alerts.map(x => `<div style="background:white;border:1px solid #fde68a;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　24時間 ${Number(x.earned_24h || 0).toLocaleString()}pt / ${Number(x.action_count || 0)}回</div><div class="muted" style="font-size:.66rem;margin:4px 0;">ID: ${escapeHtml(x.user_id)}</div>${adminButton(x.status === 'suspended' ? '利用停止を解除' : '利用を停止', `setAdminSuspension('${escapeHtml(x.user_id)}',${x.status === 'suspended' ? 'false' : 'true'})`, x.status === 'suspended' ? '#166534' : '#b91c1c')}</div>`).join('') : '<div class="muted" style="font-size:.75rem;">現在、要確認の利用者はいません。</div>';
+
+        const labels = {hide:'投稿を非表示',restore:'投稿を復元',suspend:'利用停止',unsuspend:'停止解除',deletion_processing:'退会対応開始',deletion_cancelled:'退会申請却下'};
+        document.getElementById('adminAuditArea').innerHTML = audit.length ? audit.map(x => `<div style="padding:7px 0;border-bottom:1px solid #dbe5df;font-size:.72rem;"><strong>${escapeHtml(labels[x.action] || x.action)}</strong>・${escapeHtml(x.target_type)} ${escapeHtml(x.target_id)}<div class="muted" style="font-size:.65rem;">${formatHistoryDate(x.created_at)}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">操作履歴はありません。</div>';
+    }
+
+    async function moderateAdminSpot(spotId, hide) {
+        if (!confirm(hide ? 'この投稿をマップから一時非表示にしますか？' : 'この投稿をマップへ復元しますか？')) return;
+        const password = getAdminPassword(); if (!password) return;
+        const { error } = await db.rpc('admin_moderate_spot', { p_password: password, p_spot_id: spotId, p_hide: hide });
+        showToast(error ? '投稿の更新に失敗しました' : (hide ? '投稿を非表示にしました' : '投稿を復元しました'));
+        if (!error) { loadAdminDashboard(); loadSpots(); }
+    }
+
+    async function setAdminSuspension(userId, suspend) {
+        if (!confirm(suspend ? 'この利用者の投稿・投票・ポイント操作を停止しますか？' : 'この利用者の停止を解除しますか？')) return;
+        const password = getAdminPassword(); if (!password) return;
+        const reason = suspend ? (prompt('停止理由を入力してください') || '管理者判断') : '';
+        const { error } = await db.rpc('admin_set_user_suspension', { p_password: password, p_user_id: userId, p_suspend: suspend, p_reason: reason });
+        showToast(error ? '利用状態の更新に失敗しました' : (suspend ? '利用を停止しました' : '利用停止を解除しました'));
+        if (!error) loadAdminDashboard();
+    }
+
+    async function updateDeletionRequest(requestId, status) {
+        if (!confirm(status === 'processing' ? 'この申請の対応を開始しますか？' : 'この申請を却下しますか？')) return;
+        const password = getAdminPassword(); if (!password) return;
+        const { error } = await db.rpc('admin_update_deletion_request', { p_password: password, p_request_id: requestId, p_status: status });
+        showToast(error ? '申請状態の更新に失敗しました' : '申請状態を更新しました');
+        if (!error) loadAdminDashboard();
     }
     async function downloadCSV() {
         const passwordInput = document.getElementById('adminExportPassword');
