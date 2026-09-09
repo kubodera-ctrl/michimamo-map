@@ -344,6 +344,25 @@
                         </div>
                     </div>
 
+                    <div class="card" id="lineOfficialCard" style="background:linear-gradient(135deg,#f0fdf4,#ffffff);border:1px solid #86efac;">
+                        <h2 style="font-size:1rem;margin-bottom:8px;color:#166534;"><i class="fa-brands fa-line" style="color:#06C755;"></i> まちまもMAP公式LINE</h2>
+                        <p style="font-size:.78rem;color:#475569;line-height:1.55;margin-bottom:10px;">キャンペーン、ポイントアップ、交通ルール、地域のお知らせを受け取れます。友だち追加と配信設定は任意です。</p>
+                        <div id="lineOfficialLoggedOut" class="muted" style="font-size:.75rem;">LINEログイン後に配信内容を設定できます。</div>
+                        <div id="lineOfficialLoggedIn" style="display:none;">
+                            <div id="lineFriendStatus" style="font-size:.72rem;font-weight:bold;color:#64748b;margin-bottom:8px;">友だち状態：未確認</div>
+                            <button id="lineFriendAddButton" onclick="openLineOfficialAccount()" disabled style="width:100%;padding:11px;background:#bbf7d0;color:#166534;border:0;border-radius:10px;font-weight:bold;cursor:pointer;margin-bottom:10px;">公式アカウント準備中</button>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:.72rem;margin-bottom:9px;">
+                                <label style="margin:0;"><input id="linePrefCampaigns" type="checkbox" style="width:auto;margin-right:4px;">キャンペーン・ポイ活</label>
+                                <label style="margin:0;"><input id="linePrefPoints" type="checkbox" style="width:auto;margin-right:4px;">ポイント情報</label>
+                                <label style="margin:0;"><input id="linePrefRules" type="checkbox" style="width:auto;margin-right:4px;">新しい交通ルール</label>
+                                <label style="margin:0;"><input id="linePrefRegional" type="checkbox" style="width:auto;margin-right:4px;">地域のお知らせ</label>
+                            </div>
+                            <input id="linePrefRegion" maxlength="40" placeholder="受け取りたい地域（例：東京都港区）" style="font-size:.75rem;background:white;margin-bottom:7px;">
+                            <button onclick="saveLineNotificationPreferences()" style="width:100%;padding:9px;background:#166534;color:white;border:0;border-radius:9px;font-weight:bold;cursor:pointer;">配信設定を保存</button>
+                            <div class="muted" style="font-size:.64rem;margin-top:7px;line-height:1.45;">※ここで選ぶのは受け取り希望です。実際のLINE配信には公式アカウントの友だち追加が必要です。</div>
+                        </div>
+                    </div>
+
 
                     <button onclick="openPrivacyModal()" style="width:100%; text-align:left; padding:16px; border:1px solid #e5e7eb; border-radius:16px; background:#fff; font-weight:bold; color:#17212b; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
                         <span><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:8px;"></i> プライバシーと安全対策</span>
@@ -768,6 +787,7 @@
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let currentAuthUserId = null;
+    let lineOfficialFriendUrl = null;
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
@@ -801,6 +821,63 @@
             return null;
         }
         return user;
+    }
+
+    async function loadLineOfficialSettings() {
+        const loggedOut = document.getElementById('lineOfficialLoggedOut');
+        const loggedIn = document.getElementById('lineOfficialLoggedIn');
+        if (!currentAuthUserId) {
+            if (loggedOut) loggedOut.style.display = 'block';
+            if (loggedIn) loggedIn.style.display = 'none';
+            lineOfficialFriendUrl = null;
+            return;
+        }
+
+        const { data, error } = await db.rpc('get_my_line_settings');
+        if (error || !data) { console.error('get_my_line_settings failed', error); return; }
+        if (loggedOut) loggedOut.style.display = 'none';
+        if (loggedIn) loggedIn.style.display = 'block';
+
+        const pref = data.preferences || {};
+        document.getElementById('linePrefCampaigns').checked = pref.campaigns !== false;
+        document.getElementById('linePrefPoints').checked = pref.pointUpdates !== false;
+        document.getElementById('linePrefRules').checked = pref.trafficRules !== false;
+        document.getElementById('linePrefRegional').checked = pref.regionalUpdates !== false;
+        document.getElementById('linePrefRegion').value = pref.region || '';
+
+        const statusLabels = {friend:'友だち追加済み',not_friend:'未追加',blocked:'ブロック中',unknown:'未確認'};
+        const status = pref.friendStatus || 'unknown';
+        const statusArea = document.getElementById('lineFriendStatus');
+        statusArea.textContent = `友だち状態：${statusLabels[status] || '未確認'}`;
+        statusArea.style.color = status === 'friend' ? '#15803d' : '#64748b';
+
+        const official = data.official || {};
+        const button = document.getElementById('lineFriendAddButton');
+        const safeUrl = typeof official.friend_add_url === 'string' && /^https:\/\/(lin\.ee\/|line\.me\/R\/ti\/p\/)/.test(official.friend_add_url) ? official.friend_add_url : null;
+        lineOfficialFriendUrl = official.enabled === true ? safeUrl : null;
+        button.disabled = !lineOfficialFriendUrl;
+        button.textContent = lineOfficialFriendUrl ? 'LINE公式アカウントを友だち追加' : '公式アカウント準備中';
+        button.style.background = lineOfficialFriendUrl ? '#06C755' : '#bbf7d0';
+        button.style.color = lineOfficialFriendUrl ? 'white' : '#166534';
+    }
+
+    function openLineOfficialAccount() {
+        if (!lineOfficialFriendUrl) { showToast('公式アカウントは現在準備中です'); return; }
+        window.open(lineOfficialFriendUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    async function saveLineNotificationPreferences() {
+        const user = await requireAuthenticatedUser(); if (!user) return;
+        const region = document.getElementById('linePrefRegion').value.trim();
+        const { error } = await db.rpc('update_my_line_preferences', {
+            p_campaigns: document.getElementById('linePrefCampaigns').checked,
+            p_point_updates: document.getElementById('linePrefPoints').checked,
+            p_traffic_rules: document.getElementById('linePrefRules').checked,
+            p_regional_updates: document.getElementById('linePrefRegional').checked,
+            p_region: region || null
+        });
+        showToast(error ? '配信設定の保存に失敗しました' : 'LINE配信設定を保存しました');
+        if (!error) loadLineOfficialSettings();
     }
 
     async function syncProfile() {
@@ -2532,8 +2609,8 @@ function shareSpot(title, address, category, event) {
         }
 
 
-        updateAuthUI(session);
         currentAuthUserId = session && session.user ? session.user.id : null;
+        updateAuthUI(session);
 
         // ログイン済みなら、auth_idに紐付くプロフィールをDBから復元
         if (session) {
@@ -2672,6 +2749,8 @@ function shareSpot(title, address, category, event) {
                     providerStr;
             }
 
+            loadLineOfficialSettings();
+
 
         // ======================================
         // Logged Out
@@ -2701,6 +2780,7 @@ function shareSpot(title, address, category, event) {
             if (adminCard) adminCard.style.display = 'none';
             if (adminArea) adminArea.style.display = 'none';
             if (adminPassword) adminPassword.value = '';
+            loadLineOfficialSettings();
         }
     }
 
