@@ -17,7 +17,7 @@ begin
       when s.address ~ '^東京都[^0-9０-９、, ]+区'
         then substring(s.address from '^東京都[^0-9０-９、, ]+区')
       when s.address ~ '^(北海道|大阪府|京都府|.{2,3}県)[^0-9０-９、, ]+[市区町村]'
-        then substring(s.address from '^(北海道|大阪府|京都府|.{2,3}県)[^0-9０-９、, ]+[市区町村]')
+        then substring(s.address from '^((北海道|大阪府|京都府|.{2,3}県)[^0-9０-９、, ]+[市区町村])')
       else coalesce(nullif(split_part(trim(s.address), ' ', 1), ''), '地域不明')
     end as region,
     s.report_count, s.confirm_count, s.like_count
