@@ -658,6 +658,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
+    let currentAuthUserId = null;
     let myPoint = parseInt(localStorage.getItem('michimamo_pt')) || 0;
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
@@ -683,16 +684,19 @@
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    async function syncProfile() {
-        if (!myUserId) {
-            const { data, error } = await db.from('profiles').insert([{ name: myName || '名無しドライバー', avatar: myAvatar, point: myPoint }]).select();
-            if (data && data.length > 0) {
-                myUserId = data[0].id;
-                localStorage.setItem('michimamo_user_id', myUserId);
-            }
-        } else {
-            await db.from('profiles').update({ name: myName || '名無しドライバー', avatar: myAvatar, point: myPoint }).eq('id', myUserId);
+    async function requireAuthenticatedUser() {
+        const { data, error } = await db.auth.getUser();
+        const user = data && data.user;
+        if (error || !user) {
+            showToast("この操作にはLINEログインが必要です");
+            return null;
         }
+        return user;
+    }
+
+    async function syncProfile() {
+        // 未ログイン利用者の情報は端末内だけに保存する。
+        // DBプロフィールはLINE認証済みアカウントだけを扱う。
         loadRanking();
     }
 
@@ -783,12 +787,11 @@
         showToast("プロフィールを保存しました"); updateMyPage();
     }
 
-    function addPoint(pt, msg) { 
-        myPoint += pt; 
-        localStorage.setItem('michimamo_pt', myPoint); 
-        if(msg) showToast(`${msg}！ (+${pt}pt)`); 
-        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
-        updateMyPage(); 
+    function addPoint(pt, msg) {
+        myPoint += pt;
+        localStorage.setItem('michimamo_pt', myPoint);
+        if(msg) showToast(`${msg}！ (+${pt}pt)`);
+        updateMyPage();
     }
 
     function updateMyPage() {
@@ -828,7 +831,7 @@
         ];
 
         try {
-            const { data: profiles } = await db.from('profiles').select('*').order('point', { ascending: false }).limit(50);
+            const { data: profiles } = await db.rpc('get_profile_ranking', { p_limit: 50 });
             if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
         } catch(e) { console.log("DBランキング取得スキップ"); }
         
@@ -1162,7 +1165,7 @@ function shareSpot(title, address, category, event) {
             if (!error && data) {
                 const now = Date.now();
                 data.forEach(s => {
-                    if (s.category === 'patrol') { if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; } }
+                    if (s.category === 'patrol' && now - new Date(s.created_at).getTime() > 10 * 60 * 1000) return;
                     if ((s.report_count || 0) >= 3) return;
 
                     let hcColor = '#ef4444', hcFill = '#f87171';
@@ -1212,7 +1215,7 @@ function shareSpot(title, address, category, event) {
                     <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                     ${imgTag}
                     <div style="display:flex; gap:6px; margin-bottom:10px;">
-                        <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.user_id || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
+                        <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.created_by || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
                         <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
                     </div>
                     <div style="display:flex; gap:6px; margin-bottom:10px;">
@@ -1224,7 +1227,7 @@ function shareSpot(title, address, category, event) {
                         <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                         <div style="display:flex; gap:8px;">
                             <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
-                            <button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">解除</button>
+                            ${spot.created_by && spot.created_by === currentAuthUserId ? `<button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">自分の投稿を削除</button>` : ''}
                         </div>
                     </div>
                 </div>
@@ -1241,18 +1244,23 @@ function shareSpot(title, address, category, event) {
         document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
 
-    async function likeSpot(id, currentLike, spotUserId) { 
-        if (spotUserId && spotUserId === myUserId) {
+    async function likeSpot(id, currentLike, spotUserId) {
+        const authUser = await requireAuthenticatedUser();
+        if (!authUser) return;
+        if (spotUserId && spotUserId === authUser.id) {
             showToast("自分の投稿には「助かった！」を押せません");
             return;
         }
-        addPoint(1, "お礼を伝えました"); 
-        await db.from('spots').update({ like_count: currentLike + 1 }).eq('id', id); 
+        const { error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'like' });
+        if (error) { showToast(error.message.includes('already_voted') ? "すでに評価済みです" : "評価に失敗しました"); return; }
+        addPoint(1, "お礼を伝えました");
+        loadSpots();
     }
     async function reportSpot(id, currentReport) {
+        if (!await requireAuthenticatedUser()) return;
         if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから非表示になります)")) return;
-        let newReportCount = currentReport + 1;
-        await db.from('spots').update({ report_count: newReportCount }).eq('id', id);
+        const { data: newReportCount, error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'report' });
+        if (error) { showToast(error.message.includes('already_voted') ? "すでに通報済みです" : "通報に失敗しました"); return; }
         
         if (newReportCount >= 3) {
             removeMarkerFromMap(id);
@@ -1261,8 +1269,19 @@ function shareSpot(title, address, category, event) {
             showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
         }
     }
-    async function confirmSpot(id, cnt) { await db.from('spots').update({ confirm_count: cnt+1 }).eq('id', id); showToast("確認しました"); }
-    async function deleteSpot(id) { await db.from('spots').delete().eq('id', id); showToast('ピンを消去しました'); }
+    async function confirmSpot(id, cnt) {
+        if (!await requireAuthenticatedUser()) return;
+        const { error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'confirm' });
+        if (error) { showToast(error.message.includes('already_voted') ? "すでに確認済みです" : "確認に失敗しました"); return; }
+        showToast("確認しました"); loadSpots();
+    }
+    async function deleteSpot(id) {
+        if (!await requireAuthenticatedUser()) return;
+        if (!confirm("自分の投稿を削除しますか？")) return;
+        const { data: deleted, error } = await db.rpc('delete_my_spot', { p_spot_id: id });
+        if (error || !deleted) { showToast("本人の投稿だけ削除できます"); return; }
+        showToast('投稿を削除しました'); loadSpots();
+    }
 
     let uploadedImageFile = null;
 
@@ -1318,6 +1337,8 @@ function shareSpot(title, address, category, event) {
 
     async function handlePostSubmit(e) {
         e.preventDefault();
+        const authUser = await requireAuthenticatedUser();
+        if (!authUser) return;
         checkLimitsReset();
         
         if (actionLimits.postCount >= 5) {
@@ -1364,7 +1385,7 @@ function shareSpot(title, address, category, event) {
             finalImageUrl = publicUrlData.publicUrl;
         }
 
-        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress }]).select(); 
+        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress, created_by: authUser.id }]).select();
         
         if (!error && data && data.length > 0) { 
             actionLimits.postCount++;
@@ -1498,7 +1519,6 @@ function shareSpot(title, address, category, event) {
 
         myPoint += prizePt;
         localStorage.setItem('michimamo_pt', myPoint);
-        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
 
         setTimeout(() => {
             anim.className = 'gacha-pop'; 
@@ -1930,6 +1950,7 @@ function shareSpot(title, address, category, event) {
 
 
         updateAuthUI(session);
+        currentAuthUserId = session && session.user ? session.user.id : null;
 
         // ログイン済みなら、auth_idに紐付くプロフィールをDBから復元
         if (session) {
@@ -1951,6 +1972,8 @@ function shareSpot(title, address, category, event) {
                         _event,
                         currentSession
                     ) => {
+
+                        currentAuthUserId = currentSession && currentSession.user ? currentSession.user.id : null;
 
                         // Sessionが無くなった場合は
                         // 表示情報も消す
