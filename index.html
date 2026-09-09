@@ -375,7 +375,9 @@
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
                         <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】データ出力</h2>
                         <p class="muted" style="margin-bottom:12px; font-size:0.85rem;">マップに投稿された全エリアの危険情報をCSV形式でダウンロードします。</p>
-                        <button class="primary" style="margin-top:0; background:#166534;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSVをダウンロード</button>
+                        <label for="adminExportPassword" style="font-size:0.8rem; color:#166534; font-weight:bold;">管理者パスワード</label>
+                        <input type="password" id="adminExportPassword" autocomplete="off" placeholder="CSV出力用パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') downloadCSV()">
+                        <button id="adminExportButton" class="primary" style="margin-top:10px; background:#166534;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> CSVをダウンロード</button>
                     </div>
                 </div>
 
@@ -1018,20 +1020,45 @@ function shareSpot(title, address, category, event) {
         }
     }
     async function downloadCSV() {
+        const passwordInput = document.getElementById('adminExportPassword');
+        const exportButton = document.getElementById('adminExportButton');
+        const password = passwordInput.value;
+
+        if (!password) {
+            showToast("管理者パスワードを入力してください");
+            passwordInput.focus();
+            return;
+        }
+
         showToast("データを準備中...");
-        const { data, error } = await db.from('spots').select('*').order('created_at', { ascending: false });
-        if (error || !data) { showToast("データ取得に失敗しました"); return; }
+        exportButton.disabled = true;
+
+        const { data, error } = await db.rpc('admin_export_spots', {
+            p_password: password
+        });
+
+        passwordInput.value = '';
+        exportButton.disabled = false;
+
+        if (error || !Array.isArray(data)) {
+            const isWrongPassword = error?.message?.includes('invalid_password');
+            showToast(isWrongPassword ? "パスワードが違います" : "データ取得に失敗しました");
+            return;
+        }
+
+        const escapeCsv = (value) => `"${String(value ?? '').replace(/"/g, '""')}"`;
         let csvContent = "投稿日時,ジャンル,場所,タイトル,詳細コメント\n";
         const catMap = { 'illegal': '違法駐車', 'danger': '危険停車', 'patrol': '巡回', 'abandoned': '不法放置' };
         data.forEach(row => {
             const date = new Date(row.created_at).toLocaleString('ja-JP');
             const cat = catMap[row.category] || row.category;
-            const address = (row.address || "不明").replace(/,/g, " "), title = (row.title || "").replace(/,/g, " "), comment = (row.comment || "").replace(/,/g, " ").replace(/\n/g, " ");
-            csvContent += `${date},${cat},${address},${title},${comment}\n`;
+            csvContent += [date, cat, row.address || "不明", row.title, row.comment].map(escapeCsv).join(',') + '\n';
         });
         const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement("a"); link.setAttribute("href", URL.createObjectURL(blob)); link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a"); link.setAttribute("href", objectUrl); link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
         document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        URL.revokeObjectURL(objectUrl);
         showToast("ダウンロードが完了しました");
     }
 
