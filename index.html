@@ -1850,7 +1850,10 @@ function shareSpot(title, address, category, event) {
                 );
 
             // LINEへ飛ぶ直前に保存
-            sessionStorage.setItem(
+            // iOSではLINE認証から戻る際に別のSafari画面として開かれ、
+            // sessionStorageが引き継がれない場合があるためlocalStorageへ保存する。
+            // Exchange完了時・失敗時には必ず削除する。
+            localStorage.setItem(
                 'michimamo_exchange_verifier',
                 exchangeVerifier
             );
@@ -1884,7 +1887,7 @@ function shareSpot(title, address, category, event) {
                 typeof data.url !== 'string'
             ) {
 
-                sessionStorage.removeItem(
+                localStorage.removeItem(
                     'michimamo_exchange_verifier'
                 );
 
@@ -1900,7 +1903,7 @@ function shareSpot(title, address, category, event) {
         } catch (e) {
 
             // 開始失敗時は使わないVerifierを残さない
-            sessionStorage.removeItem(
+            localStorage.removeItem(
                 'michimamo_exchange_verifier'
             );
 
@@ -1945,7 +1948,7 @@ function shareSpot(title, address, category, event) {
         );
 
         // 念のため一時Verifierも削除
-        sessionStorage.removeItem(
+        localStorage.removeItem(
             'michimamo_exchange_verifier'
         );
 
@@ -2054,13 +2057,13 @@ function shareSpot(title, address, category, event) {
         if (loginCode) {
 
             const exchangeVerifier =
-                sessionStorage.getItem(
+                localStorage.getItem(
                     'michimamo_exchange_verifier'
                 );
 
 
             // 一度使ったら再利用しない
-            sessionStorage.removeItem(
+            localStorage.removeItem(
                 'michimamo_exchange_verifier'
             );
 
@@ -2162,7 +2165,7 @@ function shareSpot(title, address, category, event) {
         } else if (errorMsg) {
 
             // LINE認証をキャンセルした場合など
-            sessionStorage.removeItem(
+            localStorage.removeItem(
                 'michimamo_exchange_verifier'
             );
 
