@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
     <meta name="referrer" content="no-referrer">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
+        html { width: 100%; overflow: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         html, body { margin:0; height:100%; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background:#f4f6f8; color:#17212b; }
         * { box-sizing: border-box; }
-        body { overflow: hidden; }
-        #app { height: 100dvh; display: flex; flex-direction: column; }
+        body { width: 100%; max-width: 100vw; overflow: hidden; }
+        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
 
         header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
         .brand { display: flex; gap: 10px; align-items: center; }
@@ -22,8 +23,8 @@
         .title { font-size: 16px; font-weight: 900; }
         .sub { font-size: 10px; color: #6b7280; margin-top: 2px; }
 
-        main { flex: 1; min-height: 0; position: relative; }
-        .view { display: none; height: 100%; overflow: auto; }
+        main { width: 100%; min-width: 0; flex: 1; min-height: 0; position: relative; }
+        .view { display: none; width: 100%; min-width: 0; height: 100%; overflow: auto; overflow-x: hidden; }
         .view.active { display: block; }
 
         #mapView { overflow: hidden; }
@@ -163,6 +164,35 @@
         .gacha-shake { animation: shake 0.5s infinite; }
         .gacha-pop { animation: pop 0.5s ease-out forwards; }
         @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.5); } 100% { transform: scale(1); } }
+
+        /* スマホで横幅の広い要素に引っ張られて全体が縮小されるのを防ぐ */
+        .page, .card, .row, .profile-edit, .tab-menu,
+        .search-box, .filter-wrapper, .sheet,
+        [style*="display:grid"], [style*="display: grid"],
+        [style*="display:flex"], [style*="display: flex"] { min-width: 0; }
+        input, select, textarea, button, a { max-width: 100%; }
+        input, select, textarea { min-width: 0; }
+        .muted, .card, .sheet { overflow-wrap: anywhere; }
+
+        @media screen and (max-width: 600px), screen and (max-device-width: 600px) {
+            html, body { font-size: 16px; }
+            header { padding: 10px 12px; padding-top: calc(10px + env(safe-area-inset-top)); }
+            .logo { width: 40px; height: 40px; }
+            .title { font-size: 17px; }
+            .sub { font-size: 11px; }
+            .page { width: 100%; max-width: none; padding: 18px 12px 90px; }
+            .card { width: 100%; padding: 16px; border-radius: 16px; margin-bottom: 14px; }
+            h1 { font-size: 22px; }
+            h2 { font-size: 17px; }
+            .muted { font-size: 14px; }
+            .sheet { max-width: 100vw; padding-left: 16px; padding-right: 16px; }
+            .ad-banner { padding: 0 10px; }
+            .ad-banner-title { min-width: 0; font-size: 13px; line-height: 1.25; }
+            nav button { font-size: 12px; }
+            nav button i { font-size: 21px; }
+            #adminStatsCards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            #adminDashboardArea [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
+        }
     </style>
 </head>
 <body>
