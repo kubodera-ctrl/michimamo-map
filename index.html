@@ -203,7 +203,7 @@
                         <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
                         <button class="filter-chip official" onclick="filterMarkers('official', this)"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
                     </div>
-                    <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> P</button>
+                    <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> 駐車場予約</button>
                 </div>
 
                 <!-- 事故多発エリア -->
@@ -236,36 +236,61 @@
 
         <!-- 2. クイズ画面 -->
         <section id="quizView" class="view">
-            <div class="page">
-                <h1>🔰 啓発テスト (全10問)</h1>
-                <p class="muted" style="margin-bottom:16px;">ゲーム感覚で改正道交法を確認！1問正解につき「1pt」獲得！</p>
-                <div id="quizIntroArea"><button class="primary" onclick="startQuizSession()">テストを開始する</button></div>
-                
-                <div class="card" id="quizRunArea" style="display:none;">
-                    <div id="quizProgress" class="muted" style="font-weight:bold; color:#1f6feb; margin-bottom:8px;"></div>
-                    <h2 id="quizQuestion"></h2>
-                    <div id="quizOptions"></div>
-                    <div class="explanation-box" id="explanationBox" style="display:none; padding:12px; background:#f0fdf4; border-radius:8px; border:1px solid #86efac; margin-top:12px;">
-                        <div style="font-weight:bold; margin-bottom:4px;" id="expTitle"></div>
-                        <div id="expBody" style="font-size:0.85rem; color:#166534;"></div>
-                        <button class="primary" onclick="nextQuestion()">次の問題へ</button>
-                    </div>
-                </div>
-                
-                <div class="card" id="quizResultArea" style="display:none; text-align:center;">
-                    <h3 style="font-size:1.2rem; margin-bottom:8px;">🏆 テスト結果</h3>
-                    <div style="font-size:2.5rem; font-weight:900; color:#1f6feb; margin:10px 0;" id="resultScore"></div>
-                    <p style="font-weight:bold; color:#374151; margin-bottom:20px;" id="resultEarnPt"></p>
-                    <p style="font-size:0.8rem; font-weight:bold; color:#4b5563; margin-bottom:4px;">結果をシェアして安全の輪を広げよう！</p>
-                    <div class="sns-btn-group">
-                        <button class="sns-btn btn-x" onclick="shareToSNS('x')"><i class="fa-brands fa-x-twitter"></i> ポスト</button>
-                        <button class="sns-btn btn-line" onclick="shareToSNS('line')"><i class="fa-brands fa-line"></i> 送る</button>
-                        <button class="sns-btn btn-insta" onclick="shareToSNS('insta')"><i class="fa-brands fa-instagram"></i> シェア</button>
-                    </div>
-                    <button class="primary" onclick="startQuizSession()" style="background:#e5e7eb; color:#374151; margin-top:20px;">もう一度挑戦する</button>
-                </div>
+    <div class="page">
+        <h1>🔰 交通安全クイズ</h1>
+        <p class="muted" style="margin-bottom:16px;">ジャンルを選ぶと、問題プールから毎回10問をランダム出題します。</p>
+
+        <div id="quizIntroArea">
+            <div class="card">
+                <h2 style="font-size:1.05rem; margin-bottom:8px;">出題ジャンルを選択</h2>
+                <p class="muted" style="font-size:0.78rem; margin-bottom:14px;">正解1問につき1pt。ミックスは車5問＋自転車5問です。</p>
+
+                <button class="primary" onclick="startQuizSession('car')" style="margin-top:0; background:#2563eb;">
+                    🚗 車・標識（40問からランダム10問）
+                </button>
+
+                <button class="primary" onclick="startQuizSession('bike')" style="background:#10b981;">
+                    🚲 自転車（30問からランダム10問）
+                </button>
+
+                <button class="primary" onclick="startQuizSession('mix')" style="background:#7c3aed;">
+                    🎲 ミックス（車5問＋自転車5問）
+                </button>
             </div>
-        </section>
+        </div>
+
+        <div class="card" id="quizRunArea" style="display:none;">
+            <div id="quizModeLabel" class="muted" style="font-weight:bold; color:#7c3aed; margin-bottom:4px;"></div>
+            <div id="quizProgress" class="muted" style="font-weight:bold; color:#1f6feb; margin-bottom:8px;"></div>
+            <div id="quizSignArea" style="display:none; text-align:center; margin:12px 0 16px;"></div>
+            <h2 id="quizQuestion"></h2>
+            <div id="quizOptions"></div>
+
+            <div class="explanation-box" id="explanationBox" style="display:none; padding:12px; background:#f0fdf4; border-radius:8px; border:1px solid #86efac; margin-top:12px;">
+                <div style="font-weight:bold; margin-bottom:4px;" id="expTitle"></div>
+                <div id="expBody" style="font-size:0.85rem; color:#166534;"></div>
+                <button class="primary" onclick="nextQuestion()">次の問題へ</button>
+            </div>
+        </div>
+
+        <div class="card" id="quizResultArea" style="display:none; text-align:center;">
+            <h3 style="font-size:1.2rem; margin-bottom:8px;">🏆 テスト結果</h3>
+            <div style="font-size:2.5rem; font-weight:900; color:#1f6feb; margin:10px 0;" id="resultScore"></div>
+            <p style="font-weight:bold; color:#374151; margin-bottom:20px;" id="resultEarnPt"></p>
+
+            <p style="font-size:0.8rem; font-weight:bold; color:#4b5563; margin-bottom:4px;">結果をシェアして安全の輪を広げよう！</p>
+            <div class="sns-btn-group">
+                <button class="sns-btn btn-x" onclick="shareToSNS('x')"><i class="fa-brands fa-x-twitter"></i> ポスト</button>
+                <button class="sns-btn btn-line" onclick="shareToSNS('line')"><i class="fa-brands fa-line"></i> 送る</button>
+                <button class="sns-btn btn-insta" onclick="shareToSNS('insta')"><i class="fa-brands fa-instagram"></i> シェア</button>
+            </div>
+
+            <button class="primary" onclick="backToQuizMenu()" style="background:#e5e7eb; color:#374151; margin-top:20px;">
+                ジャンル選択へ戻る
+            </button>
+        </div>
+    </div>
+</section>
 
         <!-- 3. マイページ（設定・ガイド / ランキング） -->
         <section id="aboutView" class="view">
@@ -370,16 +395,6 @@
                         <p class="muted" style="font-size:0.75rem; margin-top:8px; margin-bottom:0;">
                             ※道路交通法上の扱いをアプリ独自に変更するものではありません。業務中であることだけを理由に駐停車を正当化するものでもありません。
                         </p>
-
-                        <h3 style="font-size:0.9rem; margin-top:18px; color:#17212b;">6. スマホでLINEログインに失敗する場合</h3>
-                        <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:12px; border-radius:10px; font-size:0.8rem; line-height:1.7; color:#166534;">
-                            <div style="font-weight:900; margin-bottom:6px;"><i class="fa-brands fa-line"></i> 古い認証情報を削除してやり直してください</div>
-                            <div>1. SafariまたはChromeの設定から、<strong>michimamo-map.vercel.app</strong> のCookie・Webサイトデータを削除します。</div>
-                            <div>2. 使用しているブラウザを完全に終了します。</div>
-                            <div>3. 同じブラウザでみちまもMAPを開き、「LINEで続ける」を押します。</div>
-                            <div>4. LINEで認証した後は、ログインを開始した元のブラウザへ戻ってください。</div>
-                            <div style="margin-top:7px; color:#15803d;">※PCでログイン中かどうかは、スマホのログインには影響しません。</div>
-                        </div>
                     </div>
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
@@ -512,7 +527,7 @@
 
     <!-- 収益化バナー（特P） -->
     <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="ad-banner" style="display:flex; text-decoration:none; position:relative; z-index:9999;">
-        <div class="ad-banner-title"><i class="fa-solid fa-square-parking" style="color:#2563eb;"></i> 安い駐車場を検索して事前に予約！特P</div>
+        <div class="ad-banner-title"><i class="fa-solid fa-square-parking" style="color:#2563eb;"></i> 車でお出かけ、付近の駐車場はこちらから予約可！</div>
         <span class="ad-pr-tag">PR</span>
     </a>
     <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" alt="" style="display:none;">
@@ -797,11 +812,12 @@
         showToast("プロフィールを保存しました"); updateMyPage();
     }
 
-    function addPoint(pt, msg) {
-        myPoint += pt;
-        localStorage.setItem('michimamo_pt', myPoint);
-        if(msg) showToast(`${msg}！ (+${pt}pt)`);
-        updateMyPage();
+    function addPoint(pt, msg) { 
+        myPoint += pt; 
+        localStorage.setItem('michimamo_pt', myPoint); 
+        if(msg) showToast(`${msg}！ (+${pt}pt)`); 
+        if (myUserId) db.from('profiles').update({ point: myPoint }).eq('id', myUserId);
+        updateMyPage(); 
     }
 
     function updateMyPage() {
@@ -1069,8 +1085,12 @@ function shareSpot(title, address, category, event) {
         });
         const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
         const objectUrl = URL.createObjectURL(blob);
-        const link = document.createElement("a"); link.setAttribute("href", objectUrl); link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
-        document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        const link = document.createElement("a");
+        link.setAttribute("href", objectUrl);
+        link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         URL.revokeObjectURL(objectUrl);
         showToast("ダウンロードが完了しました");
     }
@@ -1175,7 +1195,7 @@ function shareSpot(title, address, category, event) {
             if (!error && data) {
                 const now = Date.now();
                 data.forEach(s => {
-                    if (s.category === 'patrol' && now - new Date(s.created_at).getTime() > 10 * 60 * 1000) return;
+                    if (s.category === 'patrol') { if (now - new Date(s.created_at).getTime() > 10 * 60 * 1000) { db.from('spots').delete().eq('id', s.id).then(); return; } }
                     if ((s.report_count || 0) >= 3) return;
 
                     let hcColor = '#ef4444', hcFill = '#f87171';
@@ -1262,35 +1282,53 @@ function shareSpot(title, address, category, event) {
             return;
         }
         const { error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'like' });
-        if (error) { showToast(error.message.includes('already_voted') ? "すでに評価済みです" : "評価に失敗しました"); return; }
+        if (error) {
+            showToast(error.message.includes('already_voted') ? "すでに評価済みです" : "評価に失敗しました");
+            return;
+        }
         addPoint(1, "お礼を伝えました");
         loadSpots();
     }
+
     async function reportSpot(id, currentReport) {
         if (!await requireAuthenticatedUser()) return;
         if(!confirm("不適切、または嘘の投稿として運営に通報しますか？\n(3回通報されるとマップから非表示になります)")) return;
+
         const { data: newReportCount, error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'report' });
-        if (error) { showToast(error.message.includes('already_voted') ? "すでに通報済みです" : "通報に失敗しました"); return; }
-        
+        if (error) {
+            showToast(error.message.includes('already_voted') ? "すでに通報済みです" : "通報に失敗しました");
+            return;
+        }
+
         if (newReportCount >= 3) {
             removeMarkerFromMap(id);
             showToast("通報が3件に達したため非表示にしました");
-        } else { 
+        } else {
             showToast(`通報しました（現在 ${newReportCount}件 / 3件で非表示）`);
         }
     }
+
     async function confirmSpot(id, cnt) {
         if (!await requireAuthenticatedUser()) return;
         const { error } = await db.rpc('vote_spot', { p_spot_id: id, p_kind: 'confirm' });
-        if (error) { showToast(error.message.includes('already_voted') ? "すでに確認済みです" : "確認に失敗しました"); return; }
-        showToast("確認しました"); loadSpots();
+        if (error) {
+            showToast(error.message.includes('already_voted') ? "すでに確認済みです" : "確認に失敗しました");
+            return;
+        }
+        showToast("確認しました");
+        loadSpots();
     }
+
     async function deleteSpot(id) {
         if (!await requireAuthenticatedUser()) return;
         if (!confirm("自分の投稿を削除しますか？")) return;
         const { data: deleted, error } = await db.rpc('delete_my_spot', { p_spot_id: id });
-        if (error || !deleted) { showToast("本人の投稿だけ削除できます"); return; }
-        showToast('投稿を削除しました'); loadSpots();
+        if (error || !deleted) {
+            showToast("本人の投稿だけ削除できます");
+            return;
+        }
+        showToast('投稿を削除しました');
+        loadSpots();
     }
 
     let uploadedImageFile = null;
@@ -1395,7 +1433,7 @@ function shareSpot(title, address, category, event) {
             finalImageUrl = publicUrlData.publicUrl;
         }
 
-        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress, created_by: authUser.id }]).select();
+        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress, created_by: authUser.id }]).select(); 
         
         if (!error && data && data.length > 0) { 
             actionLimits.postCount++;
@@ -1475,72 +1513,229 @@ function shareSpot(title, address, category, event) {
         }
     }
 
-    const qList = [
-        { q: "交差点の端から5m以内は原則どうなる？", o: ["駐車だけ禁止", "夜だけ禁止", "駐停車禁止"], a: 2, e: "交差点とその端から5m以内は、原則として駐停車禁止です。" },
-        { q: "横断歩道の前後5m以内では原則どうなる？", o: ["駐車できる", "駐停車禁止", "運転者が乗っていればよい"], a: 1, e: "歩行者の安全確保のため、横断歩道の前後5m以内は駐停車禁止です。" },
-        { q: "自転車のながらスマホの罰則は？", o: ["罰金なし", "懲役または罰金", "注意のみ"], a: 1, e: "厳罰化され、1年以下の懲役または30万円以下の罰金の対象となります。" },
-        { q: "自転車のヘルメット着用ルールは？", o: ["13歳未満のみ", "全員に努力義務", "高速道路のみ"], a: 1, e: "年齢問わず全員に努力義務が課されています。" },
-        { q: "夜間の自転車無灯火走行の罰則は？", o: ["違法ではない", "5万円以下の罰金", "注意のみ"], a: 1, e: "夜間の無灯火は5万円以下の罰金対象です。" },
-        { q: "自転車で歩道を走れる例外時、どこを走る？", o: ["真ん中", "車道寄りを徐行", "壁際"], a: 1, e: "歩道では車道寄りをすぐ止まれる速度で徐行する義務があります。" },
-        { q: "自転車で傘をさしての運転は？", o: ["原則禁止", "時速10km以下ならOK", "雨の日だけOK"], a: 0, e: "片手運転と視野不良になるため原則禁止です。" },
-        { q: "踏切とその前後の端から何m以内が駐停車禁止？", o: ["5m", "10m", "20m"], a: 1, e: "踏切とその前後10m以内は駐停車禁止です。" },
-        { q: "消火栓から何m以内が駐車禁止？", o: ["3m", "5m", "10m"], a: 1, e: "消火栓から5m以内の場所は駐車禁止です。" },
-        { q: "駐車時、車の右側に必要な余地は何m？", o: ["2.0m", "3.5m", "5.0m"], a: 1, e: "車の右側に3.5m以上の余地がないと駐車できません(無余地駐車)。" },
-        { q: "運転中のスマホ操作（保持）の罰則は？", o: ["罰金のみ", "6ヶ月以下の懲役または10万円以下の罰金", "注意のみ"], a: 1, e: "「ながらスマホ」は厳罰化されており、保持だけでも懲役または罰金の対象です。" },
-        { q: "横断歩道に歩行者がいる場合、車はどうする？", o: ["徐行して通り抜ける", "一時停止して進路を譲る", "クラクションを鳴らす"], a: 1, e: "歩行者優先です。必ず一時停止して横断を妨げないようにしなければなりません。" },
-        { q: "「止まれ」の標識がある交差点での正しい行動は？", o: ["徐行して進む", "停止線の直前で一時停止する", "左右を確認してそのまま進む"], a: 1, e: "停止線の直前（ない場合は交差点の直前）で必ず一時停止する必要があります。" },
-        { q: "車間距離を詰めてあおり運転をした場合の罰則は？", o: ["1年以下の懲役", "3年以下の懲役または50万円以下の罰金", "免許証の没収のみ"], a: 1, e: "妨害運転罪が適用され、最大3年以下の懲役または50万円以下の罰金となります。" },
-        { q: "幼児を車に乗せるとき、チャイルドシートの着用義務は何歳未満？", o: ["4歳未満", "6歳未満", "8歳未満"], a: 1, e: "道路交通法により、6歳未満の幼児にはチャイルドシートの使用が義務付けられています。" }
-    ];
-    let sQ=[], qIdx=0, score=0;
-    function startQuizSession() { document.getElementById('quizIntroArea').style.display = 'none'; document.getElementById('quizResultArea').style.display = 'none'; document.getElementById('quizRunArea').style.display = 'block'; let arr = [...qList]; for(let i=arr.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i], arr[j]]=[arr[j], arr[i]]; } sQ = arr.slice(0, 10); qIdx=0; score=0; renderQ(); }
-    function renderQ() { document.getElementById('explanationBox').style.display = 'none'; document.getElementById('quizProgress').innerText = `第 ${qIdx+1} / 10 問`; document.getElementById('quizQuestion').innerText = sQ[qIdx].q; const box = document.getElementById('quizOptions'); box.innerHTML=''; sQ[qIdx].o.forEach((txt, i) => { const b = document.createElement('button'); b.className='quiz-opt'; b.innerText=`${i+1}. ${txt}`; b.onclick=()=>ansQ(i); box.appendChild(b); }); }
-    function ansQ(i) { const isCor = (i === sQ[qIdx].a); if(isCor) { score++; addPoint(1); } const opts = document.querySelectorAll('.quiz-opt'); opts.forEach((b, j) => { b.style.pointerEvents='none'; if(j===sQ[qIdx].a) b.classList.add('correct'); }); if(!isCor) opts[i].classList.add('wrong'); document.getElementById('expTitle').innerText = isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${sQ[qIdx].a+1})`; document.getElementById('expTitle').style.color = isCor ? '#15803d' : '#b91c1c'; document.getElementById('expBody').innerText = sQ[qIdx].e; document.getElementById('explanationBox').style.display = 'block'; }
-    function nextQuestion() { qIdx++; if(qIdx<10) renderQ(); else showRes(); }
-    function showRes() { document.getElementById('quizRunArea').style.display='none'; document.getElementById('quizResultArea').style.display='block'; document.getElementById('resultScore').innerText = `${score} / 10`; document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`; }
-
-    function playGacha() {
-        if (myPoint < 100) { showToast('ポイントが足りません。100ptから回せます！'); return; }
-
-        myPoint -= 100;
-        localStorage.setItem('michimamo_pt', myPoint);
-        updateMyPage();
-
-        const modal = document.getElementById('gachaModal');
-        const anim = document.getElementById('gachaAnimation');
-        const resultText = document.getElementById('gachaResultText');
-        const subText = document.getElementById('gachaSubText');
-        const closeBtn = document.getElementById('gachaCloseBtn');
-        
-        modal.style.display = 'flex';
-        anim.className = 'gacha-shake'; 
-        anim.textContent = '🎁';
-        resultText.style.display = 'none';
-        subText.style.display = 'none';
-        closeBtn.style.display = 'none';
-
-        const rand = Math.random() * 100;
-        let prizeStr = ""; let prizePt = 0;
-        
-        if (rand <= 0.0001) { prizeStr = "✨ 1等 ✨"; prizePt = 100000; } 
-        else if (rand <= 0.0101) { prizeStr = "🌟 2等 🌟"; prizePt = 10000; } 
-        else if (rand <= 10.0101) { prizeStr = "🎉 3等 🎉"; prizePt = 50; }  
-        else { prizeStr = "4等"; prizePt = 1; } 
-
-        myPoint += prizePt;
-        localStorage.setItem('michimamo_pt', myPoint);
-
-        setTimeout(() => {
-            anim.className = 'gacha-pop'; 
-            anim.textContent = prizeStr === "4等" ? '💊' : '💎'; 
-            resultText.textContent = `${prizePt.toLocaleString()} pt`;
-            resultText.style.display = 'block';
-            subText.textContent = `${prizeStr} おめでとうございます！`;
-            subText.style.display = 'block';
-            closeBtn.style.display = 'block';
-            updateMyPage();
-        }, 2000);
-    }
+    // ==========================================
+        // 交通安全クイズ：車40問 / 自転車30問
+        // ==========================================
+    
+        const carQuizList = [
+            {"id": "car01", "q": "2026年9月1日から、中央線や車両通行帯がない生活道路の自動車の法定速度は原則何km/h？", "o": ["30km/h", "40km/h", "60km/h"], "a": 0, "e": "2026年9月1日から、主に中央線等がない生活道路では自動車の法定速度が原則30km/hになりました。"},
+            {"id": "car02", "q": "2026年9月1日の改正後も、中央線や車両通行帯がある一般道路の法定速度は原則何km/h？", "o": ["30km/h", "50km/h", "60km/h"], "a": 2, "e": "中央線や車両通行帯がある一般道路などは、今回の生活道路30km/h化の対象外で、法定速度は引き続き60km/hです。"},
+            {"id": "car03", "q": "法定速度30km/hの生活道路に「最高速度40」の標識がある場合の最高速度は？", "o": ["30km/h", "40km/h", "60km/h"], "a": 1, "e": "道路標識・道路標示で最高速度が指定されている場合は、その指定速度が最高速度になります。"},
+            {"id": "car04", "q": "2026年9月1日の改正で、すべての一般道路が30km/hになった？", "o": ["はい、すべて30km/h", "いいえ、対象は主に中央線等がない生活道路", "夜間だけ30km/h"], "a": 1, "e": "すべての道路が30km/hになったわけではなく、主に中央線等がない生活道路が対象です。"},
+            {"id": "car05", "q": "生活道路で最高速度の標識がない場合、速度だけ守れば常に安全運転義務を果たせる？", "o": ["はい", "いいえ、道路・交通・天候等に応じ安全な速度が必要", "雨の日だけ別"], "a": 1, "e": "最高速度以内でも、道路や交通状況、天候、視界などに応じて安全な速度で運転する必要があります。"},
+            {"id": "car06", "q": "この標識の意味は？", "sign": "parking", "o": ["駐車禁止", "駐停車禁止", "車両進入禁止"], "a": 0, "e": "青地に赤い縁と赤い斜線1本の円形標識は「駐車禁止」です。"},
+            {"id": "car07", "q": "この標識の意味は？", "sign": "nostop", "o": ["駐車禁止", "駐停車禁止", "徐行"], "a": 1, "e": "青地に赤い縁と赤い×印の円形標識は「駐停車禁止」です。"},
+            {"id": "car08", "q": "この標識の意味は？", "sign": "noentry", "o": ["車両進入禁止", "一方通行", "通行止め解除"], "a": 0, "e": "赤い円に白い横棒の標識は「車両進入禁止」です。"},
+            {"id": "car09", "q": "この標識の意味は？", "sign": "stop", "o": ["徐行", "一時停止", "優先道路"], "a": 1, "e": "赤い逆三角形に「止まれ」と表示された標識は「一時停止」です。"},
+            {"id": "car10", "q": "この標識の意味は？", "sign": "speed30", "o": ["最低速度30km/h", "最高速度30km/h", "30m先工事"], "a": 1, "e": "赤い円で囲まれた数字は指定最高速度を示します。"},
+            {"id": "car11", "q": "この標識の意味は？", "sign": "oneway", "o": ["一方通行", "直進禁止", "指定方向外進行禁止"], "a": 0, "e": "青い長方形に白い矢印の標識は「一方通行」です。"},
+            {"id": "car12", "q": "駐停車禁止の場所では、原則としてできないのは？", "o": ["駐車だけ", "停車だけ", "駐車も停車も"], "a": 2, "e": "駐停車禁止は、法令上の例外を除き、駐車も停車も禁止する規制です。"},
+            {"id": "car13", "q": "駐車禁止の場所で原則禁止されるのは？", "o": ["駐車", "赤信号による停止", "危険防止のための一時停止"], "a": 0, "e": "駐車禁止は駐車を禁止する規制です。赤信号や危険防止による停止は通常の駐車とは異なります。"},
+            {"id": "car14", "q": "駐車禁止・駐停車禁止標識に「8-20」と数字が付いている場合、何を示す？", "o": ["8月20日", "8時から20時まで", "8分から20分まで"], "a": 1, "e": "標識に付された「8-20」は、その規制が8時から20時まで行われることを示す例です。"},
+            {"id": "car15", "q": "横断歩道の端から前後何m以内は、原則として駐車も停車も禁止？", "o": ["3m", "5m", "10m"], "a": 1, "e": "横断歩道・自転車横断帯とその端から前後5m以内は、原則として駐停車禁止です。"},
+            {"id": "car16", "q": "交差点の側端から何m以内は、原則として駐停車禁止？", "o": ["5m", "10m", "20m"], "a": 0, "e": "交差点の側端から5m以内は原則として駐停車禁止です。"},
+            {"id": "car17", "q": "道路の曲がり角から何m以内は、原則として駐停車禁止？", "o": ["5m", "10m", "15m"], "a": 0, "e": "道路の曲がり角から5m以内は原則として駐停車禁止です。"},
+            {"id": "car18", "q": "踏切とその前後何m以内は、原則として駐停車禁止？", "o": ["5m", "10m", "20m"], "a": 1, "e": "踏切とその前後10m以内は原則として駐停車禁止です。"},
+            {"id": "car19", "q": "バス停の標示柱・標示板から何m以内は、運行時間中は原則として駐停車禁止？", "o": ["5m", "10m", "20m"], "a": 1, "e": "バス停等の標示位置から10m以内は、運行時間中、原則として駐停車禁止です。"},
+            {"id": "car20", "q": "横断歩道に横断しようとしている歩行者がいるとき、車はどうする？", "o": ["徐行して先に通る", "一時停止して歩行者に進路を譲る", "クラクションで知らせて通る"], "a": 1, "e": "横断歩道では歩行者優先です。横断しようとする歩行者がいる場合は直前で一時停止して進路を譲ります。"},
+            {"id": "car21", "q": "横断歩道に接近するとき、歩行者がいないことが明らかでない場合は？", "o": ["そのままの速度で通過", "横断歩道直前で停止できる速度で進行", "必ず30km/hまで加速"], "a": 1, "e": "歩行者がいないことが明らかな場合を除き、横断歩道直前で停止できる速度で進行する必要があります。"},
+            {"id": "car22", "q": "横断歩道や自転車横断帯とその手前から30m以内では、原則禁止される行為は？", "o": ["追い越し・追い抜き", "左折", "停止線での停止"], "a": 0, "e": "横断歩道等とその手前30m以内では、他の車を追い越したり追い抜いたりしてはいけません。"},
+            {"id": "car23", "q": "「止まれ」の標識がある交差点では、停止線がある場合どこで一時停止する？", "o": ["交差点の中央", "停止線の直前", "標識の10m手前"], "a": 1, "e": "停止線がある場合は、その停止線の直前で一時停止します。"},
+            {"id": "car24", "q": "赤信号で停止することは「駐停車禁止違反」になる？", "o": ["原則ならない", "必ずなる", "夜間だけなる"], "a": 0, "e": "赤信号や危険防止のための一時停止は、通常の駐車・停車規制とは別に扱われます。"},
+            {"id": "car25", "q": "駐車禁止規制がある場所でも、特別な事情があり警察署長の駐車許可を受ければ駐車できる場合がある？", "o": ["ある", "絶対にない", "営業車だけ自動的に可能"], "a": 0, "e": "一定の許可要件を満たし警察署長の駐車許可を受けた場合、駐車できることがあります。自動的に認められるわけではありません。"},
+            {"id": "car26", "q": "配送・訪問作業中なら、駐車禁止場所に許可なく駐車しても必ず合法になる？", "o": ["はい", "いいえ", "ハザードを点ければ合法"], "a": 1, "e": "業務中という理由だけで駐車禁止が解除されるわけではありません。必要に応じて駐車許可制度の対象となる場合があります。"},
+            {"id": "car27", "q": "運転中にスマートフォンを手に持って通話・操作する行為は？", "o": ["短時間なら可", "禁止されている", "渋滞中なら常に可"], "a": 1, "e": "運転中の携帯電話使用等は危険で、道路交通法上の禁止・罰則対象です。"},
+            {"id": "car28", "q": "あおり運転に当たり得る「妨害運転」は？", "o": ["安全な車間距離を保つ", "相手の通行を妨害する目的で危険な車間距離不保持等を行う", "制限速度内で走る"], "a": 1, "e": "他車の通行を妨害する目的で、危険な車間距離不保持等を行う行為は妨害運転として処罰対象になり得ます。"},
+            {"id": "car29", "q": "飲酒後に自動車を運転してよい条件は？", "o": ["近距離ならよい", "深夜ならよい", "飲酒運転はしてはいけない"], "a": 2, "e": "飲酒運転は禁止です。距離や時間帯で許されるものではありません。"},
+            {"id": "car30", "q": "夜間、対向車や先行車がいない道路で前照灯はどう使うのが基本？", "o": ["必要に応じて上向きを活用", "必ず消灯", "車幅灯だけにする"], "a": 0, "e": "夜間は前方の安全確認のため、交通状況に応じて前照灯を適切に使用します。"},
+            {"id": "car31", "q": "道路標識で最高速度40km/hと指定されている道路では、法定速度が60km/hでも最高速度は？", "o": ["40km/h", "60km/h", "70km/h"], "a": 0, "e": "指定最高速度がある道路では、その指定速度が最高速度です。"},
+            {"id": "car32", "q": "道路標識で最高速度30km/hと指定されている生活道路では、2026年9月以降の最高速度は？", "o": ["30km/h", "40km/h", "60km/h"], "a": 0, "e": "指定速度30km/hがあるため最高速度は30km/hです。"},
+            {"id": "car33", "q": "中央分離帯などで往復方向が分離された一般道路は、2026年9月の生活道路30km/h化で原則30km/hになる？", "o": ["なる", "ならない", "休日だけなる"], "a": 1, "e": "中央分離帯等で往復方向が分離された一般道路は、今回の法定速度30km/h化の対象外です。"},
+            {"id": "car34", "q": "自動車専用道路は、2026年9月の生活道路30km/h化の対象？", "o": ["対象", "対象外", "雨天時だけ対象"], "a": 1, "e": "自動車専用道路は今回の生活道路の法定速度引下げの対象外です。"},
+            {"id": "car35", "q": "交差点内は原則として駐停車できる？", "o": ["できる", "できない", "夜間だけできる"], "a": 1, "e": "交差点は原則として駐停車禁止場所です。"},
+            {"id": "car36", "q": "横断歩道上に短時間だけ停車するのは原則可能？", "o": ["可能", "不可", "ハザードを点ければ可能"], "a": 1, "e": "横断歩道上は原則として駐停車禁止です。"},
+            {"id": "car37", "q": "トンネル内はどこでも必ず同じ駐停車ルール？", "o": ["はい、すべて同じ", "いいえ、法令上の条件や道路状況により扱いがある", "二輪車だけ自由"], "a": 1, "e": "トンネル内の駐停車規制は道路の構造など法令上の条件で扱いが定められています。現地の標識・道路状況も確認が必要です。"},
+            {"id": "car38", "q": "最高速度は「必ずその速度で走らなければならない」という意味？", "o": ["はい", "いいえ、超えてはいけない上限", "最低速度と同じ意味"], "a": 1, "e": "最高速度は超えてはいけない上限です。状況に応じてそれより低い安全な速度で走る必要があります。"},
+            {"id": "car39", "q": "「駐車禁止」と「駐停車禁止」で規制が厳しいのはどちら？", "o": ["駐車禁止", "駐停車禁止", "同じ"], "a": 1, "e": "駐停車禁止は駐車だけでなく停車も原則禁止するため、駐車禁止より規制範囲が広いです。"},
+            {"id": "car40", "q": "道路標識や道路標示による速度指定があるとき、まず確認すべきなのは？", "o": ["車種のカタログ速度", "指定された最高速度", "前の車の速度"], "a": 1, "e": "最高速度の標識・道路標示がある場合は、その指定速度を確認して従います。"}
+        ];
+    
+        const bicycleQuizList = [
+            {"id": "bike01", "q": "2026年4月1日から、自転車の青切符（交通反則通告制度）の対象となるのは原則何歳以上？", "o": ["13歳以上", "16歳以上", "18歳以上"], "a": 1, "e": "2026年4月1日から、16歳以上の自転車運転者が交通反則通告制度の対象です。"},
+            {"id": "bike02", "q": "自転車の「青切符」とは何の制度？", "o": ["自転車購入補助制度", "一定の交通違反を反則金納付で処理する交通反則通告制度", "自転車免許制度"], "a": 1, "e": "青切符は、一定の比較的軽微な道路交通法違反を反則金納付等で処理する交通反則通告制度の通称です。"},
+            {"id": "bike03", "q": "2026年4月以降、16歳未満の自転車利用者も青切符の対象？", "o": ["対象", "対象外", "13歳以上だけ対象"], "a": 1, "e": "16歳未満は青切符の対象ではなく、個別の事案に応じた違反処理となります。"},
+            {"id": "bike04", "q": "青切符導入後、自転車の違反はすべて直ちに検挙される？", "o": ["はい", "いいえ、基本は指導警告で悪質・危険な違反が検挙対象", "夜間だけ検挙"], "a": 1, "e": "警察庁は、導入後も基本的には指導警告を行い、悪質・危険な違反を検挙対象とする考え方を示しています。"},
+            {"id": "bike05", "q": "自転車でスマホを手に持って操作しながら運転する行為は？", "o": ["禁止", "低速なら可", "歩道なら可"], "a": 0, "e": "自転車のながらスマホは危険な違反で、取締り対象になります。"},
+            {"id": "bike06", "q": "2026年4月の青切符制度で、携帯電話使用等（保持）は悪質・危険な違反として取締り対象になり得る？", "o": ["なる", "ならない", "雨の日だけなる"], "a": 0, "e": "警察庁は携帯電話使用等（保持）を、指導警告にとどまらず検挙対象となり得る例として示しています。"},
+            {"id": "bike07", "q": "自転車は道路交通法上、何に分類される？", "o": ["歩行者", "軽車両", "原動機付自転車"], "a": 1, "e": "自転車は道路交通法上「軽車両」に位置付けられています。"},
+            {"id": "bike08", "q": "歩道と車道の区別がある道路で、自転車が通行する場所の原則は？", "o": ["歩道", "車道", "路肩ならどこでも"], "a": 1, "e": "自転車は車道通行が原則で、歩道通行は例外です。"},
+            {"id": "bike09", "q": "自転車で車道を通行するときの原則は？", "o": ["右側通行", "左側通行", "中央通行"], "a": 1, "e": "自転車は車道の左側に寄って通行するのが原則です。"},
+            {"id": "bike10", "q": "普通自転車が歩道を通行できる場合、どの部分を通行するのが原則？", "o": ["歩道の車道寄り", "歩道の建物寄り", "常に歩道中央"], "a": 0, "e": "歩道通行が認められる場合は、原則として歩道の中央から車道寄りの部分を徐行します。"},
+            {"id": "bike11", "q": "自転車が歩道を通行できる場合、歩行者の通行を妨げそうなときは？", "o": ["ベルを鳴らして進む", "一時停止する", "速度を上げて抜く"], "a": 1, "e": "歩行者の通行を妨げることになる場合は一時停止しなければなりません。"},
+            {"id": "bike12", "q": "13歳未満の人が普通自転車を運転する場合、歩道を通行できることがある？", "o": ["ある", "絶対にない", "夜間だけ"], "a": 0, "e": "13歳未満の人は、普通自転車で歩道を通行できる例外に含まれます。"},
+            {"id": "bike13", "q": "70歳以上の人が普通自転車を運転する場合、歩道を通行できることがある？", "o": ["ある", "絶対にない", "雨天時だけ"], "a": 0, "e": "70歳以上の人は、普通自転車で歩道を通行できる例外に含まれます。"},
+            {"id": "bike14", "q": "車道や交通の状況から見て安全確保のためやむを得ない場合、自転車は歩道を通行できることがある？", "o": ["ある", "ない", "免許がある人だけ"], "a": 0, "e": "安全確保のためやむを得ないと認められる場合は、普通自転車が歩道を通行できる例外があります。"},
+            {"id": "bike15", "q": "一時停止標識がある交差点を自転車で通るときは？", "o": ["自転車は対象外", "一時停止して安全確認", "ベルを鳴らせば通過可能"], "a": 1, "e": "自転車も車両なので、一時停止標識に従い一時停止と安全確認が必要です。"},
+            {"id": "bike16", "q": "自転車で信号機のある交差点を通行するときは？", "o": ["信号に従う", "自転車は信号無視可", "歩行者がいなければ赤でも可"], "a": 0, "e": "自転車も信号に従わなければなりません。"},
+            {"id": "bike17", "q": "自転車で夜間に走るときは？", "o": ["ライトを点灯する", "反射板があれば必ず無灯火でよい", "街灯があれば点灯不要"], "a": 0, "e": "自転車は夜間、ライトを点灯する必要があります。"},
+            {"id": "bike18", "q": "自転車の飲酒運転は？", "o": ["禁止", "ビール1杯なら可", "自転車道なら可"], "a": 0, "e": "自転車も飲酒運転は禁止されています。"},
+            {"id": "bike19", "q": "自転車に乗るときの乗車用ヘルメットは？", "o": ["着用に努める", "成人は着用禁止", "夜間だけ必要"], "a": 0, "e": "自転車利用者は乗車用ヘルメットを着用するよう努めることとされています。"},
+            {"id": "bike20", "q": "自転車同士で横に並んで走る「並進」は原則どう扱われる？", "o": ["原則禁止", "常に自由", "夜だけ自由"], "a": 0, "e": "道路標識で並進が認められている場合などを除き、自転車の並進は原則禁止です。"},
+            {"id": "bike21", "q": "遮断機が下りている、または警報機が鳴っている踏切へ自転車で入る行為は？", "o": ["危険な違反", "自転車なら可", "押して走れば可"], "a": 0, "e": "遮断踏切への立入りは悪質・危険な違反として取締り対象となり得ます。"},
+            {"id": "bike22", "q": "ブレーキが正常に効かない自転車を運転するのは？", "o": ["問題ない", "危険な違反となり得る", "坂道だけ禁止"], "a": 1, "e": "制動装置不良自転車の運転は危険で、警察庁が取締り対象となり得る例として示しています。"},
+            {"id": "bike23", "q": "自転車で歩道を高速走行し、歩行者を立ち止まらせた場合は？", "o": ["危険を生じさせた違反として検挙対象になり得る", "必ず注意だけ", "歩道なので問題ない"], "a": 0, "e": "違反の結果、実際に歩行者を立ち止まらせるなど交通の危険を生じさせた場合は検挙対象となり得ます。"},
+            {"id": "bike24", "q": "警察官の指導警告に従わず自転車の右側通行を続けた場合は？", "o": ["検挙対象になり得る", "必ず問題なし", "指導警告は無効"], "a": 0, "e": "違反を認識しながら指導警告に従わず違反を継続した場合は検挙対象となり得ます。"},
+            {"id": "bike25", "q": "自転車で横断歩道に接近し、横断する歩行者がいる場合は？", "o": ["歩行者を優先する", "自転車が常に優先", "ベルを鳴らせば先に進める"], "a": 0, "e": "横断歩道は歩行者が通行する場所であり、歩行者の通行を妨げないようにする必要があります。"},
+            {"id": "bike26", "q": "自転車が車道を通行中、車両通行帯がない道路ではどこを通るのが原則？", "o": ["道路の左側端", "道路の右側端", "道路中央"], "a": 0, "e": "車両通行帯がない道路では、自転車は道路の左側端に寄って通行するのが原則です。"},
+            {"id": "bike27", "q": "車両通行帯がある道路で自転車が車道を通る場合、原則どの通行帯？", "o": ["一番右側", "一番左側", "中央の通行帯"], "a": 1, "e": "車両通行帯がある道路では、原則として一番左側の車両通行帯を通行します。"},
+            {"id": "bike28", "q": "自転車で傘を差しながら一時不停止も同時に行うなど、複数の違反で事故危険が高まった場合は？", "o": ["検挙対象になり得る", "必ず指導だけ", "複数違反は相殺される"], "a": 0, "e": "違反を同時に複数行い事故の危険が高まっている場合は、検挙対象となり得ます。"},
+            {"id": "bike29", "q": "青切符の反則金を納付した場合の制度上の基本的な扱いは？", "o": ["一定の要件で刑事手続に移行せず処理される", "必ず懲役になる", "自転車免許が失効する"], "a": 0, "e": "交通反則通告制度では、通告に従い反則金を納付した場合、一定の道路交通法違反について公訴を提起されない仕組みです。"},
+            {"id": "bike30", "q": "自転車の交通安全で最も基本となる考え方は？", "o": ["自転車は歩行者と同じ", "自転車は車のなかまとして交通ルールを守る", "歩道では自転車が常に優先"], "a": 1, "e": "自転車は軽車両で「車のなかま」です。車両として交通ルールを守り、歩行者を優先して安全運転することが基本です。"}
+        ];
+    
+        let sQ = [];
+        let qIdx = 0;
+        let score = 0;
+        let currentQuizMode = 'mix';
+    
+        function shuffleQuiz(arr) {
+            const copied = [...arr];
+            for (let i = copied.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copied[i], copied[j]] = [copied[j], copied[i]];
+            }
+            return copied;
+        }
+    
+        function renderTrafficSign(type) {
+            const wrap = 'width:112px;height:112px;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;';
+            if (type === 'parking') {
+                return `<div style="${wrap}"><div style="width:92px;height:92px;border-radius:50%;background:#1557b0;border:10px solid #e11d48;position:relative;"><div style="position:absolute;width:10px;height:92px;background:#e11d48;left:31px;top:-10px;transform:rotate(45deg);"></div></div></div>`;
+            }
+            if (type === 'nostop') {
+                return `<div style="${wrap}"><div style="width:92px;height:92px;border-radius:50%;background:#1557b0;border:10px solid #e11d48;position:relative;overflow:hidden;"><div style="position:absolute;width:9px;height:120px;background:#e11d48;left:31px;top:-24px;transform:rotate(45deg);"></div><div style="position:absolute;width:9px;height:120px;background:#e11d48;left:31px;top:-24px;transform:rotate(-45deg);"></div></div></div>`;
+            }
+            if (type === 'noentry') {
+                return `<div style="${wrap}"><div style="width:96px;height:96px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;"><div style="width:68px;height:22px;background:white;border-radius:4px;"></div></div></div>`;
+            }
+            if (type === 'stop') {
+                return `<div style="${wrap}"><div style="width:0;height:0;border-left:55px solid transparent;border-right:55px solid transparent;border-top:96px solid #dc2626;position:relative;filter:drop-shadow(0 0 0 white);"><div style="position:absolute;top:-82px;left:-29px;color:white;font-weight:900;font-size:19px;white-space:nowrap;">止まれ</div></div></div>`;
+            }
+            if (type === 'speed30') {
+                return `<div style="${wrap}"><div style="width:96px;height:96px;border-radius:50%;background:white;border:10px solid #dc2626;display:flex;align-items:center;justify-content:center;font-size:43px;font-weight:900;color:#111;">30</div></div>`;
+            }
+            if (type === 'oneway') {
+                return `<div style="${wrap}"><div style="width:110px;height:72px;background:#2563eb;border:5px solid white;box-shadow:0 0 0 2px #2563eb;display:flex;align-items:center;justify-content:center;color:white;font-size:54px;font-weight:900;">→</div></div>`;
+            }
+            return '';
+        }
+    
+        function startQuizSession(mode = 'mix') {
+            currentQuizMode = mode;
+    
+            if (mode === 'car') {
+                sQ = shuffleQuiz(carQuizList).slice(0, 10);
+            } else if (mode === 'bike') {
+                sQ = shuffleQuiz(bicycleQuizList).slice(0, 10);
+            } else {
+                const cars = shuffleQuiz(carQuizList).slice(0, 5);
+                const bikes = shuffleQuiz(bicycleQuizList).slice(0, 5);
+                sQ = shuffleQuiz([...cars, ...bikes]);
+            }
+    
+            qIdx = 0;
+            score = 0;
+    
+            document.getElementById('quizIntroArea').style.display = 'none';
+            document.getElementById('quizResultArea').style.display = 'none';
+            document.getElementById('quizRunArea').style.display = 'block';
+    
+            const label = mode === 'car'
+                ? '🚗 車・標識モード'
+                : mode === 'bike'
+                    ? '🚲 自転車モード'
+                    : '🎲 ミックスモード';
+    
+            document.getElementById('quizModeLabel').innerText = label;
+            renderQ();
+        }
+    
+        function renderQ() {
+            const item = sQ[qIdx];
+    
+            document.getElementById('explanationBox').style.display = 'none';
+            document.getElementById('quizProgress').innerText = `第 ${qIdx + 1} / 10 問`;
+            document.getElementById('quizQuestion').innerText = item.q;
+    
+            const signArea = document.getElementById('quizSignArea');
+            if (item.sign) {
+                signArea.innerHTML = renderTrafficSign(item.sign);
+                signArea.style.display = 'block';
+            } else {
+                signArea.innerHTML = '';
+                signArea.style.display = 'none';
+            }
+    
+            const box = document.getElementById('quizOptions');
+            box.innerHTML = '';
+    
+            item.o.forEach((txt, i) => {
+                const b = document.createElement('button');
+                b.className = 'quiz-opt';
+                b.innerText = `${i + 1}. ${txt}`;
+                b.onclick = () => ansQ(i);
+                box.appendChild(b);
+            });
+        }
+    
+        function ansQ(i) {
+            const item = sQ[qIdx];
+            const isCor = i === item.a;
+    
+            if (isCor) {
+                score++;
+                addPoint(1);
+            }
+    
+            const opts = document.querySelectorAll('.quiz-opt');
+            opts.forEach((b, j) => {
+                b.style.pointerEvents = 'none';
+                if (j === item.a) b.classList.add('correct');
+            });
+    
+            if (!isCor) opts[i].classList.add('wrong');
+    
+            document.getElementById('expTitle').innerText =
+                isCor ? '🎉 正解！(+1pt)' : `❌ 不正解... (正解は${item.a + 1})`;
+    
+            document.getElementById('expTitle').style.color =
+                isCor ? '#15803d' : '#b91c1c';
+    
+            document.getElementById('expBody').innerText = item.e;
+            document.getElementById('explanationBox').style.display = 'block';
+        }
+    
+        function nextQuestion() {
+            qIdx++;
+            if (qIdx < 10) {
+                renderQ();
+            } else {
+                showRes();
+            }
+        }
+    
+        function showRes() {
+            document.getElementById('quizRunArea').style.display = 'none';
+            document.getElementById('quizResultArea').style.display = 'block';
+            document.getElementById('resultScore').innerText = `${score} / 10`;
+            document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`;
+        }
+    
+        function backToQuizMenu() {
+            document.getElementById('quizRunArea').style.display = 'none';
+            document.getElementById('quizResultArea').style.display = 'none';
+            document.getElementById('quizIntroArea').style.display = 'block';
+        }
     function closeGacha() { document.getElementById('gachaModal').style.display = 'none'; }
 // ==========================================
     // Supabase Auth 処理
