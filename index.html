@@ -822,13 +822,6 @@
         showToast("プロフィールを保存しました"); updateMyPage();
     }
 
-    function addPoint(pt, msg) {
-        myPoint += pt;
-        localStorage.setItem('michimamo_pt', myPoint);
-        if(msg) showToast(`${msg}！ (+${pt}pt)`);
-        updateMyPage();
-    }
-
     function updateMyPage() {
         document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName;
         document.getElementById('myAvatarDisplay').innerText = myAvatar;
@@ -1295,7 +1288,8 @@ function shareSpot(title, address, category, event) {
             showToast(error.message.includes('already_voted') ? "すでに評価済みです" : "評価に失敗しました");
             return;
         }
-        addPoint(1, "お礼を伝えました");
+        await loadAuthenticatedProfile();
+        showToast("お礼を伝えました！ (+1pt)");
         loadSpots();
     }
 
@@ -1447,7 +1441,8 @@ function shareSpot(title, address, category, event) {
         if (!error && data && data.length > 0) {
             actionLimits.postCount++;
             saveLimits();
-            addPoint(10, `安全情報を共有しました (本日 ${actionLimits.postCount}/5 回)`);
+            await loadAuthenticatedProfile();
+            showToast(`安全情報を共有しました！ (本日 ${actionLimits.postCount}/5 回・+10pt)`);
             closePostModal();
         }
         else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); }
@@ -1667,7 +1662,8 @@ function shareSpot(title, address, category, event) {
             return '';
         }
 
-        function startQuizSession(mode = 'mix') {
+        async function startQuizSession(mode = 'mix') {
+            if (!await requireAuthenticatedUser()) return;
             currentQuizMode = mode;
 
             if (mode === 'car') {
@@ -1731,7 +1727,6 @@ function shareSpot(title, address, category, event) {
 
             if (isCor) {
                 score++;
-                addPoint(1);
             }
 
             const opts = document.querySelectorAll('.quiz-opt');
@@ -1761,11 +1756,26 @@ function shareSpot(title, address, category, event) {
             }
         }
 
-        function showRes() {
+        async function showRes() {
             document.getElementById('quizRunArea').style.display = 'none';
             document.getElementById('quizResultArea').style.display = 'block';
             document.getElementById('resultScore').innerText = `${score} / 10`;
-            document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${score}pt`;
+            document.getElementById('resultEarnPt').innerText = '安全ポイントを確認中...';
+
+            const { data, error } = await db.rpc('claim_quiz_points', { p_score: score });
+            if (error) {
+                const alreadyClaimed = error.message.includes('quiz_already_claimed_today');
+                document.getElementById('resultEarnPt').innerText = alreadyClaimed
+                    ? '本日のクイズポイントは獲得済みです（明日また挑戦できます）'
+                    : 'ポイントの反映に失敗しました';
+                return;
+            }
+
+            const result = Array.isArray(data) ? data[0] : data;
+            myPoint = Number(result?.balance || myPoint);
+            localStorage.setItem('michimamo_pt', String(myPoint));
+            updateMyPage();
+            document.getElementById('resultEarnPt').innerText = `獲得した安全ポイント: +${Number(result?.awarded || 0)}pt`;
         }
 
         function backToQuizMenu() {
@@ -1773,6 +1783,46 @@ function shareSpot(title, address, category, event) {
             document.getElementById('quizResultArea').style.display = 'none';
             document.getElementById('quizIntroArea').style.display = 'block';
         }
+    async function playGacha() {
+        if (!await requireAuthenticatedUser()) return;
+
+        const { data, error } = await db.rpc('play_gacha');
+        if (error) {
+            showToast(error.message.includes('insufficient_points')
+                ? 'ポイントが不足しています（100pt必要です）'
+                : 'ガチャの実行に失敗しました');
+            return;
+        }
+
+        const result = Array.isArray(data) ? data[0] : data;
+        const rank = Number(result?.prize_rank || 4);
+        const prize = Number(result?.prize_points || 0);
+        myPoint = Number(result?.balance || myPoint);
+        localStorage.setItem('michimamo_pt', String(myPoint));
+        updateMyPage();
+
+        const modal = document.getElementById('gachaModal');
+        const animation = document.getElementById('gachaAnimation');
+        const resultText = document.getElementById('gachaResultText');
+        const subText = document.getElementById('gachaSubText');
+        const closeBtn = document.getElementById('gachaCloseBtn');
+        modal.style.display = 'flex';
+        animation.className = 'gacha-shake';
+        resultText.style.display = 'none';
+        subText.style.display = 'none';
+        closeBtn.style.display = 'none';
+
+        setTimeout(() => {
+            animation.className = 'gacha-pop';
+            animation.textContent = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '🏅';
+            resultText.textContent = `${rank}等！`;
+            subText.textContent = `${prize.toLocaleString()}pt 獲得`;
+            resultText.style.display = 'block';
+            subText.style.display = 'block';
+            closeBtn.style.display = 'block';
+        }, 1200);
+    }
+
     function closeGacha() { document.getElementById('gachaModal').style.display = 'none'; }
 // ==========================================
     // Supabase Auth 処理
