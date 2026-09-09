@@ -297,9 +297,10 @@
             <div class="page">
                 <h1 onclick="adminTap()" style="cursor:pointer; user-select:none;">👤 マイページ</h1>
 
-                <!-- タブメニュー（2つに整理） -->
+                <!-- タブメニュー -->
                 <div class="tab-menu">
                     <button class="tab-btn active" onclick="switchTab('profileTab', this)">設定・ガイド</button>
+                    <button class="tab-btn" onclick="switchTab('activityTab', this)">📋 活動履歴</button>
                     <button class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 ランキング</button>
                 </div>
 
@@ -416,7 +417,44 @@
                     </div>
                 </div>
 
-                <!-- 【タブ2：ランキング】 -->
+                <!-- 【タブ2：活動履歴】 -->
+                <div id="activityTab" class="tab-content">
+                    <div id="activityLoginNotice" class="card" style="text-align:center; color:#64748b;">
+                        LINEログインすると、ポイントや投稿の履歴を確認できます。
+                    </div>
+                    <div id="activityDashboard" style="display:none;">
+                        <div class="card" style="background:linear-gradient(135deg,#eff6ff,#f8fafc); border:1px solid #bfdbfe;">
+                            <h2 style="font-size:1.05rem; margin-bottom:14px;"><i class="fa-solid fa-calendar-day" style="color:#2563eb;"></i> 今日の活動</h2>
+                            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; text-align:center;">
+                                <div style="background:white; padding:12px 5px; border-radius:10px;"><div style="font-size:1.25rem; font-weight:900; color:#2563eb;" id="todayEarned">0pt</div><div class="muted" style="font-size:.7rem;">獲得</div></div>
+                                <div style="background:white; padding:12px 5px; border-radius:10px;"><div style="font-size:1.25rem; font-weight:900; color:#10b981;" id="todayPosts">0/5</div><div class="muted" style="font-size:.7rem;">投稿ポイント</div></div>
+                                <div style="background:white; padding:12px 5px; border-radius:10px;"><div style="font-size:1.25rem; font-weight:900; color:#f59e0b;" id="todayQuiz">未挑戦</div><div class="muted" style="font-size:.7rem;">クイズ</div></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2>
+                            <div id="pointHistoryArea"><div class="muted">読み込み中...</div></div>
+                        </div>
+                        <div class="card">
+                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-map-location-dot" style="color:#ef4444;"></i> 自分の投稿</h2>
+                            <div id="myPostHistoryArea"><div class="muted">読み込み中...</div></div>
+                        </div>
+                        <div class="card">
+                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-gift" style="color:#9333ea;"></i> ガチャ結果</h2>
+                            <div id="gachaHistoryArea"><div class="muted">読み込み中...</div></div>
+                        </div>
+                        <div class="card" style="border:1px solid #fecaca; background:#fffafa;">
+                            <h2 style="font-size:1rem; color:#991b1b;"><i class="fa-solid fa-user-slash"></i> 退会・データ削除</h2>
+                            <p class="muted" style="font-size:.78rem; line-height:1.6;">申請後、運営が本人確認と処理を行います。申請だけでは即時削除されません。</p>
+                            <div id="deletionRequestArea">
+                                <button onclick="requestAccountDeletion()" style="width:100%; padding:11px; border:1px solid #fca5a5; color:#b91c1c; background:white; border-radius:10px; font-weight:bold; cursor:pointer;">退会・データ削除を申請</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 【タブ3：ランキング】 -->
                 <div id="rankingTab" class="tab-content">
                     <div class="card">
                         <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
@@ -774,6 +812,93 @@
         btn.classList.add('active');
         document.getElementById(tabId).classList.add('active');
         if (tabId === 'rankingTab') loadRanking();
+        if (tabId === 'activityTab') loadMyDashboard();
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>'"]/g, char => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+        })[char]);
+    }
+
+    function formatHistoryDate(value) {
+        if (!value) return '';
+        return new Intl.DateTimeFormat('ja-JP', {
+            month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        }).format(new Date(value));
+    }
+
+    async function loadMyDashboard() {
+        const notice = document.getElementById('activityLoginNotice');
+        const dashboard = document.getElementById('activityDashboard');
+        const { data: authData } = await db.auth.getUser();
+
+        if (!authData?.user) {
+            notice.style.display = 'block';
+            dashboard.style.display = 'none';
+            return;
+        }
+
+        notice.style.display = 'none';
+        dashboard.style.display = 'block';
+
+        const { data, error } = await db.rpc('get_my_dashboard');
+        if (error || !data) {
+            showToast('活動履歴の読み込みに失敗しました');
+            return;
+        }
+
+        const today = data.today || {};
+        document.getElementById('todayEarned').textContent = `${Number(today.earned || 0).toLocaleString()}pt`;
+        document.getElementById('todayPosts').textContent = `${Number(today.postCount || 0)}/5`;
+        document.getElementById('todayQuiz').textContent = today.quizClaimed ? `${Number(today.quizScore || 0)}/10` : '未挑戦';
+
+        const reasonLabels = {
+            spot_post: '安全情報の投稿', spot_like: '「助かった！」評価', quiz: '交通安全クイズ',
+            gacha_cost: 'ガチャを回す', gacha_prize: 'ガチャ当選', admin: '運営による調整'
+        };
+        const points = Array.isArray(data.points) ? data.points : [];
+        document.getElementById('pointHistoryArea').innerHTML = points.length ? points.map(item => {
+            const amount = Number(item.amount || 0);
+            const color = amount > 0 ? '#059669' : '#dc2626';
+            return `<div style="display:flex; justify-content:space-between; gap:10px; padding:11px 0; border-bottom:1px solid #eef1f4;">
+                <div><div style="font-size:.84rem; font-weight:bold;">${escapeHtml(reasonLabels[item.reason] || item.reason)}</div><div class="muted" style="font-size:.7rem;">${formatHistoryDate(item.created_at)}</div></div>
+                <div style="font-weight:900; color:${color}; white-space:nowrap;">${amount > 0 ? '+' : ''}${amount.toLocaleString()}pt</div>
+            </div>`;
+        }).join('') : '<div class="muted" style="padding:10px 0;">まだポイント履歴はありません。</div>';
+
+        const categoryLabels = { illegal:'違法駐車', danger:'危険停車', patrol:'巡回・取締り', abandoned:'不法放置', police:'警察情報' };
+        const posts = Array.isArray(data.posts) ? data.posts : [];
+        document.getElementById('myPostHistoryArea').innerHTML = posts.length ? posts.map(item => `
+            <div style="padding:11px 0; border-bottom:1px solid #eef1f4;">
+                <div style="display:flex; justify-content:space-between; gap:8px;"><strong style="font-size:.84rem;">${escapeHtml(item.title || '名称なし')}</strong><span class="muted" style="font-size:.68rem; white-space:nowrap;">${formatHistoryDate(item.created_at)}</span></div>
+                <div class="muted" style="font-size:.72rem; margin-top:5px;">${escapeHtml(categoryLabels[item.category] || item.category)}・${escapeHtml(item.address || '場所不明')}　👍${Number(item.like_count || 0)}　🚩${Number(item.report_count || 0)}</div>
+            </div>`).join('') : '<div class="muted" style="padding:10px 0;">まだ投稿はありません。</div>';
+
+        const gacha = Array.isArray(data.gacha) ? data.gacha : [];
+        document.getElementById('gachaHistoryArea').innerHTML = gacha.length ? gacha.map(item => `
+            <div style="display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid #eef1f4;">
+                <div><strong>${Number(item.prize_rank)}等</strong><div class="muted" style="font-size:.7rem;">${formatHistoryDate(item.created_at)}</div></div>
+                <div style="font-weight:900; color:#9333ea;">+${Number(item.prize_points || 0).toLocaleString()}pt</div>
+            </div>`).join('') : '<div class="muted" style="padding:10px 0;">まだガチャ履歴はありません。</div>';
+
+        if (data.deletionStatus) {
+            document.getElementById('deletionRequestArea').innerHTML = '<div style="padding:11px; border-radius:10px; background:#fee2e2; color:#991b1b; font-size:.82rem; font-weight:bold; text-align:center;">退会・データ削除申請を受付済みです</div>';
+        }
+    }
+
+    async function requestAccountDeletion() {
+        if (!await requireAuthenticatedUser()) return;
+        if (!confirm('退会・データ削除を申請しますか？\n申請後、運営が内容を確認して処理します。')) return;
+
+        const reason = prompt('差し支えなければ退会理由をご入力ください（空欄でも申請できます）') || '';
+        const { data, error } = await db.rpc('request_account_deletion', { p_reason: reason });
+        if (error) {
+            showToast('退会申請の送信に失敗しました');
+            return;
+        }
+        showToast(data === 'already_requested' ? '退会申請は受付済みです' : '退会申請を受け付けました');
+        loadMyDashboard();
     }
 
     function switchCategoryRanking(cat, btn) {
