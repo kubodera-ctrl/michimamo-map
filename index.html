@@ -246,11 +246,11 @@
                 <p class="muted" style="font-size:0.78rem; margin-bottom:14px;">正解1問につき1pt。ミックスは車5問＋自転車5問です。</p>
 
                 <button class="primary" onclick="startQuizSession('car')" style="margin-top:0; background:#2563eb;">
-                    🚗 車・標識問題（10問）
+                    🚗 車・標識（10問）
                 </button>
 
                 <button class="primary" onclick="startQuizSession('bike')" style="background:#10b981;">
-                    🚲 自転車問題（10問）
+                    🚲 自転車（10問）
                 </button>
 
                 <button class="primary" onclick="startQuizSession('mix')" style="background:#7c3aed;">
@@ -359,7 +359,7 @@
                         <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方・ガイド</h2>
                         
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
-                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、危険が発生しやすい場所や状況を共有できます。みちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
+                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、危険が発生しやすい場所や状況を共有できます。まちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
                         
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. ピンの色と意味</h3>
                         <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
@@ -378,7 +378,7 @@
 
                         <h3 style="font-size:0.9rem; margin-top:14px; color:#17212b;">4. 地域で働く人への配慮</h3>
                         <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.6; color:#475569;">
-                            <div style="font-weight:900; color:#17212b; margin-bottom:6px;"><i class="fa-solid fa-truck" style="color:#2563eb;"></i> みちまもMAPは、街で働く人を排除するためのサービスではありません。</div>
+                            <div style="font-weight:900; color:#17212b; margin-bottom:6px;"><i class="fa-solid fa-truck" style="color:#2563eb;"></i> まちまもMAPは、街で働く人を排除するためのサービスではありません。</div>
                             配送・荷下ろし・訪問作業・建物管理など、地域の生活を支える業務への配慮を大切にします。投稿や通報の前に、歩行者・車いす・ベビーカー・緊急車両などの通行を妨げているか、周囲に継続的な危険が生じているかをご確認ください。<br><br>
                             ただし、事故につながる危険な駐停車や緊急性のある状況では、安全を最優先してください。
                         </div>
@@ -639,7 +639,7 @@
             <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
-            みちまもMAPは、皆さまに安心してご利用いただけるよう、以下のプライバシー保護対策と機能強化を進めています。
+            まちまもMAPは、皆さまに安心してご利用いただけるよう、以下のプライバシー保護対策と機能強化を進めています。
         </div>
         <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>ナンバー・顔等の保護：</strong> 個人情報保護のため、画像処理機能（モザイク処理等）の導入・検証を進めています。</li>
@@ -661,7 +661,7 @@
             <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
-            みちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
+            まちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
         </div>
         <div style="background:#fef3c7; border:1px solid #fcd34d; padding:12px; border-radius:8px; margin-bottom:20px;">
             <strong style="color:#b45309; font-size:0.9rem;">✨ 月額 3,000円 で専用ピンを表示！</strong><br>
@@ -1010,25 +1010,25 @@ function shareSpot(title, address, category, event) {
         else if (category === 'patrol') catStr = "🟢巡回情報"; 
         else if (category === 'abandoned') catStr = "🟣不法放置";
         
-        const text = `📍【みちまもMAP安全情報】\n${address} 近辺で「${catStr}: ${title}」の報告があります。\n地域の安全のために確認しよう！`;
+        const text = `📍【まちまもMAP安全情報】\n${address} 近辺で「${catStr}: ${title}」の報告があります。\n地域の安全のために確認しよう！`;
         const url = window.location.href;
 
         if (navigator.share) {
             navigator.share({
-                title: 'みちまもMAP - 交通安全情報',
+                title: 'まちまもMAP - 交通安全情報',
                 text: text,
                 url: url
             }).catch(() => {});
         } else {
-            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=みちまもMAP,交通安全`;
+            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=まちまもMAP,交通安全`;
             window.open(shareUrl, '_blank');
         }
     }
     function shareToSNS(platform) {
         const appUrl = "https://michimamo-map.vercel.app";
         let text = "";
-        if (document.getElementById('quizResultArea').style.display === 'block') { text = `みちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#みちまもMAP #交通安全`; } 
-        else { text = `地域の危険駐車を共有するアプリ「みちまもMAP」を使っています！\n#みちまもMAP #交通安全`; }
+        if (document.getElementById('quizResultArea').style.display === 'block') { text = `まちまもMAPの交通ルールテストで「${score}/10点」を獲得しました！現在のランクは【${window.myCurrentRankStr}】です🚗💨\n#まちまもMAP #交通安全`; } 
+        else { text = `地域の危険駐車を共有するアプリ「まちまもMAP」を使っています！\n#まちまもMAP #交通安全`; }
         
         if (platform === 'x') { window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(appUrl)}`, '_blank'); } 
         else if (platform === 'line') { window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text + "\n" + appUrl)}`, '_blank'); } 
@@ -1087,7 +1087,7 @@ function shareSpot(title, address, category, event) {
         const objectUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.setAttribute("href", objectUrl);
-        link.setAttribute("download", `michimamo_report_${Date.now()}.csv`);
+        link.setAttribute("download", `machimamo_report_${Date.now()}.csv`);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -1558,6 +1558,12 @@ function shareSpot(title, address, category, event) {
             {"id": "car38", "q": "最高速度は「必ずその速度で走らなければならない」という意味？", "o": ["はい", "いいえ、超えてはいけない上限", "最低速度と同じ意味"], "a": 1, "e": "最高速度は超えてはいけない上限です。状況に応じてそれより低い安全な速度で走る必要があります。"},
             {"id": "car39", "q": "「駐車禁止」と「駐停車禁止」で規制が厳しいのはどちら？", "o": ["駐車禁止", "駐停車禁止", "同じ"], "a": 1, "e": "駐停車禁止は駐車だけでなく停車も原則禁止するため、駐車禁止より規制範囲が広いです。"},
             {"id": "car40", "q": "道路標識や道路標示による速度指定があるとき、まず確認すべきなのは？", "o": ["車種のカタログ速度", "指定された最高速度", "前の車の速度"], "a": 1, "e": "最高速度の標識・道路標示がある場合は、その指定速度を確認して従います。"}
+,
+            {"id": "car41", "q": "普通車で運転中にスマートフォンを手に持って通話・操作する『携帯電話使用等（保持）』の反則金はいくら？", "o": ["9,000円", "12,000円", "18,000円"], "a": 2, "e": "普通車の携帯電話使用等（保持）の反則金は18,000円です。※2026年9月時点。"},
+            {"id": "car42", "q": "普通車で赤信号を無視した場合の反則金はいくら？", "o": ["7,000円", "9,000円", "12,000円"], "a": 1, "e": "普通車の信号無視（赤色等）の反則金は9,000円です。※2026年9月時点。"},
+            {"id": "car43", "q": "普通車で『止まれ』の標識に従わず、指定場所一時不停止となった場合の反則金はいくら？", "o": ["5,000円", "7,000円", "9,000円"], "a": 1, "e": "普通車の指定場所一時不停止等の反則金は7,000円です。※2026年9月時点。"},
+            {"id": "car44", "q": "普通車で横断歩道の歩行者を妨害した場合の反則金はいくら？", "o": ["6,000円", "9,000円", "12,000円"], "a": 1, "e": "普通車の横断歩行者等妨害等の反則金は9,000円です。※2026年9月時点。"},
+            {"id": "car45", "q": "普通車で最高速度を15km/h未満超過した場合の反則金はいくら？", "o": ["7,000円", "9,000円", "12,000円"], "a": 1, "e": "普通車の速度超過（15km/h未満）の反則金は9,000円です。※2026年9月時点。"}
         ];
     
         const bicycleQuizList = [
@@ -1591,6 +1597,12 @@ function shareSpot(title, address, category, event) {
             {"id": "bike28", "q": "自転車で傘を差しながら一時不停止も同時に行うなど、複数の違反で事故危険が高まった場合は？", "o": ["検挙対象になり得る", "必ず指導だけ", "複数違反は相殺される"], "a": 0, "e": "違反を同時に複数行い事故の危険が高まっている場合は、検挙対象となり得ます。"},
             {"id": "bike29", "q": "青切符の反則金を納付した場合の制度上の基本的な扱いは？", "o": ["一定の要件で刑事手続に移行せず処理される", "必ず懲役になる", "自転車免許が失効する"], "a": 0, "e": "交通反則通告制度では、通告に従い反則金を納付した場合、一定の道路交通法違反について公訴を提起されない仕組みです。"},
             {"id": "bike30", "q": "自転車の交通安全で最も基本となる考え方は？", "o": ["自転車は歩行者と同じ", "自転車は車のなかまとして交通ルールを守る", "歩道では自転車が常に優先"], "a": 1, "e": "自転車は軽車両で「車のなかま」です。車両として交通ルールを守り、歩行者を優先して安全運転することが基本です。"}
+,
+            {"id": "bike31", "q": "16歳以上の自転車運転者が『携帯電話使用等（保持）』で青切符の対象となった場合、反則金はいくら？", "o": ["6,000円", "9,000円", "12,000円"], "a": 2, "e": "自転車の携帯電話使用等（保持）の反則金は12,000円です。※2026年9月時点。"},
+            {"id": "bike32", "q": "16歳以上の自転車運転者が信号無視で青切符の対象となった場合、反則金はいくら？", "o": ["5,000円", "6,000円", "7,000円"], "a": 1, "e": "自転車の信号無視の反則金は6,000円です。※点滅信号の無視は別額です。"},
+            {"id": "bike33", "q": "16歳以上の自転車運転者が遮断踏切に立ち入り、青切符の対象となった場合の反則金はいくら？", "o": ["5,000円", "7,000円", "12,000円"], "a": 1, "e": "自転車の遮断踏切立入りの反則金は7,000円です。※2026年9月時点。"},
+            {"id": "bike34", "q": "16歳以上の自転車運転者が指定場所一時不停止で青切符の対象となった場合、反則金はいくら？", "o": ["3,000円", "5,000円", "6,000円"], "a": 1, "e": "自転車の指定場所一時不停止等の反則金は5,000円です。※2026年9月時点。"},
+            {"id": "bike35", "q": "16歳以上の自転車運転者が無灯火で青切符の対象となった場合、反則金はいくら？", "o": ["3,000円", "5,000円", "7,000円"], "a": 1, "e": "自転車の無灯火の反則金は5,000円です。※2026年9月時点。"}
         ];
     
         let sQ = [];
@@ -1605,6 +1617,22 @@ function shareSpot(title, address, category, event) {
                 [copied[i], copied[j]] = [copied[j], copied[i]];
             }
             return copied;
+        }
+
+        // 1回の10問内で同じ問題を重複させない。
+        // idと問題文の両方で重複を除外してから抽選する。
+        function pickUniqueQuestions(list, count) {
+            const seenIds = new Set();
+            const seenQuestions = new Set();
+            const unique = list.filter(item => {
+                const idKey = String(item.id || '');
+                const qKey = String(item.q || '').replace(/\s+/g, '').trim();
+                if ((idKey && seenIds.has(idKey)) || seenQuestions.has(qKey)) return false;
+                if (idKey) seenIds.add(idKey);
+                seenQuestions.add(qKey);
+                return true;
+            });
+            return shuffleQuiz(unique).slice(0, count);
         }
     
         function renderTrafficSign(type) {
@@ -1634,13 +1662,13 @@ function shareSpot(title, address, category, event) {
             currentQuizMode = mode;
     
             if (mode === 'car') {
-                sQ = shuffleQuiz(carQuizList).slice(0, 10);
+                sQ = pickUniqueQuestions(carQuizList, 10);
             } else if (mode === 'bike') {
-                sQ = shuffleQuiz(bicycleQuizList).slice(0, 10);
+                sQ = pickUniqueQuestions(bicycleQuizList, 10);
             } else {
-                const cars = shuffleQuiz(carQuizList).slice(0, 5);
-                const bikes = shuffleQuiz(bicycleQuizList).slice(0, 5);
-                sQ = shuffleQuiz([...cars, ...bikes]);
+                const cars = pickUniqueQuestions(carQuizList, 5);
+                const bikes = pickUniqueQuestions(bicycleQuizList, 5);
+                sQ = pickUniqueQuestions([...cars, ...bikes], 10);
             }
     
             qIdx = 0;
