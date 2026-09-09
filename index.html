@@ -410,7 +410,7 @@
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
                         <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】運営管理</h2>
-                        <p class="muted" style="margin-bottom:12px; font-size:0.82rem;">退会申請、通報投稿、ポイント異常、利用停止を管理します。</p>
+                        <p class="muted" style="margin-bottom:12px; font-size:0.82rem;">LINEログイン済みの管理者だけが、退会申請、通報投稿、ポイント異常、利用停止を管理できます。</p>
                         <label for="adminExportPassword" style="font-size:0.8rem; color:#166534; font-weight:bold;">管理者パスワード</label>
                         <input type="password" id="adminExportPassword" autocomplete="off" placeholder="管理者パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') loadAdminDashboard()">
                         <button class="primary" style="margin-top:10px; background:#166534;" onclick="loadAdminDashboard()"><i class="fa-solid fa-gauge-high"></i> 管理画面を読み込む</button>
@@ -1177,12 +1177,17 @@ function shareSpot(title, address, category, event) {
     }
 
     let adminTapCount = 0; let adminTapTimer = null;
-    function adminTap() {
+    async function adminTap() {
         adminTapCount++; clearTimeout(adminTapTimer);
         adminTapTimer = setTimeout(() => { adminTapCount = 0; }, 5000);
         if (adminTapCount >= 3) {
             const csvCard = document.getElementById('adminCsvCard');
-            if (csvCard.style.display === 'none') { csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました"); }
+            if (csvCard.style.display === 'none') {
+                if (!currentAuthUserId) { showToast('管理者はLINEログインが必要です'); adminTapCount = 0; return; }
+                const { data, error } = await db.rpc('is_current_user_admin');
+                if (error || data !== true) { showToast('このアカウントには管理者権限がありません'); adminTapCount = 0; return; }
+                csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました");
+            }
             else { csvCard.style.display = 'none'; document.getElementById('adminExportPassword').value = ''; document.getElementById('adminDashboardArea').style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
             adminTapCount = 0;
         }
@@ -1202,7 +1207,8 @@ function shareSpot(title, address, category, event) {
         const password = getAdminPassword(); if (!password) return;
         const { data, error } = await db.rpc('admin_get_dashboard', { p_password: password });
         if (error || !data) {
-            showToast(error?.message?.includes('invalid_password') ? 'パスワードが違います' : '管理データの取得に失敗しました'); return;
+            const message = error?.message || '';
+            showToast(message.includes('invalid_password') ? 'パスワードが違います' : message.includes('admin_required') || message.includes('authentication_required') ? '管理者権限を確認できません' : '管理データの取得に失敗しました'); return;
         }
         const deletions = Array.isArray(data.deletions) ? data.deletions : [];
         const reports = Array.isArray(data.reportedSpots) ? data.reportedSpots : [];
@@ -1261,7 +1267,7 @@ function shareSpot(title, address, category, event) {
         showToast("データを準備中...");
         exportButton.disabled = true;
 
-        const { data, error } = await db.rpc('admin_export_spots', {
+        const { data, error } = await db.rpc('admin_export_spots_secure', {
             p_password: password
         });
 
@@ -2603,6 +2609,13 @@ function shareSpot(title, address, category, event) {
                 loggedDiv.style.display =
                     'none';
             }
+
+            const adminCard = document.getElementById('adminCsvCard');
+            const adminArea = document.getElementById('adminDashboardArea');
+            const adminPassword = document.getElementById('adminExportPassword');
+            if (adminCard) adminCard.style.display = 'none';
+            if (adminArea) adminArea.style.display = 'none';
+            if (adminPassword) adminPassword.value = '';
         }
     }
 
