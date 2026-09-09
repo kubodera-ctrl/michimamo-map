@@ -1066,31 +1066,51 @@ function shareSpot(title, address, category, event) {
         } catch(e) { showToast("検索エラーが発生しました"); }
     }
 
-    window.onload = function() {
-        checkAuthSession(); // Auth状態の監視を開始
+    window.onload = async function() {
+        // 認証確認を最優先。
+        // 同じLINEアカウントで別端末から入った場合は、
+        // DBに紐付いたプロフィールを先に復元してから通常処理へ進む。
+        const authSession = await checkAuthSession();
 
-        if (!localStorage.getItem('safety_road_terms_accepted')) document.getElementById('termsModal').classList.add('open');
-        
+        if (!localStorage.getItem('safety_road_terms_accepted')) {
+            document.getElementById('termsModal').classList.add('open');
+        }
+
         const prefSelect = document.getElementById('prefFilter');
         if (prefSelect && prefSelect.options.length === 1) {
             Object.keys(prefCities).forEach(pref => {
                 const opt = document.createElement('option');
-                opt.value = pref; opt.innerText = pref;
+                opt.value = pref;
+                opt.innerText = pref;
                 prefSelect.appendChild(opt);
             });
         }
 
         checkLimitsReset();
-        syncProfile(); 
+
+        // 未ログイン時のみ従来の端末プロフィール同期を使用。
+        // ログイン済み時は get_my_profile() で取得したプロフィールを使う。
+        if (!authSession) {
+            await syncProfile();
+        }
+
         updateMyPage();
-        setDynamicAd(); 
+        setDynamicAd();
         loadSpots();
-        
+
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
-              if (payload.eventType === 'DELETE') { removeMarkerFromMap(payload.old.id); } 
-              else if (payload.eventType === 'UPDATE') { if (payload.new.report_count >= 3) { removeMarkerFromMap(payload.new.id); } else { setTimeout(loadSpots, 1000); } } 
-              else if (payload.eventType === 'INSERT') { setTimeout(loadSpots, 1000); }
+              if (payload.eventType === 'DELETE') {
+                  removeMarkerFromMap(payload.old.id);
+              } else if (payload.eventType === 'UPDATE') {
+                  if (payload.new.report_count >= 3) {
+                      removeMarkerFromMap(payload.new.id);
+                  } else {
+                      setTimeout(loadSpots, 1000);
+                  }
+              } else if (payload.eventType === 'INSERT') {
+                  setTimeout(loadSpots, 1000);
+              }
           }).subscribe();
     };
 
@@ -1648,6 +1668,49 @@ function shareSpot(title, address, category, event) {
 
 
     // ==========================================
+    // ログイン中アカウントのプロフィール復元
+    // ==========================================
+
+    async function loadAuthenticatedProfile() {
+        try {
+            const { data, error } = await db.rpc('get_my_profile');
+
+            if (error) {
+                console.error("get_my_profile failed", error);
+                return false;
+            }
+
+            if (!Array.isArray(data) || data.length === 0) {
+                // まだprofiles.auth_idに紐付いていない新規アカウント。
+                // この段階では端末プロフィールを勝手に合算・上書きしない。
+                console.warn("No linked profile found for authenticated user");
+                return false;
+            }
+
+            const profile = data[0];
+
+            // DB側の紐付け済みプロフィールをこの端末へ復元
+            myUserId = profile.id;
+            myPoint = Number(profile.point || 0);
+            myName = profile.name || "名無しドライバー";
+            myAvatar = profile.avatar || "👤";
+
+            localStorage.setItem('michimamo_user_id', myUserId);
+            localStorage.setItem('michimamo_pt', String(myPoint));
+            localStorage.setItem('michimamo_name', myName);
+            localStorage.setItem('michimamo_avatar', myAvatar);
+
+            updateMyPage();
+            return true;
+
+        } catch (e) {
+            console.error("Authenticated profile restore failed", e);
+            return false;
+        }
+    }
+
+
+    // ==========================================
     // Session Check / Exchange
     // ==========================================
 
@@ -1841,6 +1904,11 @@ function shareSpot(title, address, category, event) {
 
         updateAuthUI(session);
 
+        // ログイン済みなら、auth_idに紐付くプロフィールをDBから復元
+        if (session) {
+            await loadAuthenticatedProfile();
+        }
+
 
         // ======================================
         // Auth State Listener
@@ -1864,6 +1932,8 @@ function shareSpot(title, address, category, event) {
                             localStorage.removeItem(
                                 'michimamo_auth_provider'
                             );
+                        } else {
+                            loadAuthenticatedProfile();
                         }
 
                         updateAuthUI(
@@ -1876,6 +1946,8 @@ function shareSpot(title, address, category, event) {
             authSubscription =
                 subscription;
         }
+
+        return session;
     }
 
 
