@@ -239,17 +239,17 @@
                         <i class="fa-solid fa-filter"></i> 表示選択 <i class="fa-solid fa-chevron-right" id="filterArrow" style="transition:0.3s;"></i>
                     </button>
                     <div class="filter-content">
-                        <button class="filter-chip active" onclick="filterMarkers('all', this)"><i class="fa-solid fa-layer-group"></i> すべて</button>
-                        <button class="filter-chip illegal" onclick="filterMarkers('illegal', this)"><i class="fa-solid fa-ban"></i> 違法駐車</button>
-                        <button class="filter-chip danger" onclick="filterMarkers('danger', this)"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
-                        <button class="filter-chip patrol" onclick="filterMarkers('patrol', this)"><i class="fa-solid fa-user-shield"></i> 巡回</button>
-                        <button class="filter-chip reckless" onclick="filterMarkers('reckless', this)"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
-                        <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
-                        <button class="filter-chip official" onclick="filterMarkers('official', this)"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
-                        <button class="filter-chip police-station" onclick="filterMarkers('police_station', this)"><i class="fa-solid fa-building-shield"></i> 警察署</button>
-                        <button class="filter-chip koban" onclick="filterMarkers('koban', this)"><i class="fa-solid fa-house-shield"></i> 交番</button>
-                        <button class="filter-chip chuzaisho" onclick="filterMarkers('chuzaisho', this)"><i class="fa-solid fa-shield"></i> 駐在所</button>
-                        <button class="filter-chip aed" onclick="filterMarkers('aed', this)"><i class="fa-solid fa-heart-pulse"></i> AED</button>
+                        <button class="filter-chip active" data-filter="all" onclick="filterMarkers('all')"><i class="fa-solid fa-layer-group"></i> 投稿すべて</button>
+                        <button class="filter-chip illegal active" data-filter="illegal" onclick="filterMarkers('illegal')"><i class="fa-solid fa-ban"></i> 違法駐車</button>
+                        <button class="filter-chip danger active" data-filter="danger" onclick="filterMarkers('danger')"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
+                        <button class="filter-chip patrol active" data-filter="patrol" onclick="filterMarkers('patrol')"><i class="fa-solid fa-user-shield"></i> 巡回</button>
+                        <button class="filter-chip reckless active" data-filter="reckless" onclick="filterMarkers('reckless')"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
+                        <button class="filter-chip abandoned active" data-filter="abandoned" onclick="filterMarkers('abandoned')"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+                        <button class="filter-chip official active" data-filter="official" onclick="filterMarkers('official')"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
+                        <button class="filter-chip police-station" data-filter="police_station" onclick="filterMarkers('police_station')"><i class="fa-solid fa-building-shield"></i> 警察署</button>
+                        <button class="filter-chip koban" data-filter="koban" onclick="filterMarkers('koban')"><i class="fa-solid fa-house-shield"></i> 交番</button>
+                        <button class="filter-chip chuzaisho" data-filter="chuzaisho" onclick="filterMarkers('chuzaisho')"><i class="fa-solid fa-shield"></i> 駐在所</button>
+                        <button class="filter-chip aed" data-filter="aed" onclick="filterMarkers('aed')"><i class="fa-solid fa-heart-pulse"></i> AED</button>
                     </div>
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> 駐車場予約</button>
                 </div>
@@ -1515,7 +1515,18 @@ function shareSpot(title, address, category, event) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     let activeMarkers = [], heatCircles = [], safetyMarkers = [];
-    let activeMapFilter = 'all', safetyLoadTimer = null;
+    const reportCategories = ['illegal', 'danger', 'patrol', 'reckless', 'abandoned', 'official'];
+    const defaultVisibleCategories = [...reportCategories];
+    let visibleMapCategories = new Set(defaultVisibleCategories);
+    let safetyLoadTimer = null;
+    try {
+        const savedFilters = JSON.parse(localStorage.getItem('machimamo_visible_categories') || 'null');
+        if (Array.isArray(savedFilters)) visibleMapCategories = new Set(savedFilters);
+    } catch (e) {}
+
+    function isCategoryVisible(category) {
+        return visibleMapCategories.has(category);
+    }
     let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
 
     map.on('moveend', () => {
@@ -1648,7 +1659,7 @@ function shareSpot(title, address, category, event) {
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin });
-        if (activeMapFilter === 'all' || activeMapFilter === spot.category) m.addTo(map);
+        if (isCategoryVisible(spot.category)) m.addTo(map);
         else if (hc) map.removeLayer(hc);
         let popupContent = "";
 
@@ -1731,11 +1742,16 @@ function shareSpot(title, address, category, event) {
             iconAnchor: (isKoban || isAed) ? [21, 47] : [17, 32]
         });
         const marker = L.marker([spot.lat, spot.lng], { icon: pin });
-        if (activeMapFilter === 'all' || activeMapFilter === spot.facility_type) marker.addTo(map);
+        if (isCategoryVisible(spot.facility_type)) marker.addTo(map);
 
         const phone = String(spot.phone || '').replace(/[^0-9+#-]/g, '');
-        const sourceUrl = /^https:\/\/www\.npa\.go\.jp\//.test(spot.source_url || '') ? spot.source_url : 'https://www.npa.go.jp/about/overview/index.html/';
+        const sourceUrl = /^https:\/\/(?:www\.npa\.go\.jp|catalog\.data\.metro\.tokyo\.lg\.jp)\//.test(spot.source_url || '')
+            ? spot.source_url
+            : 'https://www.npa.go.jp/about/overview/index.html/';
         const sourceDate = spot.source_date ? String(spot.source_date).replace(/-/g, '/') : '基準日不明';
+        const coordinateNote = spot.geocode_source === '港区公式GeoJSON'
+            ? '公式データの座標を掲載しています。'
+            : 'まちまもMAPが住所から座標を補完・加工。座標は目安です。';
         marker.bindPopup(`
             <div style="width:min(250px,72vw);">
                 <div style="font-size:.72rem;color:${style.color};font-weight:900;"><i class="fa-solid ${style.icon}"></i> 安全スポット・${style.label}</div>
@@ -1744,20 +1760,57 @@ function shareSpot(title, address, category, event) {
                 ${spot.parent_name ? `<div style="font-size:.7rem;color:#64748b;margin-top:4px;">所属：${escapeHtml(spot.parent_name)}</div>` : ''}
                 ${phone ? `<a href="tel:${phone}" class="popup-action-btn" style="background:#2563eb;color:white;margin-top:9px;"><i class="fa-solid fa-phone"></i> ${escapeHtml(spot.phone)}へ電話</a>` : ''}
                 <div style="border-top:1px solid #e5e7eb;margin-top:9px;padding-top:7px;font-size:.61rem;color:#64748b;line-height:1.45;">
-                    出典：<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">${escapeHtml(spot.source_name || '警察庁 全国警察施設名称位置等')}</a>（${sourceDate}現在）をもとに、まちまもMAPが住所から座標を補完・加工。座標は目安です。
+                    出典：<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">${escapeHtml(spot.source_name || '警察庁 全国警察施設名称位置等')}</a>（${sourceDate}現在）。${coordinateNote}
                 </div>
             </div>
         `);
         safetyMarkers.push({ id: `safety-${spot.id}`, category: spot.facility_type, instance: marker });
     }
 
-    function filterMarkers(cat, btn) {
-        activeMapFilter = cat;
-        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
-        activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); if(m.circle) map.addLayer(m.circle); } else { map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); } });
-        safetyMarkers.forEach(m => { if(cat==='all'||m.category===cat) map.addLayer(m.instance); else map.removeLayer(m.instance); });
-        document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
+    function syncFilterChips() {
+        document.querySelectorAll('.filter-chip[data-filter]').forEach(chip => {
+            const category = chip.dataset.filter;
+            const enabled = category === 'all'
+                ? reportCategories.every(item => visibleMapCategories.has(item))
+                : visibleMapCategories.has(category);
+            chip.classList.toggle('active', enabled);
+            chip.setAttribute('aria-pressed', String(enabled));
+        });
     }
+
+    function applyMapVisibility() {
+        activeMarkers.forEach(m => {
+            if (isCategoryVisible(m.category)) {
+                map.addLayer(m.instance);
+                if (m.circle) map.addLayer(m.circle);
+            } else {
+                map.removeLayer(m.instance);
+                if (m.circle) map.removeLayer(m.circle);
+            }
+        });
+        safetyMarkers.forEach(m => {
+            if (isCategoryVisible(m.category)) map.addLayer(m.instance);
+            else map.removeLayer(m.instance);
+        });
+    }
+
+    function filterMarkers(category) {
+        if (category === 'all') {
+            const showAllReports = reportCategories.some(item => !visibleMapCategories.has(item));
+            reportCategories.forEach(item => showAllReports
+                ? visibleMapCategories.add(item)
+                : visibleMapCategories.delete(item));
+        } else if (visibleMapCategories.has(category)) {
+            visibleMapCategories.delete(category);
+        } else {
+            visibleMapCategories.add(category);
+        }
+        localStorage.setItem('machimamo_visible_categories', JSON.stringify([...visibleMapCategories]));
+        applyMapVisibility();
+        syncFilterChips();
+    }
+
+    syncFilterChips();
 
     async function likeSpot(id, currentLike, spotUserId) {
         const authUser = await requireAuthenticatedUser();
