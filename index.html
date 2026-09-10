@@ -60,12 +60,18 @@
         .filter-chip.police-station.active { background: #1e3a8a; color: white; border-color: #1e3a8a; }
         .filter-chip.koban.active { background: #0f766e; color: white; border-color: #0f766e; }
         .filter-chip.chuzaisho.active { background: #4338ca; color: white; border-color: #4338ca; }
+        .filter-chip.aed.active { background: #dc2626; color: white; border-color: #dc2626; }
         .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
 
         .koban-map-pin { position: relative; width: 42px; height: 40px; border: 3px solid #fff; border-radius: 12px; background: #0f766e; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; box-shadow: 0 3px 11px rgba(0,0,0,.3); }
         .koban-map-pin::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 11px; height: 11px; background: #0f766e; border-right: 3px solid #fff; border-bottom: 3px solid #fff; transform: translateX(-50%) rotate(45deg); }
         .koban-map-pin i { font-size: 12px; line-height: 1; }
         .koban-map-pin span { position: relative; z-index: 1; font-size: 11px; line-height: 1; font-weight: 900; letter-spacing: .04em; white-space: nowrap; }
+
+        .aed-map-pin { position: relative; width: 42px; height: 40px; border: 3px solid #fff; border-radius: 12px; background: #dc2626; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; box-shadow: 0 3px 11px rgba(0,0,0,.3); }
+        .aed-map-pin::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 11px; height: 11px; background: #dc2626; border-right: 3px solid #fff; border-bottom: 3px solid #fff; transform: translateX(-50%) rotate(45deg); }
+        .aed-map-pin i { font-size: 12px; line-height: 1; }
+        .aed-map-pin span { position: relative; z-index: 1; font-size: 11px; line-height: 1; font-weight: 900; letter-spacing: .04em; white-space: nowrap; }
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
         .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
@@ -243,6 +249,7 @@
                         <button class="filter-chip police-station" onclick="filterMarkers('police_station', this)"><i class="fa-solid fa-building-shield"></i> 警察署</button>
                         <button class="filter-chip koban" onclick="filterMarkers('koban', this)"><i class="fa-solid fa-house-shield"></i> 交番</button>
                         <button class="filter-chip chuzaisho" onclick="filterMarkers('chuzaisho', this)"><i class="fa-solid fa-shield"></i> 駐在所</button>
+                        <button class="filter-chip aed" onclick="filterMarkers('aed', this)"><i class="fa-solid fa-heart-pulse"></i> AED</button>
                     </div>
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> 駐車場予約</button>
                 </div>
@@ -1694,7 +1701,7 @@ function shareSpot(title, address, category, event) {
         const { data, error } = await db.rpc('get_safety_spots', {
             p_west: bounds.getWest(), p_south: bounds.getSouth(),
             p_east: bounds.getEast(), p_north: bounds.getNorth(),
-            p_types: ['police_station', 'koban', 'chuzaisho'], p_max_rows: 1500
+            p_types: ['police_station', 'koban', 'chuzaisho', 'aed'], p_max_rows: 1800
         });
         if (error || !Array.isArray(data)) {
             if (error) console.error('get_safety_spots failed', error);
@@ -1707,17 +1714,21 @@ function shareSpot(title, address, category, event) {
         const styles = {
             police_station: { color:'#1e3a8a', icon:'fa-building-shield', label:'警察署' },
             koban: { color:'#0f766e', icon:'fa-house-shield', label:'交番' },
-            chuzaisho: { color:'#4338ca', icon:'fa-shield', label:'駐在所' }
+            chuzaisho: { color:'#4338ca', icon:'fa-shield', label:'駐在所' },
+            aed: { color:'#dc2626', icon:'fa-heart-pulse', label:'AED' }
         };
         const style = styles[spot.facility_type] || styles.koban;
         const isKoban = spot.facility_type === 'koban';
+        const isAed = spot.facility_type === 'aed';
         const pin = L.divIcon({
             className: 'custom-pin',
-            html: isKoban
+            html: isAed
+                ? `<div class="aed-map-pin" aria-label="AED"><i class="fa-solid fa-heart-pulse"></i><span>AED</span></div>`
+                : isKoban
                 ? `<div class="koban-map-pin" aria-label="交番"><i class="fa-solid fa-house"></i><span>交番</span></div>`
                 : `<div style="background:${style.color};width:34px;height:34px;border-radius:11px 11px 11px 2px;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;color:white;border:2px solid white;box-shadow:0 3px 10px rgba(0,0,0,.25);"><i class="fa-solid ${style.icon}" style="transform:rotate(45deg);"></i></div>`,
-            iconSize: isKoban ? [42, 47] : [34, 34],
-            iconAnchor: isKoban ? [21, 47] : [17, 32]
+            iconSize: (isKoban || isAed) ? [42, 47] : [34, 34],
+            iconAnchor: (isKoban || isAed) ? [21, 47] : [17, 32]
         });
         const marker = L.marker([spot.lat, spot.lng], { icon: pin });
         if (activeMapFilter === 'all' || activeMapFilter === spot.facility_type) marker.addTo(map);
