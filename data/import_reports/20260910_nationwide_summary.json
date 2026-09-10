@@ -1,0 +1,34 @@
+{
+  "import_id": "20260910_nationwide_npa_facilities",
+  "imported_at": "2026-09-10T10:09:34Z",
+  "source": {
+    "publisher": "警察庁",
+    "dataset_date": "2025-04-01",
+    "source_url": "https://www.npa.go.jp/about/overview/index.html/"
+  },
+  "scope": {
+    "prefectures": 47,
+    "status": "completed"
+  },
+  "result": {
+    "total_rows": 13116,
+    "by_facility_type": {
+      "police_station": 1146,
+      "koban": 6131,
+      "chuzaisho": 5839
+    }
+  },
+  "cleanup": {
+    "ungeocoded_excluded": 28,
+    "duplicate_rows_removed": 1,
+    "duplicate_note": "兵庫県・明舞交番の重複1件を整理"
+  },
+  "reproducibility": {
+    "importer": "scripts/import_npa_facilities.py",
+    "schema_migration": "supabase/migrations/20260910_safety_spots.sql"
+  },
+  "notes": [
+    "This report contains no credentials, passwords, tokens, or private configuration.",
+    "Facilities without safely resolved coordinates were excluded."
+  ]
+}
