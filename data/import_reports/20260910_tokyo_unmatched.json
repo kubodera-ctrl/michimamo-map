@@ -1,0 +1,119 @@
+[
+  {
+    "facility_type": "police_station",
+    "name": "三宅島警察署",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村伊豆640番地",
+    "phone": "04994-2-0511",
+    "parent_name": "警視庁"
+  },
+  {
+    "facility_type": "police_station",
+    "name": "八丈島警察署",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町三根54番地１",
+    "phone": "04996-2-0110",
+    "parent_name": "警視庁"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "神着駐在所",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村神着898",
+    "phone": null,
+    "parent_name": "三宅島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "伊豆駐在所",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村伊豆1037-2",
+    "phone": null,
+    "parent_name": "三宅島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "伊ヶ谷駐在所",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村伊ｹ谷500",
+    "phone": null,
+    "parent_name": "三宅島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "阿古駐在所",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村阿古672-1",
+    "phone": null,
+    "parent_name": "三宅島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "坪田駐在所",
+    "prefecture": "東京都",
+    "municipality": "三宅村",
+    "address": "東京都三宅村坪田3121-3",
+    "phone": null,
+    "parent_name": "三宅島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "三根駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町三根1037-3",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "川向駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町三根1778-2",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "樫立駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町樫立370",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "中之郷駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町中之郷2136-2",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "末吉駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町末吉2631",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  },
+  {
+    "facility_type": "chuzaisho",
+    "name": "大賀郷駐在所",
+    "prefecture": "東京都",
+    "municipality": "八丈町",
+    "address": "東京都八丈町大賀郷2478",
+    "phone": null,
+    "parent_name": "八丈島警察署"
+  }
+]

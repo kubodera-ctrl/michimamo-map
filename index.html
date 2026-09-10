@@ -57,6 +57,9 @@
         .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
         .filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
         .filter-chip.official.active { background: #059669; color: white; border-color: #059669; }
+        .filter-chip.police-station.active { background: #1e3a8a; color: white; border-color: #1e3a8a; }
+        .filter-chip.koban.active { background: #0f766e; color: white; border-color: #0f766e; }
+        .filter-chip.chuzaisho.active { background: #4338ca; color: white; border-color: #4338ca; }
         .filter-chip.parking-chip { color: #2563eb; border-color: #bfdbfe; flex-shrink: 0; }
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
@@ -232,6 +235,9 @@
                         <button class="filter-chip reckless" onclick="filterMarkers('reckless', this)"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
                         <button class="filter-chip abandoned" onclick="filterMarkers('abandoned', this)"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
                         <button class="filter-chip official" onclick="filterMarkers('official', this)"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
+                        <button class="filter-chip police-station" onclick="filterMarkers('police_station', this)"><i class="fa-solid fa-building-shield"></i> 警察署</button>
+                        <button class="filter-chip koban" onclick="filterMarkers('koban', this)"><i class="fa-solid fa-house-shield"></i> 交番</button>
+                        <button class="filter-chip chuzaisho" onclick="filterMarkers('chuzaisho', this)"><i class="fa-solid fa-shield"></i> 駐在所</button>
                     </div>
                     <button class="filter-chip parking-chip" onclick="openParkingModal()"><i class="fa-solid fa-parking"></i> 駐車場予約</button>
                 </div>
@@ -1496,8 +1502,14 @@ function shareSpot(title, address, category, event) {
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-    let activeMarkers = [], heatCircles = [];
+    let activeMarkers = [], heatCircles = [], safetyMarkers = [];
+    let activeMapFilter = 'all', safetyLoadTimer = null;
     let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
+
+    map.on('moveend', () => {
+        clearTimeout(safetyLoadTimer);
+        safetyLoadTimer = setTimeout(loadSafetySpots, 350);
+    });
 
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(
@@ -1554,6 +1566,7 @@ function shareSpot(title, address, category, event) {
         updateMyPage();
         setDynamicAd();
         loadSpots();
+        loadSafetySpots();
 
         db.channel('custom-all-channel')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'spots' }, (payload) => {
@@ -1622,7 +1635,9 @@ function shareSpot(title, address, category, event) {
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
-        const m = L.marker([spot.lat, spot.lng], { icon: pin }).addTo(map);
+        const m = L.marker([spot.lat, spot.lng], { icon: pin });
+        if (activeMapFilter === 'all' || activeMapFilter === spot.category) m.addTo(map);
+        else if (hc) map.removeLayer(hc);
         let popupContent = "";
 
         if (spot.category === 'official') {
@@ -1665,9 +1680,62 @@ function shareSpot(title, address, category, event) {
         activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
     }
 
+    async function loadSafetySpots() {
+        safetyMarkers.forEach(item => { try { map.removeLayer(item.instance); } catch(e) {} });
+        safetyMarkers = [];
+        if (map.getZoom() < 10) return;
+
+        const bounds = map.getBounds();
+        const { data, error } = await db.rpc('get_safety_spots', {
+            p_west: bounds.getWest(), p_south: bounds.getSouth(),
+            p_east: bounds.getEast(), p_north: bounds.getNorth(),
+            p_types: ['police_station', 'koban', 'chuzaisho'], p_max_rows: 1500
+        });
+        if (error || !Array.isArray(data)) {
+            if (error) console.error('get_safety_spots failed', error);
+            return;
+        }
+        data.forEach(createSafetySpotPin);
+    }
+
+    function createSafetySpotPin(spot) {
+        const styles = {
+            police_station: { color:'#1e3a8a', icon:'fa-building-shield', label:'警察署' },
+            koban: { color:'#0f766e', icon:'fa-house-shield', label:'交番' },
+            chuzaisho: { color:'#4338ca', icon:'fa-shield', label:'駐在所' }
+        };
+        const style = styles[spot.facility_type] || styles.koban;
+        const pin = L.divIcon({
+            className: 'custom-pin',
+            html: `<div style="background:${style.color};width:30px;height:30px;border-radius:10px 10px 10px 2px;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;color:white;border:2px solid white;box-shadow:0 3px 10px rgba(0,0,0,.25);"><i class="fa-solid ${style.icon}" style="transform:rotate(45deg);"></i></div>`,
+            iconSize: [30, 30], iconAnchor: [15, 28]
+        });
+        const marker = L.marker([spot.lat, spot.lng], { icon: pin });
+        if (activeMapFilter === 'all' || activeMapFilter === spot.facility_type) marker.addTo(map);
+
+        const phone = String(spot.phone || '').replace(/[^0-9+#-]/g, '');
+        const sourceUrl = /^https:\/\/www\.npa\.go\.jp\//.test(spot.source_url || '') ? spot.source_url : 'https://www.npa.go.jp/about/overview/index.html/';
+        const sourceDate = spot.source_date ? String(spot.source_date).replace(/-/g, '/') : '基準日不明';
+        marker.bindPopup(`
+            <div style="width:min(250px,72vw);">
+                <div style="font-size:.72rem;color:${style.color};font-weight:900;"><i class="fa-solid ${style.icon}"></i> 安全スポット・${style.label}</div>
+                <div style="font-size:1rem;font-weight:900;margin:5px 0;">${escapeHtml(spot.name || style.label)}</div>
+                <div style="font-size:.78rem;color:#475569;line-height:1.5;">${escapeHtml(spot.address || '住所情報なし')}</div>
+                ${spot.parent_name ? `<div style="font-size:.7rem;color:#64748b;margin-top:4px;">所属：${escapeHtml(spot.parent_name)}</div>` : ''}
+                ${phone ? `<a href="tel:${phone}" class="popup-action-btn" style="background:#2563eb;color:white;margin-top:9px;"><i class="fa-solid fa-phone"></i> ${escapeHtml(spot.phone)}へ電話</a>` : ''}
+                <div style="border-top:1px solid #e5e7eb;margin-top:9px;padding-top:7px;font-size:.61rem;color:#64748b;line-height:1.45;">
+                    出典：<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">${escapeHtml(spot.source_name || '警察庁 全国警察施設名称位置等')}</a>（${sourceDate}現在）をもとに、まちまもMAPが住所から座標を補完・加工。座標は目安です。
+                </div>
+            </div>
+        `);
+        safetyMarkers.push({ id: `safety-${spot.id}`, category: spot.facility_type, instance: marker });
+    }
+
     function filterMarkers(cat, btn) {
+        activeMapFilter = cat;
         document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); btn.classList.add('active');
         activeMarkers.forEach(m => { if(cat==='all'||m.category===cat) { map.addLayer(m.instance); if(m.circle) map.addLayer(m.circle); } else { map.removeLayer(m.instance); if(m.circle) map.removeLayer(m.circle); } });
+        safetyMarkers.forEach(m => { if(cat==='all'||m.category===cat) map.addLayer(m.instance); else map.removeLayer(m.instance); });
         document.getElementById('filterWrapper').classList.remove('open'); document.getElementById('filterArrow').style.transform = 'rotate(0deg)';
     }
 
