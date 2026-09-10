@@ -15,7 +15,9 @@ from pathlib import Path
 
 SOURCE_URL = "https://catalog.data.metro.tokyo.lg.jp/dataset/t131032d0000000241"
 SOURCE_DATE = "2025-07-03"
-ATTRIBUTION = "港区オープンデータ（CC BY 4.0）"
+SOURCE_NAME = "港区オープンデータ"
+SOURCE_LICENSE = "CC BY 4.0"
+GEOCODE_SOURCE = "港区公式GeoJSON"
 
 
 def sql_text(value: str | None) -> str:
@@ -68,11 +70,14 @@ def main() -> None:
                 sql_text("港区"),
                 sql_text(address),
                 "null",
-                sql_text(ATTRIBUTION),
+                "null",
                 str(latitude),
                 str(longitude),
+                sql_text(SOURCE_NAME),
                 sql_text(SOURCE_URL),
                 sql_text(SOURCE_DATE),
+                sql_text(SOURCE_LICENSE),
+                sql_text(GEOCODE_SOURCE),
                 "null",
             ]) + ")"
         )
@@ -81,13 +86,16 @@ def main() -> None:
         "begin;\n\n"
         "insert into public.safety_spots "
         "(source_key, facility_type, name, prefecture, municipality, address, phone, parent_name, "
-        "latitude, longitude, source_url, source_date, geocoded_title) values\n"
+        "latitude, longitude, source_name, source_url, source_date, source_license, "
+        "geocode_source, geocoded_title) values\n"
         + ",\n".join(values)
         + "\non conflict (source_key) do update set\n"
         "facility_type=excluded.facility_type,name=excluded.name,prefecture=excluded.prefecture,"
         "municipality=excluded.municipality,address=excluded.address,phone=excluded.phone,"
         "parent_name=excluded.parent_name,latitude=excluded.latitude,longitude=excluded.longitude,"
-        "source_url=excluded.source_url,source_date=excluded.source_date,"
+        "source_name=excluded.source_name,source_url=excluded.source_url,"
+        "source_date=excluded.source_date,source_license=excluded.source_license,"
+        "geocode_source=excluded.geocode_source,"
         "geocoded_title=excluded.geocoded_title,active=true,updated_at=now();\n\ncommit;\n"
     )
     args.output.write_text(sql, encoding="utf-8")
