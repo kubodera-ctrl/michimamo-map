@@ -1793,7 +1793,7 @@ function shareSpot(title, address, category, event) {
             ? spot.source_url
             : 'https://www.npa.go.jp/about/overview/index.html/';
         const sourceDate = spot.source_date ? String(spot.source_date).replace(/-/g, '/') : '基準日不明';
-        const coordinateNote = spot.geocode_source === '港区公式GeoJSON'
+        const coordinateNote = String(spot.geocode_source || '').includes('公式')
             ? '公式データの座標を掲載しています。'
             : 'まちまもMAPが住所から座標を補完・加工。座標は目安です。';
         marker.bindPopup(`
