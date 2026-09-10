@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "dataset_id": "t131105d0000000108",
+      "municipality": "目黒区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131105d0000000108",
+      "resource_url": "https://data.bodik.jp/dataset/0c1f60b9-4c8f-474d-93af-5b21f49a2521/resource/b1b763fd-71fd-436d-9cac-4262709f177c/download/131105_aed_20210401.csv",
+      "source_name": "目黒区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131075d0000000100",
+      "municipality": "墨田区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131075d0000000100",
+      "resource_url": "https://www.city.sumida.lg.jp/kuseijoho/sumida_info/opendata/opendata_ichiran/aed_data.files/shisetsu_aed_20210818.csv",
+      "source_name": "墨田区オープンデータ",
+      "source_date": "2021-08-18",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131024d0000000031",
+      "municipality": "中央区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131024d0000000031",
+      "resource_url": "https://www.city.chuo.lg.jp/documents/984/aed.csv",
+      "source_name": "中央区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131083d0000000027",
+      "municipality": "江東区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131083d0000000027",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/koto/131083_008_aed.csv",
+      "source_name": "江東区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131202d0000000111",
+      "municipality": "練馬区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131202d0000000111",
+      "resource_url": "https://www.city.nerima.tokyo.jp/kusei/tokei/opendata/opendatasite/hokenfukushi/aed.files/131202_aed.csv",
+      "source_name": "練馬区オープンデータ",
+      "source_date": "2025-10-01",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131164d0000000001",
+      "municipality": "豊島区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131164d0000000001",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/toyoshima/R4_aed.csv",
+      "source_name": "豊島区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131041d0000000119",
+      "municipality": "新宿区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131041d0000000119",
+      "resource_url": "https://www.city.shinjuku.lg.jp/content/000399971.csv",
+      "source_name": "新宿区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131156d0000000204",
+      "municipality": "杉並区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131156d0000000204",
+      "resource_url": "https://www.city.suginami.tokyo.jp/documents/1474/20250901.csv",
+      "source_name": "杉並区オープンデータ",
+      "source_date": "2025-09-01",
+      "license": "CC BY 4.0"
+    }
+  ]
+}
