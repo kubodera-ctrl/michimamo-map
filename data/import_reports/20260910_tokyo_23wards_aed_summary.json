@@ -1,0 +1,67 @@
+{
+  "generated_rows": 471,
+  "sources": [
+    {
+      "dataset_id": "t131105d0000000108",
+      "municipality": "目黒区",
+      "resource_url": "https://data.bodik.jp/dataset/0c1f60b9-4c8f-474d-93af-5b21f49a2521/resource/b1b763fd-71fd-436d-9cac-4262709f177c/download/131105_aed_20210401.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "dataset_id": "t131075d0000000100",
+      "municipality": "墨田区",
+      "resource_url": "https://www.city.sumida.lg.jp/kuseijoho/sumida_info/opendata/opendata_ichiran/aed_data.files/shisetsu_aed_20210818.csv",
+      "imported": 229,
+      "skipped": 0
+    },
+    {
+      "dataset_id": "t131024d0000000031",
+      "municipality": "中央区",
+      "resource_url": "https://www.city.chuo.lg.jp/documents/984/aed.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "dataset_id": "t131083d0000000027",
+      "municipality": "江東区",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/koto/131083_008_aed.csv",
+      "imported": 246,
+      "skipped": 0
+    },
+    {
+      "dataset_id": "t131202d0000000111",
+      "municipality": "練馬区",
+      "resource_url": "https://www.city.nerima.tokyo.jp/kusei/tokei/opendata/opendatasite/hokenfukushi/aed.files/131202_aed.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "dataset_id": "t131164d0000000001",
+      "municipality": "豊島区",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/toyoshima/R4_aed.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "ValueError: CSV is neither UTF-8 nor CP932"
+    },
+    {
+      "dataset_id": "t131041d0000000119",
+      "municipality": "新宿区",
+      "resource_url": "https://www.city.shinjuku.lg.jp/content/000399971.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "dataset_id": "t131156d0000000204",
+      "municipality": "杉並区",
+      "resource_url": "https://www.city.suginami.tokyo.jp/documents/1474/20250901.csv",
+      "imported": 0,
+      "skipped": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    }
+  ]
+}
