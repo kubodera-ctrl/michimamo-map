@@ -1,0 +1,144 @@
+{
+  "setagaya_aed_nodes": {
+    "status": 200,
+    "elements": [
+      {
+        "type": "node",
+        "id": 6222091819,
+        "lat": 35.6774145,
+        "lon": 139.5911405,
+        "tags": {
+          "defibrillator:location": "交番の中",
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "opening_hours": "24/7"
+        }
+      },
+      {
+        "type": "node",
+        "id": 11245253441,
+        "lat": 35.6136528,
+        "lon": 139.6260619,
+        "tags": {
+          "defibrillator:location": "明友不動産内",
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "level": "0",
+          "operator": "明友不動産"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12345928804,
+        "lat": 35.6615281,
+        "lon": 139.6672499,
+        "tags": {
+          "emergency": "defibrillator",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12347851441,
+        "lat": 35.6615636,
+        "lon": 139.6674024,
+        "tags": {
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12369110331,
+        "lat": 35.6401877,
+        "lon": 139.5991101,
+        "tags": {
+          "emergency": "defibrillator",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 13603472330,
+        "lat": 35.6588283,
+        "lon": 139.6562169,
+        "tags": {
+          "emergency": "defibrillator"
+        }
+      }
+    ],
+    "text": ""
+  },
+  "setagaya_aed_any": {
+    "status": 200,
+    "elements": [
+      {
+        "type": "node",
+        "id": 6222091819,
+        "lat": 35.6774145,
+        "lon": 139.5911405,
+        "tags": {
+          "defibrillator:location": "交番の中",
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "opening_hours": "24/7"
+        }
+      },
+      {
+        "type": "node",
+        "id": 11245253441,
+        "lat": 35.6136528,
+        "lon": 139.6260619,
+        "tags": {
+          "defibrillator:location": "明友不動産内",
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "level": "0",
+          "operator": "明友不動産"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12345928804,
+        "lat": 35.6615281,
+        "lon": 139.6672499,
+        "tags": {
+          "emergency": "defibrillator",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12347851441,
+        "lat": 35.6615636,
+        "lon": 139.6674024,
+        "tags": {
+          "emergency": "defibrillator",
+          "indoor": "yes",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 12369110331,
+        "lat": 35.6401877,
+        "lon": 139.5991101,
+        "tags": {
+          "emergency": "defibrillator",
+          "level": "0"
+        }
+      },
+      {
+        "type": "node",
+        "id": 13603472330,
+        "lat": 35.6588283,
+        "lon": 139.6562169,
+        "tags": {
+          "emergency": "defibrillator"
+        }
+      }
+    ],
+    "text": ""
+  }
+}
