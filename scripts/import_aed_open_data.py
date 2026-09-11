@@ -16,7 +16,7 @@ from typing import Any
 import openpyxl
 
 
-NAME_FIELDS = ("名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称")
+NAME_FIELDS = ("名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称", "設置場所")
 ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連結表記")
 LATITUDE_FIELDS = ("緯度", "latitude", "lat", "Y座標", "Y")
 LONGITUDE_FIELDS = ("経度", "longitude", "lng", "lon", "X座標", "X")
@@ -103,7 +103,12 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
             address.startswith(source['municipality'])
             or address.startswith(source['prefecture'] + source['municipality'])
         )
-        if not address_has_municipality and row_municipality != source['municipality']:
+        allow_relative_address = bool(source.get("allow_relative_address"))
+        if (
+            not address_has_municipality
+            and row_municipality != source['municipality']
+            and not (allow_relative_address and not row_municipality)
+        ):
             outside_municipality += 1
             continue
         if not address_has_municipality:
