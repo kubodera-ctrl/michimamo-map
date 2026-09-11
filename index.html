@@ -2,17 +2,34 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <script>
+        // iPhone等で広いレイアウト幅が残る場合、実画面のCSS幅を明示して縮小表示を防ぐ
+        (function configurePhoneViewport() {
+            var shortSide = Math.min(screen.width || 9999, screen.height || 9999);
+            var touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent || '');
+            if (shortSide > 600 || !touchDevice) return;
+            var viewport = document.querySelector('meta[name="viewport"]');
+            function updatePhoneViewport() {
+                var s = Math.min(screen.width, screen.height);
+                var l = Math.max(screen.width, screen.height);
+                var landscape = window.matchMedia('(orientation: landscape)').matches;
+                var width = landscape ? l : s;
+                if (width > 0) viewport.setAttribute('content', 'width=' + width + ', initial-scale=1, viewport-fit=cover');
+            }
+            updatePhoneViewport();
+            window.addEventListener('orientationchange', function () { setTimeout(updatePhoneViewport, 200); });
+            window.addEventListener('pageshow', updatePhoneViewport);
+        })();
+
+        (function () {
+            var ua = navigator.userAgent || '';
+            if (/iPhone|iPod/i.test(ua)) document.documentElement.classList.add('iphone-ui');
+        })();
+    </script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <script>
-        (function () {
-            var ua = navigator.userAgent || '';
-            var isiPhone = /iPhone|iPod/i.test(ua);
-            if (isiPhone) document.documentElement.classList.add('iphone-ui');
-        })();
-    </script>
     <title>まちまも MAP - 交通安全情報共有マップ</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
