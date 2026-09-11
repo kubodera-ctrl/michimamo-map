@@ -1,5 +1,5 @@
 {
-  "generated_rows": 230,
+  "generated_rows": 806,
   "sources": [
     {
       "dataset_id": "chiyoda-official-aed-20241001",
@@ -27,16 +27,36 @@
     {
       "dataset_id": "adachi-official-aed-list",
       "municipality": "足立区",
-      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/aedsettibasyo.pdf",
-      "generated_rows": 0,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/koukaiyou.pdf",
+      "extracted_rows": 435,
+      "unique_rows": 328,
+      "generated_rows": 328,
+      "outside_municipality": 0,
+      "unmatched_count": 0,
+      "match_levels": {
+        "3": 133,
+        "8": 193,
+        "2": 2
+      },
+      "unmatched": [],
+      "sha256": "e8711e06bae6f0f8a5a1f3589ba4a0da83729f8e4835d6bf1ad532d1e2d34be4"
     },
     {
       "dataset_id": "katsushika-official-aed-202601",
       "municipality": "葛飾区",
-      "resource_url": "https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed8.1.30.pdf",
-      "generated_rows": 0,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "resource_url": "https://www2.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed9.1.pdf",
+      "extracted_rows": 249,
+      "unique_rows": 249,
+      "generated_rows": 248,
+      "outside_municipality": 1,
+      "unmatched_count": 0,
+      "match_levels": {
+        "3": 78,
+        "8": 169,
+        "2": 1
+      },
+      "unmatched": [],
+      "sha256": "86b2c0e8b4fd35491326709fa93d4502ccb7f35e4a8d80f0492c03e2ca9a9d8b"
     },
     {
       "dataset_id": "arakawa-aed-stores-20260601",
