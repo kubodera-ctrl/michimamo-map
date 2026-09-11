@@ -18,13 +18,14 @@
       "municipality": "世田谷区",
       "prefecture": "東京都",
       "dataset_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
-      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf",
+      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedichiran.pdf",
       "source_type": "pdf_table",
-      "name_col": 0,
-      "address_col": 1,
+      "name_col": 2,
+      "address_col": 7,
       "source_name": "世田谷区オープンデータ",
-      "source_date": "2024-08-31",
-      "license": "CC BY 4.0"
+      "source_date": "2025-08-01",
+      "license": "CC BY 4.0",
+      "phone_col": 10
     },
     {
       "dataset_id": "adachi-official-aed-list",
