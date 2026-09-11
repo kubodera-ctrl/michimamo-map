@@ -17,9 +17,9 @@
       "prefecture": "東京都",
       "dataset_url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
       "landing_url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
-      "link_text_contains": "AED設置場所一覧",
+      "link_text_contains": "AED設置箇所一覧 （CSV",
       "source_name": "北区オープンデータ",
-      "source_date": "2025-12-12",
+      "source_date": "2025-02-28",
       "license": "CC BY 4.0"
     }
   ]
