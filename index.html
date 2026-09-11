@@ -3262,5 +3262,52 @@ function shareSpot(title, address, category, event) {
     }
 
 </script>
+
+<script id="viewportDebugScript">
+(function () {
+    const isTouchPhone = navigator.maxTouchPoints > 0 && /iPhone|iPod|Android.*Mobile/i.test(navigator.userAgent || '');
+    if (!isTouchPhone) return;
+
+    let panel = document.getElementById('viewportDebugPanel');
+    if (!panel) {
+        panel = document.createElement('div');
+        panel.id = 'viewportDebugPanel';
+        panel.style.cssText = [
+            'position:fixed','right:6px','top:calc(6px + env(safe-area-inset-top))',
+            'z-index:99999','background:rgba(0,0,0,.82)','color:#fff',
+            'font:700 11px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace',
+            'padding:7px 8px','border-radius:8px','max-width:250px',
+            'pointer-events:none','white-space:pre-wrap','word-break:break-all',
+            'box-shadow:0 2px 8px rgba(0,0,0,.3)'
+        ].join(';');
+        document.body.appendChild(panel);
+    }
+
+    function n(v) { return Math.round((Number(v) || 0) * 100) / 100; }
+    function update() {
+        const vv = window.visualViewport;
+        const meta = document.querySelector('meta[name="viewport"]');
+        const app = document.getElementById('app');
+        const mq = window.matchMedia ? window.matchMedia('(max-width: 600px)').matches : false;
+        panel.textContent =
+            'VIEWPORT DEBUG\n' +
+            'screen=' + n(screen.width) + 'x' + n(screen.height) + '\n' +
+            'inner=' + n(innerWidth) + ' outer=' + n(outerWidth) + '\n' +
+            'client=' + n(document.documentElement.clientWidth) + '\n' +
+            'visual=' + (vv ? n(vv.width) + ' scale=' + n(vv.scale) : 'n/a') + '\n' +
+            'DPR=' + n(devicePixelRatio) + ' mq600=' + mq + '\n' +
+            'app=' + (app ? n(app.getBoundingClientRect().width) : 'n/a') + '\n' +
+            'meta=' + (meta ? meta.getAttribute('content') : 'none');
+    }
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('pageshow', update);
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', update);
+        window.visualViewport.addEventListener('scroll', update);
+    }
+})();
+</script>
+
 </body>
 </html>
