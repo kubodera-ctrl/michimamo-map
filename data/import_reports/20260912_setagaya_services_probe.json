@@ -1,0 +1,24 @@
+{
+  "https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/01_AED/FeatureServer": {
+    "meta": {
+      "serviceDescription": null,
+      "description": null,
+      "copyrightText": null,
+      "layers": null,
+      "tables": null,
+      "maxRecordCount": null
+    },
+    "layers": []
+  },
+  "https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/AED2/FeatureServer": {
+    "meta": {
+      "serviceDescription": null,
+      "description": null,
+      "copyrightText": null,
+      "layers": null,
+      "tables": null,
+      "maxRecordCount": null
+    },
+    "layers": []
+  }
+}
