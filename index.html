@@ -540,6 +540,23 @@
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
                     </button>
 
+
+                    <div class="card" id="dataSourceCard" style="background:#fff; border:1px solid #dbeafe;">
+                        <button type="button" onclick="toggleDataSources()" style="width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;cursor:pointer;color:#17212b;">
+                            <span>
+                                <span style="display:block;font-size:1rem;font-weight:900;"><i class="fa-solid fa-book-open" style="color:#2563eb;margin-right:7px;"></i>データ出典・更新情報</span>
+                                <span class="muted" style="display:block;font-size:.72rem;margin-top:4px;">AED・交番などの公開情報の出典とデータ基準日</span>
+                            </span>
+                            <i id="dataSourceChevron" class="fa-solid fa-chevron-down" style="color:#94a3b8;"></i>
+                        </button>
+                        <div id="dataSourceBody" style="display:none;margin-top:14px;border-top:1px solid #e5e7eb;padding-top:12px;">
+                            <div class="muted" style="font-size:.72rem;line-height:1.55;margin-bottom:10px;">
+                                まちまもMAPでは、自治体・警察等が公開する情報をもとに安全スポットを掲載しています。公開元の更新状況により、実際の設置・運用状況と異なる場合があります。緊急時は現地表示や各施設・公的機関の案内も確認してください。
+                            </div>
+                            <div id="dataSourceList" class="muted" style="font-size:.72rem;">読み込み中...</div>
+                        </div>
+                    </div>
+
                     <!-- ガイド要素 -->
                     <div class="card" style="margin-top:24px;">
                         <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方・ガイド</h2>
@@ -1918,9 +1935,9 @@ function shareSpot(title, address, category, event) {
         if (isCategoryVisible(spot.facility_type)) marker.addTo(map);
 
         const phone = String(spot.phone || '').replace(/[^0-9+#-]/g, '');
-        const sourceUrl = /^https:\/\/(?:www\.npa\.go\.jp|catalog\.data\.metro\.tokyo\.lg\.jp)\//.test(spot.source_url || '')
-            ? spot.source_url
-            : 'https://www.npa.go.jp/about/overview/index.html/';
+        const sourceUrl = /^https:\/\//.test(spot.source_url || '') ? spot.source_url : null;
+        const fallbackSourceName = isAed ? '自治体公開情報' : '警察庁・警察公開情報';
+        const sourceName = spot.source_name || fallbackSourceName;
         const sourceDate = spot.source_date ? String(spot.source_date).replace(/-/g, '/') : '基準日不明';
         const coordinateNote = String(spot.geocode_source || '').includes('公式')
             ? '公式データの座標を掲載しています。'
@@ -1936,11 +1953,69 @@ function shareSpot(title, address, category, event) {
                 ${spot.parent_name ? `<div style="font-size:.7rem;color:#64748b;margin-top:4px;">所属：${escapeHtml(spot.parent_name)}</div>` : ''}
                 ${phone ? `<a href="tel:${phone}" class="popup-action-btn" style="background:#2563eb;color:white;margin-top:9px;"><i class="fa-solid fa-phone"></i> ${escapeHtml(spot.phone)}へ電話</a>` : ''}
                 <div style="border-top:1px solid #e5e7eb;margin-top:9px;padding-top:7px;font-size:.61rem;color:#64748b;line-height:1.45;">
-                    出典：<a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">${escapeHtml(spot.source_name || '警察庁 全国警察施設名称位置等')}</a>（${sourceDate}現在）。${coordinateNote}
+                    出典：${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">${escapeHtml(sourceName)}</a>` : escapeHtml(sourceName)}（${sourceDate}現在）。${coordinateNote}
                 </div>
             </div>
         `);
         safetyMarkers.push({ id: `safety-${spot.id}`, category: spot.facility_type, instance: marker });
+    }
+
+
+    let dataSourceLoaded = false;
+    async function toggleDataSources() {
+        const body = document.getElementById('dataSourceBody');
+        const chevron = document.getElementById('dataSourceChevron');
+        if (!body) return;
+        const opening = body.style.display === 'none' || !body.style.display;
+        body.style.display = opening ? 'block' : 'none';
+        if (chevron) chevron.className = opening ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
+        if (opening && !dataSourceLoaded) await loadDataSourceSummary();
+    }
+
+    function formatSourceDate(value) {
+        if (!value) return '基準日不明';
+        return String(value).slice(0,10).replace(/-/g,'/');
+    }
+
+    async function loadDataSourceSummary() {
+        const list = document.getElementById('dataSourceList');
+        if (!list) return;
+        list.innerHTML = '読み込み中...';
+        const { data, error } = await db.rpc('get_safety_source_summary');
+        if (error || !Array.isArray(data)) {
+            console.error('get_safety_source_summary failed', error);
+            list.innerHTML = '出典情報を読み込めませんでした。';
+            return;
+        }
+        dataSourceLoaded = true;
+        const aedRows = data.filter(row => row.facility_type === 'aed');
+        const policeRows = data.filter(row => row.facility_type !== 'aed');
+
+        function rowHtml(row) {
+            const count = Number(row.spot_count || 0).toLocaleString('ja-JP');
+            const label = [row.municipality, row.source_name].filter(Boolean).join('｜') || '公開情報';
+            const link = /^https:\/\//.test(row.source_url || '')
+                ? `<a href="${escapeHtml(row.source_url)}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;text-decoration:none;">${escapeHtml(label)}</a>`
+                : escapeHtml(label);
+            const license = row.source_license ? `｜${escapeHtml(row.source_license)}` : '';
+            return `<div style="padding:8px 0;border-bottom:1px solid #f1f5f9;line-height:1.55;">
+                <div style="font-weight:800;color:#334155;">${link}</div>
+                <div style="color:#64748b;">${formatSourceDate(row.source_date)}現在｜${count}件${license}</div>
+            </div>`;
+        }
+
+        let html = '';
+        if (aedRows.length) {
+            const total = aedRows.reduce((sum,row) => sum + Number(row.spot_count || 0), 0);
+            html += `<div style="font-weight:900;color:#dc2626;margin:4px 0 6px;"><i class="fa-solid fa-heart-pulse"></i> AED（${total.toLocaleString('ja-JP')}件）</div>`;
+            html += aedRows.map(rowHtml).join('');
+        }
+        if (policeRows.length) {
+            const total = policeRows.reduce((sum,row) => sum + Number(row.spot_count || 0), 0);
+            html += `<div style="font-weight:900;color:#1e3a8a;margin:14px 0 6px;"><i class="fa-solid fa-building-shield"></i> 警察署・交番・駐在所（${total.toLocaleString('ja-JP')}件）</div>`;
+            html += policeRows.map(rowHtml).join('');
+        }
+        list.innerHTML = html || '現在、表示できる出典情報はありません。';
     }
 
     function syncFilterChips() {
