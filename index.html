@@ -216,6 +216,29 @@
         input, select, textarea { min-width: 0; }
         .muted, .card, .sheet { overflow-wrap: anywhere; }
 
+
+        /* iOS補正時もヘッダーだけは以前のコンパクト表示を維持 */
+        html.ios-desktop-viewport header {
+            min-height: 0 !important;
+            padding: 6px 7px !important;
+            padding-top: calc(6px + env(safe-area-inset-top) / 2) !important;
+        }
+        html.ios-desktop-viewport .brand { gap: 5px !important; }
+        html.ios-desktop-viewport .logo {
+            width: 20px !important;
+            height: 20px !important;
+            border-radius: 6px !important;
+        }
+        html.ios-desktop-viewport .title {
+            font-size: 8.5px !important;
+            line-height: 1.15 !important;
+        }
+        html.ios-desktop-viewport .sub {
+            font-size: 5.5px !important;
+            line-height: 1.2 !important;
+            margin-top: 1px !important;
+        }
+
         @media screen and (max-width: 600px), screen and (max-device-width: 600px) {
             html, body { font-size: 16px; }
             header { padding: 10px 12px; padding-top: calc(10px + env(safe-area-inset-top)); }
@@ -3344,6 +3367,67 @@ function shareSpot(title, address, category, event) {
     if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
 })();
 </script>
+
+<script id="mobileFilterTouchScroll">
+(function () {
+    function bindFilterTouchScroll() {
+        var el = document.querySelector('.filter-content');
+        if (!el || el.dataset.touchScrollBound === '1') return;
+        el.dataset.touchScrollBound = '1';
+
+        var startY = 0;
+        var startTop = 0;
+        var dragging = false;
+
+        el.addEventListener('touchstart', function (e) {
+            if (!e.touches || !e.touches.length) return;
+            startY = e.touches[0].clientY;
+            startTop = el.scrollTop;
+            dragging = true;
+            e.stopPropagation();
+        }, { passive: true });
+
+        el.addEventListener('touchmove', function (e) {
+            if (!dragging || !e.touches || !e.touches.length) return;
+            var y = e.touches[0].clientY;
+            var delta = startY - y;
+            if (Math.abs(delta) > 2) {
+                el.scrollTop = startTop + delta;
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, { passive: false });
+
+        el.addEventListener('touchend', function (e) {
+            dragging = false;
+            e.stopPropagation();
+        }, { passive: true });
+
+        el.addEventListener('touchcancel', function () {
+            dragging = false;
+        }, { passive: true });
+
+        // Prevent Leaflet from taking over touches/mouse wheel inside the menu.
+        ['mousedown','mousemove','mouseup','click','dblclick','wheel'].forEach(function (name) {
+            el.addEventListener(name, function (e) { e.stopPropagation(); }, { passive: name === 'wheel' });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindFilterTouchScroll);
+    } else {
+        bindFilterTouchScroll();
+    }
+
+    // Rebind if UI is rebuilt dynamically.
+    document.addEventListener('click', function (e) {
+        if (e.target && (e.target.closest('.filter-toggle-btn') || e.target.closest('.filter-wrapper'))) {
+            setTimeout(bindFilterTouchScroll, 0);
+        }
+    });
+})();
+</script>
+
 
 </body>
 </html>
