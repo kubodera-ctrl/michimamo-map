@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Geocode address-only municipal AED open data using the Digital Agency ABR geocoder CLI."""
 from __future__ import annotations
-import argparse, hashlib, json, subprocess
+import argparse, hashlib, io, json, subprocess, zipfile
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +13,14 @@ from import_aed_open_data import (
 def collect_rows(source: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     url = resolve_resource_url(source)
     payload = fetch(url)
+    if source.get("zip_member_contains"):
+        needle = str(source["zip_member_contains"]).lower()
+        with zipfile.ZipFile(io.BytesIO(payload)) as zf:
+            names = [n for n in zf.namelist() if needle in n.lower() and not n.endswith("/")]
+            if not names:
+                raise ValueError(f"No ZIP member containing {needle!r}")
+            member = sorted(names, key=lambda n: (not n.lower().endswith(".csv"), len(n)))[0]
+            payload = zf.read(member)
     rows = read_records(payload)
     result=[]
     outside=0
