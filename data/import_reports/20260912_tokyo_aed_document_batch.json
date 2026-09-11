@@ -20,7 +20,7 @@
     {
       "dataset_id": "setagaya-official-aed-20240831",
       "municipality": "世田谷区",
-      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf",
+      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedichiran.pdf",
       "generated_rows": 0,
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
