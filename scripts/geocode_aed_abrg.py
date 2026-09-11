@@ -47,18 +47,28 @@ def collect_rows(source: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str
     }
 
 def run_abrg(addresses:list[str]) -> list[dict[str,Any]]:
+    if not addresses:
+        return []
     proc=subprocess.run(
-        ["abrg","-f","json"], input="\n".join(addresses)+"\n",
-        text=True,capture_output=True,check=True,timeout=1800
+        ["node","scripts/geocode_with_geolonia.mjs"],
+        input="\n".join(addresses)+"\n",
+        text=True,capture_output=True,timeout=1800
     )
-    text=proc.stdout.strip()
-    if not text:
-        raise RuntimeError("ABR geocoder returned no output")
-    data=json.loads(text)
-    if isinstance(data,dict):
-        data=[data]
-    return data
-
+    if proc.returncode != 0:
+        raise RuntimeError("Geolonia geocoder failed: " + proc.stderr[-2000:])
+    rows=[]
+    for line in proc.stdout.splitlines():
+        if not line.strip():
+            continue
+        raw=json.loads(line)
+        rows.append({"result":{
+            "city":raw.get("city") or "",
+            "lat":raw.get("lat"),
+            "lon":raw.get("lon"),
+            "match_level":raw.get("level"),
+            "other":(raw.get("town") or "") + (raw.get("addr") or "")
+        }})
+    return rows
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--manifest",type=Path,required=True)
