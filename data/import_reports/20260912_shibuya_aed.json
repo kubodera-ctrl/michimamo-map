@@ -1,0 +1,42 @@
+{
+  "generated_rows": 109,
+  "sources": [
+    {
+      "dataset_id": "shibuya-131130-aed",
+      "municipality": "渋谷区",
+      "service_url": "https://services3.arcgis.com/UtdeFTavkHfI94t2/arcgis/rest/services/131130_aed/FeatureServer",
+      "layer_id": 0,
+      "layer_name": "131130_aed",
+      "feature_count": 109,
+      "generated_rows": 109,
+      "skipped": 0,
+      "fields": [
+        "全国地方公共団体コード",
+        "No",
+        "名称",
+        "名称_カナ",
+        "名称_英字",
+        "所在地_全国地方公共団体コード",
+        "所在地_連結表記",
+        "所在地_都道府県名",
+        "所在地_市区町村名",
+        "所在地_町字",
+        "所在地_番地以下",
+        "方書",
+        "緯度",
+        "経度",
+        "設置位置",
+        "電話番号",
+        "法人番号",
+        "利用可能曜日",
+        "開始時間",
+        "終了時間",
+        "利用可能日時特記事項",
+        "URL",
+        "備考",
+        "ObjectId"
+      ],
+      "diagnostic_samples": []
+    }
+  ]
+}
