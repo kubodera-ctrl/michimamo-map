@@ -10,6 +10,8 @@ import io
 import json
 import unicodedata
 import urllib.request
+from html.parser import HTMLParser
+from urllib.parse import urljoin
 from pathlib import Path
 from typing import Any
 
@@ -69,6 +71,48 @@ def read_records(payload: bytes) -> list[dict[str, Any]]:
     return list(csv.DictReader(io.StringIO(decode_csv(payload))))
 
 
+
+class LinkCollector(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: list[tuple[str, str]] = []
+        self._href: str | None = None
+        self._text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "a":
+            return
+        self._href = dict(attrs).get("href")
+        self._text = []
+
+    def handle_data(self, data: str) -> None:
+        if self._href is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "a" and self._href is not None:
+            self.links.append((self._href, normalized("".join(self._text))))
+            self._href = None
+            self._text = []
+
+
+def resolve_resource_url(source: dict[str, Any]) -> str:
+    direct = source.get("resource_url")
+    if direct:
+        return direct
+    landing_url = source.get("landing_url") or source.get("dataset_url")
+    needle = normalized(source.get("link_text_contains"))
+    if not landing_url or not needle:
+        raise ValueError("resource_url or landing_url + link_text_contains is required")
+    html = decode_csv(fetch(landing_url))
+    parser = LinkCollector()
+    parser.feed(html)
+    for href, text in parser.links:
+        if needle in text:
+            return urljoin(landing_url, href)
+    raise ValueError(f"No link containing {needle!r} found on {landing_url}")
+
+
 def fetch(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "machimamo-map-open-data-import/1.0"})
     with urllib.request.urlopen(request, timeout=20) as response:
@@ -81,7 +125,8 @@ def source_key(dataset_id: str, municipality: str, name: str, address: str) -> s
 
 
 def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    payload = (input_dir / (source['dataset_id'] + '.csv')).read_bytes() if input_dir else fetch(source["resource_url"])
+    resource_url = resolve_resource_url(source)
+    payload = (input_dir / (source['dataset_id'] + '.csv')).read_bytes() if input_dir else fetch(resource_url)
     reader = read_records(payload)
     rows: list[dict[str, Any]] = []
     skipped = 0
@@ -139,7 +184,7 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
     report = {
         "dataset_id": source["dataset_id"],
         "municipality": source["municipality"],
-        "resource_url": source["resource_url"],
+        "resource_url": resource_url,
         "imported": len(rows),
         "skipped": skipped,
         "restricted": restricted,
@@ -170,7 +215,7 @@ def main() -> None:
             reports.append({
                 "dataset_id": source["dataset_id"],
                 "municipality": source["municipality"],
-                "resource_url": source["resource_url"],
+                "resource_url": source.get("resource_url") or source.get("landing_url") or source.get("dataset_url"),
                 "imported": 0,
                 "skipped": 0,
                 "error": f"{type(error).__name__}: {error}",
