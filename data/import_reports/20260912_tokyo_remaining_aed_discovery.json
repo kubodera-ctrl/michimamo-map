@@ -1,25 +1,25 @@
 {
   "千代田区": {
     "organization": "t131016",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131016&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131016&rows=500",
     "count": 0,
     "results": []
   },
   "世田谷区": {
     "organization": "t131121",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131121&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131121&rows=500",
     "count": 0,
     "results": []
   },
   "渋谷区": {
     "organization": "t131130",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131130&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131130&rows=500",
     "count": 0,
     "results": []
   },
   "北区": {
     "organization": "t131172",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131172&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131172&rows=500",
     "count": 1,
     "results": [
       {
@@ -46,13 +46,214 @@
   },
   "荒川区": {
     "organization": "t131181",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131181&rows=50",
-    "count": 0,
-    "results": []
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131181&rows=500",
+    "count": 10,
+    "results": [
+      {
+        "id": "92ee513d-d604-4ac3-9bd5-d6306c6003b0",
+        "name": "t131181d0000000014",
+        "title": "ごみの分別方法一覧",
+        "notes": "【荒川区】ごみの分別方法の一覧です。\r\n\r\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\r\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:10.783420",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "69a49f19-fc49-4a75-8c77-8b6f983bcb53",
+            "name": "ごみの分別方法一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_garbage_separation.csv",
+            "last_modified": "2025-03-24T15:00:00",
+            "created": "2025-03-24T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "fef95cc1-8204-4785-9430-4ecb0cb022c3",
+        "name": "t131181d0000000013",
+        "title": "小中学校通学区域情報",
+        "notes": "【荒川区】小中学校通学区域情報です。\r\n\r\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\r\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:09.404333",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "b13db8a0-8f9a-4926-b4c3-4247c4307cdf",
+            "name": "小中学校通学区域情報",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_school_district.csv",
+            "last_modified": "2025-03-24T15:00:00",
+            "created": "2025-03-24T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "b95be667-9648-4870-b2b8-a9943474f57c",
+        "name": "t131181d0000000012",
+        "title": "公衆トイレ一覧",
+        "notes": "【荒川区】公衆トイレの一覧です。\r\n\r\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\r\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:08.276657",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "ba01e8c0-3e25-4770-a98f-da9ec1c22e97",
+            "name": "公衆トイレ一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_public_toilet.csv",
+            "last_modified": "2025-03-24T15:00:00",
+            "created": "2025-03-24T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "706ae91d-1d17-4ebe-8bc5-02fa0ab93448",
+        "name": "t131181d0000000011",
+        "title": "地域・年齢別人口",
+        "notes": "【荒川区】地域・年齢別人口一覧です。\r\n\r\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\r\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:07.224321",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "54b4e321-9215-47c8-847c-477e19141757",
+            "name": "地域・年齢別人口",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_population.csv",
+            "last_modified": "2025-03-24T15:00:00",
+            "created": "2025-03-24T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "a934742a-fa61-4502-95a8-e366d93746c6",
+        "name": "t131181d0000000010",
+        "title": "文化財一覧",
+        "notes": "【荒川区】荒川区が登録・指定等を行った文化財の一覧です。\r\n\r\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\r\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:06.106382",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "3fb7f822-90d4-4b00-b5e2-a4e93fd3b39c",
+            "name": "文化財一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_cultural_property.csv",
+            "last_modified": "2025-03-24T15:00:00",
+            "created": "2025-03-24T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "c01077cc-e32c-4287-bd51-44531c7f34c3",
+        "name": "t131181d0000000009",
+        "title": "投票所一覧",
+        "notes": "【荒川区】投票所の一覧です。\n\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:04.991534",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "fc932ab6-14bd-49a1-9cd2-c420cf6676c1",
+            "name": "投票所一覧",
+            "format": "ZIP",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_polling_place.zip",
+            "last_modified": "2025-02-20T15:00:00",
+            "created": "2025-02-20T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "dc0ea39f-9ae9-4530-bde0-2a2016f48af9",
+        "name": "t131181d0000000008",
+        "title": "公営駐輪場一覧",
+        "notes": "【荒川区】公営駐輪場の一覧です。\n\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:03.887262",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "ea6ff533-2d61-4dc9-a9a1-c75ee13b089d",
+            "name": "公営駐輪場一覧",
+            "format": "ZIP",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_bicycle_parking.zip",
+            "last_modified": "2025-02-20T15:00:00",
+            "created": "2025-02-20T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "0de3d82d-91ab-4aad-b9c2-30165ea6f661",
+        "name": "t131181d0000000007",
+        "title": "教育機関一覧",
+        "notes": "【荒川区】教育機関の一覧です。\n\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:02.621325",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "9d3eaf5c-c05a-4b54-ac43-93457b81f79e",
+            "name": "教育機関一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_educational_institution.csv",
+            "last_modified": "2025-02-20T15:00:00",
+            "created": "2025-02-20T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "cfcb2212-0045-48a5-95cf-67d700724e60",
+        "name": "t131181d0000000006",
+        "title": "観光施設一覧",
+        "notes": "【荒川区】観光施設の一覧です。\n\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:01.456802",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "9888736e-d138-4904-9835-8415cc9704c8",
+            "name": "観光施設一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_tourism.csv",
+            "last_modified": "2025-02-20T15:00:00",
+            "created": "2025-02-20T15:00:00"
+          }
+        ]
+      },
+      {
+        "id": "ba9de6fe-a53b-4ab6-b2c7-d4471458238b",
+        "name": "t131181d0000000005",
+        "title": "公共施設一覧",
+        "notes": "【荒川区】公共施設の一覧です。\n\n※デジタル庁が公開を推奨している「自治体標準オープンデータセット」に準拠し、作成しています。\n",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:45:00.171090",
+        "url": "https://www.city.arakawa.tokyo.jp/a008/jouhoukoukai/jouhoukoukai/opendata.html",
+        "resources": [
+          {
+            "id": "91953280-af82-4e9b-b8a1-95d6929eb33f",
+            "name": "公共施設一覧",
+            "format": "CSV",
+            "url": "https://www.city.arakawa.tokyo.jp/documents/23112/131181_public_facility.csv",
+            "last_modified": "2025-03-31T15:00:00",
+            "created": "2025-03-31T15:00:00"
+          }
+        ]
+      }
+    ]
   },
   "板橋区": {
     "organization": "t131199",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131199&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131199&rows=500",
     "count": 1,
     "results": [
       {
@@ -79,13 +280,13 @@
   },
   "足立区": {
     "organization": "t131211",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131211&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131211&rows=500",
     "count": 0,
     "results": []
   },
   "葛飾区": {
     "organization": "t131229",
-    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131229&rows=50",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?fq=organization%3At131229&rows=500",
     "count": 0,
     "results": []
   }
