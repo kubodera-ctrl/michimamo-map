@@ -2,27 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <script>
-        // Some phone browsers retain a wide desktop layout viewport.
-        // Set an explicit CSS-pixel width before the first layout, without CSS zoom.
-        (function configurePhoneViewport() {
-            const phoneScreen = Math.min(screen.width, screen.height) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
-            if (!phoneScreen || !touchDevice) return;
-            const viewport = document.querySelector('meta[name="viewport"]');
-            function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width, screen.height);
-                const longSide = Math.max(screen.width, screen.height);
-                const landscape = window.matchMedia('(orientation: landscape)').matches;
-                const width = landscape ? longSide : shortSide;
-                if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
-            }
-            updatePhoneViewport();
-            window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
-            window.addEventListener('pageshow', updatePhoneViewport);
-        })();
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="referrer" content="no-referrer">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
