@@ -5,19 +5,20 @@
       "municipality": "北区",
       "prefecture": "東京都",
       "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131172d0000000002",
-      "resource_url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/open_aed-2.csv",
+      "resource_url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/hyo-jun.zip",
       "source_name": "北区オープンデータ",
-      "source_date": "2025-12-12",
-      "license": "CC BY 4.0"
+      "source_date": "2026-09-12",
+      "license": "CC BY 4.0",
+      "zip_member_contains": "aed"
     },
     {
       "dataset_id": "t131199d0000006098",
       "municipality": "板橋区",
       "prefecture": "東京都",
       "dataset_url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
-      "resource_url": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/031/246/attach_89546_01.csv",
+      "resource_url": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_aed_20260204.csv",
       "source_name": "板橋区オープンデータ",
-      "source_date": "2026-03-31",
+      "source_date": "2026-02-04",
       "license": "CC BY 4.0"
     }
   ]
