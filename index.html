@@ -2754,7 +2754,18 @@ function shareSpot(title, address, category, event) {
             }
 
 
-            window.location.assign(data.url);
+            // LINE Loginチャネルにリンク済みの公式アカウントを、
+            // 認証画面で友だち追加オプションとして表示する。
+            // 既存のstate・nonce・PKCE関連パラメータはそのまま保持する。
+            const lineAuthUrl = new URL(data.url);
+            lineAuthUrl.searchParams.set(
+                'bot_prompt',
+                'normal'
+            );
+
+            window.location.assign(
+                lineAuthUrl.toString()
+            );
 
 
         } catch (e) {
