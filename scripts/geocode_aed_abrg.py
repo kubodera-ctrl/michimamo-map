@@ -81,7 +81,16 @@ def main():
     seen=set()
 
     for source in manifest["sources"]:
-        rows,report=collect_rows(source)
+        try:
+            rows,report=collect_rows(source)
+        except Exception as e:
+            reports.append({
+                "dataset_id":source["dataset_id"],"municipality":source["municipality"],
+                "resource_url":source.get("resource_url"),"generated_rows":0,
+                "error":f"{type(e).__name__}: {e}"
+            })
+            print(f"{source['municipality']} fetch/parse failed: {type(e).__name__}: {e}",flush=True)
+            continue
         geocoded=run_abrg([r["address"] for r in rows]) if rows else []
         generated=0
         unmatched=[]
