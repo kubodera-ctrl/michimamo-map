@@ -4,36 +4,34 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from pathlib import Path
 
-url="https://www.city.setagaya.lg.jp/opendata/index.php"
+base="https://www.city.setagaya.lg.jp/opendata/index.php"
+params={"p":"1_1","keyword":"AED","displayedresults":"100"}
 h={"User-Agent":"Mozilla/5.0 AppleWebKit/537.36 Chrome/140 Safari/537.36"}
-payload={
-    "keyword":"AED",
-    "data_time_str":"",
-    "data_time_end":"",
-    "data_upddt_str":"",
-    "data_upddt_end":"",
-    "cmd_submit":"検索",
-    "displayedresults":"all",
-}
-r=requests.post(url,data=payload,headers=h,timeout=60)
+r=requests.get(base,params=params,headers=h,timeout=60)
 soup=BeautifulSoup(r.text,"html.parser")
-text="\n".join(soup.stripped_strings)
-links=[]
-for a in soup.find_all("a",href=True):
-    label=" ".join(a.stripped_strings)
-    href=urljoin(r.url,a["href"])
-    blob=(label+" "+href).lower()
-    if any(k in blob for k in ["aed",".csv",".xlsx",".xls",".zip",".pdf","opendata"]):
-        links.append({"text":label[:500],"href":href})
-# capture table/list structures around AED hits
-contexts=[]
-lower=text.lower()
-start=0
-while True:
-    i=lower.find("aed",start)
-    if i<0: break
-    contexts.append(text[max(0,i-1200):i+4000])
-    start=i+3
-out={"status":r.status_code,"final_url":r.url,"links":links[:500],"contexts":contexts[:100],"text":text[:100000]}
+rows=[]
+# capture every table row / result block that mentions AED, plus all links inside it
+for tr in soup.find_all("tr"):
+    txt=" ".join(tr.stripped_strings)
+    if "AED" not in txt.upper() and "ＡＥＤ" not in txt: continue
+    rows.append({
+      "text":txt[:5000],
+      "links":[{"text":" ".join(a.stripped_strings)[:500],"href":urljoin(r.url,a["href"])} for a in tr.find_all("a",href=True)]
+    })
+# Also capture heading/article/list blocks with AED
+blocks=[]
+for tag in soup.find_all(["li","article","section","div","dl"]):
+    txt=" ".join(tag.stripped_strings)
+    if ("AED" in txt.upper() or "ＡＥＤ" in txt) and len(txt)<12000:
+        links=[{"text":" ".join(a.stripped_strings)[:500],"href":urljoin(r.url,a["href"])} for a in tag.find_all("a",href=True)]
+        if links:
+            blocks.append({"text":txt[:8000],"links":links[:30]})
+# de-dupe exact text
+seen=set(); uniq=[]
+for x in rows+blocks:
+    key=x["text"]
+    if key in seen: continue
+    seen.add(key); uniq.append(x)
+out={"status":r.status_code,"final_url":r.url,"results":uniq[:200]}
 Path("data/import_reports/20260912_setagaya_catalog_search.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-print(json.dumps({"status":r.status_code,"links":links[:100],"contexts":contexts[:20]},ensure_ascii=False)[:60000])
+print(json.dumps(out,ensure_ascii=False)[:80000])
