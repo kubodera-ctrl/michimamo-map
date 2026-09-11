@@ -2641,6 +2641,13 @@ function shareSpot(title, address, category, event) {
     const EDGE_FUNCTION_BASE_URL =
         'https://ckftozjhdszlwqnylmxv.supabase.co/functions/v1/line-auth';
 
+    // Supabaseの公開Edge Function呼び出しにも公開キーをapikeyとして渡す。
+    // 新形式のsb_publishableキーはBearer JWTではないため、Authorizationには入れない。
+    const EDGE_FUNCTION_HEADERS = {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY
+    };
+
 
     // ==========================================
     // PKCE Utility
@@ -2721,10 +2728,7 @@ function shareSpot(title, address, category, event) {
                 {
                     method: 'POST',
 
-                    headers: {
-                        'Content-Type':
-                            'application/json'
-                    },
+                    headers: EDGE_FUNCTION_HEADERS,
 
                     body: JSON.stringify({
                         exchange_challenge:
@@ -2749,7 +2753,7 @@ function shareSpot(title, address, category, event) {
                 );
 
                 throw new Error(
-                    'LINE auth start failed'
+                    `LINE auth start failed (${res.status}${data?.error ? `: ${data.error}` : ''})`
                 );
             }
 
@@ -2776,7 +2780,8 @@ function shareSpot(title, address, category, event) {
             );
 
             console.error(
-                "LINE auth start failed"
+                "LINE auth start failed",
+                e
             );
 
             showToast(
@@ -2956,10 +2961,7 @@ function shareSpot(title, address, category, event) {
                         {
                             method: 'POST',
 
-                            headers: {
-                                'Content-Type':
-                                    'application/json'
-                            },
+                            headers: EDGE_FUNCTION_HEADERS,
 
                             body: JSON.stringify({
                                 login_code:
@@ -2984,7 +2986,7 @@ function shareSpot(title, address, category, event) {
                     ) {
 
                         throw new Error(
-                            'Session exchange failed'
+                            `Session exchange failed (${res.status}${data?.error ? `: ${data.error}` : ''})`
                         );
                     }
 
@@ -3020,7 +3022,8 @@ function shareSpot(title, address, category, event) {
                 } catch (e) {
 
                     console.error(
-                        "Session exchange failed"
+                        "Session exchange failed",
+                        e
                     );
 
                     showToast(
