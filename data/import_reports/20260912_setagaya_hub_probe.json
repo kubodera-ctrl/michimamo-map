@@ -1,31 +1,76 @@
 {
-  "status": 200,
-  "final_url": "https://data-setagaya.opendata.arcgis.com/maps/dc02f04286954fd9857df355948d1323",
-  "feature_servers": [],
-  "item_ids": [
-    "18f365740939ec69b5ebbb9d633ceca7",
-    "1e0e99ee02854e64b6f8474705ab8a93",
-    "217F0EED65C5B131219477CE2CEAAF8E",
-    "221e0e99ee02854e64b6f8474705ab8a",
-    "22304d6b7377c0e518381207c80d1e56",
-    "223e6b333b00c8490f91688824b40d92",
-    "229a99cf50fa054fb58069ec462dff0d",
-    "22fba5f22d18a448efa2346bef09d16b",
-    "2F1e0e99ee02854e64b6f8474705ab8a",
-    "2F335b9a4ee4874830b68f29f1fbdbce",
-    "2F520b767e85e6466a9e5d3c7d9989fc",
-    "335b9a4ee4874830b68f29f1fbdbce1a",
-    "3a3db2bce22d21a588831c0cf7feb3c7",
-    "3e27b66e4ecd1f4410cca4b52851f907",
-    "454de89226e87ce956f94c551ea7ba7d",
-    "76d13468821d94dfff3c24bcbcd9b4f1",
-    "7b2079dc4ade67fe628d7e7f6cd40580",
-    "7dbb3f6988534caf6ae5568a3b3e0bf3",
-    "9b41821d1a605debe44976e14dd42bd1",
-    "b1aaac65a52a6ee512ea58b45c2bfb81",
-    "b61dbd70182cd4ee7d523d670df243b7",
-    "dc02f04286954fd9857df355948d1323",
-    "ddc05f25f8cc6f62511c02fb7271e58c"
-  ],
-  "snippet": "<!DOCTYPE html><html lang=\"en-us\"><head>\n    <title>世田谷区GISオープンデータ</title><meta name=\"twitter:title\" content=\"世田谷区GISオープンデータ\"><meta property=\"og:title\" content=\"世田谷区GISオープンデータ\"><meta name=\"description\" content=\"世田谷区GISオープンデータ\"><meta name=\"twitter:description\" content=\"世田谷区GISオープンデータ\"><meta property=\"og:description\" content=\"世田谷区GISオープンデータ\"><meta name=\"twitter:image\" content=\"http://setagaya.maps.arcgis.com/sharing/rest/content/items/335b9a4ee4874830b68f29f1fbdbce1a/data\"><meta property=\"og:image\" content=\"http://setagaya.maps.arcgis.com/sharing/rest/content/items/335b9a4ee4874830b68f29f1fbdbce1a/data\"><meta name=\"twitter:card\" content=\"summary\"><meta property=\"og:url\" content=\"https://data-setagaya.opendata.arcgis.com/maps/dc02f04286954fd9857df355948d1323\"><meta property=\"og:type\" content=\"website\">\n    <meta charset=\"utf-8\">\n    <meta name=\"google-site-verification\" content=\"V9SzvB895BKr2ff7JVvaJQM1CIgPqOL5FPooX1aqENo\">\n    <meta name=\"msvalidate.01\" content=\"217F0EED65C5B131219477CE2CEAAF8E\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <script>\n      (function () {\n        // check for unsupported browsers\n        function isIE () {\n          return (\n            (navigator.appName === 'Microsoft Internet Explorer') ||\n            ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) != null))\n          );\n        }\n        function isEdge () {\n          return navigator.userAgent.toLowerCase().includes('edge');\n        }\n        if (isIE() || isEdge()) {\n          window.location.replace('./unsupported.html');\n        }\n      })();\n    </script>\n    \n<meta name=\"activation-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22activation-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\">\n<meta name=\"layout-editor-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22layout-editor-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\">\n<meta name=\"solutions-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22solutions-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\">\n    <link rel=\"stylesheet\" href=\"https://hubcdn.arcgis.com/opendata-ui/assets/assets/vendor-76d13468821d94dfff3c24bcbcd9b4f1.css\">\n<link rel=\"stylesheet\" href=\"https://hubcdn.arcgis.com/opendata-ui/assets/assets/chunk.32143.0204cbe7f69dfcce7f68.css\">\n    <!-- [begin custom site css injection point] - please do not remove this -->\n\n    <!-- FOR LTR DEVELOPMENT/TESTING: Un-Comment the next section -->\n    <!-- <link rel=\"stylesheet\" href=\"/assets/opendata-base.css\"> -->\n    <!-- FOR RTL TESTING: Un-Comment the next section -->\n    <!-- <link rel=\"stylesheet\" href=\"https://hubcdn.arcgis.com/opendata-ui/assets/assets/opendata-rtl-7dbb3f6988534caf6ae5568a3b3e0bf3.css\">\n    <link rel=\"stylesheet\" href=\"//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css\"> -->\n\n    <!-- [end custom site css injection point] - please do not remove this -->\n\n    <script type=\"module\" src=\"https://hubcdn.arcgis.com/opendata-ui/assets/calcite-components/5.1.1/cdn/index.js\"></script>\n<meta name=\"opendata-ui/config/asset-manifest\" content=\"%7B%22bundles%22%3A%7B%22activation-engine%22%3A%7B%22assets%22%3A%5B%7B%22uri%22%3A%22https%3A//hubcdn.arcgis.com/opendata-ui/assets/engines-dist/activation-engine/assets/engine-3e27b66e4ecd1f4410cca4b52851f907.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22https%3A//hubcdn.arcgis.com/opendata-ui/assets/engines-dist/activation-engine/config/environment-3a3db2bce22d21a588831c0cf7feb3c7.js%22%2C%22type%22%3A%22js%22%7"
+  "https://www.arcgis.com/sharing/rest/content/items/dc02f04286954fd9857df355948d1323?f=json": {
+    "status": 200,
+    "data": {
+      "error": {
+        "code": 403,
+        "messageCode": "GWM_0003",
+        "message": "You do not have permissions to access this resource or perform this operation.",
+        "details": []
+      }
+    }
+  },
+  "https://www.arcgis.com/sharing/rest/content/items/dc02f04286954fd9857df355948d1323/data?f=json": {
+    "status": 200,
+    "data": {
+      "error": {
+        "code": 403,
+        "messageCode": "GWM_0003",
+        "message": "You do not have permissions to access this resource or perform this operation.",
+        "details": []
+      }
+    }
+  },
+  "https://setagaya.maps.arcgis.com/sharing/rest/content/items/dc02f04286954fd9857df355948d1323?f=json": {
+    "status": 200,
+    "data": {
+      "error": {
+        "code": 403,
+        "messageCode": "GWM_0003",
+        "message": "You do not have permissions to access this resource or perform this operation.",
+        "details": []
+      }
+    }
+  },
+  "https://setagaya.maps.arcgis.com/sharing/rest/content/items/dc02f04286954fd9857df355948d1323/data?f=json": {
+    "status": 200,
+    "data": {
+      "error": {
+        "code": 403,
+        "messageCode": "GWM_0003",
+        "message": "You do not have permissions to access this resource or perform this operation.",
+        "details": []
+      }
+    }
+  },
+  "hub": {
+    "status": 200,
+    "final_url": "https://data-setagaya.opendata.arcgis.com/maps/dc02f04286954fd9857df355948d1323",
+    "feature_servers": [],
+    "item_ids": [
+      "18f365740939ec69b5ebbb9d633ceca7",
+      "1e0e99ee02854e64b6f8474705ab8a93",
+      "217F0EED65C5B131219477CE2CEAAF8E",
+      "221e0e99ee02854e64b6f8474705ab8a",
+      "22304d6b7377c0e518381207c80d1e56",
+      "223e6b333b00c8490f91688824b40d92",
+      "229a99cf50fa054fb58069ec462dff0d",
+      "22fba5f22d18a448efa2346bef09d16b",
+      "2F1e0e99ee02854e64b6f8474705ab8a",
+      "2F335b9a4ee4874830b68f29f1fbdbce",
+      "2F520b767e85e6466a9e5d3c7d9989fc",
+      "335b9a4ee4874830b68f29f1fbdbce1a",
+      "3a3db2bce22d21a588831c0cf7feb3c7",
+      "3e27b66e4ecd1f4410cca4b52851f907",
+      "454de89226e87ce956f94c551ea7ba7d",
+      "76d13468821d94dfff3c24bcbcd9b4f1",
+      "7b2079dc4ade67fe628d7e7f6cd40580",
+      "7dbb3f6988534caf6ae5568a3b3e0bf3",
+      "9b41821d1a605debe44976e14dd42bd1",
+      "b1aaac65a52a6ee512ea58b45c2bfb81",
+      "b61dbd70182cd4ee7d523d670df243b7",
+      "dc02f04286954fd9857df355948d1323",
+      "ddc05f25f8cc6f62511c02fb7271e58c"
+    ]
+  }
 }
