@@ -1,0 +1,17 @@
+{
+  "generated_rows": 215,
+  "sources": [
+    {
+      "dataset_id": "t131148d0000000111",
+      "municipality": "中野区",
+      "resource_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_38/CSV/opendata_550010.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "de25c5fc6e45fbd6f4dfb8c54de48559305f4ec7202de872b299d1b9b4cda34b",
+      "parsed_rows": 215,
+      "generated_rows": 215,
+      "duplicate_rows": 0
+    }
+  ]
+}
