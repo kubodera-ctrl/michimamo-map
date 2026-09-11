@@ -1,0 +1,17 @@
+{
+  "generated_rows": 243,
+  "sources": [
+    {
+      "dataset_id": "t131156d0000000204",
+      "municipality": "杉並区",
+      "resource_url": "https://www.city.suginami.tokyo.jp/documents/1474/20260305.csv",
+      "skipped": 20,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "df6cd03b9a01a99f8babe0cd2a87e5390c0af22c9d9355ff5b8ea863a50c9404",
+      "parsed_rows": 244,
+      "generated_rows": 243,
+      "duplicate_rows": 1
+    }
+  ]
+}
