@@ -1,0 +1,40 @@
+name: Geocode Kita Itabashi AED
+
+on:
+  push:
+    paths:
+      - "data/tokyo_aed_abrg_batch1.json"
+      - "scripts/geocode_aed_abrg.py"
+      - ".github/workflows/tokyo_aed_abrg_batch1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          npm install -g @digital-go-jp/abr-geocoder
+      - name: Download Tokyo ABR data
+        run: abrg download -c 13
+      - name: Generate seed
+        run: |
+          python scripts/geocode_aed_abrg.py             --manifest data/tokyo_aed_abrg_batch1.json             --output-sql supabase/migrations/20260912_kita_itabashi_aed_seed.sql             --output-report data/import_reports/20260912_kita_itabashi_aed.json
+      - name: Commit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/migrations/20260912_kita_itabashi_aed_seed.sql data/import_reports/20260912_kita_itabashi_aed.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Generate Kita Itabashi AED seed"
+          git push
