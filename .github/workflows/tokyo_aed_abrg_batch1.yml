@@ -36,4 +36,6 @@ jobs:
           git add supabase/migrations/20260912_kita_itabashi_aed_seed.sql data/import_reports/20260912_kita_itabashi_aed.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Generate Kita Itabashi AED seed"
+          git fetch origin main
+          git rebase origin/main
           git push
