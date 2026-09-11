@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0ea5e9">
+<title>まちまもMAP - 街の安全活動でポイントを楽しもう</title>
+<meta name="description" content="交通安全クイズや街の情報共有、対象サービスの利用などでポイント。街の安全に参加しながら、ちょっとお得も楽しめるまちまもMAP。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary:#0ea5e9; --primary-dark:#0369a1; --accent:#f59e0b;
+  --green:#10b981; --bg:#f8fafc; --bg-blue:#f0f9ff;
+  --text:#334155; --muted:#64748b; --line:#e2e8f0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Hiragino Rounded W4 JIS2004","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;color:var(--text);background:var(--bg);line-height:1.7;padding-bottom:94px}
+.app-container{max-width:520px;margin:0 auto;background:#fff;box-shadow:0 0 24px rgba(15,23,42,.07);overflow:hidden}
+.section{padding:46px 20px}
+.section-title{font-size:1.42rem;font-weight:900;text-align:center;line-height:1.45;color:#0f172a;margin-bottom:12px}
+.section-title span{color:var(--primary)}
+.section-lead{font-size:.88rem;color:var(--muted);font-weight:700;text-align:center;line-height:1.8;margin:0 auto 26px;max-width:430px}
+.pill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 12px;font-size:.76rem;font-weight:900}
+.badge-blue{background:#e0f2fe;color:#0369a1}.badge-yellow{background:#fef3c7;color:#92400e}.badge-green{background:#dcfce7;color:#166534}
+
+.hero{background:linear-gradient(180deg,#e0f2fe 0%,#f8fcff 100%);padding:20px 20px 34px;text-align:center}
+.hero-brand{display:inline-flex;align-items:center;gap:9px;background:white;border:1px solid #dbeafe;padding:8px 14px;border-radius:999px;font-weight:900;color:var(--primary-dark);box-shadow:0 3px 12px rgba(14,165,233,.09);margin-bottom:18px}
+.hero-visual{background:linear-gradient(145deg,#ffffff 0%,#f0f9ff 100%);border:1px solid #bae6fd;border-radius:28px;min-height:232px;padding:20px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(14,165,233,.13);margin-bottom:24px}
+.map-road{position:absolute;background:#cbd5e1;border-radius:999px;opacity:.65}.road-a{width:130%;height:18px;left:-15%;top:48%;transform:rotate(-14deg)}.road-b{width:18px;height:130%;left:55%;top:-15%;transform:rotate(18deg)}
+.map-pin{position:absolute;width:54px;height:54px;border-radius:18px;background:white;display:grid;place-items:center;font-size:1.55rem;box-shadow:0 6px 18px rgba(15,23,42,.12);border:2px solid white}
+.pin-police{top:28px;left:34px}.pin-aed{top:42px;right:36px}.pin-home{bottom:32px;left:72px}.pin-alert{bottom:24px;right:58px}
+.hero-map-copy{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.95);padding:10px 14px;border-radius:16px;font-size:.8rem;font-weight:900;color:#0f172a;box-shadow:0 4px 16px rgba(15,23,42,.09);white-space:nowrap}
+.hero-kicker{font-size:.96rem;font-weight:900;color:var(--primary-dark);margin-bottom:5px}
+.hero h1{font-size:2rem;line-height:1.25;color:#0f172a;font-weight:900;margin-bottom:14px}.hero h1 span{color:var(--primary)}
+.hero-copy{font-size:.9rem;font-weight:700;color:var(--muted);margin:0 auto 20px;max-width:420px}
+.hero-points{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.hero-point{background:white;border:1px solid #dbeafe;border-radius:16px;padding:13px 8px;font-size:.77rem;font-weight:900;color:#334155}
+.hero-point i{display:block;font-size:1.25rem;color:var(--primary);margin-bottom:5px}
+
+.cta-main{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#f59e0b,#f97316);color:white;text-decoration:none;border-radius:999px;padding:15px 20px;font-size:1.02rem;font-weight:900;box-shadow:0 7px 18px rgba(245,158,11,.25);margin-top:20px}
+.cta-sub{font-size:.7rem;color:var(--muted);font-weight:700;margin-top:9px}
+
+.problem-card{background:#f8fafc;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start}
+.problem-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto;font-size:1.25rem}
+.problem-card h3{font-size:.94rem;font-weight:900;color:#0f172a;margin-bottom:4px}.problem-card p{font-size:.8rem;font-weight:700;color:var(--muted)}
+
+.features{background:var(--bg-blue)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature-card{background:white;border-radius:18px;padding:18px 14px;border:1px solid #e0f2fe;text-align:center;box-shadow:0 5px 16px rgba(14,165,233,.05)}
+.feature-card i{font-size:1.65rem;margin-bottom:10px;color:var(--primary)}.feature-card h3{font-size:.88rem;font-weight:900;color:#0f172a;margin-bottom:4px}.feature-card p{font-size:.73rem;font-weight:700;color:var(--muted);line-height:1.55}
+
+.spot-panel{background:linear-gradient(135deg,#ecfeff,#f8fafc);border:1px solid #bae6fd;border-radius:22px;padding:20px}
+.spot-row{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px;margin-bottom:10px}
+.spot-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:1.25rem;flex:0 0 auto}
+.spot-info{flex:1}.spot-info strong{display:block;font-size:.85rem;color:#0f172a}.spot-info span{display:block;font-size:.72rem;color:var(--muted);font-weight:700}
+.spot-action{display:flex;gap:7px;margin-top:6px}.mini-btn{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:6px 9px;font-size:.66rem;font-weight:900;background:#e0f2fe;color:#0369a1}.mini-btn.call{background:#dcfce7;color:#166534}
+
+.group{background:#f8fafc}.group-banner{background:linear-gradient(135deg,#0ea5e9,#2563eb);color:white;border-radius:24px;padding:24px 20px;text-align:center;margin-bottom:18px}
+.group-banner h3{font-size:1.24rem;font-weight:900;margin-bottom:8px}.group-banner p{font-size:.82rem;font-weight:700;opacity:.94}
+.usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.usecase{background:white;border:1px solid var(--line);border-radius:18px;padding:16px 14px}
+.usecase .emoji{font-size:1.7rem;margin-bottom:7px}.usecase h3{font-size:.86rem;font-weight:900;color:#0f172a;margin-bottom:4px}.usecase p{font-size:.73rem;color:var(--muted);font-weight:700;line-height:1.6}
+
+.points{background:#fff7ed}.point-flow{display:flex;flex-direction:column;gap:9px}.flow-card{background:white;border:1px solid #fed7aa;border-radius:17px;padding:16px;display:flex;align-items:center;gap:12px}
+.flow-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#f59e0b;color:white;font-weight:900;flex:0 0 auto}
+.flow-card h4{font-size:.86rem;font-weight:900;color:#7c2d12}.flow-card p{font-size:.73rem;font-weight:700;color:#9a3412}.flow-arrow{text-align:center;color:#fdba74}
+
+.action-card{background:#fff;display:flex;align-items:center;padding:15px;border-radius:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);border:1px solid #f1f5f9}
+.action-icon{font-size:1.7rem;color:var(--primary);width:54px;text-align:center;flex-shrink:0}.action-text h4{font-size:.92rem;font-weight:900;color:#0f172a;margin-bottom:3px}.action-text p{font-size:.78rem;font-weight:700;color:var(--muted)}
+
+.safety-section{padding:44px 20px;background:#f8fafc}.safety-message{background:white;border:1px solid var(--line);border-radius:22px;padding:22px;text-align:center}
+.safety-message h3{font-size:1.05rem;font-weight:900;color:#0f172a;margin-bottom:8px}.safety-message p{font-size:.8rem;font-weight:700;color:var(--muted)}
+.safety-rule{display:flex;align-items:flex-start;gap:10px;margin-top:14px;text-align:left}.safety-rule i{color:var(--green);margin-top:5px}.safety-rule span{font-size:.77rem;font-weight:700;color:#475569}
+
+.voice-section{padding:40px 20px;background:#f8fafc}
+.voice-card{background:#fff;padding:25px 20px 20px;border-radius:16px;margin-bottom:30px;box-shadow:0 4px 10px rgba(0,0,0,.03);position:relative;border-top:4px solid var(--primary)}
+.voice-icon{width:60px;height:60px;background:#fff;border-radius:50%;display:grid;place-items:center;font-size:2rem;position:absolute;top:-30px;left:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:2px solid var(--bg-blue)}
+.voice-text{margin-top:10px;font-size:.85rem;font-weight:bold;line-height:1.7}.voice-text span{background:#fef3c7;color:#b45309;padding:2px 6px;border-radius:4px}
+.voice-meta{text-align:right;font-size:.75rem;color:var(--muted);font-weight:bold;margin-top:15px}
+
+.final-cta{padding:46px 20px;background:linear-gradient(180deg,#eff6ff,#fff);text-align:center}.final-cta h2{font-size:1.5rem;font-weight:900;color:#0f172a;margin-bottom:10px}.final-cta p{font-size:.85rem;color:var(--muted);font-weight:700}
+.point-note{background:#fffbeb;border:1px solid #fde68a;padding:15px;margin:0 20px 30px;border-radius:12px;font-size:.75rem;font-weight:bold;color:#92400e;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+.footer{background:#334155;color:#cbd5e1;padding:30px 20px 40px;font-size:.69rem;text-align:justify}
+.cta-bottom{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);padding:11px 16px;padding-bottom:calc(11px + env(safe-area-inset-bottom));box-shadow:0 -4px 15px rgba(0,0,0,.06);z-index:1000;display:flex;justify-content:center}
+.cta-btn{background:linear-gradient(135deg,#f59e0b,#f97316);color:white;border:none;border-radius:50px;padding:14px 20px;width:100%;max-width:480px;font-size:1rem;font-weight:900;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(245,158,11,.4);text-decoration:none}
+.cta-btn .small-text{font-size:.68rem;margin-bottom:1px}.note{font-size:.69rem;color:#94a3b8;font-weight:700;line-height:1.6;margin-top:10px}
+@media (min-width:700px){
+  .app-container{max-width:1040px}.hero{padding:34px 50px 46px}.hero-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;text-align:left}
+  .hero-content{order:1}.hero-visual{order:2;margin-bottom:0;min-height:330px}.hero-points{max-width:520px}.cta-main{max-width:360px}.section{padding:58px 54px}
+  .feature-grid{grid-template-columns:repeat(4,1fr)}.usecase-grid{grid-template-columns:repeat(4,1fr)}.safe-spots .spot-panel{max-width:760px;margin:0 auto}.voice-section{padding:58px 54px}
+}
+</style>
+</head>
+<body>
+<div class="app-container">
+
+<section class="hero">
+  <div class="hero-brand"><i class="fa-solid fa-shield-heart"></i> まちまもMAP</div>
+  <div class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-kicker">街の安全に参加して、ちょっとお得に。</div>
+      <h1>いつもの行動が、<br><span>ポイント</span>に変わる。</h1>
+      <p class="hero-copy">交通安全クイズ、街の気づきの共有、対象サービスの利用など。<br>まちまもMAPなら、地域の安全につながる行動を楽しみながら続けられます。</p>
+      <div class="hero-points">
+        <div class="hero-point"><i class="fa-solid fa-graduation-cap"></i>クイズで学ぶ</div>
+        <div class="hero-point"><i class="fa-solid fa-map-location-dot"></i>街の情報を共有</div>
+        <div class="hero-point"><i class="fa-solid fa-square-parking"></i>対象サービス利用</div>
+        <div class="hero-point"><i class="fa-solid fa-gift"></i>ポイントを楽しむ</div>
+      </div>
+      <a class="cta-main" href="https://machimamo-map.vercel.app/?utm_source=lp&utm_medium=landing_page&utm_campaign=point">無料でまちまもMAPを始める <i class="fa-solid fa-chevron-right"></i></a>
+      <div class="cta-sub">ポイントの貯蓄・還元にはLINE認証が必要です。</div>
+    </div>
+    <div class="hero-visual" aria-label="まちまもMAPのポイント利用イメージ">
+      <div class="map-road road-a"></div><div class="map-road road-b"></div>
+      <div class="map-pin pin-police">🎯</div><div class="map-pin pin-aed">🎁</div><div class="map-pin pin-home">🧠</div><div class="map-pin pin-alert">📍</div>
+      <div class="hero-map-copy">楽しみながら街の安全に参加</div>
+    </div>
+  </div>
+</section>
+
+<section class="section points">
+  <div style="text-align:center;margin-bottom:12px;"><span class="pill badge-yellow">参加する楽しさ</span></div>
+  <h2 class="section-title">楽しみながら参加して、<br><span style="color:#f59e0b;">ポイントも貯まる。</span></h2>
+  <p class="section-lead">ポイントだけが目的じゃない。でも、続けるきっかけになる。交通安全を学んだり、街の情報を共有したり、便利なサービスを使ったり。そんな行動に楽しさをプラスします。</p>
+  <div class="point-flow">
+    <div class="flow-card"><div class="flow-num">1</div><div><h4>街の情報を共有</h4><p>危険箇所や地域の気づきを投稿。</p></div></div>
+    <div class="flow-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+    <div class="flow-card"><div class="flow-num">2</div><div><h4>クイズや安全確認に参加</h4><p>交通ルールを学びながら、地域情報にも参加。</p></div></div>
+    <div class="flow-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+    <div class="flow-card"><div class="flow-num">3</div><div><h4>ポイントが貯まる</h4><p>対象となるアクションやサービス利用に応じてポイントを獲得。</p><p style="font-size:.66rem;color:#a16207;margin-top:6px;font-weight:800;">※ポイントの貯蓄・還元にはLINE認証が必要です。</p></div></div>
+  </div>
+</section>
+
+
+<section class="section" style="background:#fff;">
+  <div style="text-align:center;margin-bottom:12px;"><span class="pill badge-yellow">ポイ活派にもおすすめ</span></div>
+  <h2 class="section-title">スキマ時間でも、<br><span style="color:#f59e0b;">まちまも。</span></h2>
+  <p class="section-lead">「今日は投稿することがない」そんな日でも大丈夫。クイズやMAPの確認など、自分のペースで参加できます。</p>
+
+  <div class="problem-card">
+    <div class="problem-icon" style="background:#fef3c7;color:#92400e;">🧠</div>
+    <div><h3>待ち時間に交通安全クイズ</h3><p>電車や休憩中のちょっとした時間に。交通ルールを学びながらポイント対象の行動に参加。</p></div>
+  </div>
+  <div class="problem-card">
+    <div class="problem-icon" style="background:#e0f2fe;color:#0369a1;">📍</div>
+    <div><h3>街で気づいた時だけ共有</h3><p>毎日探し回る必要はありません。いつもの移動中に気づいた情報を、無理のない範囲で共有。</p></div>
+  </div>
+  <div class="problem-card">
+    <div class="problem-icon" style="background:#dcfce7;color:#166534;">🎁</div>
+    <div><h3>対象サービスの利用でも</h3><p>駐車場予約など、まちまも経由の対象サービスで還元を受けられる仕組みも展開していきます。</p></div>
+  </div>
+  <p class="note">※ポイント対象、付与条件、還元内容は各ミッション・サービスの表示条件をご確認ください。</p>
+</section>
+
+
+<section class="section">
+  <div style="text-align:center;margin-bottom:12px;"><span class="pill badge-blue">まちまもでできること</span></div>
+  <h2 class="section-title">「困った」「気になる」を<br>その場で次の行動へ。</h2>
+  <p class="section-lead">街の情報を見るだけでも、誰かの投稿に助けられることがあります。気づいた時だけ参加する。そんな軽い使い方からでOKです。</p>
+  <div class="problem-card"><div class="problem-icon" style="background:#fee2e2;color:#b91c1c;">⚠️</div><div><h3>危険な場所や状況を共有</h3><p>繰り返し危険が起きる場所や、街で気づいた状況を地域の情報として共有。</p></div></div>
+  <div class="problem-card"><div class="problem-icon" style="background:#dbeafe;color:#1d4ed8;">👮</div><div><h3>近くの交番・警察署を探す</h3><p>現在地から安全スポットを探して、そのままGoogleマップでルート検索へ。</p></div></div>
+  <div class="problem-card"><div class="problem-icon" style="background:#dcfce7;color:#166534;">❤️</div><div><h3>AEDや子供110番も見つける</h3><p>「もしも」の時に探しやすく。電話番号がある施設はワンタップ発信にも対応。</p></div></div>
+</section>
+
+<section class="section features">
+  <h2 class="section-title">危険を見つけるだけじゃない。<br><span>安全な場所も見つかるMAPへ。</span></h2>
+  <p class="section-lead">まちまもMAPは、地域の情報共有と「いざという時の便利」をひとつにまとめていきます。</p>
+  <div class="feature-grid">
+    <div class="feature-card"><i class="fa-solid fa-shield-halved"></i><h3>交番・警察署</h3><p>近くの安全拠点をMAPからチェック。</p></div>
+    <div class="feature-card"><i class="fa-solid fa-heart-pulse"></i><h3>AED</h3><p>現在地から近いAEDを探してルート検索。</p></div>
+    <div class="feature-card"><i class="fa-solid fa-house-circle-check"></i><h3>子供110番</h3><p>地域の頼れる場所をわかりやすく表示。</p></div>
+    <div class="feature-card"><i class="fa-solid fa-graduation-cap"></i><h3>交通安全クイズ</h3><p>移動の合間に楽しくルールを学べます。</p></div>
+  </div>
+</section>
+
+<section class="section safe-spots">
+  <div style="text-align:center;margin-bottom:12px;"><span class="pill badge-green">もしもの時にも</span></div>
+  <h2 class="section-title">見つけたら、そのまま<span>行ける。</span></h2>
+  <p class="section-lead">スポットを探して終わりではなく、次のアクションまでつなげます。</p>
+  <div class="spot-panel">
+    <div class="spot-row"><div class="spot-icon" style="background:#dbeafe;">👮</div><div class="spot-info"><strong>交番・警察署</strong><span>現在地から探して、目的地へ</span><div class="spot-action"><span class="mini-btn"><i class="fa-solid fa-location-arrow"></i> ここまでナビ</span><span class="mini-btn call"><i class="fa-solid fa-phone"></i> 電話</span></div></div></div>
+    <div class="spot-row"><div class="spot-icon" style="background:#fee2e2;">❤️</div><div class="spot-info"><strong>AED設置場所</strong><span>近くの設置場所をすぐ確認</span><div class="spot-action"><span class="mini-btn"><i class="fa-solid fa-location-arrow"></i> ここまでナビ</span></div></div></div>
+    <div class="spot-row" style="margin-bottom:0;"><div class="spot-icon" style="background:#dcfce7;">🏠</div><div class="spot-info"><strong>子供110番</strong><span>地域の頼れる場所をチェック</span><div class="spot-action"><span class="mini-btn"><i class="fa-solid fa-location-arrow"></i> ここまでナビ</span><span class="mini-btn call"><i class="fa-solid fa-phone"></i> 電話</span></div></div></div>
+    <p class="note">※施設情報・電話番号・ナビ機能は、登録状況や提供データに応じて順次対応します。ルート案内は外部地図サービスへ移動する場合があります。</p>
+  </div>
+</section>
+
+
+<section class="section" style="background:#fff;">
+  <div style="text-align:center;margin-bottom:12px;">
+    <span class="pill badge-blue"><i class="fa-solid fa-newspaper"></i> 地域のニュースもMAPで</span>
+  </div>
+  <h2 class="section-title">ニュースを「読む」だけじゃなく、<br><span>自分の行動に活かす。</span></h2>
+  <p class="section-lead">
+    警察や公的機関などの公開情報をもとに、対人トラブルや事件など、
+    地域で気にしておきたい情報を地図上で確認できるようにしていきます。
+  </p>
+
+  <div class="problem-card">
+    <div class="problem-icon" style="background:#ede9fe;color:#6d28d9;"><i class="fa-solid fa-route"></i></div>
+    <div>
+      <h3>帰宅ルートを変える判断材料に</h3>
+      <p>いつもの帰り道の近くで気になる情報があれば、別ルートを選ぶなど危険回避のきっかけに。</p>
+    </div>
+  </div>
+
+  <div class="problem-card">
+    <div class="problem-icon" style="background:#fef3c7;color:#92400e;"><i class="fa-solid fa-children"></i></div>
+    <div>
+      <h3>遊ぶ場所・出かける場所を選ぶ参考に</h3>
+      <p>子どもと出かける前や友人との外出前に、周辺の情報を見て場所を変える判断にも使えます。</p>
+    </div>
+  </div>
+
+  <div class="problem-card" style="margin-bottom:0;">
+    <div class="problem-icon" style="background:#dcfce7;color:#166534;"><i class="fa-solid fa-location-dot"></i></div>
+    <div>
+      <h3>「自分の近く」で見るから気づきやすい</h3>
+      <p>ニュース一覧では流してしまう情報も、MAP上なら自宅・学校・職場・よく行く場所との距離感で確認できます。</p>
+    </div>
+  </div>
+
+  <p class="note">
+    ※表示するニュース・事件情報は公開情報をもとに掲載し、個人を特定・追跡する目的ではありません。
+    情報の内容や更新時点は必ず元情報もあわせてご確認ください。
+  </p>
+</section>
+
+<section class="section" style="background:#eef6ff;padding-bottom:28px;">
+  <div style="text-align:center;margin-bottom:12px;">
+    <span class="pill badge-green">こんな使い方も</span>
+  </div>
+  <h2 class="section-title">知っていたから、<br><span>ちょっと避けられた。</span></h2>
+  <p class="section-lead">大げさなことをしなくても、MAPを見たことで行動を少し変えられる。そんな使い方も、まちまもの価値です。</p>
+
+  <div class="voice-card" style="margin-top:34px;">
+    <div class="voice-icon">👩</div>
+    <p class="voice-text">「帰宅前にMAPを見たら、いつもの帰り道の近くに気になる情報が出ていたので、<span>その日は人通りの多いルートに変えました。</span>ちょっとした判断材料になるのが便利です。」</p>
+    <div class="voice-meta">30代女性 / 会社員</div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-icon">👨‍👧</div>
+    <p class="voice-text">「子どもと遊びに行く前に周辺を見たら少し気になる情報があったので、<span>その日は別の公園に変更。</span>AEDや交番も一緒に確認できると安心材料になります。」</p>
+    <div class="voice-meta">40代男性 / 会社員・父親</div>
+  </div>
+</section>
+
+<section class="section group">
+  <div class="group-banner"><h3>ひとりでも。仲間となら、もっと見える。</h3><p>家族、友達、職場、地域の仲間。<br>同じ街を気にしている人が増えるほど、気づきも増えていきます。</p></div>
+  <div class="usecase-grid">
+    <div class="usecase"><div class="emoji">🏙️</div><h3>都心・住宅街</h3><p>近所付き合いが少なくても、MAPを通じて地域の変化や安全情報を知るきっかけに。</p></div>
+    <div class="usecase"><div class="emoji">🌾</div><h3>農業・郊外</h3><p>普段と違う車両や気になる状況を近隣で共有。盗難やトラブルの早期察知につなげます。</p></div>
+    <div class="usecase"><div class="emoji">🌃</div><h3>繁華街・商店街</h3><p>不法投棄や危険な放置物など、繰り返し起きる場所の傾向を地域で共有。</p></div>
+    <div class="usecase"><div class="emoji">👨‍👩‍👧</div><h3>子育て地域</h3><p>通学路の危険情報に加えて、交番・AED・子供110番など頼れる場所も確認。</p></div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <h2 class="section-title">使い方は、かんたん。</h2>
+  <div class="action-card"><div class="action-icon"><i class="fa-solid fa-map-location-dot"></i></div><div class="action-text"><h4>まずMAPを見る</h4><p>近くの投稿や安全スポットをチェック。</p></div></div>
+  <div class="action-card"><div class="action-icon"><i class="fa-solid fa-location-arrow"></i></div><div class="action-text"><h4>必要な時にしっかりルート案内</h4><p>交番・AEDなどを選んだら、そのまま現在地からルート検索へ。</p></div></div>
+  <div class="action-card"><div class="action-icon"><i class="fa-solid fa-circle-plus"></i></div><div class="action-text"><h4>気づいた時だけ参加</h4><p>危険な場所や状況を共有。毎日投稿する必要はありません。</p></div></div>
+  <div class="action-card"><div class="action-icon"><i class="fa-solid fa-gift"></i></div><div class="action-text"><h4>ポイントも楽しむ</h4><p>クイズ・対象サービス・安全につながるアクションでポイント。</p></div></div>
+</section>
+
+<section class="safety-section">
+  <h2 class="section-title">誰かを監視するためのMAPじゃない。</h2>
+  <div class="safety-message">
+    <h3>「誰がやったか」より、<br>「どこで何が起きやすいか」。</h3>
+    <p>まちまもMAPは、特定の人や車両を晒したり制裁したりするためのサービスではありません。地域の危険傾向や安全情報を共有し、次の安心につなげることを大切にします。</p>
+    <div class="safety-rule"><i class="fa-solid fa-circle-check"></i><span>個人を特定できる顔・ナンバー等の投稿は避ける設計・運用を重視します。</span></div>
+    <div class="safety-rule"><i class="fa-solid fa-circle-check"></i><span>配送・荷下ろし・訪問作業など、地域を支える業務への配慮も大切にします。</span></div>
+    <div class="safety-rule"><i class="fa-solid fa-circle-check"></i><span>緊急時はアプリよりも110番など適切な連絡先を優先してください。</span></div>
+  </div>
+</section>
+
+
+
+
+<section class="voice-section">
+        <h2 class="section-title">利用ユーザーの声</h2>
+        
+        <div class="voice-card">
+            <div class="voice-icon">👩‍🦰</div>
+            <p class="voice-text">「出かける際に、まちまもの駐車場予約から予約したら<span>ポイントで戻ってくるので、普段よりお得に停めれてます！</span>お財布にも優しくて助かっています。」</p>
+            <div class="voice-meta">30代女性 / 主婦</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👨‍🌾</div>
+            <p class="voice-text">「農家をしており盗難が怖いですが、近隣の仲間内で使い始めてから<span>不審車両の情報を早く知れるようになりました。</span>特徴がわかると警察への相談も明確に伝わるし、ポイントも貯まるのでこれからも活用します！」</p>
+            <div class="voice-meta">40代男性 / 農家</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👵</div>
+            <p class="voice-text">「お散歩中に放置してるバイクがあって、変な人がいたずらしたら嫌だなって思ってましたが、<span>このアプリで投稿したらポイントがもらえたし、放置バイクもなくなって安心しました。</span>」</p>
+            <div class="voice-meta">50代女性 / パート</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👩‍🎓</div>
+            <p class="voice-text">「電車での移動中や待ち時間に、<span>ゲーム感覚で『道交法クイズ』をポチポチやっています。</span>楽しく交通ルールを学べるし、気づいたら日用品が買えるくらいポイントが貯まっていて一石二鳥です！」</p>
+            <div class="voice-meta">20代女性 / 学生</div>
+        </div>
+    </section>
+
+<div class="point-note"><i class="fa-solid fa-circle-info"></i><span>※獲得したポイントは、ミッションの承認状況に応じて【最短当日〜最大2・3ヶ月後】に反映されます。</span></div>
+
+<section class="final-cta">
+  <h2>街の安全に参加して、ポイントも楽しもう。</h2>
+  <p>クイズからでも、MAPを見るだけでもOK。<br>自分のペースで始められます。</p>
+  <a class="cta-main" href="https://machimamo-map.vercel.app/?utm_source=lp&utm_medium=landing_page&utm_campaign=point" style="margin-left:auto;margin-right:auto;">まちまもMAPを使ってみる <i class="fa-solid fa-chevron-right"></i></a>
+</section>
+
+<footer class="footer">
+  ※まちまもMAPは、地域の安全情報や公開データ等を活用し、利用者同士で地域の気づきを共有するサービスです。<br>
+  ※掲載される施設情報・安全情報は、内容や更新状況により実際の状況と異なる場合があります。必要に応じて公式情報をご確認ください。<br>
+  ※緊急性のある事件・事故・救命対応などは、110番・119番等の適切な緊急通報を優先してください。<br>
+  ※緊急ではない警察への相談や、事件・事故か判断に迷う場合は、警察相談専用電話「#9110」の利用もご検討ください。<br>
+  ※運転中のスマートフォン操作は行わず、必ず安全な場所で操作してください。<br>
+  <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);text-align:center;line-height:1.8;">
+  <strong style="color:#cbd5e1;">運営：SUMION合同会社</strong><br>
+  <span style="color:#cbd5e1;">まちまもMAP運営事務局</span>
+</div>
+  <div style="text-align:center;margin-top:16px;font-weight:bold;font-size:.75rem;">&copy; 2026 まちまもMAP. All rights reserved.</div>
+</footer>
+
+<div class="cta-bottom">
+  <a href="https://machimamo-map.vercel.app/?utm_source=lp&utm_medium=landing_page&utm_campaign=point" class="cta-btn">
+    <span class="small-text">＼ 見るだけでもOK ／</span>
+    <span>無料でまちまもMAPを使う <i class="fa-solid fa-chevron-right"></i></span>
+  </a>
+</div>
+
+</div>
+</body>
+</html>
