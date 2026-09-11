@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
           npm install -g @digital-go-jp/abr-geocoder
       - name: Download Tokyo ABR data
-        run: abrg download -c 13
+        run: abrg download -c 131172 131199 --silent
       - name: Generate seed
         run: |
           python scripts/geocode_aed_abrg.py             --manifest data/tokyo_aed_abrg_batch1.json             --output-sql supabase/migrations/20260912_kita_itabashi_aed_seed.sql             --output-report data/import_reports/20260912_kita_itabashi_aed.json
