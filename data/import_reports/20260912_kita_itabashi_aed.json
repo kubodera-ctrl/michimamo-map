@@ -1,0 +1,40 @@
+{
+  "generated_rows": 487,
+  "sources": [
+    {
+      "dataset_id": "t131172d0000000002",
+      "municipality": "北区",
+      "resource_url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/hyo-jun.zip",
+      "source_rows": 324,
+      "candidate_rows": 307,
+      "outside_municipality": 0,
+      "restricted": 0,
+      "sha256": "524c5152b2141c73c995ec608062053933e18887d8d3c31e921b9a48aa477c74",
+      "generated_rows": 236,
+      "unmatched_count": 0,
+      "match_levels": {
+        "8": 190,
+        "3": 46
+      },
+      "unmatched": []
+    },
+    {
+      "dataset_id": "t131199d0000006098",
+      "municipality": "板橋区",
+      "resource_url": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_aed_20260204.csv",
+      "source_rows": 258,
+      "candidate_rows": 258,
+      "outside_municipality": 0,
+      "restricted": 0,
+      "sha256": "55c5c073d619153a487e750177c0399c94d0e5c3faec1d6fa3afc451bba75585",
+      "generated_rows": 251,
+      "unmatched_count": 0,
+      "match_levels": {
+        "3": 31,
+        "8": 218,
+        "2": 2
+      },
+      "unmatched": []
+    }
+  ]
+}
