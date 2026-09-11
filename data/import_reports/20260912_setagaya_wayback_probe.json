@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://web.archive.org/cdx/search/cdx?url=https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf&output=json&filter=statuscode:200&filter=mimetype:application/pdf&fl=timestamp,original,statuscode,mimetype,digest,length&collapse=digest",
+    "status": 200,
+    "text": "[]\n"
+  },
+  {
+    "url": "https://web.archive.org/cdx/search/cdx?url=https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf&output=json&filter=statuscode:200&fl=timestamp,original,statuscode,mimetype,digest,length",
+    "status": 200,
+    "text": "[]\n"
+  }
+]
