@@ -19,6 +19,7 @@ ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連
 LATITUDE_FIELDS = ("緯度", "latitude", "lat", "Y座標", "Y")
 LONGITUDE_FIELDS = ("経度", "longitude", "lng", "lon", "X座標", "X")
 PHONE_FIELDS = ("電話番号", "電話", "TEL", "tel")
+MUNICIPALITY_FIELDS = ("市区町村名", "地方公共団体名", "所在地_市区町村", "所在地市区町村")
 
 
 def normalized(value: Any) -> str:
@@ -78,11 +79,19 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
             continue
         name = first_value(raw, NAME_FIELDS)
         address = first_value(raw, ADDRESS_FIELDS)
+        row_municipality = first_value(raw, MUNICIPALITY_FIELDS)
         # A ward may also publish its holiday homes in other prefectures.
-        # Keep this batch limited to addresses explicitly within the source ward.
-        if not (address.startswith(source['municipality']) or address.startswith(source['prefecture'] + source['municipality'])):
+        # Keep this batch limited to the source ward. Standard open-data CSVs may
+        # split the municipality from an address that starts at the town name.
+        address_has_municipality = (
+            address.startswith(source['municipality'])
+            or address.startswith(source['prefecture'] + source['municipality'])
+        )
+        if not address_has_municipality and row_municipality != source['municipality']:
             outside_municipality += 1
             continue
+        if not address_has_municipality:
+            address = source['municipality'] + address
         latitude_raw = first_value(raw, LATITUDE_FIELDS)
         longitude_raw = first_value(raw, LONGITUDE_FIELDS)
         phone = first_value(raw, PHONE_FIELDS) or None
