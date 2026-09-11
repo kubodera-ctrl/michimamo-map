@@ -1,0 +1,118 @@
+{
+  "https://hub.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323": {
+    "status": 404,
+    "final_url": "https://hub.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323",
+    "body": {
+      "errors": [
+        {
+          "title": "Resource Not Found",
+          "status": 404,
+          "message": "Not Found"
+        }
+      ],
+      "meta": {}
+    }
+  },
+  "https://hub.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0": {
+    "status": 404,
+    "final_url": "https://hub.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0",
+    "body": {
+      "errors": [
+        {
+          "title": "Resource Not Found",
+          "status": 404,
+          "message": "Not Found"
+        }
+      ],
+      "meta": {}
+    }
+  },
+  "https://hub.arcgis.com/api/v3/datasets?filter[id]=dc02f04286954fd9857df355948d1323": {
+    "status": 200,
+    "final_url": "https://hub.arcgis.com/api/v3/datasets?filter%5Bid%5D=dc02f04286954fd9857df355948d1323",
+    "body": {
+      "data": [],
+      "meta": {
+        "apiRoot": "https://hub.arcgis.com/api/v3/",
+        "queryParameters": {
+          "filter": {
+            "id": "dc02f04286954fd9857df355948d1323",
+            "isCancelled": "eventsEq(false)",
+            "status": "not(private,draft,planned)",
+            "endDate": "eventsBefore(1789167414979)"
+          }
+        },
+        "request": "https://hub.arcgis.com/api/v3/datasets?filter%5Bid%5D=dc02f04286954fd9857df355948d1323",
+        "resourceRoot": "https://hub.arcgis.com/api/v3/datasets",
+        "stats": {
+          "totalCount": 0,
+          "count": 0,
+          "aggs": {}
+        },
+        "page": {
+          "start": 1,
+          "size": 10,
+          "nextStart": -1
+        },
+        "took": 3,
+        "total": 0,
+        "datasetsMatching": {
+          "onlySemanticFields": [],
+          "onlyNonSemanticFields": [],
+          "both": []
+        }
+      },
+      "links": {}
+    }
+  },
+  "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323": {
+    "status": 404,
+    "final_url": "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323",
+    "body": {
+      "errors": [
+        {
+          "title": "Resource Not Found",
+          "status": 404,
+          "message": "Not Found"
+        }
+      ],
+      "meta": {}
+    }
+  },
+  "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0": {
+    "status": 404,
+    "final_url": "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0",
+    "body": {
+      "errors": [
+        {
+          "title": "Resource Not Found",
+          "status": 404,
+          "message": "Not Found"
+        }
+      ],
+      "meta": {}
+    }
+  },
+  "https://www.arcgis.com/sharing/rest/content/groups/3e6b333b00c8490f91688824b40d92e2/search?f=json&q=AED&num=100": {
+    "status": 200,
+    "final_url": "https://www.arcgis.com/sharing/rest/content/groups/3e6b333b00c8490f91688824b40d92e2/search?f=json&q=AED&num=100",
+    "body": {
+      "total": 0,
+      "start": 1,
+      "num": 100,
+      "nextStart": -1,
+      "results": []
+    }
+  },
+  "https://setagaya.maps.arcgis.com/sharing/rest/content/groups/3e6b333b00c8490f91688824b40d92e2/search?f=json&q=AED&num=100": {
+    "status": 200,
+    "final_url": "https://setagaya.maps.arcgis.com/sharing/rest/content/groups/3e6b333b00c8490f91688824b40d92e2/search?f=json&q=AED&num=100",
+    "body": {
+      "total": 0,
+      "start": 1,
+      "num": 100,
+      "nextStart": -1,
+      "results": []
+    }
+  }
+}
