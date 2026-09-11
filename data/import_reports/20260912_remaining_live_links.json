@@ -1,0 +1,300 @@
+{
+  "北区": {
+    "status": 200,
+    "final_url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
+    "links": [
+      {
+        "text": "ååºãªã¼ãã³ãã¼ã¿æ¨é²ã¬ã¤ãã©ã¤ã³(ä»¤å2å¹´7æ3æ¥ç­å®) ï¼PDF 120.1KBï¼",
+        "href": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/guideline-1.pdf"
+      },
+      {
+        "text": "ååºãªã¼ãã³ãã¼ã¿å©ç¨è¦ç´ ï¼PDF 106.0KBï¼",
+        "href": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/kiyaku.pdf"
+      },
+      {
+        "text": "ãªã¼ãã³ãã¼ã¿ã»ããä¸å¼ ï¼zip 286.9KBï¼",
+        "href": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/hyo-jun.zip"
+      }
+    ]
+  },
+  "板橋区": {
+    "status": 200,
+    "final_url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
+    "links": [
+      {
+        "text": "æ¿æ©åºãªã¼ãã³ãã¼ã¿å©ç¨è¦ç´ ï¼PDF 207.9KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/riyoukiyaku.pdf"
+      },
+      {
+        "text": "ãªã¼ãã³ãã¼ã¿ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 110.2KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_open_data_list.csv"
+      },
+      {
+        "text": "å¬å±æ½è¨­ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 104.9KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_public_facility25.csv"
+      },
+      {
+        "text": "æåè²¡ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 12.4KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_cultural_property.csv"
+      },
+      {
+        "text": "å°åã»å¹´é½¢å¥äººå£ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 27.7KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_population.csv"
+      },
+      {
+        "text": "å­è²ã¦æ½è¨­ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 46.5KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_preschool.csv"
+      },
+      {
+        "text": "å¬è¡ç¡ç·LANã¢ã¯ã»ã¹ãã¤ã³ãä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 14.4KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_public_wireless_lan2603.csv"
+      },
+      {
+        "text": "AEDè¨­ç½®ç®æä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 62.6KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_aed_20260204.csv"
+      },
+      {
+        "text": "è¦³åæ½è¨­ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 11.1KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_tourism.csv"
+      },
+      {
+        "text": "å¬è¡ãã¤ã¬ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 57.3KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_public_toilet2603.csv"
+      },
+      {
+        "text": "æè²æ©é¢ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 8.8KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_educational_institution.csv"
+      },
+      {
+        "text": "å¬å¶é§è¼ªå ´ä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 10.8KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_bicycle_parking2603.csv"
+      },
+      {
+        "text": "æç¥¨æä¸è¦§ï¼èªæ²»ä½æ¨æºãªã¼ãã³ãã¼ã¿ã»ããï¼ ï¼CSV 8.0KBï¼",
+        "href": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/035/617/131199_polling_place2603.csv"
+      }
+    ]
+  },
+  "世田谷区": {
+    "status": 200,
+    "final_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
+    "links": [
+      {
+        "text": "Emergency",
+        "href": "https://www.city.setagaya.lg.jp/shared/system/emergency/csv/emergency.csv"
+      },
+      {
+        "text": "å¬å±æ½è¨­ä¸è¦§ï¼CSVï¼198KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/01_131121_public_facility.csv"
+      },
+      {
+        "text": "ãªã¼ãã³ãã¼ã¿ä¸è¦§ï¼CSVï¼561KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/06_131121_open_data_list.csv"
+      },
+      {
+        "text": "ä»è­·ãµã¼ãã¹äºæ¥­æä¸è¦§ï¼CSVï¼106KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/09_131121_care_service.csv"
+      },
+      {
+        "text": "å¬è¡ç¡ç·LANã¢ã¯ã»ã¹ãã¤ã³ãä¸è¦§ï¼CSVï¼53KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/07_131121_public_wireless_lan.csv"
+      },
+      {
+        "text": "AEDè¨­ç½®ç®æä¸è¦§",
+        "href": "https://data-setagaya.opendata.arcgis.com/maps/dc02f04286954fd9857df355948d1323"
+      },
+      {
+        "text": "è¦³åæ½è¨­ä¸è¦§ï¼CSVï¼88KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/11_131121_tourism.csv"
+      },
+      {
+        "text": "æ¶é²æ°´å©æ½è¨­ï¼é²ç«æ°´ããï¼ä¸è¦§ï¼CSVï¼6KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/14_131121_fire_hydrant.csv"
+      },
+      {
+        "text": "éå­¦åºåä¸è¦§ï¼CSVï¼29KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/17_131121_school_district.csv"
+      },
+      {
+        "text": "æè²æ©é¢ä¸è¦§ï¼CSVï¼15KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n2_131121_educational_institution.csv"
+      },
+      {
+        "text": "ä¸è¦§ï¼CSVï¼16KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_bicycle_parking.csv"
+      },
+      {
+        "text": "æ½è¨­è©³ç´°ï¼CSVï¼25KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_facility.csv"
+      },
+      {
+        "text": "ãã¿åå¥ä¸è¦§ï¼CSVï¼90KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n6_131121_garbage_separation.csv"
+      },
+      {
+        "text": "è¦³åãã¤ã³ãä¸è¦§ï¼CSVï¼56KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n9_131121_tourist_attraction.csv"
+      },
+      {
+        "text": "å¬å±æ½è¨­ä¸è¦§ï¼CSVï¼198KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/01_131121_public_facility.csv"
+      },
+      {
+        "text": "å¬å±æ½è¨­ä¸è¦§ï¼CSVï¼198KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/01_131121_public_facility.csv"
+      },
+      {
+        "text": "ãªã¼ãã³ãã¼ã¿ä¸è¦§ï¼CSVï¼561KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/06_131121_open_data_list.csv"
+      },
+      {
+        "text": "ãªã¼ãã³ãã¼ã¿ä¸è¦§ï¼CSVï¼561KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/06_131121_open_data_list.csv"
+      },
+      {
+        "text": "å¬è¡ç¡ç·LANã¢ã¯ã»ã¹ãã¤ã³ãä¸è¦§ï¼CSVï¼53KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/07_131121_public_wireless_lan.csv"
+      },
+      {
+        "text": "å¬è¡ç¡ç·LANã¢ã¯ã»ã¹ãã¤ã³ãä¸è¦§ï¼CSVï¼53KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/07_131121_public_wireless_lan.csv"
+      },
+      {
+        "text": "ä»è­·ãµã¼ãã¹äºæ¥­æä¸è¦§ï¼CSVï¼110KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/09_131121_care_service.csv"
+      },
+      {
+        "text": "ä»è­·ãµã¼ãã¹äºæ¥­æä¸è¦§ï¼CSVï¼106KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/09_131121_care_service.csv"
+      },
+      {
+        "text": "è¦³åæ½è¨­ä¸è¦§ï¼CSVï¼110KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/11_131121_tourism.csv"
+      },
+      {
+        "text": "è¦³åæ½è¨­ä¸è¦§ï¼CSVï¼88KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/11_131121_tourism.csv"
+      },
+      {
+        "text": "æ¶é²æ°´å©æ½è¨­ä¸è¦§ï¼é²ç«æ°´ããï¼ï¼CSVï¼6KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/14_131121_fire_hydrant.csv"
+      },
+      {
+        "text": "æ¶é²æ°´å©æ½è¨­ä¸è¦§ï¼é²ç«æ°´ããï¼ï¼CSVï¼6KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/14_131121_fire_hydrant.csv"
+      },
+      {
+        "text": "éå­¦åºåä¸è¦§ï¼CSVï¼29KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/17_131121_school_district.csv"
+      },
+      {
+        "text": "éå­¦åºåä¸è¦§ï¼CSVï¼29KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/17_131121_school_district.csv"
+      },
+      {
+        "text": "æè²æ©é¢ä¸è¦§ï¼CSVï¼15KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n2_131121_educational_institution.csv"
+      },
+      {
+        "text": "æè²æ©é¢ä¸è¦§ï¼CSVï¼15KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n2_131121_educational_institution.csv"
+      },
+      {
+        "text": "å¬å¶é§è¼ªå ´ä¸è¦§ï¼é§è¼ªå ´ä¸è¦§ï¼ï¼CSVï¼16KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_bicycle_parking.csv"
+      },
+      {
+        "text": "å¬å¶é§è¼ªå ´ä¸è¦§ï¼é§è¼ªå ´ä¸è¦§ï¼ï¼CSVï¼16KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_bicycle_parking.csv"
+      },
+      {
+        "text": "å¬å¶é§è¼ªå ´ä¸è¦§ï¼æ½è¨­è©³ç´°ï¼ï¼CSVï¼25KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_facility.csv"
+      },
+      {
+        "text": "å¬å¶é§è¼ªå ´ä¸è¦§ï¼æ½è¨­è©³ç´°ï¼ï¼CSVï¼25KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n4_131121_facility.csv"
+      },
+      {
+        "text": "ãã¿åå¥ä¸è¦§ï¼CSVï¼90KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n6_131121_garbage_separation.csv"
+      },
+      {
+        "text": "ãã¿åå¥ä¸è¦§ï¼CSVï¼90KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n6_131121_garbage_separation.csv"
+      },
+      {
+        "text": "è¦³åãã¤ã³ãä¸è¦§ï¼CSVï¼56KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n9_131121_tourist_attraction.csv"
+      },
+      {
+        "text": "è¦³åãã¤ã³ãä¸è¦§ï¼CSVï¼56KBï¼",
+        "href": "https://www.city.setagaya.lg.jp/documents/22308/n9_131121_tourist_attraction.csv"
+      }
+    ]
+  },
+  "足立区": {
+    "status": 404,
+    "final_url": "https://www.city.adachi.tokyo.jp/bosai/aed.html",
+    "links": [
+      {
+        "text": "æ¬æã¸ã¹ã­ãããã¾ãã",
+        "href": "https://www.city.adachi.tokyo.jp/bosai/aed.html#tmp_honbun"
+      },
+      {
+        "text": "ãã¼ã¸ã®åé ­ã¸æ»ã",
+        "href": "https://www.city.adachi.tokyo.jp/bosai/aed.html#tmp_header"
+      }
+    ]
+  },
+  "葛飾区": {
+    "status": 200,
+    "final_url": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004904.html",
+    "links": [
+      {
+        "text": "",
+        "href": "https://twitter.com/intent/tweet?text=AED%EF%BC%88%E8%87%AA%E5%8B%95%E4%BD%93%E5%A4%96%E5%BC%8F%E9%99%A4%E7%B4%B0%E5%8B%95%E5%99%A8%EF%BC%89%E3%82%92%E4%BD%BF%E3%81%88%E3%81%B0%E3%80%81%E6%95%91%E3%81%88%E3%82%8B%E5%91%BD%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%ef%bd%9c%E8%91%9B%E9%A3%BE%E5%8C%BA%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88&url=https%3A%2F%2Fwww.city.katsushika.lg.jp%2Fkurashi%2F1004028%2F1004040%2F1004904.html"
+      },
+      {
+        "text": "",
+        "href": "https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.city.katsushika.lg.jp%2Fkurashi%2F1004028%2F1004040%2F1004904.html&t=AED%EF%BC%88%E8%87%AA%E5%8B%95%E4%BD%93%E5%A4%96%E5%BC%8F%E9%99%A4%E7%B4%B0%E5%8B%95%E5%99%A8%EF%BC%89%E3%82%92%E4%BD%BF%E3%81%88%E3%81%B0%E3%80%81%E6%95%91%E3%81%88%E3%82%8B%E5%91%BD%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%ef%bd%9c%E8%91%9B%E9%A3%BE%E5%8C%BA%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88"
+      },
+      {
+        "text": "",
+        "href": "https://line.me/R/msg/text/?AED%EF%BC%88%E8%87%AA%E5%8B%95%E4%BD%93%E5%A4%96%E5%BC%8F%E9%99%A4%E7%B4%B0%E5%8B%95%E5%99%A8%EF%BC%89%E3%82%92%E4%BD%BF%E3%81%88%E3%81%B0%E3%80%81%E6%95%91%E3%81%88%E3%82%8B%E5%91%BD%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%ef%bd%9c%E8%91%9B%E9%A3%BE%E5%8C%BA%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%0d%0ahttps%3A%2F%2Fwww.city.katsushika.lg.jp%2Fkurashi%2F1004028%2F1004040%2F1004904.html"
+      },
+      {
+        "text": "AEDï¼èªåä½å¤å¼é¤ç´°åå¨ï¼è¨­ç½®æ½è¨­ã»è¨­ç½®å ´æä¸è¦§ ï¼PDF 276.2KBï¼",
+        "href": "https://www2.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed9.1.pdf"
+      },
+      {
+        "text": "æ¥æ¬ææ¥å»çè²¡å£ãã¼ã ãã¼ã¸ï¼å¨å½AEDãããï¼ ï¼å¤é¨ãªã³ã¯ï¼",
+        "href": "https://www.qqzaidanmap.jp/"
+      },
+      {
+        "text": "å¨å½AEDãããï¼iPhoneã»Androidçã¢ããªï¼ ï¼å¤é¨ãªã³ã¯ï¼",
+        "href": "http://qqzaidan.jp/qqmap_app_201912/"
+      },
+      {
+        "text": "AEDä½¿ç¨ååæ½è¨­ä¸è¦§ ï¼PDF 574.1KBï¼",
+        "href": "https://www2.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed04.pdf"
+      },
+      {
+        "text": "AEDä½¿ç¨ååæ½è¨­ç»é²äºæ¥­",
+        "href": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004905.html"
+      },
+      {
+        "text": "AEDä½¿ç¨ååæ½è¨­ç»é²äºæ¥­",
+        "href": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004905.html"
+      },
+      {
+        "text": "AEDï¼èªåä½å¤å¼é¤ç´°åå¨ï¼ã¯ã©ãã«è¨­ç½®ããã¦ãã¾ããã",
+        "href": "https://www2.city.katsushika.lg.jp/faq/1030270/1007671/1009457/1009486.html"
+      },
+      {
+        "text": "å°åã§éåä¼ãããã¾ããã©ããã§AEDã®è²¸ãåºãããã¦ãã¾ãããã",
+        "href": "https://www2.city.katsushika.lg.jp/faq/1030270/1007671/1009457/1009491.html"
+      }
+    ]
+  }
+}
