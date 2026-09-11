@@ -3368,66 +3368,101 @@ function shareSpot(title, address, category, event) {
 })();
 </script>
 
-<script id="mobileFilterTouchScroll">
+
+
+
+<script id="mobileFilterTouchScrollV2">
 (function () {
-    function bindFilterTouchScroll() {
-        var el = document.querySelector('.filter-content');
-        if (!el || el.dataset.touchScrollBound === '1') return;
-        el.dataset.touchScrollBound = '1';
+    var state = { active:false, el:null, lastY:0 };
 
-        var startY = 0;
-        var startTop = 0;
-        var dragging = false;
-
-        el.addEventListener('touchstart', function (e) {
-            if (!e.touches || !e.touches.length) return;
-            startY = e.touches[0].clientY;
-            startTop = el.scrollTop;
-            dragging = true;
-            e.stopPropagation();
-        }, { passive: true });
-
-        el.addEventListener('touchmove', function (e) {
-            if (!dragging || !e.touches || !e.touches.length) return;
-            var y = e.touches[0].clientY;
-            var delta = startY - y;
-            if (Math.abs(delta) > 2) {
-                el.scrollTop = startTop + delta;
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        }, { passive: false });
-
-        el.addEventListener('touchend', function (e) {
-            dragging = false;
-            e.stopPropagation();
-        }, { passive: true });
-
-        el.addEventListener('touchcancel', function () {
-            dragging = false;
-        }, { passive: true });
-
-        // Prevent Leaflet from taking over touches/mouse wheel inside the menu.
-        ['mousedown','mousemove','mouseup','click','dblclick','wheel'].forEach(function (name) {
-            el.addEventListener(name, function (e) { e.stopPropagation(); }, { passive: name === 'wheel' });
-        });
+    function getFilterList() {
+        return document.querySelector('.filter-content');
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bindFilterTouchScroll);
-    } else {
-        bindFilterTouchScroll();
+    function sizeFilterList() {
+        var el = getFilterList();
+        var wrapper = document.getElementById('filterWrapper');
+        var ad = document.querySelector('.ad-banner');
+        if (!el || !wrapper || !wrapper.classList.contains('open')) return;
+
+        var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+        var vv = window.visualViewport;
+        var visibleH = vv ? vv.height : window.innerHeight;
+
+        // Coordinates returned by getBoundingClientRect are visual CSS pixels.
+        // Leave room above the ad banner and convert the available height back
+        // into the pre-zoom layout coordinate used by the scroll container.
+        var top = el.getBoundingClientRect().top;
+        var adTop = ad ? ad.getBoundingClientRect().top : visibleH - 90;
+        var availableVisual = Math.max(180, adTop - top - 8);
+        var availableLayout = Math.max(90, Math.floor(availableVisual / zoom));
+
+        el.style.height = availableLayout + 'px';
+        el.style.maxHeight = availableLayout + 'px';
+        el.style.overflowY = 'scroll';
+        el.style.overflowX = 'hidden';
+        el.style.webkitOverflowScrolling = 'touch';
+        el.style.touchAction = 'none';
     }
 
-    // Rebind if UI is rebuilt dynamically.
-    document.addEventListener('click', function (e) {
-        if (e.target && (e.target.closest('.filter-toggle-btn') || e.target.closest('.filter-wrapper'))) {
-            setTimeout(bindFilterTouchScroll, 0);
+    function begin(e) {
+        var el = getFilterList();
+        if (!el || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
+        var t = e.target && e.target.closest ? e.target.closest('.filter-content') : null;
+        if (!t) return;
+        var touch = e.touches && e.touches[0];
+        if (!touch) return;
+        state.active = true;
+        state.el = el;
+        state.lastY = touch.clientY;
+        e.stopPropagation();
+    }
+
+    function move(e) {
+        if (!state.active || !state.el) return;
+        var touch = e.touches && e.touches[0];
+        if (!touch) return;
+
+        var y = touch.clientY;
+        var delta = state.lastY - y;
+        state.lastY = y;
+
+        if (Math.abs(delta) >= 1) {
+            // getBoundingClientRect / touch coordinates are after CSS zoom, whereas
+            // scrollTop is in layout pixels, so divide by the zoom factor.
+            var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+            state.el.scrollTop += delta / zoom;
+            e.preventDefault();
+            e.stopPropagation();
         }
-    });
+    }
+
+    function end(e) {
+        if (!state.active) return;
+        state.active = false;
+        state.el = null;
+        if (e) e.stopPropagation();
+    }
+
+    // Capture phase beats Leaflet's own touch handlers.
+    document.addEventListener('touchstart', begin, {capture:true, passive:true});
+    document.addEventListener('touchmove', move, {capture:true, passive:false});
+    document.addEventListener('touchend', end, {capture:true, passive:true});
+    document.addEventListener('touchcancel', end, {capture:true, passive:true});
+
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.closest && e.target.closest('.filter-toggle-btn')) {
+            setTimeout(sizeFilterList, 30);
+            setTimeout(sizeFilterList, 180);
+        }
+    }, true);
+
+    window.addEventListener('resize', function () { setTimeout(sizeFilterList, 50); });
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', function () { setTimeout(sizeFilterList, 50); });
+    }
 })();
 </script>
-
 
 </body>
 </html>
