@@ -294,7 +294,7 @@
                         <i class="fa-solid fa-filter"></i> 表示選択 <i class="fa-solid fa-chevron-right" id="filterArrow" style="transition:0.3s;"></i>
                     </button>
                     <div class="filter-content">
-                        <button class="filter-chip active" data-filter="all" onclick="filterMarkers('all')"><i class="fa-solid fa-layer-group"></i> 投稿すべて</button>
+                        <button class="filter-chip active" data-filter="all" onclick="filterMarkers('all')"><i class="fa-solid fa-layer-group"></i> すべて表示</button>
                         <button class="filter-chip illegal active" data-filter="illegal" onclick="filterMarkers('illegal')"><i class="fa-solid fa-ban"></i> 違法駐車</button>
                         <button class="filter-chip danger active" data-filter="danger" onclick="filterMarkers('danger')"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車</button>
                         <button class="filter-chip patrol active" data-filter="patrol" onclick="filterMarkers('patrol')"><i class="fa-solid fa-user-shield"></i> 巡回</button>
@@ -505,7 +505,7 @@
                             <div>・最初はすべての種類が表示されています。</div>
                             <div>・違法駐車などの投稿、警察署、交番、駐在所、AEDをそれぞれタップして表示／非表示を切り替えられます。</div>
                             <div>・複数の種類を同時にONにできます。色が付いている項目が表示中です。</div>
-                            <div>・「投稿すべて」は投稿カテゴリだけをまとめてON／OFFします。</div>
+                            <div>・「すべて表示」は投稿と警察署・交番・駐在所・AEDをまとめてON／OFFします。</div>
                             <div>・選んだ状態は端末に保存され、次回も引き継がれます。</div>
                         </div>
 
@@ -1892,7 +1892,7 @@ function shareSpot(title, address, category, event) {
         document.querySelectorAll('.filter-chip[data-filter]').forEach(chip => {
             const category = chip.dataset.filter;
             const enabled = category === 'all'
-                ? reportCategories.every(item => visibleMapCategories.has(item))
+                ? defaultVisibleCategories.every(item => visibleMapCategories.has(item))
                 : visibleMapCategories.has(category);
             chip.classList.toggle('active', enabled);
             chip.setAttribute('aria-pressed', String(enabled));
@@ -1917,8 +1917,8 @@ function shareSpot(title, address, category, event) {
 
     function filterMarkers(category) {
         if (category === 'all') {
-            const showAllReports = reportCategories.some(item => !visibleMapCategories.has(item));
-            reportCategories.forEach(item => showAllReports
+            const showAllCategories = defaultVisibleCategories.some(item => !visibleMapCategories.has(item));
+            defaultVisibleCategories.forEach(item => showAllCategories
                 ? visibleMapCategories.add(item)
                 : visibleMapCategories.delete(item));
         } else if (visibleMapCategories.has(category)) {
