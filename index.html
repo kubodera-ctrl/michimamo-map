@@ -2,7 +2,27 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <script>
+        // Some phone browsers retain a wide desktop layout viewport.
+        // Set an explicit CSS-pixel width before the first layout, without CSS zoom.
+        (function configurePhoneViewport() {
+            const phoneScreen = Math.min(screen.width, screen.height) <= 600;
+            const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
+            if (!phoneScreen || !touchDevice) return;
+            const viewport = document.querySelector('meta[name="viewport"]');
+            function updatePhoneViewport() {
+                const shortSide = Math.min(screen.width, screen.height);
+                const longSide = Math.max(screen.width, screen.height);
+                const landscape = window.matchMedia('(orientation: landscape)').matches;
+                const width = landscape ? longSide : shortSide;
+                if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+            }
+            updatePhoneViewport();
+            window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
+            window.addEventListener('pageshow', updatePhoneViewport);
+        })();
+    </script>
     <meta name="referrer" content="no-referrer">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -265,8 +285,7 @@
                     <div id="filterTutorialTitle" class="filter-tutorial-title"><i class="fa-solid fa-sliders" style="color:#1f6feb;"></i> 地図を見やすくできます</div>
                     <p>上部の「表示選択」から、投稿・警察署・交番・駐在所・AEDを種類ごとにON／OFFできます。複数の種類を同時に選べて、選んだ状態はこの端末に保存されます。</p>
                     <div class="filter-tutorial-actions">
-                        <button onclick="dismissFilterTutorial(false)" style="background:#e5e7eb;color:#374151;">わかった</button>
-                        <button onclick="dismissFilterTutorial(true)" style="background:#1f6feb;color:#fff;">表示選択を開く</button>
+                        <button onclick="dismissFilterTutorial()" style="background:#1f6feb;color:#fff;min-height:44px;">確認しました</button>
                     </div>
                 </div>
 
@@ -1116,16 +1135,19 @@
         showFilterTutorialIfNeeded();
     }
 
+    let filterTutorialDismissed = false;
     function showFilterTutorialIfNeeded() {
-        if (!localStorage.getItem('machimamo_filter_tutorial_v1_seen')) {
+        let seen = filterTutorialDismissed;
+        try { seen = seen || !!localStorage.getItem('machimamo_filter_tutorial_v1_seen'); } catch (e) {}
+        if (!seen) {
             document.getElementById('filterTutorial').classList.add('open');
         }
     }
 
-    function dismissFilterTutorial(openMenu) {
-        localStorage.setItem('machimamo_filter_tutorial_v1_seen', 'true');
+    function dismissFilterTutorial() {
+        filterTutorialDismissed = true;
         document.getElementById('filterTutorial').classList.remove('open');
-        if (openMenu && !document.getElementById('filterWrapper').classList.contains('open')) toggleFilterMenu();
+        try { localStorage.setItem('machimamo_filter_tutorial_v1_seen', 'true'); } catch (e) {}
     }
 
     const avatarList = ["👤", "🚗", "🚓", "🚕", "🚙", "🚌", "🐶", "🐱", "😎", "👻", "🦸‍♂️", "👮‍♀️"];
