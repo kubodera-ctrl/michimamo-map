@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "dataset_id": "shinagawa-wagmap-aed",
+      "prefecture": "東京都",
+      "municipality": "品川区",
+      "source_name": "品川区 しながわMAP",
+      "dataset_url": "https://www2.wagmap.jp/shinagawa/OpenData?mids=100&pno=1",
+      "resource_url": "https://www2.wagmap.jp/shinagawa/shinagawa/opendatafile/map_100/CSV/opendata_2001.csv",
+      "source_date": null,
+      "license": "CC BY",
+      "allow_relative_address": true
+    }
+  ]
+}
