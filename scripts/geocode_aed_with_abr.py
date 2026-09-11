@@ -58,6 +58,8 @@ def normalize_address(value: str, prefecture: str, municipality: str) -> str:
     value = clean(value).replace(prefecture, "").replace(municipality, "")
     value = re.sub(r"[‐‑‒–—―ー−ｰ－]", "-", value)
     value = re.sub(r"\s+", "", value)
+    value = re.sub(r"([〇一二三四五六七八九十]+)丁目",
+                   lambda match: japanese_number(match.group(1)) + "-", value)
     value = re.sub(r"([0-9]+)丁目", r"\1-", value)
     value = re.sub(r"([0-9]+)番地?", r"\1-", value)
     value = re.sub(r"([0-9]+)号", r"\1", value)
