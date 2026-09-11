@@ -1,0 +1,92 @@
+{
+  "千代田区": {
+    "organization": "t131016",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131016&rows=50",
+    "count": 0,
+    "results": []
+  },
+  "世田谷区": {
+    "organization": "t131121",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131121&rows=50",
+    "count": 0,
+    "results": []
+  },
+  "渋谷区": {
+    "organization": "t131130",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131130&rows=50",
+    "count": 0,
+    "results": []
+  },
+  "北区": {
+    "organization": "t131172",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131172&rows=50",
+    "count": 1,
+    "results": [
+      {
+        "id": "5becac37-c155-476c-9a92-4283bccb71e8",
+        "name": "t131172d0000000002",
+        "title": "AED設置場所一覧",
+        "notes": "【北区】北区が設置するAEDの一覧です。",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2025-12-12T08:44:47.928049",
+        "url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
+        "resources": [
+          {
+            "id": "779af66a-5d2e-4ad4-9844-853206cfe0a6",
+            "name": "AED設置場所一覧",
+            "format": "XLSX",
+            "url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/open_aed-1.xlsx",
+            "last_modified": "2020-03-09T15:00:00",
+            "created": "2020-03-09T15:00:00"
+          }
+        ]
+      }
+    ]
+  },
+  "荒川区": {
+    "organization": "t131181",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131181&rows=50",
+    "count": 0,
+    "results": []
+  },
+  "板橋区": {
+    "organization": "t131199",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131199&rows=50",
+    "count": 1,
+    "results": [
+      {
+        "id": "db052ec7-a7af-46cf-814b-9251b49ec2c8",
+        "name": "t131199d0000006098",
+        "title": "自治体標準オープンデータセット",
+        "notes": "",
+        "license_id": "CC-BY-4.0",
+        "license_title": "クリエイティブ・コモンズ 表示（CC BY）",
+        "metadata_modified": "2026-03-05T08:24:23.662025",
+        "url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
+        "resources": [
+          {
+            "id": "f1dd4256-5786-4339-a24f-5a03b3a1f231",
+            "name": "AED設置箇所一覧（自治体標準オープンデータセット)",
+            "format": "CSV",
+            "url": "https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/031/246/attach_89546_01.csv",
+            "last_modified": null,
+            "created": "2026-03-04T13:07:53.723671"
+          }
+        ]
+      }
+    ]
+  },
+  "足立区": {
+    "organization": "t131211",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131211&rows=50",
+    "count": 0,
+    "results": []
+  },
+  "葛飾区": {
+    "organization": "t131229",
+    "query_url": "https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search?q=AED&fq=organization%3At131229&rows=50",
+    "count": 0,
+    "results": []
+  }
+}
