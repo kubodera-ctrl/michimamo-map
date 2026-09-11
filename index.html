@@ -3288,9 +3288,20 @@ function shareSpot(title, address, category, event) {
             root.style.width = outer + 'px';
             root.style.maxWidth = outer + 'px';
             // Force the rendered CSS viewport back to the physical phone width.
-            root.style.zoom = String(1 / scale);
+            var zoomFactor = 1 / scale;
+            root.style.zoom = String(zoomFactor);
             root.style.overflow = 'hidden';
             body.style.overflow = 'hidden';
+
+            // CSS zoom also magnifies the layout height. Counter it so the fixed bottom nav
+            // still fits inside the visible iPhone viewport instead of being pushed below screen.
+            var visibleVh = 100 / zoomFactor;
+            root.style.height = visibleVh + 'dvh';
+            body.style.height = visibleVh + 'dvh';
+            app.style.height = visibleVh + 'dvh';
+            app.style.minHeight = visibleVh + 'dvh';
+            app.style.maxHeight = visibleVh + 'dvh';
+
             // Leaflet needs a size refresh after viewport compensation.
             setTimeout(function () {
                 try { if (window.map && typeof window.map.invalidateSize === 'function') window.map.invalidateSize(true); } catch (e) {}
@@ -3300,13 +3311,18 @@ function shareSpot(title, address, category, event) {
             root.style.zoom = '';
             root.style.width = '';
             root.style.maxWidth = '';
+            root.style.height = '';
             if (body) {
                 body.style.width = '';
                 body.style.maxWidth = '';
+                body.style.height = '';
             }
             if (app) {
                 app.style.width = '';
                 app.style.maxWidth = '';
+                app.style.height = '';
+                app.style.minHeight = '';
+                app.style.maxHeight = '';
             }
         }
     }
