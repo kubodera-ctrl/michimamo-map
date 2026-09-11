@@ -1,0 +1,31 @@
+name: Inspect Setagaya Open Data List
+
+on:
+  push:
+    paths:
+      - ".github/workflows/inspect_setagaya_open_data_list.yml"
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch and inspect current open-data catalog CSV
+        run: |
+          curl -L --fail --max-time 60 -sS "https://www.city.setagaya.lg.jp/documents/22308/06_131121_open_data_list.csv" -o /tmp/list.csv
+          echo "bytes=$(wc -c </tmp/list.csv)"
+          file /tmp/list.csv
+          python - <<'PY'
+          from pathlib import Path
+          b=Path('/tmp/list.csv').read_bytes()
+          for enc in ('utf-8-sig','cp932','shift_jis','utf-16'):
+              try:
+                  t=b.decode(enc)
+                  if 'AED' in t or 'ＡＥＤ' in t:
+                      print('ENC',enc)
+                      for line in t.splitlines():
+                          if 'AED' in line or 'ＡＥＤ' in line:
+                              print(line)
+                      break
+              except Exception: pass
+          PY
