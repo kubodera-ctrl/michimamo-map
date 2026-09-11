@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "dataset_id": "itabashi-standard-aed",
+      "municipality": "板橋区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
+      "landing_url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
+      "link_text_contains": "AED設置箇所一覧",
+      "source_name": "板橋区オープンデータ",
+      "source_date": "2026-03-31",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "kita-aed",
+      "municipality": "北区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
+      "landing_url": "https://www.city.kita.lg.jp/city-information/disclosure/1014461.html",
+      "link_text_contains": "AED設置場所一覧",
+      "source_name": "北区オープンデータ",
+      "source_date": "2025-12-12",
+      "license": "CC BY 4.0"
+    }
+  ]
+}
