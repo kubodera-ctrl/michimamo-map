@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=AED",
+  "data": {
+    "type": "FeatureCollection",
+    "features": [],
+    "timestamp": "2026-09-11T23:17:24.601Z",
+    "numberMatched": 0,
+    "numberReturned": 0,
+    "links": [
+      {
+        "rel": "self",
+        "type": "application/geo+json",
+        "title": "This document as GeoJSON",
+        "href": "https://hub.arcgis.com/api/search/v1/collections/all/items"
+      },
+      {
+        "rel": "collection",
+        "type": "application/json",
+        "title": "All",
+        "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+      }
+    ]
+  }
+}
