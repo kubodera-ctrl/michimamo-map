@@ -1,0 +1,29 @@
+{
+  "generated_rows": 719,
+  "sources": [
+    {
+      "dataset_id": "t131059d0000000002",
+      "municipality": "文京区",
+      "resource_url": "https://www.city.bunkyo.lg.jp/documents/6059/aedsettikasyoitiran.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "a6e87ff1838720e1cb52fad8e38c6c8c86b2b904250852d6ecdf8a1ba23f7045",
+      "parsed_rows": 262,
+      "generated_rows": 242,
+      "duplicate_rows": 20
+    },
+    {
+      "dataset_id": "t131067d0000000244",
+      "municipality": "台東区",
+      "resource_url": "https://www.city.taito.lg.jp/kusei/online/opendata/seikatu/shisethutizujouhou.files/20250314_AED_settikasho.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "b1b622d092a0f1414e9d1241b92892d169bcd6b31ea1238f0d82932acfd9417c",
+      "parsed_rows": 481,
+      "generated_rows": 477,
+      "duplicate_rows": 4
+    }
+  ]
+}
