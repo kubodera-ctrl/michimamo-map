@@ -1,0 +1,18 @@
+{
+  "municipality": "大田区",
+  "source_rows": 468,
+  "generated_rows": 466,
+  "match_counts": {
+    "ABR街区代表点": 48,
+    "ABR住居座標": 418,
+    "unmatched": 1,
+    "duplicate": 1
+  },
+  "unmatched": [
+    {
+      "name": "大田区立大森南四丁目工場アパート",
+      "address": "大森南四丁目16番15号"
+    }
+  ],
+  "abr_dataset": "アドレス・ベース・レジストリ（デジタル庁）"
+}
