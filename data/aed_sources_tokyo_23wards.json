@@ -79,6 +79,16 @@
       "source_name": "杉並区オープンデータ",
       "source_date": "2025-09-01",
       "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131148d0000000111",
+      "municipality": "中野区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000111",
+      "resource_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_38/CSV/opendata_550010.csv",
+      "source_name": "中野区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
     }
   ]
 }
