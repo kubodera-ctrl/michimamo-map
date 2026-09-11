@@ -5,6 +5,7 @@ on:
     paths:
       - "data/tokyo_aed_abrg_batch1.json"
       - "scripts/geocode_aed_abrg.py"
+      - "scripts/geocode_with_geolonia.mjs"
       - ".github/workflows/tokyo_aed_abrg_batch1.yml"
   workflow_dispatch:
 
@@ -24,9 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          npm install -g @digital-go-jp/abr-geocoder
-      - name: Download Tokyo ABR data
-        run: abrg download -c 131172 131199 --silent
+          npm install @geolonia/normalize-japanese-addresses@3.1.3
       - name: Generate seed
         run: |
           python scripts/geocode_aed_abrg.py             --manifest data/tokyo_aed_abrg_batch1.json             --output-sql supabase/migrations/20260912_kita_itabashi_aed_seed.sql             --output-report data/import_reports/20260912_kita_itabashi_aed.json
