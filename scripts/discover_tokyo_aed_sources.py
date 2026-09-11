@@ -17,7 +17,7 @@ BASE="https://catalog.data.metro.tokyo.lg.jp/api/3/action/package_search"
 
 out={}
 for muni, org in ORGS.items():
-    params=urllib.parse.urlencode({"q":"AED","fq":f"organization:{org}","rows":50})
+    params=urllib.parse.urlencode({"fq":f"organization:{org}","rows":500})
     url=BASE+"?"+params
     req=urllib.request.Request(url,headers={"User-Agent":"machimamo-map-aed-discovery/1.0"})
     try:
@@ -25,6 +25,12 @@ for muni, org in ORGS.items():
             data=json.load(r)
         results=[]
         for pkg in data.get("result",{}).get("results",[]):
+            blob = " ".join([
+                str(pkg.get("title") or ""), str(pkg.get("notes") or ""),
+                " ".join(str(res.get("name") or "") + " " + str(res.get("url") or "") for res in pkg.get("resources",[]))
+            ])
+            if not any(key in blob for key in ("AED","ＡＥＤ","aed","自治体標準オープンデータセット","標準オープンデータ")):
+                continue
             results.append({
                 "id":pkg.get("id"),
                 "name":pkg.get("name"),
