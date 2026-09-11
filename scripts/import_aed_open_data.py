@@ -191,6 +191,10 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         "outside_municipality": outside_municipality,
         "sha256": hashlib.sha256(payload).hexdigest(),
     }
+    if not rows and reader:
+        report["detected_columns"] = list(reader[0].keys())
+        report["sample_row"] = {str(k): normalized(v)[:120] for k, v in reader[0].items()}
+        print(f"diagnostic={source['municipality']} columns={report['detected_columns']} sample={report['sample_row']}", flush=True)
     return rows, report
 
 
