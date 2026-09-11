@@ -211,7 +211,7 @@
                 position: absolute;
                 top: 47px;
                 left: 0;
-                width: min(230px, calc(100vw - 20px));
+                width: min(160px, calc(100vw - 20px));
                 max-width: none;
                 max-height: 0;
                 padding: 0;
@@ -221,23 +221,22 @@
                 overflow: hidden;
                 white-space: normal;
                 opacity: 0;
-                background: rgba(255,255,255,.97);
-                border: 0 solid #dbe3ec;
-                border-radius: 16px;
-                box-shadow: 0 12px 30px rgba(15,23,42,.2);
-                transition: max-height .25s ease, opacity .2s ease, padding .25s ease, border-width .25s ease;
+                background: transparent;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                transition: max-height .25s ease, opacity .2s ease;
             }
             .filter-wrapper.open .filter-content {
                 max-width: none;
                 max-height: min(60vh, 520px);
-                padding: 10px;
-                border-width: 1px;
+                padding: 0;
                 overflow-y: auto;
                 opacity: 1;
                 pointer-events: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            .filter-content .filter-chip { width: 100%; justify-content: flex-start; box-shadow: none; }
+            .filter-content .filter-chip { width: 100%; justify-content: flex-start; box-shadow: 0 2px 7px rgba(15,23,42,.18); }
             .filter-tutorial { top: 118px; left: 12px; right: 12px; max-width: 410px; padding: 16px; }
             .filter-tutorial-title { font-size: 16px; }
             .filter-tutorial p { font-size: 14px; line-height: 1.6; }
