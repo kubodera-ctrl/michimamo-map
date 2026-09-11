@@ -1,0 +1,36 @@
+name: Import Edogawa AED
+
+on:
+  push:
+    paths:
+      - "data/edogawa_aed_source.json"
+      - "scripts/import_aed_open_data.py"
+      - ".github/workflows/edogawa_aed_import.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - name: Build Edogawa AED seed
+        run: |
+          python scripts/import_aed_open_data.py \
+            --manifest data/edogawa_aed_source.json \
+            --output-sql supabase/migrations/20260912_edogawa_aed_seed.sql \
+            --output-report data/import_reports/20260912_edogawa_aed.json
+      - name: Commit generated seed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/migrations/20260912_edogawa_aed_seed.sql data/import_reports/20260912_edogawa_aed.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Generate Edogawa AED seed"
+          git push
