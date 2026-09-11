@@ -1,0 +1,17 @@
+{
+  "generated_rows": 436,
+  "sources": [
+    {
+      "dataset_id": "shinagawa-wagmap-aed",
+      "municipality": "品川区",
+      "resource_url": "https://www2.wagmap.jp/shinagawa/shinagawa/opendatafile/map_100/CSV/opendata_2001.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "be6d4d5087890895c02ed589ce3ee6799b5886ea9ae43cfde27ca0a00bc9be11",
+      "parsed_rows": 436,
+      "generated_rows": 436,
+      "duplicate_rows": 0
+    }
+  ]
+}
