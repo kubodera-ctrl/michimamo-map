@@ -1,0 +1,21 @@
+name: Test ABR Chiyoda Download
+
+on:
+  push:
+    paths:
+      - ".github/workflows/test_abr_chiyoda.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Install ABR geocoder 2.3.1
+        run: npm install -g @digital-go-jp/abr-geocoder@2.3.1
+      - name: Show version
+        run: abrg --help | head -30
+      - name: Download Chiyoda only
+        run: time abrg download -c 131016 --silent --debug
