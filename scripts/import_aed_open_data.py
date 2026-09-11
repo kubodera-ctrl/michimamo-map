@@ -41,6 +41,8 @@ def first_value(row: dict[str, str], candidates: tuple[str, ...]) -> str:
 
 
 def decode_csv(payload: bytes) -> str:
+    if payload.startswith((b'\xff\xfe', b'\xfe\xff')):
+        return payload.decode('utf-16')
     for encoding in ("utf-8-sig", "cp932"):
         try:
             return payload.decode(encoding)
@@ -60,15 +62,27 @@ def source_key(dataset_id: str, municipality: str, name: str, address: str) -> s
     return f"municipal-open-data:{dataset_id}:{digest}"
 
 
-def parse_source(source: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    text = decode_csv(fetch(source["resource_url"]))
+def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    payload = (input_dir / (source['dataset_id'] + '.csv')).read_bytes() if input_dir else fetch(source["resource_url"])
+    text = decode_csv(payload)
     reader = csv.DictReader(io.StringIO(text))
     rows: list[dict[str, Any]] = []
     skipped = 0
+    restricted = 0
+    outside_municipality = 0
 
     for raw in reader:
+        restriction = first_value(raw, ('外部利用不可',))
+        if restriction and restriction.lower() not in ('0', 'false', 'なし', '無'):
+            restricted += 1
+            continue
         name = first_value(raw, NAME_FIELDS)
         address = first_value(raw, ADDRESS_FIELDS)
+        # A ward may also publish its holiday homes in other prefectures.
+        # Keep this batch limited to addresses explicitly within the source ward.
+        if not (address.startswith(source['municipality']) or address.startswith(source['prefecture'] + source['municipality'])):
+            outside_municipality += 1
+            continue
         latitude_raw = first_value(raw, LATITUDE_FIELDS)
         longitude_raw = first_value(raw, LONGITUDE_FIELDS)
         phone = first_value(raw, PHONE_FIELDS) or None
@@ -98,6 +112,9 @@ def parse_source(source: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str
         "resource_url": source["resource_url"],
         "imported": len(rows),
         "skipped": skipped,
+        "restricted": restricted,
+        "outside_municipality": outside_municipality,
+        "sha256": hashlib.sha256(payload).hexdigest(),
     }
     return rows, report
 
@@ -107,6 +124,7 @@ def main() -> None:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--output-sql", type=Path, required=True)
     parser.add_argument("--output-report", type=Path, required=True)
+    parser.add_argument("--input-dir", type=Path, help="Use downloaded source files named <dataset_id>.csv")
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
@@ -117,7 +135,7 @@ def main() -> None:
     for source in manifest["sources"]:
         print(f"fetching={source['municipality']}", flush=True)
         try:
-            rows, report = parse_source(source)
+            rows, report = parse_source(source, args.input_dir)
         except Exception as error:
             reports.append({
                 "dataset_id": source["dataset_id"],
@@ -130,11 +148,16 @@ def main() -> None:
             print(f"failed={source['municipality']} error={type(error).__name__}", flush=True)
             continue
         reports.append(report)
+        report['parsed_rows'] = report.pop('imported')
+        report['generated_rows'] = 0
+        report['duplicate_rows'] = 0
         print(f"parsed={source['municipality']} rows={len(rows)}", flush=True)
         for row in rows:
             if row["source_key"] in seen:
+                report['duplicate_rows'] += 1
                 continue
             seen.add(row["source_key"])
+            report['generated_rows'] += 1
             values.append("(" + ",".join([
                 sql_text(row["source_key"]), sql_text("aed"), sql_text(row["name"]),
                 sql_text(source["prefecture"]), sql_text(source["municipality"]),
