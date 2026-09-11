@@ -52,6 +52,19 @@
       "source_name": "葛飾区公式AED設置施設一覧",
       "source_date": "2026-01",
       "license": "葛飾区ホームページ利用条件"
+    },
+    {
+      "dataset_id": "arakawa-aed-stores-20260601",
+      "municipality": "荒川区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.arakawa.tokyo.jp/a013/anzen/kyuukyuu/aedsetchi.html",
+      "resource_url": "https://www.city.arakawa.tokyo.jp/documents/612/aed_all_0604.pdf",
+      "source_type": "pdf_table",
+      "name_col": 0,
+      "address_col": 1,
+      "source_name": "荒川区公式AED設置店舗一覧",
+      "source_date": "2026-06-01",
+      "license": "荒川区ホームページ利用条件"
     }
   ]
 }
