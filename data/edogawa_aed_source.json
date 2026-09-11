@@ -9,7 +9,8 @@
       "link_text_contains": "AED（CSV",
       "source_name": "江戸川区オープンデータ",
       "source_date": "2025-03-18",
-      "license": "江戸川区オープンデータ利用条件"
+      "license": "江戸川区オープンデータ利用条件",
+      "allow_relative_address": true
     }
   ]
 }
