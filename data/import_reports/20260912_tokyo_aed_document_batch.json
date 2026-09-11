@@ -1,0 +1,58 @@
+{
+  "generated_rows": 230,
+  "sources": [
+    {
+      "dataset_id": "chiyoda-official-aed-20241001",
+      "municipality": "千代田区",
+      "resource_url": "https://www.city.chiyoda.lg.jp/koho/kurashi/bosai/bosai-taisaku/taisei/aed.html",
+      "extracted_rows": 157,
+      "unique_rows": 157,
+      "generated_rows": 153,
+      "outside_municipality": 4,
+      "unmatched_count": 0,
+      "match_levels": {
+        "3": 59,
+        "8": 94
+      },
+      "unmatched": [],
+      "sha256": "bdfc1f118cc6fa0d47d321dc2952e27de92d93a0c1884daede3a697021e99c55"
+    },
+    {
+      "dataset_id": "setagaya-official-aed-20240831",
+      "municipality": "世田谷区",
+      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf",
+      "generated_rows": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "dataset_id": "adachi-official-aed-list",
+      "municipality": "足立区",
+      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/aedsettibasyo.pdf",
+      "generated_rows": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "dataset_id": "katsushika-official-aed-202601",
+      "municipality": "葛飾区",
+      "resource_url": "https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed8.1.30.pdf",
+      "generated_rows": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "dataset_id": "arakawa-aed-stores-20260601",
+      "municipality": "荒川区",
+      "resource_url": "https://www.city.arakawa.tokyo.jp/documents/612/aed_all_0604.pdf",
+      "extracted_rows": 77,
+      "unique_rows": 77,
+      "generated_rows": 77,
+      "outside_municipality": 0,
+      "unmatched_count": 0,
+      "match_levels": {
+        "8": 70,
+        "3": 7
+      },
+      "unmatched": [],
+      "sha256": "133cf2144c705bd010135b9378488e91c7419e089a069bc710be552f75661aa0"
+    }
+  ]
+}
