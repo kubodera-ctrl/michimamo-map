@@ -1,24 +1,1905 @@
 {
-  "status": 200,
-  "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=AED",
-  "data": {
-    "type": "FeatureCollection",
-    "features": [],
-    "timestamp": "2026-09-11T23:17:24.601Z",
-    "numberMatched": 0,
-    "numberReturned": 0,
-    "links": [
+  "None": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100",
+    "matched": 54,
+    "returned": 54,
+    "items": [
       {
-        "rel": "self",
-        "type": "application/geo+json",
-        "title": "This document as GeoJSON",
-        "href": "https://hub.arcgis.com/api/search/v1/collections/all/items"
+        "id": "8e5c48efa34e4b93bde5ec3e682b234b",
+        "title": "おでかけひろば・ほっとステイ一覧",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/%E3%81%8A%E3%81%A7%E3%81%8B%E3%81%91%E3%81%B2%E3%82%8D%E3%81%B0%E3%83%BB%E3%81%BB%E3%81%A3%E3%81%A8%E3%82%B9%E3%83%86%E3%82%A4%E4%B8%80%E8%A6%A7/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設",
+          "子育て支援"
+        ],
+        "description": "",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/8e5c48efa34e4b93bde5ec3e682b234b"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
       },
       {
-        "rel": "collection",
-        "type": "application/json",
-        "title": "All",
-        "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+        "id": "ec503f5d79ff47c8bdbe1821578bb722",
+        "title": "53_AccessibleToilet_PublicFacilities",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/53_AccessibleToilet_PublicFacilities/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          " 世田谷区",
+          " オープンデータ",
+          " Tokyo",
+          " Setagaya",
+          " OpenData",
+          " 保健・福祉"
+        ],
+        "description": "<p>世田谷区の車椅子使用者用トイレ等がある公共施設の情報です。&nbsp;<br />お問い合わせ先　都市デザイン課　（電話03-6432-7152　ファクシミリ03-6432-7996）<br />地図上のデータは令和８年５月２２日時点の情報を掲載しています。<br />フィールド名の説明は以下の通りです。<br />SAFIELD003：施設種別<br />SAFIELD004：施設名称<br />SAFIELD005：所在地<br />SAFIELD006：車椅子対応<br />SAFIELD007：オスメイト対応<br />SAFIELD008：ベビーチェア<br />SAFIELD009：おむつ交換台（ベビーベッド等）<br />SAFIELD010：介助用ベッド<br />SAFIELD011：施設ホームページURL<br />SAFIELD012：備考<br />※フィールド名「OBJECTID」の番号については、せたがやiMapで表示している「No.」とは異なります。</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/ec503f5d79ff47c8bdbe1821578bb722"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "5be465b7c2a24ce3862d96f96db4e52f",
+        "title": "57_AccessibleToilet_NATURAL_LOWSON",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/57_AccessibleToilet_NATURAL_LOWSON/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "保健・福祉"
+        ],
+        "description": "世田谷区の車椅子使用者用トイレ等があるコンビニエンスストア、ナチュラルローソンの情報です。<div>お問い合わせ先　都市デザイン課　（電話03-6432-7152　ファクシミリ03-6432-7996）</div><div>地図上のデータは令和６年４月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：店名 </div><div>SAFIELD004：用途 </div><div>SAFIELD005：種別 </div><div>SAFIELD006：所在地</div><div>SAFIELD008：車椅子対応<br /></div><div>SAFIELD009：オストメイト対応 </div><div>SAFIELD010：おむつ交換台（ベビーベッド等）</div><div>SAFIELD011：ベビーチェア</div><div>SAFIELD012：営業時間</div><div>※フィールド名「OBJECTID」の番号については、せたがやiMapで表示している「No.」とは異なります。</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/5be465b7c2a24ce3862d96f96db4e52f"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "1da2858b03074588bc6b112a28fdda8d",
+        "title": "16_library",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/16_library/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の図書館です。 <div>データの最終更新日：令和5年7月18日 </div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称 </div><div>SAFIELD001：大分類 </div><div>SAFIELD002：小分類 </div><div>SAFIELD003：住所 </div><div>SAFIELD004：備考 </div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/1da2858b03074588bc6b112a28fdda8d"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "f2d05a6f2c3b466991f18a37c8e99fdb",
+        "title": "03_sports",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/03_sports/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "観光スポット",
+          "スポーツ"
+        ],
+        "description": "<div>観光スポット　世田谷区の運動場、体育館、プールの情報です。</div><div>お問い合わせ先　産業連携交流推進課（電話03-3411-6644 ファクシミリ03-3411-6635）</div><div>データの最終更新日：令和５年２月８日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：ＵＲＬ</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/f2d05a6f2c3b466991f18a37c8e99fdb"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "ee92af6cdf5646d2ba8dadb90b0a8874",
+        "title": "25_archeology",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/25_archeology/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "考古資料"
+        ],
+        "description": "世田谷区で文化財として指定されている考古資料のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/ee92af6cdf5646d2ba8dadb90b0a8874"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "3711249de00a49949210076416b4978e",
+        "title": "52_SmokingCessationClinic",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/52_SmokingCessationClinic/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "保健・福祉",
+          "世田谷区"
+        ],
+        "description": "<p>世田谷区の禁煙治療医療機関です。<br />お問い合わせ先：世田谷保健所健康企画課（電話03-5432-2354　ファクシミリ03-5432-3022）<br />データの最終更新日：令和8年4月28日<br />フィールド名の説明は以下の通りです。<br />SAFIELD002：医療機関名称<br />SAFIELD003：住所<br />SAFIELD004：建物名・階数<br />SAFIELD005：電話番号<br />SAFIELD006：備考 Windows7やFirefox等を使用してシェープファイルをダウンロードするとファイル名が文字化けする場合があります。<br />詳細はシェープファイル名の文字化けについてをご覧下さい。</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/3711249de00a49949210076416b4978e"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "e1141e9109474b14a0523fa7f8bdb653",
+        "title": "49_fireExtinguisher_Tamagawa",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/49_fireExtinguisher_Tamagawa/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          " 世田谷区",
+          " オープンデータ",
+          " Tokyo",
+          " Setagaya",
+          " OpenData",
+          " 街路消火器",
+          " 防災情報"
+        ],
+        "description": "<p>世田谷区の街路消火器（玉川地域）です。</p><p>お問い合わせ先　玉川総合支所地域振興課地域振興・防災担当</p><p>電話03-3702-1603　ファクシミリ03-3702-0942</p><p>データの最終更新日：令和8年2月4日</p><p>フィールド名の説明は以下の通りです。</p><p>SAFIELD004：所在場所</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/e1141e9109474b14a0523fa7f8bdb653"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "5b437b473fc3497c8d15db490f069c3e",
+        "title": "56_AccessibleToilet_7eleven",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/56_AccessibleToilet_7eleven/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "保健・福祉"
+        ],
+        "description": "世田谷区の車椅子使用者用トイレ等があるコンビニエンスストア、セブンイレブンの情報です。 <div>お問い合わせ先　都市デザイン課　（電話03-6432-7152　ファクシミリ03-6432-7996） </div><div>データの最終更新日：令和６年４月１日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD002：店名 </div><div>SAFIELD004：用途 </div><div>SAFIELD005：種別</div><div>SAFIELD006：所在地  </div><div>SAFIELD007：車椅子対応 </div><div>SAFIELD008：ベビーチェア </div><div>SAFIELD009：おむつ交換台（ベビーベッド等）</div><div>SAFIELD010：オストメイト対応 </div><div>SAFIELD011：営業時間 </div><div>※フィールド名「OBJECTID」の番号については、せたがやiMapで表示している「No.」とは異なります。<br /></div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/5b437b473fc3497c8d15db490f069c3e"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "38b4df35ed524945b68a0a289917d270",
+        "title": "17_nurserySchool",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/17_nurserySchool/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<div>世田谷区の保育所です。</div><div>データの最終更新日：令和６年４月２４日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：備考</div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/38b4df35ed524945b68a0a289917d270"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "3a786428f5824df594a3ee6de3219ef3",
+        "title": "68_spare_shelter",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/68_spare_shelter/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "避難所",
+          "避難場所",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の予備避難所です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：避難所名（名称）</div><div>SAFIELD003：所在地</div><div>SAFIELD004：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/3a786428f5824df594a3ee6de3219ef3"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "45d3e871eb3d461fa899965dbac21551",
+        "title": "11_parkCultureSports",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/11_parkCultureSports/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<div>世田谷区の公園、文化・スポーツ関係施設です。</div><div>データの最終更新日：令和５年２月８日</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：備考</div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/45d3e871eb3d461fa899965dbac21551"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "a528329bcd0941ecab722120de179845",
+        "title": "08_school",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/08_school/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<div>世田谷区の学校の情報です。</div><div>データの最終更新日：令和５年２月８日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD002：大分類</div><div>SAFIELD003：小分類</div><div>SAFIELD004：住所</div><div>SAFIELD005：備考</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/a528329bcd0941ecab722120de179845"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "c4ce250e5ccc4e798fe7108525e67ea5",
+        "title": "31_tangibleFolklore",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/31_tangibleFolklore/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "有形民俗"
+        ],
+        "description": "世田谷区で文化財として指定されている有形民俗のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/c4ce250e5ccc4e798fe7108525e67ea5"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "1e27b983eee349f29256060ee96eed6e",
+        "title": "26_historicalSite",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/26_historicalSite/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "史跡"
+        ],
+        "description": "世田谷区で文化財として指定されている史跡のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/1e27b983eee349f29256060ee96eed6e"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "0b204bf72b914096a08429a96c5fcd90",
+        "title": "28_sculpture",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/28_sculpture/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "彫刻"
+        ],
+        "description": "<table border='0' cellpadding='0' cellspacing='0' style='width: 376pt; border-collapse: collapse;' width='501'><tbody><tr height='225' style='height: 168.75pt;'>\n  <td height='225' style='width: 376pt; height: 168.75pt;' width='501'>世田谷区で文化財として指定されている彫刻のある場所です。<br />お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）<br />\n    データの最終更新日：平成28年11月22日<br />\n    フィールド名の説明は以下の通りです。<br />\n    SAFIELD000：名称<br />\n    SAFIELD001：分野<br />\n    SAFIELD002：種別<br />\n    SAFIELD003：住所<br />\n    SAFIELD004：制限事項<br />\n    SAFIELD005：URL<br /></td></tr></tbody></table>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/0b204bf72b914096a08429a96c5fcd90"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "23293eb36e42404cb7b73e50bf4ce16f",
+        "title": "41_childrenPlayCar",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/41_childrenPlayCar/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "子育て支援"
+        ],
+        "description": "世田谷区のプレーカーです。\n    お問い合わせ先　児童課（電話03-5432-2306　ファクシミリ03-5432-3016）\n   \n  遊具を載せた自動車で区立公園に出向き、スタッフが外遊びを通した交流の場を定期的に設けています。地図上でプレーリヤカー・プレーカーが出向く公園を表示しています。\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：所在地\n    SAFIELD002：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/23293eb36e42404cb7b73e50bf4ce16f"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "362695666c8446caa2e75241ffe40314",
+        "title": "47_fireExtinguisher_Setagaya",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/47_fireExtinguisher_Setagaya/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          " 世田谷区",
+          " オープンデータ",
+          " Tokyo",
+          " Setagaya",
+          " OpenData",
+          " 防災情報",
+          " 街路消火器"
+        ],
+        "description": "<p>世田谷区の街路消火器（世田谷地域）です。</p><p>お問い合わせ先　世田谷総合支所地域振興課地域振興・防災担当　</p><p>電話03-5432-2831　ファクシミリ03-5432-3032</p><p>データの最終更新日：令和8年2月4日</p><p>フィールド名の説明は以下の通りです。</p><p>SAFIELD003：所在場所</p><p>SAFIELD004：備考</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/362695666c8446caa2e75241ffe40314"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "4e7c38e11fc0454795f22d7a04c8d800",
+        "title": "62_Municipal_electricity",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/62_Municipal_electricity/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の他自治体の自然エネルギーで発電された電気が供給されている公共施設の情報です。<div> データの最終更新日：令和５年１０月１６日</div><div> フィールド名の説明は以下の通りです。</div><div> SAFIELD003：施設名</div><div> SAFIELD004：住所</div><div> SAFIELD005：分類 </div><div>SAFIELD007：地域</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/4e7c38e11fc0454795f22d7a04c8d800"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "9133460eafc94c59a270125f97695e11",
+        "title": "61_Solar_panel",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/61_Solar_panel/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の太陽光パネルを設置している公共施設の情報です。 <div>データの最終更新日：令和５年１０月１６日 </div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD003：施設名 </div><div>SAFIELD004：住所 </div><div>SAFIELD006：分類 </div><div>SAFIELD008：地域 </div><div>SAFIELD009：備考</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/9133460eafc94c59a270125f97695e11"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "b548b42e9d694790bcca68f850dd5cdd",
+        "title": "70_Disaster_prevention_warehouse_forwidearea",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/70_Disaster_prevention_warehouse_forwidearea/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "防災倉庫",
+          "倉庫",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の広域用防災倉庫です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：倉庫名</div><div>SAFIELD004：所在地</div><div>SAFIELD005：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/b548b42e9d694790bcca68f850dd5cdd"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "f1d212da4cfb42448e56b9531c0d42d4",
+        "title": "33_medicalFirstAidCenter",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/33_medicalFirstAidCenter/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "医療救護所",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の医療救護所です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：施設名</div><div>SAFIELD004：所在地</div><div>SAFIELD005：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/f1d212da4cfb42448e56b9531c0d42d4"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "7202aa7247fa4a9692924be863ba2518",
+        "title": "63_Re_energy_power",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/63_Re_energy_power/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<div>世田谷区の再生可能エネルギー由来の電気が供給されている公共施設の情報です。</div><div>データの最終更新日：令和4年4月26日</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：施設名</div><div>SAFIELD004：住所</div><div>SAFIELD005：分類</div><div>SAFIELD008：地域</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/7202aa7247fa4a9692924be863ba2518"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "a13ad398483f4144b04cff780cad8917",
+        "title": "13_ChildrenHall",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/13_ChildrenHall/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の児童館です。\n    データの最終更新日：令和3年12月8日\n    フィールド名の説明は以下の通りです。 \n    SAFIELD000：名称\n    SAFIELD001：大分類\n    SAFIELD002：小分類\n    SAFIELD003：住所\n    SAFIELD004：備考\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/a13ad398483f4144b04cff780cad8917"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "973b1a6c36cf4116b5052ddbfed2eb03",
+        "title": "22_painting",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/22_painting/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "絵画"
+        ],
+        "description": "世田谷区で文化財として指定されている絵画のある場所です。お問い合わせ先 　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。 SAFIELD000：名称 SAFIELD001：分野 SAFIELD002：種別 SAFIELD003：住所　SAFIELD004：制限事項　SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/973b1a6c36cf4116b5052ddbfed2eb03"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "af073da58f334f9794e88fc1e6dc2d0e",
+        "title": "30_attractions",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/30_attractions/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "名勝",
+          "旧跡",
+          "天然記念物"
+        ],
+        "description": "世田谷区で文化財として指定されている名勝・旧跡・天然記念物のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/af073da58f334f9794e88fc1e6dc2d0e"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "e330334d6a0d4ae0a4ff87a56e3fb4bc",
+        "title": "50_fireExtinguisher_Kinuta",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/50_fireExtinguisher_Kinuta/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          " 世田谷区",
+          " オープンデータ",
+          " Tokyo",
+          " Setagaya",
+          " OpenData",
+          " 防災情報",
+          " 街路消火器"
+        ],
+        "description": "<p>世田谷区の街路消火器（砧地域）です。</p><p>お問い合わせ先　砧総合支所地域振興課地域振興・防災担当</p><p>電話03-3482-2169　ファクシミリ03-3482-165</p><p>データの最終更新日：令和8年2月4日</p><p>フィールド名の説明は以下の通りです。</p><p>SAFIELD002：所在場所</p><p>SAFIELD003：備考</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/e330334d6a0d4ae0a4ff87a56e3fb4bc"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "d47a1420a4b04fd39703c9b736ba7fe0",
+        "title": "20_publicRelationsBoard",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/20_publicRelationsBoard/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "広報板"
+        ],
+        "description": "<p>世田谷区の広報板です。</p><div>データの最終更新日：令和8年1月7日&nbsp;</div><div>&nbsp;フィールド名の説明は以下の通りです。</div><div>&nbsp;SAFIELD000：場所&nbsp;</div><div>&nbsp;SAFIELD001：出張所・まちづくりセンター</div><div>&nbsp;SAFIELD002：広報板番号&nbsp;</div><div>&nbsp;SAFIELD003：町名&nbsp;</div><div>&nbsp;SAFIELD004：番&nbsp;</div><div>&nbsp;SAFIELD005：号</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/d47a1420a4b04fd39703c9b736ba7fe0"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "ca1a698b306b4288aaead267e202d032",
+        "title": "14_bicycleParking",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/14_bicycleParking/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<p>世田谷区の自転車等駐輪場です。<br />データの最終更新日：令和７年１２月１日&nbsp;<br />フィールド名の説明は以下の通りです。&nbsp;<br />SAFIELD000：名称<br />SAFIELD001：大分類<br />SAFIELD002：小分類<br />SAFIELD003：住所<br />SAFIELD004：備考<br />SAFIELD005：URL</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/ca1a698b306b4288aaead267e202d032"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "5222763c74bd4978a31ef3125289b4ed",
+        "title": "18_healthWelfareFacilities",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/18_healthWelfareFacilities/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の保健福祉関係施設です<div>データの最終更新日：令和5年4月26日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：備考</div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/5222763c74bd4978a31ef3125289b4ed"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "bf3d4baa0e5d41f09cc6411d4d0d392e",
+        "title": "65_Tolet_Park",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/65_Tolet_Park/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "保健・福祉"
+        ],
+        "description": "<div>世田谷区のオストメイト対応・おむつ交換台（ベビーベッド等）・ベビーチェア・介助用ベッドのうち1つ以上を設置したトイレがある公園の情報です。</div><div>お問い合わせ先　都市デザイン課　（電話03-6432-7152　ファクシミリ03-6432-7996）</div><div>地図上のデータは令和５年４月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：施設種別</div><div>SAFIELD004：施設名称</div><div>SAFIELD005：所在地</div><div>SAFIELD006：車椅子対応</div><div>SAFIELD007：オストメイト対応</div><div>SAFIELD008：おむつ交換台（ベビーベッド等）</div><div>SAFIELD009：ベビーチェア</div><div>SAFIELD010：介助用ベッド</div><div>※フィールド名「OBJECTID」の番号については、せたがやiMapで表示している「No.」とは異なります。</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/bf3d4baa0e5d41f09cc6411d4d0d392e"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "4d6d9b84e55444c0aec127c927a6eefa",
+        "title": "37_disasterPreventionRadioTower",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/37_disasterPreventionRadioTower/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "防災情報",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "防災無線"
+        ],
+        "description": "世田谷区の防災行政無線塔です。<div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和7年3月3日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：施設名</div><div>SAFIELD004：所在地</div><div>SAFIELD005：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/4d6d9b84e55444c0aec127c927a6eefa"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "3f1db1249f3d499594a5c49bcd9c4a4d",
+        "title": "67_designated_shelter",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/67_designated_shelter/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "避難所",
+          "避難場所",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の指定避難所です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：避難所名（名称）</div><div>SAFIELD003：所在地</div><div>SAFIELD004：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/3f1db1249f3d499594a5c49bcd9c4a4d"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "5ad3789e662b44198b7c986f49be7acf",
+        "title": "66_Widearea_evacuationsite",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/66_Widearea_evacuationsite/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "避難所",
+          "避難場所",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の広域避難場所です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD003：避難場所名</div><div>SAFIELD004：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/5ad3789e662b44198b7c986f49be7acf"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "14508fc446cc45be901e8451f7c32704",
+        "title": "07_cultureHistory",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/07_cultureHistory/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "観光スポット"
+        ],
+        "description": "<div>観光スポット　世田谷区の文化施設、史跡、神社・仏閣の情報です。</div><div>お問い合わせ先　産業連携交流推進課（電話03-3411-6644 ファクシミリ03-3411-6635）</div><div>データの最終更新日：令和５年２月８日</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：ＵＲＬ</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/14508fc446cc45be901e8451f7c32704"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "b4959a3511574f44ad64ef598fbec2a1",
+        "title": "42_childrenPlayCarts",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/42_childrenPlayCarts/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "子育て支援"
+        ],
+        "description": "世田谷区のプレーリヤカーです。\n    お問い合わせ先　児童課（電話03-5432-2306　ファクシミリ03-5432-3016）\n   \n  遊具を載せたリヤカーで区立公園に出向き、スタッフが外遊びを通した交流の場を定期的に設けています。地図上でプレーリヤカー・プレーカーが出向く公園を表示しています。\n    データの最終更新日：令和3年10月21日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：所在地\n    SAFIELD002：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/b4959a3511574f44ad64ef598fbec2a1"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "0a7d7c64582545be910d7ca420a34873",
+        "title": "39_greenRoad",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/39_greenRoad/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "観光スポット",
+          "緑道"
+        ],
+        "description": "<table border='0' cellpadding='0' cellspacing='0' style='width: 376pt; border-collapse: collapse;' width='501'><tbody><tr height='100' style='height: 75pt;'>\n  <td height='100' style='width: 376pt; height: 75pt;' width='501'>観光スポット　世田谷区の緑道の情報です。<br />お問い合わせ先　商業課（電話03-3411-6644 ファクシミリ03-3411-6635）<br />\n    データの最終更新日：平成29年1月11日<br /></td></tr></tbody></table>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/0a7d7c64582545be910d7ca420a34873"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "8124e82e2a3e4b15a5e4e59f0536c67c",
+        "title": "38_culturalProperty2",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/38_culturalProperty2/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "埋蔵文化財",
+          "文化財情報"
+        ],
+        "description": "<div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>世田谷区の埋蔵文化財埋蔵地情報です。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>埋蔵文化財包蔵地情報地図ご利用規約 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・埋蔵文化財包蔵地情報地図は埋蔵文化財包蔵地の概要を表示したものであり、埋蔵文化財包蔵地の内容を証明するものではありません。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・埋蔵文化財包蔵地情報地図は、地図の精度上の誤差を含んでいます。地図の縮尺によっては、埋蔵文化財包蔵地を正確に表示しない場合がありますので、必ず、地図の縮尺を最大（＋）にしてからご確認ください。また、埋蔵文化財包蔵地内か否か判断が難しい場合など、不明な点がありましたら、生涯学習・地域学校連携課文化財係（電話\n  03-5432-2726）までご連絡ください。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・埋蔵文化財包蔵地情報地図は世田谷区が著作権を保有しています。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・この地図情報の世田谷区白地図（地形図）は地図作成時のものであり、最新の情報ではありませんので、現況と異なる場合があります。また、この地図情報は土地の境界や道路の幅員などの道路の形状を示すものではありません。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・埋蔵文化財包蔵地情報は 2018 年（平成 30 年） 4 月 25日時点の情報です。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>・埋蔵文化財包蔵地情報画面に関する問い合わせ先は、生涯学習・地域・学校連携課文化財係（電話 03-5432-2726）です。 </div><div style='text-align: left; color: rgb(76, 76, 76); text-transform: none; text-indent: 0px; letter-spacing: normal; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; word-spacing: 0px; background-color: transparent;'>SAFIELD004：遺跡名称\n    SAFIELD005：遺跡番号\n    SAFIELD006：種別\n    SAFIELD007：時代\n    SAFIELD008：史跡番号\n    SAFIELD009：区分\n    SAFIELD010：史跡名\n    SAFIELD011：登録年月日\n    SAFIELD012：現状変更届</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/8124e82e2a3e4b15a5e4e59f0536c67c"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "4bf2e1c2a499463a86be621aa14f4fe5",
+        "title": "10_policeStation",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/10_policeStation/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の警察署です。\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。 \n    SAFIELD000：名称\n    SAFIELD001：大分類\n    SAFIELD002：小分類\n    SAFIELD003：住所\n    SAFIELD004：備考\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/4bf2e1c2a499463a86be621aa14f4fe5"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "c3123470dc0a4a51995a8c2629b78160",
+        "title": "24_craft",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/24_craft/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "工芸品"
+        ],
+        "description": "世田谷区で文化財として指定されている工芸品のある場所です。お問い合わせ先 生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/c3123470dc0a4a51995a8c2629b78160"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "fbb74067575c478081f3697eabf3a49c",
+        "title": "21_babyFacilities",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/21_babyFacilities/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "子育て支援"
+        ],
+        "description": "<p>世田谷区のかるがもスペース（授乳等希望者対応施設）です。<br />授乳・搾乳専用スペースやカーテン等で仕切られたスペースがある施設のほか、臨時に授乳できる施設など（職員がご案内している施設を含む）を「かるがもスペース」として表示しています。<br />問い合わせは、子ども家庭課（電話：03-5432-2569　ファクシミリ：03-5432-3081）<br />地図上のデータは令和８年４月１日時点の情報を掲載しています。<br />フィールド名の説明は以下の通りです。<br />SAFIELD002：施設名<br />SAFIELD001：区分<br />SAFIELD003：住所<br />SAFIELD004：電話番号<br />SAFIELD006：おむつ替え可否<br />SAFIELD010：おむつ替え設備設置場所<br />SAFIELD011：おむつ替え設備利用方法<br />SAFIELD005：授乳可否<br />SAFIELD012：授乳設備設置場所<br />SAFIELD013：授乳設備利用方法<br />SAFIELD009：搾乳可否<br />SAFIELD014：搾乳設備設置場所<br />SAFIELD015：搾乳設備利用方法<br />SAFIELD016：搾乳機器用電源の有無<br />SAFIELD008：調乳（お湯の提供）の可否<br />SAFIELD007：ベビーベッドの有無</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/fbb74067575c478081f3697eabf3a49c"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "f607da89d11243ffb8c9375004f3a4dd",
+        "title": "48_fireExtinguisher_Kitazawa",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/48_fireExtinguisher_Kitazawa/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "   世田谷区",
+          "   オープンデータ",
+          "   Tokyo",
+          "   Setagaya",
+          "   OpenData",
+          "   街路消火器",
+          "   防災情報"
+        ],
+        "description": "<p>世田谷区の街路消火器（北沢地域）です。&nbsp;</p><p>お問い合わせ先　北沢総合支所地域振興課地域・防災担当　&nbsp;</p><p>電話03-5478-8028　ファクシミリ03-5478-8004&nbsp;</p><p>データの最終更新日：令和8年2月4日&nbsp;</p><p>フィールド名の説明は以下の通りです。</p><p>&nbsp;SAFIELD002：所在場所&nbsp;</p><p>SAFIELD003：備考</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/f607da89d11243ffb8c9375004f3a4dd"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "67bccbdccdc04e1b81f0b27a57e6cae5",
+        "title": "51_fireExtinguisher_Karasuyama",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/51_fireExtinguisher_Karasuyama/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          " 世田谷区",
+          " オープンデータ",
+          " Tokyo",
+          " Setagaya",
+          " OpenData",
+          " 防災情報",
+          " 街路消火器"
+        ],
+        "description": "<p>世田谷区の街路消火器（烏山地域）です。&nbsp;</p><p>お問い合わせ先　烏山総合支所地域振興課地域振興・防災担当&nbsp;</p><p>電話03-3326-9249　ファクシミリ03-3326-1050&nbsp;</p><p>データの最終更新日：令和8年2月4日&nbsp;</p><p>フィールド名の説明は以下の通りです。&nbsp;</p><p>SAFIELD002：所在場所&nbsp;</p><p>SAFIELD003：備考</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/67bccbdccdc04e1b81f0b27a57e6cae5"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "b0a2382980774b8aaffb438300dbecda",
+        "title": "09_lifeFacilities",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/09_lifeFacilities/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の区民生活関係施設です。<div>データの最終更新日：令和6年2月8日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：備考</div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/b0a2382980774b8aaffb438300dbecda"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "045cf83cdbaa4430a75a88d4b6b6be7d",
+        "title": "55_AccessibleToilet_LAWSON",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/55_AccessibleToilet_LAWSON/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "保健・福祉"
+        ],
+        "description": "世田谷区の車椅子使用者用トイレ等があるコンビニエンスストア、ローソンの情報です。<div>お問い合わせ先　都市デザイン課　（電話03-6432-7152　ファクシミリ03-6432-7996）</div><div>地図上のデータは令和６年４月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：店名</div><div> SAFIELD004：用途 </div><div>SAFIELD005：種別 </div><div>SAFIELD006：所在地</div><div>SAFIELD008：車椅子対応 <br /></div><div>SAFIELD009：オストメイト対応</div><div>SAFIELD010：おむつ交換台（ベビーベッド等）</div><div>SAFIELD011：ベビーチェア</div><div>SAFIELD012：営業時間</div><div>※フィールド名「OBJECTID」の番号については、せたがやiMapで表示している「No.」とは異なります。</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/045cf83cdbaa4430a75a88d4b6b6be7d"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "d7068168df684475b0c082f3c6851819",
+        "title": "19_kindergarten",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/19_kindergarten/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "<div>世田谷区の幼稚園です。</div><div>データの最終更新日：令和５年５月２５日 </div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：備考</div><div>SAFIELD005：URL</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/d7068168df684475b0c082f3c6851819"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "46a1921d5ca548ad9ddc06f8b9c04ac6",
+        "title": "69_Welfare_shelter",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/69_Welfare_shelter/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "避難所",
+          "避難場所",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の福祉避難所です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：避難所名（名称）</div><div>SAFIELD003：所在地</div><div>SAFIELD004：分類</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/46a1921d5ca548ad9ddc06f8b9c04ac6"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "539edb752bde442f8830e1be7785ce86",
+        "title": "06_natureAgriculture",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/06_natureAgriculture/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "観光スポット"
+        ],
+        "description": "<div>観光スポット　世田谷区の公園、緑地、緑道、地域風景資産の情報です。</div><div>お問い合わせ先　産業連携交流推進課（電話03-3411-6644 ファクシミリ03-3411-6635）</div><div>データの最終更新日：令和５年２月８日</div><div>フィールド名の説明は以下の通りです。 </div><div>SAFIELD000：名称</div><div>SAFIELD001：大分類</div><div>SAFIELD002：小分類</div><div>SAFIELD003：住所</div><div>SAFIELD004：URL</div><div>SAFIELD005：備考</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/539edb752bde442f8830e1be7785ce86"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "f59ebc32cbe0469ab7cfa39277655284",
+        "title": "35_waterSupplyBase",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/35_waterSupplyBase/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "給水拠点",
+          "防災情報"
+        ],
+        "description": "<div>世田谷区の給水拠点です。</div><div>お問い合わせ先　災害対策課（電話03-5432-2262 ファクシミリ03-5432-3014）</div><div>地図上のデータは令和４年１２月１日時点の情報を掲載しています。</div><div>フィールド名の説明は以下の通りです。</div><div>SAFIELD002：施設名</div><div>SAFIELD003：所在地</div><div>SAFIELD004：分類</div><div>SAFIELD005：備考</div>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/f59ebc32cbe0469ab7cfa39277655284"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "e5b40c9bf8a04e37b0ad70de3fe0acbf",
+        "title": "32_historicalMaterials",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/32_historicalMaterials/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "歴史資料"
+        ],
+        "description": "世田谷区で文化財として指定されている歴史資料のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD001：名称\n    SAFIELD003：分野\n    SAFIELD004：種別\n    SAFIELD005：住所\n    SAFIELD006：制限事項\n    SAFIELD007：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/e5b40c9bf8a04e37b0ad70de3fe0acbf"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "3ed327643cf048dd8252d909742b18d1",
+        "title": "15_fireStation",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/15_fireStation/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "公共施設"
+        ],
+        "description": "世田谷区の消防署です。\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：大分類\n    SAFIELD002：小分類\n    SAFIELD003：住所\n    SAFIELD004：備考\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/3ed327643cf048dd8252d909742b18d1"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "a63563332e24455482eeccef33be0297",
+        "title": "27_book",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/27_book/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "書籍",
+          "典籍",
+          "古文書"
+        ],
+        "description": "世田谷区で文化財として指定されている書籍・典籍・古文書のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/a63563332e24455482eeccef33be0297"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "96922e7159c84a569cd4ca3f180a678b",
+        "title": "29_intangibleFolklore",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/29_intangibleFolklore/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "無形民俗"
+        ],
+        "description": "世田谷区で文化財として指定されている無形民俗のある場所です。お問い合わせ先　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称\n    SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/96922e7159c84a569cd4ca3f180a678b"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      },
+      {
+        "id": "6f3d22e364354dd7aaf0046289e26b31",
+        "title": "23_building",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/23_building/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "文化財情報",
+          "文化財",
+          "建造物"
+        ],
+        "description": "世田谷区で文化財として指定されている建造物のある場所です。お問い合わせ先 　生涯学習・地域学校連携課 文化財係（電話03-5432-2726 ファクシミリ03-5432-3039）\n    データの最終更新日：令和元年7月1日\n    フィールド名の説明は以下の通りです。\n    SAFIELD000：名称　SAFIELD001：分野\n    SAFIELD002：種別\n    SAFIELD003：住所\n    SAFIELD004：制限事項\n    SAFIELD005：URL",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/6f3d22e364354dd7aaf0046289e26b31"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
+      }
+    ]
+  },
+  "AED": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=AED",
+    "matched": 0,
+    "returned": 0,
+    "items": []
+  },
+  "ＡＥＤ": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=%EF%BC%A1%EF%BC%A5%EF%BC%A4",
+    "matched": 0,
+    "returned": 0,
+    "items": []
+  },
+  "自動体外式除細動器": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=%E8%87%AA%E5%8B%95%E4%BD%93%E5%A4%96%E5%BC%8F%E9%99%A4%E7%B4%B0%E5%8B%95%E5%99%A8",
+    "matched": 0,
+    "returned": 0,
+    "items": []
+  },
+  "救急": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=%E6%95%91%E6%80%A5",
+    "matched": 0,
+    "returned": 0,
+    "items": []
+  },
+  "設置場所": {
+    "status": 200,
+    "url": "https://hub.arcgis.com/api/search/v1/collections/all/items?filter=%28%28group+IN+%283e6b333b00c8490f91688824b40d92e2%29%29%29&limit=100&q=%E8%A8%AD%E7%BD%AE%E5%A0%B4%E6%89%80",
+    "matched": 1,
+    "returned": 1,
+    "items": [
+      {
+        "id": "fbb74067575c478081f3697eabf3a49c",
+        "title": "21_babyFacilities",
+        "type": "Feature Service",
+        "url": "https://services7.arcgis.com/HEXYbKoojU2pCBN0/arcgis/rest/services/21_babyFacilities/FeatureServer",
+        "source": "世田谷区",
+        "owner": "setajosei",
+        "access": "public",
+        "tags": [
+          "東京都",
+          "世田谷区",
+          "オープンデータ",
+          "Tokyo",
+          "Setagaya",
+          "OpenData",
+          "子育て支援"
+        ],
+        "description": "<p>世田谷区のかるがもスペース（授乳等希望者対応施設）です。<br />授乳・搾乳専用スペースやカーテン等で仕切られたスペースがある施設のほか、臨時に授乳できる施設など（職員がご案内している施設を含む）を「かるがもスペース」として表示しています。<br />問い合わせは、子ども家庭課（電話：03-5432-2569　ファクシミリ：03-5432-3081）<br />地図上のデータは令和８年４月１日時点の情報を掲載しています。<br />フィールド名の説明は以下の通りです。<br />SAFIELD002：施設名<br />SAFIELD001：区分<br />SAFIELD003：住所<br />SAFIELD004：電話番号<br />SAFIELD006：おむつ替え可否<br />SAFIELD010：おむつ替え設備設置場所<br />SAFIELD011：おむつ替え設備利用方法<br />SAFIELD005：授乳可否<br />SAFIELD012：授乳設備設置場所<br />SAFIELD013：授乳設備利用方法<br />SAFIELD009：搾乳可否<br />SAFIELD014：搾乳設備設置場所<br />SAFIELD015：搾乳設備利用方法<br />SAFIELD016：搾乳機器用電源の有無<br />SAFIELD008：調乳（お湯の提供）の可否<br />SAFIELD007：ベビーベッドの有無</p>",
+        "links": [
+          {
+            "rel": "self",
+            "type": "application/geo+json",
+            "title": "This document as GeoJSON",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all/items/fbb74067575c478081f3697eabf3a49c"
+          },
+          {
+            "rel": "collection",
+            "type": "application/json",
+            "title": "All",
+            "href": "https://hub.arcgis.com/api/search/v1/collections/all"
+          }
+        ]
       }
     ]
   }
