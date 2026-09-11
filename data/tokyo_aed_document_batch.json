@@ -31,13 +31,13 @@
       "municipality": "足立区",
       "prefecture": "東京都",
       "dataset_url": "https://www.city.adachi.tokyo.jp/bosai/aed.html",
-      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/aedsettibasyo.pdf",
+      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/koukaiyou.pdf",
       "source_type": "pdf_table",
       "name_col": 1,
       "address_col": 2,
       "phone_col": 3,
       "source_name": "足立区公式AED設置場所一覧",
-      "source_date": null,
+      "source_date": "2025-12-21",
       "license": "足立区ホームページ利用条件"
     },
     {
@@ -45,12 +45,12 @@
       "municipality": "葛飾区",
       "prefecture": "東京都",
       "dataset_url": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004904.html",
-      "resource_url": "https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed8.1.30.pdf",
+      "resource_url": "https://www2.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed9.1.pdf",
       "source_type": "pdf_table",
       "name_col": 1,
       "address_col": 2,
       "source_name": "葛飾区公式AED設置施設一覧",
-      "source_date": "2026-01",
+      "source_date": "2026-09",
       "license": "葛飾区ホームページ利用条件"
     },
     {
