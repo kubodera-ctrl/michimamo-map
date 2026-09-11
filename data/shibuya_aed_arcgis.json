@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "dataset_id": "shibuya-131130-aed",
+      "municipality": "渋谷区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.shibuya.tokyo.jp/kusei/tokei_shibuya/kusei/open-data.html",
+      "service_url": "https://services3.arcgis.com/UtdeFTavkHfI94t2/arcgis/rest/services/131130_aed/FeatureServer",
+      "layer_id": 0,
+      "source_name": "渋谷区 SHIBUYA OPEN DATA",
+      "source_date": "2025-05-15",
+      "license": "CC BY 4.0"
+    }
+  ]
+}
