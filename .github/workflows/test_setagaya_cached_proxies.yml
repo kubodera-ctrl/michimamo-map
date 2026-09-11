@@ -1,0 +1,31 @@
+name: Test Setagaya Cached Proxies
+
+on:
+  push:
+    paths:
+      - ".github/workflows/test_setagaya_cached_proxies.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe cached proxy paths
+        shell: bash
+        run: |
+          set +e
+          urls=(
+            "https://honyaku.j-server.com/LUCAISETAG/ns/w1/jaen/https://www.city.setagaya.lg.jp/documents/3038/aedichiran.pdf"
+            "https://www-city-setagaya-lg-jp.translate.goog/documents/3038/aedichiran.pdf?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en"
+            "https://docs.google.com/gview?embedded=1&url=https%3A%2F%2Fwww.city.setagaya.lg.jp%2Fdocuments%2F3038%2Faedichiran.pdf"
+          )
+          i=0
+          for url in "${urls[@]}"; do
+            i=$((i+1))
+            echo "===== $i ====="
+            curl -L --max-time 90 -sS -D /tmp/h "$url" -o "/tmp/out$i"
+            head -15 /tmp/h
+            echo "bytes=$(wc -c < /tmp/out$i)"
+            file "/tmp/out$i"
+            head -c 500 "/tmp/out$i" | strings | head -20
+          done
