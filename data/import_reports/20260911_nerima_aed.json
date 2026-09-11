@@ -1,0 +1,30 @@
+{
+  "municipality": "練馬区",
+  "source_rows": 395,
+  "generated_rows": 377,
+  "match_counts": {
+    "ABR住居座標": 288,
+    "ABR街区代表点": 89,
+    "unmatched": 4,
+    "duplicate": 14
+  },
+  "unmatched": [
+    {
+      "name": "岩井少年自然の家",
+      "address": "千葉県南房総市久枝837"
+    },
+    {
+      "name": "軽井沢少年自然の家",
+      "address": "長野県北佐久郡軽井沢町大字追分1341-1"
+    },
+    {
+      "name": "武石少年自然の家新館",
+      "address": "長野県上田市武石上本入2469"
+    },
+    {
+      "name": "武石少年自然の家本館",
+      "address": "長野県上田市武石上本入2469"
+    }
+  ],
+  "abr_dataset": "アドレス・ベース・レジストリ（デジタル庁）"
+}
