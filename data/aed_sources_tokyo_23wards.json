@@ -89,6 +89,26 @@
       "source_name": "中野区オープンデータ",
       "source_date": null,
       "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131059d0000000002",
+      "municipality": "文京区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131059d0000000002",
+      "resource_url": "https://www.city.bunkyo.lg.jp/documents/6059/aedsettikasyoitiran.csv",
+      "source_name": "文京区オープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "t131067d0000000244",
+      "municipality": "台東区",
+      "prefecture": "東京都",
+      "dataset_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131067d0000000244",
+      "resource_url": "https://www.city.taito.lg.jp/kusei/online/opendata/seikatu/shisethutizujouhou.files/20250314_AED_settikasho.csv",
+      "source_name": "台東区オープンデータ",
+      "source_date": "2025-03-14",
+      "license": "CC BY 4.0"
     }
   ]
 }
