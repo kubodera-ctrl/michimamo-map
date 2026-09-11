@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "dataset_id": "setagaya-aed-open-data",
+      "municipality": "世田谷区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
+      "service_url": "https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/01_AED/FeatureServer",
+      "layer_id": 0,
+      "source_name": "世田谷区GISオープンデータ",
+      "source_date": null,
+      "license": "CC BY 4.0"
+    }
+  ]
+}
