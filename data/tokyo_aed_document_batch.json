@@ -1,0 +1,57 @@
+{
+  "sources": [
+    {
+      "dataset_id": "chiyoda-official-aed-20241001",
+      "municipality": "千代田区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.chiyoda.lg.jp/koho/kurashi/bosai/bosai-taisaku/taisei/aed.html",
+      "resource_url": "https://www.city.chiyoda.lg.jp/koho/kurashi/bosai/bosai-taisaku/taisei/aed.html",
+      "source_type": "html_table",
+      "name_col": 0,
+      "address_col": 1,
+      "source_name": "千代田区公式ホームページ",
+      "source_date": "2024-10-01",
+      "license": "千代田区ホームページ利用条件"
+    },
+    {
+      "dataset_id": "setagaya-official-aed-20240831",
+      "municipality": "世田谷区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
+      "resource_url": "https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf",
+      "source_type": "pdf_table",
+      "name_col": 0,
+      "address_col": 1,
+      "source_name": "世田谷区オープンデータ",
+      "source_date": "2024-08-31",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "adachi-official-aed-list",
+      "municipality": "足立区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.adachi.tokyo.jp/bosai/aed.html",
+      "resource_url": "https://www.city.adachi.tokyo.jp/documents/3016/aedsettibasyo.pdf",
+      "source_type": "pdf_table",
+      "name_col": 1,
+      "address_col": 2,
+      "phone_col": 3,
+      "source_name": "足立区公式AED設置場所一覧",
+      "source_date": null,
+      "license": "足立区ホームページ利用条件"
+    },
+    {
+      "dataset_id": "katsushika-official-aed-202601",
+      "municipality": "葛飾区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004904.html",
+      "resource_url": "https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed8.1.30.pdf",
+      "source_type": "pdf_table",
+      "name_col": 1,
+      "address_col": 2,
+      "source_name": "葛飾区公式AED設置施設一覧",
+      "source_date": "2026-01",
+      "license": "葛飾区ホームページ利用条件"
+    }
+  ]
+}
