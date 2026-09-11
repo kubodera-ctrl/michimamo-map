@@ -13,6 +13,8 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+import openpyxl
+
 
 NAME_FIELDS = ("名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称")
 ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連結表記")
@@ -52,6 +54,21 @@ def decode_csv(payload: bytes) -> str:
     raise ValueError("CSV is neither UTF-8 nor CP932")
 
 
+def read_records(payload: bytes) -> list[dict[str, Any]]:
+    """Read municipal open data even when an XLSX is served from a .csv URL."""
+    if payload.startswith(b"PK\x03\x04"):
+        workbook = openpyxl.load_workbook(io.BytesIO(payload), data_only=True, read_only=True)
+        for sheet in workbook.worksheets:
+            values = sheet.iter_rows(values_only=True)
+            headers = next(values, None)
+            if not headers or not any(headers):
+                continue
+            keys = [normalized(value) for value in headers]
+            return [dict(zip(keys, row)) for row in values if any(value is not None for value in row)]
+        return []
+    return list(csv.DictReader(io.StringIO(decode_csv(payload))))
+
+
 def fetch(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "machimamo-map-open-data-import/1.0"})
     with urllib.request.urlopen(request, timeout=20) as response:
@@ -65,8 +82,7 @@ def source_key(dataset_id: str, municipality: str, name: str, address: str) -> s
 
 def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     payload = (input_dir / (source['dataset_id'] + '.csv')).read_bytes() if input_dir else fetch(source["resource_url"])
-    text = decode_csv(payload)
-    reader = csv.DictReader(io.StringIO(text))
+    reader = read_records(payload)
     rows: list[dict[str, Any]] = []
     skipped = 0
     restricted = 0
