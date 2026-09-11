@@ -3263,49 +3263,58 @@ function shareSpot(title, address, category, event) {
 
 </script>
 
-<script id="viewportDebugScript">
+
+
+<script id="iosViewportCompensation">
 (function () {
-    const isTouchPhone = navigator.maxTouchPoints > 0 && /iPhone|iPod|Android.*Mobile/i.test(navigator.userAgent || '');
-    if (!isTouchPhone) return;
+    function applyFix() {
+        var vv = window.visualViewport;
+        var outer = window.outerWidth || 0;
+        var inner = window.innerWidth || 0;
+        var scale = vv && vv.scale ? vv.scale : 1;
+        var phoneOuter = outer > 0 && outer <= 600;
+        var doubledLayout = inner >= outer * 1.8 && inner <= outer * 2.2;
+        var halfScale = scale >= 0.45 && scale <= 0.55;
+        var root = document.documentElement;
+        var body = document.body;
+        var app = document.getElementById('app');
 
-    let panel = document.getElementById('viewportDebugPanel');
-    if (!panel) {
-        panel = document.createElement('div');
-        panel.id = 'viewportDebugPanel';
-        panel.style.cssText = [
-            'position:fixed','right:6px','top:calc(6px + env(safe-area-inset-top))',
-            'z-index:99999','background:rgba(0,0,0,.82)','color:#fff',
-            'font:700 11px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace',
-            'padding:7px 8px','border-radius:8px','max-width:250px',
-            'pointer-events:none','white-space:pre-wrap','word-break:break-all',
-            'box-shadow:0 2px 8px rgba(0,0,0,.3)'
-        ].join(';');
-        document.body.appendChild(panel);
+        if (phoneOuter && doubledLayout && halfScale && body && app) {
+            root.classList.add('ios-desktop-viewport');
+            body.style.width = outer + 'px';
+            body.style.maxWidth = outer + 'px';
+            app.style.width = outer + 'px';
+            app.style.maxWidth = outer + 'px';
+            root.style.width = outer + 'px';
+            root.style.maxWidth = outer + 'px';
+            // Force the rendered CSS viewport back to the physical phone width.
+            root.style.zoom = String(1 / scale);
+            root.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
+            // Leaflet needs a size refresh after viewport compensation.
+            setTimeout(function () {
+                try { if (window.map && typeof window.map.invalidateSize === 'function') window.map.invalidateSize(true); } catch (e) {}
+            }, 150);
+        } else {
+            root.classList.remove('ios-desktop-viewport');
+            root.style.zoom = '';
+            root.style.width = '';
+            root.style.maxWidth = '';
+            if (body) {
+                body.style.width = '';
+                body.style.maxWidth = '';
+            }
+            if (app) {
+                app.style.width = '';
+                app.style.maxWidth = '';
+            }
+        }
     }
 
-    function n(v) { return Math.round((Number(v) || 0) * 100) / 100; }
-    function update() {
-        const vv = window.visualViewport;
-        const meta = document.querySelector('meta[name="viewport"]');
-        const app = document.getElementById('app');
-        const mq = window.matchMedia ? window.matchMedia('(max-width: 600px)').matches : false;
-        panel.textContent =
-            'VIEWPORT DEBUG\n' +
-            'screen=' + n(screen.width) + 'x' + n(screen.height) + '\n' +
-            'inner=' + n(innerWidth) + ' outer=' + n(outerWidth) + '\n' +
-            'client=' + n(document.documentElement.clientWidth) + '\n' +
-            'visual=' + (vv ? n(vv.width) + ' scale=' + n(vv.scale) : 'n/a') + '\n' +
-            'DPR=' + n(devicePixelRatio) + ' mq600=' + mq + '\n' +
-            'app=' + (app ? n(app.getBoundingClientRect().width) : 'n/a') + '\n' +
-            'meta=' + (meta ? meta.getAttribute('content') : 'none');
-    }
-    update();
-    window.addEventListener('resize', update);
-    window.addEventListener('pageshow', update);
-    if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', update);
-        window.visualViewport.addEventListener('scroll', update);
-    }
+    applyFix();
+    window.addEventListener('pageshow', function () { setTimeout(applyFix, 50); });
+    window.addEventListener('resize', function () { setTimeout(applyFix, 50); });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
 })();
 </script>
 
