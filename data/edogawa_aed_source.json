@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "dataset_id": "edogawa-map-aed",
+      "municipality": "江戸川区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.edogawa.tokyo.jp/e004/kuseijoho/opendata/map_data.html",
+      "landing_url": "https://www.city.edogawa.tokyo.jp/e004/kuseijoho/opendata/map_data.html",
+      "link_text_contains": "AED（CSV",
+      "source_name": "江戸川区オープンデータ",
+      "source_date": "2025-03-18",
+      "license": "江戸川区オープンデータ利用条件"
+    }
+  ]
+}
