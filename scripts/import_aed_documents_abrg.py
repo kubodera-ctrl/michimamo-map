@@ -11,7 +11,7 @@ def norm(v:Any)->str:
     return unicodedata.normalize("NFKC",str(v or "")).replace("\u3000"," ").strip()
 
 def fetch(url:str)->bytes:
-    req=urllib.request.Request(url,headers={"User-Agent":"machimamo-map-aed-doc-import/1.0"})
+    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36","Accept":"application/pdf,text/html,application/xhtml+xml,*/*"})
     with urllib.request.urlopen(req,timeout=60) as r:return r.read()
 
 def html_rows(payload:bytes, source:dict[str,Any])->list[dict[str,str]]:
@@ -97,8 +97,17 @@ def main():
     manifest=json.loads(args.manifest.read_text(encoding="utf-8"))
     values=[];reports=[];seen=set()
     for source in manifest["sources"]:
-        payload=fetch(source["resource_url"])
-        raw=html_rows(payload,source) if source["source_type"]=="html_table" else pdf_rows(payload,source)
+        try:
+            payload=fetch(source["resource_url"])
+            raw=html_rows(payload,source) if source["source_type"]=="html_table" else pdf_rows(payload,source)
+        except Exception as e:
+            reports.append({
+                "dataset_id":source["dataset_id"],"municipality":source["municipality"],
+                "resource_url":source["resource_url"],"generated_rows":0,
+                "error":f"{type(e).__name__}: {e}"
+            })
+            print(f"{source['municipality']} fetch/parse failed: {type(e).__name__}: {e}",flush=True)
+            continue
         # dedupe extracted document rows
         unique=[]; local=set()
         for r in raw:
