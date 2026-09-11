@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "dataset_id": "t131156d0000000204",
+      "municipality": "杉並区",
+      "prefecture": "東京都",
+      "dataset_url": "https://www.city.suginami.tokyo.jp/s045/1474.html",
+      "resource_url": "https://www.city.suginami.tokyo.jp/documents/1474/20260305.csv",
+      "source_name": "杉並区オープンデータ",
+      "source_date": "2026-03-01",
+      "license": "CC BY 4.0"
+    }
+  ]
+}
