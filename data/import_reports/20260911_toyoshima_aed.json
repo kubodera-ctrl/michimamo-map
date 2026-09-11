@@ -1,0 +1,17 @@
+{
+  "generated_rows": 286,
+  "sources": [
+    {
+      "dataset_id": "t131164d0000000001",
+      "municipality": "豊島区",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/toyoshima/R4_aed.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "e9564fc6b0d9252fa112bfe0e8c76b3c1e3b628b5bc8d5d450588e259673d8fd",
+      "parsed_rows": 306,
+      "generated_rows": 286,
+      "duplicate_rows": 20
+    }
+  ]
+}
