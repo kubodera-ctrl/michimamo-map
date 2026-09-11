@@ -1,0 +1,137 @@
+[
+  {
+    "id": "dc02f04286954fd9857df355948d1323",
+    "url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/csv?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/csv?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 92,
+    "head": "{\"message\":\"You do not have permissions to access this resource or perform this operation.\"}"
+  },
+  {
+    "id": "dc02f04286954fd9857df355948d1323",
+    "url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/geojson?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/geojson?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 92,
+    "head": "{\"message\":\"You do not have permissions to access this resource or perform this operation.\"}"
+  },
+  {
+    "id": "dc02f04286954fd9857df355948d1323",
+    "url": "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "status": 500,
+    "final_url": "https://opendata.arcgis.com/api/v3/datasets/dc02f04286954fd9857df355948d1323_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "content_type": "application/json; charset=utf-8",
+    "length": 113,
+    "head": "{\"errors\":{\"message\":\"You do not have permissions to access this resource or perform this operation.\"},\"meta\":{}}"
+  },
+  {
+    "id": "dc02f04286954fd9857df355948d1323",
+    "url": "https://opendata.arcgis.com/datasets/dc02f04286954fd9857df355948d1323_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 92,
+    "head": "{\"message\":\"You do not have permissions to access this resource or perform this operation.\"}"
+  },
+  {
+    "id": "dc02f04286954fd9857df355948d1323",
+    "url": "https://data-setagaya.opendata.arcgis.com/datasets/dc02f04286954fd9857df355948d1323_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/dc02f04286954fd9857df355948d1323/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 92,
+    "head": "{\"message\":\"You do not have permissions to access this resource or perform this operation.\"}"
+  },
+  {
+    "id": "b0f844b4b9994e0b9d60fe9de82a0f98",
+    "url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/csv?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/csv?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "b0f844b4b9994e0b9d60fe9de82a0f98",
+    "url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/geojson?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/geojson?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "b0f844b4b9994e0b9d60fe9de82a0f98",
+    "url": "https://opendata.arcgis.com/api/v3/datasets/b0f844b4b9994e0b9d60fe9de82a0f98_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "status": 500,
+    "final_url": "https://opendata.arcgis.com/api/v3/datasets/b0f844b4b9994e0b9d60fe9de82a0f98_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "content_type": "application/json; charset=utf-8",
+    "length": 87,
+    "head": "{\"errors\":{\"message\":\"Subscription is canceled, the item is not accessible\"},\"meta\":{}}"
+  },
+  {
+    "id": "b0f844b4b9994e0b9d60fe9de82a0f98",
+    "url": "https://opendata.arcgis.com/datasets/b0f844b4b9994e0b9d60fe9de82a0f98_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "b0f844b4b9994e0b9d60fe9de82a0f98",
+    "url": "https://data-setagaya.opendata.arcgis.com/datasets/b0f844b4b9994e0b9d60fe9de82a0f98_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/b0f844b4b9994e0b9d60fe9de82a0f98/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "8b61a9a529a849a5accfa63f081303f6",
+    "url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/csv?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/csv?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "8b61a9a529a849a5accfa63f081303f6",
+    "url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/geojson?layers=0",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/geojson?layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "8b61a9a529a849a5accfa63f081303f6",
+    "url": "https://opendata.arcgis.com/api/v3/datasets/8b61a9a529a849a5accfa63f081303f6_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "status": 500,
+    "final_url": "https://opendata.arcgis.com/api/v3/datasets/8b61a9a529a849a5accfa63f081303f6_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1",
+    "content_type": "application/json; charset=utf-8",
+    "length": 87,
+    "head": "{\"errors\":{\"message\":\"Subscription is canceled, the item is not accessible\"},\"meta\":{}}"
+  },
+  {
+    "id": "8b61a9a529a849a5accfa63f081303f6",
+    "url": "https://opendata.arcgis.com/datasets/8b61a9a529a849a5accfa63f081303f6_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  },
+  {
+    "id": "8b61a9a529a849a5accfa63f081303f6",
+    "url": "https://data-setagaya.opendata.arcgis.com/datasets/8b61a9a529a849a5accfa63f081303f6_0.csv",
+    "status": 403,
+    "final_url": "https://hub.arcgis.com/api/download/v1/items/8b61a9a529a849a5accfa63f081303f6/csv?redirect=true&layers=0",
+    "content_type": "application/json; charset=utf-8",
+    "length": 66,
+    "head": "{\"message\":\"Subscription is canceled, the item is not accessible\"}"
+  }
+]
