@@ -53,16 +53,29 @@ def pdf_rows(payload:bytes, source:dict[str,Any])->list[dict[str,str]]:
                     rows.append({"name":name,"address":address,"phone":phone})
     return rows
 
-def run_abrg(addresses:list[str])->list[dict[str,Any]]:
-    if not addresses:return []
-    proc=subprocess.run(["abrg","-f","json"],input="\n".join(addresses)+"\n",text=True,capture_output=True,timeout=3600)
-    if proc.returncode!=0:
-        raise RuntimeError("ABR geocoder failed: "+proc.stderr[-2000:])
-    out=proc.stdout.strip()
-    if not out: raise RuntimeError("ABR geocoder returned no output")
-    data=json.loads(out)
-    return data if isinstance(data,list) else [data]
-
+def run_abrg(addresses:list[str]) -> list[dict[str,Any]]:
+    if not addresses:
+        return []
+    proc=subprocess.run(
+        ["node","scripts/geocode_with_geolonia.mjs"],
+        input="\n".join(addresses)+"\n",
+        text=True,capture_output=True,timeout=1800
+    )
+    if proc.returncode != 0:
+        raise RuntimeError("Geolonia geocoder failed: " + proc.stderr[-2000:])
+    rows=[]
+    for line in proc.stdout.splitlines():
+        if not line.strip():
+            continue
+        raw=json.loads(line)
+        rows.append({"result":{
+            "city":raw.get("city") or "",
+            "lat":raw.get("lat"),
+            "lon":raw.get("lon"),
+            "match_level":raw.get("level"),
+            "other":(raw.get("town") or "") + (raw.get("addr") or "")
+        }})
+    return rows
 def sql_text(v:str|None)->str:
     return "null" if not v else "'" + v.replace("'","''") + "'"
 
