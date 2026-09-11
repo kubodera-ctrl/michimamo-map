@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>まちまもMAP - 毎日の移動がご褒美に！</title>
+    <meta name="description" content="街の安全情報をみんなで共有し、交通ルールを楽しく学べる、まちまもMAP。">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230ea5e9'/%3E%3Cpath d='M32 10 51 17v14c0 13-8 20-19 25C21 51 13 44 13 31V17z' fill='white'/%3E%3Cpath d='M32 20a9 9 0 0 0-9 9c0 7 9 17 9 17s9-10 9-17a9 9 0 0 0-9-9zm0 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z' fill='%23f59e0b'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* クリーンで親しみやすい、信頼感のあるカラーパレット */
+        :root {
+            --primary: #0ea5e9; /* 爽やかなスカイブルー */
+            --primary-dark: #0369a1;
+            --accent: #f59e0b; /* 優しいオレンジイエロー */
+            --bg-light: #f0f9ff;
+            --text-main: #334155;
+            --text-light: #64748b;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: "Hiragino Rounded W4 JIS2004", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        .app-container { max-width: 480px; margin: 0 auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.05); overflow: hidden; }
+        .text-center { text-align: center; }
+        .fw-bold { font-weight: 900; }
+
+        /* セクション見出し */
+        .section-title { font-size: 1.3rem; font-weight: 900; color: var(--primary-dark); text-align: center; margin-bottom: 25px; line-height: 1.4; }
+        .section-title span { color: var(--accent); }
+        .section-title::after { content: ""; display: block; width: 40px; height: 4px; background: var(--accent); border-radius: 2px; margin: 12px auto 0; }
+
+        /* 1. ヒーローセクション（クリーン＆キャッチー） */
+        .hero { background: var(--bg-light); text-align: center; padding-bottom: 30px; }
+        
+        /* トップ画像エリア */
+        .hero-image-wrapper { width: 100%; height: 240px; position: relative; overflow: hidden; margin-bottom: 25px; }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; }
+        /* 画像の下に波の装飾 */
+        .wave-bottom { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+        .wave-bottom svg { display: block; width: calc(100% + 1.3px); height: 30px; }
+        
+        .hero-content { padding: 0 20px; }
+        .hero-logo { display: inline-block; font-size: 1.1rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 15px; background: #fff; padding: 6px 16px; border-radius: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .hero-catch { font-size: 1.15rem; font-weight: 900; color: var(--text-main); margin-bottom: 8px; line-height: 1.5; }
+        .hero-sub { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1.3; margin-bottom: 20px; }
+        .hero-sub span { color: var(--accent); }
+        
+        .hero-badges { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+        .h-badge { background: #fff; border: 2px solid var(--primary); color: var(--primary-dark); padding: 12px; border-radius: 12px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(14, 165, 233, 0.1); display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        /* 2. 権威性・信憑性セクション（公的データ引用） */
+        .authority-section { background: #f1f5f9; padding: 25px 20px; text-align: center; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .auth-title { font-size: 0.9rem; font-weight: 900; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .auth-text { font-size: 0.75rem; color: var(--text-light); line-height: 1.5; text-align: left; }
+
+        /* 3. タイパ証明（手軽さ） */
+        .action-section { padding: 40px 20px; background: #fff; }
+        .action-card { background: #fff; display: flex; align-items: center; padding: 15px; border-radius: 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; }
+        .action-icon { font-size: 2rem; color: var(--primary); width: 60px; text-align: center; flex-shrink: 0; }
+        .action-text h4 { font-size: 0.95rem; font-weight: 900; color: var(--text-main); margin-bottom: 4px; }
+        .action-text p { font-size: 0.8rem; font-weight: bold; color: var(--text-light); }
+
+        /* 4. なぜ稼げるのか？（ロジック） */
+        .mechanism { padding: 40px 20px; background: var(--bg-light); }
+        .mech-box { background: #fff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.02); margin-bottom: 10px; }
+        .mech-box h4 { color: var(--primary-dark); font-size: 1rem; margin-bottom: 6px; font-weight: 900; }
+        .mech-box p { font-size: 0.8rem; font-weight: bold; color: var(--text-light); }
+        .mech-arrow { font-size: 1.5rem; color: #bae6fd; text-align: center; margin: 5px 0; }
+
+        /* 5. プライバシー保護（クリーンな表現） */
+        .safety-section { padding: 40px 20px; background: #fff; }
+        .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .safety-card { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px 15px; border-radius: 16px; text-align: center; }
+        .safety-card i { font-size: 2rem; color: #22c55e; margin-bottom: 10px; }
+        .safety-card h4 { font-size: 0.9rem; color: #166534; font-weight: 900; margin-bottom: 5px; }
+        .safety-card p { font-size: 0.75rem; color: #15803d; font-weight: bold; }
+
+        /* 6. ユーザーの声 */
+        .voice-section { padding: 40px 20px; background: #f8fafc; }
+        .voice-card { background: #fff; padding: 25px 20px 20px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); position: relative; border-top: 4px solid var(--primary); }
+        .voice-icon { width: 60px; height: 60px; background: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 2rem; position: absolute; top: -30px; left: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid var(--bg-light); }
+        .voice-text { margin-top: 10px; font-size: 0.85rem; font-weight: bold; line-height: 1.7; }
+        .voice-text span { background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 4px; }
+        .voice-meta { text-align: right; font-size: 0.75rem; color: var(--text-light); font-weight: bold; margin-top: 15px; }
+
+        /* 7. ポイント付与に関する注記 */
+        .point-note { background: #fffbeb; border: 1px solid #fde68a; padding: 15px; margin: 0 20px 30px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; color: #92400e; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        /* 8. フッター */
+        .footer { background: #334155; color: #cbd5e1; padding: 30px 20px 40px; font-size: 0.7rem; text-align: justify; }
+
+        /* 親しみやすいCTAボタン */
+        .cta-bottom { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(5px); padding: 12px 20px; padding-bottom: calc(12px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 15px rgba(0,0,0,0.05); z-index: 1000; display: flex; justify-content: center; }
+        .cta-btn { background: var(--accent); color: white; border: none; border-radius: 50px; padding: 15px 20px; width: 100%; max-width: 440px; font-size: 1.1rem; font-weight: 900; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); text-decoration: none; position: relative; }
+        .cta-btn .small-text { font-size: 0.75rem; margin-bottom: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    
+    <!-- 1. ヒーローセクション -->
+    <section class="hero">
+        <!-- トップのアイキャッチ画像（Unsplashの高画質フリー画像を使用） -->
+        <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="街歩きとスマホ" class="hero-image">
+            <div class="wave-bottom">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.3,197.6,110.1,239.38,104.38,280.9,89.5,321.39,56.44Z" fill="#f0f9ff"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-logo"><i class="fa-solid fa-shield-dog" style="color:var(--primary);"></i> まちまもMAP</div>
+            <div class="hero-catch">毎日の「お出かけ」が、<br>社会貢献とお小遣いに！</div>
+            <div class="hero-sub">いつもの移動が<br><span>ご褒美</span>に変わるアプリ</div>
+            
+            <div class="hero-badges">
+                <div class="h-badge"><i class="fa-solid fa-camera" style="color:var(--primary);"></i> 街の危険をパシャッ📷</div>
+                <div class="h-badge"><i class="fa-solid fa-gift" style="color:var(--accent);"></i> 貯まったptでギフトGET🎁</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 権威性と信憑性 -->
+    <section class="authority-section">
+        <h2 class="auth-title"><i class="fa-solid fa-building-shield" style="color:#0369a1;"></i> 確かな情報に基づく社会貢献</h2>
+        <div class="auth-text">
+            まちまもMAPは、<strong>警視庁をはじめとする公的機関の交通安全データ</strong>や公開ニュースを引用・活用しています。正しい情報に基づき、本当に危険な場所をみんなで共有し、解決していく信頼性の高い地域アプリです。
+        </div>
+    </section>
+
+    <!-- 3. タイパ証明（手軽さ） -->
+    <section class="action-section">
+        <h2 class="section-title">どうやってポイントを貯めるの？</h2>
+        
+        <div class="action-card">
+            <div class="action-icon"><i class="fa-solid fa-car-side"></i></div>
+            <div class="action-text">
+                <h4>車に乗る時に</h4>
+                <p>「AIパトロール」をオンにするだけ。</p>
+            </div>
+        </div>
+        
+        <div class="action-card">
+            <div class="action-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <div class="action-text">
+                <h4>見つけたら</h4>
+                <p>危険箇所をワンタップで報告！</p>
+            </div>
+        </div>
+
+        <div class="action-card">
+            <div class="action-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div class="action-text">
+                <h4>ちょっとした待ち時間に</h4>
+                <p>道交法クイズでサクッとポイントGET。</p>
+            </div>
+        </div>
+
+        <div class="action-card">
+            <div class="action-icon"><i class="fa-solid fa-square-parking"></i></div>
+            <div class="action-text">
+                <h4>週末のお出かけに</h4>
+                <p>駐車場をアプリ経由で予約してお得に還元。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. なぜ稼げるのか？（ロジック） -->
+    <section class="mechanism">
+        <h2 class="section-title">ただ移動するだけで<br><span>ポイントがもらえる理由</span></h2>
+        
+        <div class="mech-box">
+            <h4><i class="fa-solid fa-map-location-dot" style="color:var(--primary);"></i> 1. あなたが街の危険を報告</h4>
+            <p>日常の中で見つけた違法駐車などをマップへ送信します。</p>
+        </div>
+        <div class="mech-arrow"><i class="fa-solid fa-caret-down"></i></div>
+        
+        <div class="mech-box">
+            <h4><i class="fa-solid fa-shield-halved" style="color:var(--primary);"></i> 2. 地域の安全データとして大活躍</h4>
+            <p>みんなの報告が合わさり、街の安全向上に役立ちます。</p>
+        </div>
+        <div class="mech-arrow"><i class="fa-solid fa-caret-down"></i></div>
+        
+        <div class="mech-box" style="background:#fffbeb; border:1px solid #fde68a;">
+            <h4 style="color:var(--accent);"><i class="fa-solid fa-gift"></i> 3. 利益をポイントとして還元！</h4>
+            <p>提供してくれた価値を、あなたへしっかりお返しします。</p>
+        </div>
+    </section>
+
+    <!-- 5. プライバシーの保護（不安の払拭） -->
+    <section class="safety-section">
+        <h2 class="section-title" style="font-size:1.15rem;">「でも、報告って<br>トラブルにならない？」</h2>
+        <p class="text-center fw-bold" style="font-size:0.85rem; color:var(--text-light); margin-bottom: 20px;">徹底したプライバシー保護で安心です！</p>
+        
+        <div class="safety-grid">
+            <div class="safety-card">
+                <i class="fa-solid fa-user-shield"></i>
+                <h4>プロフィール非公開</h4>
+                <p>誰が報告したか、他のユーザーには分かりません。</p>
+            </div>
+            <div class="safety-card">
+                <i class="fa-solid fa-robot"></i>
+                <h4>AIモザイク処理</h4>
+                <p>写真のナンバーや顔はAIが自動でモザイク処理します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ユーザーの声 -->
+    <section class="voice-section">
+        <h2 class="section-title">利用ユーザーの声</h2>
+        
+        <div class="voice-card">
+            <div class="voice-icon">👩‍🦰</div>
+            <p class="voice-text">「出かける際に、まちまもの駐車場予約から予約したら<span>ポイントで戻ってくるので、普段よりお得に停めれてます！</span>お財布にも優しくて助かっています。」</p>
+            <div class="voice-meta">30代女性 / 主婦</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👨‍🌾</div>
+            <p class="voice-text">「農家をしており盗難が怖いですが、近隣の仲間内で使い始めてから<span>不審車両の情報を早く知れるようになりました。</span>特徴がわかると警察への相談も明確に伝わるし、ポイントも貯まるのでこれからも活用します！」</p>
+            <div class="voice-meta">40代男性 / 農家</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👵</div>
+            <p class="voice-text">「お散歩中に放置してるバイクがあって、変な人がいたずらしたら嫌だなって思ってましたが、<span>このアプリで投稿したらポイントがもらえたし、放置バイクもなくなって安心しました。</span>」</p>
+            <div class="voice-meta">50代女性 / パート</div>
+        </div>
+
+        <div class="voice-card">
+            <div class="voice-icon">👩‍🎓</div>
+            <p class="voice-text">「電車での移動中や待ち時間に、<span>ゲーム感覚で『道交法クイズ』をポチポチやっています。</span>楽しく交通ルールを学べるし、気づいたら日用品が買えるくらいポイントが貯まっていて一石二鳥です！」</p>
+            <div class="voice-meta">20代女性 / 学生</div>
+        </div>
+    </section>
+
+    <!-- 7. ポイント付与に関する注記 -->
+    <div class="point-note">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>※獲得したポイントは、ミッションの承認状況に応じて【最短当日〜最大2・3ヶ月後】に反映されます。</span>
+    </div>
+
+    <!-- 8. フッター -->
+    <footer class="footer">
+        ※本プログラムは【まちまも運営事務局】による提供です。<br>
+        ※本アプリ内の交通安全情報・ニュースは、警視庁公式ウェブサイト等の公開データを一部引用・参考にしております。<br>
+        ※本アプリの利用にあたり、運転中のスマホ操作（ながら運転）は法令により禁止されています。必ず安全な場所に停車してからご利用ください。<br>
+        <div class="text-center" style="margin-top:20px; font-weight:bold; font-size:0.75rem;">
+            &copy; 2026 まちまもMAP. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- 親しみやすいCTAボタン -->
+    <div class="cta-bottom">
+        <a href="./" class="cta-btn" aria-label="まちまもMAPをLINEで開く">
+            <span class="small-text">＼ 簡単1分！チュートリアルで即GET ／</span>
+            <span>LINEでサクッと始めてみる <i class="fa-solid fa-chevron-right"></i></span>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
