@@ -1,0 +1,41 @@
+{
+  "generated_rows": 491,
+  "sources": [
+    {
+      "dataset_id": "t131105d0000000108",
+      "municipality": "目黒区",
+      "resource_url": "https://data.bodik.jp/dataset/0c1f60b9-4c8f-474d-93af-5b21f49a2521/resource/b1b763fd-71fd-436d-9cac-4262709f177c/download/131105_aed_20210401.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 5,
+      "sha256": "d063ceb38d2347a7c27d61a4edf6ad3eb8004974a534399a5faf4cac090de15a",
+      "parsed_rows": 156,
+      "generated_rows": 151,
+      "duplicate_rows": 5
+    },
+    {
+      "dataset_id": "t131024d0000000031",
+      "municipality": "中央区",
+      "resource_url": "https://www.city.chuo.lg.jp/documents/984/aed.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 9,
+      "sha256": "895f90327db711478209f87b9b9cf71bf651a45de9f7f108da3da10574156b46",
+      "parsed_rows": 210,
+      "generated_rows": 207,
+      "duplicate_rows": 3
+    },
+    {
+      "dataset_id": "t131041d0000000119",
+      "municipality": "新宿区",
+      "resource_url": "https://www.city.shinjuku.lg.jp/content/000399971.csv",
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 3,
+      "sha256": "fae070fda24e361f8539899dd55b888b2796732bf3e24f79e03d9364c218345e",
+      "parsed_rows": 133,
+      "generated_rows": 133,
+      "duplicate_rows": 0
+    }
+  ]
+}
