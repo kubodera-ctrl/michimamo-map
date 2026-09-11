@@ -1,0 +1,24 @@
+name: Test Reader Proxy AED Sources
+
+on:
+  push:
+    paths:
+      - ".github/workflows/test_reader_proxy.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test source access
+        shell: bash
+        run: |
+          set +e
+          for url in             "https://r.jina.ai/https://www.city.adachi.tokyo.jp/documents/3016/aedsettibasyo.pdf"             "https://r.jina.ai/https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/004/904/aed8.1.30.pdf"             "https://r.jina.ai/https://www.city.setagaya.lg.jp/documents/3038/aedkunaizeniki.pdf"             "https://r.jina.ai/https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/014/461/open_aed-2.csv"             "https://r.jina.ai/https://www.city.itabashi.tokyo.jp/_res/projects/default_project/_page_/001/031/246/attach_89546_01.csv"
+          do
+            echo "===== $url ====="
+            curl -L --max-time 60 -sS -D /tmp/h "$url" -o /tmp/out
+            head -5 /tmp/h
+            echo "bytes=$(wc -c </tmp/out)"
+            head -20 /tmp/out
+          done
