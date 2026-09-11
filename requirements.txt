@@ -2,3 +2,4 @@ supabase
 requests
 playwright
 beautifulsoup4
+openpyxl
