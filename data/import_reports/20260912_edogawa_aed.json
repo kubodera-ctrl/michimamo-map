@@ -1,5 +1,5 @@
 {
-  "generated_rows": 51,
+  "generated_rows": 13,
   "sources": [
     {
       "dataset_id": "edogawa-map-aed",
@@ -11,12 +11,13 @@
       "source_date_note": null,
       "license": "江戸川区オープンデータ利用条件",
       "quality_notes": [],
-      "skipped": 0,
+      "skipped": 38,
       "restricted": 0,
+      "inactive": 0,
       "outside_municipality": 0,
       "sha256": "e7340918b85d87f7ab59a10effe70bbea5a52a8c6da3e5ecc071d3695717dc9c",
-      "parsed_rows": 51,
-      "generated_rows": 51,
+      "parsed_rows": 13,
+      "generated_rows": 13,
       "duplicate_rows": 0
     }
   ]
