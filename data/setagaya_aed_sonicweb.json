@@ -1,0 +1,25 @@
+{
+  "source": {
+    "dataset_id": "setagaya-imap-aed-20250801",
+    "municipality": "世田谷区",
+    "prefecture": "東京都",
+    "dataset_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
+    "map_url": "https://www.sonicweb-asp.jp/setagaya/map?theme=th_59",
+    "source_name": "世田谷区 せたがやiMap",
+    "source_date": "2025-08-01",
+    "license": "CC BY 4.0",
+    "expected_unique_count": 357,
+    "layers": [
+      {
+        "layer_id": 19113,
+        "is_24h": false,
+        "url": "https://www.sonicweb-asp.jp/setagaya/api/feature/19113/instance"
+      },
+      {
+        "layer_id": 19114,
+        "is_24h": true,
+        "url": "https://www.sonicweb-asp.jp/setagaya/api/feature/19114/instance"
+      }
+    ]
+  }
+}
