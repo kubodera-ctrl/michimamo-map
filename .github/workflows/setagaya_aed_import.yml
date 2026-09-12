@@ -3,8 +3,8 @@ name: Import Setagaya AED
 on:
   push:
     paths:
-      - "data/setagaya_aed_arcgis.json"
-      - "scripts/import_aed_arcgis.py"
+      - "data/setagaya_aed_sonicweb.json"
+      - "scripts/import_setagaya_sonicweb.py"
       - ".github/workflows/setagaya_aed_import.yml"
   workflow_dispatch:
 
@@ -21,7 +21,10 @@ jobs:
         with: { python-version: "3.12" }
       - name: Build Setagaya AED seed
         run: |
-          python scripts/import_aed_arcgis.py             --manifest data/setagaya_aed_arcgis.json             --output-sql supabase/migrations/20260912_setagaya_aed_seed.sql             --output-report data/import_reports/20260912_setagaya_aed.json
+          python scripts/import_setagaya_sonicweb.py \
+            --manifest data/setagaya_aed_sonicweb.json \
+            --output-sql supabase/migrations/20260912_setagaya_aed_seed.sql \
+            --output-report data/import_reports/20260912_setagaya_aed.json
       - name: Commit output
         run: |
           git config user.name "github-actions[bot]"
