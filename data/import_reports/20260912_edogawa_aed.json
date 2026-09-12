@@ -4,7 +4,13 @@
     {
       "dataset_id": "edogawa-map-aed",
       "municipality": "江戸川区",
+      "dataset_url": "https://www.city.edogawa.tokyo.jp/e004/kuseijoho/opendata/map_data.html",
       "resource_url": "https://www.city.edogawa.tokyo.jp/documents/4408/20250318_aed.csv",
+      "source_name": "江戸川区オープンデータ",
+      "source_date": "2025-03-18",
+      "source_date_note": null,
+      "license": "江戸川区オープンデータ利用条件",
+      "quality_notes": [],
       "skipped": 0,
       "restricted": 0,
       "outside_municipality": 0,
