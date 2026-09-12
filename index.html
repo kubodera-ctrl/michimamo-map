@@ -101,7 +101,26 @@
         .aed-map-pin span { position: relative; z-index: 1; font-size: 11px; line-height: 1; font-weight: 900; letter-spacing: .04em; white-space: nowrap; }
 
         #currentLocationBtn { position: absolute; bottom: 85px; right: 16px; z-index: 1000; background: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); color: #1f6feb; font-size: 1.4rem; }
-        .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; padding: 14px 20px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .fab { position: absolute; right: 16px; bottom: 20px; z-index: 1000; border: 0; border-radius: 24px; background: #17212b; color: white; min-height: 50px; padding: 12px 18px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .wbgt-fab { background:#b45309; border:2px solid #fff; }
+        .wbgt-fab i { font-size:1.1rem; }
+        .wbgt-sheet { font-size:16px; }
+        .wbgt-place { margin:-6px 0 14px; color:#475569; font-size:.92rem; line-height:1.6; }
+        .wbgt-card { border:2px solid #e5e7eb; border-radius:20px; padding:18px; text-align:center; background:#f8fafc; }
+        .wbgt-level { display:inline-block; border-radius:999px; padding:9px 20px; color:#fff; font-size:1.65rem; line-height:1.2; font-weight:950; letter-spacing:.04em; }
+        .wbgt-level.level-danger { background:#b91c1c; }
+        .wbgt-level.level-severe { background:#c2410c; }
+        .wbgt-level.level-warning { background:#a16207; }
+        .wbgt-level.level-caution { background:#047857; }
+        .wbgt-level.level-low { background:#0369a1; }
+        .wbgt-value { margin:12px 0 6px; font-size:2rem; font-weight:950; color:#17212b; }
+        .wbgt-guidance { margin:0; font-size:1.05rem; line-height:1.65; font-weight:800; color:#334155; }
+        .wbgt-max { margin-top:14px; border-radius:14px; padding:13px; background:#fff7ed; color:#7c2d12; font-size:1rem; line-height:1.6; font-weight:800; }
+        .wbgt-meta { margin:14px 2px 0; color:#475569; font-size:.9rem; line-height:1.8; }
+        .wbgt-note { margin:12px 0 0; color:#64748b; font-size:.8rem; line-height:1.65; }
+        .wbgt-state { padding:28px 10px; text-align:center; color:#475569; font-size:1rem; line-height:1.7; }
+        .wbgt-spinner { width:34px; height:34px; margin:0 auto 12px; border:4px solid #fde68a; border-top-color:#b45309; border-radius:50%; animation:spin 1s linear infinite; }
+        .wbgt-retry { min-height:46px; margin-top:14px; border:0; border-radius:12px; padding:10px 18px; background:#17212b; color:#fff; font:inherit; font-weight:900; cursor:pointer; }
 
         #aiPatrolBtn { position: absolute; top: 110px; right: 10px; z-index: 1000; background: #17212b; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 1.2rem; }
         #aiPatrolBtn::after { content: "AI"; position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; font-size: 0.6rem; font-weight: 900; padding: 2px 4px; border-radius: 8px; border: 2px solid #fff; }
@@ -381,7 +400,7 @@
                 <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
 
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
-                <button class="fab" onclick="showPostGuide()"><i class="fa-solid fa-plus"></i> 情報を投稿</button>
+                <button class="fab wbgt-fab" onclick="openWbgtModal()" aria-label="本日の暑さ指数予報を確認"><i class="fa-solid fa-sun"></i> 本日のWBGT予報</button>
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
                 <div id="cameraView" class="camera-view">
@@ -562,7 +581,7 @@
                         <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方・ガイド</h2>
 
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
-                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の場所を直接タップするか、右下の「＋」ボタンから、危険が発生しやすい場所や状況を共有できます。まちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
+                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の投稿したい場所を直接タップすると、危険が発生しやすい場所や状況を共有できます。まちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
 
                         <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. ピンの色と意味</h3>
                         <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
@@ -876,6 +895,17 @@
 
         <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#1e90ff; display:block; text-align:center; text-decoration:none; margin-top:10px;">軒先パーキングで探す ➔</a>
         <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3779876&pid=892689337" height="1" width="0" border="0" style="display:none;">
+    </div>
+</div>
+
+<!-- 暑さ指数（WBGT）モーダル -->
+<div id="wbgtModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="wbgtModalTitle">
+    <div class="sheet wbgt-sheet">
+        <div class="row">
+            <div id="wbgtModalTitle" style="font-size:20px; font-weight:950;"><i class="fa-solid fa-sun" style="color:#d97706;"></i> 本日のWBGT予報</div>
+            <button class="close" onclick="closeWbgtModal()" aria-label="暑さ指数を閉じる"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="wbgtContent" aria-live="polite"></div>
     </div>
 </div>
 
@@ -3442,6 +3472,8 @@ function shareSpot(title, address, category, event) {
     if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
 })();
 </script>
+
+<script src="wbgt.js"></script>
 
 
 

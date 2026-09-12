@@ -1,0 +1,30 @@
+{
+  "sources": [
+    {
+      "dataset_id": "hiratsuka-aed-20260301",
+      "municipality": "平塚市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.hiratsuka.kanagawa.jp/keikaku/page81_00019.html",
+      "resource_url": "https://www.city.hiratsuka.kanagawa.jp/common/200203596.csv",
+      "source_name": "平塚市オープンデータライブラリ（市設置施設）",
+      "source_date": "2026-03-01",
+      "quality_notes": [
+        "市が設置している施設の公式CSV"
+      ],
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "hiratsuka-aed-20260301",
+      "municipality": "平塚市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.hiratsuka.kanagawa.jp/keikaku/page81_00019.html",
+      "resource_url": "https://www.city.hiratsuka.kanagawa.jp/common/200203597.csv",
+      "source_name": "平塚市オープンデータライブラリ（その他の設置施設）",
+      "source_date": "2026-03-01",
+      "quality_notes": [
+        "その他の設置施設の公式CSV"
+      ],
+      "license": "CC BY 4.0"
+    }
+  ]
+}

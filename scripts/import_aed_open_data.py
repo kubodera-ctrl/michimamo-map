@@ -145,6 +145,10 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
             continue
         name = first_value(raw, NAME_FIELDS)
         address = first_value(raw, ADDRESS_FIELDS)
+        for old_prefix, new_prefix in source.get("address_prefix_replacements", {}).items():
+            if address.startswith(old_prefix):
+                address = new_prefix + address[len(old_prefix):]
+                break
         row_municipality = first_value(raw, MUNICIPALITY_FIELDS)
         # A ward may also publish its holiday homes in other prefectures.
         # Keep this batch limited to the source ward. Standard open-data CSVs may

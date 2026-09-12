@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "dataset_id": "chigasaki-aed-20230401",
+      "municipality": "茅ヶ崎市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.chigasaki.kanagawa.jp/jyohosuishin/1045355/1045162.html",
+      "resource_url": "https://www.city.chigasaki.kanagawa.jp/_res/projects/default_project/_page_/001/045/162/142077_R5aed.csv",
+      "source_name": "茅ヶ崎市オープンデータライブラリ",
+      "source_date": "2023-04-01",
+      "quality_notes": [],
+      "license": "CC BY 4.0"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "generated_rows": 126,
+  "sources": [
+    {
+      "dataset_id": "chigasaki-aed-20230401",
+      "municipality": "茅ヶ崎市",
+      "dataset_url": "https://www.city.chigasaki.kanagawa.jp/jyohosuishin/1045355/1045162.html",
+      "resource_url": "https://www.city.chigasaki.kanagawa.jp/_res/projects/default_project/_page_/001/045/162/142077_R5aed.csv",
+      "source_name": "茅ヶ崎市オープンデータライブラリ",
+      "source_date": "2023-04-01",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [],
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "9916b40eb132d47934d19ce44089f613f7f0a5c7f2c86fba192e5d15f504cf9c",
+      "parsed_rows": 126,
+      "generated_rows": 126,
+      "duplicate_rows": 0
+    }
+  ]
+}

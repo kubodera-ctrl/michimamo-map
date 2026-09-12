@@ -1,0 +1,26 @@
+{
+  "generated_rows": 695,
+  "sources": [
+    {
+      "dataset_id": "sagamihara-aed-20260909",
+      "municipality": "相模原市",
+      "dataset_url": "https://opendata.city.sagamihara.kanagawa.jp/dataset/aed",
+      "resource_url": "https://opendata.city.sagamihara.kanagawa.jp/dataset/95263949-5af9-4ca5-9cc0-33f16f346b4f/resource/31265f04-c36f-4a51-8697-28667c780237/download/aed.csv",
+      "source_name": "相模原市オープンデータカタログ",
+      "source_date": "2026-09-09",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "公式CSVで「相模原中央区」となっている2件は「相模原市中央区」へ表記補正",
+        "長野県所在の市所有施設1件は神奈川県内の安全スポット対象外として除外"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 1,
+      "sha256": "62e707acbd819553d999752ea92e0d59de8d01edcb986a26a77b2dbd10a6e61d",
+      "parsed_rows": 695,
+      "generated_rows": 695,
+      "duplicate_rows": 0
+    }
+  ]
+}

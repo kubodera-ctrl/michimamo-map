@@ -1,0 +1,45 @@
+{
+  "generated_rows": 320,
+  "sources": [
+    {
+      "dataset_id": "hiratsuka-aed-20260301",
+      "municipality": "平塚市",
+      "dataset_url": "https://www.city.hiratsuka.kanagawa.jp/keikaku/page81_00019.html",
+      "resource_url": "https://www.city.hiratsuka.kanagawa.jp/common/200203596.csv",
+      "source_name": "平塚市オープンデータライブラリ（市設置施設）",
+      "source_date": "2026-03-01",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "市が設置している施設の公式CSV"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "b73a979bb3eca803ade8f0531f62087bb4005aeae2a3adb4eb45e76b9ebab9a1",
+      "parsed_rows": 126,
+      "generated_rows": 126,
+      "duplicate_rows": 0
+    },
+    {
+      "dataset_id": "hiratsuka-aed-20260301",
+      "municipality": "平塚市",
+      "dataset_url": "https://www.city.hiratsuka.kanagawa.jp/keikaku/page81_00019.html",
+      "resource_url": "https://www.city.hiratsuka.kanagawa.jp/common/200203597.csv",
+      "source_name": "平塚市オープンデータライブラリ（その他の設置施設）",
+      "source_date": "2026-03-01",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "その他の設置施設の公式CSV"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "1e1448be9fd6f17942736facc51d4654f40fc9d0c405bec1c79eb45fde2782e4",
+      "parsed_rows": 194,
+      "generated_rows": 194,
+      "duplicate_rows": 0
+    }
+  ]
+}
