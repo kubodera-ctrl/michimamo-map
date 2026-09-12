@@ -1,0 +1,29 @@
+{
+  "generated_rows": 40,
+  "sources": [
+    {
+      "dataset_id": "zama-aed-20180903-validated-20260312",
+      "municipality": "座間市",
+      "dataset_url": "https://www.city.zama.kanagawa.jp/kurashi/kyukyu/aed/1001728.html",
+      "resource_url": "https://raw.githubusercontent.com/kubodera-ctrl/michimamo-map/main/data/kanagawa_zama_aed_validated_20260312.csv",
+      "source_name": "座間市 AED設置箇所（公式CSV・現行公式一覧照合済み）",
+      "source_date": "2026-03-12",
+      "source_date_note": "2018年9月3日更新の座標付き公式CSVを、2026年3月12日更新の座間市公共施設AED一覧と施設名・所在地で照合。現行一覧にない施設、移転施設、休館中施設、座標重複で位置精度を確認できない施設は除外。住所表示は現行一覧に合わせた。",
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "座間市公式ページ・現行PDFで設置継続と位置精度を確認できた40施設のみ収録",
+        "座標は座間市が2018年9月3日に公開した公式オープンデータ由来",
+        "現行一覧にない青少年センター、移転した生きがいセンター、休館中の3施設、別住所間で座標が重複する2施設は登録対象外",
+        "現行一覧69か所のうち座標を公式データ同士で確認できない施設は推測せず未登録"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "45dad5d5310f3cdc426fe61d4642e78fa917c60cf215c5acb34df8e62343fb61",
+      "parsed_rows": 40,
+      "generated_rows": 40,
+      "duplicate_rows": 0
+    }
+  ]
+}
