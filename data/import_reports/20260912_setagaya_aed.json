@@ -1,0 +1,36 @@
+{
+  "dataset_id": "setagaya-imap-aed-20250801",
+  "municipality": "世田谷区",
+  "source_name": "世田谷区 せたがやiMap",
+  "source_date": "2025-08-01",
+  "license": "CC BY 4.0",
+  "raw_features": 379,
+  "duplicate_features": 22,
+  "generated_rows": 357,
+  "layers": [
+    {
+      "layer_id": 19114,
+      "is_24h": true,
+      "url": "https://www.sonicweb-asp.jp/setagaya/api/feature/19114/instance",
+      "feature_count": 22,
+      "sha256": "4ce703357a83d4a79fea192ead6a90ac3640e18f777657d6db17390f51ae7a9c"
+    },
+    {
+      "layer_id": 19113,
+      "is_24h": false,
+      "url": "https://www.sonicweb-asp.jp/setagaya/api/feature/19113/instance",
+      "feature_count": 357,
+      "sha256": "66f536f2d33c864d311024bccf35762935163dcc784d72bfce77f0251740ee93"
+    }
+  ],
+  "deduplication_key": "NFKC-normalized facility name and full address",
+  "stored_fields": [
+    "name",
+    "address",
+    "phone",
+    "latitude",
+    "longitude"
+  ],
+  "available_time_captured_in_report_only": true,
+  "24_hour_facilities": 22
+}
