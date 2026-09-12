@@ -58,19 +58,26 @@ def decode_csv(payload: bytes) -> str:
     raise ValueError("CSV is neither UTF-8 nor CP932")
 
 
-def read_records(payload: bytes) -> list[dict[str, Any]]:
+def read_records(payload: bytes, header_row: int = 1) -> list[dict[str, Any]]:
     """Read municipal open data even when an XLSX is served from a .csv URL."""
+    if header_row < 1:
+        raise ValueError("header_row must be 1 or greater")
     if payload.startswith(b"PK\x03\x04"):
         workbook = openpyxl.load_workbook(io.BytesIO(payload), data_only=True, read_only=True)
         for sheet in workbook.worksheets:
             values = sheet.iter_rows(values_only=True)
+            for _ in range(header_row - 1):
+                next(values, None)
             headers = next(values, None)
             if not headers or not any(headers):
                 continue
             keys = [normalized(value) for value in headers]
             return [dict(zip(keys, row)) for row in values if any(value is not None for value in row)]
         return []
-    return list(csv.DictReader(io.StringIO(decode_csv(payload))))
+    stream = io.StringIO(decode_csv(payload))
+    for _ in range(header_row - 1):
+        next(stream, None)
+    return list(csv.DictReader(stream))
 
 
 
@@ -132,10 +139,11 @@ def source_key(dataset_id: str, municipality: str, name: str, address: str, deta
 def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     resource_url = resolve_resource_url(source)
     payload = (input_dir / (source['dataset_id'] + '.csv')).read_bytes() if input_dir else fetch(resource_url)
-    reader = read_records(payload)
+    reader = read_records(payload, int(source.get("header_row", 1)))
     rows: list[dict[str, Any]] = []
     skipped = 0
     restricted = 0
+    inactive = 0
     outside_municipality = 0
 
     for raw in reader:
@@ -145,6 +153,18 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
             continue
         name = first_value(raw, NAME_FIELDS)
         address = first_value(raw, ADDRESS_FIELDS)
+        if not name or not address:
+            skipped += 1
+            continue
+        positive_count_field = source.get("positive_count_field")
+        if positive_count_field:
+            count_value = first_value(raw, (positive_count_field,))
+            try:
+                if count_value and float(count_value) <= 0:
+                    inactive += 1
+                    continue
+            except ValueError:
+                pass
         for old_prefix, new_prefix in source.get("address_prefix_replacements", {}).items():
             if address.startswith(old_prefix):
                 address = new_prefix + address[len(old_prefix):]
@@ -156,6 +176,10 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         address_has_municipality = (
             address.startswith(source['municipality'])
             or address.startswith(source['prefecture'] + source['municipality'])
+            or (
+                address.startswith(source['prefecture'])
+                and source['municipality'] in address[len(source['prefecture']):]
+            )
         )
         allow_relative_address = bool(source.get("allow_relative_address"))
         if (
@@ -206,6 +230,7 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         "imported": len(rows),
         "skipped": skipped,
         "restricted": restricted,
+        "inactive": inactive,
         "outside_municipality": outside_municipality,
         "sha256": hashlib.sha256(payload).hexdigest(),
     }

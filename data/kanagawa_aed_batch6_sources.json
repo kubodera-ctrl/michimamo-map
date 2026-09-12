@@ -1,1 +1,18 @@
-fatal: path 'data/kanagawa_aed_batch6_sources.json' does not exist in 'HEAD'
+{
+  "sources": [
+    {
+      "dataset_id": "nakai-aed-20220331",
+      "municipality": "中井町",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.town.nakai.kanagawa.jp/choseijoho/nakaimachinoshokai/tokei_opendata/1708.html",
+      "resource_url": "https://www.town.nakai.kanagawa.jp/material/files/group/5/AEDlist.csv",
+      "source_name": "中井町 AED設置個所一覧",
+      "source_date": "2022-03-31",
+      "quality_notes": [
+        "中井町地域防災課が公開する公式CSV",
+        "全12件に自治体提供の緯度・経度あり"
+      ],
+      "license": "CC BY 4.0"
+    }
+  ]
+}

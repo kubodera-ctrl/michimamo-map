@@ -1,1 +1,56 @@
-fatal: path 'data/kanagawa_aed_batch5_sources.json' does not exist in 'HEAD'
+{
+  "sources": [
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkyouryokudocument20260713142028.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（協力事業所）",
+      "source_date": "2026-07-13",
+      "header_row": 2,
+      "positive_count_field": "設置数",
+      "quality_notes": ["救急協力事業所の公式Excel"],
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkoukyoudocument20260713134108.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（公共施設）",
+      "source_date": "2026-07-13",
+      "header_row": 2,
+      "positive_count_field": "設置数",
+      "quality_notes": ["公共施設等の公式Excel"],
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkonbinidocument20260713115543.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（コンビニエンスストア）",
+      "source_date": "2026-07-13",
+      "header_row": 2,
+      "positive_count_field": "設置数",
+      "quality_notes": ["コンビニエンスストアの公式Excel"],
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkanagawadocument20260713114355.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（神奈川県設置）",
+      "source_date": "2026-07-13",
+      "header_row": 2,
+      "positive_count_field": "設置数",
+      "quality_notes": ["神奈川県設置施設の公式Excel"],
+      "license": "CC BY 4.0"
+    }
+  ]
+}

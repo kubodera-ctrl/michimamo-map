@@ -1,1 +1,89 @@
-fatal: path 'data/import_reports/20260912_kanagawa_aed_batch5.json' does not exist in 'HEAD'
+{
+  "generated_rows": 329,
+  "sources": [
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkyouryokudocument20260713142028.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（協力事業所）",
+      "source_date": "2026-07-13",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "救急協力事業所の公式Excel"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "d412fb3472b8df24a9badd437b01f6e499bc30e46d75eafa24ef55abbbf3740e",
+      "parsed_rows": 169,
+      "generated_rows": 169,
+      "duplicate_rows": 0
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkoukyoudocument20260713134108.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（公共施設）",
+      "source_date": "2026-07-13",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "公共施設等の公式Excel"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "0470e950529b84b39f84be796a7e6ad1a030bc79f7590ee131aa3619d2db1ca1",
+      "parsed_rows": 80,
+      "generated_rows": 80,
+      "duplicate_rows": 0
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkonbinidocument20260713115543.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（コンビニエンスストア）",
+      "source_date": "2026-07-13",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "コンビニエンスストアの公式Excel"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "42de3e6d0fb3dbb11b178639c04edf2b4231bdd0809718c1cd71f196cb83c895",
+      "parsed_rows": 57,
+      "generated_rows": 57,
+      "duplicate_rows": 0
+    },
+    {
+      "dataset_id": "kamakura-aed-20260713",
+      "municipality": "鎌倉市",
+      "dataset_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+      "resource_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/documents/aedkanagawadocument20260713114355.xlsx",
+      "source_name": "鎌倉市 市内AED設置情報（神奈川県設置）",
+      "source_date": "2026-07-13",
+      "source_date_note": null,
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "神奈川県設置施設の公式Excel"
+      ],
+      "skipped": 1,
+      "restricted": 0,
+      "inactive": 1,
+      "outside_municipality": 0,
+      "sha256": "d9d83a3a71a9d4af3dbd067d9c868be849a14861ef9b2696b621f0410bf47a7a",
+      "parsed_rows": 23,
+      "generated_rows": 23,
+      "duplicate_rows": 0
+    }
+  ]
+}
