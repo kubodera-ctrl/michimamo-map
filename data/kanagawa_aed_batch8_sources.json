@@ -1,0 +1,23 @@
+{
+  "sources": [
+    {
+      "dataset_id": "yamato-aed-20251101",
+      "municipality": "大和市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.yamato.lg.jp/gyosei/soshik/52/aed_kankei/14141.html",
+      "resource_url": "https://www.city.yamato.lg.jp/material/files/group/71/AEDCSV.csv",
+      "source_name": "大和市 AED設置場所オープンデータ",
+      "source_date": "2025-11-01",
+      "address_prefix_replacements": {
+        "大和福田": "大和市福田"
+      },
+      "quality_notes": [
+        "大和市公開型地図情報サービスのAED地点情報を市公式ページから取得",
+        "公式CSV 480件すべてに施設名・所在地・世界測地系の緯度経度がある",
+        "施設名と所在地の重複、同一座標の重複、神奈川県外座標がないことを確認",
+        "ホンダカーズ中央神奈川U-Select桜ヶ丘の所在地「大和福田5677」は同社公式住所に基づき「大和市福田5677」へ補正"
+      ],
+      "license": "CC BY 4.0"
+    }
+  ]
+}
