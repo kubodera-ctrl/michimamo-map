@@ -1,0 +1,29 @@
+{
+  "generated_rows": 24,
+  "sources": [
+    {
+      "dataset_id": "minamiashigara-aed-202002-validated-20260912",
+      "municipality": "南足柄市",
+      "dataset_url": "https://www.city.minamiashigara.kanagawa.jp/opendata/",
+      "resource_url": "https://raw.githubusercontent.com/kubodera-ctrl/michimamo-map/main/data/minamiashigara-aed-202002-validated-20260912.csv",
+      "source_name": "南足柄市 AED設置場所（公式CSV・安全側検証済み）",
+      "source_date": "2020-02-01",
+      "source_date_note": "南足柄市がR2.2月時点として公開し、2026年9月12日時点でも公式オープンデータページから取得できる座標付きCSV。幼稚園5施設は移転・現況差分またはAED設置継続を確認できないため除外した。",
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "南足柄市公式オープンデータの29件から、施設名・所在地・自治体提供座標が揃う24件を収録",
+        "公式ページは掲載データをCC BY 4.0日本ライセンスで提供",
+        "2020年基準のため最新情報とは表示せず、出典日を保持する",
+        "幼稚園5施設は現行施設情報との住所差分または設置継続を確認できないため推測登録しない"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "7e8e651d3dcb24b287aa06cc164970a1218abd84ec7afb7de6623605c1f96e60",
+      "parsed_rows": 24,
+      "generated_rows": 24,
+      "duplicate_rows": 0
+    }
+  ]
+}
