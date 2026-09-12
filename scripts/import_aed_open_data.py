@@ -18,7 +18,9 @@ from typing import Any
 import openpyxl
 
 
-NAME_FIELDS = ("名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称", "設置場所")
+NAME_FIELDS = (
+    "名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称", "AED設置施設", "設置場所",
+)
 ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連結表記")
 LATITUDE_FIELDS = ("緯度", "latitude", "lat", "Y座標", "Y")
 LONGITUDE_FIELDS = ("経度", "longitude", "lng", "lon", "X座標", "X")
@@ -119,8 +121,11 @@ def fetch(url: str) -> bytes:
         return response.read()
 
 
-def source_key(dataset_id: str, municipality: str, name: str, address: str) -> str:
-    digest = hashlib.sha256(f"{municipality}|{name}|{address}".encode()).hexdigest()[:24]
+def source_key(dataset_id: str, municipality: str, name: str, address: str, detail: str = "") -> str:
+    identity = f"{municipality}|{name}|{address}"
+    if detail:
+        identity += f"|{detail}"
+    digest = hashlib.sha256(identity.encode()).hexdigest()[:24]
     return f"municipal-open-data:{dataset_id}:{digest}"
 
 
@@ -161,6 +166,7 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         latitude_raw = first_value(raw, LATITUDE_FIELDS)
         longitude_raw = first_value(raw, LONGITUDE_FIELDS)
         phone = first_value(raw, PHONE_FIELDS) or None
+        key_detail = first_value(raw, tuple(source.get("source_key_detail_fields", ())))
         try:
             latitude = float(latitude_raw)
             longitude = float(longitude_raw)
@@ -173,7 +179,9 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         if not address.startswith(source["prefecture"]):
             address = source["prefecture"] + address
         rows.append({
-            "source_key": source_key(source["dataset_id"], source["municipality"], name, address),
+            "source_key": source_key(
+                source["dataset_id"], source["municipality"], name, address, key_detail,
+            ),
             "name": name,
             "address": address,
             "phone": phone,
@@ -184,7 +192,13 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
     report = {
         "dataset_id": source["dataset_id"],
         "municipality": source["municipality"],
+        "dataset_url": source["dataset_url"],
         "resource_url": resource_url,
+        "source_name": source["source_name"],
+        "source_date": source.get("source_date"),
+        "source_date_note": source.get("source_date_note"),
+        "license": source["license"],
+        "quality_notes": source.get("quality_notes", []),
         "imported": len(rows),
         "skipped": skipped,
         "restricted": restricted,
