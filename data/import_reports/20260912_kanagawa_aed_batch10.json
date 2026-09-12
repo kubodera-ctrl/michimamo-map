@@ -1,0 +1,29 @@
+{
+  "generated_rows": 164,
+  "sources": [
+    {
+      "dataset_id": "isehara-aed-20240401",
+      "municipality": "伊勢原市",
+      "dataset_url": "https://www.city.isehara.kanagawa.jp/docs/2014103100077/",
+      "resource_url": "https://linkdata.org/api/1/rdf1s9011i/142140_aed.csv",
+      "source_name": "伊勢原市 AED設置個所一覧（自治体公式オープンデータ）",
+      "source_date": "2024-04-01",
+      "source_date_note": "伊勢原市公式のAED使用可能施設マップと、伊勢原市公式アカウントがLinkDataで公開する推奨データセット。公式ページの更新日は2024年4月1日。",
+      "license": "CC BY 3.0",
+      "quality_notes": [
+        "公式データ187行すべてに施設名・住所・緯度・経度がある",
+        "座標は伊勢原市域内に収まり、範囲外または数値不正は0件",
+        "同じ施設・住所に複数台ある23行は同一地点の重複ピンを避け、164施設地点に統合",
+        "施設内の設置位置や利用可能時間は原典で確認できるが、現行DBの項目対象外のため地点情報を優先して登録"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "inactive": 0,
+      "outside_municipality": 0,
+      "sha256": "70777aa89bb326ac30054b48c66c7d67977c15043d04bf4bb003df76199ae1aa",
+      "parsed_rows": 187,
+      "generated_rows": 164,
+      "duplicate_rows": 23
+    }
+  ]
+}
