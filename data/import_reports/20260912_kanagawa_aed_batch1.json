@@ -1,0 +1,46 @@
+{
+  "generated_rows": 266,
+  "sources": [
+    {
+      "dataset_id": "odawara-aed-202509",
+      "municipality": "小田原市",
+      "dataset_url": "https://www.city.odawara.kanagawa.jp/field/municipality/itpolicy/p25549.html",
+      "resource_url": "https://www.city.odawara.kanagawa.jp/global-image/units/376052/1-20251104190843_b6909d0ab46660.csv",
+      "source_name": "小田原市オープンデータ",
+      "source_date": "2025-09-01",
+      "source_date_note": "公開ページの「令和7年9月時点」を月初日に正規化",
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "NO.179は公式CSVの経度が「139..14257」で数値化できないため除外"
+      ],
+      "skipped": 1,
+      "restricted": 0,
+      "outside_municipality": 0,
+      "sha256": "427c6dc70e5663a5e4e808e7e4c9e58a748dec0a24c88a8c763160573487404a",
+      "parsed_rows": 197,
+      "generated_rows": 197,
+      "duplicate_rows": 0
+    },
+    {
+      "dataset_id": "ayase-aed-202202",
+      "municipality": "綾瀬市",
+      "dataset_url": "https://www.city.ayase.kanagawa.jp/soshiki/johoseisakuka/johokokai_kojinjohohogo_gyoseifufukushinsa/5822.html",
+      "resource_url": "https://www.city.ayase.kanagawa.jp/material/files/group/8/aed202202.csv",
+      "source_name": "綾瀬市オープンデータ",
+      "source_date": "2022-02-01",
+      "source_date_note": "配布ファイル名の年月を月初日に正規化",
+      "license": "CC BY 4.0",
+      "quality_notes": [
+        "seq 63は公式CSVの所在地が空欄のため除外",
+        "綾瀬スポーツ公園の2地点は設置場所と座標が異なるため別レコードとして保持"
+      ],
+      "skipped": 0,
+      "restricted": 0,
+      "outside_municipality": 1,
+      "sha256": "5bfe8d55544643b429e4eaaf36c8ab36e01dea4503d368a866880344b244630a",
+      "parsed_rows": 69,
+      "generated_rows": 69,
+      "duplicate_rows": 0
+    }
+  ]
+}
