@@ -1,0 +1,35 @@
+name: Build Nationwide AED Seed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 19 1 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  build-seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run importer tests
+        run: python -m unittest tests/test_import_nationwide_aed.py
+      - name: Harvest licensed municipal AED datasets
+        run: |
+          mkdir -p build/aed
+          python scripts/import_nationwide_aed.py \
+            --catalog https://data.bodik.jp \
+            --query AED \
+            --output-sql build/aed/nationwide_aed_seed.sql \
+            --output-report build/aed/nationwide_aed_report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nationwide-aed-seed
+          path: build/aed/
+          retention-days: 14

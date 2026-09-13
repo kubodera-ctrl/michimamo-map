@@ -28,6 +28,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>まちまも MAP - 交通安全情報共有マップ</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
@@ -1017,6 +1019,7 @@
     <button id="gachaCloseBtn" style="display:none; margin-top:40px; padding:15px 40px; background:#fff; color:#000; border-radius:30px; font-weight:bold; font-size: 1.1rem; cursor:pointer; border:none; box-shadow: 0 4px 10px rgba(255,255,255,0.3);" onclick="closeGacha()">閉じる</button>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let currentAuthUserId = null;
@@ -1719,10 +1722,24 @@ function shareSpot(title, address, category, event) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     let activeMarkers = [], heatCircles = [], safetyMarkers = [];
+    const safetyClusterOptions = {
+        chunkedLoading: true,
+        disableClusteringAtZoom: 16,
+        maxClusterRadius: 55,
+        spiderfyOnMaxZoom: true,
+        removeOutsideVisibleBounds: true
+    };
+    const safetyClusterLayers = Object.fromEntries(
+        ['police_station', 'koban', 'chuzaisho', 'aed', 'kodomo_110']
+            .map(category => [category, typeof L.markerClusterGroup === 'function'
+                ? L.markerClusterGroup(safetyClusterOptions)
+                : L.layerGroup()])
+    );
     const reportCategories = ['illegal', 'danger', 'patrol', 'reckless', 'abandoned', 'official'];
     const defaultVisibleCategories = [...reportCategories, 'police_station', 'koban', 'chuzaisho', 'aed'];
     let visibleMapCategories = new Set(defaultVisibleCategories);
     let safetyLoadTimer = null;
+    let safetyLoadSequence = 0;
     try {
         const savedFilters = JSON.parse(localStorage.getItem('machimamo_visible_categories') || 'null');
         if (Array.isArray(savedFilters)) visibleMapCategories = new Set(savedFilters);
@@ -1910,7 +1927,8 @@ function shareSpot(title, address, category, event) {
     }
 
     async function loadSafetySpots() {
-        safetyMarkers.forEach(item => { try { map.removeLayer(item.instance); } catch(e) {} });
+        const sequence = ++safetyLoadSequence;
+        Object.values(safetyClusterLayers).forEach(layer => layer.clearLayers());
         safetyMarkers = [];
         if (map.getZoom() < 10) return;
 
@@ -1918,11 +1936,15 @@ function shareSpot(title, address, category, event) {
         const { data, error } = await db.rpc('get_safety_spots', {
             p_west: bounds.getWest(), p_south: bounds.getSouth(),
             p_east: bounds.getEast(), p_north: bounds.getNorth(),
-            p_types: ['police_station', 'koban', 'chuzaisho', 'aed'], p_max_rows: 1800
+            p_types: ['police_station', 'koban', 'chuzaisho', 'aed'], p_max_rows: 1500
         });
+        if (sequence !== safetyLoadSequence) return;
         if (error || !Array.isArray(data)) {
             if (error) console.error('get_safety_spots failed', error);
             return;
+        }
+        if (data.length >= 1500 && map.getZoom() < 14) {
+            showToast('安全スポットが多いため、地図を拡大すると詳しく表示できます');
         }
         data.forEach(createSafetySpotPin);
     }
@@ -1962,13 +1984,17 @@ function shareSpot(title, address, category, event) {
             iconAnchor: (isKoban || isAed) ? [21, 47] : [17, 32]
         });
         const marker = L.marker([spot.lat, spot.lng], { icon: pin });
-        if (isCategoryVisible(spot.facility_type)) marker.addTo(map);
+        const clusterLayer = safetyClusterLayers[spot.facility_type];
+        if (!clusterLayer) return;
+        clusterLayer.addLayer(marker);
+        if (isCategoryVisible(spot.facility_type) && !map.hasLayer(clusterLayer)) clusterLayer.addTo(map);
 
         const phone = String(spot.phone || '').replace(/[^0-9+#-]/g, '');
         const sourceUrl = /^https:\/\//.test(spot.source_url || '') ? spot.source_url : null;
         const fallbackSourceName = isAed ? '自治体公開情報' : '警察庁・警察公開情報';
         const sourceName = spot.source_name || fallbackSourceName;
-        const sourceDate = spot.source_date ? String(spot.source_date).replace(/-/g, '/') : '基準日不明';
+        const sourceDateValue = spot.source_updated_at || spot.source_date;
+        const sourceDate = sourceDateValue ? String(sourceDateValue).slice(0,10).replace(/-/g, '/') : '基準日不明';
         const coordinateNote = String(spot.geocode_source || '').includes('公式')
             ? '公式データの座標を掲載しています。'
             : 'まちまもMAPが住所から座標を補完・加工。座標は目安です。';
@@ -1978,6 +2004,8 @@ function shareSpot(title, address, category, event) {
                 <div style="font-size:.72rem;color:${style.color};font-weight:900;"><i class="fa-solid ${style.icon}"></i> 安全スポット・${style.label}</div>
                 <div style="font-size:1rem;font-weight:900;margin:5px 0;">${escapeHtml(spot.name || style.label)}</div>
                 <div style="font-size:.78rem;color:#475569;line-height:1.5;">${escapeHtml(spot.address || '住所情報なし')}</div>
+                ${spot.installation_location ? `<div style="font-size:.75rem;color:#475569;margin-top:5px;">設置場所：${escapeHtml(spot.installation_location)}</div>` : ''}
+                ${spot.availability ? `<div style="font-size:.75rem;color:#475569;margin-top:3px;">利用可能時間：${escapeHtml(spot.availability)}</div>` : ''}
                 ${navigationUrl ? `<a href="${escapeHtml(navigationUrl)}" target="_blank" rel="noopener noreferrer" class="popup-action-btn" style="display:flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box;background:#15803d;color:white;margin-top:10px;text-decoration:none;">📍ここまでナビ</a>
                 <div style="font-size:.7rem;color:#475569;line-height:1.5;margin-top:4px;">Googleマップで経路を開きます。現在地を使えない場合は出発地を指定してください。</div>` : ''}
                 ${spot.parent_name ? `<div style="font-size:.7rem;color:#64748b;margin-top:4px;">所属：${escapeHtml(spot.parent_name)}</div>` : ''}
@@ -2069,9 +2097,12 @@ function shareSpot(title, address, category, event) {
                 if (m.circle) map.removeLayer(m.circle);
             }
         });
-        safetyMarkers.forEach(m => {
-            if (isCategoryVisible(m.category)) map.addLayer(m.instance);
-            else map.removeLayer(m.instance);
+        Object.entries(safetyClusterLayers).forEach(([category, layer]) => {
+            if (isCategoryVisible(category)) {
+                if (!map.hasLayer(layer)) map.addLayer(layer);
+            } else if (map.hasLayer(layer)) {
+                map.removeLayer(layer);
+            }
         });
     }
 

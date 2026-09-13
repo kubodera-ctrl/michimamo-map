@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "dataset_id": "miura-public-aed-20220701",
+      "municipality": "三浦市",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.city.miura.kanagawa.jp/soshiki/digitalka/digitalka_dx/316.html",
+      "resource_url": "https://www.city.miura.kanagawa.jp/material/files/group/7/20220630_aed_miura.csv",
+      "source_name": "三浦市 公共施設AED設置情報（自治体公式オープンデータ）",
+      "source_date": "2022-07-01",
+      "source_date_note": "三浦市オープンデータポータル記載の最終更新日。2026年9月13日時点でも公式ポータルに公開されているが、2022年基準のため最新情報とは扱わない。",
+      "quality_notes": [
+        "公式CSV 20行すべてに施設名・所在地・緯度・経度がある",
+        "座標は三浦市内に収まり、範囲外または数値不正は0件",
+        "施設名と所在地の重複および同一座標の重複は0件",
+        "公式ポータルの公開日が2022年7月1日と古いため、利用前に現地または施設への確認が必要",
+        "公共施設のみの一覧であり、市内全AEDの網羅データとは扱わない"
+      ],
+      "license": "CC BY 4.0",
+      "expected_parsed_rows": 20,
+      "expected_generated_rows": 20
+    }
+  ]
+}
