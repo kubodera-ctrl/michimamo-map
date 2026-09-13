@@ -1,6 +1,11 @@
 name: Build Nationwide AED Seed
 
 on:
+  push:
+    paths:
+      - "scripts/import_nationwide_aed.py"
+      - "tests/test_import_nationwide_aed.py"
+      - ".github/workflows/nationwide_aed_pipeline.yml"
   workflow_dispatch:
   schedule:
     - cron: "17 19 1 * *"
