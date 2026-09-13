@@ -1,0 +1,48 @@
+{
+  "dataset_id": "fujisawa-official-gis-aed-20260326",
+  "municipality": "藤沢市",
+  "source_name": "藤沢市 ふじさわAEDマップ（自治体公式オープンデータ）",
+  "dataset_url": "https://www.city.fujisawa.kanagawa.jp/kyoso/shise/kekaku/kakushu/datalibrary.html",
+  "map_url": "https://webgis.alandis.jp/bfujisawa14/210/webgis/index.php/autologin_jswebgis?ap=jsWebGIS&li=1&m=2&rs=6677&s=2500&si=0&u=guest_iryou&x=-31459.350300084767&y=-73296.49375783568",
+  "source_date": "2026-03-26",
+  "source_date_note": "藤沢市公式AEDマップページの更新日。地図データは取得時点の公開内容を使用する。",
+  "license": "CC BY 4.0",
+  "raw_features": 266,
+  "duplicate_features": 0,
+  "generated_rows": 266,
+  "layers": [
+    {
+      "legend_item_id": 15387,
+      "mapservice_layer_id": 723,
+      "display_name": "救急セーフティーステーション",
+      "feature_count": 181
+    },
+    {
+      "legend_item_id": 15384,
+      "mapservice_layer_id": 724,
+      "display_name": "２４時間・救急セーフティステーション",
+      "feature_count": 4
+    },
+    {
+      "legend_item_id": 15388,
+      "mapservice_layer_id": 725,
+      "display_name": "ＡＥＤ設置藤沢市公共施設",
+      "feature_count": 81
+    }
+  ],
+  "excluded_layers": [
+    {
+      "mapservice_layer_id": 726,
+      "display_name": "２４時間・ＡＥＤ設置施設",
+      "reason": "日本救急医療財団 全国AEDマップからの引用レイヤのため除外"
+    },
+    {
+      "mapservice_layer_id": 727,
+      "display_name": "ＡＥＤ設置施設",
+      "reason": "日本救急医療財団 全国AEDマップからの引用レイヤのため除外"
+    }
+  ],
+  "deduplication_key": "NFKC-normalized facility name, full address, and installation detail",
+  "coordinate_conversion": "EPSG:6677 to longitude/latitude using inverse Transverse Mercator on GRS80",
+  "snapshot_sha256": "bdbfab054354843ae401bf71918e61d518c6f4229833811efa542aaf722f0dc1"
+}

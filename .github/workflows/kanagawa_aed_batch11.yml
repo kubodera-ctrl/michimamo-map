@@ -1,0 +1,40 @@
+name: Import Kanagawa AED Batch 11
+
+on:
+  push:
+    paths:
+      - "data/kanagawa_aed_batch11_sources.json"
+      - "scripts/import_fujisawa_aed_gis.py"
+      - ".github/workflows/kanagawa_aed_batch11.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build Kanagawa AED batch 11 seed
+        run: |
+          python scripts/import_fujisawa_aed_gis.py \
+            --manifest data/kanagawa_aed_batch11_sources.json \
+            --output-sql supabase/migrations/20260913_kanagawa_aed_batch11.sql \
+            --output-report data/import_reports/20260913_kanagawa_aed_batch11.json
+      - name: Commit generated seed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase/migrations/20260913_kanagawa_aed_batch11.sql data/import_reports/20260913_kanagawa_aed_batch11.json
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "Generate Kanagawa AED batch 11 seed"
+          git push
