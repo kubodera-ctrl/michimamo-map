@@ -16,6 +16,7 @@
       ],
       "skipped": 0,
       "restricted": 0,
+      "inactive": 0,
       "outside_municipality": 1,
       "sha256": "62e707acbd819553d999752ea92e0d59de8d01edcb986a26a77b2dbd10a6e61d",
       "parsed_rows": 695,
