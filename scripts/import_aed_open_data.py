@@ -234,6 +234,12 @@ def parse_source(source: dict[str, Any], input_dir: Path | None = None) -> tuple
         "outside_municipality": outside_municipality,
         "sha256": hashlib.sha256(payload).hexdigest(),
     }
+    expected_parsed_rows = source.get("expected_parsed_rows")
+    if expected_parsed_rows is not None and len(rows) != int(expected_parsed_rows):
+        raise ValueError(
+            f"{source['municipality']} parsed row count changed: "
+            f"expected {expected_parsed_rows}, got {len(rows)}"
+        )
     if not rows and reader:
         report["detected_columns"] = list(reader[0].keys())
         report["sample_row"] = {str(k): normalized(v)[:120] for k, v in reader[0].items()}
@@ -289,6 +295,12 @@ def main() -> None:
                 sql_text(source.get("source_date")), sql_text(source["license"]),
                 sql_text("自治体公式CSV"), "null",
             ]) + ")")
+        expected_generated_rows = source.get("expected_generated_rows")
+        if expected_generated_rows is not None and report['generated_rows'] != int(expected_generated_rows):
+            raise ValueError(
+                f"{source['municipality']} generated row count changed: "
+                f"expected {expected_generated_rows}, got {report['generated_rows']}"
+            )
 
     if not values:
         raise SystemExit("No valid AED rows were found")

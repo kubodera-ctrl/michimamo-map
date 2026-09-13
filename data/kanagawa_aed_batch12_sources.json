@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "dataset_id": "oiso-aed-20260401",
+      "municipality": "大磯町",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.town.oiso.kanagawa.jp/soshiki/seisaku/seisaku/tantou/dx/11460.html",
+      "resource_url": "https://www.town.oiso.kanagawa.jp/material/files/group/7/143413_aed_open_2025121092722.csv",
+      "source_name": "大磯町 AED設置場所一覧（自治体公式オープンデータ）",
+      "source_date": "2026-04-01",
+      "source_date_note": "大磯町オープンデータ掲載ページの更新日。取得時点で掲載されている自治体標準オープンデータセットを使用する。",
+      "quality_notes": [
+        "公式CSV 102行すべてに施設名・所在地・緯度・経度がある",
+        "座標は大磯町周辺に収まり、範囲外または数値不正は0件",
+        "施設名と所在地の重複および同一座標の重複は0件",
+        "夏季のみ利用可能な海水浴場監視所を含むため、利用可能時間は現地と原典での確認が必要"
+      ],
+      "license": "CC BY 4.0",
+      "expected_parsed_rows": 102,
+      "expected_generated_rows": 102
+    },
+    {
+      "dataset_id": "hayama-public-aed-20260305",
+      "municipality": "葉山町",
+      "prefecture": "神奈川県",
+      "dataset_url": "https://www.town.hayama.lg.jp/chousei/5822.html",
+      "resource_url": "https://www.town.hayama.lg.jp/material/files/group/5/87342410.csv",
+      "source_name": "葉山町 町公共施設等AED設置状況（自治体公式オープンデータ）",
+      "source_date": "2026-03-05",
+      "source_date_note": "葉山町オープンデータの所在データ最終更新日。取得時点で掲載されている町公共施設等AED設置状況を使用する。",
+      "quality_notes": [
+        "公式CSV 34行すべてに施設名・所在地・緯度・経度がある",
+        "座標は葉山町内に収まり、範囲外または数値不正は0件",
+        "施設名と所在地の重複および同一座標の重複は0件",
+        "町公共施設等の公式一覧であり、民間施設を含む町内全AEDの網羅データとは扱わない"
+      ],
+      "license": "CC BY 4.0",
+      "expected_parsed_rows": 34,
+      "expected_generated_rows": 34
+    }
+  ]
+}
