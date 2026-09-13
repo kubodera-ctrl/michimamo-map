@@ -33,6 +33,9 @@ jobs:
             --query AED \
             --output-sql build/aed/nationwide_aed_seed.sql \
             --output-report build/aed/nationwide_aed_report.json
+      - name: Emit compressed seed for controlled staging import
+        run: |
+          gzip -c build/aed/nationwide_aed_seed.sql | base64 -w 90000 | sed 's/^/AED_SEED_PART=/'
       - uses: actions/upload-artifact@v4
         with:
           name: nationwide-aed-seed
