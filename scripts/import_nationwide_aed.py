@@ -17,6 +17,7 @@ import re
 import unicodedata
 import urllib.parse
 import urllib.request
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -245,6 +246,15 @@ def main() -> None:
         "datasets": reports, "rejected_sources": rejected_sources,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"generated={len(all_rows)} datasets={len(reports)} rejected_sources={len(rejected_sources)}")
+    summary = {
+        "prefectures": len({row["prefecture"] for row in all_rows}),
+        "municipalities": len({(row["prefecture"], row["municipality"]) for row in all_rows}),
+        "rows_by_prefecture": dict(sorted(Counter(row["prefecture"] for row in all_rows).items())),
+        "exact_duplicates_removed": exact_removed,
+        "duplicate_candidate_pairs": duplicate_pairs,
+        "failed_datasets": [report.get("title") for report in reports if report.get("error")],
+    }
+    print("review_summary=" + json.dumps(summary, ensure_ascii=False, sort_keys=True))
 
 
 if __name__ == "__main__":
