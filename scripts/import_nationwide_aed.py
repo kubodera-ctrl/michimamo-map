@@ -14,6 +14,7 @@ import hashlib
 import json
 import math
 import re
+import time
 import unicodedata
 import urllib.parse
 import urllib.request
@@ -57,15 +58,21 @@ def compact(value: Any) -> str:
 
 
 def fetch_json(url: str) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": "machimamo-map-aed-harvester/1.0"})
-    with urllib.request.urlopen(req, timeout=45) as response:
-        return json.load(response)
+    return json.loads(fetch_bytes(url).decode("utf-8"))
 
 
 def fetch_bytes(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": "machimamo-map-aed-harvester/1.0"})
-    with urllib.request.urlopen(req, timeout=45) as response:
-        return response.read()
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "machimamo-map-aed-harvester/1.0"})
+            with urllib.request.urlopen(req, timeout=45) as response:
+                return response.read()
+        except Exception as error:
+            last_error = error
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    raise RuntimeError(f"download failed after 3 attempts: {url}") from last_error
 
 
 def licence_allowed(package: dict[str, Any]) -> bool:
@@ -252,7 +259,10 @@ def main() -> None:
         "rows_by_prefecture": dict(sorted(Counter(row["prefecture"] for row in all_rows).items())),
         "exact_duplicates_removed": exact_removed,
         "duplicate_candidate_pairs": duplicate_pairs,
-        "failed_datasets": [report.get("title") for report in reports if report.get("error")],
+        "failed_datasets": [
+            {"title": report.get("title"), "error": report.get("error")}
+            for report in reports if report.get("error")
+        ],
     }
     print("review_summary=" + json.dumps(summary, ensure_ascii=False, sort_keys=True))
 
