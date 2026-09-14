@@ -1818,16 +1818,21 @@ function shareSpot(title, address, category, event) {
         );
     }
     function goToCurrentLocation() {
-        if (!userLat || !userLng) {
+        const liveLocation = gpsMarkerObj?.getLatLng?.();
+        const targetLat = liveLocation?.lat ?? Number(userLat);
+        const targetLng = liveLocation?.lng ?? Number(userLng);
+        if (!Number.isFinite(targetLat) || !Number.isFinite(targetLng)) {
             showToast('位置情報が取得できません');
             return;
         }
-        // An open keepInView popup can pan the map back to its facility after
-        // the location move. Close it first so the GPS coordinate wins.
-        popupFocusPanUntil = performance.now() + 800;
-        map.closePopup();
+        // Keep an explicitly opened facility popup mounted. It must only close
+        // when the user taps its close button, even while the map is moving.
+        popupFocusPanUntil = performance.now() + 1200;
         map.stop();
-        map.setView([userLat, userLng], 15);
+        // Recalculate the mobile viewport before centering. This prevents a
+        // stale iPhone/LINE browser map size from placing the GPS dot off-centre.
+        map.invalidateSize({ animate: false, pan: false });
+        map.flyTo([targetLat, targetLng], 15, { animate: true, duration: 0.7 });
     }
 
     async function searchLocation() {
