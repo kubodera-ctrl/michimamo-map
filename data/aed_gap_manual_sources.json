@@ -1,0 +1,67 @@
+{
+  "sources": [
+    {
+      "prefecture": "高知県",
+      "municipality": "宿毛市",
+      "source_name": "宿毛市 AED設置箇所一覧",
+      "source_url": "https://www.city.sukumo.kochi.jp/06/14/30866.html",
+      "resource_url": "https://www.city.sukumo.kochi.jp/fs/5/5/7/8/7/_/392081_aed.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": "2022-06-30"
+    },
+    {
+      "prefecture": "鳥取県",
+      "municipality": "鳥取市",
+      "source_name": "鳥取市 AED設置場所",
+      "source_url": "https://odp-pref-tottori.tori-info.co.jp/dataset/1640.html",
+      "resource_url": "https://odp-pref-tottori.tori-info.co.jp/dataset/1640/url_resource/88/data_26-31_0.csv",
+      "license_id": "CC BY",
+      "source_updated_at": null
+    },
+    {
+      "prefecture": "高知県",
+      "municipality": "いの町",
+      "source_name": "いの町 AED設置箇所一覧",
+      "source_url": "https://www.town.ino.kochi.jp/chosei/kohokocho/6919/",
+      "resource_url": "https://www.town.ino.kochi.jp/word/open/02_aed_2605.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": null
+    },
+    {
+      "prefecture": "高知県",
+      "municipality": "黒潮町",
+      "source_name": "黒潮町 AED設置箇所一覧",
+      "source_url": "https://www.town.kuroshio.lg.jp/pb/cont/26597",
+      "resource_url": "https://www.town.kuroshio.lg.jp/img/files/pv/sosiki/docs/open-date/2026/aed2026.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": "2026-01-04"
+    },
+    {
+      "prefecture": "山梨県",
+      "municipality": "南部町",
+      "source_name": "南部町 AED設置箇所一覧",
+      "source_url": "https://www.town.nanbu.yamanashi.jp/opendata/opendata.html",
+      "resource_url": "https://www.town.nanbu.yamanashi.jp/opendata/files/193666_aed_202403.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": null
+    },
+    {
+      "prefecture": "山梨県",
+      "municipality": "北杜市",
+      "source_name": "北杜市 AED設置箇所一覧",
+      "source_url": "https://www.city.hokuto.yamanashi.jp/docs/opendata_top.html",
+      "resource_url": "https://www.city.hokuto.yamanashi.jp/fs/5/0/1/7/7/3/_/192091_aed_placement_locations.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": "2024-04-01"
+    },
+    {
+      "prefecture": "富山県",
+      "municipality": "小矢部市",
+      "source_name": "小矢部市 AED設置箇所一覧",
+      "source_url": "https://www.city.oyabe.toyama.jp/shiseijyouhou/1001969/1003260.html",
+      "resource_url": "https://www.city.oyabe.toyama.jp/_res/projects/default_project/_page_/001/003/260/oyabe_aed_list_20230202.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2023-02-02"
+    }
+  ]
+}
