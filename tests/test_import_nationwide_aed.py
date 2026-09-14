@@ -5,6 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from import_nationwide_aed import (  # noqa: E402
+    choose_resource,
     has_denied_provenance,
     licence_allowed,
     mark_duplicates,
@@ -14,6 +15,12 @@ from import_nationwide_aed import (  # noqa: E402
 
 
 class NationwideAedImporterTest(unittest.TestCase):
+    def test_mixed_package_selects_aed_resource(self):
+        hospital = {"url": "https://example.org/hospital.csv", "format": "CSV"}
+        aed = {"url": "https://example.org/aed.xlsx", "format": "XLSX"}
+        self.assertEqual(choose_resource({"resources": [hospital, aed]}), aed)
+        self.assertIsNone(choose_resource({"title": "AEDを含む資料", "resources": [hospital]}))
+
     def test_requires_reusable_license(self):
         self.assertTrue(licence_allowed({"license_id": "cc-by", "license_title": "CC BY 4.0"}))
         self.assertFalse(licence_allowed({"license_id": "other-open", "license_title": "利用条件参照"}))
