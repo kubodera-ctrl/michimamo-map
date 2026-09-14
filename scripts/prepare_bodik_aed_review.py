@@ -67,8 +67,16 @@ def main():
             records=read_records(payload)
             accepted=0
             for p in records:
-                address=first_value(p,('所在地_連結表記','住所','所在地','設置施設住所'))
+                p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in p.items()}
+                record_pref=first_value(p,('所在地_都道府県','都道府県名'))
+                if record_pref and record_pref!=source['prefecture']: continue
+                address=first_value(p,('所在地_連結表記','所在地_連結標記','住所','所在地','設置施設住所'))
                 city=first_value(p,('所在地_市区町村','市区町村','市区町村名')) or source['municipality']
+                if not address and city:
+                    town=first_value(p,('所在地_町字',))
+                    number=first_value(p,('所在地_番地以下',))
+                    if town and number:
+                        address=source['prefecture']+city+town+number
                 ward=first_value(p,('区',))
                 if ward and city and not address.startswith((source['prefecture'],city,ward)):
                     address=city+ward+address
