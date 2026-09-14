@@ -12,7 +12,13 @@ assert.match(html, /map\.panTo\(marker\.getLatLng\(\), \{ animate: false \}\)/);
 assert.match(html, /'#accidentAreaToggle'/);
 assert.match(html, /const safeTop = Math\.max\(mapRect\.top \+ 18, \.\.\.overlayBottoms\) \+ 12/);
 assert.doesNotMatch(html, /popup\._adjustPan\(\)/);
+assert.match(html, /map\.panBy\(\[0, panY\]/);
+assert.doesNotMatch(html, /let panX/);
 assert.match(html, /map\.on\('popupopen'/);
+assert.match(html, /function goToCurrentLocation\(\) \{/);
+assert.match(html, /map\.closePopup\(\)/);
+assert.match(html, /gpsMarkerObj\?\.getLatLng\?\.\(\)/);
+assert.match(html, /navigator\.geolocation\.getCurrentPosition/);
 assert.match(html, /performance\.now\(\) < popupFocusPanUntil/);
 
 console.log('popup focus checks passed');

@@ -1790,14 +1790,14 @@ function shareSpot(title, address, category, event) {
                 : [];
             const safeTop = Math.max(mapRect.top + 18, ...overlayBottoms) + 12;
             const safeBottom = mapRect.bottom - (mobile ? 24 : 18);
-            let panX = 0, panY = 0;
-            if (popupRect.left < mapRect.left + 12) panX = popupRect.left - mapRect.left - 12;
-            else if (popupRect.right > mapRect.right - 12) panX = popupRect.right - mapRect.right + 12;
+            let panY = 0;
             if (popupRect.top < safeTop) panY = popupRect.top - safeTop;
             else if (popupRect.bottom > safeBottom) panY = popupRect.bottom - safeBottom;
-            if (panX || panY) {
+            if (panY) {
                 popupFocusPanUntil = performance.now() + 800;
-                map.panBy([panX, panY], { animate: false });
+                // Keep the selected marker horizontally centered. Only its
+                // vertical position may move to clear the mobile controls.
+                map.panBy([0, panY], { animate: false });
             }
         }));
     }
@@ -1818,7 +1818,32 @@ function shareSpot(title, address, category, event) {
             }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
         );
     }
-    function goToCurrentLocation() { if (userLat && userLng) map.setView([userLat, userLng], 15); else showToast('位置情報が取得できません'); }
+    function goToCurrentLocation() {
+        map.stop();
+        map.closePopup();
+        popupFocusPanUntil = 0;
+        const markerPosition = gpsMarkerObj?.getLatLng?.();
+        const lat = Number.isFinite(userLat) ? userLat : markerPosition?.lat;
+        const lng = Number.isFinite(userLng) ? userLng : markerPosition?.lng;
+        if (Number.isFinite(lat) && Number.isFinite(lng)) {
+            map.setView([lat, lng], 15, { animate: false });
+            clearTimeout(safetyLoadTimer);
+            safetyLoadTimer = setTimeout(loadSafetySpots, 50);
+            return;
+        }
+        if (!navigator.geolocation) {
+            showToast('位置情報が取得できません');
+            return;
+        }
+        showToast('現在地を取得しています...');
+        navigator.geolocation.getCurrentPosition((position) => {
+            userLat = position.coords.latitude;
+            userLng = position.coords.longitude;
+            map.setView([userLat, userLng], 15, { animate: false });
+            clearTimeout(safetyLoadTimer);
+            safetyLoadTimer = setTimeout(loadSafetySpots, 50);
+        }, () => showToast('位置情報が取得できません'), { enableHighAccuracy: true, timeout: 10000 });
+    }
 
     async function searchLocation() {
         const query = document.getElementById('searchInput').value;
