@@ -1,0 +1,48 @@
+{
+  "publication_status": "published",
+  "verified_at": "2026-09-14T08:32:19.410Z",
+  "batch_prefix": "bodik-reviewed:gap20260914:",
+  "baseline": 28553,
+  "added": 3356,
+  "public_aed": 31909,
+  "prefectures": 47,
+  "municipalities": 572,
+  "added_by_prefecture": {
+    "石川県": 1474,
+    "岐阜県": 1051,
+    "山口県": 402,
+    "山梨県": 133,
+    "高知県": 66,
+    "鳥取県": 230
+  },
+  "verification": {
+    "staged": 3356,
+    "invalid_staged_rows": 0,
+    "exact_existing_duplicates": 0,
+    "anonymous_rpc_samples_passed": 6,
+    "anonymous_rpc_prefectures": [
+      "山口県",
+      "山梨県",
+      "岐阜県",
+      "石川県",
+      "高知県",
+      "鳥取県"
+    ],
+    "unit_tests_passed": 9
+  },
+  "scope": "47都道府県で公開済み。全国の全AED・全市区町村の網羅ではない。市区町村数は保存された(prefecture,municipality)の組数。",
+  "remaining": {
+    "missing_or_non_decimal_coordinates": 2210,
+    "invalid_coordinate_range": 66,
+    "counts_note": "今回取得した補完資料内の行数。未重複除去であり、追加可能件数ではない。",
+    "source_error": "土佐市のCSV取得がHTMLを返すため保留。",
+    "priorities": [
+      "住所のみの候補は施設単位の位置を確認するまで公開しない",
+      "土佐市の正式なCSVリンクを確認",
+      "未取得の自治体公開資料を追加探索"
+    ]
+  },
+  "workspace": "/workspace/scratch/301c7ca1240b/michimamo-map",
+  "review_cache": "/tmp/aed_gap_review",
+  "notes": "前スレッドの未コミット変更はそのまま保持。表示選択UIの本番反映はこの作業では実施していない。"
+}
