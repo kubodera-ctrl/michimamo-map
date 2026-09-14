@@ -4,6 +4,7 @@ import random
 import re
 import time
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from xml.etree import ElementTree
 
 SUPABASE_URL = "https://ckftozjhdszlwqnylmxv.supabase.co"
@@ -49,10 +50,21 @@ def extract_address(text: str) -> str | None:
     return None
 
 
-def parse_rss(xml: str, limit: int, prefix: str) -> list[dict]:
+def parse_rss(xml: str, limit: int, prefix: str, now: datetime | None = None) -> list[dict]:
     results = []
+    freshness_cutoff = (now or datetime.now(timezone.utc)) - timedelta(days=14)
     root = ElementTree.fromstring(xml)
     for item in root.findall(".//item"):
+        published_text = item.findtext("pubDate", default="").strip()
+        if published_text:
+            try:
+                published_at = parsedate_to_datetime(published_text)
+                if published_at.tzinfo is None:
+                    published_at = published_at.replace(tzinfo=timezone.utc)
+                if published_at < freshness_cutoff:
+                    continue
+            except (TypeError, ValueError, OverflowError):
+                print(f"⚠️ 記事日時を解析できません: {published_text}")
         title = clean_text(item.findtext("title", default=""))
         description = clean_text(item.findtext("description", default=""))
         combined = f"{title} {description}"
@@ -86,11 +98,11 @@ def build_search_lanes() -> list[dict]:
     prefectures = ["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", "茨城", "栃木", "群馬", "埼玉", "千葉", "神奈川", "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知", "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山", "鳥取", "島根", "岡山", "広島", "山口", "徳島", "香川", "愛媛", "高知", "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"]
     wards = ["千代田区", "中央区", "港区", "新宿区", "文京区", "台東区", "墨田区", "江東区", "品川区", "目黒区", "大田区", "世田谷区", "渋谷区", "中野区", "杉並区", "豊島区", "北区", "荒川区", "板橋区", "練馬区", "足立区", "葛飾区", "江戸川区"]
     crime_query = " OR ".join(CRIME_KEYWORDS)
-    lanes = [{"query": f"東京都{ward} ({crime_query})", "limit": 15} for ward in wards]
-    lanes.append({"query": f"東京都多摩 ({crime_query})", "limit": 15})
+    lanes = [{"query": f"東京都{ward} ({crime_query})", "limit": 25} for ward in wards]
+    lanes.append({"query": f"東京都多摩 ({crime_query})", "limit": 25})
     big = {"神奈川", "埼玉", "千葉", "愛知", "大阪", "兵庫", "福岡"}
-    lanes.extend({"query": f"{pref} ({crime_query})", "limit": 20 if pref in big else 15} for pref in prefectures)
-    lanes.append({"query": f"(メールけいしちょう OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報) ({crime_query})", "limit": 30})
+    lanes.extend({"query": f"{pref} ({crime_query})", "limit": 30 if pref in big else 25} for pref in prefectures)
+    lanes.append({"query": f"(メールけいしちょう OR 防犯メール OR 安全安心メール OR 犯罪情報 OR 不審者情報) ({crime_query})", "limit": 40})
     return lanes
 
 
