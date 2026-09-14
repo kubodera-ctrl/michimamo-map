@@ -1765,11 +1765,9 @@ function shareSpot(title, address, category, event) {
         const mobile = window.matchMedia('(max-width: 768px)').matches;
         const availableHeight = window.visualViewport?.height || window.innerHeight;
         return {
-            autoPan: true,
-            keepInView: true,
+            autoPan: false,
+            keepInView: false,
             closeOnClick: false,
-            autoPanPaddingTopLeft: L.point(12, mobile ? 150 : 20),
-            autoPanPaddingBottomRight: L.point(12, mobile ? 20 : 12),
             maxHeight: Math.max(220, Math.min(430, availableHeight - (mobile ? 390 : 140))),
         };
     }
@@ -1777,13 +1775,15 @@ function shareSpot(title, address, category, event) {
     function focusSelectedPopup(marker, popup) {
         if (!marker?.getLatLng || !popup) return;
         popupFocusPanUntil = performance.now() + 800;
-        map.panTo(marker.getLatLng(), { animate: false });
         requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup) return;
-            // Leaflet performs the final popup fit using the padding above.
-            // Keeping this inside Leaflet avoids mixing CSS-zoom coordinates
-            // with map coordinates on iPhone browsers.
             popup.update();
+            const size = map.getSize();
+            const current = map.latLngToContainerPoint(marker.getLatLng());
+            // Use Leaflet coordinates only. DOM rectangles are in a different
+            // scale when iPhone viewport compensation is active.
+            const desired = L.point(size.x / 2, size.y * 0.78);
+            map.panBy([current.x - desired.x, current.y - desired.y], { animate: false });
         }));
     }
 
