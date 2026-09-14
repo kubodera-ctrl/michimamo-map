@@ -16,6 +16,8 @@ def make_row(p, coords, source, identity):
     lng,lat=coords[:2]
     try: lat,lng=float(lat),float(lng)
     except (ValueError,TypeError): return None
+    if 122 <= lat <= 154 and 20 <= lng <= 46:
+        lat,lng=lng,lat
     pref=clean(p.get('prefectureName'))
     if not pref:
         municipality=clean(p.get('municipalityName'))

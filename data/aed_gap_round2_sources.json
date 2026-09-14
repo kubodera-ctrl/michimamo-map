@@ -10,6 +10,26 @@
       "source_updated_at": "2025-04-09T00:23:07.457533",
       "allowed": true,
       "notes": "宮崎市が管理している施設のみを掲載した自治体公開データ"
+    },
+    {
+      "prefecture": "滋賀県",
+      "municipality": "大津市",
+      "source_name": "大津市 AED設置事業所一覧（2026年2月27日版）",
+      "source_url": "https://odm.bodik.jp/dataset/999caef4-7e90-4fd2-98eb-fd94368e9a2f",
+      "resource_url": "https://data.bodik.jp/dataset/999caef4-7e90-4fd2-98eb-fd94368e9a2f/resource/3e5b513e-de51-4459-af70-6fda94e1bed3/download/od405902026022700200.csv",
+      "license_id": "cc-by",
+      "source_updated_at": "2026-02-27",
+      "allowed": true
+    },
+    {
+      "prefecture": "和歌山県",
+      "municipality": "和歌山市",
+      "source_name": "和歌山市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/92fd1e59-b6ff-4c6f-9691-9142dc20d1a9",
+      "resource_url": "https://data.bodik.jp/dataset/92fd1e59-b6ff-4c6f-9691-9142dc20d1a9/resource/e5617047-70fb-4801-acee-470429bbe50a/download/302015_aed.csv",
+      "license_id": "PDL1.0",
+      "source_updated_at": null,
+      "allowed": true
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {"municipality": "大津市", "source_rows": 451, "published": 366},
+    {"municipality": "和歌山市", "source_rows": 236, "published": 217}
+  ],
+  "normalized_rows": 587,
+  "internal_exact_duplicates_removed": 100,
+  "internal_near_duplicate_pairs": 2,
+  "published": 583,
+  "production_duplicates": 0,
+  "public_aed_after": 33412,
+  "prefectures_after": 47,
+  "municipalities_after": 577,
+  "anonymous_rpc_visible": true,
+  "publication_status": "published",
+  "verified_at": "2026-09-14T09:55:00Z"
+}
