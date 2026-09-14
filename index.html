@@ -3521,7 +3521,17 @@ function shareSpot(title, address, category, event) {
         var el = getFilterList();
         var wrapper = document.getElementById('filterWrapper');
         var ad = document.querySelector('.ad-banner');
-        if (!el || !wrapper || !wrapper.classList.contains('open')) return;
+        if (!el || !wrapper) return;
+        // Only the narrow-screen column layout needs a vertical scroll area.
+        // Clear previous mobile sizing when closing or resizing to desktop.
+        if (getComputedStyle(el).flexDirection !== 'column' || !wrapper.classList.contains('open')) {
+            ['height', 'max-height', 'overflow-y', 'overflow-x', '-webkit-overflow-scrolling', 'touch-action'].forEach(function (property) {
+                el.style.removeProperty(property);
+            });
+            state.active = false;
+            state.el = null;
+            return;
+        }
 
         var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
         var vv = window.visualViewport;
@@ -3545,7 +3555,7 @@ function shareSpot(title, address, category, event) {
 
     function begin(e) {
         var el = getFilterList();
-        if (!el || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
+        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
         var t = e.target && e.target.closest ? e.target.closest('.filter-content') : null;
         if (!t) return;
         var touch = e.touches && e.touches[0];
