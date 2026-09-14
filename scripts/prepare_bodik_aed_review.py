@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import re
 import urllib.request
-from import_nationwide_aed import clean, compact, PREFECTURES, mark_duplicates
+from import_nationwide_aed import clean, compact, PREFECTURES, mark_duplicates, has_denied_provenance
 from import_aed_open_data import read_records, first_value, sql_text
 
 
@@ -17,6 +17,9 @@ def make_row(p, coords, source, identity):
     try: lat,lng=float(lat),float(lng)
     except (ValueError,TypeError): return None
     pref=clean(p.get('prefectureName'))
+    if not pref:
+        municipality=clean(p.get('municipalityName'))
+        pref=next((v for v in PREFECTURES if municipality.startswith(v)), '')
     city=clean(p.get('cityName')) or clean(p.get('municipalityName')).removeprefix(pref)
     name,address=clean(p.get('name')),clean(p.get('address'))
     restriction=clean(p.get('limitationOfUse')).lower()
@@ -41,7 +44,7 @@ def main():
     rejected=Counter()
     for feature in features:
         p=feature['properties']; rid=p['resource_id']; source=sources.get(rid,{})
-        if not source.get('allowed'): rejected['source_not_approved']+=1; continue
+        if not source.get('allowed') or has_denied_provenance(source, {}): rejected['source_not_approved']+=1; continue
         row=make_row(p,(feature.get('geometry') or {}).get('coordinates'),source,rid)
         if row: rows.append(row)
         else: rejected['geometry_identity_or_restriction']+=1
@@ -58,10 +61,13 @@ def main():
                     m=re.match(r'(.+?(?:市|町|村))',address.removeprefix(source['prefecture']))
                     city=m.group(1) if m else ''
                 mapped={'name':first_value(p,('名称','施設名','施設名称')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
+                for target,header in (('openingDays','利用可能曜日'),('startTime','開始時間'),('endTime','終了時間'),('openingHoursRemarks','利用可能日時特記事項')):
+                    mapped[target]=first_value(p,(header,))
                 row=make_row(mapped,[first_value(p,('経度',)),first_value(p,('緯度',))],source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
                 if row: rows.append(row); accepted+=1
             supplemental.append({'source':source,'raw_rows':len(records),'accepted':accepted,'sha256':hashlib.sha256(payload).hexdigest(),'columns':list(records[0]) if records else []})
         except Exception as error: supplemental.append({'source':source,'error':str(error)})
+    rows.sort(key=lambda r:(str(r.get('source_updated_at') or r.get('source_date') or ''),r['source_key']),reverse=True)
     rows,exact,pairs=mark_duplicates(rows)
     (args.input_dir/'review_rows.json').write_text(json.dumps(rows,ensure_ascii=False))
     report={'rows':len(rows),'by_prefecture':dict(Counter(r['prefecture'] for r in rows)),'rejected':dict(rejected),'exact_removed':exact,'near_duplicate_pairs':pairs,'supplemental':supplemental}
