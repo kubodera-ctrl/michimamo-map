@@ -1765,8 +1765,11 @@ function shareSpot(title, address, category, event) {
         const mobile = window.matchMedia('(max-width: 768px)').matches;
         const availableHeight = window.visualViewport?.height || window.innerHeight;
         return {
-            autoPan: false,
+            autoPan: true,
+            keepInView: true,
             closeOnClick: false,
+            autoPanPaddingTopLeft: L.point(12, mobile ? 150 : 20),
+            autoPanPaddingBottomRight: L.point(12, mobile ? 20 : 12),
             maxHeight: Math.max(220, Math.min(430, availableHeight - (mobile ? 390 : 140))),
         };
     }
@@ -1774,39 +1777,13 @@ function shareSpot(title, address, category, event) {
     function focusSelectedPopup(marker, popup) {
         if (!marker?.getLatLng || !popup) return;
         popupFocusPanUntil = performance.now() + 800;
+        map.panTo(marker.getLatLng(), { animate: false });
         requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup) return;
+            // Leaflet performs the final popup fit using the padding above.
+            // Keeping this inside Leaflet avoids mixing CSS-zoom coordinates
+            // with map coordinates on iPhone browsers.
             popup.update();
-            const popupElement = popup.getElement?.();
-            const mapElement = map.getContainer?.();
-            if (!popupElement || !mapElement) return;
-            const popupRect = popupElement.getBoundingClientRect();
-            const mapRect = mapElement.getBoundingClientRect();
-            const mobile = window.matchMedia('(max-width: 768px)').matches;
-            const overlayBottoms = mobile
-                ? ['.search-box', '#filterWrapper', '#accidentAreaToggle']
-                    .map(selector => document.querySelector(selector)?.getBoundingClientRect())
-                    .filter(rect => rect && rect.width > 0 && rect.height > 0)
-                    .map(rect => rect.bottom)
-                : [];
-            const safeTop = Math.max(mapRect.top + 18, ...overlayBottoms) + 12;
-            const safeBottom = mapRect.bottom - (mobile ? 24 : 18);
-            const markerPoint = map.latLngToContainerPoint(marker.getLatLng());
-            const desiredMarkerX = map.getSize().x / 2;
-            // A Leaflet popup sits above its marker. Position the marker once
-            // from its measured popup height instead of applying corrections
-            // after an earlier pan, which can compound on mobile Safari.
-            const desiredMarkerY = Math.min(
-                safeBottom,
-                Math.max(safeTop + popupRect.height, mapRect.top + map.getSize().y / 2)
-            ) - mapRect.top;
-            const panX = markerPoint.x - desiredMarkerX;
-            const panY = markerPoint.y - desiredMarkerY;
-            if (panX || panY) {
-                popupFocusPanUntil = performance.now() + 800;
-                // Leaflet's panBy offset is current point minus desired point.
-                map.panBy([panX, panY], { animate: false });
-            }
         }));
     }
 
@@ -1832,31 +1809,8 @@ function shareSpot(title, address, category, event) {
         );
     }
     function goToCurrentLocation() {
-        map.stop();
-        map.closePopup();
-        popupFocusPanUntil = 0;
-        const markerPosition = gpsMarkerObj?.getLatLng?.();
-        const lat = Number.isFinite(userLat) ? userLat : markerPosition?.lat;
-        const lng = Number.isFinite(userLng) ? userLng : markerPosition?.lng;
-        if (Number.isFinite(lat) && Number.isFinite(lng)) {
-            map.setView([lat, lng], 15);
-        }
-        if (!navigator.geolocation) {
-            if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
-            return;
-        }
-        showToast('現在地を取得しています...');
-        navigator.geolocation.getCurrentPosition((position) => {
-            userLat = position.coords.latitude;
-            userLng = position.coords.longitude;
-            userAccuracy = position.coords.accuracy;
-            if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]);
-            map.setView([userLat, userLng], 15);
-            clearTimeout(safetyLoadTimer);
-            safetyLoadTimer = setTimeout(loadSafetySpots, 50);
-        }, () => {
-            if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
-        }, { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 });
+        if (userLat && userLng) map.setView([userLat, userLng], 15);
+        else showToast('位置情報が取得できません');
     }
 
     async function searchLocation() {
