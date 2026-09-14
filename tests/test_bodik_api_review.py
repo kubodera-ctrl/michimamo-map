@@ -1,0 +1,25 @@
+import sys
+import unittest
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+from prepare_bodik_aed_review import make_row
+
+class ReviewTests(unittest.TestCase):
+    def setUp(self):
+        self.p={'name':'市役所','prefectureName':'北海道','cityName':'北見市','address':'北見市大通西3丁目'}
+        self.source={'source_name':'自治体AED一覧','source_url':'https://example.org/source','license_id':'cc-by'}
+    def test_missing_coordinates_are_not_invented(self):
+        self.assertIsNone(make_row(self.p,None,self.source,'r'))
+    def test_restricted_facilities_are_excluded(self):
+        self.assertIsNone(make_row(dict(self.p,limitationOfUse='1'),[143.9,43.8],self.source,'r'))
+    def test_unknown_date_stays_unknown_and_staged(self):
+        row=make_row(self.p,[143.9,43.8],self.source,'r')
+        self.assertIsNone(row['source_updated_at'])
+        self.assertFalse(row['active'])
+        self.assertEqual(row['address'],'北海道北見市大通西3丁目')
+    def test_mismatching_prefecture_is_rejected(self):
+        self.assertIsNone(make_row(dict(self.p,address='東京都千代田区1'),[139.7,35.6],self.source,'r'))
+    def test_nonfinite_coordinates_are_rejected(self):
+        self.assertIsNone(make_row(self.p,[float('nan'),43.8],self.source,'r'))
+
+if __name__=='__main__': unittest.main()
