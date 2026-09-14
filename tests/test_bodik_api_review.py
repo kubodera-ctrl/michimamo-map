@@ -3,6 +3,7 @@ import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from prepare_bodik_aed_review import make_row
+from import_aed_open_data import read_records
 
 class ReviewTests(unittest.TestCase):
     def setUp(self):
@@ -33,5 +34,13 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(row['address'],'北海道北見市大通西3丁目')
     def test_conflicting_city_in_partial_address_is_rejected(self):
         self.assertIsNone(make_row(dict(self.p,address='札幌市中央区1'),[143.9,43.8],self.source,'r'))
+
+    def test_tab_delimited_official_csv_is_detected(self):
+        records=read_records('名称\t緯度\t経度\r\n市役所\t38.1\t140.9\r\n'.encode())
+        self.assertEqual(records,[{'名称':'市役所','緯度':'38.1','経度':'140.9'}])
+
+    def test_gis_alias_fields_can_form_a_review_row(self):
+        row=make_row({'name':'学校','address':'新潟市南区新飯田1','prefectureName':'新潟県','cityName':'新潟市'},[138.9,37.7],self.source,'r')
+        self.assertEqual(row['municipality'],'新潟市')
 
 if __name__=='__main__': unittest.main()

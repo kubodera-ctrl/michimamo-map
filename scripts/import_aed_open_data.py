@@ -76,10 +76,18 @@ def read_records(payload: bytes, header_row: int = 1) -> list[dict[str, Any]]:
             keys = [normalized(value) for value in headers]
             return [dict(zip(keys, row)) for row in values if any(value is not None for value in row)]
         return []
-    stream = io.StringIO(decode_csv(payload))
+    text = decode_csv(payload)
+    stream = io.StringIO(text)
     for _ in range(header_row - 1):
         next(stream, None)
-    return list(csv.DictReader(stream))
+    data_start = stream.tell()
+    sample = stream.read(8192)
+    stream.seek(data_start)
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=",\t;")
+    except csv.Error:
+        dialect = csv.excel
+    return list(csv.DictReader(stream, dialect=dialect))
 
 
 

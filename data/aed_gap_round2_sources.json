@@ -30,6 +30,127 @@
       "license_id": "PDL1.0",
       "source_updated_at": null,
       "allowed": true
+    },
+    {
+      "prefecture": "新潟県",
+      "municipality": "新潟市",
+      "source_name": "新潟市 GIS AED（自動体外式除細動器）設置施設",
+      "source_url": "https://odm.bodik.jp/dataset/55fa3110-3db4-4176-8fd6-1d130a9f8085",
+      "resource_url": "https://www.city.niigata.lg.jp/shisei/seisaku/it/open-data/opendata-gis/od-gis_kenkofukushi/od-gis_aed.files/od_gis_10061_aed.csv",
+      "license_id": "cc-by",
+      "source_updated_at": "2023-08-31T04:11:41.194113",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "仙台市",
+      "source_name": "仙台市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/ae1a311e-9fa2-4802-89d9-28d86eb5ac54",
+      "resource_url": "https://www.city.sendai.jp/kyukyukanri/kurashi/anzen/tobani/joho/documents/041009_aed.csv",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:54.967854",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "多賀城市",
+      "source_name": "多賀城市 AED設置個所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/f842856d-aac0-44cf-92f7-aed71b941ce3",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1434",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:52.850967",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "塩竈市",
+      "source_name": "塩竈市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/a5de7735-26e1-4c11-9216-848c636ca50b",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1423",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:51.285125",
+      "allowed": true,
+      "notes": "塩竈市が所有または管理する施設の自治体公開データ"
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "亘理町",
+      "source_name": "亘理町 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/0e12ad2d-0eea-4f75-830a-d0d894437b20",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32237",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:59:14.952110",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "大和町",
+      "source_name": "大和町 AED設置個所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/a7701969-973e-4f47-953f-007c0ce72e5f",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1471",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:59:03.185149",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "白石市",
+      "source_name": "白石市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/11f3a67f-33b6-479f-b65a-dbeb569aef7e",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1457",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:55.556909",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "松島町",
+      "source_name": "松島町 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/d5bd9080-fc3e-4ba9-a072-bc0b1a4264fa",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1413",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:47.571354",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "栗原市",
+      "source_name": "栗原市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/15ea31a6-69c8-4b0c-ae2b-a1dcf51704f0",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1390",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:58:27.647807",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "名取市",
+      "source_name": "名取市 AED設置箇所一覧（R8.3.1）",
+      "source_url": "https://odm.bodik.jp/dataset/2b3143ac-03b0-40f2-8eef-85b213d93d26",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32878",
+      "license_id": "pdl",
+      "source_updated_at": "2026-05-13T18:57:33.734536",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "東松島市",
+      "source_name": "東松島市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/42251c90-6c18-4e22-8c2f-51ea14a5ee6d",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32352",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:59:22.004196",
+      "allowed": true
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "登米市",
+      "source_name": "登米市 AED設置個所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/b1f0b7f8-6715-4a2d-98bd-565799db57c2",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32590",
+      "license_id": "cc-by4_0",
+      "source_updated_at": "2026-05-13T18:59:24.560874",
+      "allowed": true
     }
   ]
 }

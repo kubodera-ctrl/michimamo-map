@@ -72,8 +72,10 @@ def main():
                 p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in p.items()}
                 record_pref=first_value(p,('所在地_都道府県','都道府県名'))
                 if record_pref and record_pref!=source['prefecture']: continue
-                address=first_value(p,('所在地_連結表記','所在地_連結標記','住所','所在地','設置施設住所'))
-                city=first_value(p,('所在地_市区町村','市区町村','市区町村名')) or source['municipality']
+                address=first_value(p,('所在地_連結表記','所在地_連結標記','住所','所在地','設置施設住所','SAFIELD001'))
+                # Supplemental manifests are reviewed per municipality. Some official
+                # CSVs incorrectly put the full street address in 所在地_市区町村.
+                city=source['municipality']
                 if not address and city:
                     town=first_value(p,('所在地_町字',))
                     number=first_value(p,('所在地_番地以下',))
@@ -86,11 +88,11 @@ def main():
                     m=re.match(r'(.+?(?:市|町|村))',address.removeprefix(source['prefecture']))
                     city=m.group(1) if m else ''
                 if first_value(p,('市民（外部の方）の使用',)) not in ('','認める'): continue
-                mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
+                mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等','SAFIELD000')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
                 for target,header in (('openingDays','利用可能曜日'),('startTime','開始時間'),('endTime','終了時間'),('openingHoursRemarks','利用可能日時特記事項')):
                     mapped[target]=first_value(p,(header,))
                 mapped['openingHoursRemarks']=' / '.join(filter(None,[mapped.get('openingHoursRemarks'),('休業日：'+p['休業日']) if p.get('休業日') else '',p.get('市民が使用する場合の条件')]))
-                row=make_row(mapped,[first_value(p,('経度',)),first_value(p,('緯度',))],source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
+                row=make_row(mapped,[first_value(p,('経度','longitude')),first_value(p,('緯度','latitude'))],source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
                 if row: rows.append(row); accepted+=1
             supplemental.append({'source':source,'raw_rows':len(records),'accepted':accepted,'sha256':hashlib.sha256(payload).hexdigest(),'columns':list(records[0]) if records else []})
         except Exception as error: supplemental.append({'source':source,'error':str(error)})

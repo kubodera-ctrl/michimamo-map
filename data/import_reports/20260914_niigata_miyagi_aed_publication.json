@@ -1,0 +1,31 @@
+{
+  "published_at": "2026-09-14",
+  "public_aed_before": 33412,
+  "published_rows": 1130,
+  "public_aed_after": 34542,
+  "source_rows_with_coordinates": {
+    "新潟県新潟市": 571,
+    "宮城県亘理町": 35,
+    "宮城県塩竈市": 10,
+    "宮城県多賀城市": 26,
+    "宮城県大和町": 31,
+    "宮城県東松島市": 87,
+    "宮城県松島町": 35,
+    "宮城県栗原市": 115,
+    "宮城県登米市": 173,
+    "宮城県白石市": 47
+  },
+  "production_duplicate_matches": 0,
+  "prefectures_after": 47,
+  "municipalities_after": 587,
+  "excluded_without_coordinates": {
+    "宮城県仙台市": 626,
+    "宮城県名取市": 158
+  },
+  "notes": [
+    "Only official municipal open data with reusable licenses was reviewed.",
+    "Tab-delimited municipal CSVs were detected explicitly.",
+    "Latitude/longitude reversal was corrected only when both values fell in unambiguous Japan ranges.",
+    "Rows without source coordinates remain unpublished for a later exact-address geocoding review."
+  ]
+}
