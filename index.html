@@ -1749,11 +1749,14 @@ function shareSpot(title, address, category, event) {
     function isCategoryVisible(category) {
         return visibleMapCategories.has(category);
     }
-    let userLat = null, userLng = null, gpsMarkerObj = null, isFirstLocationSet = false;
+    let userLat = null, userLng = null, userAccuracy = null, gpsMarkerObj = null, isFirstLocationSet = false;
 
     map.on('moveend', () => {
         // Keep the selected popup mounted while its automatic focus animation runs.
         if (performance.now() < popupFocusPanUntil) return;
+        // Do not replace the marker while its details are open. The next load is
+        // performed after the user explicitly closes the popup.
+        if (map._popup?.isOpen?.()) return;
         clearTimeout(safetyLoadTimer);
         safetyLoadTimer = setTimeout(loadSafetySpots, 350);
     });
@@ -1763,6 +1766,7 @@ function shareSpot(title, address, category, event) {
         const availableHeight = window.visualViewport?.height || window.innerHeight;
         return {
             autoPan: false,
+            closeOnClick: false,
             maxHeight: Math.max(220, Math.min(430, availableHeight - (mobile ? 390 : 140))),
         };
     }
@@ -1790,14 +1794,16 @@ function shareSpot(title, address, category, event) {
                 : [];
             const safeTop = Math.max(mapRect.top + 18, ...overlayBottoms) + 12;
             const safeBottom = mapRect.bottom - (mobile ? 24 : 18);
+            const markerPoint = map.latLngToContainerPoint(marker.getLatLng());
+            const panX = (map.getSize().x / 2) - markerPoint.x;
             let panY = 0;
             if (popupRect.top < safeTop) panY = popupRect.top - safeTop;
             else if (popupRect.bottom > safeBottom) panY = popupRect.bottom - safeBottom;
-            if (panY) {
+            if (panX || panY) {
                 popupFocusPanUntil = performance.now() + 800;
-                // Keep the selected marker horizontally centered. Only its
-                // vertical position may move to clear the mobile controls.
-                map.panBy([0, panY], { animate: false });
+                // Pin the selected marker to the exact horizontal midpoint;
+                // only the vertical component is adjusted for mobile controls.
+                map.panBy([panX, panY], { animate: false });
             }
         }));
     }
@@ -1807,15 +1813,20 @@ function shareSpot(title, address, category, event) {
         if (marker?.getLatLng) focusSelectedPopup(marker, event.popup);
     });
 
+    map.on('popupclose', () => {
+        clearTimeout(safetyLoadTimer);
+        safetyLoadTimer = setTimeout(loadSafetySpots, 50);
+    });
+
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(
             (pos) => {
-                userLat = pos.coords.latitude; userLng = pos.coords.longitude;
+                userLat = pos.coords.latitude; userLng = pos.coords.longitude; userAccuracy = pos.coords.accuracy;
                 if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
                 const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
                 if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
                 checkProximity(userLat, userLng);
-            }, (err) => console.log('GPS Error'), { enableHighAccuracy: true }
+            }, (err) => console.log('GPS Error'), { enableHighAccuracy: true, maximumAge: 0 }
         );
     }
     function goToCurrentLocation() {
@@ -1827,22 +1838,23 @@ function shareSpot(title, address, category, event) {
         const lng = Number.isFinite(userLng) ? userLng : markerPosition?.lng;
         if (Number.isFinite(lat) && Number.isFinite(lng)) {
             map.setView([lat, lng], 15, { animate: false });
-            clearTimeout(safetyLoadTimer);
-            safetyLoadTimer = setTimeout(loadSafetySpots, 50);
-            return;
         }
         if (!navigator.geolocation) {
-            showToast('位置情報が取得できません');
+            if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
             return;
         }
         showToast('現在地を取得しています...');
         navigator.geolocation.getCurrentPosition((position) => {
             userLat = position.coords.latitude;
             userLng = position.coords.longitude;
+            userAccuracy = position.coords.accuracy;
+            if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]);
             map.setView([userLat, userLng], 15, { animate: false });
             clearTimeout(safetyLoadTimer);
             safetyLoadTimer = setTimeout(loadSafetySpots, 50);
-        }, () => showToast('位置情報が取得できません'), { enableHighAccuracy: true, timeout: 10000 });
+        }, () => {
+            if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
+        }, { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 });
     }
 
     async function searchLocation() {
