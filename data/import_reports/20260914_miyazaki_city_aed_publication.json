@@ -1,0 +1,16 @@
+{
+  "source": "宮崎市内のAED設置場所一覧（市管理施設）",
+  "source_rows": 264,
+  "normalized_rows": 251,
+  "internal_exact_duplicates_removed": 13,
+  "internal_near_duplicate_pairs": 2,
+  "published": 247,
+  "production_duplicates": 0,
+  "public_aed_after": 32829,
+  "prefectures_after": 47,
+  "municipalities_after": 575,
+  "miyazaki_prefecture_after": 324,
+  "anonymous_rpc_visible": true,
+  "publication_status": "published",
+  "verified_at": "2026-09-14T09:42:00Z"
+}

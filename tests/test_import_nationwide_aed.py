@@ -30,6 +30,11 @@ class NationwideAedImporterTest(unittest.TestCase):
         resource = {"url": "https://www.qqzaidanmap.jp/example.csv"}
         self.assertTrue(has_denied_provenance(package, resource))
 
+    def test_keeps_municipal_own_data_when_notes_only_link_to_national_map(self):
+        package = {"notes": "宮崎市が管理している施設のみ掲載。全国AEDマップもご確認ください。"}
+        resource = {"url": "https://data.bodik.jp/miyazaki-aed.csv", "name": "AED設置場所一覧"}
+        self.assertFalse(has_denied_provenance(package, resource))
+
     def test_extracts_prefecture_and_municipality(self):
         prefecture, code = prefecture_from("神奈川県横浜市中区本町1", {})
         self.assertEqual((prefecture, code), ("神奈川県", "14"))

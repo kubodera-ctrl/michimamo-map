@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "prefecture": "宮崎県",
+      "municipality": "宮崎市",
+      "source_name": "宮崎市内のAED設置場所一覧（市管理施設）",
+      "source_url": "https://odm.bodik.jp/dataset/5b8584bf-9044-499e-8d85-084e32a90334",
+      "resource_url": "https://data.bodik.jp/dataset/5b8584bf-9044-499e-8d85-084e32a90334/resource/9401f2d1-bcf7-40e3-b7ac-294228bb06d4/download/aed20250308.csv",
+      "license_id": "cc-by-40-intl",
+      "source_updated_at": "2025-04-09T00:23:07.457533",
+      "allowed": true,
+      "notes": "宮崎市が管理している施設のみを掲載した自治体公開データ"
+    }
+  ]
+}

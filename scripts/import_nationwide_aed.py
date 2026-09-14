@@ -83,6 +83,12 @@ def licence_allowed(package: dict[str, Any]) -> bool:
 
 
 def has_denied_provenance(package: dict[str, Any], resource: dict[str, Any]) -> bool:
+    # Catalog notes may mention a third-party map only as an alternative while
+    # explicitly describing the municipality's own facility data.
+    own_data = clean(" ".join(str(package.get(k) or "") for k in ("title", "name", "notes"))).lower()
+    if ("管理している施設" in own_data or "市有施設" in own_data or "自治体標準オープンデータ" in own_data):
+        direct = clean(" ".join(str(resource.get(k) or "") for k in ("url", "name", "description"))).lower()
+        return any(domain in direct for domain in DENIED_PROVENANCE)
     text = json.dumps({"package": package, "resource": resource}, ensure_ascii=False).lower()
     return any(domain in text for domain in DENIED_PROVENANCE)
 
