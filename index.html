@@ -394,7 +394,7 @@
                 </div>
 
                 <!-- 事故多発エリア -->
-                <div class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
+                <div id="accidentAreaToggle" class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
                     <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
                 </div>
 
@@ -1762,24 +1762,44 @@ function shareSpot(title, address, category, event) {
         const mobile = window.matchMedia('(max-width: 768px)').matches;
         const availableHeight = window.visualViewport?.height || window.innerHeight;
         return {
-            keepInView: true,
+            autoPan: false,
             maxHeight: Math.max(220, Math.min(430, availableHeight - (mobile ? 390 : 140))),
-            autoPanPaddingTopLeft: L.point(12, mobile ? 210 : 24),
-            autoPanPaddingBottomRight: L.point(12, mobile ? 24 : 18)
         };
     }
 
     function focusSelectedPopup(marker, popup) {
         if (!marker?.getLatLng || !popup) return;
-        popupFocusPanUntil = performance.now() + 1200;
-        map.panTo(marker.getLatLng(), { animate: true, duration: 0.2 });
-        // Re-run Leaflet's own pan calculation after centering. Its bounded
-        // calculation is more stable than manually moving by popup dimensions.
-        setTimeout(() => {
+        popupFocusPanUntil = performance.now() + 800;
+        // Finish centering first so popup measurements are never taken while a
+        // CSS map animation is still moving the element.
+        map.panTo(marker.getLatLng(), { animate: false });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup) return;
             popup.update();
-            if (typeof popup._adjustPan === 'function') popup._adjustPan();
-        }, 240);
+            const popupElement = popup.getElement?.();
+            const mapElement = map.getContainer?.();
+            if (!popupElement || !mapElement) return;
+            const popupRect = popupElement.getBoundingClientRect();
+            const mapRect = mapElement.getBoundingClientRect();
+            const mobile = window.matchMedia('(max-width: 768px)').matches;
+            const overlayBottoms = mobile
+                ? ['.search-box', '#filterWrapper', '#accidentAreaToggle']
+                    .map(selector => document.querySelector(selector)?.getBoundingClientRect())
+                    .filter(rect => rect && rect.width > 0 && rect.height > 0)
+                    .map(rect => rect.bottom)
+                : [];
+            const safeTop = Math.max(mapRect.top + 18, ...overlayBottoms) + 12;
+            const safeBottom = mapRect.bottom - (mobile ? 24 : 18);
+            let panX = 0, panY = 0;
+            if (popupRect.left < mapRect.left + 12) panX = popupRect.left - mapRect.left - 12;
+            else if (popupRect.right > mapRect.right - 12) panX = popupRect.right - mapRect.right + 12;
+            if (popupRect.top < safeTop) panY = popupRect.top - safeTop;
+            else if (popupRect.bottom > safeBottom) panY = popupRect.bottom - safeBottom;
+            if (panX || panY) {
+                popupFocusPanUntil = performance.now() + 800;
+                map.panBy([panX, panY], { animate: false });
+            }
+        }));
     }
 
     map.on('popupopen', (event) => {
