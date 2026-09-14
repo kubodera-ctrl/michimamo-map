@@ -7,6 +7,10 @@ import tempfile
 import unittest
 
 class SplitAddressTests(unittest.TestCase):
+    def test_html_download_is_not_treated_as_an_empty_dataset(self):
+        sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+        from import_aed_open_data import read_records
+        with self.assertRaises(ValueError):read_records(b'<html><body>Access check</body></html>')
     def test_official_split_address_and_mislabeled_prefecture(self):
         with tempfile.TemporaryDirectory() as directory:
             p=Path(directory);url='https://example.org/aed.csv'

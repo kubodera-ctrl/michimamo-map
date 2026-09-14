@@ -60,6 +60,8 @@ def decode_csv(payload: bytes) -> str:
 
 def read_records(payload: bytes, header_row: int = 1) -> list[dict[str, Any]]:
     """Read municipal open data even when an XLSX is served from a .csv URL."""
+    if payload.lstrip().lower().startswith((b'<!doctype html', b'<html')):
+        raise ValueError('Expected AED data but received an HTML page; source remains pending')
     if header_row < 1:
         raise ValueError("header_row must be 1 or greater")
     if payload.startswith(b"PK\x03\x04"):

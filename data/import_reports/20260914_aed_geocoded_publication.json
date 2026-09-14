@@ -1,0 +1,29 @@
+{
+  "candidates": 1397,
+  "geocoded_rows": 680,
+  "rejected": {
+    "not_address_level": 443,
+    "administrative_mismatch": 254
+  },
+  "exact_removed": 20,
+  "near_duplicate_pairs": 3,
+  "publishable_before_production_reconciliation": 674,
+  "by_prefecture": {
+    "石川県": 21,
+    "岐阜県": 472,
+    "山口県": 181
+  },
+  "publication_status": "published",
+  "published": 673,
+  "near_duplicate_excluded_against_production": 1,
+  "public_aed_after": 32582,
+  "prefectures_after": 47,
+  "municipalities_after": 574,
+  "anonymous_rpc_samples_passed": [
+    "石川県",
+    "岐阜県",
+    "山口県"
+  ],
+  "verified_at": "2026-09-14T08:50:35.009434+00:00",
+  "precision_rule": "住所正規化レベル8（番地まで判別）だけを公開"
+}
