@@ -1809,8 +1809,16 @@ function shareSpot(title, address, category, event) {
         );
     }
     function goToCurrentLocation() {
-        if (userLat && userLng) map.setView([userLat, userLng], 15);
-        else showToast('位置情報が取得できません');
+        if (!userLat || !userLng) {
+            showToast('位置情報が取得できません');
+            return;
+        }
+        // An open keepInView popup can pan the map back to its facility after
+        // the location move. Close it first so the GPS coordinate wins.
+        popupFocusPanUntil = performance.now() + 800;
+        map.closePopup();
+        map.stop();
+        map.setView([userLat, userLng], 15);
     }
 
     async function searchLocation() {
