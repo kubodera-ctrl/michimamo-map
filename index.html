@@ -1797,8 +1797,8 @@ function shareSpot(title, address, category, event) {
             const markerPoint = map.latLngToContainerPoint(marker.getLatLng());
             const panX = (map.getSize().x / 2) - markerPoint.x;
             let panY = 0;
-            if (popupRect.top < safeTop) panY = popupRect.top - safeTop;
-            else if (popupRect.bottom > safeBottom) panY = popupRect.bottom - safeBottom;
+            if (popupRect.top < safeTop) panY = safeTop - popupRect.top;
+            else if (popupRect.bottom > safeBottom) panY = safeBottom - popupRect.bottom;
             if (panX || panY) {
                 popupFocusPanUntil = performance.now() + 800;
                 // Pin the selected marker to the exact horizontal midpoint;
@@ -1837,7 +1837,7 @@ function shareSpot(title, address, category, event) {
         const lat = Number.isFinite(userLat) ? userLat : markerPosition?.lat;
         const lng = Number.isFinite(userLng) ? userLng : markerPosition?.lng;
         if (Number.isFinite(lat) && Number.isFinite(lng)) {
-            map.setView([lat, lng], 15, { animate: false });
+            map.flyTo([lat, lng], 15, { animate: true, duration: 0.65 });
         }
         if (!navigator.geolocation) {
             if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
@@ -1849,7 +1849,7 @@ function shareSpot(title, address, category, event) {
             userLng = position.coords.longitude;
             userAccuracy = position.coords.accuracy;
             if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]);
-            map.setView([userLat, userLng], 15, { animate: false });
+            map.flyTo([userLat, userLng], 15, { animate: true, duration: 0.65 });
             clearTimeout(safetyLoadTimer);
             safetyLoadTimer = setTimeout(loadSafetySpots, 50);
         }, () => {
