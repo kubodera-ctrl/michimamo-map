@@ -13,10 +13,11 @@ import time
 import threading
 import urllib.parse
 import urllib.request
+from import_nationwide_aed import has_denied_provenance
 
 API = 'https://wapi.bodik.jp'
 ODM = 'https://odm.bodik.jp/api/3/action/'
-ALLOWED = {'cc-by', 'cc-by-40-intl', 'cc-by-21-jp', 'cc-zero'}
+ALLOWED = {'cc-by', 'cc-by-40-intl', 'cc-by-21-jp', 'cc-zero', 'cc-by-4.0', 'cc-by-2.1'}
 
 
 def fetch(url, cache):
@@ -49,7 +50,7 @@ def resolve(resource_id, cache):
             'source_name':package['title'], 'license_id':package.get('license_id'),
             'license_url':package.get('license_url'),
             'source_updated_at':resource.get('updatedat') or resource.get('last_modified'),
-            'allowed':package.get('license_id') in ALLOWED,
+            'allowed':(package.get('license_id') or '').lower() in ALLOWED and not has_denied_provenance(package, resource),
             'notes':package.get('notes')}
 
 
