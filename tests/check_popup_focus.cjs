@@ -14,9 +14,11 @@ assert.match(html, /const desired = L\.point\(size\.x \/ 2, size\.y \* 0\.78\)/)
 assert.match(html, /map\.panBy\(\[current\.x - desired\.x, current\.y - desired\.y\]/);
 assert.match(html, /map\.on\('popupopen'/);
 assert.match(html, /function goToCurrentLocation\(\) \{/);
-assert.match(html, /map\.closePopup\(\)/);
 assert.match(html, /map\.stop\(\)/);
-assert.match(html, /map\.setView\(\[userLat, userLng\], 15\)/);
+assert.match(html, /gpsMarkerObj\?\.getLatLng\?\.\(\)/);
+assert.match(html, /map\.invalidateSize\(\{ animate: false, pan: false \}\)/);
+assert.match(html, /map\.flyTo\(\[targetLat, targetLng\], 15, \{ animate: true, duration: 0\.7 \}\)/);
+assert.doesNotMatch(html, /function goToCurrentLocation\(\)[\s\S]*?map\.closePopup\(\)[\s\S]*?\n    \}/);
 assert.match(html, /performance\.now\(\) < popupFocusPanUntil/);
 assert.match(html, /map\._popup\?\.isOpen\?\.\(\)/);
 assert.match(html, /map\.on\('popupclose'/);
