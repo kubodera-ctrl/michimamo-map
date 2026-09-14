@@ -14,6 +14,7 @@ import hashlib
 import json
 import math
 import re
+import sys
 import time
 import unicodedata
 import urllib.parse
@@ -70,6 +71,7 @@ def fetch_bytes(url: str) -> bytes:
                 return response.read()
         except Exception as error:
             last_error = error
+            print(f"download attempt={attempt + 1}/3 url={url} error={type(error).__name__}: {error}", file=sys.stderr, flush=True)
             if attempt < 2:
                 time.sleep(2 ** attempt)
     raise RuntimeError(f"download failed after 3 attempts: {url}") from last_error
@@ -205,7 +207,7 @@ def build_sql(rows: list[dict[str, Any]]) -> str:
                "installation_location", "availability", "geocode_source", "duplicate_candidate", "duplicate_group_key", "quality_status")
     values = []
     for row in rows:
-        package = row.pop("_package")
+        package = row["_package"]
         values.append("(" + ",".join((
             sql_text(row["source_key"]), sql_text("aed"), sql_text(row["name"]), sql_text(row["prefecture"]), sql_text(row["prefecture_code"]),
             sql_text(row["municipality"]), sql_text(row["address"]), sql_text(row["phone"]), str(row["latitude"]), str(row["longitude"]),
@@ -229,6 +231,7 @@ def main() -> None:
     args = parser.parse_args()
     all_rows, reports, rejected_sources = [], [], []
     for catalog in args.catalog:
+        print(f"catalog_start={catalog}", flush=True)
         for package in iter_packages(catalog, args.query):
             package["_catalog_url"] = catalog
             resource = choose_resource(package)
@@ -236,13 +239,18 @@ def main() -> None:
                 rejected_sources.append({"id": package.get("id"), "title": package.get("title"), "reason": "license_or_resource"})
                 continue
             try:
+                started = time.monotonic()
+                print(f"dataset_start={package.get('title')} url={resource['url']}", flush=True)
                 rows, report = parse_dataset(package, resource)
+                report["elapsed_seconds"] = round(time.monotonic() - started, 2)
                 for row in rows:
                     row["_package"] = package
                 all_rows.extend(rows)
                 reports.append({"id": package["id"], "title": package.get("title"), "resource_url": resource["url"], **report})
+                print(f"dataset_done={package.get('title')} valid={len(rows)} elapsed={report['elapsed_seconds']}s", flush=True)
             except Exception as error:
-                reports.append({"id": package.get("id"), "title": package.get("title"), "error": f"{type(error).__name__}: {error}"})
+                reports.append({"id": package.get("id"), "title": package.get("title"), "resource_url": resource["url"], "elapsed_seconds": round(time.monotonic() - started, 2), "error": f"{type(error).__name__}: {error}"})
+                print(f"dataset_failed={package.get('title')} error={error}", file=sys.stderr, flush=True)
     all_rows, exact_removed, duplicate_pairs = mark_duplicates(all_rows)
     if not all_rows:
         raise SystemExit("No licensed, valid AED rows were found")
