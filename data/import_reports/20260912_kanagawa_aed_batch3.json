@@ -13,6 +13,7 @@
       "quality_notes": [],
       "skipped": 0,
       "restricted": 0,
+      "inactive": 0,
       "outside_municipality": 0,
       "sha256": "9916b40eb132d47934d19ce44089f613f7f0a5c7f2c86fba192e5d15f504cf9c",
       "parsed_rows": 126,
