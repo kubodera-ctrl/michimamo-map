@@ -1,0 +1,114 @@
+[
+  {
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:e8d6936ef6e4735f3293fffb",
+    "address": "大黒田町757番地花岡小学校敷地内",
+    "code": "24204",
+    "reason": "自治体公式AEDデータセットの対象自治体・出典名と施設所在地を照合",
+    "evidence_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:a725768943e2fd24acc4afb5",
+    "address": "嬉野中川町1881番地",
+    "code": "24204",
+    "reason": "自治体公式AEDデータセットの対象自治体・出典名と施設所在地を照合",
+    "evidence_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:7118ee4ca3bbb928954be64b",
+    "address": "曽原町312-3",
+    "code": "24204",
+    "reason": "自治体公式AEDデータセットの対象自治体・出典名と施設所在地を照合",
+    "evidence_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "source_key": "municipal-catalog:71355432-9c4b-413d-8c70-ee25fea8d011:a866392dbc27887e27e7f915",
+    "address": "佐賀県東多久町大字納所2578番地1",
+    "code": "41204",
+    "reason": "自治体公式AEDデータセットの対象自治体・出典名と施設所在地を照合",
+    "evidence_url": "https://data.bodik.jp/dataset/412040_aed"
+  },
+  {
+    "source_key": "bodik-reviewed:gap20260914:e302afa23695fa17:20c4730d50eed02ce96c4842",
+    "address": "山口県2069田布施町麻郷奥127番地",
+    "code": "35343",
+    "reason": "元住所の数字2069を除いた田布施町麻郷奥127番地、施設名が田布施総合支援学校高等部と一致。県公式学校一覧でも熊毛郡田布施町所在を確認",
+    "evidence_url": "https://yamaguchi-opendata.jp/ckan/dataset/8f80095c-9eb9-4e3d-bbef-a22139644952"
+  },
+  {
+    "source_key": "municipal-catalog:1cc72829-eb02-47ef-b691-f5a4c41401f4:a2641b59dc7945ec72d4dbdf",
+    "address": "愛媛県伊予文砥部町総津159-1",
+    "code": "38402",
+    "reason": "自治体公式AEDデータセットの対象自治体・出典名と施設所在地を照合",
+    "evidence_url": "https://data.bodik.jp/dataset/384020_aed"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:c023db2312fc8e37eac75409",
+    "address": "栃木県東浦町4-12",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:2e1420a18565dde8195f22b3",
+    "address": "栃木県松原3丁目1-5",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:b82713f83d77ee4f21d731f0",
+    "address": "栃木県松田新田町483",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:7649dbc96c861af2771c66f5",
+    "address": "栃木県泉が丘6-8-12",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:bde4115c9b0dff59b34fe017",
+    "address": "栃木県白沢町396-2",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:ec3a24fe705210f398421984",
+    "address": "栃木県石井町2989",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:4f04df99459d811674f0a2d6",
+    "address": "栃木県竹林町226",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:8227338e873e56bbdb0295b4",
+    "address": "栃木県若松原2-18-30",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:eff7fe816135cca4de8342d3",
+    "address": "栃木県駒生町1792",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  },
+  {
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:b3f9242fa559c1687db007c0",
+    "address": "栃木県鶴田町970-1",
+    "code": "09201",
+    "reason": "原本の施設名・住所一致、所在地_全国地方公共団体コード=092011を確認",
+    "evidence_url": "https://catalog.city.utsunomiya.tochigi.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c/resource/9787dee1-6ab7-4e09-896d-4a8d2a98c51f/download/r5092011_aed_sanitized_new_sanitized.csv"
+  }
+]

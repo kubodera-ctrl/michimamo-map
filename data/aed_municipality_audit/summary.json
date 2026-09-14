@@ -1,0 +1,342 @@
+{
+  "snapshot_date": "2026-09-14",
+  "scope": 1741,
+  "published_municipalities": 361,
+  "unpublished_municipalities": 1380,
+  "public_aed_count": 34561,
+  "assigned_aed_count": 34561,
+  "unresolved_aed_count": 0,
+  "raw_municipality_labels": 588,
+  "master_sha256": "ff312d5a5795ebc4aff330c74d02f20e546c958434d55a1ba866029b4fc3bb3b",
+  "prefectures": [
+    {
+      "prefecture": "北海道",
+      "total": 179,
+      "published": 25,
+      "unpublished": 154,
+      "aeds": 1538
+    },
+    {
+      "prefecture": "青森県",
+      "total": 40,
+      "published": 2,
+      "unpublished": 38,
+      "aeds": 120
+    },
+    {
+      "prefecture": "岩手県",
+      "total": 33,
+      "published": 3,
+      "unpublished": 30,
+      "aeds": 402
+    },
+    {
+      "prefecture": "宮城県",
+      "total": 35,
+      "published": 10,
+      "unpublished": 25,
+      "aeds": 651
+    },
+    {
+      "prefecture": "秋田県",
+      "total": 25,
+      "published": 4,
+      "unpublished": 21,
+      "aeds": 250
+    },
+    {
+      "prefecture": "山形県",
+      "total": 35,
+      "published": 4,
+      "unpublished": 31,
+      "aeds": 131
+    },
+    {
+      "prefecture": "福島県",
+      "total": 59,
+      "published": 3,
+      "unpublished": 56,
+      "aeds": 271
+    },
+    {
+      "prefecture": "茨城県",
+      "total": 44,
+      "published": 8,
+      "unpublished": 36,
+      "aeds": 508
+    },
+    {
+      "prefecture": "栃木県",
+      "total": 25,
+      "published": 7,
+      "unpublished": 18,
+      "aeds": 705
+    },
+    {
+      "prefecture": "群馬県",
+      "total": 35,
+      "published": 2,
+      "unpublished": 33,
+      "aeds": 216
+    },
+    {
+      "prefecture": "埼玉県",
+      "total": 63,
+      "published": 1,
+      "unpublished": 62,
+      "aeds": 420
+    },
+    {
+      "prefecture": "千葉県",
+      "total": 54,
+      "published": 3,
+      "unpublished": 51,
+      "aeds": 909
+    },
+    {
+      "prefecture": "東京都",
+      "total": 62,
+      "published": 29,
+      "unpublished": 33,
+      "aeds": 6309
+    },
+    {
+      "prefecture": "神奈川県",
+      "total": 33,
+      "published": 18,
+      "unpublished": 15,
+      "aeds": 2998
+    },
+    {
+      "prefecture": "新潟県",
+      "total": 30,
+      "published": 3,
+      "unpublished": 27,
+      "aeds": 676
+    },
+    {
+      "prefecture": "富山県",
+      "total": 15,
+      "published": 1,
+      "unpublished": 14,
+      "aeds": 61
+    },
+    {
+      "prefecture": "石川県",
+      "total": 19,
+      "published": 18,
+      "unpublished": 1,
+      "aeds": 1525
+    },
+    {
+      "prefecture": "福井県",
+      "total": 17,
+      "published": 3,
+      "unpublished": 14,
+      "aeds": 270
+    },
+    {
+      "prefecture": "山梨県",
+      "total": 27,
+      "published": 2,
+      "unpublished": 25,
+      "aeds": 186
+    },
+    {
+      "prefecture": "長野県",
+      "total": 77,
+      "published": 3,
+      "unpublished": 74,
+      "aeds": 265
+    },
+    {
+      "prefecture": "岐阜県",
+      "total": 42,
+      "published": 34,
+      "unpublished": 8,
+      "aeds": 1608
+    },
+    {
+      "prefecture": "静岡県",
+      "total": 35,
+      "published": 1,
+      "unpublished": 34,
+      "aeds": 272
+    },
+    {
+      "prefecture": "愛知県",
+      "total": 54,
+      "published": 5,
+      "unpublished": 49,
+      "aeds": 627
+    },
+    {
+      "prefecture": "三重県",
+      "total": 29,
+      "published": 6,
+      "unpublished": 23,
+      "aeds": 599
+    },
+    {
+      "prefecture": "滋賀県",
+      "total": 19,
+      "published": 4,
+      "unpublished": 15,
+      "aeds": 450
+    },
+    {
+      "prefecture": "京都府",
+      "total": 26,
+      "published": 25,
+      "unpublished": 1,
+      "aeds": 1568
+    },
+    {
+      "prefecture": "大阪府",
+      "total": 43,
+      "published": 6,
+      "unpublished": 37,
+      "aeds": 598
+    },
+    {
+      "prefecture": "兵庫県",
+      "total": 41,
+      "published": 5,
+      "unpublished": 36,
+      "aeds": 754
+    },
+    {
+      "prefecture": "奈良県",
+      "total": 39,
+      "published": 5,
+      "unpublished": 34,
+      "aeds": 340
+    },
+    {
+      "prefecture": "和歌山県",
+      "total": 30,
+      "published": 3,
+      "unpublished": 27,
+      "aeds": 322
+    },
+    {
+      "prefecture": "鳥取県",
+      "total": 19,
+      "published": 2,
+      "unpublished": 17,
+      "aeds": 268
+    },
+    {
+      "prefecture": "島根県",
+      "total": 19,
+      "published": 18,
+      "unpublished": 1,
+      "aeds": 192
+    },
+    {
+      "prefecture": "岡山県",
+      "total": 27,
+      "published": 1,
+      "unpublished": 26,
+      "aeds": 173
+    },
+    {
+      "prefecture": "広島県",
+      "total": 23,
+      "published": 1,
+      "unpublished": 22,
+      "aeds": 652
+    },
+    {
+      "prefecture": "山口県",
+      "total": 19,
+      "published": 9,
+      "unpublished": 10,
+      "aeds": 622
+    },
+    {
+      "prefecture": "徳島県",
+      "total": 24,
+      "published": 3,
+      "unpublished": 21,
+      "aeds": 112
+    },
+    {
+      "prefecture": "香川県",
+      "total": 17,
+      "published": 3,
+      "unpublished": 14,
+      "aeds": 250
+    },
+    {
+      "prefecture": "愛媛県",
+      "total": 20,
+      "published": 6,
+      "unpublished": 14,
+      "aeds": 817
+    },
+    {
+      "prefecture": "高知県",
+      "total": 34,
+      "published": 5,
+      "unpublished": 29,
+      "aeds": 68
+    },
+    {
+      "prefecture": "福岡県",
+      "total": 60,
+      "published": 7,
+      "unpublished": 53,
+      "aeds": 1643
+    },
+    {
+      "prefecture": "佐賀県",
+      "total": 20,
+      "published": 5,
+      "unpublished": 15,
+      "aeds": 368
+    },
+    {
+      "prefecture": "長崎県",
+      "total": 21,
+      "published": 6,
+      "unpublished": 15,
+      "aeds": 593
+    },
+    {
+      "prefecture": "熊本県",
+      "total": 45,
+      "published": 15,
+      "unpublished": 30,
+      "aeds": 521
+    },
+    {
+      "prefecture": "大分県",
+      "total": 18,
+      "published": 18,
+      "unpublished": 0,
+      "aeds": 1837
+    },
+    {
+      "prefecture": "宮崎県",
+      "total": 26,
+      "published": 2,
+      "unpublished": 24,
+      "aeds": 324
+    },
+    {
+      "prefecture": "鹿児島県",
+      "total": 43,
+      "published": 4,
+      "unpublished": 39,
+      "aeds": 164
+    },
+    {
+      "prefecture": "沖縄県",
+      "total": 41,
+      "published": 13,
+      "unpublished": 28,
+      "aeds": 408
+    }
+  ]
+}

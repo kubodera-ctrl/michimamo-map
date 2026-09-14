@@ -1,0 +1,1762 @@
+[
+  {
+    "id": 31474,
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:e8d6936ef6e4735f3293fffb",
+    "prefecture": "三重県",
+    "municipality": "大黒田町",
+    "address": "大黒田町757番地花岡小学校敷地内",
+    "name": "花岡キッズハウス",
+    "source_name": "松阪市",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "id": 31473,
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:a725768943e2fd24acc4afb5",
+    "prefecture": "三重県",
+    "municipality": "嬉野中川町",
+    "address": "嬉野中川町1881番地",
+    "name": "なかがわこどもクラブ・なかがわ第二こどもクラブ",
+    "source_name": "松阪市",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "id": 31290,
+    "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:7118ee4ca3bbb928954be64b",
+    "prefecture": "三重県",
+    "municipality": "曽原町",
+    "address": "曽原町312-3",
+    "name": "北部学校給食センター",
+    "source_name": "松阪市",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed"
+  },
+  {
+    "id": 30599,
+    "source_key": "municipal-catalog:71355432-9c4b-413d-8c70-ee25fea8d011:a866392dbc27887e27e7f915",
+    "prefecture": "佐賀県",
+    "municipality": "東多久町",
+    "address": "佐賀県東多久町大字納所2578番地1",
+    "name": "納所交流センター くつろぎ",
+    "source_name": "多久市",
+    "source_url": "https://data.bodik.jp/dataset/412040_aed"
+  },
+  {
+    "id": 54733,
+    "source_key": "bodik-reviewed:gap20260914:e302afa23695fa17:20c4730d50eed02ce96c4842",
+    "prefecture": "山口県",
+    "municipality": "2069",
+    "address": "山口県2069田布施町麻郷奥127番地",
+    "name": "田布施総合支援学校(高等部)",
+    "source_name": "山口県 【山口県】ＡＥＤ設置施設一覧",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/8f80095c-9eb9-4e3d-bbef-a22139644952"
+  },
+  {
+    "id": 28832,
+    "source_key": "municipal-catalog:1cc72829-eb02-47ef-b691-f5a4c41401f4:a2641b59dc7945ec72d4dbdf",
+    "prefecture": "愛媛県",
+    "municipality": "伊予文砥部町",
+    "address": "愛媛県伊予文砥部町総津159-1",
+    "name": "砥部町 こぶし食堂",
+    "source_name": "砥部町",
+    "source_url": "https://data.bodik.jp/dataset/384020_aed"
+  },
+  {
+    "id": 44811,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:c023db2312fc8e37eac75409",
+    "prefecture": "栃木県",
+    "municipality": "東浦町4-12",
+    "address": "栃木県東浦町4-12",
+    "name": "東浦保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44939,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:2e1420a18565dde8195f22b3",
+    "prefecture": "栃木県",
+    "municipality": "松原3丁目1-5",
+    "address": "栃木県松原3丁目1-5",
+    "name": "松原保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44819,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:b82713f83d77ee4f21d731f0",
+    "prefecture": "栃木県",
+    "municipality": "松田新田町483",
+    "address": "栃木県松田新田町483",
+    "name": "ゆずのこ保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44870,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:7649dbc96c861af2771c66f5",
+    "prefecture": "栃木県",
+    "municipality": "泉が丘6-8-12",
+    "address": "栃木県泉が丘6-8-12",
+    "name": "泉が丘保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44813,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:bde4115c9b0dff59b34fe017",
+    "prefecture": "栃木県",
+    "municipality": "白沢町396-2",
+    "address": "栃木県白沢町396-2",
+    "name": "なかよし保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44764,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:ec3a24fe705210f398421984",
+    "prefecture": "栃木県",
+    "municipality": "石井町2989",
+    "address": "栃木県石井町2989",
+    "name": "石井保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44906,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:4f04df99459d811674f0a2d6",
+    "prefecture": "栃木県",
+    "municipality": "竹林町226",
+    "address": "栃木県竹林町226",
+    "name": "竹林保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44860,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:8227338e873e56bbdb0295b4",
+    "prefecture": "栃木県",
+    "municipality": "若松原2-18-30",
+    "address": "栃木県若松原2-18-30",
+    "name": "北雀宮保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44761,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:eff7fe816135cca4de8342d3",
+    "prefecture": "栃木県",
+    "municipality": "駒生町1792",
+    "address": "栃木県駒生町1792",
+    "name": "大谷保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 44823,
+    "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:b3f9242fa559c1687db007c0",
+    "prefecture": "栃木県",
+    "municipality": "鶴田町970-1",
+    "address": "栃木県鶴田町970-1",
+    "name": "西部保育園",
+    "source_name": "AED設置施設一覧（推奨データセット準拠）",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c"
+  },
+  {
+    "id": 27039,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7ebe29ce5945d10d1164c17a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町580",
+    "name": "みね眼科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 27144,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e502e967aeb8b665b5ff216e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮代町1167-1",
+    "name": "萱瀬小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 27306,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e85b78bd38827a4574291a92",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市田下町1576-2",
+    "name": "萱瀬保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29783,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:2e85fb0ef791fe1ae5f6eeb5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市木場1丁目120-1",
+    "name": "ひまわり児童館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29784,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:5080c2d69def953ef4220469",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市木場1丁目937‐2",
+    "name": "おひさま保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29785,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1ce574b46b353089addea014",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市木場1丁目996-1",
+    "name": "ひまわり認定こども園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29786,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8f75381ca7086300ccf63cf9",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市木場1丁目129-1",
+    "name": "旭が丘小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29787,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8bab8d2591dfcea4b080b51a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市向木場町1197-1",
+    "name": "ちぎのもり保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29788,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:93ffd010f1d61ee486414f93",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市赤佐古町78",
+    "name": "大村中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29789,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0758fda3afb5142aecc8684c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市赤佐古町203-2",
+    "name": "認定こども園わんぱくはうす",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29790,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:6d3f3d6e28f97c724698a689",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市徳泉川内町535-17",
+    "name": "大村市斎場",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29791,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b5af3fcceebe693a0aae5fe8",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市徳泉川内町829",
+    "name": "有料老人ホーム泉の里",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29792,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:9318cacb5e26803727006281",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東大村1丁目2524-3",
+    "name": "中澤病院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29793,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:5ddf8343ec9f44a70c18916e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東大村2丁目1112-31",
+    "name": "東大村小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29794,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:f043ff079ebd203ebebe7d7a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原1丁目265",
+    "name": "玖島中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29795,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:978865e77ac30497b05297a1",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原1丁目416",
+    "name": "大村城南高校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29796,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:5c2e90d0c5302d8247ecf2c6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原1丁目591",
+    "name": "大村高校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29797,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:dc16c7a569038a9e35be7fe6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原2丁目931-2",
+    "name": "久原保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29798,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:fb35bd61bd9bc08474ce874c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原2丁目1066-17",
+    "name": "長崎中央調剤薬局",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29799,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:483677efef6816fe60fe3165",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原2丁目899-1",
+    "name": "川本内科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29800,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8728ec9cfd4bfb6099d1bd41",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市久原2丁目902-1",
+    "name": "北村理子クリニック皮ふ形成外科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29801,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d33f1f22afa27f33cc63c0df",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市武部町123-2",
+    "name": "常盤保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29802,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3df913a9c9f77f7a98eee27a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東三城町17",
+    "name": "三城小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29803,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0af899e458b6c4283445b78a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東三城町4-2",
+    "name": "親和銀行 大村支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29804,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:477c570b6886b75869497eef",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町481",
+    "name": "ミライon図書館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29805,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c6997d7cc41b6fb61bca1fe3",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東三城町11-44F",
+    "name": "かめりあ三城保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29806,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1cc95c99122fe5df60f33bff",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町16",
+    "name": "向陽高校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29807,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:abc59d59f058b764752b18d5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町124",
+    "name": "大村市上下水道局",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29808,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d1d3616ddcbc3db6a26113c6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町126",
+    "name": "三城保育所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29809,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:92903560c297d0d1595b922a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町138",
+    "name": "三城児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29810,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:218de08ec859f6f6bd37a9ee",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町137",
+    "name": "大村市武道館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29811,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:29cae003f6c6e548a43a2fd2",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町15-13",
+    "name": "おおつか内科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29812,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d1f2bfe8cbc925f443a413f4",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町17-18",
+    "name": "山下外科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29813,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:69c7b3e57b8e5d0835fd80fd",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西三城町8",
+    "name": "総合福祉センター(社会福祉協議会)",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29814,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:fdbf3af66add7f3253f62ac9",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市水主町2丁目609-1",
+    "name": "大村中央産婦人科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29815,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:04aca77c4cf7cde42baca0de",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町168",
+    "name": "伊崎脳神経外科・内科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29816,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:2d7a3427e6b00edaa3fe2f40",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町348",
+    "name": "山口耳鼻咽喉科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29817,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3b858dcc2854395c860495d4",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町537",
+    "name": "貞松病院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29818,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0f1b4950f07c16fa3e3e8a5c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東本町583",
+    "name": "総合介護サービスセンター泉の里",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29819,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:4511748165a80ace6addfb82",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市本町397-8",
+    "name": "十八銀行 大村支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29820,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:9520a0d274f588fb4078dc05",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市本町223-2",
+    "name": "おび産婦人科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29821,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:35b6663c85797698d805d621",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市本町326-1",
+    "name": "市民交流プラザ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29822,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:f3ff2cd5affb746025eea890",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市本町458-2",
+    "name": "中心市街地複合ビル2階(旧浜屋)",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29823,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:cfcbbb91542fd978fb9d2719",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市本町413-2",
+    "name": "こどもセンター",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29824,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:fe91b2cab2e75c5a9bae0283",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市幸町25-200",
+    "name": "イオン大村店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29825,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0eb702c4c5efe8b5efea728f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市幸町25-33",
+    "name": "大村市コミュニティセンター",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29826,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:15d22d71767d7f7948273385",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市幸町25-33",
+    "name": "シーハットおおむら",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29827,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d57be73bbe25b40fa44ea49b",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市幸町25-42",
+    "name": "勤労者体育施設屋内プール",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29828,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:cecae679a72c97f026340277",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市片町175-81",
+    "name": "かたまち保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29829,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:24ffd7912fd0fc566a5f2841",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目15",
+    "name": "大村市陸上競技場",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29830,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:20726049c09a5a6b38808fd1",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目15-1",
+    "name": "大村競艇場",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29831,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:984fb99f086ea2f7b6e41c3c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目24-2",
+    "name": "県教育センター",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29832,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:91aeabe79939c045c5a1e1b8",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目25",
+    "name": "大村市役所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29833,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:19a4ca86b7f71958201fb7cb",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目61",
+    "name": "大村小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29834,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:33aeddc650f9e74b6008e7c2",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市玖島1丁目61",
+    "name": "大村幼稚園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29835,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:68986ab500c262d107e2d715",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町133-26",
+    "name": "らっこ児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29836,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d59cbb8ba448ecb3e734ed4b",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町80-1",
+    "name": "くすもと内科クリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29837,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1e2f6d52fbd938b1cff4cb8d",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町133-22",
+    "name": "大村市民病院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29838,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0643c5e657c0df1ae7be0902",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町133-25",
+    "name": "放虎原小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29839,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:a0cfba5303d796585298f97b",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町133-26",
+    "name": "放虎原こども園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29840,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3d409aa7ed286ac8469a1856",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町368-1",
+    "name": "中田外科胃腸科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29841,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:befd94e8f4eb12a06ef7a27a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町533-5",
+    "name": "運転免許試験場",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29842,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:578ab512a4daae78b4f85b86",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古賀島町595-2",
+    "name": "古賀島スポーツ広場",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29843,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:55b1d292cc1460fce639783d",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町34-1",
+    "name": "大村消防署",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29844,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:a7ca8ac557acfb7068e64bd5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町34-5",
+    "name": "大村警察署",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29845,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:2126886289fcd969c2370899",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町1537",
+    "name": "大村市民プール",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29846,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:47291260d11780203be0626e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町663-3",
+    "name": "サンスパおおむら ゆの華",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29847,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:03d75895631cc109ee624884",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町663-6",
+    "name": "消防学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29848,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c8fe87b1bb892c68c76ca662",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市森園町1079-3",
+    "name": "大村工業高校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29849,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:daa45277d78d243fe7dce6ec",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目109-1",
+    "name": "親和銀行 西大村支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29850,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:6b9942cac5359f543c548166",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目213-9",
+    "name": "大村公共職業安定所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29851,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7149f17f7604ec8014962508",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目1275",
+    "name": "さくらんぼ児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29852,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:51ef20a4315385ec4f1c72c6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目116-3",
+    "name": "西大村中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29853,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:03fc16d83ec90b73f8e1ebd5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目1275",
+    "name": "中央小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29854,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:ef42cda34986c9cf4f6c48f6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並1丁目246-5",
+    "name": "中地区公民館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29855,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:bdae62e3671d9413144a9aaa",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松並2丁目915-2",
+    "name": "(株)テンガイ フェスタ・大村店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29856,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8f8f5e13def2b6b9d59d0c2b",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市杭出津1丁目863-1",
+    "name": "JA長崎県央 大村中央支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29857,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:2bba200b6fc26060f3f3c5e1",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市杭出津2丁目555",
+    "name": "ともなが内科クリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29858,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:03904da3611d3bf73f9675a4",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市杭出津2丁目579-8",
+    "name": "わたなべ耳鼻咽喉科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29859,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:ec162d20fac69a6d34f0fd69",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市協和町779",
+    "name": "大村市医師会",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29860,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b363f645089f986b118bd9eb",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市協和町710",
+    "name": "(有)あんのん",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29861,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0f02823d31cab62b99727737",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古町1丁目316-1",
+    "name": "田崎医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29862,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:706a21372b42521469d25b1c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市古町2丁目533-6",
+    "name": "むたクリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29863,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:68af434277a0c61f9cc3a202",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市乾馬場町486",
+    "name": "西大村小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29864,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c601a02802b24d352936b034",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市乾馬場町486",
+    "name": "西大村幼稚園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29865,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8e42840d0772aa8226737c0e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市乾馬場町843-12",
+    "name": "計屋眼科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29866,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:0118a362f38bb5535e10896a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市乾馬場町885-3",
+    "name": "南野クリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29867,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:95c3bb16610f16e2884c8179",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西大村本町127-3",
+    "name": "光と緑の園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29868,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:061734e6feb7b0b07da97b7f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西大村本町212-2",
+    "name": "黒木医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29869,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7922644fb39508a8a3432169",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市桜馬場2丁目487-1",
+    "name": "桜が原中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29870,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b1e5da0cf11e4c0b25106b0a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市植松3丁目160-2",
+    "name": "ろう学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29871,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:55dff6b80d9111cca778decb",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市諏訪2丁目223-1",
+    "name": "西大村遊學館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29872,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7815541404624948af5b4fd0",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市諏訪2丁目521-3",
+    "name": "ジブラルタ生命 大村営業所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29873,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:9cf490fa00a43568ffe5484b",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市諏訪1丁目45-1",
+    "name": "諏訪保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29874,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:f649b933c12fef8acd1475fa",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市諏訪1-670-1",
+    "name": "うえだ記念内科クリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29875,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:faae0db23d8c1f03979500ad",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市諏訪2丁目523-1",
+    "name": "秋櫻醫院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29876,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1ad4d7f8c02088954e4d9207",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市上諏訪町900-1",
+    "name": "松尾医療器株式会社",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29877,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:89c99db32ec62ced2f77829d",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市池田新町763-85",
+    "name": "いけだ保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29878,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1bba2fcc47d871de04f30e6f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市池田1丁目50-1",
+    "name": "さくらクリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29879,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:658a0adfd054241701f28c59",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市坂口町376-1",
+    "name": "植松ニコピンクラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29880,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:570b7a9e26ebf5f53a81d3e6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市坂口町376-1",
+    "name": "植松保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29881,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3408847856db081c5c536038",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市植松3丁目645番地4",
+    "name": "植松3丁目公民館(いこいの場)",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29882,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3ea9f918239df72234f1e8a6",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市箕島町593",
+    "name": "長崎空港ビルディング",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29883,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:94a1d083f3b91cb06ad9b711",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西部町264-1",
+    "name": "ベイサイド大村",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29884,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:36ebe7be7e1b84d18e04f1f0",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市西部町1575-2",
+    "name": "県精神医療センター",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29885,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7e30722a38224a0c249d30ee",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市日泊町709",
+    "name": "三浦保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29886,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:03c0ee09b736a48008466f30",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市日泊町590",
+    "name": "三浦小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29887,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:82bc1249790545b007eda002",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市日泊町791",
+    "name": "三浦出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29888,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:750756c15ff60b60ded2608c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大里町28-1",
+    "name": "JA長崎県央 三鈴支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29889,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:dffd9d6685163cc78cda8f78",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大里町33-2",
+    "name": "鈴田出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29890,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:16e98caa91a030c604135423",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大里町1546-1",
+    "name": "鈴田小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29891,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:ad055ed9ecb86473633418ac",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大里町1546-1",
+    "name": "鈴田幼稚園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29892,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:716fca1c206cf889924b3b8f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市中里町452-22",
+    "name": "道の駅「長崎街道鈴田峠」",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29893,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:4368ecb820d03bae7919e01f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市田下町1577",
+    "name": "萱瀬出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29894,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7bceb5dcfb311bcfc939b078",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市田下町510",
+    "name": "萱瀬中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29895,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:3a3788b89dce007559b0fc87",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市田下町930-3",
+    "name": "リハビリセンター大村",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29896,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:d464f4abfbbf6e9b045e86ce",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市黒木町530",
+    "name": "黒木小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29897,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:24683d8465e8292e45e686fd",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路1丁目481",
+    "name": "竹松小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29898,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e3d3ee3b4cb85107183ec453",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路2丁目1408",
+    "name": "牧山医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29899,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:86efb10b439b3a5021a130e8",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路3丁目5-1",
+    "name": "元気っ子学童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29900,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:17d97be7274ff30f6d9145bf",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路3丁目5-1",
+    "name": "虹の原養護学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29901,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:256460ca06557545a8699d6e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路3丁目1063-1",
+    "name": "大村消防署 宮小路出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29902,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b9d4f6fce8f80d2119ce0c70",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市宮小路3丁目1334-1",
+    "name": "たなかみのるクリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29903,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:91a26f62c81b214734eb436f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原1丁目1392-1",
+    "name": "くさぶえ児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29904,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1a1e269147fe5364abf36df0",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原1丁目1101-3",
+    "name": "みね内科クリニック",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29905,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b58d8ef51e120c947b0810c4",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原1丁目1171-2",
+    "name": "大村市児童体育館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29906,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:69b0d7b02806f08b5bd79c36",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原1丁目1392-1",
+    "name": "富の原小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29907,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e7142572d324dabb2c22df94",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2丁目84-3",
+    "name": "認定こども園たんぽぽ園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29908,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:8e03e9f48e5c06c69dbc81f5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2丁目6-1",
+    "name": "あんしんハウスとみのはら",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29909,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:f648e32fd60d1be0a21be623",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2丁目218-4",
+    "name": "平松整形外科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29910,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:ff2700e9a3fdbd12671b179e",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2丁目234-1",
+    "name": "さわ小児科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29911,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7c819c66c9848443deeb1f27",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2丁目382-1",
+    "name": "郡地区公民館",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29912,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:6d481982798dc9737453e35d",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2-416",
+    "name": "かめりあこども園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29913,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:292f20723b9d29f31f76ccb0",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原2-243-1",
+    "name": "本田皮ふ科アレルギー科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29914,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:dc31368dfb585eca9792cc80",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市原口町1198-4",
+    "name": "かめりあ児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29915,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:71e77940ce1b80ac46c9b0c7",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市原口町642-1",
+    "name": "十八銀行 竹松支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29916,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c7928f45bad306b5255d92f3",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市原口町1148-6",
+    "name": "(株)大村中央総合警備保障",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29917,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:565ea3554911ca959f4fdc57",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市竹松本町1055-8",
+    "name": "JA長崎県央 郡支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29918,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:fadf5efe747269fa45b16253",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市竹松本町689-2",
+    "name": "わかば保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29919,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b16430d26fc7773805e1464c",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市竹松本町936",
+    "name": "橋口整形外科医院",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29920,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:72ceaada5a42b0aa884c3bf1",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大川田町418-4",
+    "name": "てあーて・ながさき",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29921,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:2f28bdd01b6c5acfa12ef657",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大川田町958",
+    "name": "親和銀行 竹松支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29922,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:31e65b779c5ef3b2e8cde0e5",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市富の原1丁目1113-1",
+    "name": "くじら認定こども園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29923,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7546f423960346af027bad1f",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大川田町406-10",
+    "name": "野田耳鼻咽喉科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29924,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b89b0b835edf3cb96ada4054",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市大川田町417-1",
+    "name": "竹松出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29925,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:62924009d835d0d760ff3044",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市黒丸町5-1",
+    "name": "総合運動公園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29926,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c7d9dd392f5b3fd44a378eaa",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市鬼橋町1419-2",
+    "name": "Risana520",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29927,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:cbf0a98993dbe80c9b1c1190",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市沖田町69",
+    "name": "郡中学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29928,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:bc629da11714ce0977591900",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市皆同町162-2",
+    "name": "ながさき・おおば内科・循環器内科",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29929,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:1c2fd412618db933a88dc475",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市皆同町512-2",
+    "name": "福重出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29930,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7d97ab675e57161ef83a42e9",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市福重町230",
+    "name": "福重児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29931,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:6e077837f2dfb8d2ea0ad20a",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市福重町230",
+    "name": "福重小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29932,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:290066ed8940af90a8b51410",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市福重町326-1",
+    "name": "福重幼稚園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29933,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:c870255468629dae5ee757dc",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松原本町27-5",
+    "name": "松原保育園",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29934,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:f0763c1d4a76bb58277fe9ba",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松原本町406-7",
+    "name": "JA長崎県央 大村北支店",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29935,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:74403bcbd7f24defa11940bd",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松原本町170-7",
+    "name": "いちご児童クラブ",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29936,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:7794f667d0826a110dfc65cc",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松原本町5-1",
+    "name": "松原小学校",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29937,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:b31693cec6a6df157252f4b9",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市松原本町296-4",
+    "name": "松原出張所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29938,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e4aed66b657fd8bd48f72836",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東野岳町1097-1",
+    "name": "野岳湖公園管理事務所",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  },
+  {
+    "id": 29939,
+    "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e6490e74558d72b5b7c6a989",
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "address": "長崎県大村市東野岳町1334",
+    "name": "大村湾カントリー倶楽部",
+    "source_name": "大村市",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti"
+  }
+]
