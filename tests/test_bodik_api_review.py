@@ -25,5 +25,10 @@ class ReviewTests(unittest.TestCase):
         row=make_row(dict(self.p,prefectureName='',cityName='',municipalityName='北海道北見市'),[143.9,43.8],self.source,'r')
         self.assertEqual(row['prefecture'],'北海道')
         self.assertEqual(row['municipality'],'北見市')
+    def test_partial_address_uses_explicit_official_city_field(self):
+        row=make_row(dict(self.p,address='大通西3丁目'),[143.9,43.8],self.source,'r')
+        self.assertEqual(row['address'],'北海道北見市大通西3丁目')
+    def test_conflicting_city_in_partial_address_is_rejected(self):
+        self.assertIsNone(make_row(dict(self.p,address='札幌市中央区1'),[143.9,43.8],self.source,'r'))
 
 if __name__=='__main__': unittest.main()
