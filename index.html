@@ -1774,9 +1774,6 @@ function shareSpot(title, address, category, event) {
     function focusSelectedPopup(marker, popup) {
         if (!marker?.getLatLng || !popup) return;
         popupFocusPanUntil = performance.now() + 800;
-        // Finish centering first so popup measurements are never taken while a
-        // CSS map animation is still moving the element.
-        map.panTo(marker.getLatLng(), { animate: false });
         requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup) return;
             popup.update();
@@ -1795,14 +1792,19 @@ function shareSpot(title, address, category, event) {
             const safeTop = Math.max(mapRect.top + 18, ...overlayBottoms) + 12;
             const safeBottom = mapRect.bottom - (mobile ? 24 : 18);
             const markerPoint = map.latLngToContainerPoint(marker.getLatLng());
-            const panX = (map.getSize().x / 2) - markerPoint.x;
-            let panY = 0;
-            if (popupRect.top < safeTop) panY = safeTop - popupRect.top;
-            else if (popupRect.bottom > safeBottom) panY = safeBottom - popupRect.bottom;
+            const desiredMarkerX = map.getSize().x / 2;
+            // A Leaflet popup sits above its marker. Position the marker once
+            // from its measured popup height instead of applying corrections
+            // after an earlier pan, which can compound on mobile Safari.
+            const desiredMarkerY = Math.min(
+                safeBottom,
+                Math.max(safeTop + popupRect.height, mapRect.top + map.getSize().y / 2)
+            ) - mapRect.top;
+            const panX = markerPoint.x - desiredMarkerX;
+            const panY = markerPoint.y - desiredMarkerY;
             if (panX || panY) {
                 popupFocusPanUntil = performance.now() + 800;
-                // Pin the selected marker to the exact horizontal midpoint;
-                // only the vertical component is adjusted for mobile controls.
+                // Leaflet's panBy offset is current point minus desired point.
                 map.panBy([panX, panY], { animate: false });
             }
         }));
@@ -1837,7 +1839,7 @@ function shareSpot(title, address, category, event) {
         const lat = Number.isFinite(userLat) ? userLat : markerPosition?.lat;
         const lng = Number.isFinite(userLng) ? userLng : markerPosition?.lng;
         if (Number.isFinite(lat) && Number.isFinite(lng)) {
-            map.flyTo([lat, lng], 15, { animate: true, duration: 0.65 });
+            map.setView([lat, lng], 15);
         }
         if (!navigator.geolocation) {
             if (!Number.isFinite(lat) || !Number.isFinite(lng)) showToast('位置情報が取得できません');
@@ -1849,7 +1851,7 @@ function shareSpot(title, address, category, event) {
             userLng = position.coords.longitude;
             userAccuracy = position.coords.accuracy;
             if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]);
-            map.flyTo([userLat, userLng], 15, { animate: true, duration: 0.65 });
+            map.setView([userLat, userLng], 15);
             clearTimeout(safetyLoadTimer);
             safetyLoadTimer = setTimeout(loadSafetySpots, 50);
         }, () => {
