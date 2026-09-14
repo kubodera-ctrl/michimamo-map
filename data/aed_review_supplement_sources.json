@@ -1,0 +1,127 @@
+{
+  "sources": [
+    {
+      "prefecture": "宮城県",
+      "municipality": "石巻市",
+      "source_name": "石巻市 AED設置箇所一覧（2026年4月1日）",
+      "source_url": "https://miyagi.dataeye.jp/resources/33018",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/33018",
+      "license_id": "PDL1.0",
+      "source_date": "2026-04-01"
+    },
+    {
+      "prefecture": "岐阜県",
+      "municipality": "可児市",
+      "source_name": "可児市 AED設置箇所（2025年4月1日）",
+      "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/c212148-016",
+      "resource_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/0a485a79-c4d4-44fb-8ae0-dc39ee576283/resource/f2235cb1-52d7-460c-b2b7-0b4e983c2b9a/download/212148_aed_202504.csv",
+      "license_id": "CC-BY-2.0",
+      "source_date": "2025-04-01"
+    },
+    {
+      "prefecture": "島根県",
+      "municipality": "",
+      "source_name": "島根県 AED設置箇所一覧（2019年4月版）",
+      "source_url": "https://shimane-opendata.jp/resources/640",
+      "resource_url": "https://shimane-opendata.jp/resource_download/640",
+      "license_id": "CC BY",
+      "source_date": null
+    },
+    {
+      "prefecture": "岡山県",
+      "municipality": "高梁市",
+      "source_name": "高梁市 AED設置箇所一覧（2026年3月版）",
+      "source_url": "https://www.okayama-opendata.jp/resources/17661",
+      "resource_url": "https://takahashi.dataeye.jp/resource_download/17661",
+      "license_id": "PDL1.0",
+      "source_date": null
+    },
+    {
+      "resource_id": "56ed987c-8db0-4966-a73f-30cfb552ea06",
+      "resource_url": "https://data.bodik.jp/dataset/a1b2e434-e4df-4f73-ac97-6e833d80952d/resource/56ed987c-8db0-4966-a73f-30cfb552ea06/download/aed.csv",
+      "source_url": "https://odm.bodik.jp/dataset/a1b2e434-e4df-4f73-ac97-6e833d80952d",
+      "source_name": "【京都府】AED設置箇所一覧",
+      "license_id": "cc-by-40-intl",
+      "license_url": null,
+      "source_updated_at": "2025-08-22T00:26:33.397340",
+      "allowed": true,
+      "notes": "自治体標準オープンデータセット「AED設置箇所一覧」",
+      "prefecture": "京都府",
+      "municipality": ""
+    },
+    {
+      "resource_id": "d7a0f2c3-941e-4df1-8ec0-2205d25db162",
+      "resource_url": "https://data.bodik.jp/dataset/a00f769c-0b01-4248-8f4c-ab4358c7af61/resource/d7a0f2c3-941e-4df1-8ec0-2205d25db162/download/272159_aed_202506.csv",
+      "source_url": "https://odm.bodik.jp/dataset/a00f769c-0b01-4248-8f4c-ab4358c7af61",
+      "source_name": "AED設置個所一覧",
+      "license_id": "cc-by-40-intl",
+      "license_url": null,
+      "source_updated_at": "2025-06-27T05:59:58.123978",
+      "allowed": true,
+      "notes": "寝屋川市のAED設置個所一覧です。",
+      "prefecture": "大阪府",
+      "municipality": "寝屋川市"
+    },
+    {
+      "resource_id": "d988273f-400f-4e91-b5c2-c80f266715c1",
+      "resource_url": "https://data.bodik.jp/dataset/657e3c99-9c43-4480-a3f0-e1213644e641/resource/d988273f-400f-4e91-b5c2-c80f266715c1/download/aed_202512040821.csv",
+      "source_url": "https://odm.bodik.jp/dataset/657e3c99-9c43-4480-a3f0-e1213644e641",
+      "source_name": "福岡市　AED",
+      "license_id": "cc-by",
+      "license_url": "http://www.opendefinition.org/licenses/cc-by",
+      "source_updated_at": "2025-12-09T02:26:07.583285",
+      "allowed": true,
+      "notes": "福岡市ＡＥＤ設置施設の登録をしている施設のデータです。 「福岡市ＡＥＤ設置施設登録制度」に基づき，福岡市内の集客施設等の管理者が登録をした時点の情報になります。\r\n地図をご覧になる際には、[福岡市Webまっぷ] (http://webmap.city.fukuoka.lg.jp/fukuoka/G0502N/F0502N02?API=1&linkid=2b6e9f64-e69e-435b-8c57-ff38a360d98b&mid=3)からご覧ください。\r\n[![福岡市Webまっぷ]( http://webmap.city.fukuoka.lg.jp/fukuoka/fukuoka/Content/images/site/opendata/ckan/webmap_link_for_CKAN.png)](http://webmap.city.fukuoka.lg.jp/fukuoka/G0502N/F0502N02?API=1&linkid=2b6e9f64-e69e-435b-8c57-ff38a360d98b&mid=3)",
+      "prefecture": "福岡県",
+      "municipality": "福岡市"
+    },
+    {
+      "resource_id": "416af674-80cd-4631-ac1e-21328b4f1f17",
+      "resource_url": "https://data.bodik.jp/dataset/7162284d-1626-41d2-b377-979b994f9f59/resource/416af674-80cd-4631-ac1e-21328b4f1f17/download/440001_aed.csv",
+      "source_url": "https://odm.bodik.jp/dataset/7162284d-1626-41d2-b377-979b994f9f59",
+      "source_name": "AED設置状況一覧",
+      "license_id": "cc-by-40-intl",
+      "license_url": null,
+      "source_updated_at": "2025-04-17T02:53:32.642363",
+      "allowed": true,
+      "notes": "大分県内のＡＥＤ設置状況のデータです。",
+      "prefecture": "大分県",
+      "municipality": ""
+    },
+    {
+      "resource_id": "49752ebb-7f5c-4772-94c7-b379cd317361",
+      "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/4750",
+      "source_url": "https://odm.bodik.jp/dataset/f2aeb35d-0597-44ac-a3b9-00d7a61a1dca",
+      "source_name": "【さいたま市】AED設置状況",
+      "license_id": "cc-by",
+      "license_url": "http://www.opendefinition.org/licenses/cc-by",
+      "source_updated_at": "2025-10-16T00:00:00",
+      "allowed": true,
+      "notes": "埼玉県のオープンデータ公開サイトから取り込んでいます。  \n- 追加情報の「updatedat」は、元サイトでの最終更新日を表します。  \n- 一部表示が異なる場合がありますので、詳細は参照元をご確認ください。  \n  \n>参照元：https://opendata.pref.saitama.lg.jp/datasets/1206  \n>地域医療課で設置しているＡＥＤの設置状況についてまとめたものです。",
+      "prefecture": "埼玉県",
+      "municipality": "さいたま市"
+    },
+    {
+      "resource_id": "94efe10e-5d25-4c1c-9b0f-228b0cfa40c2",
+      "resource_url": "https://static.hamamatsu.odpf.net/opendata/v01/221309_hamamatsu_aed/221309_hamamatsu_aed.csv",
+      "source_url": "https://odm.bodik.jp/dataset/fd81d62e-37c2-4bc9-8fc9-8d567ac7174f",
+      "source_name": "AED設置箇所一覧",
+      "license_id": "cc-by",
+      "license_url": "http://www.opendefinition.org/licenses/cc-by",
+      "source_updated_at": null,
+      "allowed": true,
+      "notes": "AED設置箇所一覧",
+      "prefecture": "静岡県",
+      "municipality": "浜松市"
+    },
+    {
+      "prefecture": "広島県",
+      "municipality": "広島市",
+      "source_name": "広島市 AED設置箇所一覧（2025年4月30日時点）",
+      "source_url": "https://hiroshima-opendata.dataeye.jp/resources/25496",
+      "resource_url": "https://hiroshima-opendata.dataeye.jp/resource_download/25496",
+      "license_id": "PDL1.0",
+      "source_date": "2025-04-30"
+    }
+  ]
+}
