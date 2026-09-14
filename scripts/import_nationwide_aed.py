@@ -109,6 +109,11 @@ def choose_resource(package: dict[str, Any]) -> dict[str, Any] | None:
         fmt = clean(resource.get("format") or Path(urllib.parse.urlparse(url).path).suffix.lstrip(".")).lower()
         if fmt not in ("csv", "xlsx", "xls") or has_denied_provenance(package, resource):
             continue
+        # A catalog search can match package notes while the resource is a
+        # hospital/cultural-property list. Require AED evidence on the file.
+        label = clean(" ".join(str(resource.get(k) or "") for k in ("name", "description", "url"))).lower()
+        if not re.search(r"aed|自動体外式除細動器", label):
+            continue
         candidates.append((0 if fmt == "csv" else 1, resource))
     return min(candidates, default=(9, None), key=lambda item: item[0])[1]
 
