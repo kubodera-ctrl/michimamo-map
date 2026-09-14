@@ -1,0 +1,28 @@
+{
+  "run_id": 34811376793,
+  "commit": "c8486babd1b650344488357d61fb69c903521a11",
+  "generated_rows": 5475,
+  "staging_rows_before": 9605,
+  "staging_rows_after": 9605,
+  "new_rows": 0,
+  "public_aed_last_verified": 16051,
+  "pending_api_rows": 1750,
+  "pending_by_prefecture": {
+    "北海道": 1024,
+    "岩手県": 402,
+    "秋田県": 69,
+    "山形県": 73,
+    "福島県": 182
+  },
+  "pending_municipalities": 26,
+  "pending_invalid_coordinates": 0,
+  "pending_missing_name_or_address": 0,
+  "pending_unknown_source_date": 1750,
+  "nearby_public_bounding_box_candidates": 18,
+  "notes": [
+    "No public rows were inserted or overwritten in this retry.",
+    "API candidates predate this retry and require dataset-specific provenance/license verification; generic CC BY/CC BY-SA/CC0 label is insufficient attribution.",
+    "Nearby count is a bounding-box screen, not confirmed duplicate count.",
+    "Do not repeatedly rerun the same catalog expecting missing-prefecture coverage."
+  ]
+}
