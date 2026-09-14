@@ -20,5 +20,7 @@ assert.match(html, /map\.setView\(\[userLat, userLng\], 15\)/);
 assert.match(html, /performance\.now\(\) < popupFocusPanUntil/);
 assert.match(html, /map\._popup\?\.isOpen\?\.\(\)/);
 assert.match(html, /map\.on\('popupclose'/);
+assert.match(html, /\.leaflet-popup-content-wrapper,[\s\S]*pointer-events: none/);
+assert.match(html, /\.leaflet-popup-close-button,[\s\S]*pointer-events: auto/);
 
 console.log('popup focus checks passed');

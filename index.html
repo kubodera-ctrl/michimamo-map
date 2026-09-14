@@ -333,8 +333,17 @@
             nav button { font-size: 12px; }
             nav button i { font-size: 21px; }
             .leaflet-control-zoom a { width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 22px !important; }
-            .leaflet-popup-content { font-size: 16px; }
-            .popup-action-btn { min-height: 44px; font-size: 15px; }
+        .leaflet-popup-content { font-size: 16px; }
+        /* Let map drags start from popup text/background. Keep only actual
+           controls clickable so close, navigation, phone and source links work. */
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-content,
+        .leaflet-popup-tip-container { pointer-events: none; }
+        .leaflet-popup-close-button,
+        .leaflet-popup-content a,
+        .leaflet-popup-content button,
+        .leaflet-popup-content [role="button"] { pointer-events: auto; }
+        .popup-action-btn { min-height: 44px; font-size: 15px; }
             #adminStatsCards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
             #adminDashboardArea [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
         }
