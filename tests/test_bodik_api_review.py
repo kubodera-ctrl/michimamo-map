@@ -21,5 +21,9 @@ class ReviewTests(unittest.TestCase):
         self.assertIsNone(make_row(dict(self.p,address='東京都千代田区1'),[139.7,35.6],self.source,'r'))
     def test_nonfinite_coordinates_are_rejected(self):
         self.assertIsNone(make_row(self.p,[float('nan'),43.8],self.source,'r'))
+    def test_prefecture_can_be_recovered_from_official_municipality(self):
+        row=make_row(dict(self.p,prefectureName='',cityName='',municipalityName='北海道北見市'),[143.9,43.8],self.source,'r')
+        self.assertEqual(row['prefecture'],'北海道')
+        self.assertEqual(row['municipality'],'北見市')
 
 if __name__=='__main__': unittest.main()
