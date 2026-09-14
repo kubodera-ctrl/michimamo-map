@@ -22,15 +22,21 @@ def make_row(p, coords, source, identity):
         pref=next((v for v in PREFECTURES if municipality.startswith(v)), '')
     city=clean(p.get('cityName')) or clean(p.get('municipalityName')).removeprefix(pref)
     name,address=clean(p.get('name')),clean(p.get('address'))
+    if not city and pref in PREFECTURES and address.startswith(pref):
+        match=re.match(r'(.+?市(?!市)|.+?郡.+?[町村]|.+?区)',address.removeprefix(pref))
+        city=match.group(1) if match else ''
     restriction=clean(p.get('limitationOfUse')).lower()
     if restriction not in ('','0','false','なし','無'): return None
     if pref not in PREFECTURES or not city or not name or not address or not (20<=lat<=46 and 122<=lng<=154): return None
     if not address.startswith(pref):
         if address.startswith(city): address=pref+address
+        elif (clean(p.get('cityName')) and not any(address.startswith(v) for v in PREFECTURES)
+              and not re.match(r'.+?市|.+?郡.+?[町村]',address)):
+            address=pref+city+address
         else: return None
     install=clean(p.get('placeOfInstallation'))
     digest=hashlib.sha256(f'{name}|{address}|{lat:.7f}|{lng:.7f}|{install}'.encode()).hexdigest()[:24]
-    return dict(source_key=f'bodik-reviewed:{identity}:{digest}',facility_type='aed',name=name,prefecture=pref,prefecture_code=PREFECTURES[pref],municipality=city,address=address,phone=clean(p.get('telephoneNumber')) or None,latitude=lat,longitude=lng,source_name=source['source_name'],source_url=source['source_url'],source_license=source['license_id'],source_updated_at=source.get('source_updated_at'),source_date=source.get('source_date'),installation_location=install or None,availability=' / '.join(clean(p.get(k)) for k in ('openingDays','startTime','endTime','openingHoursRemarks') if clean(p.get(k))) or None,quality_status='rough',geocode_source='自治体公開データ（整形・重複処理あり）',active=False,duplicate_candidate=False)
+    return dict(source_key=f'bodik-reviewed:{identity}:{digest}',facility_type='aed',name=name,prefecture=pref,prefecture_code=PREFECTURES[pref],municipality=city,address=address,phone=clean(p.get('telephoneNumber')) or None,latitude=lat,longitude=lng,source_name=source['source_name'],source_url=source['source_url'],source_license=source['license_id'],source_updated_at=source.get('source_updated_at'),source_date=source.get('source_date'),installation_location=install or None,availability=' / '.join(clean(p.get(k)) for k in ('openingDays','startTime','endTime','openingHoursRemarks') if clean(p.get(k))) or None,quality_status='rough',geocode_source='自治体公式データの座標（表記整形・重複除外）',active=False,duplicate_candidate=False)
 
 
 def main():
@@ -51,18 +57,29 @@ def main():
     supplemental=[]
     for source in json.loads(args.supplement.read_text())['sources']:
         try:
-            with urllib.request.urlopen(source['resource_url'],timeout=30) as r: payload=r.read()
+            if source.get('allowed') is False or has_denied_provenance(source, {}):
+                raise ValueError('Source provenance not approved')
+            cache=args.input_dir/(hashlib.sha256(source['resource_url'].encode()).hexdigest()+'.bin')
+            if cache.exists(): payload=cache.read_bytes()
+            else:
+                with urllib.request.urlopen(source['resource_url'],timeout=30) as r: payload=r.read()
+                cache.write_bytes(payload)
             records=read_records(payload)
             accepted=0
             for p in records:
-                address=first_value(p,('所在地_連結表記','住所','所在地'))
-                city=first_value(p,('所在地_市区町村','市区町村')) or source['municipality']
+                address=first_value(p,('所在地_連結表記','住所','所在地','設置施設住所'))
+                city=first_value(p,('所在地_市区町村','市区町村','市区町村名')) or source['municipality']
+                ward=first_value(p,('区',))
+                if ward and city and not address.startswith((source['prefecture'],city,ward)):
+                    address=city+ward+address
                 if not city:
                     m=re.match(r'(.+?(?:市|町|村))',address.removeprefix(source['prefecture']))
                     city=m.group(1) if m else ''
-                mapped={'name':first_value(p,('名称','施設名','施設名称')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
+                if first_value(p,('市民（外部の方）の使用',)) not in ('','認める'): continue
+                mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
                 for target,header in (('openingDays','利用可能曜日'),('startTime','開始時間'),('endTime','終了時間'),('openingHoursRemarks','利用可能日時特記事項')):
                     mapped[target]=first_value(p,(header,))
+                mapped['openingHoursRemarks']=' / '.join(filter(None,[mapped.get('openingHoursRemarks'),('休業日：'+p['休業日']) if p.get('休業日') else '',p.get('市民が使用する場合の条件')]))
                 row=make_row(mapped,[first_value(p,('経度',)),first_value(p,('緯度',))],source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
                 if row: rows.append(row); accepted+=1
             supplemental.append({'source':source,'raw_rows':len(records),'accepted':accepted,'sha256':hashlib.sha256(payload).hexdigest(),'columns':list(records[0]) if records else []})
