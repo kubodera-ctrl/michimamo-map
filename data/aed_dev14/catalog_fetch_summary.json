@@ -1,18 +1,213 @@
 {
   "date": "2026-09-15",
   "datasets": 59,
-  "downloaded": 55,
-  "parsed_rows": 6517,
+  "downloaded": 2,
+  "parsed_rows": 243,
   "failed": [
+    {
+      "code": "11201",
+      "municipality": "川越市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11202",
+      "municipality": "熊谷市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11203",
+      "municipality": "川口市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11206",
+      "municipality": "行田市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11212",
+      "municipality": "東松山市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11214",
+      "municipality": "春日部市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11215",
+      "municipality": "狭山市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11216",
+      "municipality": "羽生市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11217",
+      "municipality": "鴻巣市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11218",
+      "municipality": "深谷市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11219",
+      "municipality": "上尾市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11221",
+      "municipality": "草加市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11222",
+      "municipality": "越谷市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11222",
+      "municipality": "越谷市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11223",
+      "municipality": "蕨市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11224",
+      "municipality": "戸田市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11225",
+      "municipality": "入間市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11227",
+      "municipality": "朝霞市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11228",
+      "municipality": "志木市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11229",
+      "municipality": "和光市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11230",
+      "municipality": "新座市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11232",
+      "municipality": "久喜市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11235",
+      "municipality": "富士見市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11237",
+      "municipality": "三郷市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11238",
+      "municipality": "蓮田市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11239",
+      "municipality": "坂戸市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11241",
+      "municipality": "鶴ヶ島市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11242",
+      "municipality": "日高市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11246",
+      "municipality": "白岡市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11326",
+      "municipality": "毛呂山町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11342",
+      "municipality": "嵐山町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11347",
+      "municipality": "吉見町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11348",
+      "municipality": "鳩山町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11369",
+      "municipality": "東秩父村",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11408",
+      "municipality": "寄居町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11464",
+      "municipality": "杉戸町",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "11465",
+      "municipality": "松伏町",
+      "status": "resource_selection_failed"
+    },
     {
       "code": "12203",
       "municipality": "市川市",
-      "status": "download_failed"
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12205",
+      "municipality": "館山市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12207",
+      "municipality": "松戸市",
+      "status": "resource_selection_failed"
     },
     {
       "code": "12208",
       "municipality": "野田市",
-      "status": "download_failed"
+      "status": "resource_selection_failed"
     },
     {
       "code": "12210",
@@ -20,10 +215,80 @@
       "status": "resource_selection_failed"
     },
     {
+      "code": "12216",
+      "municipality": "習志野市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12217",
+      "municipality": "柏市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12220",
+      "municipality": "流山市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12221",
+      "municipality": "八千代市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12222",
+      "municipality": "我孫子市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12225",
+      "municipality": "君津市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12228",
+      "municipality": "四街道市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12229",
+      "municipality": "袖ケ浦市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12235",
+      "municipality": "匝瑳市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12236",
+      "municipality": "香取市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12239",
+      "municipality": "大網白里市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "12329",
+      "municipality": "栄町",
+      "status": "resource_selection_failed"
+    },
+    {
       "code": "33100",
       "municipality": "岡山市",
       "status": "resource_selection_failed"
+    },
+    {
+      "code": "33204",
+      "municipality": "玉野市",
+      "status": "resource_selection_failed"
+    },
+    {
+      "code": "33666",
+      "municipality": "美咲町",
+      "status": "resource_selection_failed"
     }
   ],
-  "publication": "19 municipalities published; remaining sources require format, coordinate, or resource review"
+  "publication": "not_started"
 }
