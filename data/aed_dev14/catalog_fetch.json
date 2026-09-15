@@ -1,0 +1,1579 @@
+[
+  {
+    "prefecture": "宮城県",
+    "url": "https://miyagi.dataeye.jp/datasets/599",
+    "title": "【名取市】ＡＥＤ設置箇所一覧 | データカタログ | 宮城県及び市町村共同オープンデータポータルサイト",
+    "resource_pages": [
+      "https://miyagi.dataeye.jp/resources/1085",
+      "https://miyagi.dataeye.jp/resources/1086",
+      "https://miyagi.dataeye.jp/resources/1204",
+      "https://miyagi.dataeye.jp/resources/32878",
+      "https://miyagi.dataeye.jp/resources/32919"
+    ],
+    "sha256": "634fa7626e902add0ebc9034040c42d5015ac2a833cfdb16bccfcd6a0780d5c3",
+    "code": "04207",
+    "municipality": "名取市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "downloaded",
+    "selected_resource": {
+      "resource_url": "https://miyagi.dataeye.jp/resources/1085",
+      "resource_id": "1085",
+      "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R1.5.31）",
+      "download_url": "https://miyagi.dataeye.jp/resource_download/1085",
+      "filename": "042072_aed_20190531.csv",
+      "updated_at": null,
+      "format": "CSV",
+      "license": "CC BY 4.0（クリエイティブ・コモンズ表示4.0国際） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+    },
+    "download_final_url": "https://miyagi.dataeye.jp/resource_download/1085",
+    "content_type": "text/csv; charset=utf-8",
+    "content_disposition": "attachment; filename=042072_aed_20190531.csv",
+    "snapshot": "data/aed_dev14/raw/04207_1085.bin",
+    "bytes": 19861,
+    "rows": 175,
+    "fields": [
+      "都道府県コード又は市区町村コード",
+      "NO",
+      "都道府県名",
+      "市区町村名",
+      "名称",
+      "名称_カナ",
+      "住所",
+      "方書",
+      "緯度",
+      "経度",
+      "設置位置",
+      "電話番号",
+      "内線番号",
+      "法人番号",
+      "団体名",
+      "利用可能曜日",
+      "開始時間",
+      "終了時間",
+      "利用可能日時特記事項",
+      "小児対応設備の有無",
+      "URL",
+      "備考"
+    ],
+    "sample": [
+      {
+        "都道府県コード又は市区町村コード": "042072",
+        "NO": "公－１",
+        "都道府県名": "宮城県",
+        "市区町村名": "名取市",
+        "名称": "名取市役所",
+        "名称_カナ": "",
+        "住所": "　　　　　　　増田字柳田８０",
+        "方書": "",
+        "緯度": "",
+        "経度": "",
+        "設置位置": "市民ホール",
+        "電話番号": "",
+        "内線番号": "",
+        "法人番号": "",
+        "団体名": "",
+        "利用可能曜日": "",
+        "開始時間": "00:00",
+        "終了時間": "23:59",
+        "利用可能日時特記事項": "",
+        "小児対応設備の有無": "",
+        "URL": "",
+        "備考": ""
+      },
+      {
+        "都道府県コード又は市区町村コード": "042072",
+        "NO": "公－２",
+        "都道府県名": "宮城県",
+        "市区町村名": "名取市",
+        "名称": "市民活動支援センター",
+        "名称_カナ": "",
+        "住所": "大手町五丁目６－１",
+        "方書": "",
+        "緯度": "",
+        "経度": "",
+        "設置位置": "事務室",
+        "電話番号": "",
+        "内線番号": "",
+        "法人番号": "",
+        "団体名": "",
+        "利用可能曜日": "",
+        "開始時間": "09:30",
+        "終了時間": "21:30",
+        "利用可能日時特記事項": "",
+        "小児対応設備の有無": "",
+        "URL": "",
+        "備考": ""
+      }
+    ],
+    "resource_profiles": [
+      {
+        "resource_url": "https://miyagi.dataeye.jp/resources/1085",
+        "resource_id": "1085",
+        "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R1.5.31）",
+        "download_url": "https://miyagi.dataeye.jp/resource_download/1085",
+        "filename": "042072_aed_20190531.csv",
+        "updated_at": null,
+        "format": "CSV",
+        "license": "CC BY 4.0（クリエイティブ・コモンズ表示4.0国際） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+      },
+      {
+        "resource_url": "https://miyagi.dataeye.jp/resources/1086",
+        "resource_id": "1086",
+        "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R4.6）",
+        "download_url": "https://miyagi.dataeye.jp/resource_download/1086",
+        "filename": "042072_aed_202206.csv",
+        "updated_at": null,
+        "format": "CSV",
+        "license": "CC BY 4.0（クリエイティブ・コモンズ表示4.0国際） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+      },
+      {
+        "resource_url": "https://miyagi.dataeye.jp/resources/1204",
+        "resource_id": "1204",
+        "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R6.6.30）",
+        "download_url": "https://miyagi.dataeye.jp/resource_download/1204",
+        "filename": "042072_aed_20240630.csv",
+        "updated_at": null,
+        "format": "CSV",
+        "license": "CC BY 4.0（クリエイティブ・コモンズ表示4.0国際） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+      },
+      {
+        "resource_url": "https://miyagi.dataeye.jp/resources/32878",
+        "resource_id": "32878",
+        "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R8.3.1）",
+        "download_url": "https://miyagi.dataeye.jp/resource_download/32878",
+        "filename": "042072_aed_20260301.csv",
+        "updated_at": null,
+        "format": "CSV",
+        "license": "PDL1.0（公共データ利用規約第1.0版） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+      },
+      {
+        "resource_url": "https://miyagi.dataeye.jp/resources/32919",
+        "resource_id": "32919",
+        "resource_title": "【名取市】ＡＥＤ設置箇所一覧（R8.4.1）",
+        "download_url": "https://miyagi.dataeye.jp/resource_download/32919",
+        "filename": "AED設置箇所一覧(R8.4.1).csv",
+        "updated_at": null,
+        "format": "CSV",
+        "license": "CC BY 4.0（クリエイティブ・コモンズ表示4.0国際） データカタログ データから見えるもの アイデアボックス このサイトについて 宮城県及び市町村共同オープンデータポータルサイトについて オープンデータとは 開発者向け情報 利用規約 プライバシーポリシー © 2026 一般社団法人データクレイドル"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/8",
+    "title": "【川越市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/4554",
+      "https://opendata.pref.saitama.lg.jp/resources/4555",
+      "https://opendata.pref.saitama.lg.jp/resources/6470",
+      "https://opendata.pref.saitama.lg.jp/resources/6471",
+      "https://opendata.pref.saitama.lg.jp/resources/70",
+      "https://opendata.pref.saitama.lg.jp/resources/71",
+      "https://opendata.pref.saitama.lg.jp/resources/72",
+      "https://opendata.pref.saitama.lg.jp/resources/73",
+      "https://opendata.pref.saitama.lg.jp/resources/74",
+      "https://opendata.pref.saitama.lg.jp/resources/75",
+      "https://opendata.pref.saitama.lg.jp/resources/76",
+      "https://opendata.pref.saitama.lg.jp/resources/77",
+      "https://opendata.pref.saitama.lg.jp/resources/78",
+      "https://opendata.pref.saitama.lg.jp/resources/79",
+      "https://opendata.pref.saitama.lg.jp/resources/80",
+      "https://opendata.pref.saitama.lg.jp/resources/81",
+      "https://opendata.pref.saitama.lg.jp/resources/82",
+      "https://opendata.pref.saitama.lg.jp/resources/83",
+      "https://opendata.pref.saitama.lg.jp/resources/84",
+      "https://opendata.pref.saitama.lg.jp/resources/85",
+      "https://opendata.pref.saitama.lg.jp/resources/86",
+      "https://opendata.pref.saitama.lg.jp/resources/87",
+      "https://opendata.pref.saitama.lg.jp/resources/88",
+      "https://opendata.pref.saitama.lg.jp/resources/89",
+      "https://opendata.pref.saitama.lg.jp/resources/90"
+    ],
+    "sha256": "0a5a87810613914dddb19196fec222b28f89853ceeb78b34ff92d4b7c74b8b76",
+    "code": "11201",
+    "municipality": "川越市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/4554",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/4555",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/6470",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/6471",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/70",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/71",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/72",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/73",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/74",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/75",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/76",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/77",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/78",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/79",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/80",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/81",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/82",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/83",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/84",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/85",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/86",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/87",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/88",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/89",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/90",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/142",
+    "title": "【熊谷市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/858"
+    ],
+    "sha256": "1e54cb2d0982be6be349cd07ca5266214d6d23eab7076d9cff1e2769068ec4ee",
+    "code": "11202",
+    "municipality": "熊谷市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/858",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/413",
+    "title": "【川口市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/2043"
+    ],
+    "sha256": "699dbd4f87bb7085c0fe1b32906367c414643329a91998b77c6f75b5630892d9",
+    "code": "11203",
+    "municipality": "川口市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/2043",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/138",
+    "title": "【行田市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/854"
+    ],
+    "sha256": "df4c4610fa08796ed4b3f29c143dd9983e5cf9b5bcc98858eb3fe282b28a453a",
+    "code": "11206",
+    "municipality": "行田市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/854",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/139",
+    "title": "【東松山市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/855"
+    ],
+    "sha256": "9148a06bb5438b5ccec29ca943a00ee8dc3f122d84b7acbc58d9ca90a74ce79b",
+    "code": "11212",
+    "municipality": "東松山市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/855",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/2138",
+    "title": "【春日部市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/6509"
+    ],
+    "sha256": "9f7788a9a4ce6ffcce905ab38067e1b0975ff1d09c3d4ec2665d9e857d0c2cdd",
+    "code": "11214",
+    "municipality": "春日部市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/6509",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "title": "【狭山市】ＡＥＤ設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/136"
+    ],
+    "sha256": "686ab31553615304bfac9c5468b88d7438953d289a8fc2f55d99c3e074f178bc",
+    "code": "11215",
+    "municipality": "狭山市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/136",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "title": "【羽生市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/7770"
+    ],
+    "sha256": "ebfd6049a43e48d4f4ae30067c02f16a932703ce52a31c2809bdbb800a11ea16",
+    "code": "11216",
+    "municipality": "羽生市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/7770",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "title": "【鴻巣市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/4572",
+      "https://opendata.pref.saitama.lg.jp/resources/8983"
+    ],
+    "sha256": "5f948ba468e663799546f424ef75d49da519f8219863eda0050e614d6b4856cb",
+    "code": "11217",
+    "municipality": "鴻巣市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/4572",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/8983",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/259",
+    "title": "【深谷市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/1308",
+      "https://opendata.pref.saitama.lg.jp/resources/1309",
+      "https://opendata.pref.saitama.lg.jp/resources/1310",
+      "https://opendata.pref.saitama.lg.jp/resources/5139",
+      "https://opendata.pref.saitama.lg.jp/resources/5215"
+    ],
+    "sha256": "eb8daac7bb813f17bc3f1348c2f999c600f8299c5cc3bb0faf2347df84041a28",
+    "code": "11218",
+    "municipality": "深谷市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1308",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1309",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1310",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/5139",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/5215",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "title": "【上尾市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/852"
+    ],
+    "sha256": "42c376be00f2946d73dcbbf572c0fc7cb94290aac7b5d51453cf945db1ca4ede",
+    "code": "11219",
+    "municipality": "上尾市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/852",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/147",
+    "title": "【草加市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/864"
+    ],
+    "sha256": "a0e3999bcd60a1d8926c89b8f9112f8bf791280608db6c5c48d3b48a9128a1e5",
+    "code": "11221",
+    "municipality": "草加市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/864",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/490",
+    "title": "【越谷市】ＡＥＤ設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/2313",
+      "https://opendata.pref.saitama.lg.jp/resources/2314"
+    ],
+    "sha256": "e7d2160e3b60ddf027f271f90b9df9e0c0ee394a81e62db38844788f624a4258",
+    "code": "11222",
+    "municipality": "越谷市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/2313",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/2314",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/71",
+    "title": "【越谷市】24時間使用可能なAED設置場所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/380"
+    ],
+    "sha256": "b485e67d4b3966a792e9393575e4f8760a791bd209e224fd8b9a8cc1f0e20bc6",
+    "code": "11222",
+    "municipality": "越谷市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/380",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "title": "【蕨市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/1287"
+    ],
+    "sha256": "315112507891eb94ed66507f735712caf8ce127287572efa1b5c8fb1dabf1ed4",
+    "code": "11223",
+    "municipality": "蕨市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1287",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/149",
+    "title": "【戸田市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/867"
+    ],
+    "sha256": "f82b60277ab5d1ec784e6125dd014c17996e6110ea4507b75869fa0bdab587b4",
+    "code": "11224",
+    "municipality": "戸田市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/867",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "title": "【入間市】AED設置情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/857"
+    ],
+    "sha256": "0376277448685edfbfd95253e640667e51ebb8b5c0fb07dca4e0ffc50eaab6f7",
+    "code": "11225",
+    "municipality": "入間市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/857",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/157",
+    "title": "【朝霞市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/881",
+      "https://opendata.pref.saitama.lg.jp/resources/882"
+    ],
+    "sha256": "aba0e829c8ba75dbece49f93eba1da181a27376f97ee18fc13a8e4baf4d7a151",
+    "code": "11227",
+    "municipality": "朝霞市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/881",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/882",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "title": "【志木市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/863"
+    ],
+    "sha256": "9d5e674fe60b69416e93439b02a1c751773c846bfddf5d1dce2ba80d90760f03",
+    "code": "11228",
+    "municipality": "志木市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/863",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/114",
+    "title": "【和光市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/5170",
+      "https://opendata.pref.saitama.lg.jp/resources/5171"
+    ],
+    "sha256": "d717fab4936a4f8242750d9b7f1692fa8b3ce4a3ee443546f798a3343f83de95",
+    "code": "11229",
+    "municipality": "和光市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/5170",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/5171",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/196",
+    "title": "【新座市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/1063",
+      "https://opendata.pref.saitama.lg.jp/resources/1064"
+    ],
+    "sha256": "9a630e3fa302b6372face4e4d9a1beb2e408d3cc4a67acda595ded5834c00ee3",
+    "code": "11230",
+    "municipality": "新座市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1063",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1064",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/560",
+    "title": "【久喜市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/2771",
+      "https://opendata.pref.saitama.lg.jp/resources/2772"
+    ],
+    "sha256": "8db5030aaceb76bc381d65b13177389a3b6079d9a58bdb7a4e66abc45bca7d05",
+    "code": "11232",
+    "municipality": "久喜市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/2771",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/2772",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/137",
+    "title": "【富士見市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/853"
+    ],
+    "sha256": "b760591c737844699a34f73faa633b24f4bf631ef35c1b72c15afabfc36f0af1",
+    "code": "11235",
+    "municipality": "富士見市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/853",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/30",
+    "title": "【三郷市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/150"
+    ],
+    "sha256": "ce92c0e70983df9e0f49c729037b8632a61df43d2f652121b81c8cb78c7c562c",
+    "code": "11237",
+    "municipality": "三郷市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/150",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "title": "【蓮田市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/7498"
+    ],
+    "sha256": "b6b8723947e73d7985071f60838dc5ec75f4ceb8ffbcddc0fb1865ef14b20026",
+    "code": "11238",
+    "municipality": "蓮田市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/7498",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "title": "【坂戸市】AED設置箇所一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/7301"
+    ],
+    "sha256": "50dc9b373f2dd07265f064ddfab6ecca7c10d5c1426b6a542793daa329fda84c",
+    "code": "11239",
+    "municipality": "坂戸市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/7301",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/150",
+    "title": "【鶴ヶ島市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/868"
+    ],
+    "sha256": "759674fb83f6c6507a60a10405aeda4574c9ac7458d5ffbc71587228ef026440",
+    "code": "11241",
+    "municipality": "鶴ヶ島市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/868",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/297",
+    "title": "【日高市】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/1598"
+    ],
+    "sha256": "4449f4c2c07454f68e5cc018bb57593aa073558c34eb33fa9e9d64a7e7b93073",
+    "code": "11242",
+    "municipality": "日高市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1598",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/691",
+    "title": "【白岡市】ＡＥＤ設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/3531"
+    ],
+    "sha256": "aa9b07e7fa91cd3caeefbbf526b566a440a589244629b3c0deb07df9c155fcf8",
+    "code": "11246",
+    "municipality": "白岡市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/3531",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "title": "【毛呂山町】ＡＥＤ設置施設一覧 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/859",
+      "https://opendata.pref.saitama.lg.jp/resources/860"
+    ],
+    "sha256": "4bff678338e6afb0a49c4af714a0b6aa2ff9c0fad9f7bb878955d93fda3323b7",
+    "code": "11326",
+    "municipality": "毛呂山町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/859",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/860",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/145",
+    "title": "【嵐山町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/862"
+    ],
+    "sha256": "31340922f31c0bd03990517fdaa817b0d9f855311bbb5c8aa15576f749c95ba0",
+    "code": "11342",
+    "municipality": "嵐山町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/862",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/896",
+    "title": "【吉見町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/4291"
+    ],
+    "sha256": "0652bce0962413358dee3bd92d32361388ce8bef623485a767ec1de9cdaf5565",
+    "code": "11347",
+    "municipality": "吉見町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/4291",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/294",
+    "title": "【鳩山町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/1592",
+      "https://opendata.pref.saitama.lg.jp/resources/1593"
+    ],
+    "sha256": "34e6806c0cfa5455728c370a47c772e10a5907c0385b45b4940bbb113e797066",
+    "code": "11348",
+    "municipality": "鳩山町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1592",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/1593",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/140",
+    "title": "【東秩父村】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/856"
+    ],
+    "sha256": "a80b622a1d08f63e27cfe084c51a2796805a16dfb1f866f2af9e8c720b5ee575",
+    "code": "11369",
+    "municipality": "東秩父村",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/856",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "title": "【寄居町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/6455"
+    ],
+    "sha256": "6c4a8da7c65b8b5e5fc765a999800a840fe1dd3fbddcdc194c7f89699a2e1982",
+    "code": "11408",
+    "municipality": "寄居町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/6455",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/148",
+    "title": "【杉戸町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/865",
+      "https://opendata.pref.saitama.lg.jp/resources/866"
+    ],
+    "sha256": "074628047b6576306ab16ac61306a99b57243ce0860a2d07bd37020ca912c006",
+    "code": "11464",
+    "municipality": "杉戸町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/865",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/866",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "埼玉県",
+    "url": "https://opendata.pref.saitama.lg.jp/datasets/618",
+    "title": "【松伏町】AED設置場所情報 | データカタログ | 埼玉県オープンデータポータルサイト",
+    "resource_pages": [
+      "https://opendata.pref.saitama.lg.jp/resources/3290"
+    ],
+    "sha256": "871f81124fa74bf1a36082de44f9e7f8bf86a2f3e35cc151157ff4de1d9ba0f5",
+    "code": "11465",
+    "municipality": "松伏町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.saitama.lg.jp/resources/3290",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3288",
+    "title": "【市川市】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/53972",
+      "https://opendata.pref.chiba.lg.jp/resources/53973"
+    ],
+    "sha256": "5d5b2477f1df036cb97938df3784cf31d6b43b2312b06a448589d3e08b8242d1",
+    "code": "12203",
+    "municipality": "市川市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/53972",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/53973",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3046",
+    "title": "【館山市】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/53590"
+    ],
+    "sha256": "61af263d65ba21ed5ebfe155b15452a64bc4d43b6b9f0c57dc9c6e16bbf4fd64",
+    "code": "12205",
+    "municipality": "館山市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/53590",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/4084",
+    "title": "【松戸市】AEDマップ | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56919"
+    ],
+    "sha256": "2096ec6b2435c0e15d51e31208c76dffa7b13119d0092e9e19b6362ddf3f080b",
+    "code": "12207",
+    "municipality": "松戸市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56919",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3327",
+    "title": "【野田市】AED設置場所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/54226",
+      "https://opendata.pref.chiba.lg.jp/resources/54227"
+    ],
+    "sha256": "2b08b04b0e8da77088ff7d2c10668788922919d217876d0b9663d7a914b7aeff",
+    "code": "12208",
+    "municipality": "野田市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/54226",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/54227",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3010",
+    "title": "【茂原市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/53309"
+    ],
+    "sha256": "6938769fdfcdc0f65401799cb4f1759ce1d76c0b490a361a6a7567c63f1b168b",
+    "code": "12210",
+    "municipality": "茂原市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/53309",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3336",
+    "title": "【習志野市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/54729",
+      "https://opendata.pref.chiba.lg.jp/resources/54730"
+    ],
+    "sha256": "9423f0d901d452d2a0f6a4574a6766ab220c659f176ce09708cc289d81a2aefe",
+    "code": "12216",
+    "municipality": "習志野市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/54729",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/54730",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/1840",
+    "title": "【柏市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/47115",
+      "https://opendata.pref.chiba.lg.jp/resources/54891"
+    ],
+    "sha256": "e9d1f57d3d1e34f549cf415310d0d648e36688bc0aae74c136027dedf21ffe37",
+    "code": "12217",
+    "municipality": "柏市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/47115",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/54891",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3472",
+    "title": "【流山市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/55125",
+      "https://opendata.pref.chiba.lg.jp/resources/55126"
+    ],
+    "sha256": "30c7a6a83e5e458bf436922ec2a1c94196bcece0624bef6422c813149deed38f",
+    "code": "12220",
+    "municipality": "流山市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/55125",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/55126",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3633",
+    "title": "【八千代市】AED設置場所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/55457"
+    ],
+    "sha256": "acc2a476ba2cf4162e4dc97a47e271f23ad867200037baf44fa340d12d055db2",
+    "code": "12221",
+    "municipality": "八千代市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/55457",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3648",
+    "title": "【我孫子市】公共施設に設置されているAED一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/55839"
+    ],
+    "sha256": "bf3f47c17f2367be255789f0b3be5b8b898eabe4e93ecfbac5dee03ab4ec1e09",
+    "code": "12222",
+    "municipality": "我孫子市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/55839",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3682",
+    "title": "【君津市】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56087"
+    ],
+    "sha256": "e8280adf52113903e2583d62e8d2bcda56e5aa243280ab179bed3dc84dd82b8d",
+    "code": "12225",
+    "municipality": "君津市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3835",
+    "title": "【四街道市】11.保健医療 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56525"
+    ],
+    "sha256": "aa37f401be341beae4a27dcac9ef29b495e44edd02ddf9fc7341d3ce83401ce1",
+    "code": "12228",
+    "municipality": "四街道市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/4290",
+    "title": "【袖ケ浦市】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/59831"
+    ],
+    "sha256": "323925400e45f82a39b510a55db03988124b1b7ca6ca9b4c0c536a7470e01434",
+    "code": "12229",
+    "municipality": "袖ケ浦市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/59831",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3899",
+    "title": "【匝瑳市】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56638"
+    ],
+    "sha256": "6e87415cc2ed9bdaf5d847be867e6f80d6756524813cbace17d6dee86958c904",
+    "code": "12235",
+    "municipality": "匝瑳市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56638",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/3907",
+    "title": "【香取市】AED設置公共施設一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56647"
+    ],
+    "sha256": "786480c6b6e40ed3644c0a98c283a24a47acb54df50f8ecb2cc5e19a997024f2",
+    "code": "12236",
+    "municipality": "香取市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56647",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "千葉県",
+    "url": "https://opendata.pref.chiba.lg.jp/datasets/4022",
+    "title": "【栄町】AED設置箇所一覧 | データカタログ | 千葉県オープンデータサイト",
+    "resource_pages": [
+      "https://opendata.pref.chiba.lg.jp/resources/56765"
+    ],
+    "sha256": "a24a971085d09a0d1a3679a74a6d1bc5269d9a1cf80384901184bf07ef25b2ce",
+    "code": "12329",
+    "municipality": "栄町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://opendata.pref.chiba.lg.jp/resources/56765",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "岡山県",
+    "url": "https://www.okayama-opendata.jp/datasets/2815",
+    "title": "岡山市AED設置施設_AED設置施設 | データカタログ | おかやまオープンデータカタログ",
+    "resource_pages": [
+      "https://www.okayama-opendata.jp/resources/10281"
+    ],
+    "sha256": "974a677519af185ffe4cb82cf39942f0aba708652c903735c3339ff676993667",
+    "code": "33100",
+    "municipality": "岡山市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://www.okayama-opendata.jp/resources/10281",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "岡山県",
+    "url": "https://www.okayama-opendata.jp/datasets/3160",
+    "title": "玉野市_AED_設置施設 | データカタログ | おかやまオープンデータカタログ",
+    "resource_pages": [
+      "https://www.okayama-opendata.jp/resources/10813",
+      "https://www.okayama-opendata.jp/resources/10814",
+      "https://www.okayama-opendata.jp/resources/10815"
+    ],
+    "sha256": "ea2ab177655a84045268d217484442f0cfa3e3b4fe70e5d0c234debae8fef262",
+    "code": "33204",
+    "municipality": "玉野市",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://www.okayama-opendata.jp/resources/10813",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/10814",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/10815",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  },
+  {
+    "prefecture": "岡山県",
+    "url": "https://www.okayama-opendata.jp/datasets/781",
+    "title": "美咲町_位置情報 | データカタログ | おかやまオープンデータカタログ",
+    "resource_pages": [
+      "https://www.okayama-opendata.jp/resources/5501",
+      "https://www.okayama-opendata.jp/resources/5502",
+      "https://www.okayama-opendata.jp/resources/5503",
+      "https://www.okayama-opendata.jp/resources/5504",
+      "https://www.okayama-opendata.jp/resources/5505"
+    ],
+    "sha256": "6481175233dc71c1cbffd86b9a2f4d878b39410adc7373ef48dfb6704efc2227",
+    "code": "33666",
+    "municipality": "美咲町",
+    "previous_public_count": 0,
+    "status": "resource_and_license_review_required",
+    "fetch_status": "resource_selection_failed",
+    "resource_profiles": [],
+    "errors": [
+      {
+        "url": "https://www.okayama-opendata.jp/resources/5501",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/5502",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/5503",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/5504",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.okayama-opendata.jp/resources/5505",
+        "error": "RuntimeError: HTTP Error 403: Forbidden"
+      }
+    ]
+  }
+]
