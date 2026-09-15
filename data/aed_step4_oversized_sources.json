@@ -1,0 +1,48 @@
+{
+  "sources": [
+    {
+      "prefecture": "京都府",
+      "municipality": "",
+      "source_name": "【京都府】AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/a1b2e434-e4df-4f73-ac97-6e833d80952d",
+      "resource_url": "https://data.bodik.jp/dataset/a1b2e434-e4df-4f73-ac97-6e833d80952d/resource/56ed987c-8db0-4966-a73f-30cfb552ea06/download/aed.csv",
+      "license_id": "cc-by-40-intl",
+      "source_updated_at": "2025-08-22T00:26:33.397340",
+      "allowed": true,
+      "reason": "BODIK APIの1,000件上限を超えるため公式原本CSVを使用"
+    },
+    {
+      "prefecture": "大阪府",
+      "municipality": "寝屋川市",
+      "source_name": "AED設置個所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/a00f769c-0b01-4248-8f4c-ab4358c7af61",
+      "resource_url": "https://data.bodik.jp/dataset/a00f769c-0b01-4248-8f4c-ab4358c7af61/resource/d7a0f2c3-941e-4df1-8ec0-2205d25db162/download/272159_aed_202506.csv",
+      "license_id": "cc-by-40-intl",
+      "source_updated_at": "2025-06-27T05:59:58.123978",
+      "allowed": true,
+      "reason": "APIには過去版が重複しているため最新の公式原本CSVのみ使用"
+    },
+    {
+      "prefecture": "福岡県",
+      "municipality": "福岡市",
+      "source_name": "福岡市 AED",
+      "source_url": "https://odm.bodik.jp/dataset/657e3c99-9c43-4480-a3f0-e1213644e641",
+      "resource_url": "https://data.bodik.jp/dataset/657e3c99-9c43-4480-a3f0-e1213644e641/resource/d988273f-400f-4e91-b5c2-c80f266715c1/download/aed_202512040821.csv",
+      "license_id": "cc-by",
+      "source_updated_at": "2025-12-09T02:26:07.583285",
+      "allowed": true,
+      "reason": "BODIK APIの1,000件上限を超えるため公式原本CSVを使用"
+    },
+    {
+      "prefecture": "大分県",
+      "municipality": "",
+      "source_name": "AED設置状況一覧",
+      "source_url": "https://odm.bodik.jp/dataset/7162284d-1626-41d2-b377-979b994f9f59",
+      "resource_url": "https://data.bodik.jp/dataset/7162284d-1626-41d2-b377-979b994f9f59/resource/416af674-80cd-4631-ac1e-21328b4f1f17/download/440001_aed.csv",
+      "license_id": "cc-by-40-intl",
+      "source_updated_at": "2025-04-17T02:53:32.642363",
+      "allowed": true,
+      "reason": "BODIK APIの1,000件上限を超えるため公式原本CSVを使用"
+    }
+  ]
+}
