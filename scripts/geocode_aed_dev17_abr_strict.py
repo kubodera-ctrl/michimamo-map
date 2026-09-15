@@ -47,8 +47,9 @@ TARGETS = {
         "path": RAW / "12225_56087.bin",
         "parser": "kimitsu",
         "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
-        "source_license": None,
-        "source_updated_at": "2024-07-29",
+        "source_license": "cc-by4_0",
+        "source_updated_at": "2025-03-17",
+        "data_as_of": None,
         "bounds": (35.10, 35.50, 139.70, 140.20),
     },
     "12228": {
@@ -57,8 +58,9 @@ TARGETS = {
         "path": RAW / "12228_56525.bin",
         "parser": "yotsukaido",
         "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
-        "source_license": None,
-        "source_updated_at": "2025-04-01",
+        "source_license": "cc-by4_0",
+        "source_updated_at": "2026-03-27",
+        "data_as_of": "2025-04-01",
         "bounds": (35.60, 35.75, 140.10, 140.30),
     },
 }
@@ -200,6 +202,7 @@ def process(code: str, target: dict[str, Any]) -> None:
         "accepted": len(accepted),
         "held": len(held),
         "license_verified": target["source_license"] is not None,
+        "data_as_of": target.get("data_as_of"),
         "source_sha256": hashlib.sha256(target["path"].read_bytes()).hexdigest(),
         "policy": "match_level=residential_detail; coordinate_level=residential_detail; score>=0.90; lg_code exact; others empty; municipality bounds",
     }
