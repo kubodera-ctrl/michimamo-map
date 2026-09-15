@@ -74,7 +74,7 @@ def main():
                 p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in p.items()}
                 record_pref=first_value(p,('所在地_都道府県','都道府県名'))
                 if record_pref and record_pref!=source['prefecture']: continue
-                address=first_value(p,('所在地_連結表記','所在地_連結標記','住所','所在地','設置施設住所','SAFIELD001'))
+                address=first_value(p,('所在地_連結表記','所在地_連結標記','住所','住 所','所在地','設置施設住所','SAFIELD001'))
                 # Supplemental manifests are reviewed per municipality. Some official
                 # CSVs incorrectly put the full street address in 所在地_市区町村.
                 city=source['municipality']
@@ -90,7 +90,7 @@ def main():
                     m=re.match(r'(.+?(?:市|町|村))',address.removeprefix(source['prefecture']))
                     city=m.group(1) if m else ''
                 if first_value(p,('市民（外部の方）の使用',)) not in ('','認める'): continue
-                mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等','SAFIELD000')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所')),'limitationOfUse':first_value(p,('外部利用不可',))}
+                mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等','店舗名','SAFIELD000')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','連 絡 先','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所','設置場所1')),'limitationOfUse':first_value(p,('外部利用不可',))}
                 for target,header in (('openingDays','利用可能曜日'),('startTime','開始時間'),('endTime','終了時間'),('openingHoursRemarks','利用可能日時特記事項')):
                     mapped[target]=first_value(p,(header,))
                 mapped['openingHoursRemarks']=' / '.join(filter(None,[mapped.get('openingHoursRemarks'),('休業日：'+p['休業日']) if p.get('休業日') else '',p.get('市民が使用する場合の条件')]))

@@ -1,0 +1,33 @@
+{
+  "run_date": "2026-09-15",
+  "roadmap_step": 4,
+  "discovery": "BODIK catalog CSV datasets absent from the normalized BODIK AED API",
+  "official_sources_checked": 7,
+  "raw_rows": 695,
+  "accepted_before_internal_dedupe": 632,
+  "exact_same_installation_rows_removed": 9,
+  "internal_near_duplicate_pairs": 0,
+  "staged_rows": 623,
+  "existing_exact_duplicates": 0,
+  "existing_near_duplicates_50m": 0,
+  "published_rows": 623,
+  "published_by_municipality": {
+    "前橋市": 423,
+    "富里市": 28,
+    "御所市": 54,
+    "有田川町": 90,
+    "五木村": 28
+  },
+  "coordinate_backlog": {
+    "大網白里市": 34,
+    "田原本町": 25
+  },
+  "coordinate_backlog_reason": "公式CSVに緯度・経度がなく、推測座標で公開しない",
+  "baseline_public_aed": 35471,
+  "final_public_aed": 36094,
+  "final_published_municipalities": 379,
+  "final_unpublished_municipalities": 1362,
+  "remaining_stage_hold": 15,
+  "invalid_coordinates": 0,
+  "next_action": "座標なし59件は公式座標情報を探索しつつ、BODIK非APIの追加公式CSVと未掲載自治体の探索を継続"
+}

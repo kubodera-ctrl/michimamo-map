@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "prefecture": "群馬県",
+      "municipality": "前橋市",
+      "source_name": "前橋市 AED（自動体外式除細動器）設置一覧",
+      "source_url": "https://odm.bodik.jp/dataset/d86dab94-f354-40c6-abf6-fb2d29f43780",
+      "resource_url": "https://data.bodik.jp/dataset/d86dab94-f354-40c6-abf6-fb2d29f43780/resource/18cf45a4-7bdb-4008-baa8-5ade4089345f/download/aed2.csv",
+      "license_id": "CC-BY-4.0",
+      "source_updated_at": "2025-03-31T07:49:04.024388",
+      "allowed": true
+    },
+    {
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "source_name": "大網白里市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/cf02668b-0c92-4f78-8efb-438edbdc27d0",
+      "resource_url": "https://www.city.oamishirasato.lg.jp/cmsfiles/contents/0000011/11179/122394_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2023-09-26T15:06:19.572452",
+      "allowed": true
+    },
+    {
+      "prefecture": "千葉県",
+      "municipality": "富里市",
+      "source_name": "富里市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/8260ae19-e941-44e2-b68b-f037b4b43e8e",
+      "resource_url": "https://www.city.tomisato.lg.jp/cmsfiles/contents/0000011/11738/122335_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2025-07-07T10:39:13.664161",
+      "allowed": true
+    },
+    {
+      "prefecture": "奈良県",
+      "municipality": "田原本町",
+      "source_name": "田原本町 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/7c13a6a1-c1d0-4417-ba41-d8aed2e99421",
+      "resource_url": "http://www.town.tawaramoto.nara.jp/material/files/group/3/293636_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2026-05-12T10:16:22.544800",
+      "allowed": true
+    },
+    {
+      "prefecture": "奈良県",
+      "municipality": "御所市",
+      "source_name": "御所市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/ca1772cb-d96c-4494-bc84-c2a66aa77803",
+      "resource_url": "https://www.city.gose.nara.jp/cmsfiles/contents/0000002/2623/292087_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2024-10-11T11:26:21.911844",
+      "allowed": true
+    },
+    {
+      "prefecture": "和歌山県",
+      "municipality": "有田川町",
+      "source_name": "有田川町 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/71fd2b52-dd1c-4642-9c8d-f048228b1eae",
+      "resource_url": "https://www.town.aridagawa.lg.jp/material/files/group/11/030366_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2025-09-24T11:37:02.810724",
+      "allowed": true
+    },
+    {
+      "prefecture": "熊本県",
+      "municipality": "五木村",
+      "source_name": "五木村 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/77e30aa3-8f88-4267-bf10-b290167948d7",
+      "resource_url": "https://www.vill.itsuki.lg.jp/kiji0031782/3_1782_up_orxihmqy.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2025-12-18T13:16:27.788303",
+      "allowed": true
+    }
+  ]
+}
