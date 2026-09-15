@@ -45,10 +45,27 @@
       "municipality": "大東市",
       "count": 85,
       "reason": "geocode_level_2_or_3_representative_points"
+    },
+    {
+      "municipality_code": "04207",
+      "municipality": "名取市",
+      "count": 60,
+      "reason": "strict_level8_match_failed"
+    },
+    {
+      "municipality_code": "12225",
+      "municipality": "君津市",
+      "count": 119,
+      "reason": "strict_level8_match_failed"
+    },
+    {
+      "municipality_code": "12228",
+      "municipality": "四街道市",
+      "count": 89,
+      "reason": "strict_level8_match_failed"
     }
   ],
   "remaining_zero_municipalities_in_dev16_inventory": [
-    "名取市",
     "熊谷市",
     "狭山市",
     "羽生市",
@@ -72,8 +89,6 @@
     "松伏町",
     "柏市",
     "八千代市",
-    "君津市",
-    "四街道市",
     "匝瑳市",
     "大網白里市",
     "大東市",

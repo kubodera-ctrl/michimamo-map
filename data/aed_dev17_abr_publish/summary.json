@@ -1,0 +1,95 @@
+{
+  "baseline": 46774,
+  "expected_final": 46945,
+  "reports": [
+    {
+      "code": "04207",
+      "municipality": "名取市",
+      "strict_accepted": 98,
+      "review_rows": 98,
+      "publish": 98,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "mapping_errors": [],
+      "batches": [
+        {
+          "file": "publish_dev17_abr_04207_01.sql",
+          "baseline": 46774,
+          "inserted": 98,
+          "held": 0,
+          "expected_final": 46872,
+          "sha256": "28866030601b9c59fd20ae2d42055a777df68aa7ed49b7641c9690d85888eb37"
+        }
+      ]
+    },
+    {
+      "code": "12225",
+      "municipality": "君津市",
+      "strict_accepted": 70,
+      "review_rows": 70,
+      "publish": 70,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "mapping_errors": [],
+      "batches": [
+        {
+          "file": "publish_dev17_abr_12225_01.sql",
+          "baseline": 46872,
+          "inserted": 70,
+          "held": 0,
+          "expected_final": 46942,
+          "sha256": "21e2676f6075e9b2273591b2c368e6f8cf51946a2dac526f8b768794313129f1"
+        }
+      ]
+    },
+    {
+      "code": "12228",
+      "municipality": "四街道市",
+      "strict_accepted": 3,
+      "review_rows": 3,
+      "publish": 3,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "mapping_errors": [],
+      "batches": [
+        {
+          "file": "publish_dev17_abr_12228_01.sql",
+          "baseline": 46942,
+          "inserted": 3,
+          "held": 0,
+          "expected_final": 46945,
+          "sha256": "58384b2ca26dab9bf656355a2d30060682b9584d7dc0fa122ddee119ce208bb4"
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "file": "publish_dev17_abr_04207_01.sql",
+      "baseline": 46774,
+      "inserted": 98,
+      "held": 0,
+      "expected_final": 46872,
+      "sha256": "28866030601b9c59fd20ae2d42055a777df68aa7ed49b7641c9690d85888eb37"
+    },
+    {
+      "file": "publish_dev17_abr_12225_01.sql",
+      "baseline": 46872,
+      "inserted": 70,
+      "held": 0,
+      "expected_final": 46942,
+      "sha256": "21e2676f6075e9b2273591b2c368e6f8cf51946a2dac526f8b768794313129f1"
+    },
+    {
+      "file": "publish_dev17_abr_12228_01.sql",
+      "baseline": 46942,
+      "inserted": 3,
+      "held": 0,
+      "expected_final": 46945,
+      "sha256": "58384b2ca26dab9bf656355a2d30060682b9584d7dc0fa122ddee119ce208bb4"
+    }
+  ]
+}
