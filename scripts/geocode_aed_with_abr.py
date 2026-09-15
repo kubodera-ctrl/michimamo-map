@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Geocode address-only municipal AED CSV data with Digital Agency ABR data.
 
-The output uses residence coordinates when available and falls back to the
-representative coordinate of the matching block. Rows outside the requested
-municipality and rows without a safe match are excluded.
+Use --strict-residence-only for production review: only ABR residence coordinates
+are accepted. The legacy block-representative fallback remains available only
+when that flag is omitted, and must not be used for dev16 publication.
 """
 
 from __future__ import annotations
@@ -20,7 +20,6 @@ from collections import Counter
 from pathlib import Path
 from typing import Iterator
 
-
 NAME_FIELDS = ("名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称")
 ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連結表記")
 PHONE_FIELDS = ("電話番号", "電話", "TEL", "tel")
@@ -28,10 +27,8 @@ MUNICIPALITY_FIELDS = ("市区町村名", "地方公共団体名", "所在地_�
 KANJI_DIGITS = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
                 "六": 6, "七": 7, "八": 8, "九": 9}
 
-
 def clean(value: object) -> str:
     return unicodedata.normalize("NFKC", str(value or "")).strip()
-
 
 def first(row: dict[str, str], fields: tuple[str, ...]) -> str:
     values = {clean(k).replace(" ", ""): clean(v) for k, v in row.items()}
@@ -39,7 +36,6 @@ def first(row: dict[str, str], fields: tuple[str, ...]) -> str:
         if value := values.get(field, ""):
             return value
     return ""
-
 
 def japanese_number(value: str) -> str:
     value = value.replace("丁目", "")
@@ -53,26 +49,22 @@ def japanese_number(value: str) -> str:
                    + (KANJI_DIGITS.get(right, 0) if right else 0))
     return str(KANJI_DIGITS.get(value, value))
 
-
 def normalize_address(value: str, prefecture: str, municipality: str) -> str:
     value = clean(value).replace(prefecture, "").replace(municipality, "")
     value = re.sub(r"[‐‑‒–—―ー−ｰ－]", "-", value)
     value = re.sub(r"\s+", "", value)
-    value = re.sub(r"([〇一二三四五六七八九十]+)丁目",
-                   lambda match: japanese_number(match.group(1)) + "-", value)
+    value = re.sub(r"([〇一二三四五六七八九十]+)丁目", lambda m: japanese_number(m.group(1)) + "-", value)
     value = re.sub(r"([0-9]+)丁目", r"\1-", value)
     value = re.sub(r"([0-9]+)番地?", r"\1-", value)
     value = re.sub(r"([0-9]+)号", r"\1", value)
     value = re.sub(r"([^0-9])-([0-9]+)-", r"\1\2-", value)
     return re.sub(r"-+", "-", value).strip("-")
 
-
 def zip_rows(path: Path) -> Iterator[dict[str, str]]:
     with zipfile.ZipFile(path) as archive:
         with archive.open(archive.namelist()[0]) as raw:
             with io.TextIOWrapper(raw, encoding="utf-8-sig", newline="") as text:
                 yield from csv.DictReader(text)
-
 
 def address_key(row: dict[str, str], include_residence: bool) -> str:
     town = clean(row.get("oaza_cho")) + clean(row.get("koaza"))
@@ -83,7 +75,6 @@ def address_key(row: dict[str, str], include_residence: bool) -> str:
     parts = [str(int(value)) for value in parts if value.isdigit()]
     return town + (chome + "-" if chome else "") + "-".join(parts)
 
-
 def coordinate_map(path: Path, municipality_code: str, residence: bool) -> dict[tuple[str, ...], tuple[float, float]]:
     result = {}
     for row in zip_rows(path):
@@ -92,7 +83,6 @@ def coordinate_map(path: Path, municipality_code: str, residence: bool) -> dict[
         fields = ["machiaza_id", "blk_id"] + (["rsdt_id", "rsdt2_id"] if residence else [])
         result[tuple(row[field] for field in fields)] = (float(row["rep_lat"]), float(row["rep_lon"]))
     return result
-
 
 def build_index(data_path: Path, pos_path: Path, municipality_code: str,
                 prefecture: str, municipality: str, residence: bool) -> dict[str, tuple[float, float]]:
@@ -109,10 +99,8 @@ def build_index(data_path: Path, pos_path: Path, municipality_code: str,
                 index.setdefault(key, coordinate)
     return index
 
-
 def sql_text(value: str | None) -> str:
     return "null" if not value else "'" + value.replace("'", "''") + "'"
-
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -129,14 +117,16 @@ def main() -> None:
     parser.add_argument("--abr-block-pos", type=Path, required=True)
     parser.add_argument("--abr-residence-data", type=Path, required=True)
     parser.add_argument("--abr-residence-pos", type=Path, required=True)
+    parser.add_argument("--strict-residence-only", action="store_true")
     parser.add_argument("--output-sql", type=Path, required=True)
     parser.add_argument("--output-report", type=Path, required=True)
     args = parser.parse_args()
 
     residence = build_index(args.abr_residence_data, args.abr_residence_pos,
                             args.municipality_code, args.prefecture, args.municipality, True)
-    block = build_index(args.abr_block_data, args.abr_block_pos,
-                        args.municipality_code, args.prefecture, args.municipality, False)
+    block = {} if args.strict_residence_only else build_index(
+        args.abr_block_data, args.abr_block_pos, args.municipality_code,
+        args.prefecture, args.municipality, False)
     residence_items = sorted(residence.items(), key=lambda item: len(item[0]), reverse=True)
     block_items = sorted(block.items(), key=lambda item: len(item[0]), reverse=True)
 
@@ -155,7 +145,7 @@ def main() -> None:
         query = normalize_address(address, args.prefecture, args.municipality)
         match = next(((coordinate, "ABR住居座標", key) for key, coordinate in residence_items
                       if query == key or query.startswith(key)), None)
-        if not match:
+        if not match and not args.strict_residence_only:
             match = next(((coordinate, "ABR街区代表点", key) for key, coordinate in block_items
                           if query == key or query.startswith(key + "-")), None)
         if not name or not address or not match:
@@ -204,10 +194,10 @@ def main() -> None:
         "generated_rows": len(generated),
         "match_counts": stats,
         "unmatched": misses,
+        "strict_residence_only": args.strict_residence_only,
         "abr_dataset": "アドレス・ベース・レジストリ（デジタル庁）",
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"source={len(source_rows)} generated={len(generated)} matches={dict(stats)}")
-
+    print(f"source={len(source_rows)} generated={len(generated)} strict={args.strict_residence_only} matches={dict(stats)}")
 
 if __name__ == "__main__":
     main()
