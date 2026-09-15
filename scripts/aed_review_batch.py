@@ -15,6 +15,9 @@ def staging_query(rows):
     return 'insert into public.safety_spots_nationwide_stage ('+','.join(columns)+') select '+','.join('x.'+c for c in columns)+' from jsonb_populate_recordset(null::public.safety_spots_nationwide_stage,'+tag+payload+tag+'::jsonb) x on conflict (source_key) do nothing;'
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('file',type=Path);ap.add_argument('offset',type=int);ap.add_argument('--size',type=int,default=200);args=ap.parse_args()
-    rows=json.loads(args.file.read_text())[args.offset:args.offset+args.size]
+    ap=argparse.ArgumentParser();ap.add_argument('file',type=Path);ap.add_argument('offset',type=int);ap.add_argument('--size',type=int,default=200);ap.add_argument('--safe-only',action='store_true');args=ap.parse_args()
+    all_rows=json.loads(args.file.read_text())
+    if args.safe_only:
+        all_rows=[row for row in all_rows if not row.get('duplicate_candidate')]
+    rows=all_rows[args.offset:args.offset+args.size]
     print(json.dumps({'rows':len(rows),'query':staging_query(rows)},ensure_ascii=False))
