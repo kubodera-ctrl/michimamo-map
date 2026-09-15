@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Recover current official AED files for known portal failures.
 
-This step updates only the fetch evidence in data/aed_dev14/catalog_fetch.json.
-It never writes to Supabase. Sources are limited to municipality-owned pages
-whose reuse terms and direct files were independently verified.
+This step updates only fetch evidence. A failure for one municipality is
+recorded and must never stop recovery of the other verified official sources.
 """
 from __future__ import annotations
 
@@ -20,66 +19,12 @@ CATALOG = ROOT / "catalog_fetch.json"
 USER_AGENT = "machimamo-map-aed-source-audit/2026-09-16"
 
 DIRECT = {
-    "12203": {
-        "prefecture": "千葉県",
-        "municipality": "市川市",
-        "source_url": "https://www.city.ichikawa.lg.jp/page/4744.html",
-        "download_url": "https://www.city.ichikawa.lg.jp/uploaded/attachment/53056.csv",
-        "license": "cc-by4_0",
-        "updated_at": "2026-04-01",
-        "resource_id": "ichikawa_53056",
-        "format": "CSV",
-    },
-    "12207": {
-        "prefecture": "千葉県",
-        "municipality": "松戸市",
-        "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
-        "download_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv",
-        "license": "cc-by4_0",
-        "updated_at": "2026-02-27",
-        "resource_id": "matsudo_aed_csv",
-        "format": "CSV",
-    },
-    "12208": {
-        "prefecture": "千葉県",
-        "municipality": "野田市",
-        "source_url": "https://www.city.noda.chiba.jp/shisei/johokoukai/opendata/1007928.html",
-        "download_url": "https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/007/928/26.7aed.csv",
-        "license": "cc-by4_0",
-        "updated_at": "2026-07-01",
-        "resource_id": "noda_26_7aed",
-        "format": "CSV",
-    },
-    "12217": {
-        "prefecture": "千葉県",
-        "municipality": "柏市",
-        "source_url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html",
-        "download_url": "https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv",
-        "license": "cc-by4_0",
-        "updated_at": "2025-12-01",
-        "resource_id": "kashiwa_aed_csv",
-        "format": "CSV",
-    },
-    "12220": {
-        "prefecture": "千葉県",
-        "municipality": "流山市",
-        "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html",
-        "download_url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv",
-        "license": "cc-by4_0",
-        "updated_at": "2023-10-17",
-        "resource_id": "nagareyama_aed_20231017",
-        "format": "CSV",
-    },
-    "12221": {
-        "prefecture": "千葉県",
-        "municipality": "八千代市",
-        "source_url": "https://www.city.yachiyo.lg.jp/soshiki/7/2030.html",
-        "download_url": "https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx",
-        "license": "cc-by4_0",
-        "updated_at": "2026-07-01",
-        "resource_id": "yachiyo_48319",
-        "format": "XLSX",
-    },
+    "12203": {"prefecture":"千葉県","municipality":"市川市","source_url":"https://www.city.ichikawa.lg.jp/page/4744.html","download_url":"https://www.city.ichikawa.lg.jp/uploaded/attachment/53056.csv","license":"cc-by4_0","updated_at":"2026-04-01","resource_id":"ichikawa_53056","format":"CSV"},
+    "12207": {"prefecture":"千葉県","municipality":"松戸市","source_url":"https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html","download_url":"https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv","license":"cc-by4_0","updated_at":"2026-02-27","resource_id":"matsudo_aed_csv","format":"CSV"},
+    "12208": {"prefecture":"千葉県","municipality":"野田市","source_url":"https://www.city.noda.chiba.jp/shisei/johokoukai/opendata/1007928.html","download_url":"https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/007/928/26.7aed.csv","license":"cc-by4_0","updated_at":"2026-07-01","resource_id":"noda_26_7aed","format":"CSV"},
+    "12217": {"prefecture":"千葉県","municipality":"柏市","source_url":"https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html","download_url":"https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv","license":"cc-by4_0","updated_at":"2025-12-01","resource_id":"kashiwa_aed_csv","format":"CSV"},
+    "12220": {"prefecture":"千葉県","municipality":"流山市","source_url":"https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html","download_url":"https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv","license":"cc-by4_0","updated_at":"2023-10-17","resource_id":"nagareyama_aed_20231017","format":"CSV"},
+    "12221": {"prefecture":"千葉県","municipality":"八千代市","source_url":"https://www.city.yachiyo.lg.jp/soshiki/7/2030.html","download_url":"https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx","license":"cc-by4_0","updated_at":"2026-07-01","resource_id":"yachiyo_48319","format":"XLSX"},
 }
 
 
@@ -95,46 +40,43 @@ def main() -> None:
     by_code = {str(row.get("code")): i for i, row in enumerate(rows)}
 
     for code, meta in DIRECT.items():
-        payload, content_type = fetch(meta["download_url"])
-        records = read_records(payload)
-        if not records:
-            raise RuntimeError(f"{code} {meta['municipality']}: parsed zero rows")
-        target = RAW / f"{code}_{meta['resource_id']}.bin"
-        target.write_bytes(payload)
-        selected = {
-            "resource_url": meta["source_url"],
-            "resource_id": meta["resource_id"],
-            "resource_title": meta["municipality"] + " AED設置箇所一覧",
-            "download_url": meta["download_url"],
-            "updated_at": meta["updated_at"],
-            "format": meta["format"],
-            "license": meta["license"],
-        }
-        evidence = {
-            "code": code,
-            "prefecture": meta["prefecture"],
-            "municipality": meta["municipality"],
-            "url": meta["source_url"],
-            "fetch_status": "downloaded",
-            "selected_resource": selected,
-            "download_final_url": meta["download_url"],
-            "content_type": content_type,
-            "snapshot": str(target),
-            "bytes": len(payload),
-            "sha256": hashlib.sha256(payload).hexdigest(),
-            "rows": len(records),
-            "fields": list(records[0]),
-            "sample": records[:2],
-            "resource_profiles": [selected],
-            "errors": [],
-            "recovery": "official_direct_dev16",
-        }
+        try:
+            payload, content_type = fetch(meta["download_url"])
+            records = read_records(payload)
+            if not records:
+                raise RuntimeError("parsed zero rows")
+            target = RAW / f"{code}_{meta['resource_id']}.bin"
+            target.write_bytes(payload)
+            selected = {
+                "resource_url": meta["source_url"], "resource_id": meta["resource_id"],
+                "resource_title": meta["municipality"] + " AED設置箇所一覧",
+                "download_url": meta["download_url"], "updated_at": meta["updated_at"],
+                "format": meta["format"], "license": meta["license"],
+            }
+            evidence = {
+                "code": code, "prefecture": meta["prefecture"], "municipality": meta["municipality"],
+                "url": meta["source_url"], "fetch_status": "downloaded", "selected_resource": selected,
+                "download_final_url": meta["download_url"], "content_type": content_type,
+                "snapshot": str(target), "bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest(),
+                "rows": len(records), "fields": list(records[0]), "sample": records[:2],
+                "resource_profiles": [selected], "errors": [], "recovery": "official_direct_dev16",
+            }
+            print(code, meta["municipality"], "downloaded", len(records), flush=True)
+        except Exception as exc:
+            current = rows[by_code[code]] if code in by_code else {}
+            evidence = {
+                **current, "code": code, "prefecture": meta["prefecture"], "municipality": meta["municipality"],
+                "url": meta["source_url"], "fetch_status": "download_failed",
+                "selected_resource": {"resource_url":meta["source_url"],"resource_id":meta["resource_id"],"download_url":meta["download_url"],"updated_at":meta["updated_at"],"format":meta["format"],"license":meta["license"]},
+                "errors": [{"url": meta["download_url"], "error": type(exc).__name__ + ": " + str(exc)}],
+                "recovery": "official_direct_dev16_failed",
+            }
+            print(code, meta["municipality"], "download_failed", type(exc).__name__, flush=True)
         if code in by_code:
             rows[by_code[code]] = evidence
         else:
             rows.append(evidence)
             by_code[code] = len(rows) - 1
-        print(code, meta["municipality"], "downloaded", len(records), flush=True)
 
     CATALOG.write_text(json.dumps(rows, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
 
