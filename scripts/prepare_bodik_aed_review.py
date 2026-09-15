@@ -68,7 +68,7 @@ def main():
             else:
                 with urllib.request.urlopen(source['resource_url'],timeout=30) as r: payload=r.read()
                 cache.write_bytes(payload)
-            records=read_records(payload)
+            records=read_records(payload,int(source.get('header_row',1)))
             accepted=0
             for p in records:
                 p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in p.items()}

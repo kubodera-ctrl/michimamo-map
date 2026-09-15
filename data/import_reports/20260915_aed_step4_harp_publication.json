@@ -1,0 +1,33 @@
+{
+  "run_date": "2026-09-15",
+  "roadmap_step": 4,
+  "batch": "HARP/Hokkaido official catalog",
+  "catalog_datasets_checked": 34,
+  "previously_unpublished_sources_found": 10,
+  "machine_readable_sources": 7,
+  "external_landing_pages_pending": ["函館市", "旭川市", "滝川市"],
+  "official_coordinate_rows_before_dedupe": 110,
+  "address_geocode_candidates": 111,
+  "address_level_matches_before_dedupe": 79,
+  "rejected_below_address_level": 32,
+  "restricted_rows": 17,
+  "exact_duplicates_removed": 2,
+  "near_duplicate_rows_excluded": 2,
+  "published_rows": 185,
+  "published_by_municipality": {
+    "剣淵町": 14,
+    "古平町": 5,
+    "幌延町": 22,
+    "新冠町": 18,
+    "新得町": 24,
+    "根室市": 46,
+    "留萌市": 56
+  },
+  "baseline_public_aed": 36333,
+  "final_public_aed": 36518,
+  "final_published_municipalities": 390,
+  "final_unpublished_municipalities": 1351,
+  "remaining_stage_hold": 15,
+  "invalid_coordinates": 0,
+  "next_action": "Continue with the next official regional catalog batch without waiting for user confirmation"
+}

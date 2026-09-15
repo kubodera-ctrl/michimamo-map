@@ -179,6 +179,40 @@ def build_search_url(action: str, query_name: str, fixed: dict, term: str) -> st
     return urlunparse(parsed._replace(query=urlencode(params)))
 
 
+def search_official_site(official_url: str) -> tuple[list[str], list[str], list[str]]:
+    """Search only the official site using its own links, sitemap and search form."""
+    found: list[str] = []
+    methods: list[str] = []
+    errors: list[str] = []
+    try:
+        home, final_url, _ = fetch(official_url, timeout=6)
+        direct = extract_aed_links(home, final_url, official_url)
+        if direct:
+            found.extend(direct)
+            methods.append("official_home_links")
+        search_form = choose_search_form(home, final_url, official_url)
+        if search_form:
+            action, query_name, fixed = search_form
+            try:
+                result_html, result_url, _ = fetch(build_search_url(action, query_name, fixed, "AED"), timeout=8)
+                searched = extract_aed_links(result_html, result_url, official_url)
+                if searched:
+                    found.extend(searched)
+                    methods.append("official_site_search")
+            except Exception as error:
+                errors.append(f"site_search:{type(error).__name__}:{error}"[:300])
+    except Exception as error:
+        errors.append(f"official_home:{type(error).__name__}:{error}"[:300])
+    try:
+        sitemap, checked = inspect_sitemaps(official_url)
+        if checked:
+            methods.append("official_sitemap")
+        found.extend(sitemap)
+    except Exception as error:
+        errors.append(f"sitemap:{type(error).__name__}:{error}"[:300])
+    return list(dict.fromkeys(found)), methods, errors
+
+
 def sitemap_candidates(official_url: str) -> list[str]:
     base = official_url.rstrip("/") + "/"
     candidates = [urljoin(base, "sitemap.xml"), urljoin(base, "sitemap_index.xml")]
@@ -253,15 +287,28 @@ def audit_one(row: dict, official_url: str) -> dict:
                        "reuse_status": " / ".join(row.get("source_licenses") or []) or "既存取込記録を参照",
                        "acquisition_status": "既存公式データを確認済み", "next_action": "④で更新差分と網羅性を確認"})
         return result
-    candidates, errors = search_official_domain(row["municipality"], official_url)
-    result.update({"search_method": "public_web_search_restricted_to_official_domain",
-                   "search_checked": not errors or bool(candidates), "search_errors": errors})
+    candidates, methods, errors = search_official_site(official_url)
+    if not candidates:
+        web_candidates, web_errors = search_official_domain(row["municipality"], official_url)
+        candidates.extend(web_candidates)
+        errors.extend(web_errors)
+        methods.append("public_web_search_restricted_to_official_domain")
+    candidates = list(dict.fromkeys(candidates))
+    inspected = [inspect_source_page(url, official_url) for url in candidates[:5]]
+    download_candidates = list(dict.fromkeys(
+        url for page in inspected for url in page.get("download_candidates", [])
+    ))
+    reuse_evidence = next((page["reuse_status"] for page in inspected
+                           if page.get("reuse_status") and "確認できず" not in page["reuse_status"]), None)
+    result.update({"search_methods": methods, "search_checked": bool(methods),
+                   "search_errors": errors, "source_page_inspection": inspected})
     if candidates:
         result.update({"investigation_status": "official_aed_page_found",
-                       "acquisition_status": "データ取得候補あり" if any(re.search(r"\.(csv|xlsx?|geojson|json|zip)(?:$|\?)", url, re.I) for url in candidates) else "公式ページのみ確認",
+                       "acquisition_status": "データ取得候補あり" if download_candidates else "公式ページのみ確認",
                        "aed_page_candidates": candidates[:20],
                        "source_url": candidates[0],
-                       "reuse_status": "再利用条件は④で公式ページ・利用規約を確認",
+                       "download_candidates": download_candidates[:50],
+                       "reuse_status": reuse_evidence or "再利用条件は④で公式ページ・利用規約を確認",
                        "next_action": "④でデータ項目・座標・再利用条件を検証"})
     elif errors:
         result.update({"investigation_status": "official_domain_search_failed",
@@ -303,6 +350,8 @@ def main():
     parser.add_argument("--wikidata", type=Path, help="optional saved Wikidata SPARQL JSON response")
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--retry-status", action="append", default=[],
+                        help="re-audit rows with this investigation_status; may be repeated")
     args = parser.parse_args()
     ledger_path = DATA / "ledger.json"
     output_path = DATA / "official_source_audit_20260915.json"
@@ -315,7 +364,9 @@ def main():
     existing = {}
     if output_path.exists():
         existing = {row["code"]: row for row in json.loads(output_path.read_text())}
-    pending = [row for row in ledger if row["code"] not in existing]
+    retry_statuses = set(args.retry_status)
+    pending = [row for row in ledger if row["code"] not in existing
+               or existing[row["code"]].get("investigation_status") in retry_statuses]
     if args.limit:
         pending = pending[:args.limit]
     lock = threading.Lock()

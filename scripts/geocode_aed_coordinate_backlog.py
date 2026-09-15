@@ -36,7 +36,10 @@ def candidates(input_dir, supplement):
                 continue
             lat=first_value(p,('緯度',)); lng=first_value(p,('経度',))
             try:
-                if 20 <= float(lat) <= 46 and 122 <= float(lng) <= 154: continue
+                lat_value, lng_value = float(lat), float(lng)
+                if ((20 <= lat_value <= 46 and 122 <= lng_value <= 154)
+                        or (122 <= lat_value <= 154 and 20 <= lng_value <= 46)):
+                    continue
             except (ValueError,TypeError): pass
             name=first_value(p,NAME_FIELDS)
             if source.get('address_join_fields'):

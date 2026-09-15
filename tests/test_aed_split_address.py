@@ -55,4 +55,14 @@ class SplitAddressTests(unittest.TestCase):
         self.assertTrue(municipality_matches('千葉市中央区','千葉市'))
         self.assertFalse(municipality_matches('東大阪市','大阪市'))
 
+    def test_geocode_backlog_skips_existing_swapped_coordinate_columns(self):
+        sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+        from geocode_aed_coordinate_backlog import candidates
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory);url='https://example.org/aed.csv'
+            source={'prefecture':'北海道','municipality':'根室市','resource_url':url}
+            csv='名称,住所,緯度,経度\n市役所,北海道根室市常盤町2-27,145.58279,43.33021\n'
+            (p/(hashlib.sha256(url.encode()).hexdigest()+'.bin')).write_text(csv)
+            self.assertEqual(candidates(p,{'sources':[source]}),[])
+
 if __name__=='__main__':unittest.main()

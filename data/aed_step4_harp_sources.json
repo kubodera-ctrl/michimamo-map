@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {"prefecture":"北海道","municipality":"函館市","source_name":"【函館市】AED箇所一覧","source_url":"https://www.harp.lg.jp/opendata/dataset/1589.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1589/resource/3347/source-url","license_id":"CC BY","source_updated_at":"2020-09-18"},
+    {"prefecture":"北海道","municipality":"剣淵町","source_name":"剣淵町オープンデータ AED設置箇所一覧","source_url":"https://www.harp.lg.jp/opendata/dataset/1802.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1802/resource/4417/01AED%E8%A1%A8%E3%80%80%E6%A7%98%E5%BC%8F.xlsx","license_id":"CC BY","source_updated_at":"2022-05-11"},
+    {"prefecture":"北海道","municipality":"古平町","source_name":"ＡＥＤ設置位置【古平町】","source_url":"https://www.harp.lg.jp/opendata/dataset/1646.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1646/resource/3708/014061_aed.csv","license_id":"CC BY","source_updated_at":"2024-04-08"},
+    {"prefecture":"北海道","municipality":"幌延町","source_name":"AED設置場所【幌延町】","source_url":"https://www.harp.lg.jp/opendata/dataset/1271.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1271/resource/2161/%E5%B9%8C%E5%BB%B6%E7%94%BA%E5%86%85%20AED%E8%A8%AD%E7%BD%AE%E7%8A%B6%E6%B3%81%EF%BC%88%E8%A8%82%E6%AD%A3%EF%BC%89.csv","license_id":"CC BY","source_updated_at":"2020-07-16","header_row":3},
+    {"prefecture":"北海道","municipality":"新冠町","source_name":"AED設置箇所一覧【北海道新冠町】","source_url":"https://www.harp.lg.jp/opendata/dataset/1418.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1418/resource/3200/016047_aed.xlsx","license_id":"CC BY","source_updated_at":"2020-07-20"},
+    {"prefecture":"北海道","municipality":"新得町","source_name":"AED設置箇所一覧【新得町】","source_url":"https://www.harp.lg.jp/opendata/dataset/1647.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1647/resource/3685/016357_aed.xlsx","license_id":"CC BY","source_updated_at":"2021-03-05"},
+    {"prefecture":"北海道","municipality":"旭川市","source_name":"AED設置事業所一覧【北海道旭川市】","source_url":"https://www.harp.lg.jp/opendata/dataset/87.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/87/resource/136/source-url","license_id":"CC BY","source_updated_at":"2022-07-01"},
+    {"prefecture":"北海道","municipality":"根室市","source_name":"根室市AED設置場所一覧【北海道根室市】","source_url":"https://www.harp.lg.jp/opendata/dataset/1686.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1686/resource/3752/%E6%A0%B9%E5%AE%A4%E5%B8%82AED%E8%A8%AD%E7%BD%AE%E5%A0%B4%E6%89%80%E4%B8%80%E8%A6%A7.xlsx","license_id":"CC BY","source_updated_at":"2021-03-30"},
+    {"prefecture":"北海道","municipality":"滝川市","source_name":"AED設置箇所一覧【北海道滝川市】","source_url":"https://www.harp.lg.jp/opendata/dataset/1691.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/1691/resource/3842/source-url","license_id":"CC BY","source_updated_at":"2021-05-20"},
+    {"prefecture":"北海道","municipality":"留萌市","source_name":"AED設置箇所一覧【留萌市】","source_url":"https://www.harp.lg.jp/opendata/dataset/2046.html","resource_url":"https://www.harp.lg.jp/opendata/dataset/2046/resource/6874/012122_aed.csv","license_id":"CC BY","source_updated_at":"2024-06-17"}
+  ],
+  "excluded": []
+}
