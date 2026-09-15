@@ -1,0 +1,168 @@
+{
+  "success": true,
+  "result": {
+    "type": "dataset",
+    "site": {
+      "id": 1,
+      "name": "静岡県オープンデータ",
+      "url": "https://opendata.pref.shizuoka.jp/",
+      "created": "2018-09-11T11:40:26.760+09:00",
+      "updated": "2026-09-15T03:13:42.439+09:00"
+    },
+    "user": {
+      "id": 48,
+      "name": "湖西市（作成者）",
+      "uid": "kosai02",
+      "email": null,
+      "created": "2018-11-16T18:04:47.736+09:00",
+      "updated": "2018-11-30T12:10:27.957+09:00"
+    },
+    "author": "湖西市",
+    "id": 12694,
+    "uuid": "fe8c05af-c1b6-4d50-89b7-408a08d328d6",
+    "name": "AED設置箇所一覧",
+    "filename": "dataset/12694.html",
+    "url": "https://opendata.pref.shizuoka.jp/dataset/12694.html",
+    "text": "湖西市のAED設置箇所一覧のオープンデータです。",
+    "update_plan": null,
+    "state": "public",
+    "released": "2026-09-01T09:51:39.160+09:00",
+    "created": "2026-02-26T09:06:01.454+09:00",
+    "updated": "2026-09-01T09:51:39.164+09:00",
+    "categories": [
+      {
+        "id": 41,
+        "name": "くらし・環境",
+        "filename": "bunya/kurashi",
+        "state": "public",
+        "created": "2018-09-18T20:36:59.407+09:00",
+        "updated": "2024-05-08T15:12:40.137+09:00"
+      },
+      {
+        "id": 44,
+        "name": "防災・安全・防犯",
+        "filename": "bunya/kurashi/bousai",
+        "state": "public",
+        "created": "2018-09-18T20:37:00.088+09:00",
+        "updated": "2024-05-08T15:14:27.850+09:00"
+      },
+      {
+        "id": 52,
+        "name": "健康・福祉",
+        "filename": "bunya/kenko",
+        "state": "public",
+        "created": "2018-09-18T20:37:00.357+09:00",
+        "updated": "2024-05-08T15:12:42.101+09:00"
+      },
+      {
+        "id": 53,
+        "name": "医療",
+        "filename": "bunya/kenko/iryo",
+        "state": "public",
+        "created": "2018-09-18T20:37:00.385+09:00",
+        "updated": "2024-05-08T15:15:43.253+09:00"
+      }
+    ],
+    "estat_categories": [
+      {
+        "id": 153,
+        "name": "災害",
+        "filename": "estat/estat57/estat60",
+        "state": "public",
+        "created": "2018-09-18T20:37:04.042+09:00",
+        "updated": "2024-05-08T15:05:25.818+09:00"
+      },
+      {
+        "id": 154,
+        "name": "事故",
+        "filename": "estat/estat57/estat61",
+        "state": "public",
+        "created": "2018-09-18T20:37:04.079+09:00",
+        "updated": "2024-05-08T15:05:26.878+09:00"
+      },
+      {
+        "id": 156,
+        "name": "社会保障・衛生",
+        "filename": "estat/estat63",
+        "state": "public",
+        "created": "2018-09-18T20:37:04.311+09:00",
+        "updated": "2024-05-08T14:51:33.634+09:00"
+      },
+      {
+        "id": 160,
+        "name": "保険衛生",
+        "filename": "estat/estat63/estat67",
+        "state": "public",
+        "created": "2018-09-18T20:37:04.587+09:00",
+        "updated": "2024-05-08T15:06:33.224+09:00"
+      },
+      {
+        "id": 161,
+        "name": "医療",
+        "filename": "estat/estat63/estat68",
+        "state": "public",
+        "created": "2018-09-18T20:37:04.619+09:00",
+        "updated": "2024-05-08T15:06:34.372+09:00"
+      }
+    ],
+    "areas": [
+      {
+        "id": 179,
+        "name": "湖西市",
+        "filename": "chiiki/shizuoka/kosai",
+        "state": "public",
+        "created": "2018-10-04T14:51:15.748+09:00",
+        "updated": "2024-05-08T14:48:21.305+09:00"
+      }
+    ],
+    "tags": [
+      "自治体標準オープンデータセット"
+    ],
+    "point": 0,
+    "downloaded": 479,
+    "groups": [
+      {
+        "id": 22,
+        "name": "静岡県/湖西市",
+        "trailing_name": "湖西市",
+        "created": "2018-09-20T13:27:52.563+09:00",
+        "updated": "2018-09-20T13:27:52.576+09:00"
+      },
+      {
+        "id": 1,
+        "name": "静岡県",
+        "trailing_name": "静岡県",
+        "created": "2018-09-11T11:41:44.724+09:00",
+        "updated": "2018-09-18T20:14:02.193+09:00"
+      }
+    ],
+    "resources": [
+      {
+        "id": 849668,
+        "uuid": "220d3b1f-c21f-4bed-8b62-70ed7e60c5fa",
+        "revision_id": "2f47dba2-866c-419d-82ea-0678965e460d",
+        "state": "public",
+        "name": "AED設置箇所一覧",
+        "filename": "222216_aed.csv",
+        "text": null,
+        "license": {
+          "id": 1,
+          "name": "表示（CC BY）",
+          "uid": "cc-by",
+          "state": "public",
+          "created": "2018-09-11T11:42:05.756+09:00",
+          "updated": "2025-08-05T00:53:15.720+09:00"
+        },
+        "rdf_iri": null,
+        "rdf_error": null,
+        "created": "2026-02-26T09:08:35.958+09:00",
+        "updated": "2026-02-26T09:08:49.129+09:00",
+        "download_url": "https://opendata.pref.shizuoka.jp/dataset/12694/resource/105333/222216_aed.csv",
+        "url": "https://opendata.pref.shizuoka.jp/fs/8/4/9/6/6/8/_/222216_aed.csv",
+        "format": "CSV"
+      }
+    ],
+    "num_resources": 1
+  },
+  "help": "[api] package_show - 公開データセット情報を取得する。\n[param1] id - IDまたは名称が指定した文字列と一致するデータセット情報を出力する。（必須）\n[param2] use_default_schema - 未実装。"
+}

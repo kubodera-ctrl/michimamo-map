@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_fifth_three_prefecture_set",
+  "before_public_aed": 39919,
+  "after_public_aed": 40232,
+  "inserted": 313,
+  "published_municipalities": 449,
+  "unpublished_municipalities": 1292,
+  "staging_holds": 19,
+  "validation": "県別rollback事前検証、独立トランザクション、本番重複・件数ガード、anon地図RPC45/44/224。全40232件の公式自治体コード割当確認。",
+  "sources": [
+    {
+      "prefecture": "静岡県",
+      "municipality": "湖西市",
+      "published": 45,
+      "held": 0,
+      "excluded_by_reason": {
+        "coordinates_outside_municipality_review_bounds": 4,
+        "missing_or_invalid_coordinates": 1
+      },
+      "source_url": "https://opendata.pref.shizuoka.jp/dataset/12694.html",
+      "resources": [
+        {
+          "snapshot": "raw/kosai.csv",
+          "url": "https://opendata.pref.shizuoka.jp/dataset/12694/resource/105333/222216_aed.csv",
+          "expected_raw": 50,
+          "sha256": "aed4d66094d9d30ece3fcde520c4c4c41feaa8e2c531bb040145149e317871b0"
+        }
+      ],
+      "sql_sha256": "323a5b00b730aa1de2ab72b07c084320ded0ce9049f41bd7c5186ae74e09929b"
+    },
+    {
+      "prefecture": "愛知県",
+      "municipality": "蟹江町",
+      "published": 44,
+      "held": 0,
+      "excluded_by_reason": {
+        "facility_users_only": 1
+      },
+      "source_url": "https://www.town.kanie.aichi.jp/soshiki/2/opendata.html",
+      "resources": [
+        {
+          "snapshot": "raw/kanie.csv",
+          "url": "https://www.town.kanie.aichi.jp/uploaded/attachment/25204.csv",
+          "expected_raw": 45,
+          "sha256": "f05f01dc0c4b3c17cbf6e929c9f2896c8ad1a4ffb92eda4a80f8f333d08a91fe"
+        }
+      ],
+      "sql_sha256": "7d2a133944d959441dd2f9927ab67145b600b5f95dc6ea4fa2d435160c0e39c0"
+    },
+    {
+      "prefecture": "三重県",
+      "municipality": "津市",
+      "published": 224,
+      "held": 0,
+      "excluded_by_reason": {
+        "name_not_exactly_confirmed_in_current_installation_list": 46,
+        "address_not_confirmed_in_current_installation_list": 17
+      },
+      "source_url": "https://www.info.city.tsu.mie.jp/kurashi/koseki_juuminhyou/1002332/1008442.html",
+      "resources": [
+        {
+          "snapshot": "raw/tsu.csv",
+          "url": "https://www.info.city.tsu.mie.jp/_res/projects/default_project/_page_/001/008/442/43472.csv",
+          "expected_raw": 287,
+          "sha256": "ce9128ae8ac94f6b88b7830dd88afd2123c0345633d317e6a27c89fae9f04142"
+        }
+      ],
+      "sql_sha256": "960ab7a5d0893930025d8855d9e1ebc732f842c4ade5e326be54ef7dc1505f48"
+    }
+  ],
+  "next_prefectures": [
+    "滋賀県",
+    "京都府",
+    "大阪府"
+  ]
+}

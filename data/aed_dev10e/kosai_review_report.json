@@ -1,0 +1,72 @@
+{
+  "source": {
+    "key": "kosai",
+    "prefecture": "静岡県",
+    "municipality": "湖西市",
+    "source_url": "https://opendata.pref.shizuoka.jp/dataset/12694.html",
+    "source_updated_at": "2026-09-01",
+    "source_date": null,
+    "review_bounds": [
+      34.65,
+      34.85,
+      137.45,
+      137.62
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "湖西市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/kosai.csv",
+        "url": "https://opendata.pref.shizuoka.jp/dataset/12694/resource/105333/222216_aed.csv",
+        "expected_raw": 50,
+        "sha256": "aed4d66094d9d30ece3fcde520c4c4c41feaa8e2c531bb040145149e317871b0"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認",
+    "license_evidence_url": "https://opendata.pref.shizuoka.jp/privacy.html",
+    "date_note": "カタログ更新日2026-09-01。リソース更新日は2026-02-26。個別施設の調査日は不明。"
+  },
+  "raw_rows": 50,
+  "review_rows": 45,
+  "publish_candidates": 45,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 14,
+      "name": "市立湖西病院",
+      "address": "静岡県湖西市鷲津2259-1",
+      "reason": "coordinates_outside_municipality_review_bounds"
+    },
+    {
+      "row": 15,
+      "name": "市立湖西病院",
+      "address": "静岡県湖西市鷲津2259-1",
+      "reason": "coordinates_outside_municipality_review_bounds"
+    },
+    {
+      "row": 16,
+      "name": "市立湖西病院",
+      "address": "静岡県湖西市鷲津2259-1",
+      "reason": "coordinates_outside_municipality_review_bounds"
+    },
+    {
+      "row": 17,
+      "name": "市立湖西病院",
+      "address": "静岡県湖西市鷲津2259-1",
+      "reason": "coordinates_outside_municipality_review_bounds"
+    },
+    {
+      "row": 33,
+      "name": "湖西浄化センター",
+      "address": "静岡県湖西市吉美950－28",
+      "reason": "missing_or_invalid_coordinates"
+    }
+  ],
+  "excluded_by_reason": {
+    "coordinates_outside_municipality_review_bounds": 4,
+    "missing_or_invalid_coordinates": 1
+  },
+  "holds": [],
+  "adjusted": []
+}

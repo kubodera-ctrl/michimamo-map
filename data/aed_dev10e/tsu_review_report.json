@@ -1,0 +1,431 @@
+{
+  "source": {
+    "key": "tsu",
+    "prefecture": "三重県",
+    "municipality": "津市",
+    "source_url": "https://www.info.city.tsu.mie.jp/kurashi/koseki_juuminhyou/1002332/1008442.html",
+    "source_updated_at": null,
+    "source_date": null,
+    "review_bounds": [
+      34.48,
+      34.86,
+      136.15,
+      136.57
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "津市「みんなのデータ」 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/tsu.csv",
+        "url": "https://www.info.city.tsu.mie.jp/_res/projects/default_project/_page_/001/008/442/43472.csv",
+        "expected_raw": 287,
+        "sha256": "ce9128ae8ac94f6b88b7830dd88afd2123c0345633d317e6a27c89fae9f04142"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認",
+    "date_note": "CSVの調査・更新日は不明。総合オープンデータページ更新日をAED調査日に転用しない。現行の地域別設置一覧との名称・住所一致を追加確認。",
+    "current_list_urls": [
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003329.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003326.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003328.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003331.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003322.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003327.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003321.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003325.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003323.html",
+      "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003330.html"
+    ]
+  },
+  "raw_rows": 287,
+  "review_rows": 224,
+  "publish_candidates": 224,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 7,
+      "name": "雲出市民センター附帯施設",
+      "address": "三重県津市雲出本郷町1389",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 9,
+      "name": "長谷山市民館",
+      "address": "三重県津市分部262-1",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 10,
+      "name": "櫛形市民館",
+      "address": "三重県津市分部1712-1",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 12,
+      "name": "メッセウイング・みえ",
+      "address": "三重県津市北河路町19-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 13,
+      "name": "津市体育館",
+      "address": "三重県津市本町31-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 15,
+      "name": "北部運動広場",
+      "address": "三重県津市栗真中山町601-3",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 16,
+      "name": "津市民プール",
+      "address": "三重県津市殿村150",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 18,
+      "name": "海浜公園内陸上競技場",
+      "address": "三重県津市末広町24-32",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 20,
+      "name": "白銀環境清掃センター",
+      "address": "三重県津市片田田中町1383",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 21,
+      "name": "津市社会福祉センター",
+      "address": "三重県津市丸之内27-10",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 24,
+      "name": "たるみ児童福祉会館",
+      "address": "三重県津市垂水1300",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 31,
+      "name": "夜間成人応急診療所",
+      "address": "三重県津市西丸之内23-1 津ﾘｰｼﾞｮﾝﾌﾟﾗｻﾞ内",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 32,
+      "name": "休日応急・夜間こども応急クリニック",
+      "address": "三重県津市大里窪田町327-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 37,
+      "name": "水道局",
+      "address": "三重県津市殿村5",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 40,
+      "name": "北消防署",
+      "address": "三重県津市栗真中山町816-2",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 44,
+      "name": "橋北公民館",
+      "address": "三重県津市羽所町700 ｱｽﾄﾌﾟﾗｻﾞ内",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 45,
+      "name": "橋南公民館",
+      "address": "三重県津市幸町18-22",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 57,
+      "name": "新町保育園",
+      "address": "三重県津市桜田町7-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 61,
+      "name": "大里幼稚園",
+      "address": "三重県津市大里窪田町1870",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 62,
+      "name": "北立誠幼稚園",
+      "address": "三重県津市江戸橋一丁目76-2",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 65,
+      "name": "新町幼稚園",
+      "address": "三重県津市新町三丁目4-20",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 66,
+      "name": "修成幼稚園",
+      "address": "三重県津市修成町12-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 67,
+      "name": "育生幼稚園",
+      "address": "三重県津市阿漕町津興1158",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 68,
+      "name": "安東幼稚園",
+      "address": "三重県津市納所町234",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 69,
+      "name": "神戸幼稚園",
+      "address": "三重県津市神戸332-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 71,
+      "name": "高茶屋幼稚園",
+      "address": "三重県津市高茶屋三丁目1-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 72,
+      "name": "雲出幼稚園",
+      "address": "三重県津市雲出本郷町1165",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 73,
+      "name": "ほほえみ教室",
+      "address": "三重県津市乙部2110",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 79,
+      "name": "育生小学校",
+      "address": "三重県津市下弁財町津興1350",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 83,
+      "name": "高茶屋小学校あすなろ分校",
+      "address": "三重県津市城山一丁目12-3",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 91,
+      "name": "栗真小学校国児分校",
+      "address": "三重県津市栗真町屋町524",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 92,
+      "name": "片田小学校",
+      "address": "三重県津市片田井戸町22",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 103,
+      "name": "南郊中学校あすなろ分校",
+      "address": "三重県津市城山一丁目12-3",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 119,
+      "name": "ポルタひさいふれあいセンター",
+      "address": "三重県津市久居新町3006",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 122,
+      "name": "消防本部",
+      "address": "三重県津市久居明神町2276",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 136,
+      "name": "栗葉幼稚園",
+      "address": "三重県津市森町284-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 159,
+      "name": "豊津幼稚園",
+      "address": "三重県津市河芸町一色1666",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 160,
+      "name": "上野幼稚園",
+      "address": "三重県津市河芸町上野2963",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 170,
+      "name": "芸濃総合文化センター内アリーナ",
+      "address": "三重県津市芸濃町椋本6824",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 174,
+      "name": "安西・雲林院幼稚園",
+      "address": "三重県津市芸濃町北神山305",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 175,
+      "name": "椋本幼稚園",
+      "address": "三重県津市芸濃町椋本5132",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 176,
+      "name": "明幼稚園",
+      "address": "三重県津市芸濃町林325",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 180,
+      "name": "椋本地区放課後児童クラブ芸濃ＫＩＤS",
+      "address": "三重県津市芸濃町椋本1798-2",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 185,
+      "name": "美里高齢者生活福祉センター",
+      "address": "三重県津市美里町家所2123",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 190,
+      "name": "長野小学校",
+      "address": "三重県津市美里町北長野1435",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 191,
+      "name": "高宮小学校",
+      "address": "三重県津市美里町足坂585",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 192,
+      "name": "辰水小学校",
+      "address": "三重県津市美里町家所2045",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 193,
+      "name": "美里中学校",
+      "address": "三重県津市美里町三郷84",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 194,
+      "name": "安濃保健センター",
+      "address": "三重県津市安濃町東観音寺418ｻﾝﾋﾙｽﾞ安濃内",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 197,
+      "name": "安芸・津衛生センター",
+      "address": "三重県津市安濃町妙法寺777",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 205,
+      "name": "草生幼稚園",
+      "address": "三重県津市安濃町草生1310-3",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 217,
+      "name": "香良洲保健センター",
+      "address": "三重県津市香良洲町2167 ｻﾝﾃﾞﾙﾀ香良洲内",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 220,
+      "name": "香良洲プール（夏期の営業期間のみ）",
+      "address": "三重県津市香良洲町2174-1",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 222,
+      "name": "久居消防署香良洲分遣所",
+      "address": "三重県津市香良洲町1862-2",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 223,
+      "name": "香良洲幼稚園",
+      "address": "三重県津市香良洲町5722",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 228,
+      "name": "一志保健センター",
+      "address": "三重県津市一志町井関1792 とことめの里一志内",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 231,
+      "name": "一志野球場",
+      "address": "三重県津市一志町井生2848",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 239,
+      "name": "白山消防署一志分署",
+      "address": "三重県津市一志町田尻345-1",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 242,
+      "name": "高岡幼稚園",
+      "address": "三重県津市一志町高野1451",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 248,
+      "name": "白山保健センター",
+      "address": "三重県津市白山町川口892 白山保健福祉ｾﾝﾀｰ内",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 261,
+      "name": "白山幼稚園",
+      "address": "三重県津市白山町南出493",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 268,
+      "name": "美杉総合支所",
+      "address": "三重県津市美杉町八知5828-1",
+      "reason": "address_not_confirmed_in_current_installation_list"
+    },
+    {
+      "row": 274,
+      "name": "伊勢地域住民センター",
+      "address": "三重県津市美杉町石名原1681",
+      "reason": "name_not_exactly_confirmed_in_current_installation_list"
+    }
+  ],
+  "excluded_by_reason": {
+    "name_not_exactly_confirmed_in_current_installation_list": 46,
+    "address_not_confirmed_in_current_installation_list": 17
+  },
+  "holds": [],
+  "adjusted": []
+}

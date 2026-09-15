@@ -1,0 +1,45 @@
+{
+  "source": {
+    "key": "kanie",
+    "prefecture": "愛知県",
+    "municipality": "蟹江町",
+    "source_url": "https://www.town.kanie.aichi.jp/soshiki/2/opendata.html",
+    "source_updated_at": "2026-09-01",
+    "source_date": null,
+    "review_bounds": [
+      35.1,
+      35.17,
+      136.75,
+      136.82
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "蟹江町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/kanie.csv",
+        "url": "https://www.town.kanie.aichi.jp/uploaded/attachment/25204.csv",
+        "expected_raw": 45,
+        "sha256": "f05f01dc0c4b3c17cbf6e929c9f2896c8ad1a4ffb92eda4a80f8f333d08a91fe"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認"
+  },
+  "raw_rows": 45,
+  "review_rows": 44,
+  "publish_candidates": 44,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 45,
+      "name": "蟹江町体育館分館",
+      "address": "愛知県海部郡蟹江町大字蟹江新田字佐屋川東46番地",
+      "reason": "facility_users_only"
+    }
+  ],
+  "excluded_by_reason": {
+    "facility_users_only": 1
+  },
+  "holds": [],
+  "adjusted": []
+}

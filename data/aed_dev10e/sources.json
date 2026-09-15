@@ -1,0 +1,114 @@
+{
+  "production_baseline": 39919,
+  "sources": [
+    {
+      "key": "kosai",
+      "prefecture": "静岡県",
+      "municipality": "湖西市",
+      "source_url": "https://opendata.pref.shizuoka.jp/dataset/12694.html",
+      "source_updated_at": "2026-09-01",
+      "source_date": null,
+      "review_bounds": [
+        34.65,
+        34.85,
+        137.45,
+        137.62
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "湖西市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/kosai.csv",
+          "url": "https://opendata.pref.shizuoka.jp/dataset/12694/resource/105333/222216_aed.csv",
+          "expected_raw": 50,
+          "sha256": "aed4d66094d9d30ece3fcde520c4c4c41feaa8e2c531bb040145149e317871b0"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認",
+      "license_evidence_url": "https://opendata.pref.shizuoka.jp/privacy.html",
+      "date_note": "カタログ更新日2026-09-01。リソース更新日は2026-02-26。個別施設の調査日は不明。"
+    },
+    {
+      "key": "kanie",
+      "prefecture": "愛知県",
+      "municipality": "蟹江町",
+      "source_url": "https://www.town.kanie.aichi.jp/soshiki/2/opendata.html",
+      "source_updated_at": "2026-09-01",
+      "source_date": null,
+      "review_bounds": [
+        35.1,
+        35.17,
+        136.75,
+        136.82
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "蟹江町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/kanie.csv",
+          "url": "https://www.town.kanie.aichi.jp/uploaded/attachment/25204.csv",
+          "expected_raw": 45,
+          "sha256": "f05f01dc0c4b3c17cbf6e929c9f2896c8ad1a4ffb92eda4a80f8f333d08a91fe"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認"
+    },
+    {
+      "key": "tsu",
+      "prefecture": "三重県",
+      "municipality": "津市",
+      "source_url": "https://www.info.city.tsu.mie.jp/kurashi/koseki_juuminhyou/1002332/1008442.html",
+      "source_updated_at": null,
+      "source_date": null,
+      "review_bounds": [
+        34.48,
+        34.86,
+        136.15,
+        136.57
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "津市「みんなのデータ」 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/tsu.csv",
+          "url": "https://www.info.city.tsu.mie.jp/_res/projects/default_project/_page_/001/008/442/43472.csv",
+          "expected_raw": 287,
+          "sha256": "ce9128ae8ac94f6b88b7830dd88afd2123c0345633d317e6a27c89fae9f04142"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY 4.0・自治体一致・公式座標の範囲・利用制限・本番重複を確認",
+      "date_note": "CSVの調査・更新日は不明。総合オープンデータページ更新日をAED調査日に転用しない。現行の地域別設置一覧との名称・住所一致を追加確認。",
+      "current_list_urls": [
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003329.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003326.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003328.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003331.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003322.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003327.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003321.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003325.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003323.html",
+        "https://www.info.city.tsu.mie.jp/kurashi/bousai_kyuukyuu_shoubou/1003310/1003319/1003330.html"
+      ]
+    }
+  ],
+  "evidence_hashes": {
+    "kosai_catalog.json": "43725959a5bdfb0b59735d9643d7a728ee9e7db21925940396e66b451f1b0a91",
+    "shizuoka_terms.txt": "d6538088f80b308bfdfc4a2ca5b1c02a943cb95bc2d2b94340eb24e626441c98",
+    "tsu_region_2.txt": "1cb9bfc0ce42a7081ca0fc05ac5c89aa428279df1939e06359dbf0f8d033b208",
+    "kosai_source_page.txt": "dbc773778affe5776732f7886f258ad43f05ee5782a98208ca1781ca9f1ae58f",
+    "tsu_region_7.txt": "7d521613f30ee3fd5f25d302cc814918d003aead1fe7728f731dfd8b26c561bc",
+    "tsu_source_page.txt": "bc471554d883f20b9196507c48c7244fc082a5d93997518736d0c5adc5a1a2bb",
+    "tsu_current_rows.json": "bbcb435c45d49aa554de304e27638b77c497b90ab6b63d71853b316d683cbd3c",
+    "tsu_region_3.txt": "89f7f3e507c0d606ae53c84fa0205fb76e74e6a1bd5e383b3a46872df360bc74",
+    "tsu_region_9.txt": "035bae8298ec7d0a5d243bb9150a7fec8f9ee93c6fed47a053e8d52d7dcb5efd",
+    "tsu_region_8.txt": "ac007dc12172b5c39a19de633f360648e98ebacfa85034f881e1f5bfd1f802b1",
+    "kanie_source_page.txt": "2450409a025f667a1fd6e8bbe724fe17774214ed5f69836d5b0098bda80a6a78",
+    "tsu_aed_page.txt": "889b80723a841400e3893ed530df64f67829df2a34d9211040d276d1205f3b2a",
+    "tsu_region_6.txt": "82885fb66df9e553e20bf4a307a8cdddf3be460304bb33f4054e5875ec271561",
+    "tsu_region_1.txt": "3c360cc3cdd8a2f6cfe4d576676ec9fae45e302d8dda6c68f600e5e828e214f5",
+    "tsu_region_4.txt": "024ef1124c1002dda09f29344ded2830de1118e4a22a3d05b7dd50524316d324",
+    "tsu_region_0.txt": "ae58472c01f362c3ba9fb12f6052b32e2f60442d2d9ec955656e569b3fc4674d",
+    "tsu_region_5.txt": "81e1bd3f269e0ab4636be0b641ba3475f6fa7fa5e09de3ab3856530347bc4180"
+  }
+}
