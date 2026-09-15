@@ -1,0 +1,21 @@
+{
+  "source": "由利本荘市オープンデータ",
+  "raw_rows": 103,
+  "published": {
+    "municipalities": {
+      "由利本荘市": 77
+    },
+    "rows": 77
+  },
+  "excluded": {
+    "not_address_level": 24,
+    "near_duplicate_candidates": 2,
+    "production_near_duplicates": 0
+  },
+  "geocode_precision": "Geolonia住所正規化・位置情報レベル8",
+  "production_baseline": 37327,
+  "production_after_publication": 37404,
+  "published_municipalities_after_publication": 402,
+  "unpublished_municipalities_after_publication": 1339,
+  "held_review_rows": 15
+}

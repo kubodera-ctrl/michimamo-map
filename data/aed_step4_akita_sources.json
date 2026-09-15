@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "prefecture": "秋田県",
+      "municipality": "由利本荘市",
+      "source_name": "まちかどAEDステーション（推奨データセット形式）",
+      "source_url": "https://www.city.yurihonjo.lg.jp/cgi-opd/opendata_detail.cgi?id=5eb5af499d1d79276538a1ebc8a07fd762c19383",
+      "resource_url": "https://www.city.yurihonjo.lg.jp/_res/projects/default_project/_page_/001/005/699/052108_aed.csv",
+      "license_id": "CC BY"
+    }
+  ],
+  "excluded": []
+}
