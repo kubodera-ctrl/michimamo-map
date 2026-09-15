@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "prefecture": "栃木県",
+      "municipality": "下野市",
+      "source_name": "下野市 AED設置場所一覧",
+      "source_url": "https://www.city.shimotsuke.lg.jp/0017/info-0000006947-3.html",
+      "resource_url": "https://www.city.shimotsuke.lg.jp/manage/contents/upload/6062a5cbd09b9.csv",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2021-03-30"
+    }
+  ]
+}

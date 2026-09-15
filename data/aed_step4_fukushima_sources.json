@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "prefecture": "福島県",
+      "municipality": "会津若松市",
+      "source_name": "会津若松市 自治体標準オープンデータセット08：AED設置個所一覧（更新終了）",
+      "source_url": "https://data.data4citizen.jp/dataset/10060228",
+      "resource_url": "https://data.data4citizen.jp/dataset/4ecc0e8f-9a21-4b35-8d4c-5772f94c31cf/resource/2dbfa6fa-0477-4cc8-a7e1-dfba2537015f/download/072028_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2025-04-24T23:58:19+09:00",
+      "source_date": "2025-04-24"
+    }
+  ]
+}

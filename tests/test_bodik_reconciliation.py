@@ -3,7 +3,8 @@ import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from reconcile_bodik_aed import reconcile
-from prepare_bodik_aed_review import municipality_from_address, supplemental_coordinates
+from prepare_bodik_aed_review import make_row, municipality_from_address, supplemental_coordinates
+from geocode_aed_coordinate_backlog import candidates
 
 class ReconciliationTests(unittest.TestCase):
     def test_extracts_physical_municipality_from_address(self):
@@ -16,6 +17,42 @@ class ReconciliationTests(unittest.TestCase):
             supplemental_coordinates({'緯度、経度':'38.25, 140.33'}),
             ['140.33','38.25'],
         )
+
+    def test_standard_open_data_row_accepts_source_coordinates(self):
+        source = {
+            'prefecture': '福島県', 'municipality': '会津若松市',
+            'source_name': 'test', 'source_url': 'https://example.test/dataset',
+            'license_id': 'CC BY', 'source_updated_at': '2025-04-24',
+        }
+        row = make_row({
+            'name': '市役所', 'address': '会津若松市東栄町3番46号',
+            'prefectureName': '福島県', 'cityName': '会津若松市',
+            'limitationOfUse': '',
+        }, ['139.929', '37.494'], source, 'test')
+        self.assertEqual(row['address'], '福島県会津若松市東栄町3番46号')
+        self.assertEqual(row['municipality'], '会津若松市')
+
+    def test_coordinate_backlog_prefixes_omitted_municipality(self):
+        import hashlib
+        import json
+        import tempfile
+        from pathlib import Path
+
+        source = {
+            'prefecture': '栃木県',
+            'municipality': '下野市',
+            'source_name': 'test',
+            'source_url': 'https://example.test/dataset',
+            'resource_url': 'https://example.test/aed.csv',
+            'license_id': 'CC BY 4.0',
+        }
+        payload = '名称,住所\n市役所,笹原26番地\n'.encode('cp932')
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cache = root / (hashlib.sha256(source['resource_url'].encode()).hexdigest() + '.bin')
+            cache.write_bytes(payload)
+            rows = candidates(root, {'sources': [source]})
+        self.assertEqual(rows[0][1]['address'], '栃木県下野市笹原26番地')
 
     def setUp(self):
         self.old={'name':'市役所','address':'東京都青梅市1','latitude':35.7,'longitude':139.3}

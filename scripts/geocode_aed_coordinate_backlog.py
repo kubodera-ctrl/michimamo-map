@@ -51,7 +51,8 @@ def candidates(input_dir, supplement):
             if not city and address.startswith(pref):
                 city=next((address[len(pref):i+1] for i,c in enumerate(address[len(pref):],len(pref)) if c in '市区町村'), '')
             if not name or not address or not city: continue
-            if not address.startswith(pref): address=pref+address
+            if not address.startswith(pref):
+                address=pref+address if address.startswith(city) else pref+city+address
             mapped={'name':name,'address':address,'prefectureName':pref,'cityName':city,
                     'telephoneNumber':first_value(p,('電話番号','電話','設置場所_電話番号')),
                     'placeOfInstallation':first_value(p,('設置位置','設置場所')),
