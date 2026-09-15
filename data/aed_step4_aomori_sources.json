@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "prefecture": "青森県",
+      "municipality": "南部町",
+      "source_name": "【南部町】AED設置箇所一覧",
+      "source_url": "https://opendata.pref.aomori.lg.jp/dataset/2009.html",
+      "resource_url": "https://opendata.pref.aomori.lg.jp/dataset/2009/resource/24482/08.AED%E8%A8%AD%E7%BD%AE%E7%AE%87%E6%89%80%E4%B8%80%E8%A6%A7.xlsx",
+      "license_id": "CC BY",
+      "source_updated_at": "2026-06-10"
+    }
+  ],
+  "excluded": []
+}

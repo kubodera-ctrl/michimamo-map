@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect reusable Hokkaido/HARP AED datasets missing from the public ledger."""
+"""Collect reusable AED datasets from SS OpenData catalogs missing from the ledger."""
 from __future__ import annotations
 
 import argparse
@@ -29,19 +29,21 @@ def fetch(url: str, timeout: int = 45) -> bytes:
 
 
 class SearchParser(HTMLParser):
-    def __init__(self):
+    def __init__(self, base: str = BASE):
         super().__init__()
+        self.base = base
         self.links: list[str] = []
 
     def handle_starttag(self, tag, attrs):
         href = dict(attrs).get("href", "")
-        if tag == "a" and re.fullmatch(r"/opendata/dataset/\d+\.html", href):
-            self.links.append(urljoin(BASE, href))
+        if tag == "a" and re.fullmatch(r"/(?:opendata/)?dataset/\d+\.html", href):
+            self.links.append(urljoin(self.base, href))
 
 
 class DatasetParser(HTMLParser):
-    def __init__(self):
+    def __init__(self, base: str = BASE):
         super().__init__()
+        self.base = base
         self.title = ""
         self.area = ""
         self.resources: list[dict[str, str]] = []
@@ -68,7 +70,7 @@ class DatasetParser(HTMLParser):
             if tag == "a" and "download" in classes:
                 # The portal's data-url can point at an expired /fs path while
                 # the public resource href remains stable.
-                self._resource["url"] = urljoin(BASE, attrs.get("href", "")) or attrs.get("data-url", "")
+                self._resource["url"] = urljoin(self.base, attrs.get("href", "")) or attrs.get("data-url", "")
 
     def handle_data(self, data):
         if self._capture:
@@ -91,12 +93,12 @@ class DatasetParser(HTMLParser):
                 self._resource = None
 
 
-def parse_dataset(html: str, url: str) -> dict | None:
-    parser = DatasetParser()
+def parse_dataset(html: str, url: str, prefecture: str = "北海道", base: str = BASE) -> dict | None:
+    parser = DatasetParser(base)
     parser.feed(html)
     bracketed = re.search(r"【(?:北海道)?([^】]+?[市町村])】", parser.title)
     municipality = parser.area or (bracketed.group(1) if bracketed else "")
-    if "aed" not in unicodedata.normalize("NFKC", parser.title).casefold() or not municipality or municipality == "北海道":
+    if "aed" not in unicodedata.normalize("NFKC", parser.title).casefold() or not municipality or municipality == prefecture:
         return None
     reusable = [resource for resource in parser.resources
                 if resource["url"] and "CC BY" in resource["license"]
@@ -104,26 +106,31 @@ def parse_dataset(html: str, url: str) -> dict | None:
                      or re.search(r"\((CSV|XLSX?)\b", resource["text"], re.I))]
     if not reusable:
         return None
-    updated = re.search(r"<dt>更新日時</dt>\s*<dd>(\d{4}-\d{2}-\d{2})", html)
+    updated = re.search(
+        r"<dt(?:\s+[^>]*)?>更新日時</dt>\s*<dd(?:\s+[^>]*)?>(\d{4})(?:-|年)(\d{1,2})(?:-|月)(\d{1,2})(?:日)?",
+        html,
+    )
     resource = min(reusable, key=lambda item: 0 if "csv" in (item["url"] + item["text"]).casefold() else 1)
     return {
-        "prefecture": "北海道",
+        "prefecture": prefecture,
         "municipality": municipality,
         "source_name": parser.title,
         "source_url": url,
         "resource_url": resource["url"],
         "license_id": "CC BY",
-        "source_updated_at": updated.group(1) if updated else None,
+        "source_updated_at": (f"{int(updated.group(1)):04d}-{int(updated.group(2)):02d}-{int(updated.group(3)):02d}"
+                              if updated else None),
     }
 
 
-def collect_dataset_links() -> list[str]:
+def collect_dataset_links(base: str = BASE, search_path: str = "/opendata/dataset/search/") -> list[str]:
     links: list[str] = []
     for page in range(1, 100):
-        url = SEARCH + "?s%5Bkeyword%5D=AED" if page == 1 else (
-            BASE + f"/opendata/dataset/search/index.p{page}.html?s%5Bkeyword%5D=AED"
+        search = urljoin(base, search_path)
+        url = search + "?s%5Bkeyword%5D=AED" if page == 1 else (
+            urljoin(base, search_path.rstrip("/") + f"/index.p{page}.html?s%5Bkeyword%5D=AED")
         )
-        parser = SearchParser()
+        parser = SearchParser(base)
         parser.feed(fetch(url).decode("utf-8", errors="replace"))
         page_links = list(dict.fromkeys(parser.links))
         if not page_links:
@@ -153,19 +160,23 @@ def main():
     ap.add_argument("--ledger", type=Path, required=True)
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--base", default=BASE)
+    ap.add_argument("--search-path", default="/opendata/dataset/search/")
+    ap.add_argument("--prefecture", default="北海道")
     args = ap.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     ledger = json.loads(args.ledger.read_text())
     unpublished = {(row["prefecture"], row["municipality"])
                    for row in ledger if not row["public_aed_count"]}
     sources, excluded = [], []
-    dataset_links = collect_dataset_links()
+    dataset_links = collect_dataset_links(args.base, args.search_path)
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
         jobs = {pool.submit(fetch, url): url for url in dataset_links}
         for job in as_completed(jobs):
             url = jobs[job]
             try:
-                source = parse_dataset(job.result().decode("utf-8", errors="replace"), url)
+                source = parse_dataset(job.result().decode("utf-8", errors="replace"), url,
+                                       args.prefecture, args.base)
                 if source and (source["prefecture"], source["municipality"]) in unpublished:
                     sources.append(source)
             except Exception as error:

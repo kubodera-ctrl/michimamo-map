@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from collect_harp_aed_sources import detect_header_row, parse_dataset
+from collect_harp_aed_sources import SearchParser, detect_header_row, parse_dataset
 
 
 class HarpSourceTests(unittest.TestCase):
@@ -48,6 +48,26 @@ class HarpSourceTests(unittest.TestCase):
     def test_detects_nonstandard_csv_header_row(self):
         payload = 'AED一覧,,,,\n,,,,\n市区町村名,施設名,住所,緯度,経度\n'.encode()
         self.assertEqual(detect_header_row(payload), 3)
+
+    def test_supports_catalog_without_opendata_prefix(self):
+        parser = SearchParser("https://opendata.pref.aomori.lg.jp")
+        parser.feed('<a href="/dataset/2009.html">南部町</a>')
+        self.assertEqual(parser.links, ["https://opendata.pref.aomori.lg.jp/dataset/2009.html"])
+
+        html = '''<h1 class="name">【南部町】AED設置箇所一覧</h1><a class="area">南部町</a>
+        <div class="resource"><img alt="表示（CC BY）">
+        <a class="download" href="/dataset/2009/resource/24482/aed.xlsx">DL</a></div>'''
+        source = parse_dataset(html, "https://opendata.pref.aomori.lg.jp/dataset/2009.html",
+                               "青森県", "https://opendata.pref.aomori.lg.jp")
+        self.assertEqual(source["prefecture"], "青森県")
+        self.assertEqual(source["municipality"], "南部町")
+
+    def test_parses_japanese_updated_date_with_classes(self):
+        html = '''<h1 class="name">【南部町】AED設置箇所一覧</h1><a class="area">南部町</a>
+        <div class="resource"><img alt="表示（CC BY）"><a class="download" href="/aed.csv">DL</a></div>
+        <dt class="info-list__title">更新日時</dt><dd class="info-list__content">2026年6月10日</dd>'''
+        source = parse_dataset(html, "x", "青森県", "https://opendata.pref.aomori.lg.jp")
+        self.assertEqual(source["source_updated_at"], "2026-06-10")
 
 
 if __name__ == "__main__":
