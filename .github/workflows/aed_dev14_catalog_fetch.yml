@@ -7,6 +7,7 @@ on:
       - scripts/fetch_aed_dev14_catalogs.py
       - scripts/recover_aed_dev16_official_direct.py
       - scripts/summarize_aed_dev16_remaining.py
+      - scripts/prepare_aed_dev16_priority_publish.py
       - .github/workflows/aed_dev14_catalog_fetch.yml
   workflow_dispatch:
 
@@ -34,6 +35,8 @@ jobs:
         run: python scripts/recover_aed_dev16_official_direct.py
       - name: Classify remaining dev16 municipality sources
         run: python scripts/summarize_aed_dev16_remaining.py
+      - name: Prepare guarded dev16 priority publication SQL
+        run: python scripts/prepare_aed_dev16_priority_publish.py
       - name: Commit immutable fetch evidence
         run: |
           git config user.name "github-actions[bot]"
