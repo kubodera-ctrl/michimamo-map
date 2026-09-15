@@ -1,0 +1,38 @@
+name: AED dev16 Nagareyama recovery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/recover_nagareyama_aed_direct.py
+      - .github/workflows/aed_dev16_nagareyama_recover.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recover Nagareyama AED open data
+        run: python scripts/recover_nagareyama_aed_direct.py
+      - name: Commit evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aed_dev16_nagareyama
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Recover Nagareyama AED open data"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
