@@ -57,7 +57,9 @@ def main():
         if row: rows.append(row)
         else: rejected['geometry_identity_or_restriction']+=1
     supplemental=[]
-    for source in json.loads(args.supplement.read_text())['sources']:
+    supplemental_sources=json.loads(args.supplement.read_text())['sources']
+    supplemental_source_urls={source['source_url'] for source in supplemental_sources}
+    for source in supplemental_sources:
         try:
             if source.get('allowed') is False or has_denied_provenance(source, {}):
                 raise ValueError('Source provenance not approved')
@@ -99,7 +101,9 @@ def main():
     rows.sort(key=lambda r:(str(r.get('source_updated_at') or r.get('source_date') or ''),r['source_key']),reverse=True)
     rows,exact,pairs=mark_duplicates(rows)
     (args.input_dir/'review_rows.json').write_text(json.dumps(rows,ensure_ascii=False))
-    report={'rows':len(rows),'by_prefecture':dict(Counter(r['prefecture'] for r in rows)),'rejected':dict(rejected),'exact_removed':exact,'near_duplicate_pairs':pairs,'supplemental':supplemental}
+    supplemental_review_rows=[row for row in rows if row['source_url'] in supplemental_source_urls]
+    (args.input_dir/'supplemental_review_rows.json').write_text(json.dumps(supplemental_review_rows,ensure_ascii=False))
+    report={'rows':len(rows),'by_prefecture':dict(Counter(r['prefecture'] for r in rows)),'rejected':dict(rejected),'exact_removed':exact,'near_duplicate_pairs':pairs,'supplemental_review_rows':len(supplemental_review_rows),'supplemental':supplemental}
     (args.input_dir/'review_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
     print(json.dumps(report,ensure_ascii=False))
 
