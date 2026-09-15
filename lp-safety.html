@@ -159,6 +159,27 @@ body{font-family:"Hiragino Rounded W4 JIS2004","Hiragino Kaku Gothic ProN","Meir
 @media (min-width:700px) and (hover:none) and (pointer:coarse){
   html{font-size:clamp(16px,4.1vw,40px)}
 }
+
+/* Keep testimonial and guide icons aligned when mobile text scales up. */
+.voice-card{padding:1.25rem;margin-bottom:1.5rem}
+.voice-icon{
+  position:static;top:auto;left:auto;
+  display:flex;align-items:center;justify-content:center;
+  width:3.25rem;height:3.25rem;
+  font-size:1.75rem;line-height:1;
+  margin:0 0 .875rem;
+}
+.voice-text{margin-top:0}
+.action-card{
+  display:grid;grid-template-columns:2.25rem minmax(0,1fr);
+  align-items:start;gap:.75rem;padding:1rem;
+}
+.action-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:2.25rem;min-height:1.8rem;
+  font-size:1.7rem;line-height:1;
+}
+.action-icon i{display:block;line-height:1}
 </style>
 </head>
 <body>
