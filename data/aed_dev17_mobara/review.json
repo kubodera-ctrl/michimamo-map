@@ -1,0 +1,912 @@
+[
+  {
+    "source_key": "municipal-official-map:mobara-aed:72",
+    "name": "茂原市役所",
+    "mapno": "72",
+    "latitude": 35.4282133,
+    "longitude": 140.28809590000003,
+    "address": "千葉県茂原市道表1",
+    "phone": "0475-23-2111",
+    "details": "3台（庁舎1階、2階、8階）、24時間（閉庁時は西入口へ）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:73",
+    "name": "茂原市役所本納支所（ほのおか館）",
+    "mapno": "73",
+    "latitude": 35.483881,
+    "longitude": 140.30608010000003,
+    "address": "千葉県茂原市本納1741-1",
+    "phone": "0475-34-2111",
+    "details": "1台、毎日8時30分から17時15分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:74",
+    "name": "茂原市市民体育館",
+    "mapno": "74",
+    "latitude": 35.4387259,
+    "longitude": 140.2951253,
+    "address": "千葉県茂原市高師2165",
+    "phone": "0475-23-2811",
+    "details": "1台、毎日9時～21時（年末年始は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:75",
+    "name": "富士見公園（管理棟）",
+    "mapno": "75",
+    "latitude": 35.43229884955205,
+    "longitude": 140.30991554260254,
+    "address": "千葉県茂原市東郷2078",
+    "phone": "0475-22-4646",
+    "details": "1台"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:76",
+    "name": "東中学校",
+    "mapno": "76",
+    "latitude": 35.435441,
+    "longitude": 140.31984669999997,
+    "address": "千葉県茂原市東郷301",
+    "phone": "0475-24-2141",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:77",
+    "name": "冨士見中学校",
+    "mapno": "77",
+    "latitude": 35.44376299266562,
+    "longitude": 140.2795958518982,
+    "address": "千葉県茂原市押日1468",
+    "phone": "0475-23-7145",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:78",
+    "name": "茂原中学校",
+    "mapno": "78",
+    "latitude": 35.4391261,
+    "longitude": 140.30351300000007,
+    "address": "千葉県茂原市高師427",
+    "phone": "0475-22-2320",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:79",
+    "name": "南中学校",
+    "mapno": "79",
+    "latitude": 35.4061196,
+    "longitude": 140.2945757,
+    "address": "千葉県茂原市上永吉1185-2",
+    "phone": "0475-23-8825",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:80",
+    "name": "本納中学校",
+    "mapno": "80",
+    "latitude": 35.4863585,
+    "longitude": 140.30732149999994,
+    "address": "千葉県茂原市本納1623",
+    "phone": "0475-34-2074",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:81",
+    "name": "旧早野中学校",
+    "mapno": "81",
+    "latitude": 35.4163455,
+    "longitude": 140.2807745,
+    "address": "千葉県茂原市早野206-1",
+    "phone": null,
+    "details": "1台、施設開放利用時、避難所開設時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:82",
+    "name": "旧西陵中学校",
+    "mapno": "82",
+    "latitude": 35.4399887,
+    "longitude": 140.26182029999995,
+    "address": "千葉県茂原市緑ヶ丘1-53",
+    "phone": null,
+    "details": "1台、施設開放利用時、避難所開設時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:83",
+    "name": "東郷小学校",
+    "mapno": "83",
+    "latitude": 35.4474173,
+    "longitude": 140.32735130000003,
+    "address": "千葉県茂原市谷本142",
+    "phone": "0475-22-2834",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:84",
+    "name": "豊田小学校",
+    "mapno": "84",
+    "latitude": 35.4558232,
+    "longitude": 140.2926053,
+    "address": "千葉県茂原市長尾156",
+    "phone": "0475-22-3779",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:85",
+    "name": "旧二宮小学校",
+    "mapno": "85",
+    "latitude": 35.45060110000001,
+    "longitude": 140.25786170000003,
+    "address": "千葉県茂原市国府関1415-1",
+    "phone": null,
+    "details": "1台、避難所開設時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:86",
+    "name": "茂原小学校",
+    "mapno": "86",
+    "latitude": 35.4258085,
+    "longitude": 140.29930539999998,
+    "address": "千葉県茂原市茂原614",
+    "phone": "0475-23-5155",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:87",
+    "name": "西小学校",
+    "mapno": "87",
+    "latitude": 35.4270523,
+    "longitude": 140.28371300000003,
+    "address": "千葉県茂原市茂原1229-1",
+    "phone": "0475-22-3719",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:88",
+    "name": "五郷小学校",
+    "mapno": "88",
+    "latitude": 35.4160787,
+    "longitude": 140.2770554,
+    "address": "千葉県茂原市綱島1185",
+    "phone": "0475-24-1161",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:89",
+    "name": "鶴枝小学校",
+    "mapno": "89",
+    "latitude": 35.3951408,
+    "longitude": 140.2980973,
+    "address": "千葉県茂原市上永吉955",
+    "phone": "0475-22-2829",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:90",
+    "name": "萩原小学校",
+    "mapno": "90",
+    "latitude": 35.4385455,
+    "longitude": 140.29997179999998,
+    "address": "千葉県茂原市萩原町1-17",
+    "phone": "0475-24-2161",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:91",
+    "name": "中の島小学校",
+    "mapno": "91",
+    "latitude": 35.4098862,
+    "longitude": 140.30965709999998,
+    "address": "千葉県茂原市中の島町451",
+    "phone": "0475-22-3910",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:92",
+    "name": "本納小学校",
+    "mapno": "92",
+    "latitude": 35.486731258376956,
+    "longitude": 140.30796819057258,
+    "address": "千葉県茂原市本納1623",
+    "phone": "0475-34-2031",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:94",
+    "name": "豊岡小学校",
+    "mapno": "94",
+    "latitude": 35.4753563,
+    "longitude": 140.34955390000005,
+    "address": "千葉県茂原市弓渡255",
+    "phone": "0475-34-7757",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:95",
+    "name": "東部小学校",
+    "mapno": "95",
+    "latitude": 35.4223568,
+    "longitude": 140.3184251,
+    "address": "千葉県茂原市東部台1-9-1",
+    "phone": "0475-23-5184",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1636",
+    "name": "旧本納小学校",
+    "mapno": "1636",
+    "latitude": 35.4832176888467,
+    "longitude": 140.3030536968884,
+    "address": "千葉県茂原市本納1987",
+    "phone": null,
+    "details": "1台、施設開放利用時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1637",
+    "name": "旧新治小学校",
+    "mapno": "1637",
+    "latitude": 35.48153955614562,
+    "longitude": 140.28040152481955,
+    "address": "千葉県茂原市下太田150",
+    "phone": null,
+    "details": "1台、施設開放利用時、避難所開設時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:96",
+    "name": "二宮小学校",
+    "mapno": "96",
+    "latitude": 35.43969631515839,
+    "longitude": 140.2559870481491,
+    "address": "千葉県茂原市緑ヶ丘4-38",
+    "phone": "0475-22-0789",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:121",
+    "name": "総合市民センター",
+    "mapno": "121",
+    "latitude": 35.4311356,
+    "longitude": 140.30310759999998,
+    "address": "千葉県茂原市町保13-20",
+    "phone": "0475-24-9511",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:122",
+    "name": "豊岡福祉センター",
+    "mapno": "122",
+    "latitude": 35.47666470973418,
+    "longitude": 140.35394668579102,
+    "address": "千葉県茂原市粟生野2675-4",
+    "phone": "0475-34-8321",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:123",
+    "name": "五郷福祉センター",
+    "mapno": "123",
+    "latitude": 35.4110518,
+    "longitude": 140.28066060000003,
+    "address": "千葉県茂原市綱島656",
+    "phone": "0475-25-7880",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:124",
+    "name": "豊田福祉センター",
+    "mapno": "124",
+    "latitude": 35.4562953,
+    "longitude": 140.29149430000007,
+    "address": "千葉県茂原市長尾148",
+    "phone": "0475-26-1105",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:125",
+    "name": "二宮福祉センター",
+    "mapno": "125",
+    "latitude": 35.44803479999999,
+    "longitude": 140.26033659999996,
+    "address": "千葉県茂原市国府関1683-1",
+    "phone": "0475-26-3740",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:126",
+    "name": "東郷福祉センター",
+    "mapno": "126",
+    "latitude": 35.4416874,
+    "longitude": 140.32493210000007,
+    "address": "千葉県茂原市谷本1887-1",
+    "phone": "0475-25-5882",
+    "details": "1台、毎日、8時30分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:127",
+    "name": "福祉作業所 あゆみの家",
+    "mapno": "127",
+    "latitude": 35.45144563347687,
+    "longitude": 140.31375914812088,
+    "address": "千葉県茂原市本小轡319-1",
+    "phone": "0475-24-9135",
+    "details": "1台、月曜から金曜、9時0分から16時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:128",
+    "name": "東郷保育所",
+    "mapno": "128",
+    "latitude": 35.4460313,
+    "longitude": 140.32481269999994,
+    "address": "千葉県茂原市谷本1795",
+    "phone": "0475-22-2832",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:129",
+    "name": "豊田保育所",
+    "mapno": "129",
+    "latitude": 35.4543068,
+    "longitude": 140.29175829999997,
+    "address": "千葉県茂原市長尾2103-1",
+    "phone": "0475-22-5056",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:130",
+    "name": "鶴枝保育所",
+    "mapno": "130",
+    "latitude": 35.3982987,
+    "longitude": 140.2975808,
+    "address": "千葉県茂原市上永吉1013-1",
+    "phone": "0475-22-4709",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:131",
+    "name": "二宮保育所",
+    "mapno": "131",
+    "latitude": 35.451609504344965,
+    "longitude": 140.25961741805077,
+    "address": "千葉県茂原市国府関1536-1",
+    "phone": "0475-22-4894",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:134",
+    "name": "町保保育所",
+    "mapno": "134",
+    "latitude": 35.4289861,
+    "longitude": 140.30834019999998,
+    "address": "千葉県茂原市高師555-28",
+    "phone": "0475-22-2544",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:135",
+    "name": "朝日の森保育所",
+    "mapno": "135",
+    "latitude": 35.4250472,
+    "longitude": 140.2902428,
+    "address": "千葉県茂原市茂原1016",
+    "phone": "0475-22-3126",
+    "details": "1台、月曜から土曜、8時0分から16時0分（土曜正午まで）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:137",
+    "name": "学校給食センター",
+    "mapno": "137",
+    "latitude": 35.414403794151085,
+    "longitude": 140.3113213063876,
+    "address": "千葉県茂原市下永吉505-1",
+    "phone": "0475-24-6920",
+    "details": "1台、月曜から金曜、8時30分から16時45分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:139",
+    "name": "鶴枝公民館",
+    "mapno": "139",
+    "latitude": 35.3955157,
+    "longitude": 140.29702240000006,
+    "address": "千葉県茂原市上永吉1012",
+    "phone": "0475-25-1834",
+    "details": "1台、毎日、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:140",
+    "name": "図書館",
+    "mapno": "140",
+    "latitude": 35.42678691342849,
+    "longitude": 140.30308663845062,
+    "address": "千葉県茂原市高師1735（2階）",
+    "phone": "0475-23-6151",
+    "details": "毎日10時から19時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:141",
+    "name": "美術館・郷土資料館",
+    "mapno": "141",
+    "latitude": 35.4301985884818,
+    "longitude": 140.2803549170494,
+    "address": "千葉県茂原市高師1345-1",
+    "phone": "0475-26-2131",
+    "details": "1台、毎日、9時0分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:144",
+    "name": "新茂原幼稚園",
+    "mapno": "144",
+    "latitude": 35.4471748,
+    "longitude": 140.30125469999996,
+    "address": "千葉県茂原市上林56-2",
+    "phone": "0475-24-8710",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:145",
+    "name": "旧中の島幼稚園",
+    "mapno": "145",
+    "latitude": 35.40885840000001,
+    "longitude": 140.30359950000002,
+    "address": "千葉県茂原市下永吉1056-2",
+    "phone": null,
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:146",
+    "name": "社会教育センター／青少年指導センター",
+    "mapno": "146",
+    "latitude": 35.41660447870464,
+    "longitude": 140.276818127654,
+    "address": "千葉県茂原市早野17-1",
+    "phone": "0475-22-4466",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:147",
+    "name": "保健センター",
+    "mapno": "147",
+    "latitude": 35.4375844,
+    "longitude": 140.29503650000004,
+    "address": "千葉県茂原市高師3001",
+    "phone": "0475-25-1725",
+    "details": "1台、月曜から金曜、8時30分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:148",
+    "name": "東部台文化会館",
+    "mapno": "148",
+    "latitude": 35.42114782554209,
+    "longitude": 140.31837791204453,
+    "address": "千葉県茂原市東部台1-7-15",
+    "phone": "0475-23-8711",
+    "details": "1台、毎日、9時0分から21時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1561",
+    "name": "長生郡市広域市町村圏組合",
+    "mapno": "1561",
+    "latitude": 35.403713114525054,
+    "longitude": 140.31298870321086,
+    "address": "千葉県茂原市下永吉2101",
+    "phone": "0475-23-0107",
+    "details": "茂原市下永吉2101"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1562",
+    "name": "長生郡市広域市町村圏組合水道部",
+    "mapno": "1562",
+    "latitude": 35.4343589649869,
+    "longitude": 140.30242788023162,
+    "address": "千葉県茂原市高師395-2",
+    "phone": "0475-23-9481",
+    "details": "茂原市高師395-2"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1563",
+    "name": "長生郡市広域市町村圏組合消防本部中央消防署",
+    "mapno": "1563",
+    "latitude": 35.42493987696296,
+    "longitude": 140.2984325267356,
+    "address": "千葉県茂原市茂原598",
+    "phone": "0475-24-0119",
+    "details": "茂原市茂原598"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1564",
+    "name": "長生郡市広域市町村圏組合消防本部中央消防署本納分署",
+    "mapno": "1564",
+    "latitude": 35.471983875825885,
+    "longitude": 140.30329078390733,
+    "address": "千葉県茂原市本納2149-1",
+    "phone": "0475-34-2119",
+    "details": "茂原市本納2149-1"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1565",
+    "name": "富士見公園（野球場）",
+    "mapno": "1565",
+    "latitude": 35.43335795756275,
+    "longitude": 140.3092949387139,
+    "address": "千葉県茂原市東郷2078",
+    "phone": "0475-22-4646",
+    "details": "茂原市東郷2078"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1566",
+    "name": "萩原公園",
+    "mapno": "1566",
+    "latitude": 35.44335287335726,
+    "longitude": 140.30160821577593,
+    "address": "千葉県茂原市上林173-9",
+    "phone": "0475-23-6176",
+    "details": "茂原市上林173-9"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:97",
+    "name": "長生健康福祉センター",
+    "mapno": "97",
+    "latitude": 35.4265191,
+    "longitude": 140.28649329999996,
+    "address": "千葉県茂原市茂原1102-1",
+    "phone": "0475-22-5167",
+    "details": "1台、月曜から金曜、9時0分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:98",
+    "name": "長生の森公園",
+    "mapno": "98",
+    "latitude": 35.457921556170675,
+    "longitude": 140.26566982269287,
+    "address": "千葉県茂原市押日816-1",
+    "phone": "0475-26-2474",
+    "details": "1台、毎日、9時0分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:99",
+    "name": "県立長生高等学校",
+    "mapno": "99",
+    "latitude": 35.4332601,
+    "longitude": 140.2980778,
+    "address": "千葉県茂原市高師286",
+    "phone": "0475-22-3378",
+    "details": "2台、月曜から金曜、8時15分から21時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:100",
+    "name": "生涯大学校外房学園",
+    "mapno": "100",
+    "latitude": 35.4517301,
+    "longitude": 140.31423070000005,
+    "address": "千葉県茂原市本小轡319-1",
+    "phone": "0475-25-8228",
+    "details": "1台、月曜から金曜、8時30分から17時30分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:101",
+    "name": "県立茂原高等学校",
+    "mapno": "101",
+    "latitude": 35.4333486,
+    "longitude": 140.28576829999997,
+    "address": "千葉県茂原市高師1300",
+    "phone": "0475-22-4505",
+    "details": "1台、月曜から金曜、8時20分から16時50分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:102",
+    "name": "県立茂原樟陽高等学校",
+    "mapno": "102",
+    "latitude": 35.4403842,
+    "longitude": 140.30374900000004,
+    "address": "千葉県茂原市上林283",
+    "phone": "0475-22-3315",
+    "details": "3台（職員室・体育館・工業棟）、月曜から金曜、8時15分から16時45分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1654",
+    "name": "茂原警察署（玄関）",
+    "mapno": "1654",
+    "latitude": 35.42232973353018,
+    "longitude": 140.31391676405562,
+    "address": "千葉県茂原市早野新田7",
+    "phone": "0475-22-0110",
+    "details": "茂原市早野新田7 / 1台、24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:103",
+    "name": "長生郡市温水センター（スポーツプラザイースト）",
+    "mapno": "103",
+    "latitude": 35.40442276755323,
+    "longitude": 140.31314224004745,
+    "address": "千葉県茂原市下永吉1815",
+    "phone": "0475-25-2181",
+    "details": "1台、火曜～金曜10時30分～22時、土曜10時30分～21時、日曜、祝日10時30分～19時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:104",
+    "name": "TOTOハイリビング株式会社",
+    "mapno": "104",
+    "latitude": 35.4771619,
+    "longitude": 140.29180399999996,
+    "address": "千葉県茂原市本納3210-1",
+    "phone": "0475-34-3555",
+    "details": "1台、月曜から金曜、8時30分から17時30分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:105",
+    "name": "茂原北陵高等学校",
+    "mapno": "105",
+    "latitude": 35.4821918,
+    "longitude": 140.29180080000003,
+    "address": "千葉県茂原市吉井上128",
+    "phone": "0475-34-3211",
+    "details": "3台、月曜から金曜、8時30分から17時、※校舎グラウンド口のみ屋外のため24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:106",
+    "name": "ムーンレイクゴルフクラブ 茂原コース",
+    "mapno": "106",
+    "latitude": 35.4566646,
+    "longitude": 140.28117029999999,
+    "address": "千葉県茂原市長尾1647",
+    "phone": "0475-22-8317",
+    "details": "1台、毎日、7時0分から19時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:107",
+    "name": "JSS茂原スポーツクラブ",
+    "mapno": "107",
+    "latitude": 35.4650138,
+    "longitude": 140.30105400000002,
+    "address": "千葉県茂原市北塚1068",
+    "phone": "0475-27-2580",
+    "details": "1台、月曜～木曜9時30分～21時、金曜12時～21時、土曜9時～21時、日曜9時～13時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:108",
+    "name": "真名カントリークラブ",
+    "mapno": "108",
+    "latitude": 35.470989796361984,
+    "longitude": 140.25694459676743,
+    "address": "千葉県茂原市真名1744",
+    "phone": "0475-24-5211",
+    "details": "1台、毎日、8時0分から18時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:110",
+    "name": "トヨーカラー株式会社 茂原工場",
+    "mapno": "110",
+    "latitude": 35.441797421102095,
+    "longitude": 140.31805202364922,
+    "address": "千葉県茂原市東郷1430",
+    "phone": "0475-22-2191",
+    "details": "1台、8時30分～17時（守衛が不在時は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:113",
+    "name": "妙中鉱業株式会社",
+    "mapno": "113",
+    "latitude": 35.4043678,
+    "longitude": 140.31557040000007,
+    "address": "千葉県茂原市大芝452",
+    "phone": "0475-24-0140",
+    "details": "1台、月曜から金曜、8時0分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:114",
+    "name": "茂原ショッピングプラザアスモ",
+    "mapno": "114",
+    "latitude": 35.434976001989874,
+    "longitude": 140.28763711452484,
+    "address": "千葉県茂原市高師1735",
+    "phone": "0475-25-5511",
+    "details": "1台、毎日10時～20時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:115",
+    "name": "株式会社ジャパンディスプレイ",
+    "mapno": "115",
+    "latitude": 35.4180126,
+    "longitude": 140.30440210000006,
+    "address": "千葉県茂原市早野3300",
+    "phone": "0475-23-1111",
+    "details": "1台、24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:116",
+    "name": "双葉電子工業株式会社 本社",
+    "mapno": "116",
+    "latitude": 35.414444,
+    "longitude": 140.3155173,
+    "address": "千葉県茂原市大芝629",
+    "phone": "0475-24-1111",
+    "details": "1台、月曜日～金曜日 7時～19時（休業日は使用不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:117",
+    "name": "富士フイルムヘルスケアマニュファクチャリング（株）茂原サイト",
+    "mapno": "117",
+    "latitude": 35.3963289,
+    "longitude": 140.30505540000001,
+    "address": "千葉県茂原市三ヶ谷1754",
+    "phone": "0475-26-2981",
+    "details": "1台、月曜から金曜、8時30分～16時55分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:118",
+    "name": "ロジスティード東日本（株）",
+    "mapno": "118",
+    "latitude": 35.4149019,
+    "longitude": 140.30237740000007,
+    "address": "千葉県茂原市下永吉255",
+    "phone": "0475-24-5171",
+    "details": "1台、9時～18時（開門時）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:119",
+    "name": "三井化学株式会社 茂原分工場",
+    "mapno": "119",
+    "latitude": 35.436949388798006,
+    "longitude": 140.30810236930847,
+    "address": "千葉県茂原市東郷1900",
+    "phone": "0475-23-0111",
+    "details": "1台、24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:120",
+    "name": "三井化学株式会社 茂原研究・開発センター",
+    "mapno": "120",
+    "latitude": 35.4442949,
+    "longitude": 140.31016469999997,
+    "address": "千葉県茂原市東郷1144",
+    "phone": "0475-23-0120",
+    "details": "1台、24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:149",
+    "name": "グループホーム ガーデンコート茂原",
+    "mapno": "149",
+    "latitude": 35.4371538,
+    "longitude": 140.29206750000003,
+    "address": "千葉県茂原市高師2144-11",
+    "phone": "0475-27-3336",
+    "details": "1台、24時間"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:150",
+    "name": "大多喜ガス株式会社",
+    "mapno": "150",
+    "latitude": 35.42232594667932,
+    "longitude": 140.3061604499817,
+    "address": "千葉県茂原市茂原661",
+    "phone": "0475-24-0010",
+    "details": "1台、月曜～金曜、9時から17時30分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:151",
+    "name": "関東天然瓦斯開発株式会社 茂原鉱業所",
+    "mapno": "151",
+    "latitude": 35.4220454,
+    "longitude": 140.3068045,
+    "address": "千葉県茂原市茂原661",
+    "phone": "0475-23-1313",
+    "details": "1台、月曜から金曜、8時15分から17時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:152",
+    "name": "千葉銀行 茂原支店",
+    "mapno": "152",
+    "latitude": 35.4255611,
+    "longitude": 140.29317300000002,
+    "address": "千葉県茂原市茂原365-1",
+    "phone": "0475-24-2111",
+    "details": "1台、月曜から金曜、9時0分から15時0分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:153",
+    "name": "株式会社協和ハウジング 本社",
+    "mapno": "153",
+    "latitude": 35.4247344,
+    "longitude": 140.3249353,
+    "address": "千葉県茂原市東部台3-3-3",
+    "phone": "0475-23-3323",
+    "details": "1台、月曜から金曜、8時30分から17時30分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1648",
+    "name": "川中島終末処理場",
+    "mapno": "1648",
+    "latitude": 35.41963623565994,
+    "longitude": 140.31136752326645,
+    "address": "千葉県茂原市早野3750",
+    "phone": "0475-23-3128",
+    "details": null
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1655",
+    "name": "JR茂原駅（コンコース内 改札口）",
+    "mapno": "1655",
+    "latitude": 35.42698217003077,
+    "longitude": 140.3038627077442,
+    "address": "千葉県茂原市町保1",
+    "phone": null,
+    "details": "1台、毎日4時50分～0時30分"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1656",
+    "name": "デイサービスセンター長生東（正面入口付近）",
+    "mapno": "1656",
+    "latitude": 35.46491942667357,
+    "longitude": 140.3530858218834,
+    "address": "千葉県茂原市千沢842-1",
+    "phone": "0475-34-7755",
+    "details": "1台、月曜～土曜8時～17時（月曜は不在の場合あり）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1657",
+    "name": "調剤薬局ツルハドラッグ茂原店（調剤待合室）",
+    "mapno": "1657",
+    "latitude": 35.42632114334318,
+    "longitude": 140.3236541650332,
+    "address": "千葉県茂原市六ツ野3870",
+    "phone": "0475-20-0250",
+    "details": "1台、毎日9時～24時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1660",
+    "name": "レコードブック茂原駅前（正面入口付近）",
+    "mapno": "1660",
+    "latitude": 35.426216984109004,
+    "longitude": 140.30731094618284,
+    "address": "千葉県茂原市高師585",
+    "phone": "0475-44-7880",
+    "details": "茂原市高師585 / 1台、月曜～金曜8時～17時（土曜、日曜、年末年始は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1661",
+    "name": "京葉ロジコ株式会社 茂原路線営業所（事務所内入口）",
+    "mapno": "1661",
+    "latitude": 35.444068409543505,
+    "longitude": 140.28330524036323,
+    "address": "千葉県茂原市小林小林288-1",
+    "phone": "0475-22-2694",
+    "details": "茂原市小林小林288-1 / 1台、月曜～金曜8時～17時（祝日及び夏季休暇、年末年始は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1662",
+    "name": "京葉ロジコ株式会社 茂原営業所（入口 受付カウンター）",
+    "mapno": "1662",
+    "latitude": 35.43670459051853,
+    "longitude": 140.31135688269123,
+    "address": "千葉県茂原市東郷1865",
+    "phone": "0475-22-2693",
+    "details": "茂原市東郷1865 / 1台、月曜～金曜8時30分～17時30分（祝日及び夏季休暇、年末年始は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1663",
+    "name": "京葉ロジコ株式会社 本社（入口 受付カウンター）",
+    "mapno": "1663",
+    "latitude": 35.436911665738904,
+    "longitude": 140.28670435352205,
+    "address": "千葉県茂原市高師1690-1",
+    "phone": "0475-22-2361",
+    "details": "茂原市高師1690-1 / 1台、月曜～金曜8時30分～17時30分（祝日及び夏季休暇、年末年始は不可）"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1664",
+    "name": "都自動車株式会社タクシー茂原営業所（事務所内点呼場）",
+    "mapno": "1664",
+    "latitude": 35.424480127183145,
+    "longitude": 140.3034397228345,
+    "address": "千葉県茂原市茂原644-1",
+    "phone": "0475-22-3545",
+    "details": "茂原市茂原644-1 / 1台、月曜～日曜8時～1時"
+  },
+  {
+    "source_key": "municipal-official-map:mobara-aed:1665",
+    "name": "長生教育会館（入口外）",
+    "mapno": "1665",
+    "latitude": 35.43408350671078,
+    "longitude": 140.31183074188021,
+    "address": "千葉県茂原市東郷2300-1",
+    "phone": "0475-24-9721",
+    "details": "茂原市東郷2300-1 / 1台、24時間"
+  }
+]

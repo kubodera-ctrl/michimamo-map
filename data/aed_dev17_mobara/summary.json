@@ -1,0 +1,41 @@
+{
+  "municipality_code": "12210",
+  "municipality": "茂原市",
+  "source_rows": 91,
+  "official_xml_url": "https://www.city.mobara.chiba.jp/map/xml/21.xml",
+  "official_list_url": "https://www.city.mobara.chiba.jp/0000001282.html",
+  "xml_sha256": "bb24330ea63642f782a3420e3b870b7097e1e4a632884d0746b9bcc09bff8fba",
+  "policy": "自治体公式AED施設マップの施設単位座標のみ。全行の市内範囲・住所・一意キーを検証。DB投入時にも既存重複を停止条件として再検証。",
+  "baseline": 45906,
+  "expected_final": 45997,
+  "batches": [
+    {
+      "file": "publish_dev17_mobara_01.sql",
+      "baseline": 45906,
+      "inserted": 25,
+      "expected_final": 45931,
+      "sha256": "a5e6d43de4a9731dbd1a4785c4a0416041fc694f3f32e74a7ecc4d5e9678166d"
+    },
+    {
+      "file": "publish_dev17_mobara_02.sql",
+      "baseline": 45931,
+      "inserted": 25,
+      "expected_final": 45956,
+      "sha256": "2b70b3754cba4e058184cb54af512f331b31f6cad01a8c62a4fd7d0e71777efc"
+    },
+    {
+      "file": "publish_dev17_mobara_03.sql",
+      "baseline": 45956,
+      "inserted": 25,
+      "expected_final": 45981,
+      "sha256": "619f8b71c41107bf44f73edba67779a3942a9e1fa8f2fc3bd5374452de4f30aa"
+    },
+    {
+      "file": "publish_dev17_mobara_04.sql",
+      "baseline": 45981,
+      "inserted": 16,
+      "expected_final": 45997,
+      "sha256": "fd674d133bf6c74a56729ec88c5248196163360a9395f1286614786ebd82fdc9"
+    }
+  ]
+}

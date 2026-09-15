@@ -1,0 +1,22 @@
+{
+  "municipality_code": "33666",
+  "municipality": "美咲町",
+  "source_rows": 21,
+  "publish": 21,
+  "held": 0,
+  "near_duplicate_pairs": 0,
+  "source_updated_at": "2021-03-16",
+  "source_sha256": "fbc328a785041ecc04360a53e0b589c363068f83afd98ae855d5c26767b5142c",
+  "baseline": 46059,
+  "expected_final": 46080,
+  "batches": [
+    {
+      "file": "publish_dev17_misaki_01.sql",
+      "baseline": 46059,
+      "inserted": 21,
+      "held": 0,
+      "expected_final": 46080,
+      "sha256": "089f1a4bd33460229d767df8f27837f58e17005a52a19ce623e72c6d98db8f3d"
+    }
+  ]
+}

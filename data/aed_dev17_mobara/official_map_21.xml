@@ -1,0 +1,1828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Placemarks>
+	<StartLookAt>
+		<latitude></latitude>
+		<longitude></longitude>
+        <mapzoom>15</mapzoom>
+	</StartLookAt>
+	<Placemark>
+		<name><![CDATA[茂原市役所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>72</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-8511<br>千葉県茂原市道表1<br>TEL: 0475-23-2111<br>3台（庁舎1階、2階、8階）、24時間（閉庁時は西入口へ）<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4282133</latitude>
+			<longitude>140.28809590000003</longitude>
+		</LookAt>
+		<number>1</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原市役所本納支所（ほのおか館）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>73</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4114<br>千葉県茂原市本納1741-1<br>TEL: 0475-34-2111<br>FAX: 0475-34-4113<br>1台、毎日8時30分から17時15分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.483881</latitude>
+			<longitude>140.30608010000003</longitude>
+		</LookAt>
+		<number>2</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原市市民体育館]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>74</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師2165<br>TEL: 0475-23-2811<br>1台、毎日9時～21時（年末年始は不可）<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4387259</latitude>
+			<longitude>140.2951253</longitude>
+		</LookAt>
+		<number>3</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[富士見公園（管理棟）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>75</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0017<br>千葉県茂原市東郷2078<br>TEL: 0475-22-4646<br>1台<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.43229884955205</latitude>
+			<longitude>140.30991554260254</longitude>
+		</LookAt>
+		<number>4</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>76</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0017<br>千葉県茂原市東郷301<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-24-2141<br>FAX: 0475-25-9371<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.435441</latitude>
+			<longitude>140.31984669999997</longitude>
+		</LookAt>
+		<number>5</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[冨士見中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>77</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0075<br>千葉県茂原市押日1468<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-23-7145<br>FAX: 0475-25-9372<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.44376299266562</latitude>
+			<longitude>140.2795958518982</longitude>
+		</LookAt>
+		<number>6</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>78</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師427<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-22-2320<br>FAX: 0475-25-9373<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4391261</latitude>
+			<longitude>140.30351300000007</longitude>
+		</LookAt>
+		<number>7</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[南中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>79</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0036<br>千葉県茂原市上永吉1185-2<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-23-8825<br>FAX: 0475-25-9374<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4061196</latitude>
+			<longitude>140.2945757</longitude>
+		</LookAt>
+		<number>8</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[本納中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>80</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4114<br>千葉県茂原市本納1623<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-34-2074<br>FAX: 0475-34-5474<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4863585</latitude>
+			<longitude>140.30732149999994</longitude>
+		</LookAt>
+		<number>9</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧早野中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>81</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0037<br>千葉県茂原市早野206-1<br>1台、施設開放利用時、避難所開設時<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4163455</latitude>
+			<longitude>140.2807745</longitude>
+		</LookAt>
+		<number>10</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧西陵中学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>82</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0065<br>千葉県茂原市緑ヶ丘1-53<br>1台、施設開放利用時、避難所開設時<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4399887</latitude>
+			<longitude>140.26182029999995</longitude>
+		</LookAt>
+		<number>11</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東郷小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>83</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0011<br>千葉県茂原市谷本142<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-22-2834<br>FAX: 0475-22-8831<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4474173</latitude>
+			<longitude>140.32735130000003</longitude>
+		</LookAt>
+		<number>12</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[豊田小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>84</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0073<br>千葉県茂原市長尾156<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-22-3779<br>FAX: 0475-26-2565<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4558232</latitude>
+			<longitude>140.2926053</longitude>
+		</LookAt>
+		<number>13</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧二宮小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>85</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0067<br>千葉県茂原市国府関1415-1<br>1台、避難所開設時<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.45060110000001</latitude>
+			<longitude>140.25786170000003</longitude>
+		</LookAt>
+		<number>14</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>86</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原614<br>TEL: 0475-23-5155<br>FAX: 0475-22-8834<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4258085</latitude>
+			<longitude>140.29930539999998</longitude>
+		</LookAt>
+		<number>15</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[西小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>87</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原1229-1<br>TEL: 0475-22-3719<br>FAX: 0475-22-8836<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4270523</latitude>
+			<longitude>140.28371300000003</longitude>
+		</LookAt>
+		<number>16</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[五郷小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>88</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0055<br>千葉県茂原市綱島1185<br>TEL: 0475-24-1161<br>FAX: 0475-22-8832<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4160787</latitude>
+			<longitude>140.2770554</longitude>
+		</LookAt>
+		<number>17</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[鶴枝小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>89</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0036<br>千葉県茂原市上永吉955<br>TEL: 0475-22-2829<br>FAX: 0475-22-8835<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.3951408</latitude>
+			<longitude>140.2980973</longitude>
+		</LookAt>
+		<number>18</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[萩原小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>90</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0018<br>千葉県茂原市萩原町1-17<br>TEL: 0475-24-2161<br>FAX: 0475-23-4479<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4385455</latitude>
+			<longitude>140.29997179999998</longitude>
+		</LookAt>
+		<number>19</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[中の島小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>91</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0034<br>千葉県茂原市中の島町451<br>TEL: 0475-22-3910<br>FAX: 0475-26-2567<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4098862</latitude>
+			<longitude>140.30965709999998</longitude>
+		</LookAt>
+		<number>20</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[本納小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>92</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4114<br>千葉県茂原市本納1623<br>TEL: 0475-34-2031<br>FAX: 0475-34-5930<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.486731258376956</latitude>
+			<longitude>140.30796819057258</longitude>
+		</LookAt>
+		<number>21</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[豊岡小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>94</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4105<br>千葉県茂原市弓渡255<br>TEL: 0475-34-7757<br>FAX: 0475-34-7163<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4753563</latitude>
+			<longitude>140.34955390000005</longitude>
+		</LookAt>
+		<number>22</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東部小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>95</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0015<br>千葉県茂原市東部台1-9-1<br>TEL: 0475-23-5184<br>FAX: 0475-26-2550<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4223568</latitude>
+			<longitude>140.3184251</longitude>
+		</LookAt>
+		<number>23</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧本納小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1636</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4114　本納1987<br>1台、施設開放利用時<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4832176888467</latitude>
+			<longitude>140.3030536968884</longitude>
+		</LookAt>
+		<number>24</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧新治小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1637</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4123　下太田150<br>1台、施設開放利用時、避難所開設時<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.48153955614562</latitude>
+			<longitude>140.28040152481955</longitude>
+		</LookAt>
+		<number>25</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[二宮小学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>96</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0065<br>千葉県茂原市緑ヶ丘4-38<br>TEL: 0475-22-0789<br>FAX: 0475-26-2555<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.43969631515839</latitude>
+			<longitude>140.2559870481491</longitude>
+		</LookAt>
+		<number>26</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[総合市民センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>121</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0022<br>千葉県茂原市町保13-20<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-24-9511<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4311356</latitude>
+			<longitude>140.30310759999997</longitude>
+		</LookAt>
+		<number>27</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[豊岡福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>122</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4106<br>千葉県茂原市粟生野2675-4<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-34-8321<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.47666470973418</latitude>
+			<longitude>140.35394668579101</longitude>
+		</LookAt>
+		<number>28</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[五郷福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>123</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0055<br>千葉県茂原市綱島656<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-25-7880<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4110518</latitude>
+			<longitude>140.28066060000003</longitude>
+		</LookAt>
+		<number>29</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[豊田福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>124</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0073<br>千葉県茂原市長尾148<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-26-1105<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4562953</latitude>
+			<longitude>140.29149430000007</longitude>
+		</LookAt>
+		<number>30</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[二宮福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>125</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0067<br>千葉県茂原市国府関1683-1<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-26-3740<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.44803479999999</latitude>
+			<longitude>140.26033659999996</longitude>
+		</LookAt>
+		<number>31</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東郷福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>126</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0011<br>千葉県茂原市谷本1887-1<br>1台、毎日、8時30分から19時0分<br>TEL: 0475-25-5882<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4416874</latitude>
+			<longitude>140.32493210000007</longitude>
+		</LookAt>
+		<number>32</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[福祉作業所　あゆみの家]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>127</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0005<br>千葉県茂原市本小轡319-1<br>1台、月曜から金曜、9時0分から16時0分<br>TEL: 0475-24-9135<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.45144563347687</latitude>
+			<longitude>140.31375914812088</longitude>
+		</LookAt>
+		<number>33</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東郷保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>128</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0011<br>千葉県茂原市谷本1795<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-2832<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4460313</latitude>
+			<longitude>140.32481269999994</longitude>
+		</LookAt>
+		<number>34</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[豊田保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>129</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0073<br>千葉県茂原市長尾2103-1<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-5056<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4543068</latitude>
+			<longitude>140.29175829999997</longitude>
+		</LookAt>
+		<number>35</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[鶴枝保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>130</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0036<br>千葉県茂原市上永吉1013-1<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-4709<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.3982987</latitude>
+			<longitude>140.2975808</longitude>
+		</LookAt>
+		<number>36</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[二宮保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>131</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0067<br>千葉県茂原市国府関1536-1<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-4894<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.451609504344965</latitude>
+			<longitude>140.25961741805077</longitude>
+		</LookAt>
+		<number>37</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[町保保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>134</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師555-28<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-2544<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4289861</latitude>
+			<longitude>140.30834019999997</longitude>
+		</LookAt>
+		<number>38</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[朝日の森保育所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>135</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原1016<br>1台、月曜から土曜、8時0分から16時0分（土曜正午まで）<br>TEL: 0475-22-3126<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4250472</latitude>
+			<longitude>140.2902428</longitude>
+		</LookAt>
+		<number>39</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[学校給食センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>137</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0074<br>千葉県茂原市下永吉505-1<br>1台、月曜から金曜、8時30分から16時45分<br>TEL: 0475-24-6920<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.414403794151085</latitude>
+			<longitude>140.3113213063876</longitude>
+		</LookAt>
+		<number>40</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[鶴枝公民館]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>139</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0036<br>千葉県茂原市上永吉1012<br>1台、毎日、8時30分から17時0分<br>TEL: 0475-25-1834<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.3955157</latitude>
+			<longitude>140.29702240000006</longitude>
+		</LookAt>
+		<number>41</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[図書館]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>140</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師1735（2階）<br>毎日10時から19時<br>TEL: 0475-23-6151<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42678691342849</latitude>
+			<longitude>140.30308663845062</longitude>
+		</LookAt>
+		<number>42</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[美術館・郷土資料館]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>141</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師1345-1<br>1台、毎日、9時0分から17時0分<br>TEL: 0475-26-2131<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4301985884818</latitude>
+			<longitude>140.2803549170494</longitude>
+		</LookAt>
+		<number>43</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[新茂原幼稚園]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>144</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0019<br>千葉県茂原市上林56-2<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-24-8710<br>FAX: 0475-24-8393<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4471748</latitude>
+			<longitude>140.30125469999996</longitude>
+		</LookAt>
+		<number>44</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[旧中の島幼稚園]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>145</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0035<br>千葉県茂原市下永吉1056-2<br>1台、月曜から金曜、8時30分から17時0分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.40885840000001</latitude>
+			<longitude>140.30359950000002</longitude>
+		</LookAt>
+		<number>45</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[社会教育センター／青少年指導センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>146</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0037<br>千葉県茂原市早野17-1<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-22-4466<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.41660447870464</latitude>
+			<longitude>140.276818127654</longitude>
+		</LookAt>
+		<number>46</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[保健センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>147</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師3001<br>1台、月曜から金曜、8時30分から17時0分<br>TEL: 0475-25-1725<br>FAX: 0475-24-1865<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4375844</latitude>
+			<longitude>140.29503650000004</longitude>
+		</LookAt>
+		<number>47</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[東部台文化会館]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>148</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0015<br>千葉県茂原市東部台1-7-15<br>1台、毎日、9時0分から21時0分<br>TEL: 0475-23-8711<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42114782554209</latitude>
+			<longitude>140.31837791204452</longitude>
+		</LookAt>
+		<number>48</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生郡市広域市町村圏組合]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1561</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市下永吉2101<br>TEL: 0475-23-0107<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.403713114525054</latitude>
+			<longitude>140.31298870321086</longitude>
+		</LookAt>
+		<number>49</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生郡市広域市町村圏組合水道部]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1562</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市高師395-2<br>TEL: 0475-23-9481<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4343589649869</latitude>
+			<longitude>140.30242788023162</longitude>
+		</LookAt>
+		<number>50</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生郡市広域市町村圏組合消防本部中央消防署]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1563</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市茂原598<br>TEL: 0475-24-0119<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42493987696296</latitude>
+			<longitude>140.2984325267356</longitude>
+		</LookAt>
+		<number>51</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生郡市広域市町村圏組合消防本部中央消防署本納分署]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1564</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市本納2149-1<br>TEL: 0475-34-2119<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.471983875825885</latitude>
+			<longitude>140.30329078390733</longitude>
+		</LookAt>
+		<number>52</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[富士見公園（野球場）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1565</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市東郷2078<br>TEL: 0475-22-4646<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.43335795756275</latitude>
+			<longitude>140.3092949387139</longitude>
+		</LookAt>
+		<number>53</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[萩原公園]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1566</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市上林173-9<br>TEL: 0475-23-6176<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.44335287335726</latitude>
+			<longitude>140.30160821577593</longitude>
+		</LookAt>
+		<number>54</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生健康福祉センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>97</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原1102-1<br>1台、月曜から金曜、9時0分から17時0分<br>TEL: 0475-22-5167<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4265191</latitude>
+			<longitude>140.28649329999996</longitude>
+		</LookAt>
+		<number>55</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生の森公園]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>98</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0075<br>千葉県茂原市押日816-1<br>1台、毎日、9時0分から17時0分<br>TEL: 0475-26-2474<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.457921556170675</latitude>
+			<longitude>140.26566982269287</longitude>
+		</LookAt>
+		<number>56</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[県立長生高等学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>99</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師286<br>2台、月曜から金曜、8時15分から21時0分<br>TEL: 0475-22-3378<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4332601</latitude>
+			<longitude>140.2980778</longitude>
+		</LookAt>
+		<number>57</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[生涯大学校外房学園]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>100</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0005<br>千葉県茂原市本小轡319-1<br>1台、月曜から金曜、8時30分から17時30分<br>TEL: 0475-25-8228<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4517301</latitude>
+			<longitude>140.31423070000005</longitude>
+		</LookAt>
+		<number>58</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[県立茂原高等学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>101</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師1300<br>1台、月曜から金曜、8時20分から16時50分<br>TEL: 0475-22-4505<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4333486</latitude>
+			<longitude>140.28576829999997</longitude>
+		</LookAt>
+		<number>59</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[県立茂原樟陽高等学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>102</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0019<br>千葉県茂原市上林283<br>3台（職員室・体育館・工業棟）、月曜から金曜、8時15分から16時45分<br>TEL: 0475-22-3315<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4403842</latitude>
+			<longitude>140.30374900000004</longitude>
+		</LookAt>
+		<number>60</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原警察署（玄関）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1654</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市早野新田7<br>1台、24時間<br>TEL: 0475-22-0110<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42232973353018</latitude>
+			<longitude>140.31391676405562</longitude>
+		</LookAt>
+		<number>61</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生郡市温水センター（スポーツプラザイースト）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>103</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0035<br>千葉県茂原市下永吉1815<br>1台、火曜～金曜10時30分～22時、土曜10時30分～21時、日曜、祝日10時30分～19時<br>TEL: 0475-25-2181<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.40442276755323</latitude>
+			<longitude>140.31314224004745</longitude>
+		</LookAt>
+		<number>62</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[TOTOハイリビング株式会社]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>104</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4114<br>千葉県茂原市本納3210-1<br>1台、月曜から金曜、8時30分から17時30分<br>TEL: 0475-34-3555<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4771619</latitude>
+			<longitude>140.29180399999996</longitude>
+		</LookAt>
+		<number>63</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原北陵高等学校]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>105</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒299-4122<br>千葉県茂原市吉井上128<br>3台、月曜から金曜、8時30分から17時、※校舎グラウンド口のみ屋外のため24時間<br>TEL: 0475-34-3211<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4821918</latitude>
+			<longitude>140.29180080000003</longitude>
+		</LookAt>
+		<number>64</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[ムーンレイクゴルフクラブ　茂原コース]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>106</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0073<br>千葉県茂原市長尾1647<br>1台、毎日、7時0分から19時0分<br>TEL: 0475-22-8317<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4566646</latitude>
+			<longitude>140.28117029999998</longitude>
+		</LookAt>
+		<number>65</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[JSS茂原スポーツクラブ]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>107</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0009<br>千葉県茂原市北塚1068<br>1台、月曜～木曜9時30分～21時、金曜12時～21時、土曜9時～21時、日曜9時～13時<br>TEL: 0475-27-2580<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4650138</latitude>
+			<longitude>140.30105400000002</longitude>
+		</LookAt>
+		<number>66</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[真名カントリークラブ]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>108</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0077<br>千葉県茂原市真名1744<br>1台、毎日、8時0分から18時0分<br>TEL: 0475-24-5211<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.470989796361984</latitude>
+			<longitude>140.25694459676742</longitude>
+		</LookAt>
+		<number>67</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[トヨーカラー株式会社　茂原工場]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>110</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0017<br>千葉県茂原市東郷1430<br>1台、8時30分～17時（守衛が不在時は不可）<br>TEL: 0475-22-2191<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.441797421102095</latitude>
+			<longitude>140.31805202364921</longitude>
+		</LookAt>
+		<number>68</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[妙中鉱業株式会社]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>113</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0033<br>千葉県茂原市大芝452<br>1台、月曜から金曜、8時0分から17時0分<br>TEL: 0475-24-0140<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4043678</latitude>
+			<longitude>140.31557040000007</longitude>
+		</LookAt>
+		<number>69</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[茂原ショッピングプラザアスモ]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>114</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師1735<br>1台、毎日10時～20時<br>TEL: 0475-25-5511<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.434976001989874</latitude>
+			<longitude>140.28763711452484</longitude>
+		</LookAt>
+		<number>70</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[株式会社ジャパンディスプレイ]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>115</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0037<br>千葉県茂原市早野3300<br>1台、24時間<br>TEL: 0475-23-1111<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4180126</latitude>
+			<longitude>140.30440210000006</longitude>
+		</LookAt>
+		<number>71</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[双葉電子工業株式会社　本社]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>116</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0033<br>千葉県茂原市大芝629<br>1台、月曜日～金曜日　7時～19時（休業日は使用不可）<br>TEL: 0475-24-1111<br>FAX: 0475-23-1346<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.414444</latitude>
+			<longitude>140.3155173</longitude>
+		</LookAt>
+		<number>72</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[富士フイルムヘルスケアマニュファクチャリング（株）茂原サイト]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>117</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0042<br>千葉県茂原市三ヶ谷1754<br>1台、月曜から金曜、8時30分～16時55分<br>TEL: 0475-26-2981<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.3963289</latitude>
+			<longitude>140.30505540000001</longitude>
+		</LookAt>
+		<number>73</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[ロジスティード東日本（株）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>118</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0035<br>千葉県茂原市下永吉255<br>1台、9時～18時（開門時）<br>TEL: 0475-24-5171<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4149019</latitude>
+			<longitude>140.30237740000007</longitude>
+		</LookAt>
+		<number>74</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[三井化学株式会社　茂原分工場]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>119</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0017<br>千葉県茂原市東郷1900<br>1台、24時間<br>TEL: 0475-23-0111<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.436949388798006</latitude>
+			<longitude>140.30810236930847</longitude>
+		</LookAt>
+		<number>75</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[三井化学株式会社　茂原研究・開発センター]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>120</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0017<br>千葉県茂原市東郷1144<br>1台、24時間<br>TEL: 0475-23-0120<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4442949</latitude>
+			<longitude>140.31016469999997</longitude>
+		</LookAt>
+		<number>76</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[グループホーム　ガーデンコート茂原]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>149</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0029<br>千葉県茂原市高師2144-11<br>1台、24時間<br>TEL: 0475-27-3336<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4371538</latitude>
+			<longitude>140.29206750000003</longitude>
+		</LookAt>
+		<number>77</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[大多喜ガス株式会社]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>150</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原661<br>1台、月曜～金曜、9時から17時30分<br>TEL: 0475-24-0010<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42232594667932</latitude>
+			<longitude>140.3061604499817</longitude>
+		</LookAt>
+		<number>78</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[関東天然瓦斯開発株式会社　茂原鉱業所]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>151</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原661<br>1台、月曜から金曜、8時15分から17時0分<br>TEL: 0475-23-1313<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4220454</latitude>
+			<longitude>140.3068045</longitude>
+		</LookAt>
+		<number>79</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[千葉銀行　茂原支店]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>152</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0026<br>千葉県茂原市茂原365-1<br>1台、月曜から金曜、9時0分から15時0分<br>TEL: 0475-24-2111<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4255611</latitude>
+			<longitude>140.29317300000002</longitude>
+		</LookAt>
+		<number>80</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[株式会社協和ハウジング　本社]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>153</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0015<br>千葉県茂原市東部台3-3-3<br>1台、月曜から金曜、8時30分から17時30分<br>TEL: 0475-23-3323<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.4247344</latitude>
+			<longitude>140.3249353</longitude>
+		</LookAt>
+		<number>81</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[川中島終末処理場]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1648</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+〒297-0037<br> 千葉県茂原市早野3750<br>TEL: 0475-23-3128<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.41963623565994</latitude>
+			<longitude>140.31136752326645</longitude>
+		</LookAt>
+		<number>82</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[JR茂原駅（コンコース内　改札口）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1655</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+千葉県茂原市町保1<br>1台、毎日4時50分～0時30分<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42698217003077</latitude>
+			<longitude>140.3038627077442</longitude>
+		</LookAt>
+		<number>83</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[デイサービスセンター長生東（正面入口付近）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1656</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+千葉県茂原市千沢842-1<br>1台、月曜～土曜8時～17時（月曜は不在の場合あり）<br>TEL: 0475-34-7755<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.46491942667357</latitude>
+			<longitude>140.3530858218834</longitude>
+		</LookAt>
+		<number>84</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[調剤薬局ツルハドラッグ茂原店（調剤待合室）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1657</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+千葉県茂原市六ツ野3870<br>1台、毎日9時～24時<br>TEL: 0475-20-0250<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.42632114334318</latitude>
+			<longitude>140.3236541650332</longitude>
+		</LookAt>
+		<number>85</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[レコードブック茂原駅前（正面入口付近）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1660</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市高師585<br>1台、月曜～金曜8時～17時（土曜、日曜、年末年始は不可）<br>TEL: 0475-44-7880<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.426216984109004</latitude>
+			<longitude>140.30731094618284</longitude>
+		</LookAt>
+		<number>86</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[京葉ロジコ株式会社　茂原路線営業所（事務所内入口）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1661</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市小林小林288-1<br>1台、月曜～金曜8時～17時（祝日及び夏季休暇、年末年始は不可）<br>TEL: 0475-22-2694<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.444068409543505</latitude>
+			<longitude>140.28330524036323</longitude>
+		</LookAt>
+		<number>87</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[京葉ロジコ株式会社　茂原営業所（入口　受付カウンター）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1662</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市東郷1865<br>1台、月曜～金曜8時30分～17時30分（祝日及び夏季休暇、年末年始は不可）<br>TEL: 0475-22-2693<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.43670459051853</latitude>
+			<longitude>140.31135688269123</longitude>
+		</LookAt>
+		<number>88</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[京葉ロジコ株式会社　本社（入口　受付カウンター）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1663</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市高師1690-1<br>1台、月曜～金曜8時30分～17時30分（祝日及び夏季休暇、年末年始は不可）<br>TEL: 0475-22-2361<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.436911665738904</latitude>
+			<longitude>140.28670435352205</longitude>
+		</LookAt>
+		<number>89</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[都自動車株式会社タクシー茂原営業所（事務所内点呼場）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1664</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市茂原644-1<br>1台、月曜～日曜8時～1時<br>TEL: 0475-22-3545<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.424480127183145</latitude>
+			<longitude>140.3034397228345</longitude>
+		</LookAt>
+		<number>90</number>
+		<icon />
+	</Placemark>
+	<Placemark>
+		<name><![CDATA[長生教育会館（入口外）]]></name>
+		<tcategory>1</tcategory>
+		<mcategory>3</mcategory>
+		<pcategory>21</pcategory>
+		<mapno>1665</mapno>
+		<zoom>15</zoom>
+		<icontype></icontype>
+        <balloonimg></balloonimg>
+		<description>
+<![CDATA[
+茂原市東郷2300-1<br>1台、24時間<br>TEL: 0475-24-9721<br>]]>
+		</description>
+		<LookAt>
+			<latitude>35.43408350671078</latitude>
+			<longitude>140.31183074188021</longitude>
+		</LookAt>
+		<number>91</number>
+		<icon />
+	</Placemark>
+</Placemarks>

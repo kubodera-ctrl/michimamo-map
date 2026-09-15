@@ -1,0 +1,55 @@
+{
+  "municipality_code": "12229",
+  "municipality": "袖ケ浦市",
+  "source_rows": 66,
+  "publish": 62,
+  "held": 2,
+  "coordinate_outliers_held": [
+    {
+      "row": 32,
+      "name": "袖ケ浦市今井球場",
+      "address": "千葉県袖ケ浦市長浦580番地76",
+      "reason": "coordinate_outside_city_review_bounds"
+    },
+    {
+      "row": 76,
+      "name": "永吉運動広場",
+      "address": "千葉県袖ケ浦市永吉712-3",
+      "reason": "coordinate_outside_city_review_bounds"
+    }
+  ],
+  "same_facility_holds": [
+    "municipal-open-data:sodegaura-aed:AED-54",
+    "municipal-open-data:sodegaura-aed:AED-67"
+  ],
+  "near_duplicate_pairs": 0,
+  "source_sha256": "701e2b710b8533bc5cc59b83c4063fdc0c731d26aec94c97f483294fa6d6992f",
+  "baseline": 45997,
+  "expected_final": 46059,
+  "batches": [
+    {
+      "file": "publish_dev17_sodegaura_01.sql",
+      "baseline": 45997,
+      "inserted": 25,
+      "held": 0,
+      "expected_final": 46022,
+      "sha256": "521fcb0451c13cc868e9c06bd1066fe59fef4faa91eafdc93bd80b2e18fdd6b5"
+    },
+    {
+      "file": "publish_dev17_sodegaura_02.sql",
+      "baseline": 46022,
+      "inserted": 25,
+      "held": 0,
+      "expected_final": 46047,
+      "sha256": "3209a1f8d1bbe9f742d0a88dec4bb5d9709f3f0553ff03311ae359f6952c6534"
+    },
+    {
+      "file": "publish_dev17_sodegaura_03.sql",
+      "baseline": 46047,
+      "inserted": 12,
+      "held": 2,
+      "expected_final": 46059,
+      "sha256": "34991fc633c354704faa24d3483c74fdcf11fe15f9b399f41035a33bda4a0eb7"
+    }
+  ]
+}

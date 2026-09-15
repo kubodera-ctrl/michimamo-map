@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-09-15",
+  "policy": "一般利用可能な自治体公式の施設単位座標、または住所詳細レベルの厳格位置照合だけを公開する。重複候補、市域外座標、外部利用不可、古い年度データ、代表点は保留する。",
+  "holds": [
+    {
+      "municipality_code": "12229",
+      "municipality": "袖ケ浦市",
+      "count": 2,
+      "reason": "coordinate_outside_city_review_bounds",
+      "items": [
+        "袖ケ浦市今井球場",
+        "永吉運動広場"
+      ]
+    },
+    {
+      "municipality_code": "12229",
+      "municipality": "袖ケ浦市",
+      "count": 2,
+      "reason": "same_facility_same_address_duplicate_candidate",
+      "items": [
+        "municipal-open-data:sodegaura-aed:AED-54",
+        "municipal-open-data:sodegaura-aed:AED-67"
+      ]
+    },
+    {
+      "municipality_code": "12235",
+      "municipality": "匝瑳市",
+      "count": 117,
+      "reason": "all_coordinate_rows_marked_external_use_unavailable"
+    },
+    {
+      "municipality_code": "33204",
+      "municipality": "玉野市",
+      "count": 90,
+      "reason": "source_dataset_is_fiscal_2014_and_current_status_unverified"
+    },
+    {
+      "municipality_code": "12239",
+      "municipality": "大網白里市",
+      "count": 34,
+      "reason": "geocode_level_2_or_3_representative_points"
+    },
+    {
+      "municipality_code": "27218",
+      "municipality": "大東市",
+      "count": 85,
+      "reason": "geocode_level_2_or_3_representative_points"
+    }
+  ],
+  "remaining_zero_municipalities_in_dev16_inventory": [
+    "名取市",
+    "熊谷市",
+    "狭山市",
+    "羽生市",
+    "鴻巣市",
+    "上尾市",
+    "草加市",
+    "蕨市",
+    "戸田市",
+    "入間市",
+    "志木市",
+    "久喜市",
+    "富士見市",
+    "蓮田市",
+    "坂戸市",
+    "鶴ヶ島市",
+    "白岡市",
+    "毛呂山町",
+    "嵐山町",
+    "鳩山町",
+    "寄居町",
+    "松伏町",
+    "柏市",
+    "八千代市",
+    "君津市",
+    "四街道市",
+    "匝瑳市",
+    "大網白里市",
+    "大東市",
+    "岡山市",
+    "玉野市"
+  ]
+}
