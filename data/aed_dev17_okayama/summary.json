@@ -1,0 +1,75 @@
+{
+  "municipality_code": "33100",
+  "municipality": "岡山市",
+  "source_rows": 694,
+  "publish": 694,
+  "held": 0,
+  "excluded": [],
+  "exact_removed": 0,
+  "near_duplicate_pairs": 1,
+  "near_pair_adjudication": "北長瀬駅と北長瀬駅南口自転車等駐車場は名称・住所・用途が異なる別施設として公開",
+  "license": "CC BY 4.0",
+  "source_updated_at": "2026-09-15",
+  "source_sha256": "c17faaa724a41b685eb83ab4dbe1e42345737bd3b11115d7333fdefce5808405",
+  "detail_url": "https://www.gis.pref.okayama.jp/pref-okayama/OpenDataDetail?lid=1575&mids=1506",
+  "baseline": 46080,
+  "expected_final": 46774,
+  "batches": [
+    {
+      "file": "publish_dev17_okayama_01.sql",
+      "baseline": 46080,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46180,
+      "sha256": "598c7b9abf169b8cd65fda9df3cd042410470b104ee651fc034bb6ae59f4b393"
+    },
+    {
+      "file": "publish_dev17_okayama_02.sql",
+      "baseline": 46180,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46280,
+      "sha256": "78ea9f221911c12c377a6847996c6dd37ce5720bbbf6a63196359e403d07e0e0"
+    },
+    {
+      "file": "publish_dev17_okayama_03.sql",
+      "baseline": 46280,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46380,
+      "sha256": "3c3e9ed2c04b8dab14e7e1c54030d9916be8f3732f689a1e7feb759f22b50852"
+    },
+    {
+      "file": "publish_dev17_okayama_04.sql",
+      "baseline": 46380,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46480,
+      "sha256": "f0209adda0d8378f04e6eb062942e49a5c13c0c3e47fbb873dc9ad71ac7faf38"
+    },
+    {
+      "file": "publish_dev17_okayama_05.sql",
+      "baseline": 46480,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46580,
+      "sha256": "fca67766eabe3865eefe9ca4d2de03c91e0dbb2569d06c4657a00ddb0bdbca83"
+    },
+    {
+      "file": "publish_dev17_okayama_06.sql",
+      "baseline": 46580,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 46680,
+      "sha256": "d8a9e823d67fa67a3d2e103ea888d675a9c63f98749829f34e2936d75eb22347"
+    },
+    {
+      "file": "publish_dev17_okayama_07.sql",
+      "baseline": 46680,
+      "inserted": 94,
+      "held": 0,
+      "expected_final": 46774,
+      "sha256": "803c4c60a4b13fe6e3f17dc087f31d3d7f7950481330c5de95423db078168f9b"
+    }
+  ]
+}
