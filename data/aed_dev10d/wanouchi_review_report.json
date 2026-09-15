@@ -1,0 +1,76 @@
+{
+  "source": {
+    "key": "wanouchi",
+    "prefecture": "岐阜県",
+    "municipality": "輪之内町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/c213829-019",
+    "source_updated_at": "2026-04-17",
+    "source_date": null,
+    "review_bounds": [
+      35.26,
+      35.33,
+      136.62,
+      136.69
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "輪之内町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/wanouchi.csv",
+        "url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/586f8112-0ec3-4b9a-b8a9-766f9b37f04d/resource/0e97ce29-7f16-4863-ad51-3c31b175b632/download/aed_202603_wanouchi.csv",
+        "expected_raw": 19,
+        "sha256": "5a8d8b7f8860413a8b3d3b153794288a6884b48d698db9bcba53e1fde98d7e2a"
+      }
+    ],
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "license_evidence_url": "https://www.pref.gifu.lg.jp/page/75247.html",
+    "date_note": "データ基準は2026年3月（日の記載なし）。source_updated_atはカタログ更新日。"
+  },
+  "raw_rows": 19,
+  "review_rows": 14,
+  "publish_candidates": 14,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "resource": "raw/wanouchi.csv",
+      "row": 12,
+      "name": "福束小学校",
+      "address": "岐阜県安八郡輪之内町南波76",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "resource": "raw/wanouchi.csv",
+      "row": 13,
+      "name": "福束小学校体育館",
+      "address": "岐阜県安八郡輪之内町南波76",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "resource": "raw/wanouchi.csv",
+      "row": 16,
+      "name": "輪之内中学校",
+      "address": "岐阜県安八郡輪之内町四郷2457",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "resource": "raw/wanouchi.csv",
+      "row": 17,
+      "name": "輪之内中学校体育館",
+      "address": "岐阜県安八郡輪之内町四郷2457",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "resource": "raw/wanouchi.csv",
+      "row": 18,
+      "name": "仁木こども園",
+      "address": "岐阜県安八郡輪之内町下大榑新田261‐2",
+      "reason": "geocoder_below_address_level_8"
+    }
+  ],
+  "excluded_by_reason": {
+    "geocoder_below_address_level_8": 5
+  },
+  "holds": [],
+  "adjusted": []
+}

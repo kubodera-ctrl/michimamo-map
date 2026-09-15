@@ -1,0 +1,269 @@
+{
+  "source": {
+    "key": "fuefuki",
+    "prefecture": "山梨県",
+    "municipality": "笛吹市",
+    "source_url": "https://www.city.fuefuki.yamanashi.jp/joho/shisejoho/kocho/opendata.html",
+    "source_updated_at": "2026-08-17",
+    "source_date": null,
+    "review_bounds": [
+      35.53,
+      35.69,
+      138.6,
+      138.73
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "笛吹市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/fuefuki_0.xlsx",
+        "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedkyouiku.xlsx",
+        "expected_raw": 65,
+        "sha256": "a35756b3451b1ce721a74b39588129a03dd28837db385a34341267d61214087d"
+      },
+      {
+        "snapshot": "raw/fuefuki_1.xlsx",
+        "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedsyoubou.xlsx",
+        "expected_raw": 3,
+        "sha256": "95f44d8f8ba42867f3bebd421a736f06fbce366802ef1a106ebf426c7ace59d0"
+      },
+      {
+        "snapshot": "raw/fuefuki_2.xlsx",
+        "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedshiyakusyo.xlsx",
+        "expected_raw": 9,
+        "sha256": "1cc22f642f755e2f2683a2221ec72bd8564dfccfa01d53eba473917159143254"
+      }
+    ],
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。公式座標を使用",
+    "date_note": "ページ更新日。個別Excelの調査日は不明。設置位置未記載行を除外。"
+  },
+  "raw_rows": 77,
+  "review_rows": 46,
+  "publish_candidates": 46,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 22,
+      "name": "笛吹市スコレーパリオ",
+      "address": "山梨県笛吹市石和町小石和751番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 24,
+      "name": "笛吹市学びの杜みさか",
+      "address": "山梨県笛吹市御坂町夏目原744番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 25,
+      "name": "笛吹市花鳥児童館",
+      "address": "山梨県笛吹市御坂町竹居2203番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 26,
+      "name": "笛吹市御坂地区陶芸施設",
+      "address": "山梨県笛吹市御坂町下野原1230番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 29,
+      "name": "笛吹市若彦路ふれあいセンター",
+      "address": "山梨県笛吹市八代町南544番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 31,
+      "name": "笛吹市芦川ふるさと総合センター",
+      "address": "山梨県笛吹市芦川町中芦川1077番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 32,
+      "name": "笛吹市芦川グリーンロッジ",
+      "address": "山梨県笛吹市芦川町鶯宿1760番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 33,
+      "name": "笛吹市芦川やすらぎの里",
+      "address": "山梨県笛吹市芦川町鶯宿466番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 35,
+      "name": "笛吹市石和農村スポーツ広場",
+      "address": "山梨県笛吹市石和町広瀬666番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 39,
+      "name": "笛吹市御坂テニスコート",
+      "address": "山梨県笛吹市御坂町尾山5番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 40,
+      "name": "笛吹市御坂テニス＆キッズ広場",
+      "address": "山梨県笛吹市御坂町尾山32番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 41,
+      "name": "笛吹市御坂成田弓道場",
+      "address": "山梨県笛吹市御坂町成田397番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 42,
+      "name": "笛吹市いちのみや桃の里スポーツ公園グラウンド",
+      "address": "山梨県笛吹市一宮町末木1001番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 43,
+      "name": "笛吹市一宮スポーツ広場テニスコート",
+      "address": "山梨県笛吹市一宮町東原335番地2",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 45,
+      "name": "笛吹市八代中央スポーツ広場",
+      "address": "山梨県笛吹市八代町南527番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 46,
+      "name": "笛吹市八代南部スポーツ広場",
+      "address": "山梨県笛吹市八代町米倉36番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 47,
+      "name": "笛吹市八代中央水泳プール",
+      "address": "山梨県笛吹市八代町南497番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 48,
+      "name": "笛吹市境川スポーツセンターグラウンド",
+      "address": "山梨県笛吹市境川町三椚7番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 49,
+      "name": "笛吹市境川弓道場",
+      "address": "山梨県笛吹市境川町石橋2445番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 51,
+      "name": "笛吹市春日居弓道場",
+      "address": "山梨県笛吹市春日居町鎮目1696番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 52,
+      "name": "笛吹市春日居柔剣道場",
+      "address": "山梨県笛吹市春日居町加茂147番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 53,
+      "name": "笛吹市芦川スポーツ広場",
+      "address": "山梨県笛吹市芦川町鶯宿1613番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 54,
+      "name": "笛吹市多目的広場",
+      "address": "山梨県笛吹市石和町砂原862番地1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 55,
+      "name": "笛吹市若彦路ふれあいスポーツ館弓道場",
+      "address": "山梨県笛吹市八代南457番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 57,
+      "name": "笛吹市一宮スポーツ広場弓道場",
+      "address": "山梨県笛吹市一宮町東原335番地2",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 59,
+      "name": "笛吹市境川スポーツセンターテニスコート",
+      "address": "山梨県笛吹市境川町三椚7番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 60,
+      "name": "笛吹市春日居スポーツ広場テニスコート",
+      "address": "山梨県笛吹市春日居町鎮目1323番地",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 61,
+      "name": "春日居郷土館",
+      "address": "山梨県笛吹市春日居町寺本170-1",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 62,
+      "name": "青楓美術館",
+      "address": "山梨県笛吹市一宮町北野呂3-3",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 63,
+      "name": "八田家書院",
+      "address": "山梨県笛吹市石和町八田334",
+      "reason": "installation_location_unspecified"
+    },
+    {
+      "resource": "raw/fuefuki_0.xlsx",
+      "row": 64,
+      "name": "八代郷土館",
+      "address": "山梨県笛吹市八代町南796",
+      "reason": "installation_location_unspecified"
+    }
+  ],
+  "excluded_by_reason": {
+    "installation_location_unspecified": 31
+  },
+  "holds": [],
+  "adjusted": []
+}

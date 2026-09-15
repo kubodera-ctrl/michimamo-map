@@ -1,0 +1,105 @@
+{
+  "author": "",
+  "author_email": "",
+  "creator_user_id": "8dea5339-0d2b-4c62-97db-2f55794f0cc8",
+  "id": "586f8112-0ec3-4b9a-b8a9-766f9b37f04d",
+  "isopen": true,
+  "license_id": "cc-by",
+  "license_title": "クリエイティブ・コモンズ 表示",
+  "license_url": "http://www.opendefinition.org/licenses/cc-by",
+  "maintainer": "",
+  "maintainer_email": "",
+  "metadata_created": "2026-04-17T06:59:56.893890",
+  "metadata_modified": "2026-04-17T07:01:02.431193",
+  "name": "c213829-019",
+  "notes": "安八郡輪之内町のAED設置個所一覧のデータです。\r\n\r\n**※更新情報**  \r\n*R8.4.17　2026年3月時点のデータを登録しました。*",
+  "num_resources": 2,
+  "num_tags": 0,
+  "organization": {
+    "id": "815c4cf1-36e4-41e6-989a-aa53051fcc58",
+    "name": "40280",
+    "title": "安八郡輪之内町",
+    "type": "organization",
+    "description": "",
+    "image_url": "",
+    "created": "2018-11-19T11:02:49.036545",
+    "is_organization": true,
+    "approval_status": "approved",
+    "state": "active"
+  },
+  "owner_org": "815c4cf1-36e4-41e6-989a-aa53051fcc58",
+  "private": false,
+  "state": "active",
+  "title": "【安八郡輪之内町】AED設置場所一覧",
+  "type": "dataset",
+  "url": "",
+  "version": "",
+  "extras": [
+    {
+      "key": "copyright",
+      "value": ""
+    },
+    {
+      "key": "frequency",
+      "value": ""
+    },
+    {
+      "key": "language",
+      "value": "Japanese"
+    },
+    {
+      "key": "spatial",
+      "value": ""
+    }
+  ],
+  "resources": [
+    {
+      "cache_last_updated": null,
+      "cache_url": null,
+      "created": "2026-04-17T07:00:29.385767",
+      "datastore_active": false,
+      "description": "",
+      "format": "XLSX",
+      "hash": "",
+      "id": "ed6628cd-3bf0-4557-8ff9-9d770de82df4",
+      "last_modified": "2026-04-17T07:00:29.377104",
+      "metadata_modified": "2026-04-17T07:01:02.315959",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mimetype_inner": null,
+      "name": "【安八郡輪之内町】AED設置個所一覧（Excel）(202603)",
+      "package_id": "586f8112-0ec3-4b9a-b8a9-766f9b37f04d",
+      "position": 0,
+      "resource_type": null,
+      "size": 15494,
+      "state": "active",
+      "url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/586f8112-0ec3-4b9a-b8a9-766f9b37f04d/resource/ed6628cd-3bf0-4557-8ff9-9d770de82df4/download/aed_202603_wanouchi.xlsx",
+      "url_type": "upload"
+    },
+    {
+      "cache_last_updated": null,
+      "cache_url": null,
+      "created": "2026-04-17T07:01:02.318911",
+      "datastore_active": false,
+      "description": "",
+      "format": "CSV",
+      "hash": "",
+      "id": "0e97ce29-7f16-4863-ad51-3c31b175b632",
+      "last_modified": "2026-04-17T07:01:02.305079",
+      "metadata_modified": "2026-04-17T07:01:02.434468",
+      "mimetype": "text/csv",
+      "mimetype_inner": null,
+      "name": "【安八郡輪之内町】AED設置個所一覧（csv）(202603)",
+      "package_id": "586f8112-0ec3-4b9a-b8a9-766f9b37f04d",
+      "position": 1,
+      "resource_type": null,
+      "size": 3100,
+      "state": "active",
+      "url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/586f8112-0ec3-4b9a-b8a9-766f9b37f04d/resource/0e97ce29-7f16-4863-ad51-3c31b175b632/download/aed_202603_wanouchi.csv",
+      "url_type": "upload"
+    }
+  ],
+  "tags": [],
+  "groups": [],
+  "relationships_as_subject": [],
+  "relationships_as_object": []
+}

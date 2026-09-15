@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_fourth_three_prefecture_set",
+  "before_public_aed": 39699,
+  "after_public_aed": 39919,
+  "inserted": 220,
+  "published_municipalities": 446,
+  "unpublished_municipalities": 1295,
+  "staging_holds": 19,
+  "validation": "県別rollback事前検証、独立トランザクション、本番重複・件数ガード、anon地図RPC46/160/14。全39919件の公式自治体コード割当確認。",
+  "sources": [
+    {
+      "prefecture": "山梨県",
+      "municipality": "笛吹市",
+      "published": 46,
+      "held": 0,
+      "excluded_by_reason": {
+        "installation_location_unspecified": 31
+      },
+      "adjusted": [],
+      "source_url": "https://www.city.fuefuki.yamanashi.jp/joho/shisejoho/kocho/opendata.html",
+      "resources": [
+        {
+          "snapshot": "raw/fuefuki_0.xlsx",
+          "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedkyouiku.xlsx",
+          "expected_raw": 65,
+          "sha256": "a35756b3451b1ce721a74b39588129a03dd28837db385a34341267d61214087d"
+        },
+        {
+          "snapshot": "raw/fuefuki_1.xlsx",
+          "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedsyoubou.xlsx",
+          "expected_raw": 3,
+          "sha256": "95f44d8f8ba42867f3bebd421a736f06fbce366802ef1a106ebf426c7ace59d0"
+        },
+        {
+          "snapshot": "raw/fuefuki_2.xlsx",
+          "url": "https://www.city.fuefuki.yamanashi.jp/documents/6715/aedshiyakusyo.xlsx",
+          "expected_raw": 9,
+          "sha256": "1cc22f642f755e2f2683a2221ec72bd8564dfccfa01d53eba473917159143254"
+        }
+      ],
+      "sql_sha256": "de3d416b490a2bacfbcbbe15c57ee39befa791bf4827fc40f8638d6751cab9f2"
+    },
+    {
+      "prefecture": "長野県",
+      "municipality": "飯田市",
+      "published": 160,
+      "held": 0,
+      "excluded_by_reason": {
+        "source_reports_no_installation_position": 1,
+        "incomplete_street_address": 1
+      },
+      "adjusted": [
+        {
+          "name": "飯田市保健センター",
+          "field": "installation_location",
+          "before": "1階ホール;1階事務室（貸出用）",
+          "after": "1階ホール",
+          "reason": "retain_fixed_hall_device_exclude_portable_loan"
+        }
+      ],
+      "source_url": "https://www.city.iida.lg.jp/soshiki/168/opendata.html",
+      "resources": [
+        {
+          "snapshot": "raw/iida.csv",
+          "url": "https://www.city.iida.lg.jp/uploaded/attachment/78769.csv",
+          "expected_raw": 162,
+          "sha256": "557ab97859c314d791b9923ddcb22b93c353bf1c2a24e8aa7b22627b59aa6077"
+        }
+      ],
+      "sql_sha256": "8a30b472b3db4220abd900e29f27feae7ea424043d72d135efe197f62d9aa3fb"
+    },
+    {
+      "prefecture": "岐阜県",
+      "municipality": "輪之内町",
+      "published": 14,
+      "held": 0,
+      "excluded_by_reason": {
+        "geocoder_below_address_level_8": 5
+      },
+      "adjusted": [],
+      "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/c213829-019",
+      "resources": [
+        {
+          "snapshot": "raw/wanouchi.csv",
+          "url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/586f8112-0ec3-4b9a-b8a9-766f9b37f04d/resource/0e97ce29-7f16-4863-ad51-3c31b175b632/download/aed_202603_wanouchi.csv",
+          "expected_raw": 19,
+          "sha256": "5a8d8b7f8860413a8b3d3b153794288a6884b48d698db9bcba53e1fde98d7e2a"
+        }
+      ],
+      "sql_sha256": "a85eed429b2b1abf8831f76c063dbb2aa25633d522c3d0fd38391f21454e9d80"
+    }
+  ],
+  "next_prefectures": [
+    "静岡県",
+    "愛知県",
+    "三重県"
+  ]
+}

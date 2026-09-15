@@ -1,0 +1,65 @@
+{
+  "source": {
+    "key": "iida",
+    "prefecture": "長野県",
+    "municipality": "飯田市",
+    "source_url": "https://www.city.iida.lg.jp/soshiki/168/opendata.html",
+    "source_updated_at": "2025-12-19",
+    "source_date": null,
+    "review_bounds": [
+      35.3,
+      35.55,
+      137.75,
+      137.98
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "飯田市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/iida.csv",
+        "url": "https://www.city.iida.lg.jp/uploaded/attachment/78769.csv",
+        "expected_raw": 162,
+        "sha256": "557ab97859c314d791b9923ddcb22b93c353bf1c2a24e8aa7b22627b59aa6077"
+      }
+    ],
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。公式座標を使用",
+    "license_note": "PDL1.0採用。規約1.7(3)のCC BY4.0利用許諾に基づきCC BY4.0として利用。",
+    "license_evidence_url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+    "additional_license_url": "https://www.city.iida.lg.jp/uploaded/attachment/78773.pdf"
+  },
+  "raw_rows": 162,
+  "review_rows": 160,
+  "publish_candidates": 160,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "resource": "raw/iida.csv",
+      "row": 45,
+      "name": "野あそび保育みっけ",
+      "address": "長野県飯田市北方3489-132",
+      "reason": "source_reports_no_installation_position"
+    },
+    {
+      "resource": "raw/iida.csv",
+      "row": 148,
+      "name": "南信濃簡易宿泊施設（島畑）",
+      "address": "長野県飯田市南信濃和田",
+      "reason": "incomplete_street_address"
+    }
+  ],
+  "excluded_by_reason": {
+    "source_reports_no_installation_position": 1,
+    "incomplete_street_address": 1
+  },
+  "holds": [],
+  "adjusted": [
+    {
+      "name": "飯田市保健センター",
+      "field": "installation_location",
+      "before": "1階ホール;1階事務室（貸出用）",
+      "after": "1階ホール",
+      "reason": "retain_fixed_hall_device_exclude_portable_loan"
+    }
+  ]
+}
