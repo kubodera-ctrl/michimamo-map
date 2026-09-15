@@ -2,7 +2,7 @@
 """Recover current official AED files for known portal failures.
 
 This step updates only the fetch evidence in data/aed_dev14/catalog_fetch.json.
-It never writes to Supabase.  Sources are limited to municipality-owned pages
+It never writes to Supabase. Sources are limited to municipality-owned pages
 whose reuse terms and direct files were independently verified.
 """
 from __future__ import annotations
@@ -30,6 +30,16 @@ DIRECT = {
         "resource_id": "ichikawa_53056",
         "format": "CSV",
     },
+    "12207": {
+        "prefecture": "千葉県",
+        "municipality": "松戸市",
+        "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+        "download_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv",
+        "license": "cc-by4_0",
+        "updated_at": "2026-02-27",
+        "resource_id": "matsudo_aed_csv",
+        "format": "CSV",
+    },
     "12208": {
         "prefecture": "千葉県",
         "municipality": "野田市",
@@ -39,6 +49,36 @@ DIRECT = {
         "updated_at": "2026-07-01",
         "resource_id": "noda_26_7aed",
         "format": "CSV",
+    },
+    "12217": {
+        "prefecture": "千葉県",
+        "municipality": "柏市",
+        "source_url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html",
+        "download_url": "https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv",
+        "license": "cc-by4_0",
+        "updated_at": "2025-12-01",
+        "resource_id": "kashiwa_aed_csv",
+        "format": "CSV",
+    },
+    "12220": {
+        "prefecture": "千葉県",
+        "municipality": "流山市",
+        "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html",
+        "download_url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv",
+        "license": "cc-by4_0",
+        "updated_at": "2023-10-17",
+        "resource_id": "nagareyama_aed_20231017",
+        "format": "CSV",
+    },
+    "12221": {
+        "prefecture": "千葉県",
+        "municipality": "八千代市",
+        "source_url": "https://www.city.yachiyo.lg.jp/soshiki/7/2030.html",
+        "download_url": "https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx",
+        "license": "cc-by4_0",
+        "updated_at": "2026-07-01",
+        "resource_id": "yachiyo_48319",
+        "format": "XLSX",
     },
 }
 
