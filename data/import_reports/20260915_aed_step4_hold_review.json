@@ -1,0 +1,50 @@
+{
+  "run_date": "2026-09-15",
+  "roadmap_step": 4,
+  "baseline_public_aed": 35482,
+  "baseline_hold": 41,
+  "official_sources_checked": [
+    {
+      "municipality": "北広島市",
+      "resource": "20231227_aed.csv",
+      "resource_id": "84b3097e-72a0-4d01-a983-7b39d108af7c",
+      "license": "CC BY",
+      "decision": "publish 6 distinct official rows"
+    },
+    {
+      "municipality": "恵庭市",
+      "resource": "012319_aed.csv",
+      "resource_id": "d0eb46ca-6697-4613-9630-8b333f31961a",
+      "license": "CC BY",
+      "decision": "publish 2 distinct installation locations"
+    },
+    {
+      "municipality": "音更町",
+      "resource": "016314_aed_202504.csv",
+      "resource_id": "5942accc-d898-4935-93b9-52e90f2877c6",
+      "license": "CC BY",
+      "decision": "retain current snapshot; mark four historical resources duplicate and deactivate 22 historical public rows"
+    },
+    {
+      "municipality": "寒河江市",
+      "resource": "062065_aed.csv",
+      "resource_id": "34387d26-6b22-437e-b987-6297a638d736",
+      "license": "CC BY",
+      "decision": "publish one shared AED label; mark the second label duplicate"
+    },
+    {
+      "municipality": "能代市",
+      "resource": "052027_aed.csv",
+      "resource_id": "e8633ef6-8efd-4e1a-9beb-c15dfee9b71f",
+      "license": "CC BY",
+      "decision": "publish 2 distinct installation locations"
+    }
+  ],
+  "published_from_hold": 11,
+  "marked_duplicate_from_hold": 15,
+  "deactivated_historical_public_rows": 22,
+  "remaining_hold": 15,
+  "remaining_hold_reason": "近江八幡市カタログの複数施設に同一代表座標が付与され、施設単位の位置を確定できない",
+  "final_public_aed": 35471,
+  "next_action": "近江八幡市15件の施設単位座標確認と、未掲載1,367自治体の公式消防・防災・オープンデータ探索を継続"
+}
