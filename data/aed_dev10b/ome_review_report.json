@@ -1,0 +1,230 @@
+{
+  "source": {
+    "key": "ome",
+    "prefecture": "東京都",
+    "municipality": "青梅市",
+    "snapshot": "raw/ome.xlsx",
+    "expected_raw": 79,
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132055d0000000002",
+    "resource_url": "https://www.opendata.metro.tokyo.lg.jp/ome/132055_aed.xlsx",
+    "source_name": "青梅市 AED設置箇所一覧（現行一覧と名称・住所照合、貸出機除外）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2024-03-21",
+    "source_date": null,
+    "review_bounds": [
+      35.76,
+      35.84,
+      139.14,
+      139.34
+    ],
+    "current_evidence_url": "https://www.city.ome.tokyo.jp/soshiki/32/11715.html",
+    "current_evidence_date": "2026-07-01",
+    "review_reason": "青梅市公式座標・CC BY4.0、2026年7月現行一覧との施設名住所一致、貸出機除外、本番重複照合を確認",
+    "sha256": "5f73592f37a74092c5afa69a9fbf2ab004e2baf1c264282cb8400067b5972032"
+  },
+  "raw_rows": 79,
+  "pre_dedup_count": 47,
+  "review_rows": 47,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "publish_candidates": 47,
+  "excluded": [
+    {
+      "row": 2,
+      "name": "青梅市消防団第5分団第4部詰所",
+      "address": "東京都青梅市御岳山114",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 4,
+      "name": "沢井市民センター・沢井出張所",
+      "address": "東京都青梅市沢井2-682",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 6,
+      "name": "青梅市立西中学校",
+      "address": "東京都青梅市梅郷6-1460",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 8,
+      "name": "梅郷市民センター・梅郷出張所",
+      "address": "東京都青梅市梅郷3-749-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 9,
+      "name": "旧北小曽木ふれあいセンター",
+      "address": "東京都青梅市成木8-676",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 12,
+      "name": "成木市民センター・成木出張所",
+      "address": "東京都青梅市成木4-644",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 13,
+      "name": "天ヶ瀬体育館",
+      "address": "東京都青梅市天ヶ瀬町1111-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 14,
+      "name": "ネッツたまぐーセンター",
+      "address": "東京都青梅市上町374",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 15,
+      "name": "美術館",
+      "address": "東京都青梅市滝の上町1346-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 17,
+      "name": "青梅市立第七中学校",
+      "address": "東京都青梅市成木4-544",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 20,
+      "name": "永山公園総合グラウンド",
+      "address": "東京都青梅市住江町25",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 22,
+      "name": "永山公園体育館",
+      "address": "東京都青梅市本町217",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 26,
+      "name": "東青梅センタービル3階",
+      "address": "東京都青梅市東青梅1-2-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 29,
+      "name": "青梅市健康センター",
+      "address": "東京都青梅市東青梅1-174-1",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 31,
+      "name": "青梅市立第二中学校",
+      "address": "東京都青梅市千ヶ瀬町2-155",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 33,
+      "name": "小曾木市民センター・小曾木出張所",
+      "address": "東京都青梅市小曾木3-1656-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 34,
+      "name": "青梅市役所",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 35,
+      "name": "スポーツ推進課",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 36,
+      "name": "スポーツ推進課",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 37,
+      "name": "スポーツ推進課",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 38,
+      "name": "スポーツ推進課",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "portable_loan_device_not_fixed_pin"
+    },
+    {
+      "row": 39,
+      "name": "青梅市役所",
+      "address": "東京都青梅市東青梅1-11-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 42,
+      "name": "青梅市立総合病院",
+      "address": "東京都青梅市東青梅4-16-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 43,
+      "name": "青梅市立総合病院",
+      "address": "東京都青梅市東青梅4-16-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 44,
+      "name": "青梅市立総合病院",
+      "address": "東京都青梅市東青梅4-16-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 45,
+      "name": "青梅市立総合病院",
+      "address": "東京都青梅市東青梅4-16-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 46,
+      "name": "青梅市立総合病院",
+      "address": "東京都青梅市東青梅4-16-5",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 52,
+      "name": "友田レクレーション広場",
+      "address": "東京都青梅市友田町5-340",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 53,
+      "name": "総合体育館",
+      "address": "東京都青梅市河辺町4-16-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 55,
+      "name": "中央図書館",
+      "address": "東京都青梅市河辺町10-8-1",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 65,
+      "name": "交通公園",
+      "address": "東京都青梅市大門3-14-3",
+      "reason": "current_name_address_not_exactly_matched"
+    },
+    {
+      "row": 68,
+      "name": "東原公園球技場",
+      "address": "東京都青梅市今寺5-11",
+      "reason": "current_name_address_not_exactly_matched"
+    }
+  ],
+  "excluded_by_reason": {
+    "portable_loan_device_not_fixed_pin": 6,
+    "current_name_address_not_exactly_matched": 26
+  },
+  "holds": []
+}

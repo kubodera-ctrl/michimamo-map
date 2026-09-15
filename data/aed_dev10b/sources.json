@@ -1,0 +1,75 @@
+{
+  "production_baseline": 39276,
+  "sources": [
+    {
+      "key": "ome",
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "snapshot": "raw/ome.xlsx",
+      "expected_raw": 79,
+      "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132055d0000000002",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/ome/132055_aed.xlsx",
+      "source_name": "青梅市 AED設置箇所一覧（現行一覧と名称・住所照合、貸出機除外）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2024-03-21",
+      "source_date": null,
+      "review_bounds": [
+        35.76,
+        35.84,
+        139.14,
+        139.34
+      ],
+      "current_evidence_url": "https://www.city.ome.tokyo.jp/soshiki/32/11715.html",
+      "current_evidence_date": "2026-07-01",
+      "review_reason": "青梅市公式座標・CC BY4.0、2026年7月現行一覧との施設名住所一致、貸出機除外、本番重複照合を確認",
+      "sha256": "5f73592f37a74092c5afa69a9fbf2ab004e2baf1c264282cb8400067b5972032"
+    },
+    {
+      "key": "hadano",
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "snapshot": "raw/hadano.csv",
+      "expected_raw": 328,
+      "source_url": "https://www.city.hadano.kanagawa.jp/soshiki/1/1005/1/1745.html",
+      "resource_url": "https://www.city.hadano.kanagawa.jp/material/files/group/6/142115_aed.csv",
+      "source_name": "秦野市 AED設置施設一覧（表記整形・住所位置情報付与）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2024-06-14",
+      "source_date": null,
+      "review_bounds": [
+        35.34,
+        35.44,
+        139.13,
+        139.3
+      ],
+      "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+      "sha256": "cc5b05c910f919d809f95d681e0102a1218bf73daf493d4397e2bc0f1ac586b3"
+    },
+    {
+      "key": "ojiya",
+      "prefecture": "新潟県",
+      "municipality": "小千谷市",
+      "snapshot": "raw/ojiya.csv",
+      "expected_raw": 37,
+      "source_url": "https://www.city.ojiya.niigata.jp/soshiki/kikakuseisaku/opendata.html",
+      "resource_url": "https://www.city.ojiya.niigata.jp/uploaded/attachment/30048.csv",
+      "source_name": "小千谷市 AED設置箇所一覧（表記整形・旧図書館と住所不明行を除外）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2023-12-05",
+      "source_date": null,
+      "review_bounds": [
+        37.21,
+        37.39,
+        138.75,
+        138.88
+      ],
+      "sha256": "6fcc1d8b3717c3dcf3e252f070f31fbd8e45029ab79c6d28c6c2515b6234160d"
+    }
+  ],
+  "evidence_hashes": {
+    "ome_current_table.json": "d076b3168d9fd7758c954974af21440f665037213f67209cc1c6ec98643810b4",
+    "hadano_geocoded.jsonl": "20210c48c37b1f2a95e3a913075211f577afeb6c1ec1ce03eb91f5096789f8d7"
+  },
+  "geocoder_package_version": "3.1.3",
+  "geocoder_script": "scripts/geocode_with_geolonia.mjs"
+}

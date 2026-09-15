@@ -1,0 +1,671 @@
+{
+  "source": {
+    "key": "hadano",
+    "prefecture": "神奈川県",
+    "municipality": "秦野市",
+    "snapshot": "raw/hadano.csv",
+    "expected_raw": 328,
+    "source_url": "https://www.city.hadano.kanagawa.jp/soshiki/1/1005/1/1745.html",
+    "resource_url": "https://www.city.hadano.kanagawa.jp/material/files/group/6/142115_aed.csv",
+    "source_name": "秦野市 AED設置施設一覧（表記整形・住所位置情報付与）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2024-06-14",
+    "source_date": null,
+    "review_bounds": [
+      35.34,
+      35.44,
+      139.13,
+      139.3
+    ],
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "sha256": "cc5b05c910f919d809f95d681e0102a1218bf73daf493d4397e2bc0f1ac586b3"
+  },
+  "raw_rows": 328,
+  "pre_dedup_count": 222,
+  "review_rows": 222,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "publish_candidates": 222,
+  "excluded": [
+    {
+      "row": 3,
+      "name": "秦野市役所秦野駅連絡所",
+      "address": "神奈川県秦野市今川町1-2-303",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 4,
+      "name": "秦野市役所渋沢駅連絡所",
+      "address": "神奈川県秦野市曲松1-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 5,
+      "name": "秦野市文化会館",
+      "address": "神奈川県秦野市平沢82",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 8,
+      "name": "秦野市曲松児童センター",
+      "address": "神奈川県秦野市曲松1-13-18",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 10,
+      "name": "鶴巻温泉 弘法の里湯",
+      "address": "神奈川県秦野市鶴巻北3-1-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 15,
+      "name": "秦野市保健福祉センター",
+      "address": "神奈川県秦野市緑町16-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 22,
+      "name": "秦野市南公民館",
+      "address": "神奈川県秦野市今泉598",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 26,
+      "name": "秦野市鶴巻公民館",
+      "address": "神奈川県秦野市鶴巻2182",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 28,
+      "name": "秦野市本町公民館",
+      "address": "神奈川県秦野市入船町12-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 29,
+      "name": "秦野市南が丘公民館",
+      "address": "神奈川県秦野市南が丘4-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 34,
+      "name": "はだのクリーンセンター",
+      "address": "神奈川県秦野市曽屋4624",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 37,
+      "name": "秦野市立東小学校",
+      "address": "神奈川県秦野市寺山512",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 38,
+      "name": "秦野市立北小学校",
+      "address": "神奈川県秦野市菩提380",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 39,
+      "name": "秦野市立大根小学校",
+      "address": "神奈川県秦野市南矢名4-29-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 40,
+      "name": "秦野市立西小学校",
+      "address": "神奈川県秦野市並木町8-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 43,
+      "name": "秦野市立渋沢小学校",
+      "address": "神奈川県秦野市渋沢上1-12-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 45,
+      "name": "秦野市立南が丘小学校",
+      "address": "神奈川県秦野市南が丘4-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 49,
+      "name": "秦野市立南中学校",
+      "address": "神奈川県秦野市緑町16-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 50,
+      "name": "秦野市立東中学校",
+      "address": "神奈川県秦野市寺山509",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 52,
+      "name": "秦野市立大根中学校",
+      "address": "神奈川県秦野市南矢名4-28-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 54,
+      "name": "秦野市立南が丘中学校",
+      "address": "神奈川県秦野市南が丘1-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 59,
+      "name": "秦野市立東幼稚園",
+      "address": "神奈川県秦野市寺山509",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 61,
+      "name": "秦野市立西幼稚園",
+      "address": "神奈川県秦野市並木町8-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 62,
+      "name": "秦野市立ひろはたこども園",
+      "address": "神奈川県秦野市下大槻138",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 63,
+      "name": "秦野市立みどりこども園",
+      "address": "神奈川県秦野市緑町16-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 65,
+      "name": "秦野市立しぶさわこども園",
+      "address": "神奈川県秦野市渋沢上1-12-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 66,
+      "name": "秦野市立みなみがおか幼稚園",
+      "address": "神奈川県秦野市南が丘2-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 69,
+      "name": "秦野市役所東海大学前駅連絡所",
+      "address": "神奈川県秦野市南矢名1-1-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 73,
+      "name": "秦野市老人いこいの家くずは荘",
+      "address": "神奈川県秦野市羽根534",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 80,
+      "name": "消防署南分署",
+      "address": "神奈川県秦野市立野台2-5-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 83,
+      "name": "烏尾山荘",
+      "address": "神奈川県秦野市丹沢寺山",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 84,
+      "name": "堀山の家",
+      "address": "神奈川県秦野市堀山下",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 85,
+      "name": "花立山荘",
+      "address": "神奈川県秦野市堀山下",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 86,
+      "name": "尊仏山荘",
+      "address": "神奈川県秦野市愛甲郡清川村煤ヶ谷",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 87,
+      "name": "鍋割山荘",
+      "address": "神奈川県秦野市三廻部",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 89,
+      "name": "立野緑地庭球場",
+      "address": "神奈川県秦野市南が丘1-2-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 94,
+      "name": "堀山下児童館",
+      "address": "神奈川県秦野市堀山下843",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 95,
+      "name": "サンシティー神奈川",
+      "address": "神奈川県秦野市南が丘4-4",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 98,
+      "name": "イオン秦野ショッピングセンター",
+      "address": "神奈川県秦野市入船町12-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 99,
+      "name": "社会福祉法人 かながわ共同会 秦野精華園",
+      "address": "神奈川県秦野市南矢名3-2-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 103,
+      "name": "中栄信用金庫 南支店",
+      "address": "神奈川県秦野市鈴張町2-31-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 108,
+      "name": "有限会社 後楽園",
+      "address": "神奈川県秦野市堀西94",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 109,
+      "name": "日産車体株式会社 秦野事業所",
+      "address": "神奈川県秦野市堀山下233",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 117,
+      "name": "上智大学短期大学部",
+      "address": "神奈川県秦野市上大槻999",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 120,
+      "name": "株式会社 コベルコ マテリアル鋼管 秦野工場",
+      "address": "神奈川県秦野市平沢65",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 121,
+      "name": "株式会社 東京カントリー倶楽部",
+      "address": "神奈川県秦野市寺山1450",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 122,
+      "name": "アイム湘南美容教育専門学校",
+      "address": "神奈川県秦野市尾尻536-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 128,
+      "name": "クアーズテック株式会社 秦野事業所",
+      "address": "神奈川県秦野市曽屋30",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 129,
+      "name": "神奈川県立秦野高等学校",
+      "address": "神奈川県秦野市下大槻113",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 134,
+      "name": "乗馬クラブ クレイン神奈川",
+      "address": "神奈川県秦野市三廻部732",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 137,
+      "name": "ひまわり保育園",
+      "address": "神奈川県秦野市室町3-23",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 138,
+      "name": "アズビル株式会社 秦野事業所",
+      "address": "神奈川県秦野市平沢217",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 141,
+      "name": "神奈川県立秦野総合高等学校",
+      "address": "神奈川県秦野市南が丘1-4-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 144,
+      "name": "(株)ティラド 秦野製作所",
+      "address": "神奈川県秦野市曽屋937",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 146,
+      "name": "有限会社 ザ・バーバーヴォーグ",
+      "address": "神奈川県秦野市南矢名5-1-8",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 148,
+      "name": "株式会社 不二家 秦野工場",
+      "address": "神奈川県秦野市曽屋228",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 150,
+      "name": "中栄信用金庫 鶴巻駅前支店",
+      "address": "神奈川県秦野市鶴巻北2-2-1-107",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 153,
+      "name": "富士見斎場 株式会社",
+      "address": "神奈川県秦野市曽屋1011",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 155,
+      "name": "株式会社山王 秦野工場",
+      "address": "神奈川県秦野市曽屋566",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 156,
+      "name": "さがみ信用金庫秦野駅プラザ支店",
+      "address": "神奈川県秦野市尾尻943-16",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 158,
+      "name": "小田急はだのテニスガーデン",
+      "address": "神奈川県秦野市千村5-21-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 162,
+      "name": "株式会社YDKテクノロジーズ",
+      "address": "神奈川県秦野市曽屋500",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 163,
+      "name": "(株)トープラ 秦野工場",
+      "address": "神奈川県秦野市曽屋201",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 164,
+      "name": "(株)トープラ テクニカルセンター",
+      "address": "神奈川県秦野市曽屋881",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 165,
+      "name": "(株)トープラ 秦野物流センター",
+      "address": "神奈川県秦野市戸川950",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 176,
+      "name": "日鍛バルブ株式会社 本社工場",
+      "address": "神奈川県秦野市曽屋518",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 181,
+      "name": "秦野市農業協同組合 本所",
+      "address": "神奈川県秦野市平沢477",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 191,
+      "name": "秦野市農業協同組合 秦野駅前支店",
+      "address": "神奈川県秦野市今川町1-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 194,
+      "name": "Curves 秦野南が丘",
+      "address": "神奈川県秦野市立野台3-2-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 204,
+      "name": "株式会社 クボテック",
+      "address": "神奈川県秦野市西田原1220",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 207,
+      "name": "カインズホーム秦野店",
+      "address": "神奈川県秦野市落合480",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 213,
+      "name": "(株)タンザワ",
+      "address": "神奈川県秦野市曽屋357",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 222,
+      "name": "JAデイサービスセンターはだの",
+      "address": "神奈川県秦野市平沢435",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 225,
+      "name": "ライフステージ・悠トピア",
+      "address": "神奈川県秦野市南矢名1955",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 228,
+      "name": "(株)神奈川銀行 下大槻支店",
+      "address": "神奈川県秦野市下大槻410-2-7-101",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 231,
+      "name": "ライフプラザ鶴巻",
+      "address": "神奈川県秦野市鶴巻北3-1-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 232,
+      "name": "秦野マンション",
+      "address": "神奈川県秦野市南矢名2044",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 240,
+      "name": "秦野駅南口診療所",
+      "address": "神奈川県秦野市尾尻940-5",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 243,
+      "name": "医療法人社団 山口内科循環器科",
+      "address": "神奈川県秦野市今泉359",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 250,
+      "name": "医療法人社団翠明会 あおば診療所",
+      "address": "神奈川県秦野市曲松1-4-12",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 251,
+      "name": "出雲記念館",
+      "address": "神奈川県秦野市平沢1221",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 253,
+      "name": "セブンイレブン秦野鶴巻南2丁目店(鶴巻地区自治会連合会)",
+      "address": "神奈川県秦野市鶴巻南2-11-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 258,
+      "name": "中日本高速道路東京支社秦野工事事務所",
+      "address": "神奈川県秦野市立野台1-4",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 259,
+      "name": "ケミ・コム・ジャパン株式会社",
+      "address": "神奈川県秦野市立野台2-1-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 261,
+      "name": "横浜トヨペット(株)秦野店",
+      "address": "神奈川県秦野市平沢388",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 262,
+      "name": "(株)藤野製作所",
+      "address": "神奈川県秦野市曽屋338",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 265,
+      "name": "日本バイオアッセイ研究センター",
+      "address": "神奈川県秦野市平沢2445",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 267,
+      "name": "マツモトキヨシ秦野南が丘店",
+      "address": "神奈川県秦野市立野台1-2-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 273,
+      "name": "ネッツトヨタ神奈川 秦野店",
+      "address": "神奈川県秦野市平沢524",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 274,
+      "name": "マツモトキヨシ秦野駅前南口店",
+      "address": "神奈川県秦野市尾尻931-7",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 280,
+      "name": "渋沢駅",
+      "address": "神奈川県秦野市曲松1-1-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 281,
+      "name": "東海大学前駅",
+      "address": "神奈川県秦野市南矢名1-1-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 282,
+      "name": "鶴巻温泉駅",
+      "address": "神奈川県秦野市鶴巻北2-1-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 286,
+      "name": "丹沢病院",
+      "address": "神奈川県秦野市堀山下557",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 287,
+      "name": "京セラ株式会社   神奈川秦野工場",
+      "address": "神奈川県秦野市曽屋1204",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 289,
+      "name": "京セラ株式会社 神奈川秦野工場(曽屋ブロック)",
+      "address": "神奈川県秦野市曽屋550",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 292,
+      "name": "エスティーティー株式会社 秦野事業所",
+      "address": "神奈川県秦野市立野台2-6-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 294,
+      "name": "ハレノヒ保育園",
+      "address": "神奈川県秦野市名古木38",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 295,
+      "name": "あおば保育園",
+      "address": "神奈川県秦野市尾尻939-10",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 296,
+      "name": "(株)日立物流 神奈川ソリューションビジネス営業所",
+      "address": "神奈川県秦野市堀山下320",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 299,
+      "name": "昭和化学工業",
+      "address": "神奈川県秦野市曽屋351",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 303,
+      "name": "医療法人社団秦和会 秦野病院",
+      "address": "神奈川県秦野市三屋131",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 306,
+      "name": "ユー・エム・シーエレクトロニクス株式会社",
+      "address": "神奈川県秦野市堀山下1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 314,
+      "name": "南が丘交番",
+      "address": "神奈川県秦野市立野台2-7-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 325,
+      "name": "医療法人社団 誠知会 秦野南口クリニック",
+      "address": "神奈川県秦野市尾尻943-10",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 327,
+      "name": "医療法人 小松循環器科・内科",
+      "address": "神奈川県秦野市尾尻931-7",
+      "reason": "geocoder_below_address_level_8"
+    }
+  ],
+  "excluded_by_reason": {
+    "geocoder_below_address_level_8": 106
+  },
+  "holds": []
+}

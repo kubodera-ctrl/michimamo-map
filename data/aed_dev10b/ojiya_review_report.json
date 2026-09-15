@@ -1,0 +1,47 @@
+{
+  "source": {
+    "key": "ojiya",
+    "prefecture": "新潟県",
+    "municipality": "小千谷市",
+    "snapshot": "raw/ojiya.csv",
+    "expected_raw": 37,
+    "source_url": "https://www.city.ojiya.niigata.jp/soshiki/kikakuseisaku/opendata.html",
+    "resource_url": "https://www.city.ojiya.niigata.jp/uploaded/attachment/30048.csv",
+    "source_name": "小千谷市 AED設置箇所一覧（表記整形・旧図書館と住所不明行を除外）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2023-12-05",
+    "source_date": null,
+    "review_bounds": [
+      37.21,
+      37.39,
+      138.75,
+      138.88
+    ],
+    "sha256": "6fcc1d8b3717c3dcf3e252f070f31fbd8e45029ab79c6d28c6c2515b6234160d"
+  },
+  "raw_rows": 37,
+  "pre_dedup_count": 35,
+  "review_rows": 35,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "publish_candidates": 35,
+  "excluded": [
+    {
+      "row": 35,
+      "name": "信濃川河川公園",
+      "address": "新潟県小千谷市大字?生乙885",
+      "reason": "unresolved_source_address_character"
+    },
+    {
+      "row": 36,
+      "name": "小千谷市立図書館",
+      "address": "新潟県小千谷市土川1-3-7",
+      "reason": "old_library_closed_or_relocated"
+    }
+  ],
+  "excluded_by_reason": {
+    "unresolved_source_address_character": 1,
+    "old_library_closed_or_relocated": 1
+  },
+  "holds": []
+}

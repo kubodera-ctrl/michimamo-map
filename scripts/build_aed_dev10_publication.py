@@ -62,7 +62,7 @@ $guard$;
 insert into public.safety_spots_nationwide_stage ({COLS},review_decision,review_reason,review_next_action,reviewed_at)
 select {COLS},case when duplicate_candidate then 'hold' else 'published' end,
   case when duplicate_candidate then '同一施設の近接名称候補。設置位置の区別を要確認'
-       else '自治体公式CSV・CC BY 4.0・公式座標・本番重複照合を確認' end,
+       else {sql_text(source.get('review_reason', '自治体公式CSV・CC BY 4.0・公式座標・本番重複照合を確認'))} end,
   case when duplicate_candidate then '公式設置位置を確認してから再審査' else '公開DBへ反映済み' end,now()
 from dev10_batch;
 update dev10_batch set active=true,quality_status='verified' where not duplicate_candidate;

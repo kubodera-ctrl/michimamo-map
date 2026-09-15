@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_second_three_prefecture_set",
+  "prefectures": [
+    "東京都",
+    "神奈川県",
+    "新潟県"
+  ],
+  "before_public_aed": 39276,
+  "after_public_aed": 39580,
+  "inserted": 304,
+  "published_municipalities": 440,
+  "unpublished_municipalities": 1301,
+  "staging_holds": 17,
+  "validation": "県別にrollback事前検証、ガード付きトランザクションで本番公開、anon get_safety_spotsで47/222/35件確認。自治体コードへ全39580件を割当。",
+  "sources": [
+    {
+      "prefecture": "東京都",
+      "municipality": "青梅市",
+      "published": 47,
+      "excluded": 32,
+      "excluded_by_reason": {
+        "portable_loan_device_not_fixed_pin": 6,
+        "current_name_address_not_exactly_matched": 26
+      },
+      "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132055d0000000002",
+      "raw_sha256": "5f73592f37a74092c5afa69a9fbf2ab004e2baf1c264282cb8400067b5972032",
+      "sql_sha256": "ec14cde6f541690186e5d9c17f391b20ab0f5f197088b949c0014dc5790b14bb"
+    },
+    {
+      "prefecture": "神奈川県",
+      "municipality": "秦野市",
+      "published": 222,
+      "excluded": 106,
+      "excluded_by_reason": {
+        "geocoder_below_address_level_8": 106
+      },
+      "source_url": "https://www.city.hadano.kanagawa.jp/soshiki/1/1005/1/1745.html",
+      "raw_sha256": "cc5b05c910f919d809f95d681e0102a1218bf73daf493d4397e2bc0f1ac586b3",
+      "sql_sha256": "75d5e829604fd4606b50f438b30607f41e7fa8d6ca488a01e82c02cf62ab7822"
+    },
+    {
+      "prefecture": "新潟県",
+      "municipality": "小千谷市",
+      "published": 35,
+      "excluded": 2,
+      "excluded_by_reason": {
+        "unresolved_source_address_character": 1,
+        "old_library_closed_or_relocated": 1
+      },
+      "source_url": "https://www.city.ojiya.niigata.jp/soshiki/kikakuseisaku/opendata.html",
+      "raw_sha256": "6fcc1d8b3717c3dcf3e252f070f31fbd8e45029ab79c6d28c6c2515b6234160d",
+      "sql_sha256": "e0278a7ed0878f3a3691a72dccff1af5ea150ef5479096278b6c3010c97b231d"
+    }
+  ],
+  "next_prefectures": [
+    "富山県",
+    "石川県",
+    "福井県"
+  ],
+  "follow_up": [
+    {
+      "municipality": "三鷹市",
+      "source_url": "https://www.city.mitaka.lg.jp/c_service/074/074205.html",
+      "resource_url": "https://www.city.mitaka.lg.jp/c_service/074/attached/attach_74205_5.csv",
+      "note": "CSV3行目がヘッダ。2022年3月版。座標欠損・現行施設情報の検証を次回実施。未投入。"
+    },
+    {
+      "municipality": "あきる野市",
+      "resource_url": "https://www.city.akiruno.tokyo.jp/cmsfiles/contents/0000015/15465/132284_aed.csv",
+      "raw_rows": 172,
+      "note": "取得したCSV先頭行で座標なし。全行確認と高精度住所照合の候補。未投入。"
+    },
+    {
+      "municipality": "調布市",
+      "resource_url": "https://www.city.chofu.lg.jp/documents/4691/1.csv",
+      "note": "スポーツ施設一覧・2行目がヘッダ。別施設にある最寄りAEDへの案内行が含まれるため設置位置を区別して再検証。未投入。"
+    }
+  ]
+}

@@ -1,0 +1,3352 @@
+[
+  {
+    "prefecture": "三重県",
+    "municipality": "亀山市",
+    "count": 75
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "員弁郡東員町",
+    "count": 30
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "四日市市",
+    "count": 201
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "大黒田町",
+    "count": 1
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "嬉野中川町",
+    "count": 1
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "曽原町",
+    "count": 1
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "木曽岬町",
+    "count": 5
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "松阪市",
+    "count": 210
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "桑名市",
+    "count": 96
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "熊野市",
+    "count": 54
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "与謝野町",
+    "count": 79
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "久御山町",
+    "count": 84
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "亀岡市",
+    "count": 89
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "井手町",
+    "count": 15
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京丹後市",
+    "count": 92
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京田辺市",
+    "count": 50
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京都市",
+    "count": 160
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "伊根町",
+    "count": 17
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "八幡市",
+    "count": 70
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "南丹市",
+    "count": 80
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "南山城村",
+    "count": 15
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "向日市",
+    "count": 42
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "和束町",
+    "count": 11
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "城陽市",
+    "count": 171
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "大山崎町",
+    "count": 13
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宇治市",
+    "count": 91
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宇治田原町",
+    "count": 12
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宮津市",
+    "count": 37
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "木津川市",
+    "count": 48
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "相楽郡精華町",
+    "count": 54
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "福知山市",
+    "count": 40
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "笠置町",
+    "count": 7
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "綾部市",
+    "count": 122
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "舞鶴市",
+    "count": 128
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "船井郡京丹波町",
+    "count": 49
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "長岡京市",
+    "count": 45
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "佐賀市",
+    "count": 157
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "多久市",
+    "count": 32
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "東多久町",
+    "count": 1
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "東松浦郡玄海町",
+    "count": 20
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "武雄市",
+    "count": 136
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "神埼郡吉野ヶ里町",
+    "count": 22
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "丹波市",
+    "count": 175
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "加古川市",
+    "count": 339
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "朝来市",
+    "count": 69
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "赤穂市",
+    "count": 69
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "養父市",
+    "count": 102
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "三笠市",
+    "count": 19
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "京極町",
+    "count": 13
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "八雲町",
+    "count": 47
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "別海町",
+    "count": 57
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "剣淵町",
+    "count": 14
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北広島市",
+    "count": 142
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北斗市",
+    "count": 24
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北見市",
+    "count": 119
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "占冠村",
+    "count": 15
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "古平町",
+    "count": 5
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "室蘭市",
+    "count": 135
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "富良野市",
+    "count": 64
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "小平町",
+    "count": 13
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "岩見沢市",
+    "count": 240
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "幌延町",
+    "count": 22
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "恵庭市",
+    "count": 238
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "新冠町",
+    "count": 18
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "新得町",
+    "count": 24
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "新篠津村",
+    "count": 19
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "枝幸町",
+    "count": 39
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "根室市",
+    "count": 46
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "沼田町",
+    "count": 14
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "留萌市",
+    "count": 56
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "登別市",
+    "count": 58
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "空知郡上砂川町",
+    "count": 18
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "苫前郡初山別村",
+    "count": 9
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "苫小牧市",
+    "count": 80
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "赤平市",
+    "count": 13
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "足寄町",
+    "count": 18
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "雨竜郡秩父別町",
+    "count": 9
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "音更町",
+    "count": 103
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "鹿追町",
+    "count": 20
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "勝浦市",
+    "count": 1
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "千葉市",
+    "count": 193
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "大網白里市",
+    "count": 26
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "富里市",
+    "count": 28
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "浦安市",
+    "count": 272
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "白井市",
+    "count": 43
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "船橋市",
+    "count": 636
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "和歌山市",
+    "count": 217
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "御坊市",
+    "count": 84
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "新宮市",
+    "count": 1
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "有田川町",
+    "count": 90
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "海草郡紀美野町",
+    "count": 31
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "紀の川市",
+    "count": 95
+  },
+  {
+    "prefecture": "埼玉県",
+    "municipality": "さいたま市",
+    "count": 420
+  },
+  {
+    "prefecture": "埼玉県",
+    "municipality": "ふじみ野市",
+    "count": 92
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "中津市",
+    "count": 342
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "九重町",
+    "count": 31
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "佐伯市",
+    "count": 127
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "別府市",
+    "count": 93
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "国東市",
+    "count": 75
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "大分市",
+    "count": 296
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "姫島村",
+    "count": 11
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "宇佐市",
+    "count": 166
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "日出町",
+    "count": 22
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "日田市",
+    "count": 131
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "杵築市",
+    "count": 67
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "津久見市",
+    "count": 49
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "玖珠町",
+    "count": 63
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "由布市",
+    "count": 53
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "竹田市",
+    "count": 99
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "臼杵市",
+    "count": 79
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "豊後大野市",
+    "count": 68
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "豊後高田市",
+    "count": 65
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "四條畷市",
+    "count": 26
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "大東市",
+    "count": 2
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "寝屋川市",
+    "count": 178
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "東大阪市",
+    "count": 217
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "松原市",
+    "count": 98
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "箕面市",
+    "count": 84
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "阪南市",
+    "count": 20
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "大和郡山市",
+    "count": 53
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "御所市",
+    "count": 54
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "斑鳩町",
+    "count": 30
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "橿原市",
+    "count": 83
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "生駒市",
+    "count": 170
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "田原本町",
+    "count": 18
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "野迫川村",
+    "count": 4
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "亘理町",
+    "count": 35
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "仙台市",
+    "count": 280
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "塩竈市",
+    "count": 10
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "多賀城市",
+    "count": 26
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "大和町",
+    "count": 31
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "村田町",
+    "count": 3
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "東松島市",
+    "count": 87
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "松島町",
+    "count": 35
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "柴田町",
+    "count": 46
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "栗原市",
+    "count": 115
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "涌谷町",
+    "count": 2
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "登米市",
+    "count": 173
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "白石市",
+    "count": 47
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "石巻市",
+    "count": 92
+  },
+  {
+    "prefecture": "宮崎県",
+    "municipality": "宮崎市",
+    "count": 247
+  },
+  {
+    "prefecture": "宮崎県",
+    "municipality": "日向市",
+    "count": 77
+  },
+  {
+    "prefecture": "富山県",
+    "municipality": "小矢部市",
+    "count": 61
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "2069",
+    "count": 1
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "上関町",
+    "count": 12
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "下関市",
+    "count": 230
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "山陽小野田市",
+    "count": 92
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "岩国市",
+    "count": 171
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "平生町",
+    "count": 18
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "美祢市",
+    "count": 19
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "防府市",
+    "count": 71
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "阿武町",
+    "count": 8
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "三川町",
+    "count": 20
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "上山市",
+    "count": 49
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "中山町",
+    "count": 21
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "最上町",
+    "count": 21
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "南陽市",
+    "count": 38
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "大江町",
+    "count": 32
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "大石田町",
+    "count": 14
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "大蔵村",
+    "count": 12
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "天童市",
+    "count": 73
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "寒河江市",
+    "count": 51
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "小国町",
+    "count": 21
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "尾花沢市",
+    "count": 40
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "山形市",
+    "count": 303
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "山辺町",
+    "count": 32
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "川西町",
+    "count": 28
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "戸沢村",
+    "count": 14
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "新庄市",
+    "count": 63
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "村山市",
+    "count": 42
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "東根市",
+    "count": 51
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "東田川郡庄内町",
+    "count": 41
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "河北町",
+    "count": 34
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "白鷹町",
+    "count": 30
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "真室川町",
+    "count": 28
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "米沢市",
+    "count": 117
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "舟形町",
+    "count": 21
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "西川町",
+    "count": 17
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "遊佐町",
+    "count": 36
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "酒田市",
+    "count": 151
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "金山町",
+    "count": 16
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "長井市",
+    "count": 52
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "飯豊町",
+    "count": 34
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "高畠町",
+    "count": 52
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "鮭川村",
+    "count": 19
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "鶴岡市",
+    "count": 122
+  },
+  {
+    "prefecture": "山梨県",
+    "municipality": "北杜市",
+    "count": 136
+  },
+  {
+    "prefecture": "山梨県",
+    "municipality": "南部町",
+    "count": 50
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "下呂市",
+    "count": 179
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "不破郡垂井町",
+    "count": 2
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "中津川市",
+    "count": 243
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "八百津町",
+    "count": 37
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "加茂郡八百津町",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "加茂郡川辺町",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "可児市",
+    "count": 90
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "可児郡御嵩町",
+    "count": 2
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "各務原市",
+    "count": 11
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "土岐市",
+    "count": 74
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "垂井町",
+    "count": 34
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "多治見市",
+    "count": 112
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "大垣市",
+    "count": 15
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "大野町",
+    "count": 2
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "山県市",
+    "count": 51
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐南町",
+    "count": 21
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜市",
+    "count": 226
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県多治見市",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県海津市",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県羽島市",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県郡上市",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "恵那市",
+    "count": 70
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡大野町",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡揖斐川町",
+    "count": 4
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡池田町",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "本巣市",
+    "count": 40
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "本巣郡北方町",
+    "count": 2
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "東白川村",
+    "count": 19
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "海津市",
+    "count": 51
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "瑞浪市",
+    "count": 3
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "瑞穂市",
+    "count": 29
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "美濃加茂市",
+    "count": 63
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "美濃市",
+    "count": 4
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "羽島市",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "羽島郡笠松町",
+    "count": 1
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "郡上市",
+    "count": 28
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "関ケ原町",
+    "count": 22
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "関市",
+    "count": 12
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "飛騨市",
+    "count": 136
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "養老郡養老町",
+    "count": 3
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "高山市",
+    "count": 13
+  },
+  {
+    "prefecture": "岡山県",
+    "municipality": "高梁市",
+    "count": 173
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "一戸町",
+    "count": 19
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "二戸市",
+    "count": 44
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "北上市",
+    "count": 345
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "奥州市",
+    "count": 99
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "宮古市",
+    "count": 113
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "滝沢市",
+    "count": 2
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "盛岡市",
+    "count": 183
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "葛巻町",
+    "count": 47
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "西磐井郡平泉町",
+    "count": 10
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "仁多郡奥出雲町",
+    "count": 3
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "出雲市",
+    "count": 29
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "大田市",
+    "count": 12
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "安来市",
+    "count": 5
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "松江市",
+    "count": 56
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "江津市",
+    "count": 7
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "浜田市",
+    "count": 23
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "益田市",
+    "count": 14
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "邑智郡川本町",
+    "count": 3
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "邑智郡邑南町",
+    "count": 2
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐の島町",
+    "count": 1
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡海士町",
+    "count": 10
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡知夫村",
+    "count": 1
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡西ノ島町",
+    "count": 3
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡隠岐の島町",
+    "count": 6
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "雲南市",
+    "count": 11
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "飯石郡飯南町",
+    "count": 2
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "鹿足郡吉賀町",
+    "count": 1
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "鹿足郡津和野町",
+    "count": 3
+  },
+  {
+    "prefecture": "広島県",
+    "municipality": "広島市",
+    "count": 652
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "吉野川市",
+    "count": 1
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "小松島市",
+    "count": 42
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "阿南市",
+    "count": 69
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "上浮穴郡久万高原町",
+    "count": 67
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予市",
+    "count": 68
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予文砥部町",
+    "count": 1
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予郡砥部町",
+    "count": 32
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "宇和島市",
+    "count": 133
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "松山市",
+    "count": 480
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "鬼北町",
+    "count": 36
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "尾張旭市",
+    "count": 197
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "日進市",
+    "count": 50
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "瀬戸市",
+    "count": 180
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "犬山市",
+    "count": 129
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "長久手市",
+    "count": 71
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "小千谷市",
+    "count": 35
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "新潟市",
+    "count": 571
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "村上市",
+    "count": 104
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "長岡市",
+    "count": 1
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "世田谷区",
+    "count": 357
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "中央区",
+    "count": 207
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "中野区",
+    "count": 245
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "北区",
+    "count": 236
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "千代田区",
+    "count": 153
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "台東区",
+    "count": 477
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "品川区",
+    "count": 436
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "大田区",
+    "count": 466
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "小平市",
+    "count": 1
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "小金井市",
+    "count": 88
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "文京区",
+    "count": 251
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "新宿区",
+    "count": 133
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "杉並区",
+    "count": 243
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "東村山市",
+    "count": 74
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "板橋区",
+    "count": 251
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "江戸川区",
+    "count": 51
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "江東区",
+    "count": 251
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "渋谷区",
+    "count": 109
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "港区",
+    "count": 229
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "狛江市",
+    "count": 38
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "町田市",
+    "count": 192
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "目黒区",
+    "count": 152
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "練馬区",
+    "count": 377
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "羽村市",
+    "count": 124
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "荒川区",
+    "count": 77
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "葛飾区",
+    "count": 248
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "豊島区",
+    "count": 286
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "足立区",
+    "count": 328
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "青梅市",
+    "count": 47
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "墨田区",
+    "count": 229
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "下野市",
+    "count": 60
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "壬生町",
+    "count": 30
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市ゆいの杜3-15-30",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上戸祭町271-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上横田町850",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町151-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町345-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町719番地1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町249",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町355",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田町1060-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上籠谷町1401",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下反町町256-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小倉町1302",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小池町466-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小池町569-37",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下岡本町1954-10",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下平出町158-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下平出町479",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下栗町963",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町1030-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町1078",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町465",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町1722",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町3434",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町3435番地",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下砥上町121",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下砥上町1259-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下荒針町3456-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中久保2丁目1-25",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中今泉3丁目5-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中今泉5丁目37-16",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央1丁目1-13",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央1丁目1-15",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央本町1-29",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町2481-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町2623",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3130",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3221-4",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3225",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3397",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3709-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3743",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町162",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町181-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町182-1",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町201-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市五代2丁目22-33",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市京町9-25",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉1丁目4-33",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町143-6",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町3007",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町47-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今里町1188-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今里町18-4",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉1丁目7-29",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5-3-11",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5丁目5-18",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5丁目9-7",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南大通り2丁目6-6",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南町3-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南町6-3",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市古賀志町583",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城南3丁目15-32",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城東2丁目23番1号",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城東2丁目5-17",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市塙田5丁目1-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大和1丁目10-15",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大曽2丁目2-21",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1059-5",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1402",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1423",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市天神1丁目1-24",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市天神1丁目1-42",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1263-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1864-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1868-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1991-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木町2丁目1075-12",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮の内1丁目174-8",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮みらい1-20",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮原4丁目1-14",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町1072",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町143",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町251-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町558",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町576-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市山本1-37-27",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市岩曽町825-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市岩本町483",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市峰3丁目20-17",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市平出町1804",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市平出町3764-10",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市御幸ヶ原町53-2",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市御幸本町4638-1",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町1964",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町66-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町80-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭1丁目10-25",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭元町1-15",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭台46-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭町3043-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新富町15-25",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新富町9-4",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丁1608-19",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丁292",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丙254",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市旭1丁目1-5",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-57",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-66",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-9",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市星が丘2丁目3-31",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市春日町11-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市本丸町3520",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市東塙田1丁目6-14",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市東戸祭1丁目2-7",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市松田新田町116-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市松風台1200-220",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市板戸町1765",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市柳田町1320-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市桜3丁目2-22",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市横山町411-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市氷室町1713-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市氷室町2272-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市江曽島2丁目4-23",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市江野町8-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市河原町1-41",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘3-17-16",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘4丁目11-40",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘7丁目12-14",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市海道町35-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市清原工業団地14",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市清原工業団地15-4",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市瑞穂1丁目22",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1643",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1791-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1873-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町2411",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町385",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町1213",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町2800-42",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町字大島2326",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市砥上町52",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市立伏町462-66",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市立伏町8-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹下町380-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町532",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町968",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町972",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市篠井町1885-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市簗瀬町1493",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市細谷1丁目4-38",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市細谷町604",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑3丁目3-12",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑3丁目5-3",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑5丁目3-16",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑5丁目8-8",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若松原3丁目19-27",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3-12-11",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3丁目12-25",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3丁目13-13",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市茂原町777-1",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市茂原町777-7",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西1丁目2-13",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西一の沢町17-32",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西刑部町1861",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西刑部町444",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西原2丁目5-42",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田本町3丁目11-15",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田町1038",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田町805-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市道場宿町848",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市針ヶ谷1丁目18-21",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市錦2丁目7-15",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鐺山町231",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市長岡町1077",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関堀町337",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関堀町350",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関白町471",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽南2丁目4-58",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽南4丁目5-6",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目16-36",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目16-38",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目3-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽西町1-16",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀の宮3丁目10-13",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀の宮7丁目28-16",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀宮町56-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市馬場通り4-1-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駅前通り1丁目4-6",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駒生町2360",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駒生町3364-29",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田2丁目21-7",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町261",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町2708-3",
+    "count": 2
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町3668-36",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町3669",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町970-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "小山市",
+    "count": 174
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "日光市瀬川1334-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "東浦町4-12",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "松原3丁目1-5",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "松田新田町483",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "泉が丘6-8-12",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "白沢町396-2",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "石井町2989",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "竹林町226",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "若松原2-18-30",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "那須塩原市",
+    "count": 96
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "野木町",
+    "count": 20
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "駒生町1792",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "鶴田町970-1",
+    "count": 1
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "鹿沼市",
+    "count": 153
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "与那原町",
+    "count": 21
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中城村",
+    "count": 12
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡中城村",
+    "count": 15
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡北中城村",
+    "count": 3
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡読谷村",
+    "count": 67
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "八重山郡竹富町",
+    "count": 58
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "北中城村",
+    "count": 3
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "北谷町",
+    "count": 57
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "南城市",
+    "count": 32
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "名護市",
+    "count": 49
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "国頭郡宜野座村",
+    "count": 28
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "大宜味村",
+    "count": 6
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "宜野湾市",
+    "count": 28
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "島尻郡南大東村",
+    "count": 12
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "島尻郡南風原町",
+    "count": 20
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "沖縄市",
+    "count": 87
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "浦添市",
+    "count": 51
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "渡名喜村",
+    "count": 2
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "西原町",
+    "count": 12
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "読谷村",
+    "count": 1
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "那覇市",
+    "count": 123
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "大津市",
+    "count": 366
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "彦根市",
+    "count": 9
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "米原市",
+    "count": 65
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "近江八幡市",
+    "count": 151
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上天草市",
+    "count": 13
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上益城郡山都町",
+    "count": 42
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上益城郡益城町",
+    "count": 29
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "五木村",
+    "count": 28
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "八代市",
+    "count": 130
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "八代郡氷川町",
+    "count": 17
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "和水町",
+    "count": 16
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "天草郡苓北町",
+    "count": 45
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "宇土市",
+    "count": 42
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "山鹿市",
+    "count": 39
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "玉名市",
+    "count": 90
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "球磨郡多良木町",
+    "count": 9
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "美里町",
+    "count": 16
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "荒尾市",
+    "count": 36
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "葦北郡津奈木町",
+    "count": 8
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "葦北郡芦北町",
+    "count": 28
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "阿蘇市",
+    "count": 45
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "阿蘇郡高森町",
+    "count": 22
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "かほく市",
+    "count": 44
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "七尾市",
+    "count": 85
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "中能登町",
+    "count": 31
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "内灘町",
+    "count": 2
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "加賀市",
+    "count": 138
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "宝達志水町",
+    "count": 27
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "小松市",
+    "count": 90
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "志賀町",
+    "count": 28
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "河北郡内灘町",
+    "count": 41
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "河北郡津幡町",
+    "count": 54
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "津幡町",
+    "count": 6
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "珠洲市",
+    "count": 52
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "白山市",
+    "count": 182
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "穴水町",
+    "count": 1
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋市",
+    "count": 58
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋郡宝達志水町",
+    "count": 1
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋郡志賀町",
+    "count": 1
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "能登町",
+    "count": 2
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "能美市",
+    "count": 83
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "輪島市",
+    "count": 71
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "野々市市",
+    "count": 66
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "金沢市",
+    "count": 377
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鳳珠郡穴水町",
+    "count": 30
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鳳珠郡能登町",
+    "count": 53
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鹿島郡中能登町",
+    "count": 2
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "三浦市",
+    "count": 20
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "中井町",
+    "count": 12
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "伊勢原市",
+    "count": 164
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "南足柄市",
+    "count": 29
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大井町",
+    "count": 6
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大和市",
+    "count": 480
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大磯町",
+    "count": 102
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "小田原市",
+    "count": 197
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "平塚市",
+    "count": 320
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "座間市",
+    "count": 70
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "海老名市",
+    "count": 78
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "相模原市",
+    "count": 695
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "秦野市",
+    "count": 222
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "綾瀬市",
+    "count": 69
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "茅ヶ崎市",
+    "count": 126
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "葉山町",
+    "count": 34
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "藤沢市",
+    "count": 266
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "足柄下郡箱根町",
+    "count": 1
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "鎌倉市",
+    "count": 329
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "坂井市",
+    "count": 123
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "池田町",
+    "count": 11
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "鯖江市",
+    "count": 136
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "みやこ町",
+    "count": 41
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "久留米市",
+    "count": 172
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "小郡市",
+    "count": 41
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "春日市",
+    "count": 73
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "福岡市",
+    "count": 1124
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "糟屋郡新宮町",
+    "count": 26
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "飯塚市",
+    "count": 166
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "いわき市",
+    "count": 232
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "会津若松市",
+    "count": 68
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "矢吹町",
+    "count": 42
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "西郷村",
+    "count": 21
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "郡山市",
+    "count": 21
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "須賀川市",
+    "count": 89
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "山本郡三種町",
+    "count": 20
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "横手市",
+    "count": 119
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "由利本荘市",
+    "count": 77
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "能代市",
+    "count": 69
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "鹿角市",
+    "count": 44
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "中之条町",
+    "count": 46
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "伊勢崎市",
+    "count": 151
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "前橋市",
+    "count": 423
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "富岡市",
+    "count": 65
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "取手市",
+    "count": 99
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "古河市",
+    "count": 92
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "常総市",
+    "count": 45
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "潮来市",
+    "count": 28
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "笠間市",
+    "count": 90
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "茨城町",
+    "count": 26
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "高萩市",
+    "count": 33
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "龍ケ崎市",
+    "count": 95
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "五島市",
+    "count": 74
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "count": 160
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "対馬市",
+    "count": 191
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "平戸市",
+    "count": 69
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "西彼杵郡時津町",
+    "count": 44
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "西彼杵郡長与町",
+    "count": 55
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "上田市",
+    "count": 206
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "北佐久郡立科町",
+    "count": 1
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "茅野市",
+    "count": 58
+  },
+  {
+    "prefecture": "青森県",
+    "municipality": "十和田市",
+    "count": 56
+  },
+  {
+    "prefecture": "青森県",
+    "municipality": "南部町",
+    "count": 18
+  },
+  {
+    "prefecture": "青森県",
+    "municipality": "平川市",
+    "count": 64
+  },
+  {
+    "prefecture": "静岡県",
+    "municipality": "浜松市",
+    "count": 272
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "三豊市",
+    "count": 99
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "丸亀市",
+    "count": 105
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "善通寺市",
+    "count": 46
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "中土佐町",
+    "count": 23
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "宿毛市",
+    "count": 8
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "香南市",
+    "count": 1
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "香美市",
+    "count": 35
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "高知市",
+    "count": 1
+  },
+  {
+    "prefecture": "鳥取県",
+    "municipality": "西伯郡南部町",
+    "count": 38
+  },
+  {
+    "prefecture": "鳥取県",
+    "municipality": "鳥取市",
+    "count": 230
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "垂水市",
+    "count": 65
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "大島郡知名町",
+    "count": 16
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "奄美市",
+    "count": 66
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "熊毛郡南種子町",
+    "count": 17
+  }
+]
