@@ -1462,29 +1462,77 @@
     ]
   },
   {
-    "prefecture": "千葉県",
-    "url": "https://opendata.pref.chiba.lg.jp/datasets/4084",
-    "title": "【松戸市】AEDマップ | データカタログ | 千葉県オープンデータサイト",
-    "resource_pages": [
-      "https://opendata.pref.chiba.lg.jp/resources/56919"
-    ],
-    "sha256": "2096ec6b2435c0e15d51e31208c76dffa7b13119d0092e9e19b6362ddf3f080b",
     "code": "12207",
+    "prefecture": "千葉県",
     "municipality": "松戸市",
-    "previous_public_count": 0,
-    "status": "resource_and_license_review_required",
-    "fetch_status": "resource_selection_failed",
-    "resource_profiles": [],
-    "errors": [
+    "url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "fetch_status": "downloaded",
+    "selected_resource": {
+      "resource_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+      "resource_id": "matsudo_aed_csv",
+      "resource_title": "松戸市 AED設置箇所一覧",
+      "download_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv",
+      "updated_at": "2026-02-27",
+      "format": "CSV",
+      "license": "cc-by4_0"
+    },
+    "download_final_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv",
+    "content_type": "text/csv",
+    "snapshot": "data/aed_dev14/raw/12207_matsudo_aed_csv.bin",
+    "bytes": 86223,
+    "sha256": "8ed36baac532c2c58ec217e87f10a6fe8c4a925d5a1b231e7790a80dd5440bc3",
+    "rows": 723,
+    "fields": [
+      "UserID",
+      "CoodinateSystemNo",
+      "X",
+      "Y",
+      "HasAttribute",
+      "名称",
+      "郵便番号",
+      "住所",
+      "時間",
+      "電話番号"
+    ],
+    "sample": [
       {
-        "url": "https://opendata.pref.chiba.lg.jp/ckan_api/package_show?id=4084",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "UserID": "4345",
+        "CoodinateSystemNo": "209",
+        "X": "6036.91",
+        "Y": "-27195.82",
+        "HasAttribute": "1",
+        "名称": "セブンイレブン松戸栗山店",
+        "郵便番号": "271-0097",
+        "住所": "松戸市栗山4-1",
+        "時間": "24時間",
+        "電話番号": "047-362-3638"
       },
       {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/56919",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "UserID": "4346",
+        "CoodinateSystemNo": "209",
+        "X": "9018.45",
+        "Y": "-27344.51",
+        "HasAttribute": "1",
+        "名称": "セイコーインスツル㈱高塚事業所",
+        "郵便番号": "270-2222",
+        "住所": "松戸市高塚新田563",
+        "時間": "24時間",
+        "電話番号": "047-391-2103"
       }
-    ]
+    ],
+    "resource_profiles": [
+      {
+        "resource_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+        "resource_id": "matsudo_aed_csv",
+        "resource_title": "松戸市 AED設置箇所一覧",
+        "download_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.files/AED.csv",
+        "updated_at": "2026-02-27",
+        "format": "CSV",
+        "license": "cc-by4_0"
+      }
+    ],
+    "errors": [],
+    "recovery": "official_direct_dev16"
   },
   {
     "code": "12208",
@@ -1603,38 +1651,66 @@
     ]
   },
   {
-    "prefecture": "千葉県",
-    "url": "https://opendata.pref.chiba.lg.jp/datasets/1840",
-    "title": "【柏市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
-    "resource_pages": [
-      "https://opendata.pref.chiba.lg.jp/resources/47115",
-      "https://opendata.pref.chiba.lg.jp/resources/54891"
-    ],
-    "sha256": "e9d1f57d3d1e34f549cf415310d0d648e36688bc0aae74c136027dedf21ffe37",
     "code": "12217",
+    "prefecture": "千葉県",
     "municipality": "柏市",
-    "previous_public_count": 0,
-    "status": "resource_and_license_review_required",
-    "fetch_status": "resource_selection_failed",
-    "resource_profiles": [],
-    "errors": [
+    "url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html",
+    "fetch_status": "downloaded",
+    "selected_resource": {
+      "resource_url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html",
+      "resource_id": "kashiwa_aed_csv",
+      "resource_title": "柏市 AED設置箇所一覧",
+      "download_url": "https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv",
+      "updated_at": "2025-12-01",
+      "format": "CSV",
+      "license": "cc-by4_0"
+    },
+    "download_final_url": "https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv",
+    "content_type": "text/csv",
+    "snapshot": "data/aed_dev14/raw/12217_kashiwa_aed_csv.bin",
+    "bytes": 36757,
+    "sha256": "de84a9a416279dc3af17da8f97e1554f2a7ebee8e7f8d1381ace643a14112557",
+    "rows": 560,
+    "fields": [
+      "区分",
+      "施設名",
+      "ステーション別",
+      "設置場所1",
+      "24時間使用可能"
+    ],
+    "sample": [
       {
-        "url": "https://opendata.pref.chiba.lg.jp/ckan_api/package_show?id=1840",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "区分": "公共施設",
+        "施設名": "柏市役所　分庁舎１",
+        "ステーション別": "救急救命ステーション",
+        "設置場所1": "１F旧守衛室",
+        "24時間使用可能": ""
       },
       {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/47115",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
-      },
-      {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/54891",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "区分": "公共施設",
+        "施設名": "柏市役所　分庁舎２",
+        "ステーション別": "救急救命ステーション",
+        "設置場所1": "１F出入口玄関ホール",
+        "24時間使用可能": ""
       }
-    ]
+    ],
+    "resource_profiles": [
+      {
+        "resource_url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html",
+        "resource_id": "kashiwa_aed_csv",
+        "resource_title": "柏市 AED設置箇所一覧",
+        "download_url": "https://www.city.kashiwa.lg.jp/documents/24924/kashiwa_aed.csv",
+        "updated_at": "2025-12-01",
+        "format": "CSV",
+        "license": "cc-by4_0"
+      }
+    ],
+    "errors": [],
+    "recovery": "official_direct_dev16"
   },
   {
     "prefecture": "千葉県",
-    "url": "https://opendata.pref.chiba.lg.jp/datasets/3472",
+    "url": "https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html",
     "title": "【流山市】AED設置場所 | データカタログ | 千葉県オープンデータサイト",
     "resource_pages": [
       "https://opendata.pref.chiba.lg.jp/resources/55125",
@@ -1645,47 +1721,105 @@
     "municipality": "流山市",
     "previous_public_count": 0,
     "status": "resource_and_license_review_required",
-    "fetch_status": "resource_selection_failed",
+    "fetch_status": "download_failed",
     "resource_profiles": [],
     "errors": [
       {
-        "url": "https://opendata.pref.chiba.lg.jp/ckan_api/package_show?id=3472",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
-      },
-      {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/55125",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
-      },
-      {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/55126",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv",
+        "error": "HTTPError: HTTP Error 404: Not Found"
       }
-    ]
+    ],
+    "selected_resource": {
+      "resource_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html",
+      "resource_id": "nagareyama_aed_20231017",
+      "download_url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv",
+      "updated_at": "2023-10-17",
+      "format": "CSV",
+      "license": "cc-by4_0"
+    },
+    "recovery": "official_direct_dev16_failed"
   },
   {
-    "prefecture": "千葉県",
-    "url": "https://opendata.pref.chiba.lg.jp/datasets/3633",
-    "title": "【八千代市】AED設置場所一覧 | データカタログ | 千葉県オープンデータサイト",
-    "resource_pages": [
-      "https://opendata.pref.chiba.lg.jp/resources/55457"
-    ],
-    "sha256": "acc2a476ba2cf4162e4dc97a47e271f23ad867200037baf44fa340d12d055db2",
     "code": "12221",
+    "prefecture": "千葉県",
     "municipality": "八千代市",
-    "previous_public_count": 0,
-    "status": "resource_and_license_review_required",
-    "fetch_status": "resource_selection_failed",
-    "resource_profiles": [],
-    "errors": [
+    "url": "https://www.city.yachiyo.lg.jp/soshiki/7/2030.html",
+    "fetch_status": "downloaded",
+    "selected_resource": {
+      "resource_url": "https://www.city.yachiyo.lg.jp/soshiki/7/2030.html",
+      "resource_id": "yachiyo_48319",
+      "resource_title": "八千代市 AED設置箇所一覧",
+      "download_url": "https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx",
+      "updated_at": "2026-07-01",
+      "format": "XLSX",
+      "license": "cc-by4_0"
+    },
+    "download_final_url": "https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "snapshot": "data/aed_dev14/raw/12221_yachiyo_48319.bin",
+    "bytes": 44748,
+    "sha256": "3d308818767f90513c44f58f2c52760b3e3577e7c165109d276f0efdc9b6f3a0",
+    "rows": 99,
+    "fields": [
+      "●八千代台地区(No.1~13)",
+      "__column_2",
+      "__column_3",
+      "__column_4",
+      "__column_5",
+      "__column_6",
+      "__column_7",
+      "__column_8",
+      "__column_9",
+      "__column_10",
+      "R8.5.1現在",
+      "__column_12",
+      "__column_13"
+    ],
+    "sample": [
       {
-        "url": "https://opendata.pref.chiba.lg.jp/ckan_api/package_show?id=3633",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "●八千代台地区(No.1~13)": "No",
+        "__column_2": "施設名",
+        "__column_3": "所在地",
+        "__column_4": "連絡先",
+        "__column_5": "台数",
+        "__column_6": "設置場所",
+        "__column_7": "使用可能日",
+        "__column_8": "使用可能時間帯",
+        "__column_9": "使用時間が異なる曜日など",
+        "__column_10": "使用不可日",
+        "R8.5.1現在": "小児用の有無",
+        "__column_12": "小児用の有無",
+        "__column_13": null
       },
       {
-        "url": "https://opendata.pref.chiba.lg.jp/resources/55457",
-        "error": "RuntimeError: HTTP Error 403: Forbidden"
+        "●八千代台地区(No.1~13)": 1,
+        "__column_2": "八千代台図書館",
+        "__column_3": "八千代台北6-7-6",
+        "__column_4": "047-482-0912",
+        "__column_5": "1台",
+        "__column_6": "１階　正面玄関内　カウンター脇",
+        "__column_7": "火～日、祝日",
+        "__column_8": "9：00～17:00",
+        "__column_9": "木曜日，金曜日9：00～19：00",
+        "__column_10": "月曜日（月曜日が祝日の時は翌平日）、年末年始",
+        "R8.5.1現在": "有",
+        "__column_12": 3,
+        "__column_13": null
       }
-    ]
+    ],
+    "resource_profiles": [
+      {
+        "resource_url": "https://www.city.yachiyo.lg.jp/soshiki/7/2030.html",
+        "resource_id": "yachiyo_48319",
+        "resource_title": "八千代市 AED設置箇所一覧",
+        "download_url": "https://www.city.yachiyo.lg.jp/uploaded/attachment/48319.xlsx",
+        "updated_at": "2026-07-01",
+        "format": "XLSX",
+        "license": "cc-by4_0"
+      }
+    ],
+    "errors": [],
+    "recovery": "official_direct_dev16"
   },
   {
     "prefecture": "千葉県",

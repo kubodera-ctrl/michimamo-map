@@ -1,0 +1,34 @@
+[
+  {
+    "key": "dev16_12203_ichikawa_53056_1",
+    "file": "publish_dev16_12203_ichikawa_53056_1.sql",
+    "baseline": 45381,
+    "inserted": 150,
+    "held": 0,
+    "sha256": "1808d87684088541de49cd863e942c57fb98fc92faba15dcf752e9349943835c"
+  },
+  {
+    "key": "dev16_12203_ichikawa_53056_2",
+    "file": "publish_dev16_12203_ichikawa_53056_2.sql",
+    "baseline": 45531,
+    "inserted": 150,
+    "held": 0,
+    "sha256": "de2fb3236a760689b731d945ef0a6eb58b7974e69e3d0c3064d8c735979e0919"
+  },
+  {
+    "key": "dev16_12203_ichikawa_53056_3",
+    "file": "publish_dev16_12203_ichikawa_53056_3.sql",
+    "baseline": 45681,
+    "inserted": 4,
+    "held": 0,
+    "sha256": "abd0255a04f120d0634dd51801bb492468ee1b530eec238e63749aee15c448ea"
+  },
+  {
+    "key": "dev16_12208_noda_26_7aed_1",
+    "file": "publish_dev16_12208_noda_26_7aed_1.sql",
+    "baseline": 45685,
+    "inserted": 108,
+    "held": 2,
+    "sha256": "f0c37c1d4f39ac405effb76707e4736b49f7bf03d51eaac1ed755f3aa8a3bccb"
+  }
+]

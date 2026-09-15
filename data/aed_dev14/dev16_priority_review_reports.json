@@ -1,0 +1,40 @@
+[
+  {
+    "key": "dev16_12203_ichikawa_53056",
+    "code": "12203",
+    "municipality": "市川市",
+    "raw_rows": 305,
+    "eligible": 304,
+    "publish": 304,
+    "held": 0,
+    "exact_removed": 0,
+    "near_duplicate_pairs": 0,
+    "excluded": [
+      {
+        "row": 100,
+        "name": "平田図書室",
+        "address": "千葉県市川市平田1丁目20-16",
+        "reason": "availability_requires_review"
+      }
+    ]
+  },
+  {
+    "key": "dev16_12208_noda_26_7aed",
+    "code": "12208",
+    "municipality": "野田市",
+    "raw_rows": 111,
+    "eligible": 110,
+    "publish": 108,
+    "held": 2,
+    "exact_removed": 0,
+    "near_duplicate_pairs": 1,
+    "excluded": [
+      {
+        "row": 112,
+        "name": "",
+        "address": "",
+        "reason": "missing_invalid_coordinates"
+      }
+    ]
+  }
+]
