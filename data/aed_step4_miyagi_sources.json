@@ -1,0 +1,50 @@
+{
+  "sources": [
+    {
+      "prefecture": "宮城県",
+      "municipality": "涌谷町",
+      "source_name": "【涌谷町】AED設置箇所一覧",
+      "source_url": "https://miyagi.dataeye.jp/datasets/854",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/1474",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2025-03-17"
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "仙台市",
+      "source_name": "【仙台市】AED設置箇所一覧",
+      "source_url": "https://miyagi.dataeye.jp/datasets/835",
+      "resource_url": "https://www.city.sendai.jp/kyukyukanri/kurashi/anzen/tobani/joho/documents/041009_aed.csv",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2025-03-05"
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "柴田町",
+      "source_name": "【柴田町】AED設置箇所数一覧",
+      "source_url": "https://miyagi.dataeye.jp/datasets/298",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32966",
+      "license_id": "PDL1.0",
+      "source_updated_at": "2026-07-03"
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "名取市",
+      "source_name": "【名取市】AED設置箇所一覧",
+      "source_url": "https://miyagi.dataeye.jp/datasets/599",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/32919",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2026-05-25"
+    },
+    {
+      "prefecture": "宮城県",
+      "municipality": "村田町",
+      "source_name": "【村田町】AED設置箇所数一覧（R5.10.1）",
+      "source_url": "https://miyagi.dataeye.jp/datasets/253",
+      "resource_url": "https://miyagi.dataeye.jp/resource_download/258",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2023-12-28"
+    }
+  ],
+  "excluded": []
+}

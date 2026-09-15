@@ -1,0 +1,32 @@
+{
+  "catalog": "宮城県及び市町村共同オープンデータポータルサイト",
+  "catalog_url": "https://miyagi.dataeye.jp/datasets?keyword=AED",
+  "catalog_datasets": 15,
+  "new_source_datasets": 5,
+  "published": {
+    "municipalities": {
+      "仙台市": 280,
+      "柴田町": 46,
+      "村田町": 3,
+      "涌谷町": 2
+    },
+    "rows": 331
+  },
+  "deferred": {
+    "名取市": {
+      "raw_rows": 158,
+      "reason": "公式CSVに有効座標がなく、住所レベル8の座標を取得できなかったため保留"
+    }
+  },
+  "excluded": {
+    "not_address_level": 512,
+    "near_duplicate_candidates": 4,
+    "unusable_identity_or_address": 4,
+    "production_near_duplicates": 0
+  },
+  "production_baseline": 36996,
+  "production_after_publication": 37327,
+  "published_municipalities_after_publication": 401,
+  "unpublished_municipalities_after_publication": 1340,
+  "held_review_rows": 15
+}
