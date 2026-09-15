@@ -1,0 +1,99 @@
+{
+  "production_baseline": 40232,
+  "sources": [
+    {
+      "key": "koka",
+      "prefecture": "滋賀県",
+      "municipality": "甲賀市",
+      "source_url": "https://data.bodik.jp/dataset/252093_aed",
+      "source_updated_at": "2022-03-18",
+      "source_date": null,
+      "review_bounds": [
+        34.78,
+        35.05,
+        135.94,
+        136.38
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "甲賀市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/koka.csv",
+          "url": "https://data.bodik.jp/dataset/d8f54382-6e32-4fb4-8903-1ecbe75d8584/resource/313a4845-a239-4eb6-99e2-444b88ed6be4/download/252093_aed.csv",
+          "expected_raw": 153,
+          "sha256": "6757ae5db991b53aebb39fcb138410fedfa55eff15791c32060a7df04a98ebdb"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用制限・本番重複を確認",
+      "date_note": "カタログのリソース更新日。個別施設の調査日は不明。"
+    },
+    {
+      "key": "muko",
+      "prefecture": "京都府",
+      "municipality": "向日市",
+      "source_url": "https://data.bodik.jp/dataset/262081_aed",
+      "source_updated_at": "2026-06-03",
+      "source_date": null,
+      "review_bounds": [
+        34.92,
+        34.98,
+        135.68,
+        135.73
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "向日市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/muko.xlsx",
+          "url": "https://data.bodik.jp/dataset/92b94d8e-e222-4fae-9bba-181222130930/resource/62186c3d-ceb8-4337-974d-ab433d3ec27c/download/262081_aed.xlsx",
+          "expected_raw": 42,
+          "sha256": "f4ed9dba6ffe9e6f2d249d077b4f2ecc8e3c195a82ce928cb2e59b43577411f6"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用制限・本番重複を確認",
+      "date_note": "カタログのリソース更新日。個別施設の調査日は不明。"
+    },
+    {
+      "key": "osaka",
+      "prefecture": "大阪府",
+      "municipality": "大阪市",
+      "source_url": "https://www.city.osaka.lg.jp/kenko/page/0000552264.html",
+      "source_updated_at": "2026-08-03",
+      "source_date": null,
+      "review_bounds": [
+        34.58,
+        34.78,
+        135.35,
+        135.62
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "大阪市 24時間利用可能なAED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/osaka.csv",
+          "url": "https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000552/552264/R8aed-24h.csv",
+          "expected_raw": 197,
+          "sha256": "9347d1a688aa1d7b46f9dd95b96b17b99e0fe286c05e748a63fc3d529f9ac205"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用制限・本番重複を確認",
+      "date_note": "2026年4月現在。日付不明のためsource_dateはnull。地図URLの座標は案内位置であり入口の実測座標ではない。"
+    }
+  ],
+  "evidence_hashes": {
+    "osaka_source_page.txt": "09889a0ce637e9a8b1788a4b553bc02faddf53477f75607193dcfa1c72f5684a",
+    "kyoto_catalog.json": "dab6003a7935da2c5ce01cbb97af3fac20761ac9ef43abe7ceae3d636bdfd620",
+    "koka_catalog.json": "169668cb6269f822524b429dcb01a582bbe1525ca8c2d18fe752e6fe1adb4c9a",
+    "muko_catalog.json": "8fdfbb353d928cc1b0d096353739e81b5ce8c7f15133a1cf31bec470d17b8062",
+    "muko_existing.json": "0cd1d7b66ed5065ca21c318d6b26cfe06846bbc9e3225f0386e015fdf0f7cf00"
+  },
+  "other_review": {
+    "kyoto_city": {
+      "rows": 2350,
+      "rows_with_address": 0,
+      "reason": "missing_address_all_rows",
+      "resource_sha256": "1bdca3d97d9034a11bfe9583e1775e3421c9556afc764e51f417e19e82c2c545",
+      "resource_url": "https://data.bodik.jp/dataset/38c655fd-2731-44e7-ba36-217f9084f1c7/resource/42b34cae-25f4-4e2f-81c9-06baf25a1451/download/261009_aedsecchibasho.xlsx"
+    }
+  }
+}

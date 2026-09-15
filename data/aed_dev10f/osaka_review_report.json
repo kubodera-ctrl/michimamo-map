@@ -1,0 +1,777 @@
+{
+  "source": {
+    "key": "osaka",
+    "prefecture": "大阪府",
+    "municipality": "大阪市",
+    "source_url": "https://www.city.osaka.lg.jp/kenko/page/0000552264.html",
+    "source_updated_at": "2026-08-03",
+    "source_date": null,
+    "review_bounds": [
+      34.58,
+      34.78,
+      135.35,
+      135.62
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "大阪市 24時間利用可能なAED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/osaka.csv",
+        "url": "https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000552/552264/R8aed-24h.csv",
+        "expected_raw": 197,
+        "sha256": "9347d1a688aa1d7b46f9dd95b96b17b99e0fe286c05e748a63fc3d529f9ac205"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用制限・本番重複を確認",
+    "date_note": "2026年4月現在。日付不明のためsource_dateはnull。地図URLの座標は案内位置であり入口の実測座標ではない。"
+  },
+  "raw_rows": 197,
+  "review_rows": 91,
+  "publish_candidates": 91,
+  "exact_duplicates_removed": 1,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 3,
+      "name": "大阪市北消防署浮田出張所",
+      "address": "大阪府大阪市北区浮田2-6-29",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 6,
+      "name": "大阪市北消防署大淀町出張所",
+      "address": "大阪府大阪市北区大淀北1-4-37",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 7,
+      "name": "大阪市北消防署",
+      "address": "大阪府大阪市北区茶屋町19-41",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 9,
+      "name": "大阪市北消防署",
+      "address": "大阪府大阪市北区茶屋町19-41",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 10,
+      "name": "大阪市北消防署与力出張所",
+      "address": "大阪府大阪市北区同心1-5-15",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 12,
+      "name": "大阪市北消防署本庄出張所",
+      "address": "大阪府大阪市北区本庄西2-8-18",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 13,
+      "name": "大阪市北消防署南森町出張所",
+      "address": "大阪府大阪市北区南森町1-1-22",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 16,
+      "name": "大阪市都島消防署東野田出張所",
+      "address": "大阪府大阪市都島区網島町9-55",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 17,
+      "name": "大阪市都島消防署高倉出張所",
+      "address": "大阪府大阪市都島区友渕町2-15-20",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 19,
+      "name": "大阪市都島消防署",
+      "address": "大阪府大阪市都島区都島本通2-1-8",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 21,
+      "name": "大阪市福島消防署海老江出張所",
+      "address": "大阪府大阪市福島区海老江6-2-27",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 28,
+      "name": "大阪市福島消防署上福島出張所",
+      "address": "大阪府大阪市福島区福島4-5-32",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 29,
+      "name": "大阪市福島消防署上福島出張所",
+      "address": "大阪府大阪市福島区福島4-5-32",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 31,
+      "name": "大阪市福島消防署",
+      "address": "大阪府大阪市福島区吉野3-17-22",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 35,
+      "name": "大阪市此花消防署",
+      "address": "大阪府大阪市此花区春日出北1-8-30",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 37,
+      "name": "大阪市此花消防署桜島出張所",
+      "address": "大阪府大阪市此花区桜島3-4-98",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 38,
+      "name": "大阪市此花消防署桜島出張所",
+      "address": "大阪府大阪市此花区桜島3-4-98",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 39,
+      "name": "大阪市此花消防署西九条出張所",
+      "address": "大阪府大阪市此花区西九条5-4-20",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 42,
+      "name": "大阪市中央消防署",
+      "address": "大阪府大阪市中央区内本町2-1-6",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 44,
+      "name": "大阪市中央消防署南阪町出張所",
+      "address": "大阪府大阪市中央区千日前2-1-15",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 45,
+      "name": "大阪市中央消防署東雲出張所",
+      "address": "大阪府大阪市中央区玉造2-13-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 46,
+      "name": "大阪市中央消防署道頓堀出張所",
+      "address": "大阪府大阪市中央区道頓堀1-10-3",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 47,
+      "name": "大阪市中央消防署上町出張所",
+      "address": "大阪府大阪市中央区中寺1-2-28",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 55,
+      "name": "大阪市西消防署江戸堀出張所",
+      "address": "大阪府大阪市西区江戸堀1-24-18",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 57,
+      "name": "大阪市西消防署",
+      "address": "大阪府大阪市西区九条南1-12-54",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 58,
+      "name": "大阪市西消防署新町出張所",
+      "address": "大阪府大阪市西区新町1-6-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 62,
+      "name": "大阪市港消防署田中出張所",
+      "address": "大阪府大阪市港区田中2-14-11",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 64,
+      "name": "大阪市水上消防署",
+      "address": "大阪府大阪市港区築港3-1-47",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 66,
+      "name": "大阪市港消防署",
+      "address": "大阪府大阪市港区弁天1-4-1",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 69,
+      "name": "大阪市大正消防署泉尾出張所",
+      "address": "大阪府大阪市大正区泉尾1-26-4",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 70,
+      "name": "大阪市大正消防署泉尾出張所",
+      "address": "大阪府大阪市大正区泉尾1-26-4",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 71,
+      "name": "大阪市大正消防署",
+      "address": "大阪府大阪市大正区小林東3-5-16",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 73,
+      "name": "大阪市大正消防署鶴町出張所",
+      "address": "大阪府大阪市大正区鶴町3-14-1",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 76,
+      "name": "大阪国際交流センター/大阪国際交流センターホテル",
+      "address": "大阪府大阪市天王寺区上本町8-2-6",
+      "reason": "temporarily_unavailable_during_construction",
+      "existing_keys": []
+    },
+    {
+      "row": 78,
+      "name": "大阪市天王寺消防署",
+      "address": "大阪府大阪市天王寺区上本町8-5-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 79,
+      "name": "大阪市天王寺消防署元町出張所",
+      "address": "大阪府大阪市天王寺区四天王寺1-11-68",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 80,
+      "name": "大阪市天王寺消防署元町出張所",
+      "address": "大阪府大阪市天王寺区四天王寺1-11-68",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 82,
+      "name": "大阪市浪速消防署立葉出張所",
+      "address": "大阪府大阪市浪速区桜川2-14-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 84,
+      "name": "大阪市浪速消防署浪速出張所",
+      "address": "大阪府大阪市浪速区浪速東3-11-19",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 85,
+      "name": "大阪市浪速消防署浪速出張所",
+      "address": "大阪府大阪市浪速区浪速東3-11-19",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 86,
+      "name": "大阪市浪速消防署浪速出張所",
+      "address": "大阪府大阪市浪速区浪速東3-11-19",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 87,
+      "name": "大阪市浪速消防署恵美須出張所",
+      "address": "大阪府大阪市浪速区日本橋5-5-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 89,
+      "name": "大阪市浪速消防署",
+      "address": "大阪府大阪市浪速区元町1-14-20",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 90,
+      "name": "大阪市西淀川消防署大和田出張所",
+      "address": "大阪府大阪市西淀川区佃4-5-2",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 91,
+      "name": "大阪市西淀川消防署竹島出張所",
+      "address": "大阪府大阪市西淀川区竹島2-4-4",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 92,
+      "name": "大阪市西淀川消防署佃出張所",
+      "address": "大阪府大阪市西淀川区佃4-5-2",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 94,
+      "name": "大阪市西淀川消防署",
+      "address": "大阪府大阪市西淀川区御幣島1-10-20",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 97,
+      "name": "大阪市淀川消防署加島出張所",
+      "address": "大阪府大阪市淀川区加島1-57-34",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 98,
+      "name": "大阪市淀川消防署加島出張所",
+      "address": "大阪府大阪市淀川区加島1-57-34",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 100,
+      "name": "大阪市淀川消防署",
+      "address": "大阪府大阪市淀川区木川東4-10-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 103,
+      "name": "大阪市淀川消防署十三橋出張所",
+      "address": "大阪府大阪市淀川区野中南2-1-1",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 104,
+      "name": "大阪市淀川消防署東三国出張所",
+      "address": "大阪府大阪市淀川区東三国2-17-4",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 109,
+      "name": "大阪市東淀川消防署井高野出張所",
+      "address": "大阪府大阪市東淀川区北江口1-2-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 110,
+      "name": "大阪市東淀川消防署小松出張所",
+      "address": "大阪府大阪市東淀川区北江口1-2-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 111,
+      "name": "大阪市東淀川消防署柴島出張所",
+      "address": "大阪府大阪市東淀川区柴島3-10-21",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 113,
+      "name": "大阪市東淀川消防署",
+      "address": "大阪府大阪市東淀川区菅原4-4-27",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 114,
+      "name": "大阪市東淀川消防署西淡路出張所",
+      "address": "大阪府大阪市東淀川区西淡路2-5-5",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 116,
+      "name": "大阪市立青少年センター",
+      "address": "大阪府大阪市東淀川区東中島1-13-13",
+      "reason": "overnight_guest_availability_restriction",
+      "existing_keys": []
+    },
+    {
+      "row": 119,
+      "name": "大阪市東淀川消防署豊里出張所",
+      "address": "大阪府大阪市東淀川区豊新5-10-3",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 123,
+      "name": "大阪市東成消防署",
+      "address": "大阪府大阪市東成区大今里西1-27-13",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 125,
+      "name": "大阪市東成消防署中本出張所",
+      "address": "大阪府大阪市東成区東中本2-1-9",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 126,
+      "name": "大阪市東成消防署深江出張所",
+      "address": "大阪府大阪市東成区深江北1-13-7",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 127,
+      "name": "大阪市東成消防署深江出張所",
+      "address": "大阪府大阪市東成区深江北1-13-7",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 128,
+      "name": "大阪市生野消防署勝山出張所",
+      "address": "大阪府大阪市生野区勝山北3-14-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 129,
+      "name": "大阪市生野消防署勝山出張所",
+      "address": "大阪府大阪市生野区勝山北3-14-10",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 132,
+      "name": "大阪市生野消防署",
+      "address": "大阪府大阪市生野区舎利寺1-13-8",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 133,
+      "name": "大阪市生野消防署中川出張所",
+      "address": "大阪府大阪市生野区中川2－9－27",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 134,
+      "name": "大阪市生野消防署巽出張所",
+      "address": "大阪府大阪市生野区巽東1-10-32",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 135,
+      "name": "大阪市旭消防署赤川出張所",
+      "address": "大阪府大阪市旭区赤川2-16-5",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 137,
+      "name": "大阪市旭消防署",
+      "address": "大阪府大阪市旭区大宮1-1-11",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 139,
+      "name": "大阪市旭消防署新森出張所",
+      "address": "大阪府大阪市旭区新森2-18-15",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 140,
+      "name": "大阪市城東消防署関目出張所",
+      "address": "大阪府大阪市城東区成育4-7-18",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 142,
+      "name": "大阪市城東消防署",
+      "address": "大阪府大阪市城東区中央3-4-20",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 144,
+      "name": "大阪市城東消防署放出出張所",
+      "address": "大阪府大阪市城東区放出西1-1-17",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 145,
+      "name": "大阪市城東消防署中浜出張所",
+      "address": "大阪府大阪市城東区東中浜2-1-19",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 146,
+      "name": "大阪市鶴見消防署今津出張所",
+      "address": "大阪府大阪市鶴見区今津南1-8-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 147,
+      "name": "大阪市鶴見消防署茨田出張所",
+      "address": "大阪府大阪市鶴見区諸口5-12-11",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 149,
+      "name": "大阪市鶴見消防署",
+      "address": "大阪府大阪市鶴見区横堤5-5-45",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 152,
+      "name": "大阪市阿倍野消防署阪南出張所",
+      "address": "大阪府大阪市阿倍野区播磨町1-23-17",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 153,
+      "name": "大阪市阿倍野消防署晴明通出張所",
+      "address": "大阪府大阪市阿倍野区晴明通9-16",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 158,
+      "name": "大阪市阿倍野消防署",
+      "address": "大阪府大阪市阿倍野区松崎町4-4-30",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 162,
+      "name": "大阪市住之江消防署",
+      "address": "大阪府大阪市住之江区御崎4-11-6",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 163,
+      "name": "大阪市住之江消防署加賀屋出張所",
+      "address": "大阪府大阪市住之江区中加賀屋1-1-28",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 164,
+      "name": "大阪市住之江消防署南港出張所",
+      "address": "大阪府大阪市住之江区南港中1-1-53",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 165,
+      "name": "大阪市住之江消防署南港出張所",
+      "address": "大阪府大阪市住之江区南港中1-1-53",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 166,
+      "name": "大阪市住之江消防署南港出張所",
+      "address": "大阪府大阪市住之江区南港中1-1-53",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 168,
+      "name": "大阪市住之江消防署平林出張所",
+      "address": "大阪府大阪市住之江区平林南2-12-66",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 170,
+      "name": "大阪市住吉消防署",
+      "address": "大阪府大阪市住吉区遠里小野1-1-9",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 171,
+      "name": "大阪市住吉消防署苅田出張所",
+      "address": "大阪府大阪市住吉区苅田9-1-19",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 172,
+      "name": "大阪市住吉消防署万代出張所",
+      "address": "大阪府大阪市住吉区万代東4-1-23",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 177,
+      "name": "大阪市東住吉消防署北田辺出張所",
+      "address": "大阪府大阪市東住吉区北田辺4-14-3",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 178,
+      "name": "大阪市東住吉消防署杭全出張所",
+      "address": "大阪府大阪市東住吉区杭全8-1-16",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 182,
+      "name": "大阪市東住吉消防署",
+      "address": "大阪府大阪市東住吉区南田辺3-4-5",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 183,
+      "name": "大阪市東住吉消防署矢田出張所",
+      "address": "大阪府大阪市東住吉区矢田6-7-28",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 184,
+      "name": "大阪市東住吉消防署矢田出張所",
+      "address": "大阪府大阪市東住吉区矢田6-7-28",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 185,
+      "name": "大阪市平野消防署加美出張所",
+      "address": "大阪府大阪市平野区加美鞍作1-9-8",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 186,
+      "name": "大阪市平野消防署加美出張所",
+      "address": "大阪府大阪市平野区加美鞍作1-9-8",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 187,
+      "name": "大阪市平野消防署加美正覚寺出張所",
+      "address": "大阪府大阪市平野区加美正覚寺1-7-2",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 188,
+      "name": "大阪市平野消防署喜連出張所",
+      "address": "大阪府大阪市平野区喜連西6-2-52",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 190,
+      "name": "大阪市平野消防署長吉出張所",
+      "address": "大阪府大阪市平野区長吉長原2-1-4",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 192,
+      "name": "大阪市平野消防署",
+      "address": "大阪府大阪市平野区平野南1-2-9",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 195,
+      "name": "大阪市西成消防署",
+      "address": "大阪府大阪市西成区岸里1-4-26",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 197,
+      "name": "大阪市西成消防署津守出張所",
+      "address": "大阪府大阪市西成区津守2-1-31",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 198,
+      "name": "大阪市西成消防署海道出張所",
+      "address": "大阪府大阪市西成区萩ノ茶屋3-1-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    },
+    {
+      "row": 199,
+      "name": "大阪市西成消防署海道出張所",
+      "address": "大阪府大阪市西成区萩ノ茶屋3-1-12",
+      "reason": "mobile_fire_vehicle_device",
+      "existing_keys": []
+    }
+  ],
+  "excluded_by_reason": {
+    "mobile_fire_vehicle_device": 103,
+    "temporarily_unavailable_during_construction": 1,
+    "overnight_guest_availability_restriction": 1
+  },
+  "holds": [],
+  "adjusted": []
+}

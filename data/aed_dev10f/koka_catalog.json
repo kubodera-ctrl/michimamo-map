@@ -1,0 +1,106 @@
+{
+  "author": "",
+  "author_email": null,
+  "creator_user_id": "ee0db909-f263-4c55-947e-8ee1ee362ae7",
+  "id": "d8f54382-6e32-4fb4-8903-1ecbe75d8584",
+  "isopen": true,
+  "license_id": "cc-by-40-intl",
+  "license_title": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "maintainer": "",
+  "maintainer_email": null,
+  "metadata_created": "2022-03-18T08:36:41.996078",
+  "metadata_modified": "2022-03-18T10:18:36.981915",
+  "name": "252093_aed",
+  "notes": "甲賀市内のAED（自動体外式除細動器）設置済公共施設",
+  "num_resources": 1,
+  "num_tags": 1,
+  "organization": {
+    "id": "b6d407b1-92e3-4f62-9db3-3b048536b197",
+    "name": "252093",
+    "title": "甲賀市",
+    "type": "organization",
+    "description": "甲賀市のオープンデータ・カタログサイトです",
+    "image_url": "https://data.bodik.jp/uploads/organization/koka.png",
+    "created": "2021-10-26T15:06:25.805912",
+    "is_organization": true,
+    "approval_status": "approved",
+    "state": "active"
+  },
+  "owner_org": "b6d407b1-92e3-4f62-9db3-3b048536b197",
+  "private": false,
+  "state": "active",
+  "title": "AED設置公共施設一覧",
+  "type": "dataset",
+  "url": "",
+  "version": null,
+  "extras": [
+    {
+      "key": "copyright",
+      "value": ""
+    },
+    {
+      "key": "frequency",
+      "value": ""
+    },
+    {
+      "key": "language",
+      "value": "Japanese"
+    },
+    {
+      "key": "spatial",
+      "value": ""
+    }
+  ],
+  "groups": [
+    {
+      "description": "司法、安全、環境に関するデータのグループです。",
+      "display_name": "司法・安全・環境",
+      "id": "e38b5c9d-2948-445a-957d-c2059a98124d",
+      "image_display_url": "https://data.bodik.jp/uploads/group/gr_1400.png",
+      "name": "gr_1400",
+      "title": "司法・安全・環境"
+    }
+  ],
+  "resources": [
+    {
+      "cache_last_updated": null,
+      "cache_url": null,
+      "created": "2022-03-18T08:37:29.679649",
+      "datastore_active": true,
+      "description": "更新日2021年7月26日",
+      "format": "CSV",
+      "hash": "",
+      "id": "313a4845-a239-4eb6-99e2-444b88ed6be4",
+      "last_modified": "2022-03-18T08:37:29.618739",
+      "metadata_modified": "2022-03-18T08:37:29.679649",
+      "mimetype": "text/csv",
+      "mimetype_inner": null,
+      "name": "甲賀市AED設置公共施設一覧",
+      "package_id": "d8f54382-6e32-4fb4-8903-1ecbe75d8584",
+      "position": 0,
+      "resource_type": null,
+      "size": 17835,
+      "state": "active",
+      "url": "https://data.bodik.jp/dataset/d8f54382-6e32-4fb4-8903-1ecbe75d8584/resource/313a4845-a239-4eb6-99e2-444b88ed6be4/download/252093_aed.csv",
+      "url_type": "upload",
+      "いいね数": 0,
+      "コメント数": 0,
+      "ダウンロード数": 61,
+      "利活用数": 0,
+      "評価": 0,
+      "課題解決数": 0
+    }
+  ],
+  "tags": [
+    {
+      "display_name": "位置情報",
+      "id": "a0e9ac8b-42c5-490f-8ad6-bbafa6fbd437",
+      "name": "位置情報",
+      "state": "active",
+      "vocabulary_id": null
+    }
+  ],
+  "relationships_as_subject": [],
+  "relationships_as_object": []
+}

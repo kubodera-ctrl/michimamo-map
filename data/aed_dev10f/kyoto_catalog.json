@@ -1,0 +1,102 @@
+{
+  "author": "総合企画局 デジタル化戦略推進室 情報統計・データ利活用推進担当",
+  "author_email": null,
+  "creator_user_id": "bd309fbe-ed7e-481c-b2ca-0060c6cb7d98",
+  "id": "38c655fd-2731-44e7-ba36-217f9084f1c7",
+  "isopen": true,
+  "license_id": "cc-by-40-intl",
+  "license_title": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "maintainer": "",
+  "maintainer_email": null,
+  "metadata_created": "2025-04-09T02:08:18.742712",
+  "metadata_modified": "2025-04-09T02:26:46.882223",
+  "name": "261009_aedsecchibasho",
+  "notes": "デジタル庁の提示する自治体標準オープンデータセットの、AED設置場所の一覧（京都市分）です。",
+  "num_resources": 1,
+  "num_tags": 1,
+  "organization": {
+    "id": "26d3c64e-7842-4bc4-80cb-59cbfd8b17be",
+    "name": "261009",
+    "title": "京都市",
+    "type": "organization",
+    "description": "京都市のオープンデータカタログサイト",
+    "image_url": "2021-09-08-050729.813169kyoto.png",
+    "created": "2021-09-08T14:07:29.826283",
+    "is_organization": true,
+    "approval_status": "approved",
+    "state": "active"
+  },
+  "owner_org": "26d3c64e-7842-4bc4-80cb-59cbfd8b17be",
+  "private": false,
+  "state": "active",
+  "title": "【京都市】AED設置場所一覧",
+  "type": "dataset",
+  "url": "",
+  "version": null,
+  "extras": [
+    {
+      "key": "copyright",
+      "value": ""
+    },
+    {
+      "key": "frequency",
+      "value": ""
+    },
+    {
+      "key": "language",
+      "value": "Japanese"
+    },
+    {
+      "key": "spatial",
+      "value": ""
+    }
+  ],
+  "resources": [
+    {
+      "cache_last_updated": null,
+      "cache_url": null,
+      "created": "2025-04-09T02:08:52.902495",
+      "datastore_active": true,
+      "description": "AED設置場所一覧（京都市分）のエクセルデータです。",
+      "encoding": "",
+      "format": "XLSX",
+      "hash": "",
+      "id": "42b34cae-25f4-4e2f-81c9-06baf25a1451",
+      "last_modified": "2025-04-09T02:08:52.879924",
+      "metadata_modified": "2025-04-09T02:26:46.896347",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mimetype_inner": null,
+      "name": "261009_aedsecchibasho.xlsx",
+      "package_id": "38c655fd-2731-44e7-ba36-217f9084f1c7",
+      "position": 0,
+      "resource_type": null,
+      "size": 440126,
+      "state": "active",
+      "tracking_summary": {
+        "total": 0,
+        "recent": 0
+      },
+      "url": "https://data.bodik.jp/dataset/38c655fd-2731-44e7-ba36-217f9084f1c7/resource/42b34cae-25f4-4e2f-81c9-06baf25a1451/download/261009_aedsecchibasho.xlsx",
+      "url_type": "upload",
+      "いいね数": 0,
+      "コメント数": 0,
+      "ダウンロード数": 44,
+      "利活用数": 0,
+      "評価": 0,
+      "課題解決数": 0
+    }
+  ],
+  "tags": [
+    {
+      "display_name": "AED設置場所",
+      "id": "df6c7b7c-df08-4dd1-9c9b-5422feeffdf9",
+      "name": "AED設置場所",
+      "state": "active",
+      "vocabulary_id": null
+    }
+  ],
+  "groups": [],
+  "relationships_as_subject": [],
+  "relationships_as_object": []
+}

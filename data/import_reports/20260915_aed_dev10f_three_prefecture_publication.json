@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_sixth_three_prefecture_set",
+  "before_public_aed": 40232,
+  "after_public_aed": 40454,
+  "inserted": 222,
+  "published_municipalities": 451,
+  "unpublished_municipalities": 1290,
+  "staging_holds": 19,
+  "validation": "府県別rollback事前検証、独立トランザクション、本番重複・件数ガード、anon地図RPC甲賀131・向日42（既存）・大阪91。全40454件の公式自治体コード割当確認。",
+  "sources": [
+    {
+      "prefecture": "滋賀県",
+      "municipality": "甲賀市",
+      "published": 131,
+      "held": 0,
+      "excluded_by_reason": {
+        "same_address_coordinates_over_300m_apart_requires_review": 7,
+        "missing_invalid_coordinate": 15
+      },
+      "exact_duplicates_removed": 0,
+      "source_url": "https://data.bodik.jp/dataset/252093_aed",
+      "resources": [
+        {
+          "snapshot": "raw/koka.csv",
+          "url": "https://data.bodik.jp/dataset/d8f54382-6e32-4fb4-8903-1ecbe75d8584/resource/313a4845-a239-4eb6-99e2-444b88ed6be4/download/252093_aed.csv",
+          "expected_raw": 153,
+          "sha256": "6757ae5db991b53aebb39fcb138410fedfa55eff15791c32060a7df04a98ebdb"
+        }
+      ],
+      "sql_sha256": "e24c6b9ecf71f67407e359ce21dc0840f176a30b7bc1f325b03e469109b1640a"
+    },
+    {
+      "prefecture": "京都府",
+      "municipality": "向日市",
+      "published": 0,
+      "held": 0,
+      "excluded_by_reason": {
+        "already_published_name_address": 42
+      },
+      "exact_duplicates_removed": 0,
+      "source_url": "https://data.bodik.jp/dataset/262081_aed",
+      "resources": [
+        {
+          "snapshot": "raw/muko.xlsx",
+          "url": "https://data.bodik.jp/dataset/92b94d8e-e222-4fae-9bba-181222130930/resource/62186c3d-ceb8-4337-974d-ab433d3ec27c/download/262081_aed.xlsx",
+          "expected_raw": 42,
+          "sha256": "f4ed9dba6ffe9e6f2d249d077b4f2ecc8e3c195a82ce928cb2e59b43577411f6"
+        }
+      ],
+      "sql_sha256": "3decc5b60b3a5220d760f9d98018adc654c0a797469de92686e1ffff1f1d2f78"
+    },
+    {
+      "prefecture": "大阪府",
+      "municipality": "大阪市",
+      "published": 91,
+      "held": 0,
+      "excluded_by_reason": {
+        "mobile_fire_vehicle_device": 103,
+        "temporarily_unavailable_during_construction": 1,
+        "overnight_guest_availability_restriction": 1
+      },
+      "exact_duplicates_removed": 1,
+      "source_url": "https://www.city.osaka.lg.jp/kenko/page/0000552264.html",
+      "resources": [
+        {
+          "snapshot": "raw/osaka.csv",
+          "url": "https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000552/552264/R8aed-24h.csv",
+          "expected_raw": 197,
+          "sha256": "9347d1a688aa1d7b46f9dd95b96b17b99e0fe286c05e748a63fc3d529f9ac205"
+        }
+      ],
+      "sql_sha256": "b7e4b3eeba44331c0513be11c9741d029421ed39846ea59fa22a04d76ef72429"
+    }
+  ],
+  "other_review": {
+    "kyoto_city": {
+      "rows": 2350,
+      "rows_with_address": 0,
+      "reason": "missing_address_all_rows",
+      "resource_sha256": "1bdca3d97d9034a11bfe9583e1775e3421c9556afc764e51f417e19e82c2c545",
+      "resource_url": "https://data.bodik.jp/dataset/38c655fd-2731-44e7-ba36-217f9084f1c7/resource/42b34cae-25f4-4e2f-81c9-06baf25a1451/download/261009_aedsecchibasho.xlsx"
+    }
+  },
+  "next_prefectures": [
+    "兵庫県",
+    "奈良県",
+    "和歌山県"
+  ]
+}

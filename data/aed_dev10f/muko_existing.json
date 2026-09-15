@@ -1,0 +1,338 @@
+[
+  {
+    "address": "京都府向日市上植野町馬立8",
+    "installation_location": "乙訓保健所1階玄関ロビー",
+    "latitude": 34.94011193,
+    "longitude": 135.69918,
+    "name": "乙訓総合庁舎",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:9bed1a804672738638e02a35"
+  },
+  {
+    "address": "京都府向日市上植野町西大田",
+    "installation_location": "南校舎1階東側玄関",
+    "latitude": 34.93421669,
+    "longitude": 135.7102649,
+    "name": "向陽高等学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:4cbdb439b8e2b56f5badefe1"
+  },
+  {
+    "address": "京都府向日市寺戸町西ノ段5",
+    "installation_location": "(本場開催日)選手管理センター 1階医務室、(場外開催日)当回選手控室、※本場開催日と場外開催日で設置場所が変わります。",
+    "latitude": 34.94661589,
+    "longitude": 135.6988001,
+    "name": "京都府自転車競技事務所",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:0964e40194f2df93f085d88a"
+  },
+  {
+    "address": "京都府向日市寺戸町中野20",
+    "installation_location": "1階ロビー",
+    "latitude": 34.94874114,
+    "longitude": 135.6983062,
+    "name": "市役所庁舎本館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:af611d3a404ac582d3dc8871"
+  },
+  {
+    "address": "京都府向日市寺戸町中野20",
+    "installation_location": "1階ロビー",
+    "latitude": 34.94833511,
+    "longitude": 135.6974732,
+    "name": "市役所庁舎西別館(議会棟)",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:d4a6099da948f7882ac65e65"
+  },
+  {
+    "address": "京都府向日市寺戸町西ノ段9-8",
+    "installation_location": "1階玄関内",
+    "latitude": 34.94720912,
+    "longitude": 135.7003632,
+    "name": "向日消防署",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:9c086239f4db50e17ffa229b"
+  },
+  {
+    "address": "京都府向日市寺戸町西野辺1-7",
+    "installation_location": "1階入口付近",
+    "latitude": 34.94827115,
+    "longitude": 135.7001051,
+    "name": "向日市福祉会館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:999b06d4da1f15f9b150a17c"
+  },
+  {
+    "address": "京都府向日市物集町中条26",
+    "installation_location": "玄関ロビー",
+    "latitude": 34.96209308,
+    "longitude": 135.6945214,
+    "name": "物集女公民館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:e8c66737f9daa9449c1f00a2"
+  },
+  {
+    "address": "京都府向日市寺戸町初田18",
+    "installation_location": "玄関ロビー",
+    "latitude": 34.95256417,
+    "longitude": 135.7027491,
+    "name": "寺戸公民館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:c9bd3e49976c2c6863974763"
+  },
+  {
+    "address": "京都府向日市森本町前田6-7",
+    "installation_location": "玄関ロビー",
+    "latitude": 34.94700112,
+    "longitude": 135.7090672,
+    "name": "森本公民館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:538af4337d91896fc8ce9da6"
+  },
+  {
+    "address": "京都府向日市鶏冠井町御屋敷26",
+    "installation_location": "玄関ロビー",
+    "latitude": 34.94399296,
+    "longitude": 135.706546,
+    "name": "鶏冠井公民館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:ad79f20aadc24df14bc85ad1"
+  },
+  {
+    "address": "京都府向日市上植野町西小路15",
+    "installation_location": "玄関ロビー",
+    "latitude": 34.93621665,
+    "longitude": 135.7038828,
+    "name": "上植野公民館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:127b87abee61a49b126d5f6b"
+  },
+  {
+    "address": "京都府向日市向日町南山3-3",
+    "installation_location": "1階事務室前",
+    "latitude": 34.94410581,
+    "longitude": 135.7000069,
+    "name": "向日コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:2ff93db8eac4ad60d7e246f1"
+  },
+  {
+    "address": "京都府向日市上植野町御塔道7-5",
+    "installation_location": "1階事務室前",
+    "latitude": 34.93974495,
+    "longitude": 135.7016709,
+    "name": "西向日コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:1068fa20a764028f49cb8757"
+  },
+  {
+    "address": "京都府向日市寺戸町南垣内40-1",
+    "installation_location": "1階一般図書室内の階段登り口",
+    "latitude": 34.949154,
+    "longitude": 135.699505,
+    "name": "向日市立図書館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:8a651939b104c33ed7e35402"
+  },
+  {
+    "address": "京都府向日市森本町小柳23-1",
+    "installation_location": "1階ロビー",
+    "latitude": 34.94607012,
+    "longitude": 135.712834,
+    "name": "向日市民体育館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:b8bd6fa66584ccadd036b865"
+  },
+  {
+    "address": "京都府向日市鶏冠井町上古8-1",
+    "installation_location": "1階受付、1階トレーニング室内",
+    "latitude": 34.9444468,
+    "longitude": 135.7130896,
+    "name": "向日市健康増進センター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:025afd9d01850c595ace53df"
+  },
+  {
+    "address": "京都府向日市寺戸町東野辺31",
+    "installation_location": "1階事務室受付横",
+    "latitude": 34.94740514,
+    "longitude": 135.7043142,
+    "name": "向日市保健センター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:4ea6d2261ce534aca4a55e5e"
+  },
+  {
+    "address": "京都府向日市上植野町南開66-1",
+    "installation_location": "1階事務室横",
+    "latitude": 34.94114293,
+    "longitude": 135.704425,
+    "name": "老人福祉センター桜の径",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:3483f60e2cbb3833edbac898"
+  },
+  {
+    "address": "京都府向日市寺戸町三ノ坪20",
+    "installation_location": "1階事務室横",
+    "latitude": 34.95916838,
+    "longitude": 135.7016093,
+    "name": "老人福祉センター琴の橋",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:d572b059eb1b0cbec9aff0a0"
+  },
+  {
+    "address": "京都府向日市鶏冠井町楓畑24",
+    "installation_location": "1階職員室内",
+    "latitude": 34.94259369,
+    "longitude": 135.7016254,
+    "name": "勝山中学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:84c8d3aa83bea2f25691c0bc"
+  },
+  {
+    "address": "京都府向日市物集女町吉田1",
+    "installation_location": "玄関ホール内",
+    "latitude": 34.96733357,
+    "longitude": 135.6983236,
+    "name": "西ノ岡中学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:c4c3431723f4126e646ec2ba"
+  },
+  {
+    "address": "京都府向日市寺戸町蔵ノ町1",
+    "installation_location": "2階職員室内",
+    "latitude": 34.95895831,
+    "longitude": 135.7053663,
+    "name": "寺戸中学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:05ff6e0d0f4c524d9d78d261"
+  },
+  {
+    "address": "京都府向日市向日町南山3",
+    "installation_location": "1階保健室内",
+    "latitude": 34.94371698,
+    "longitude": 135.6994869,
+    "name": "向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:b51ec45901e54b0efcdb5aa5"
+  },
+  {
+    "address": "京都府向日市物集町南条70",
+    "installation_location": "正面玄関ホール内",
+    "latitude": 34.95768901,
+    "longitude": 135.6954866,
+    "name": "第2向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:ff7f19254854ced37a666197"
+  },
+  {
+    "address": "京都府向日市森本町下森本30",
+    "installation_location": "正面玄関ホール内",
+    "latitude": 34.94930313,
+    "longitude": 135.7064421,
+    "name": "第3向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:39b733f2ae9eefd033c06c15"
+  },
+  {
+    "address": "京都府向日市寺戸町三ノ坪20",
+    "installation_location": "正面玄関ホール内",
+    "latitude": 34.95916838,
+    "longitude": 135.7016093,
+    "name": "第4向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:079998f481595ac9db6016dc"
+  },
+  {
+    "address": "京都府向日市上植野町五ノ坪1",
+    "installation_location": "1階保健室前",
+    "latitude": 34.93689402,
+    "longitude": 135.7109188,
+    "name": "第5向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:b7acea7c1c03c2bce722ed86"
+  },
+  {
+    "address": "京都府向日市寺戸町大牧24",
+    "installation_location": "1階保健室西側通路",
+    "latitude": 34.95380236,
+    "longitude": 135.6912624,
+    "name": "第6向陽小学校",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:adff69fd2e8345a7afc194e4"
+  },
+  {
+    "address": "京都府向日市向日町北山21",
+    "installation_location": "1階職員室内",
+    "latitude": 34.94449893,
+    "longitude": 135.6990899,
+    "name": "第1保育所",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:137a105526ca3801df489454"
+  },
+  {
+    "address": "京都府向日市寺戸町三ノ坪14",
+    "installation_location": "1階職員室内",
+    "latitude": 34.95892735,
+    "longitude": 135.7026484,
+    "name": "第5保育所",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:7c9bb2a803f5ca2bfb4383bc"
+  },
+  {
+    "address": "京都府向日市上植野町地田5-3",
+    "installation_location": "1階職員室内",
+    "latitude": 34.93868104,
+    "longitude": 135.7102047,
+    "name": "第6保育所",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:76f6df7c2aee6d6bc4b22c9d"
+  },
+  {
+    "address": "京都府向日市物集女町北ノ口33",
+    "installation_location": "1階事務室前",
+    "latitude": 34.96439505,
+    "longitude": 135.6925601,
+    "name": "物集女コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:c6cd11487e686480f29adc8c"
+  },
+  {
+    "address": "京都府向日市寺戸町山繩手11-3",
+    "installation_location": "1階事務室前",
+    "latitude": 34.95616046,
+    "longitude": 135.7073661,
+    "name": "寺戸コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:ea9d459d6aa00594d2465b31"
+  },
+  {
+    "address": "京都府向日市鶏冠井町上古8-8",
+    "installation_location": "1階事務室前",
+    "latitude": 34.94386121,
+    "longitude": 135.7123211,
+    "name": "鶏冠井コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:3605bd6acd4ab7c08803c744"
+  },
+  {
+    "address": "京都府向日市上植野町桑原1-3",
+    "installation_location": "1階事務室前",
+    "latitude": 34.93200788,
+    "longitude": 135.7102341,
+    "name": "上植野コミュニティセンター",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:cab12a8237deb8df630a00cc"
+  },
+  {
+    "address": "京都府向日市鶏冠井町東井戸64–2",
+    "installation_location": "1階事務室",
+    "latitude": 34.942658,
+    "longitude": 135.70584,
+    "name": "旧上田家住宅",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:a2527100996327924c725383"
+  },
+  {
+    "address": "京都府向日市寺戸町瓜生22-1",
+    "installation_location": "1階エレベータ横",
+    "latitude": 34.956889,
+    "longitude": 135.709562,
+    "name": "向日市観光交流センター まちてらすMUKO",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:c32bb96674a1f4efcc0c6452"
+  },
+  {
+    "address": "京都府向日市寺戸町小佃5-1",
+    "installation_location": "3階受付",
+    "latitude": 34.952949,
+    "longitude": 135.703481,
+    "name": "向日市役所 東向日別館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:b7d1aeebfe31839995bc1f53"
+  },
+  {
+    "address": "京都府向日市寺戸町中ノ段16-7",
+    "installation_location": "1階事務室",
+    "latitude": 34.946324,
+    "longitude": 135.700767,
+    "name": "向日市女性活躍センターあすもあ",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:d9f68dc67c7c6600c461d551"
+  },
+  {
+    "address": "京都府向日市向日町南山82-1",
+    "installation_location": "1階事務室",
+    "latitude": 34.943721,
+    "longitude": 135.697729,
+    "name": "向日市天文館",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:98cb7668da15c1228d9a9fa7"
+  },
+  {
+    "address": "京都府向日市鶏冠井町山畑19-3",
+    "installation_location": "案内所内",
+    "latitude": 34.941523,
+    "longitude": 135.702811,
+    "name": "朝堂院公園",
+    "source_key": "municipal-catalog:92b94d8e-e222-4fae-9bba-181222130930:912414c0fae49ec373873349"
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "author": "デジタル戦略課",
+  "author_email": null,
+  "creator_user_id": "2743f404-24bc-434f-ae0c-3fdd96a1510b",
+  "id": "92b94d8e-e222-4fae-9bba-181222130930",
+  "isopen": true,
+  "license_id": "cc-by-40-intl",
+  "license_title": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "maintainer": "",
+  "maintainer_email": null,
+  "metadata_created": "2024-02-29T07:55:24.825880",
+  "metadata_modified": "2026-06-03T02:24:36.088933",
+  "name": "262081_aed",
+  "notes": "向日市のAED設置箇所です。",
+  "num_resources": 1,
+  "num_tags": 3,
+  "organization": {
+    "id": "17ff2426-0e95-496b-80d1-76a962dfbe57",
+    "name": "262081",
+    "title": "向日市",
+    "type": "organization",
+    "description": "向日市のオープンデータ・カタログサイトです",
+    "image_url": "https://data.bodik.jp/uploads/organization/muko.png",
+    "created": "2021-08-30T13:39:26.415804",
+    "is_organization": true,
+    "approval_status": "approved",
+    "state": "active"
+  },
+  "owner_org": "17ff2426-0e95-496b-80d1-76a962dfbe57",
+  "private": false,
+  "state": "active",
+  "title": "【向日市】AED設置箇所",
+  "type": "dataset",
+  "url": "",
+  "version": null,
+  "extras": [
+    {
+      "key": "copyright",
+      "value": ""
+    },
+    {
+      "key": "frequency",
+      "value": "不定期"
+    },
+    {
+      "key": "language",
+      "value": "Japanese"
+    },
+    {
+      "key": "spatial",
+      "value": ""
+    }
+  ],
+  "resources": [
+    {
+      "cache_last_updated": null,
+      "cache_url": null,
+      "created": "2026-06-03T02:22:55.492156",
+      "datastore_active": true,
+      "description": "向日市のAED設置箇所です。",
+      "encoding": "",
+      "format": "XLSX",
+      "hash": "",
+      "id": "62186c3d-ceb8-4337-974d-ab433d3ec27c",
+      "last_modified": "2026-06-03T02:22:55.467482",
+      "metadata_modified": "2026-06-03T02:24:36.097160",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mimetype_inner": null,
+      "name": "自治体標準オープンデータセット_AED設置箇所様式.xlsx",
+      "package_id": "92b94d8e-e222-4fae-9bba-181222130930",
+      "position": 0,
+      "resource_type": null,
+      "size": 33638,
+      "state": "active",
+      "url": "https://data.bodik.jp/dataset/92b94d8e-e222-4fae-9bba-181222130930/resource/62186c3d-ceb8-4337-974d-ab433d3ec27c/download/262081_aed.xlsx",
+      "url_type": "upload",
+      "いいね数": 0,
+      "コメント数": 0,
+      "ダウンロード数": 33,
+      "利活用数": 0,
+      "評価": 0,
+      "課題解決数": 0
+    }
+  ],
+  "tags": [
+    {
+      "display_name": "AED",
+      "id": "c35da41c-da1f-480f-97aa-2ea928493704",
+      "name": "AED",
+      "state": "active",
+      "vocabulary_id": null
+    },
+    {
+      "display_name": "位置情報",
+      "id": "a0e9ac8b-42c5-490f-8ad6-bbafa6fbd437",
+      "name": "位置情報",
+      "state": "active",
+      "vocabulary_id": null
+    },
+    {
+      "display_name": "向日市",
+      "id": "6bbe7b9e-a4e7-4c38-b9b0-79f59fe10945",
+      "name": "向日市",
+      "state": "active",
+      "vocabulary_id": null
+    }
+  ],
+  "groups": [],
+  "relationships_as_subject": [],
+  "relationships_as_object": []
+}

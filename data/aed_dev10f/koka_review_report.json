@@ -1,0 +1,195 @@
+{
+  "source": {
+    "key": "koka",
+    "prefecture": "滋賀県",
+    "municipality": "甲賀市",
+    "source_url": "https://data.bodik.jp/dataset/252093_aed",
+    "source_updated_at": "2022-03-18",
+    "source_date": null,
+    "review_bounds": [
+      34.78,
+      35.05,
+      135.94,
+      136.38
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "甲賀市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/koka.csv",
+        "url": "https://data.bodik.jp/dataset/d8f54382-6e32-4fb4-8903-1ecbe75d8584/resource/313a4845-a239-4eb6-99e2-444b88ed6be4/download/252093_aed.csv",
+        "expected_raw": 153,
+        "sha256": "6757ae5db991b53aebb39fcb138410fedfa55eff15791c32060a7df04a98ebdb"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用制限・本番重複を確認",
+    "date_note": "カタログのリソース更新日。個別施設の調査日は不明。"
+  },
+  "raw_rows": 153,
+  "review_rows": 131,
+  "publish_candidates": 131,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 4,
+      "name": "土山地域市民センター",
+      "address": "滋賀県甲賀市土山町北土山１７１５",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 22,
+      "name": "水口児童クラブ、綾野児童クラブ",
+      "address": "滋賀県甲賀市水口町八坂",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 23,
+      "name": "貴生川児童クラブ・貴生川第２児童クラブ",
+      "address": "滋賀県甲賀市水口町貴生川",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 24,
+      "name": "伴谷児童クラブ",
+      "address": "滋賀県甲賀市水口町伴中山",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 25,
+      "name": "伴谷東児童クラブ",
+      "address": "滋賀県甲賀市水口町山",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 26,
+      "name": "柏木児童クラブ",
+      "address": "滋賀県甲賀市水口町北脇",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 27,
+      "name": "土山かしきや児童クラブ",
+      "address": "滋賀県甲賀市土山町北土山",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 28,
+      "name": "大野児童クラブ",
+      "address": "滋賀県甲賀市土山町大野",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 29,
+      "name": "油日児童クラブ",
+      "address": "滋賀県甲賀市甲賀町上野",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 30,
+      "name": "甲南そまっこ児童クラブ",
+      "address": "滋賀県甲賀市甲南町深川",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 31,
+      "name": "甲南わくわく児童クラブ",
+      "address": "滋賀県甲賀市甲南町希望ヶ丘",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 32,
+      "name": "甲南なかよし児童クラブ",
+      "address": "滋賀県甲賀市甲南町竜法師",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 33,
+      "name": "小原つばさ児童クラブ",
+      "address": "滋賀県甲賀市信楽町柞原",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 34,
+      "name": "雲井くもっこ児童クラブ",
+      "address": "滋賀県甲賀市信楽町牧",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 35,
+      "name": "信楽児童クラブ",
+      "address": "滋賀県甲賀市信楽町江田",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 36,
+      "name": "大原児童クラブ",
+      "address": "滋賀県甲賀市甲賀町大久保",
+      "reason": "missing_invalid_coordinate",
+      "existing_keys": []
+    },
+    {
+      "row": 52,
+      "name": "土山開発センター",
+      "address": "滋賀県甲賀市土山町北土山１７１５",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 58,
+      "name": "水口スポーツの森管理事務所",
+      "address": "滋賀県甲賀市水口町北内貴２３０",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 59,
+      "name": "水口スポーツの森甲賀市民スタジアム",
+      "address": "滋賀県甲賀市水口町北内貴２３０",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 60,
+      "name": "水口スポーツの森陸上競技場",
+      "address": "滋賀県甲賀市水口町北内貴２３０",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 101,
+      "name": "佐山小学校",
+      "address": "滋賀県甲賀市甲賀町小佐治２９２２番地",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    },
+    {
+      "row": 102,
+      "name": "甲南第一小学校",
+      "address": "滋賀県甲賀市甲賀町小佐治２９２２番地",
+      "reason": "same_address_coordinates_over_300m_apart_requires_review",
+      "existing_keys": []
+    }
+  ],
+  "excluded_by_reason": {
+    "same_address_coordinates_over_300m_apart_requires_review": 7,
+    "missing_invalid_coordinate": 15
+  },
+  "holds": [],
+  "adjusted": []
+}
