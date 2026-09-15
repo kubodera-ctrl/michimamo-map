@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const XLSX = require('xlsx');
+const iconv = require('iconv-lite');
 const { parse } = require('csv-parse/sync');
 const { normalize } = require('@geolonia/normalize-japanese-addresses');
 
@@ -10,8 +11,12 @@ fs.mkdirSync(OUT,{recursive:true});
 function clean(v){ return String(v ?? '').normalize('NFKC').trim(); }
 function first(row, keys){ for(const k of keys){ if(clean(row[k])) return clean(row[k]); } return ''; }
 function csvRows(file){
-  const buf=fs.readFileSync(file); const text=buf.toString('utf8');
-  return parse(text,{columns:true,skip_empty_lines:true,relax_quotes:true});
+  const buf=fs.readFileSync(file);
+  let text;
+  try { text = new TextDecoder('utf-8',{fatal:true}).decode(buf); }
+  catch { text = iconv.decode(buf,'cp932'); }
+  const records=parse(text,{columns:true,skip_empty_lines:true,relax_quotes:true,relax_column_count:true});
+  return records.filter(r=>first(r,['名称','施設名称','施設名']) || first(r,['住所','所在地']));
 }
 function xlsxRows(file){
   const wb=XLSX.readFile(file,{cellDates:false});
