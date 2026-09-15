@@ -43,4 +43,8 @@ class ReviewTests(unittest.TestCase):
         row=make_row({'name':'学校','address':'新潟市南区新飯田1','prefectureName':'新潟県','cityName':'新潟市'},[138.9,37.7],self.source,'r')
         self.assertEqual(row['municipality'],'新潟市')
 
+    def test_source_url_identifies_supplemental_rows(self):
+        row=make_row(self.p,[143.9,43.8],self.source,'r')
+        self.assertEqual(row['source_url'],self.source['source_url'])
+
 if __name__=='__main__': unittest.main()
