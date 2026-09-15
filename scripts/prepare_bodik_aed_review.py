@@ -10,6 +10,14 @@ from import_nationwide_aed import clean, compact, PREFECTURES, mark_duplicates, 
 from import_aed_open_data import read_records, first_value, sql_text
 
 
+def municipality_from_address(prefecture, address):
+    body=clean(address).removeprefix(clean(prefecture))
+    city=re.match(r'^(.+?市)',body)
+    if city: return city.group(1)
+    town=re.match(r'^(?:.+?郡)?(.+?[町村])',body)
+    return town.group(1) if town else ''
+
+
 def make_row(p, coords, source, identity):
     if not isinstance(coords,list) or len(coords)<2:
         return None
@@ -36,6 +44,7 @@ def make_row(p, coords, source, identity):
               and not re.match(r'.+?市|.+?郡.+?[町村]',address)):
             address=pref+city+address
         else: return None
+    city=municipality_from_address(pref,address) or city
     install=clean(p.get('placeOfInstallation'))
     digest=hashlib.sha256(f'{name}|{address}|{lat:.7f}|{lng:.7f}|{install}'.encode()).hexdigest()[:24]
     return dict(source_key=f'bodik-reviewed:{identity}:{digest}',facility_type='aed',name=name,prefecture=pref,prefecture_code=PREFECTURES[pref],municipality=city,address=address,phone=clean(p.get('telephoneNumber')) or None,latitude=lat,longitude=lng,source_name=source['source_name'],source_url=source['source_url'],source_license=source['license_id'],source_updated_at=source.get('source_updated_at'),source_date=source.get('source_date'),installation_location=install or None,availability=' / '.join(clean(p.get(k)) for k in ('openingDays','startTime','endTime','openingHoursRemarks') if clean(p.get(k))) or None,quality_status='rough',geocode_source='自治体公式データの座標（表記整形・重複除外）',active=False,duplicate_candidate=False)

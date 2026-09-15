@@ -3,8 +3,13 @@ import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from reconcile_bodik_aed import reconcile
+from prepare_bodik_aed_review import municipality_from_address
 
 class ReconciliationTests(unittest.TestCase):
+    def test_extracts_physical_municipality_from_address(self):
+        self.assertEqual(municipality_from_address('岩手県','岩手県滝沢市穴口328'),'滝沢市')
+        self.assertEqual(municipality_from_address('岩手県','岩手県胆沢郡金ケ崎町西根'),'金ケ崎町')
+
     def setUp(self):
         self.old={'name':'市役所','address':'東京都青梅市1','latitude':35.7,'longitude':139.3}
     def test_existing_address_is_excluded_even_with_different_coordinates(self):

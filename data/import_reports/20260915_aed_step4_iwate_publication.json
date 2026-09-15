@@ -1,0 +1,27 @@
+{
+  "catalog": "岩手県及び市町村共同オープンデータポータルサイト",
+  "catalog_url": "https://iwate.dataeye.jp/datasets?keyword=AED",
+  "catalog_datasets": 5,
+  "published": {
+    "municipalities": {
+      "盛岡市": 183,
+      "宮古市": 113,
+      "奥州市": 99,
+      "二戸市": 44,
+      "一戸町": 19,
+      "滝沢市": 2
+    },
+    "rows": 460
+  },
+  "excluded": {
+    "normalization_or_coordinate_rejected": 3,
+    "exact_duplicates": 1,
+    "near_duplicate_facilities": 0,
+    "invalid_published_coordinates": 0
+  },
+  "production_baseline": 36536,
+  "production_after_publication": 36996,
+  "published_municipalities_after_publication": 397,
+  "unpublished_municipalities_after_publication": 1344,
+  "held_review_rows": 15
+}

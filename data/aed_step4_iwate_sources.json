@@ -1,0 +1,50 @@
+{
+  "sources": [
+    {
+      "prefecture": "岩手県",
+      "municipality": "宮古市",
+      "source_name": "宮古市_AED設置箇所一覧_2026-06-10",
+      "source_url": "https://iwate.dataeye.jp/datasets/410",
+      "resource_url": "https://iwate.dataeye.jp/resource_download/412",
+      "license_id": "CC BY",
+      "source_updated_at": "2026-06-10"
+    },
+    {
+      "prefecture": "岩手県",
+      "municipality": "奥州市",
+      "source_name": "奥州市_AED設置箇所一覧_2026-05-01",
+      "source_url": "https://iwate.dataeye.jp/datasets/455",
+      "resource_url": "https://www.city.oshu.iwate.jp/material/files/group/3/032158_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2026-05-01"
+    },
+    {
+      "prefecture": "岩手県",
+      "municipality": "二戸市",
+      "source_name": "二戸市_AED設置箇所一覧_2024-09-26",
+      "source_url": "https://iwate.dataeye.jp/datasets/446",
+      "resource_url": "https://iwate.dataeye.jp/resource_download/432",
+      "license_id": "CC BY",
+      "source_updated_at": "2024-09-26"
+    },
+    {
+      "prefecture": "岩手県",
+      "municipality": "盛岡市",
+      "source_name": "オープンデータ（AED設置箇所一覧）令和8年8月28日更新",
+      "source_url": "https://www.city.morioka.iwate.jp/kurashi/anzen_anshin/kasai/1000947.html",
+      "resource_url": "https://www.city.morioka.iwate.jp/_res/projects/default_project/_page_/001/000/947/080828aed.csv",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2026-08-28"
+    },
+    {
+      "prefecture": "岩手県",
+      "municipality": "一戸町",
+      "source_name": "一戸町_スポーツ施設AED設置場所_2024-03-05",
+      "source_url": "https://iwate.dataeye.jp/datasets/91",
+      "resource_url": "https://iwate.dataeye.jp/resource_download/114",
+      "license_id": "CC BY",
+      "source_updated_at": "2024-03-05"
+    }
+  ],
+  "excluded": []
+}
