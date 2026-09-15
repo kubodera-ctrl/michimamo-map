@@ -1,0 +1,139 @@
+{
+  "prefecture": "秋田県",
+  "audited_at": "2026-09-15",
+  "municipalities_reviewed": 20,
+  "prefecture_catalog": {
+    "name": "秋田県オープンデータポータルサイト",
+    "url": "https://opendata.pref.akita.lg.jp/",
+    "catalog_api": "https://ckan.pref.akita.lg.jp/",
+    "datasets_reviewed": 264,
+    "aed_datasets_found": 0
+  },
+  "result": {
+    "published_rows": 0,
+    "municipalities_kept_unpublished": 20,
+    "production_aed_total_unchanged": 38967,
+    "published_municipalities_unchanged": 432,
+    "unpublished_municipalities_unchanged": 1309
+  },
+  "municipality_assessments": [
+    {
+      "municipality": "秋田市",
+      "official_url": "https://www.city.akita.lg.jp/shobo/kyukyu/1008783/1036144.html",
+      "status": "hold",
+      "reason": "公式HTML一覧は確認したが、再利用条件と自治体提供座標を同時に確認できない"
+    },
+    {
+      "municipality": "大館市",
+      "status": "hold",
+      "reason": "現行の市公式ホストで再利用可能な座標付きデータを確認できない"
+    },
+    {
+      "municipality": "男鹿市",
+      "official_url": "https://www.city.oga.akita.jp/",
+      "status": "hold",
+      "reason": "公式の公共施設AED案内は確認したが、再利用条件と自治体提供座標を同時に確認できない"
+    },
+    {
+      "municipality": "湯沢市",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "潟上市",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "大仙市",
+      "official_url": "https://www.city.daisen.lg.jp/",
+      "status": "hold",
+      "reason": "公式ページは日本救急医療財団の全国AEDマップを案内しており、市が再利用条件付きで提供する座標データを確認できない"
+    },
+    {
+      "municipality": "北秋田市",
+      "official_url": "https://www.city.kitaakita.akita.jp/archive/p14896",
+      "status": "hold",
+      "reason": "公式AEDステーション案内は確認したが、再利用可能な施設単位座標データを確認できない"
+    },
+    {
+      "municipality": "にかほ市",
+      "official_url": "https://www.city.nikaho.akita.jp/soshikikarasagasu/shobohonbu/gyomuannai/1_1/996.html",
+      "status": "hold",
+      "reason": "公式Excel一覧は確認したが、明示的な再利用条件と自治体提供座標を同時に確認できない"
+    },
+    {
+      "municipality": "仙北市",
+      "official_url": "https://www.city.semboku.akita.jp/citizens/05_03.html",
+      "status": "hold",
+      "reason": "公式HTML一覧は確認したが、再利用条件と施設単位座標を確認できない"
+    },
+    {
+      "municipality": "小坂町",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "上小阿仁村",
+      "official_url": "https://www.vill.kamikoani.akita.jp/info/492",
+      "status": "hold",
+      "reason": "公式PDF一覧は確認したが、再利用条件と施設単位座標を確認できない"
+    },
+    {
+      "municipality": "藤里町",
+      "official_url": "https://www.town.fujisato.akita.jp/",
+      "status": "hold",
+      "reason": "公式施設一覧は確認したが、再利用条件と自治体提供座標を同時に確認できない"
+    },
+    {
+      "municipality": "八峰町",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "五城目町",
+      "official_url": "https://www.town.gojome.akita.jp/shobo/kyuukyuu/924",
+      "status": "hold",
+      "reason": "公式HTML一覧は確認したが、再利用条件と施設単位座標を確認できない"
+    },
+    {
+      "municipality": "八郎潟町",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "井川町",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "大潟村",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    },
+    {
+      "municipality": "美郷町",
+      "official_url": "https://www.town.misato.akita.jp/",
+      "status": "hold",
+      "reason": "公式PDF案内は確認したが、再利用条件と施設単位座標を確認できない"
+    },
+    {
+      "municipality": "羽後町",
+      "official_url": "https://www.town.ugo.lg.jp/",
+      "status": "hold",
+      "reason": "公式施設一覧は確認したが、再利用条件と自治体提供座標を同時に確認できない"
+    },
+    {
+      "municipality": "東成瀬村",
+      "status": "hold",
+      "reason": "再利用可能な座標付き公式データを確認できない"
+    }
+  ],
+  "rejected_source_types": [
+    "第三者AEDマップ",
+    "Google Maps由来座標",
+    "再利用条件不明のHTML・PDF・Excel",
+    "古い非自治体公式ホストの一覧"
+  ],
+  "next_action": "公式オープンデータ、明示的な再利用条件、または自治体提供座標付きファイルの公開を定期的に再確認する"
+}
