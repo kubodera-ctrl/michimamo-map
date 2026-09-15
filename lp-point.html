@@ -104,6 +104,61 @@ body{font-family:"Hiragino Rounded W4 JIS2004","Hiragino Kaku Gothic ProN","Meir
   .hero-content{order:1}.hero-visual{order:2;margin-bottom:0;min-height:330px}.hero-points{max-width:520px}.cta-main{max-width:360px}.section{padding:58px 54px}
   .feature-grid{grid-template-columns:repeat(4,1fr)}.usecase-grid{grid-template-columns:repeat(4,1fr)}.safe-spots .spot-panel{max-width:760px;margin:0 auto}.voice-section{padding:58px 54px}
 }
+
+/* Mobile reading layout, including touch browsers using a desktop-sized viewport. */
+@media (max-width:699px), (hover:none) and (pointer:coarse){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-size:1rem;line-height:1.8;padding-bottom:calc(8rem + env(safe-area-inset-bottom))}
+  .app-container{width:100%;max-width:none}
+  .hero{padding:1.5rem 1.125rem 2rem}
+  .hero-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;text-align:left}
+  .hero-content{order:1;min-width:0}
+  .hero-visual{order:2;min-height:17rem;margin:0}
+  .hero-brand{font-size:1.125rem}
+  .hero-kicker{font-size:1.0625rem;line-height:1.6}
+  .hero h1{font-size:clamp(1.8rem,8.2vw,2.25rem);line-height:1.4}
+  .hero-copy{font-size:1.0625rem;line-height:1.85;max-width:none}
+  .hero-points{max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:.625rem}
+  .hero-point{font-size:1rem;line-height:1.6;padding:.875rem .5rem}
+  .hero-map-copy{font-size:.9375rem;white-space:normal;width:88%;text-align:center}
+  .map-pin{width:3.375rem;height:3.375rem}
+  .pin-police{top:1.75rem;left:2rem}.pin-aed{top:2rem;right:2rem}
+  .pin-home{bottom:1.5rem;left:3rem}.pin-alert{bottom:1.5rem;right:3rem}
+  .section,.voice-section,.safety-section,.final-cta{padding:2.75rem 1.125rem}
+  .section-title{font-size:1.625rem;line-height:1.55}
+  .section-lead{font-size:1.0625rem;line-height:1.85;max-width:none}
+  .pill{font-size:.9375rem}
+  .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+  .feature-card{padding:1.125rem .625rem}
+  .feature-card h3{font-size:1rem;line-height:1.6}
+  .feature-card p{font-size:1rem;line-height:1.75}
+  .group-banner{padding:1.5rem 1rem}
+  .group-banner h3{font-size:1.5rem;line-height:1.6}
+  .group-banner p{font-size:1.0625rem;line-height:1.85}
+  .usecase-grid{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .usecase{padding:1.25rem}
+  .usecase .emoji{font-size:2rem;margin-bottom:.5rem}
+  .usecase h3{font-size:1.25rem;line-height:1.6}
+  .usecase p{font-size:1.0625rem;line-height:1.85}
+  .problem-card h3,.flow-card h4,.action-text h4{font-size:1.125rem;line-height:1.6}
+  .problem-card p,.flow-card p,.action-text p,.safety-message p,.safety-rule span,.voice-text,.final-cta p{font-size:1rem;line-height:1.85}
+  .problem-card>div:last-child,.action-text,.flow-card>div:last-child,.spot-info{min-width:0}
+  .spot-panel{padding:1rem}.spot-row{padding:.75rem;gap:.625rem}.spot-action{flex-wrap:wrap}
+  .spot-info strong{font-size:1.0625rem}.spot-info span{font-size:1rem}
+  .spot-info .mini-btn{font-size:.875rem}
+  .safety-message h3{font-size:1.25rem}
+  .final-cta h2{font-size:1.625rem;line-height:1.5}
+  .voice-meta,.point-note{font-size:.9375rem}
+  .note,.footer,.cta-sub,.cta-btn .small-text{font-size:.875rem;line-height:1.75}
+  .flow-card p[style],.footer div[style*="font-size"]{font-size:.875rem!important}
+  .cta-main,.cta-btn{font-size:1.0625rem;line-height:1.6;padding:.875rem 1rem;max-width:none;min-height:3.625rem;text-align:center}
+  .cta-bottom{padding:.625rem 1rem calc(.625rem + env(safe-area-inset-bottom))}
+  .cta-btn{max-width:32rem}
+}
+/* Keep text readable when a touch browser lays out the page at roughly 980px. */
+@media (min-width:700px) and (hover:none) and (pointer:coarse){
+  html{font-size:clamp(16px,4.1vw,40px)}
+}
 </style>
 </head>
 <body>
