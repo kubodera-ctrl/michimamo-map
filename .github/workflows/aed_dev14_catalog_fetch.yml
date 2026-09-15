@@ -1,0 +1,39 @@
+name: AED dev14 catalogue fetch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/fetch_aed_dev14_catalogs.py
+      - .github/workflows/aed_dev14_catalog_fetch.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aed-dev14-catalog-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch official catalogue snapshots
+        run: python scripts/fetch_aed_dev14_catalogs.py
+      - name: Commit immutable fetch evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aed_dev14
+          if git diff --cached --quiet; then
+            echo "No fetch changes"
+          else
+            git commit -m "Fetch dev14 official AED catalogue snapshots"
+            git push origin HEAD:main
+          fi
