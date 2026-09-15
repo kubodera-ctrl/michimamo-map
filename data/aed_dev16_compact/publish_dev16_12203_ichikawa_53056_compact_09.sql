@@ -1,0 +1,45 @@
+begin;
+set local lock_timeout='5s'; set local statement_timeout='30s';
+lock table public.safety_spots in share row exclusive mode;
+lock table public.safety_spots_nationwide_stage in share row exclusive mode;
+create temporary table dev16_v(source_key text,name text,address text,phone text,latitude float8,longitude float8,installation_location text,availability text,dup bool) on commit drop;
+insert into dev16_v values
+('bodik-reviewed:94e08f2821dad479:89aa7cc9fd9a2105010123f5'::text,'セブンイレブン市川行徳駅前一丁目店'::text,'千葉県市川市行徳駅前1丁目20-2'::text,'(047)399-2227'::text,35.684549::float8,139.915144::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:1284c89286c66890699a7076'::text,'セブンイレブン市川曽谷店'::text,'千葉県市川市曽谷6丁目26-15'::text,'(047)320-8290'::text,35.744217::float8,139.92678::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:57e68fb89a40c5985110c632'::text,'セブンイレブン市川大洲店'::text,'千葉県市川市大洲3丁目10-13'::text,'(047)379-5110'::text,35.72058::float8,139.907421::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:9b688973596209a39a86e908'::text,'セブンイレブン市川柏井町三丁目店'::text,'千葉県市川市柏井町3丁目673-3'::text,'(047)303-0107'::text,35.742828::float8,139.964046::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:28e183844f61856aa9debc67'::text,'セブンイレブン市川南三丁目店'::text,'千葉県市川市市川南3丁目3-22'::text,'(047)326-2535'::text,35.729483::float8,139.904083::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:e2134eeb1964bb67c1e8924b'::text,'セブンイレブン市川中山店'::text,'千葉県市川市北方町4丁目1894-1'::text,'(047)338-1371'::text,35.73163453::float8,139.9608457::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:13467adc6f96c9f265414de1'::text,'セブンイレブン市川鬼高一丁目店'::text,'千葉県市川市鬼高1丁目14-11'::text,'(047)378-0223'::text,35.71075667::float8,139.933876::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:b32a5f2645e38d808cf610d0'::text,'セブンイレブン市川本八幡駅南口店'::text,'千葉県市川市南八幡3丁目6-18'::text,'(047)370-8655'::text,35.71975844::float8,139.9270869::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:ae276790efcd8816831ace06'::text,'セブンイレブン市川南一丁目店'::text,'千葉県市川市市川南1丁目3-7'::text,'(047)322-7613'::text,35.72598788::float8,139.9078368::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:b6e5eb7edd99b6f2b1f6ee90'::text,'セブンイレブン市川南二丁目店'::text,'千葉県市川市市川南2丁目7-15'::text,'(047)325-1977'::text,35.72460404::float8,139.9031::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:a99467ed715a326cc4e61cc6'::text,'セブンイレブン市川本塩店'::text,'千葉県市川市本塩17-9'::text,'(047)356-4304'::text,35.68951169::float8,139.920996::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:ec5c510c03395864527ca979'::text,'セブンイレブン市川高谷一丁目店'::text,'千葉県市川市高谷1丁目12-19'::text,'(047)327-0311'::text,35.699025::float8,139.941802::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:084f85f839666c998416eddb'::text,'セブンイレブン市川高谷三丁目店'::text,'千葉県市川市高谷3丁目13-16'::text,'(047)327-8808'::text,35.695511::float8,139.941811::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:d61904554ce4db74d1dca1bb'::text,'セブンイレブン市川塩焼一丁目店'::text,'千葉県市川市塩焼1丁目2-1'::text,'(047)704-8421'::text,35.6890947::float8,139.9269539::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:63478e0da89da3320bcadbfb'::text,'セブンイレブン市川中国分三丁目店'::text,'千葉県市川市中国分3丁目1-15'::text,'(047)372-6646'::text,35.75124661::float8,139.9112767::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:4860a113cfa1fde9be160269'::text,'セブンイレブン市川行徳店'::text,'千葉県市川市福栄1丁目10'::text,'(047)395-5099'::text,35.67605677::float8,139.91012::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:e3767758dadede5f07cf4732'::text,'セブンイレブン市川平田三丁目店'::text,'千葉県市川市平田3丁目4-3'::text,'(047)378-2500'::text,35.72169681::float8,139.9217199::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:19c3de93d92df63101c4c999'::text,'セブンイレブン市川大町梨街道店'::text,'千葉県市川市大町53'::text,'(047)339-3474'::text,35.7666659::float8,139.9559058::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:fcd5f9dae6d6b74c991f29e1'::text,'セブンイレブン市川一丁目店'::text,'千葉県市川市市川1丁目12-9'::text,'(047)324-6020'::text,35.73091::float8,139.906903::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:ef24fca346b2441d47810223'::text,'セブンイレブン市川平田一丁目店'::text,'千葉県市川市平田1丁目18-14'::text,'(047)322-6083'::text,35.72560609::float8,139.9199161::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:80c20b9be73681b6fca1748d'::text,'セブンイレブン市川末広一丁目店'::text,'千葉県市川市末広1丁目17-9'::text,'(047)397-5007'::text,35.68415444::float8,139.918037::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:15d83409e1d8b4777d75e0a6'::text,'セブンイレブン市川大野店'::text,'千葉県市川市南大野1丁目44-5'::text,'(047)337-2753'::text,35.74043995::float8,139.9528038::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:9b7670be6bf8c23984b5fce6'::text,'セブンイレブン市川新井三丁目店'::text,'千葉県市川市新井3丁目2-9'::text,'(047)395-5755'::text,35.67372213::float8,139.8983272::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:4ca7c65d1544c66bd7c6f02c'::text,'セブンイレブン市川原木インター店'::text,'千葉県市川市二俣595-3'::text,'(047)327-0558'::text,35.70005433::float8,139.9587923::float8,'店舗内'::text,NULL::text,false::bool),
+('bodik-reviewed:94e08f2821dad479:154186898b6a4b1a65552bd9'::text,'セブンイレブン市川大野町三丁目店'::text,'千葉県市川市大野町3丁目1739-1'::text,'(047)338-6859'::text,35.75779017::float8,139.9557437::float8,'店舗内'::text,NULL::text,false::bool);
+do $g$ begin
+if (select count(*) from public.safety_spots where facility_type='aed' and active and not duplicate_candidate)<>45581 then raise exception 'baseline changed'; end if;
+if (select count(*) from dev16_v)<>25 or (select count(*) from dev16_v where not dup)<>25 then raise exception 'cardinality changed'; end if;
+if exists(select 1 from dev16_v where name is null or name='' or address is null or address='' or latitude not between 20 and 46 or longitude not between 122 and 154) then raise exception 'invalid row'; end if;
+if exists(select 1 from dev16_v v join public.safety_spots p using(source_key)) or exists(select 1 from dev16_v v join public.safety_spots_nationwide_stage s using(source_key)) then raise exception 'existing source key'; end if;
+if exists(select 1 from dev16_v b join public.safety_spots p on p.facility_type='aed' and p.active and not p.duplicate_candidate cross join lateral(select regexp_replace(b.name,'[^0-9A-Za-z一-龠ぁ-んァ-ヶ]','','g') bn,regexp_replace(p.name,'[^0-9A-Za-z一-龠ぁ-んァ-ヶ]','','g') pn)n where not b.dup and ((n.bn=n.pn and regexp_replace(b.address,'[[:space:]　-]','','g')=regexp_replace(p.address,'[[:space:]　-]','','g')) or (abs(b.latitude-p.latitude)<0.001 and abs(b.longitude-p.longitude)<0.002 and (n.bn=n.pn or (least(length(n.bn),length(n.pn))>=3 and (strpos(n.bn,n.pn)>0 or strpos(n.pn,n.bn)>0)))))) then raise exception 'public duplicate candidate'; end if;
+end $g$;
+insert into public.safety_spots_nationwide_stage(source_key,facility_type,name,prefecture,municipality,address,phone,latitude,longitude,source_name,source_url,source_license,source_updated_at,prefecture_code,installation_location,availability,geocode_source,quality_status,active,duplicate_candidate,review_decision,review_reason,review_next_action,reviewed_at)
+select source_key,'aed',name,'千葉県','市川市'::text,address,phone,latitude,longitude,'市川市 AED設置情報（自治体公式座標・まちまもMAP dev16審査済み）'::text,'https://www.city.ichikawa.lg.jp/page/4744.html'::text,'CC BY 4.0','2026-04-01'::text::timestamptz,'12',installation_location,availability,'自治体公式データの座標（表記整形・重複除外）','rough',false,dup,case when dup then 'hold' else 'published' end,case when dup then '同一施設の近接名称候補。設置位置の区別を要確認' else '自治体公式オープンデータ・公式座標・利用条件・重複をdev16で確認' end,case when dup then '公式設置位置を確認してから再審査' else '公開DBへ反映済み' end,now() from dev16_v;
+insert into public.safety_spots(source_key,facility_type,name,prefecture,municipality,address,phone,latitude,longitude,source_name,source_url,source_license,source_updated_at,prefecture_code,installation_location,availability,geocode_source,quality_status,active,duplicate_candidate)
+select source_key,'aed',name,'千葉県','市川市'::text,address,phone,latitude,longitude,'市川市 AED設置情報（自治体公式座標・まちまもMAP dev16審査済み）'::text,'https://www.city.ichikawa.lg.jp/page/4744.html'::text,'CC BY 4.0','2026-04-01'::text::timestamptz,'12',installation_location,availability,'自治体公式データの座標（表記整形・重複除外）','verified',true,false from dev16_v where not dup;
+do $g$ begin if (select count(*) from public.safety_spots where facility_type='aed' and active and not duplicate_candidate)<>45606 then raise exception 'post count mismatch'; end if; end $g$;
+select 'dev16_12203_ichikawa_53056_compact_09'::text as batch,25 as inserted,0 as held,(select count(*) from public.safety_spots where facility_type='aed' and active and not duplicate_candidate) as public_aed;
+commit;

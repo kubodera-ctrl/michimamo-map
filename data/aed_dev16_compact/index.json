@@ -1,0 +1,169 @@
+{
+  "baseline": 45381,
+  "batch_size": 25,
+  "expected_final": 45793,
+  "batches": [
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_01",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_01.sql",
+      "municipality": "市川市",
+      "baseline": 45381,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "1c96ba03129b796a82db241cf2a7a26d652e80722a3c2439950806ccc4cd5228"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_02",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_02.sql",
+      "municipality": "市川市",
+      "baseline": 45406,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "347be9b414497d83deaa8a2c2c46fef04e748084533ef55349ba03cf306c5235"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_03",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_03.sql",
+      "municipality": "市川市",
+      "baseline": 45431,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "353963ae6f331b8b03304b08e991ecefc057722559cbdfc24dbf5c1841295d66"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_04",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_04.sql",
+      "municipality": "市川市",
+      "baseline": 45456,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "d515021d4a5f7ec5c2e3a0fc324bfe102ad29056a2b2687bfea57d9acb6a75d2"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_05",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_05.sql",
+      "municipality": "市川市",
+      "baseline": 45481,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "7f983da5744784452bf03d625258eb30ade3c076bd56652215a389b47fbc96c8"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_06",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_06.sql",
+      "municipality": "市川市",
+      "baseline": 45506,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "2598f16277b0b7e9b5e454b91db0e839d4f414b63226863b20f926ee8077b39e"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_07",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_07.sql",
+      "municipality": "市川市",
+      "baseline": 45531,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "4d5da15fc2e317a5add8e8e2f2287f082c0ddb119c77379b1fd0825562dfc2c8"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_08",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_08.sql",
+      "municipality": "市川市",
+      "baseline": 45556,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "b433a183b3a56f69262327ae60498d4912272e256f1f51b8c2abbe7424b4d178"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_09",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_09.sql",
+      "municipality": "市川市",
+      "baseline": 45581,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "10d194a768314e83d71af01b05637c878df631f00d0ea73555502eba92b3623c"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_10",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_10.sql",
+      "municipality": "市川市",
+      "baseline": 45606,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "66adf60003a2d713204b1940cd25a61275cb1a99fabb87bb4459b2ff00717ed2"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_11",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_11.sql",
+      "municipality": "市川市",
+      "baseline": 45631,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "0dcdd4564d76111bf2acbe105eea186ce82e9a9fe2cdbef4544e30147a7b99c5"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_12",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_12.sql",
+      "municipality": "市川市",
+      "baseline": 45656,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "6148bc7cf5e5c9fd60433ec47f029db7788f8addd9e704f65cf3a8bac1df6392"
+    },
+    {
+      "key": "dev16_12203_ichikawa_53056_compact_13",
+      "file": "publish_dev16_12203_ichikawa_53056_compact_13.sql",
+      "municipality": "市川市",
+      "baseline": 45681,
+      "inserted": 4,
+      "held": 0,
+      "sha256": "a60c88f17163aa07914c148cf1b2a6927bc2739582d7a62fa19ce3ca3f778a04"
+    },
+    {
+      "key": "dev16_12208_noda_26_7aed_compact_01",
+      "file": "publish_dev16_12208_noda_26_7aed_compact_01.sql",
+      "municipality": "野田市",
+      "baseline": 45685,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "7d624a90435b3927a80060b059bff5f659008f1d3e5cf362315d343f81038e46"
+    },
+    {
+      "key": "dev16_12208_noda_26_7aed_compact_02",
+      "file": "publish_dev16_12208_noda_26_7aed_compact_02.sql",
+      "municipality": "野田市",
+      "baseline": 45710,
+      "inserted": 24,
+      "held": 1,
+      "sha256": "9b611ae705f197736c38d0080b976ec0d9e149b72d81ca3401daa341e7d142ef"
+    },
+    {
+      "key": "dev16_12208_noda_26_7aed_compact_03",
+      "file": "publish_dev16_12208_noda_26_7aed_compact_03.sql",
+      "municipality": "野田市",
+      "baseline": 45734,
+      "inserted": 24,
+      "held": 1,
+      "sha256": "7263926a0cbb7617a4dde2dbd5638a90f5acd1a002ff04d4e524a7102a61a6c0"
+    },
+    {
+      "key": "dev16_12208_noda_26_7aed_compact_04",
+      "file": "publish_dev16_12208_noda_26_7aed_compact_04.sql",
+      "municipality": "野田市",
+      "baseline": 45758,
+      "inserted": 25,
+      "held": 0,
+      "sha256": "c6dd32c81a27cbe349d19254a40f407ea2282009a54ed2f536d68eea7b5afe71"
+    },
+    {
+      "key": "dev16_12208_noda_26_7aed_compact_05",
+      "file": "publish_dev16_12208_noda_26_7aed_compact_05.sql",
+      "municipality": "野田市",
+      "baseline": 45783,
+      "inserted": 10,
+      "held": 0,
+      "sha256": "cae6fdef712e6c90be192d265adbd0cfffc60442e0f3a957fc19e086442da3e3"
+    }
+  ]
+}
