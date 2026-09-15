@@ -1,0 +1,95 @@
+{
+  "production_baseline": 40454,
+  "sources": [
+    {
+      "key": "tatsuno",
+      "prefecture": "兵庫県",
+      "municipality": "たつの市",
+      "source_url": "https://www.city.tatsuno.lg.jp/soshiki/1003/gyomu/2/1/1720.html",
+      "source_updated_at": "2026-08-26",
+      "source_date": null,
+      "review_bounds": [
+        34.73,
+        35.02,
+        134.39,
+        134.62
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "たつの市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/tatsuno.csv",
+          "url": "https://www.city.tatsuno.lg.jp/material/files/group/4/8aed.csv",
+          "expected_raw": 186,
+          "sha256": "218d374a85a445adba7354b996234fd4908a48c6da597ea2116da8aa6803e852"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。公式座標を使用",
+      "date_note": "一覧表の更新日。施設ごとの調査日は不明。"
+    },
+    {
+      "key": "ando",
+      "prefecture": "奈良県",
+      "municipality": "安堵町",
+      "source_url": "https://www.town.ando.nara.jp/0000002218.html",
+      "source_updated_at": "2021-04-01",
+      "source_date": null,
+      "review_bounds": [
+        34.58,
+        34.64,
+        135.73,
+        135.79
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "安堵町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/ando.csv",
+          "url": "https://www.town.ando.nara.jp/cmsfiles/contents/0000002/2218/293458_Aed.csv",
+          "expected_raw": 11,
+          "sha256": "18535d634a5baf7ebd96cd38eb47ee82e2cec5f7c1d24c3c05894842c47a611e"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。公式座標を使用",
+      "date_note": "一覧表の更新日。施設ごとの調査日は不明。"
+    },
+    {
+      "key": "arida",
+      "prefecture": "和歌山県",
+      "municipality": "有田市",
+      "source_url": "https://www.city.arida.lg.jp/shisei/shokai/1003080.html",
+      "source_updated_at": "2026-01-08",
+      "source_date": "2025-09-18",
+      "review_bounds": [
+        34.04,
+        34.12,
+        135.07,
+        135.21
+      ],
+      "license_id": "CC BY 4.0",
+      "source_name": "有田市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "resources": [
+        {
+          "snapshot": "raw/arida.csv",
+          "url": "https://www.city.arida.lg.jp/_res/projects/default_project/_page_/001/003/080/302040_aed_20250918.csv",
+          "expected_raw": 49,
+          "sha256": "937b7814d9186e2bd0d2aff41acf5fb4e954437450bb13baee973b92937505a5"
+        }
+      ],
+      "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+      "date_note": "データ基準日2025-09-18。source_updated_atはページ更新日。"
+    }
+  ],
+  "evidence_hashes": {
+    "tatsuno_source_page.txt": "5d6337b544e1cf24196b241428cd3d20f1a6fff386a1a5c1b70dfa373a420639",
+    "arida_source_page.txt": "6d7b06299c7a8a0f5e91ed48334c3d13b4f4bc252b5d6fae77ab65e8ab139fde",
+    "ando_source_page.txt": "335041b2548c0be9d7e59d77088b4036203aafd280e82540020e771b566a0e4f",
+    "arida_geocoded.jsonl": "30376c0dac65654cda67b90366c968c21f84808afbeae3e0bbfc68385815fbeb"
+  },
+  "geocoder": {
+    "package": "@geolonia/normalize-japanese-addresses",
+    "version": "3.1.3",
+    "minimum_level": 8,
+    "run_date": "2026-09-15"
+  }
+}

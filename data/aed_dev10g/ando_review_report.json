@@ -1,0 +1,37 @@
+{
+  "source": {
+    "key": "ando",
+    "prefecture": "奈良県",
+    "municipality": "安堵町",
+    "source_url": "https://www.town.ando.nara.jp/0000002218.html",
+    "source_updated_at": "2021-04-01",
+    "source_date": null,
+    "review_bounds": [
+      34.58,
+      34.64,
+      135.73,
+      135.79
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "安堵町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/ando.csv",
+        "url": "https://www.town.ando.nara.jp/cmsfiles/contents/0000002/2218/293458_Aed.csv",
+        "expected_raw": 11,
+        "sha256": "18535d634a5baf7ebd96cd38eb47ee82e2cec5f7c1d24c3c05894842c47a611e"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。公式座標を使用",
+    "date_note": "一覧表の更新日。施設ごとの調査日は不明。"
+  },
+  "raw_rows": 11,
+  "review_rows": 11,
+  "publish_candidates": 11,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [],
+  "excluded_by_reason": {},
+  "holds": [],
+  "adjusted": []
+}

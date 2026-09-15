@@ -1,0 +1,74 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_seventh_three_prefecture_set",
+  "before_public_aed": 40454,
+  "after_public_aed": 40683,
+  "inserted": 229,
+  "published_municipalities": 454,
+  "unpublished_municipalities": 1287,
+  "staging_holds": 23,
+  "validation": "県別rollback事前検証、独立トランザクション、本番重複・件数ガード、anon地図RPC182/11/36。全40683件の公式自治体コード割当確認。",
+  "sources": [
+    {
+      "prefecture": "兵庫県",
+      "municipality": "たつの市",
+      "published": 182,
+      "held": 4,
+      "excluded_by_reason": {},
+      "exact_duplicates_removed": 0,
+      "source_url": "https://www.city.tatsuno.lg.jp/soshiki/1003/gyomu/2/1/1720.html",
+      "resources": [
+        {
+          "snapshot": "raw/tatsuno.csv",
+          "url": "https://www.city.tatsuno.lg.jp/material/files/group/4/8aed.csv",
+          "expected_raw": 186,
+          "sha256": "218d374a85a445adba7354b996234fd4908a48c6da597ea2116da8aa6803e852"
+        }
+      ],
+      "sql_sha256": "f32a50130d2cf69b08b066c2ef46d1587e4924ac6625fa8f30d2dfa5fd036ff6"
+    },
+    {
+      "prefecture": "奈良県",
+      "municipality": "安堵町",
+      "published": 11,
+      "held": 0,
+      "excluded_by_reason": {},
+      "exact_duplicates_removed": 0,
+      "source_url": "https://www.town.ando.nara.jp/0000002218.html",
+      "resources": [
+        {
+          "snapshot": "raw/ando.csv",
+          "url": "https://www.town.ando.nara.jp/cmsfiles/contents/0000002/2218/293458_Aed.csv",
+          "expected_raw": 11,
+          "sha256": "18535d634a5baf7ebd96cd38eb47ee82e2cec5f7c1d24c3c05894842c47a611e"
+        }
+      ],
+      "sql_sha256": "f86746d6a0f68866cdfac5ca4aec6c0cbce4b197bd2c78181932f67b51bbd7f5"
+    },
+    {
+      "prefecture": "和歌山県",
+      "municipality": "有田市",
+      "published": 36,
+      "held": 0,
+      "excluded_by_reason": {
+        "geocoder_below_address_level_8": 13
+      },
+      "exact_duplicates_removed": 0,
+      "source_url": "https://www.city.arida.lg.jp/shisei/shokai/1003080.html",
+      "resources": [
+        {
+          "snapshot": "raw/arida.csv",
+          "url": "https://www.city.arida.lg.jp/_res/projects/default_project/_page_/001/003/080/302040_aed_20250918.csv",
+          "expected_raw": 49,
+          "sha256": "937b7814d9186e2bd0d2aff41acf5fb4e954437450bb13baee973b92937505a5"
+        }
+      ],
+      "sql_sha256": "59a93991c1a2fdf2ec16d02ac42cd2e5ad7557aabc09f5083e0bda2690cb13a4"
+    }
+  ],
+  "next_prefectures": [
+    "鳥取県",
+    "島根県",
+    "岡山県"
+  ]
+}

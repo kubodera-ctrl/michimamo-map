@@ -1,0 +1,118 @@
+{
+  "source": {
+    "key": "arida",
+    "prefecture": "和歌山県",
+    "municipality": "有田市",
+    "source_url": "https://www.city.arida.lg.jp/shisei/shokai/1003080.html",
+    "source_updated_at": "2026-01-08",
+    "source_date": "2025-09-18",
+    "review_bounds": [
+      34.04,
+      34.12,
+      135.07,
+      135.21
+    ],
+    "license_id": "CC BY 4.0",
+    "source_name": "有田市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+    "resources": [
+      {
+        "snapshot": "raw/arida.csv",
+        "url": "https://www.city.arida.lg.jp/_res/projects/default_project/_page_/001/003/080/302040_aed_20250918.csv",
+        "expected_raw": 49,
+        "sha256": "937b7814d9186e2bd0d2aff41acf5fb4e954437450bb13baee973b92937505a5"
+      }
+    ],
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "date_note": "データ基準日2025-09-18。source_updated_atはページ更新日。"
+  },
+  "raw_rows": 49,
+  "review_rows": 36,
+  "publish_candidates": 36,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 2,
+      "name": "初島小学校",
+      "address": "和歌山県有田市初島町里1242",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 7,
+      "name": "有田湯浅警察署　初島警官駐在所",
+      "address": "和歌山県有田市初島町浜1065",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 8,
+      "name": "初島公民館",
+      "address": "和歌山県有田市初島町浜1368",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 11,
+      "name": "港小学校",
+      "address": "和歌山県有田市港町261",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 26,
+      "name": "有田市立病院",
+      "address": "和歌山県有田市宮崎町6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 33,
+      "name": "保田小学校",
+      "address": "和歌山県有田市辻堂474",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 34,
+      "name": "保田公民館",
+      "address": "和歌山県有田市辻堂533-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 35,
+      "name": "ファミリーマート有田辻堂店",
+      "address": "和歌山県有田市辻堂63",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 36,
+      "name": "保田保育所",
+      "address": "和歌山県有田市辻堂476",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 37,
+      "name": "佐山公民館",
+      "address": "和歌山県有田市千田349",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 38,
+      "name": "ローソン有田バイパス店",
+      "address": "和歌山県有田市野503-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 39,
+      "name": "ヤマザキショップ有田川鮎茶屋店",
+      "address": "和歌山県有田市星尾37",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 45,
+      "name": "宮原公民館",
+      "address": "和歌山県有田市宮原町新町189-2",
+      "reason": "geocoder_below_address_level_8"
+    }
+  ],
+  "excluded_by_reason": {
+    "geocoder_below_address_level_8": 13
+  },
+  "holds": [],
+  "adjusted": []
+}
