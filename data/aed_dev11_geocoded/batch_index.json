@@ -1,0 +1,154 @@
+[
+  {
+    "key": "252115__1",
+    "file": "publish_252115__1.sql",
+    "baseline": 43053,
+    "inserted": 5,
+    "held": 0,
+    "sha256": "497ff1613fed7c005dfcff406444eb6ef667fcd79e62ac266088e4d7d1cea60e"
+  },
+  {
+    "key": "422037_aed_1",
+    "file": "publish_422037_aed_1.sql",
+    "baseline": 43058,
+    "inserted": 13,
+    "held": 0,
+    "sha256": "e886e8e8d104cb7dddef54ac5c8ec28644bddfb1a0a8267111e923285e8573d6"
+  },
+  {
+    "key": "462250_aed_1",
+    "file": "publish_462250_aed_1.sql",
+    "baseline": 43071,
+    "inserted": 75,
+    "held": 7,
+    "sha256": "4636c7450af2f42c055e6755d288d78f60bc11bd1b439ec2446d9e2cb4b663ef"
+  },
+  {
+    "key": "272230_aed_1",
+    "file": "publish_272230_aed_1.sql",
+    "baseline": 43146,
+    "inserted": 28,
+    "held": 4,
+    "sha256": "51c272f4056f6367c0cd6c626145a811cb08aa3a5abfbf7c37fe974992b9fdca"
+  },
+  {
+    "key": "271403_sakai_aed_1",
+    "file": "publish_271403_sakai_aed_1.sql",
+    "baseline": 43174,
+    "inserted": 97,
+    "held": 11,
+    "sha256": "a64af52576a8473e5fd00977cc0c4e4a4a8a2bebd595de20c00d893c48dd9f34"
+  },
+  {
+    "key": "454061_aed_1",
+    "file": "publish_454061_aed_1.sql",
+    "baseline": 43271,
+    "inserted": 21,
+    "held": 0,
+    "sha256": "57c863b4c437f7d76e1e65daa808b3b7b212e7f3be3e6dd73bc2cdf904288922"
+  },
+  {
+    "key": "452033_aed_1",
+    "file": "publish_452033_aed_1.sql",
+    "baseline": 43292,
+    "inserted": 9,
+    "held": 0,
+    "sha256": "eefb1a0f1589aa6443dc2b637c89f325d05cbb5fd710fb04ca563de7e10443e8"
+  },
+  {
+    "key": "402257_0020_1",
+    "file": "publish_402257_0020_1.sql",
+    "baseline": 43301,
+    "inserted": 29,
+    "held": 0,
+    "sha256": "8861688112086eceaad8604e05ed7067767e361e0c938d4ac270465a8d5d80ed"
+  },
+  {
+    "key": "422029_aedmap_1",
+    "file": "publish_422029_aedmap_1.sql",
+    "baseline": 43330,
+    "inserted": 69,
+    "held": 79,
+    "sha256": "2ae868064a0e03abc902ba04970af85dd91d10805ab53d3d40dce63071c6282d"
+  },
+  {
+    "key": "452025_aed_list_1",
+    "file": "publish_452025_aed_list_1.sql",
+    "baseline": 43399,
+    "inserted": 116,
+    "held": 0,
+    "sha256": "ca517a47c71487dfa0b94efddb4b6cbb9286011cb2f75c5dd2779d38e4ab44fe"
+  },
+  {
+    "key": "422011_aed_gk_1",
+    "file": "publish_422011_aed_gk_1.sql",
+    "baseline": 43515,
+    "inserted": 55,
+    "held": 0,
+    "sha256": "7722c3fa967fd84378dd77550cb3e447bce605108fc847d809fb2fc9f7225451"
+  },
+  {
+    "key": "231002_7107010000_subway-stationaed_1",
+    "file": "publish_231002_7107010000_subway-stationaed_1.sql",
+    "baseline": 43570,
+    "inserted": 23,
+    "held": 5,
+    "sha256": "9ab42836152304485f2686e6236613bfbe9b5437e91b254f0816685fef14408a"
+  },
+  {
+    "key": "432130_aed_1",
+    "file": "publish_432130_aed_1.sql",
+    "baseline": 43593,
+    "inserted": 9,
+    "held": 2,
+    "sha256": "7286d96ead07462456e42d6fb4a72e8401566a6a2e973f83c6517cd7e60009d8"
+  },
+  {
+    "key": "402044_aed_1",
+    "file": "publish_402044_aed_1.sql",
+    "baseline": 43602,
+    "inserted": 36,
+    "held": 0,
+    "sha256": "5c9fb842161e376734fbc97269082d8045c8882631ed24bd968b2d350f8f8d55"
+  },
+  {
+    "key": "464929_aed01_1",
+    "file": "publish_464929_aed01_1.sql",
+    "baseline": 43638,
+    "inserted": 17,
+    "held": 4,
+    "sha256": "1d7bdfce846c87bed15bd1efaa5a9e68c66420773f5a9d29546680bc24d00625"
+  },
+  {
+    "key": "252123_004103_000001_1",
+    "file": "publish_252123_004103_000001_1.sql",
+    "baseline": 43655,
+    "inserted": 25,
+    "held": 0,
+    "sha256": "be359f1d69383c826662b6f49134a53a250ff0011660338e3830058e8b0ce308"
+  },
+  {
+    "key": "422011_aed_k_1",
+    "file": "publish_422011_aed_k_1.sql",
+    "baseline": 43680,
+    "inserted": 75,
+    "held": 0,
+    "sha256": "c9e9db42f1610351a1394fd39e0f8575d4c7728186663fcb84c412892de1d426"
+  },
+  {
+    "key": "272116_p_36258_36258_1",
+    "file": "publish_272116_p_36258_36258_1.sql",
+    "baseline": 43755,
+    "inserted": 120,
+    "held": 9,
+    "sha256": "29b951ca6d6f3310f9c4a62932424d34d4971b0b66027f1c0837a9be2a67f29a"
+  },
+  {
+    "key": "okayama_6036_1",
+    "file": "publish_okayama_6036_1.sql",
+    "baseline": 43875,
+    "inserted": 29,
+    "held": 0,
+    "sha256": "b9a3e17cb466379bee3ae06f1d36f3036351df783fb7a39eee06b58c4e4dabf9"
+  }
+]

@@ -1,0 +1,498 @@
+[
+  {
+    "key": "toyooka",
+    "prefecture": "兵庫県",
+    "municipality": "豊岡市",
+    "raw_rows": 92,
+    "publish_candidates": 92,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "kami",
+    "prefecture": "兵庫県",
+    "municipality": "香美町",
+    "raw_rows": 67,
+    "publish_candidates": 65,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 48,
+        "name": "長福寺",
+        "address": "兵庫県香美町香住区一日市165",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "row": 51,
+        "name": "やまだ歯科医院",
+        "address": "兵庫県香美町香住区七日市115-3",
+        "reason": "municipality_mismatch"
+      }
+    ],
+    "excluded_by_reason": {
+      "municipality_mismatch": 2
+    }
+  },
+  {
+    "key": "tondabayashi",
+    "prefecture": "大阪府",
+    "municipality": "富田林市",
+    "raw_rows": 77,
+    "publish_candidates": 74,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 35,
+        "name": "市立向陽台集会所",
+        "address": "大阪府富田林市向陽台三丁目3-14",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 36,
+        "name": "市立明治池集会所",
+        "address": "大阪府富田林市小金台四丁目15-27",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 37,
+        "name": "市立藤沢台集会所",
+        "address": "大阪府富田林市藤沢台三丁目5-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      }
+    ],
+    "excluded_by_reason": {
+      "availability_or_mobile_device_requires_review": 3
+    }
+  },
+  {
+    "key": "kumatori",
+    "prefecture": "大阪府",
+    "municipality": "熊取町",
+    "raw_rows": 33,
+    "publish_candidates": 33,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "kaizuka",
+    "prefecture": "大阪府",
+    "municipality": "貝塚市",
+    "raw_rows": 41,
+    "publish_candidates": 41,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "sango",
+    "prefecture": "奈良県",
+    "municipality": "三郷町",
+    "raw_rows": 26,
+    "publish_candidates": 26,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "ibara",
+    "prefecture": "岡山県",
+    "municipality": "井原市",
+    "raw_rows": 75,
+    "publish_candidates": 74,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 66,
+        "name": "井原市地域包括支援センター",
+        "address": "岡山県井原市井原町311-1",
+        "reason": "external_use_restricted"
+      }
+    ],
+    "excluded_by_reason": {
+      "external_use_restricted": 1
+    }
+  },
+  {
+    "key": "kurashiki",
+    "prefecture": "岡山県",
+    "municipality": "倉敷市",
+    "raw_rows": 273,
+    "publish_candidates": 241,
+    "held": 4,
+    "exact_removed": 0,
+    "near_pairs": 1,
+    "excluded": [
+      {
+        "row": 184,
+        "name": "倉敷消防署 中州分署",
+        "address": "岡山県倉敷市水江1224-2",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 185,
+        "name": "倉敷消防署 庄出張所",
+        "address": "岡山県倉敷市二子135-3",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 186,
+        "name": "倉敷消防署 東出張所",
+        "address": "岡山県倉敷市中帯江164-5",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 205,
+        "name": "児島消防署 臨港分署",
+        "address": "岡山県倉敷市児島塩生2961",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 206,
+        "name": "児島消防署 琴浦出張所",
+        "address": "岡山県倉敷市児島田の口7-6-6",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 207,
+        "name": "児島消防署 郷内出張所",
+        "address": "岡山県倉敷市林638-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 208,
+        "name": "児島消防署 下津井出張所",
+        "address": "岡山県倉敷市下津井吹上2-650",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 213,
+        "name": "玉島消防署 勇崎出張所",
+        "address": "岡山県倉敷市玉島勇崎1042-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 214,
+        "name": "玉島消防署 北出張所",
+        "address": "岡山県倉敷市玉島長尾499-6",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 215,
+        "name": "玉島消防署 西出張所",
+        "address": "岡山県浅口市金光町占見新田787-1",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "row": 221,
+        "name": "玉島消防署 真備分署",
+        "address": "岡山県倉敷市真備町有井1930-3",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 250,
+        "name": "倉敷市庄支所",
+        "address": "岡山県倉敷市上東756",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 251,
+        "name": "倉敷市茶屋町支所",
+        "address": "岡山県倉敷市茶屋町2087",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 253,
+        "name": "倉敷市役所(本庁舎)保健福祉推進課",
+        "address": "岡山県倉敷市西中新田640",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 254,
+        "name": "倉敷市保健所保健課",
+        "address": "岡山県倉敷市笹沖170",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 256,
+        "name": "倉敷市児島支所(児島保健推進室)",
+        "address": "岡山県倉敷市児島小川町3681-3",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 259,
+        "name": "倉敷市玉島支所(玉島保健推進室)",
+        "address": "岡山県倉敷市玉島阿賀崎1-1-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 261,
+        "name": "倉敷市水島支所(水島保健推進室)",
+        "address": "岡山県倉敷市水島北幸町1-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 263,
+        "name": "倉敷市真備支所(真備保健推進室)",
+        "address": "岡山県倉敷市真備町箭田1141-1",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 264,
+        "name": "倉敷市船穂支所",
+        "address": "岡山県倉敷市船穂町船穂2897-2",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 67,
+        "name": "中山公園(事務所)",
+        "address": "岡山県倉敷市児島小川町2831",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 241,
+        "name": "倉敷運動公園(事務所・貸出用)",
+        "address": "岡山県倉敷市四十瀬4",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 242,
+        "name": "倉敷運動公園(テニス場本部室)",
+        "address": "岡山県倉敷市四十瀬4",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 243,
+        "name": "中山公園(野球場)",
+        "address": "岡山県倉敷市児島小川町2831",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 71,
+        "name": "水島緑地福田公園(管理事務所)",
+        "address": "岡山県倉敷市福田町古新田1027",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 245,
+        "name": "水島緑地福田公園(テニスコート)",
+        "address": "岡山県倉敷市福田町古新田1027",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 246,
+        "name": "水島緑地福田公園(体育館)",
+        "address": "岡山県倉敷市福田町古新田1027",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "row": 257,
+        "name": "中山公園(事務所・貸出用)",
+        "address": "岡山県倉敷市児島小川町2831",
+        "reason": "same_address_coordinate_conflict"
+      }
+    ],
+    "excluded_by_reason": {
+      "availability_or_mobile_device_requires_review": 19,
+      "municipality_mismatch": 1,
+      "same_address_coordinate_conflict": 8
+    }
+  },
+  {
+    "key": "niimi",
+    "prefecture": "岡山県",
+    "municipality": "新見市",
+    "raw_rows": 85,
+    "publish_candidates": 85,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "soja",
+    "prefecture": "岡山県",
+    "municipality": "総社市",
+    "raw_rows": 162,
+    "publish_candidates": 159,
+    "held": 3,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "misato",
+    "prefecture": "島根県",
+    "municipality": "美郷町",
+    "raw_rows": 28,
+    "publish_candidates": 26,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 14,
+        "name": "沢谷交流センター",
+        "address": "島根県美郷町九日市118番地",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "row": 24,
+        "name": "沢谷体育館",
+        "address": "島根県美郷町九日市118番地1",
+        "reason": "municipality_mismatch"
+      }
+    ],
+    "excluded_by_reason": {
+      "municipality_mismatch": 2
+    }
+  },
+  {
+    "key": "minamiaso",
+    "prefecture": "熊本県",
+    "municipality": "南阿蘇村",
+    "raw_rows": 26,
+    "publish_candidates": 26,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [],
+    "excluded_by_reason": {}
+  },
+  {
+    "key": "shinkamigoto",
+    "prefecture": "長崎県",
+    "municipality": "新上五島町",
+    "raw_rows": 92,
+    "publish_candidates": 89,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 33,
+        "name": "道土井へき地保育所",
+        "address": "",
+        "reason": "missing_name_address"
+      },
+      {
+        "row": 35,
+        "name": "青砂ケ浦教会(夏季以外)",
+        "address": "長崎県〒857-4402 長崎県南松浦郡新上五島町奈摩郷1241",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 76,
+        "name": "観光物産センター(夏季以外)",
+        "address": "長崎県〒857-4211 長崎県南松浦郡新上五島町有川郷428番地31",
+        "reason": "availability_or_mobile_device_requires_review"
+      }
+    ],
+    "excluded_by_reason": {
+      "missing_name_address": 1,
+      "availability_or_mobile_device_requires_review": 2
+    }
+  },
+  {
+    "key": "shibushi",
+    "prefecture": "鹿児島県",
+    "municipality": "志布志市",
+    "raw_rows": 69,
+    "publish_candidates": 68,
+    "held": 0,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 63,
+        "name": "尚志館高等学校",
+        "address": "鹿児島県志布志志布志町安楽6200番地",
+        "reason": "municipality_mismatch"
+      }
+    ],
+    "excluded_by_reason": {
+      "municipality_mismatch": 1
+    }
+  },
+  {
+    "key": "kirishima",
+    "prefecture": "鹿児島県",
+    "municipality": "霧島市",
+    "raw_rows": 219,
+    "publish_candidates": 205,
+    "held": 6,
+    "exact_removed": 0,
+    "near_pairs": 0,
+    "excluded": [
+      {
+        "row": 53,
+        "name": "霧島学校給食センター",
+        "address": "鹿児島県霧島市霧島田口316-1",
+        "reason": "external_use_restricted"
+      },
+      {
+        "row": 99,
+        "name": "霧島市消防局",
+        "address": "鹿児島県霧島市国分中央三丁目41-5",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 100,
+        "name": "霧島市消防局",
+        "address": "鹿児島県霧島市国分中央三丁目41-5",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 101,
+        "name": "霧島市消防局",
+        "address": "鹿児島県霧島市国分中央三丁目41-5",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 102,
+        "name": "霧島市消防局",
+        "address": "鹿児島県霧島市国分中央三丁目41-5",
+        "reason": "availability_or_mobile_device_requires_review"
+      },
+      {
+        "row": 112,
+        "name": "国分中央高等学校",
+        "address": "鹿児島県霧島市国分中央一丁目10-1",
+        "reason": "external_use_restricted"
+      },
+      {
+        "row": 136,
+        "name": "国分中央高等学校",
+        "address": "鹿児島県霧島市国分新町625",
+        "reason": "external_use_restricted"
+      },
+      {
+        "row": 147,
+        "name": "野口地区自治公民館",
+        "address": "鹿児島県霧島市国分野口12-10",
+        "reason": "external_use_restricted"
+      }
+    ],
+    "excluded_by_reason": {
+      "external_use_restricted": 4,
+      "availability_or_mobile_device_requires_review": 4
+    }
+  }
+]

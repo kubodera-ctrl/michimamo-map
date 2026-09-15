@@ -1,5 +1,6 @@
 import { normalize } from "@geolonia/normalize-japanese-addresses";
 import readline from "node:readline";
+import { geoloniaResult } from "./geolonia_result.mjs";
 
 const rl = readline.createInterface({ input: process.stdin, crlfDelay: Infinity });
 const addresses = [];
@@ -16,16 +17,7 @@ async function worker() {
     const address = addresses[index];
   try {
     const r = await normalize(address);
-      results[index] = {
-      input: address,
-      pref: r.pref ?? "",
-      city: r.city ?? "",
-      town: r.town ?? "",
-      addr: r.addr ?? "",
-      level: r.level ?? r.point?.level ?? null,
-      lat: r.point?.lat ?? null,
-        lon: r.point?.lng ?? null
-      };
+      results[index] = geoloniaResult(address, r);
   } catch (e) {
       results[index] = { input: address, error: String(e), lat: null, lon: null };
     }

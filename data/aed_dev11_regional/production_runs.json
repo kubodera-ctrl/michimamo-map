@@ -1,0 +1,137 @@
+[
+  {
+    "baseline": 43059,
+    "commit": {
+      "batch": "okayama_652_1",
+      "held": 0,
+      "inserted": 24,
+      "public_aed": 43083
+    },
+    "file": "publish_okayama_652_1.sql",
+    "held": 0,
+    "inserted": 24,
+    "key": "okayama_652_1",
+    "rehearsal": "passed",
+    "sha256": "f162e5c4c169e9ee93245f128100fe6d55d3bee9400ad3650686a937926b552d"
+  },
+  {
+    "baseline": 43083,
+    "commit": {
+      "batch": "okayama_640_1",
+      "held": 0,
+      "inserted": 74,
+      "public_aed": 43157
+    },
+    "file": "publish_okayama_640_1.sql",
+    "held": 0,
+    "inserted": 74,
+    "key": "okayama_640_1",
+    "rehearsal": "passed",
+    "sha256": "4b99f3efc07a2ba83c55115b162b044dc972420d2bccde0db72709509389be8b"
+  },
+  {
+    "baseline": 43157,
+    "commit": {
+      "batch": "okayama_190_1",
+      "held": 0,
+      "inserted": 110,
+      "public_aed": 43267
+    },
+    "file": "publish_okayama_190_1.sql",
+    "held": 0,
+    "inserted": 110,
+    "key": "okayama_190_1",
+    "rehearsal": "passed",
+    "sha256": "4214199ff0e52a4b03af1bd8baa3afab24e3818000ffe9f5e990c2dffca70b20"
+  },
+  {
+    "baseline": 43267,
+    "commit": {
+      "batch": "okayama_1084_1",
+      "held": 4,
+      "inserted": 40,
+      "public_aed": 43307
+    },
+    "file": "publish_okayama_1084_1.sql",
+    "held": 4,
+    "inserted": 40,
+    "key": "okayama_1084_1",
+    "rehearsal": "passed",
+    "sha256": "e210eff1e50d306307f350449b757c9f87e7695f367bf1b4ea22380e3bce255c"
+  },
+  {
+    "baseline": 43307,
+    "commit": {
+      "batch": "okayama_1019_1",
+      "held": 0,
+      "inserted": 18,
+      "public_aed": 43325
+    },
+    "file": "publish_okayama_1019_1.sql",
+    "held": 0,
+    "inserted": 18,
+    "key": "okayama_1019_1",
+    "rehearsal": "passed",
+    "sha256": "b865494b803a7931669fa7258dca3b34678b668c9fc084c8824c7c7d96363a37"
+  },
+  {
+    "baseline": 43325,
+    "commit": {
+      "batch": "okayama_651_1",
+      "held": 0,
+      "inserted": 11,
+      "public_aed": 43336
+    },
+    "file": "publish_okayama_651_1.sql",
+    "held": 0,
+    "inserted": 11,
+    "key": "okayama_651_1",
+    "rehearsal": "passed",
+    "sha256": "56dcb22bea6b0b1a664af2613df82d496d4fa2943ef11e8aa317795a4d334ff3"
+  },
+  {
+    "baseline": 43336,
+    "commit": {
+      "batch": "okayama_646_1",
+      "held": 0,
+      "inserted": 36,
+      "public_aed": 43372
+    },
+    "file": "publish_okayama_646_1.sql",
+    "held": 0,
+    "inserted": 36,
+    "key": "okayama_646_1",
+    "rehearsal": "passed",
+    "sha256": "1429a1c991f692c9e09677ed480f07ecde86c9ffb7dddf273587419c6453770d"
+  },
+  {
+    "baseline": 43372,
+    "commit": {
+      "batch": "okayama_471_1",
+      "held": 0,
+      "inserted": 53,
+      "public_aed": 43425
+    },
+    "file": "publish_okayama_471_1.sql",
+    "held": 0,
+    "inserted": 53,
+    "key": "okayama_471_1",
+    "rehearsal": "passed",
+    "sha256": "852b2d9913cce9c89c19fa2d0888a99447d27614016850dd2c0e9f965cea287f"
+  },
+  {
+    "baseline": 43425,
+    "file": "publish_okayama_653_1.sql",
+    "held": 0,
+    "inserted": 10,
+    "key": "okayama_653_1",
+    "sha256": "d63ab090ed8ddbe1157a1d26e7f8d84f3ebda4d6932c1d11d6d4468202c768cf",
+    "rehearsal": "passed",
+    "commit": {
+      "batch": "okayama_653_1",
+      "inserted": 10,
+      "held": 0,
+      "public_aed": 43435
+    }
+  }
+]

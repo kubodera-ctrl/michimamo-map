@@ -1,0 +1,274 @@
+[
+  {
+    "directory": "data/aed_dev11",
+    "key": "46201_aed-minkan",
+    "count": 218,
+    "expected": 218,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11",
+    "key": "462012_aed-shi",
+    "count": 405,
+    "expected": 405,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11",
+    "key": "462012_aed-kuniken",
+    "count": 88,
+    "expected": 88,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11",
+    "key": "462209_aed",
+    "count": 156,
+    "expected": 156,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11",
+    "key": "432156_amakusa002",
+    "count": 179,
+    "expected": 179,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11",
+    "key": "402125_0009100_00011",
+    "count": 26,
+    "expected": 26,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_652",
+    "count": 24,
+    "expected": 24,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_640",
+    "count": 74,
+    "expected": 74,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_190",
+    "count": 110,
+    "expected": 110,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_1084",
+    "count": 40,
+    "expected": 40,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_1019",
+    "count": 18,
+    "expected": 18,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_651",
+    "count": 11,
+    "expected": 11,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_646",
+    "count": 36,
+    "expected": 36,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_471",
+    "count": 53,
+    "expected": 53,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_regional",
+    "key": "okayama_653",
+    "count": 10,
+    "expected": 10,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "252115_",
+    "count": 5,
+    "expected": 5,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "422037_aed",
+    "count": 13,
+    "expected": 13,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "462250_aed",
+    "count": 75,
+    "expected": 75,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "272230_aed",
+    "count": 28,
+    "expected": 28,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "271403_sakai_aed",
+    "count": 97,
+    "expected": 97,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "454061_aed",
+    "count": 21,
+    "expected": 21,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "452033_aed",
+    "count": 9,
+    "expected": 9,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "402257_0020",
+    "count": 29,
+    "expected": 29,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "422029_aedmap",
+    "count": 69,
+    "expected": 69,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "452025_aed_list",
+    "count": 116,
+    "expected": 116,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "422011_aed_gk",
+    "count": 55,
+    "expected": 55,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "231002_7107010000_subway-stationaed",
+    "count": 23,
+    "expected": 23,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "432130_aed",
+    "count": 9,
+    "expected": 9,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "402044_aed",
+    "count": 36,
+    "expected": 36,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "464929_aed01",
+    "count": 17,
+    "expected": 17,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "252123_004103_000001",
+    "count": 25,
+    "expected": 25,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "422011_aed_k",
+    "count": 75,
+    "expected": 75,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "272116_p_36258_36258",
+    "count": 120,
+    "expected": 120,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "directory": "data/aed_dev11_geocoded",
+    "key": "okayama_6036",
+    "count": 29,
+    "expected": 29,
+    "license": "PDL 1.0",
+    "status": "passed"
+  }
+]

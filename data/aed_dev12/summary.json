@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-15",
+  "before_public_aed": 43904,
+  "after_public_aed": 43598,
+  "additional_low_precision_held": 306,
+  "external_requests": 0,
+  "audit_input_rows": 1726,
+  "audit_level8_same": 596,
+  "audit_low_same": 688,
+  "audit_coordinate_difference": 434,
+  "audit_errors": 8,
+  "changes": [
+    {
+      "prefecture": "北海道",
+      "municipality": "留萌市",
+      "held": 8,
+      "remaining": 48
+    },
+    {
+      "prefecture": "千葉県",
+      "municipality": "千葉市",
+      "held": 124,
+      "remaining": 69
+    },
+    {
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "held": 26,
+      "remaining": 0
+    },
+    {
+      "prefecture": "大阪府",
+      "municipality": "大東市",
+      "held": 2,
+      "remaining": 0
+    },
+    {
+      "prefecture": "奈良県",
+      "municipality": "田原本町",
+      "held": 17,
+      "remaining": 1
+    },
+    {
+      "prefecture": "山口県",
+      "municipality": "山陽小野田市",
+      "held": 1,
+      "remaining": 91
+    },
+    {
+      "prefecture": "岐阜県",
+      "municipality": "山県市",
+      "held": 45,
+      "remaining": 6
+    },
+    {
+      "prefecture": "岐阜県",
+      "municipality": "岐阜市",
+      "held": 14,
+      "remaining": 212
+    },
+    {
+      "prefecture": "岐阜県",
+      "municipality": "恵那市",
+      "held": 16,
+      "remaining": 54
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "加賀市",
+      "held": 2,
+      "remaining": 136
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "小松市",
+      "held": 1,
+      "remaining": 88
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "河北郡津幡町",
+      "held": 1,
+      "remaining": 53
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "珠洲市",
+      "held": 1,
+      "remaining": 51
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "白山市",
+      "held": 2,
+      "remaining": 180
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "能美市",
+      "held": 1,
+      "remaining": 82
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "輪島市",
+      "held": 1,
+      "remaining": 70
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "金沢市",
+      "held": 1,
+      "remaining": 376
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "鳳珠郡穴水町",
+      "held": 1,
+      "remaining": 29
+    },
+    {
+      "prefecture": "秋田県",
+      "municipality": "由利本荘市",
+      "held": 42,
+      "remaining": 35
+    }
+  ],
+  "rehearsal": "rollback passed",
+  "commit": "passed",
+  "remaining": "Resolve 434 coordinate differences and 8 failed results; process 66 queued unpublished municipalities; discover 1176 municipalities. Nationwide coverage incomplete.",
+  "published_municipalities": 497,
+  "unpublished_municipalities": 1244,
+  "previous_candidate_processing_required": 66,
+  "additional_municipalities_requiring_recovery": [
+    "大網白里市",
+    "大東市"
+  ]
+}

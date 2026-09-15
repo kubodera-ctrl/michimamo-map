@@ -1,0 +1,173 @@
+[
+  {
+    "key": "okayama_652",
+    "prefecture": "岡山県",
+    "municipality": "矢掛町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/652",
+    "source_name": "矢掛町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2025-05-07",
+    "source_date": null,
+    "review_bounds": [
+      34.56,
+      34.71,
+      133.49,
+      133.69
+    ],
+    "resource_url": "https://yakage.dataeye.jp/resource_download/15876",
+    "sha256": "7debdee6ba7b2e3ea27ca036cb0b56317df43ac7335a9777c6ec78c3a05f4346",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/15876"
+  },
+  {
+    "key": "okayama_640",
+    "prefecture": "岡山県",
+    "municipality": "笠岡市",
+    "source_url": "https://www.okayama-opendata.jp/datasets/640",
+    "source_name": "笠岡市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2023-03-29",
+    "source_date": null,
+    "review_bounds": [
+      34.27,
+      34.64,
+      133.4,
+      133.63
+    ],
+    "resource_url": "https://kasaoka.dataeye.jp/resource_download/13588",
+    "sha256": "381a7b92b7f3468cb13d410edc82cac8cbccce90b54594eb18695031c001d13c",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/13588"
+  },
+  {
+    "key": "okayama_190",
+    "prefecture": "岡山県",
+    "municipality": "津山市",
+    "source_url": "https://www.okayama-opendata.jp/datasets/190",
+    "source_name": "津山市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2021-06-16",
+    "source_date": null,
+    "review_bounds": [
+      34.96,
+      35.32,
+      133.82,
+      134.25
+    ],
+    "resource_url": "https://tsuyama.dataeye.jp/resource_download/9976",
+    "sha256": "bfc7d31a2733c3c26a9dfd2a536f51816f293f6387f5a3cc32d3ace49804328c",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/9976"
+  },
+  {
+    "key": "okayama_1084",
+    "prefecture": "岡山県",
+    "municipality": "奈義町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/1084",
+    "source_name": "奈義町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2019-11-13",
+    "source_date": null,
+    "review_bounds": [
+      35.05,
+      35.19,
+      134.08,
+      134.25
+    ],
+    "resource_url": "https://nagi.dataeye.jp/resource_download/5986",
+    "sha256": "e1b5106486a91d0a6eba59e7ad9c9100c670a7d56344b4dd3b3509896bed5f9c",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/5986"
+  },
+  {
+    "key": "okayama_1019",
+    "prefecture": "岡山県",
+    "municipality": "久米南町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/1019",
+    "source_name": "久米南町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2019-07-16",
+    "source_date": null,
+    "review_bounds": [
+      34.85,
+      35.02,
+      133.84,
+      134.04
+    ],
+    "resource_url": "https://kumenan.dataeye.jp/resource_download/5877",
+    "sha256": "dcb4eeb4fab3b74099695eb3e2ede1ff30c6b1cf74224e22d98b0e87f2e6c5c0",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/5877"
+  },
+  {
+    "key": "okayama_651",
+    "prefecture": "岡山県",
+    "municipality": "早島町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/651",
+    "source_name": "早島町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2017-04-04",
+    "source_date": null,
+    "review_bounds": [
+      34.58,
+      34.64,
+      133.78,
+      133.86
+    ],
+    "resource_url": "https://hayashima.dataeye.jp/resource_download/4679",
+    "sha256": "18f50cc29a6a511d817d1f823172e687a57819c22d447320774d8ce31ecac036",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/4679"
+  },
+  {
+    "key": "okayama_646",
+    "prefecture": "岡山県",
+    "municipality": "浅口市",
+    "source_url": "https://www.okayama-opendata.jp/datasets/646",
+    "source_name": "浅口市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2017-03-31",
+    "source_date": null,
+    "review_bounds": [
+      34.47,
+      34.64,
+      133.55,
+      133.68
+    ],
+    "resource_url": "https://asakuchi.dataeye.jp/resource_download/4674",
+    "sha256": "e56381787f42bd903e74a96f141d835713258774746b56544d45526166b5c74f",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/4674"
+  },
+  {
+    "key": "okayama_471",
+    "prefecture": "岡山県",
+    "municipality": "鏡野町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/471",
+    "source_name": "鏡野町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2019-03-26",
+    "source_date": null,
+    "review_bounds": [
+      35.02,
+      35.34,
+      133.66,
+      134.02
+    ],
+    "resource_url": "https://kagamino.dataeye.jp/resource_download/3865",
+    "sha256": "1070926808a679c1473669f421a13831e366c5532c0232a36b5744a36487c873",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/3865"
+  },
+  {
+    "key": "okayama_653",
+    "prefecture": "岡山県",
+    "municipality": "里庄町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/653",
+    "source_name": "里庄町 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "PDL 1.0",
+    "source_updated_at": "2017-04-04",
+    "source_date": null,
+    "review_bounds": [
+      34.48,
+      34.55,
+      133.53,
+      133.59
+    ],
+    "resource_url": "https://satosho.dataeye.jp/resource_download/4681",
+    "sha256": "0a3b208981761437ad64cce9ca1db67d79fa62b87e61ffc32891094997944a05",
+    "resource_metadata_url": "https://www.okayama-opendata.jp/resources/4681"
+  }
+]

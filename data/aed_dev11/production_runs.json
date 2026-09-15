@@ -1,0 +1,167 @@
+[
+  {
+    "baseline": 41987,
+    "commit": {
+      "batch": "46201_aed-minkan_1",
+      "held": 3,
+      "inserted": 147,
+      "public_aed": 42134
+    },
+    "file": "publish_46201_aed-minkan_1.sql",
+    "held": 3,
+    "inserted": 147,
+    "key": "46201_aed-minkan_1",
+    "rehearsal": "passed",
+    "sha256": "6dc52043d680795709d5d14739e2cb7980663a5dd02854c1a970c2ae04d2d653"
+  },
+  {
+    "baseline": 42134,
+    "commit": {
+      "batch": "46201_aed-minkan_2",
+      "held": 2,
+      "inserted": 71,
+      "public_aed": 42205
+    },
+    "file": "publish_46201_aed-minkan_2.sql",
+    "held": 2,
+    "inserted": 71,
+    "key": "46201_aed-minkan_2",
+    "rehearsal": "passed",
+    "sha256": "f35b49ae6abfbe5d5a2da8c8e45cccb3e2c64b9ae2ca7d4ba00b2a25e266c6e7"
+  },
+  {
+    "baseline": 42205,
+    "commit": {
+      "batch": "462012_aed-shi_1",
+      "held": 2,
+      "inserted": 148,
+      "public_aed": 42353
+    },
+    "file": "publish_462012_aed-shi_1.sql",
+    "held": 2,
+    "inserted": 148,
+    "key": "462012_aed-shi_1",
+    "rehearsal": "passed",
+    "sha256": "4ff9754ddabf40815abdc8340186fdeb2db8a2d1e34800f352eb22f2b43774ad"
+  },
+  {
+    "baseline": 42353,
+    "commit": {
+      "batch": "462012_aed-shi_2",
+      "held": 2,
+      "inserted": 148,
+      "public_aed": 42501
+    },
+    "file": "publish_462012_aed-shi_2.sql",
+    "held": 2,
+    "inserted": 148,
+    "key": "462012_aed-shi_2",
+    "rehearsal": "passed",
+    "sha256": "7abe91521fe2fbc02d64602d7c715d7f562cbce3f57618f2de9856034e885dd9"
+  },
+  {
+    "baseline": 42501,
+    "commit": {
+      "batch": "462012_aed-shi_3",
+      "held": 2,
+      "inserted": 109,
+      "public_aed": 42610
+    },
+    "file": "publish_462012_aed-shi_3.sql",
+    "held": 2,
+    "inserted": 109,
+    "key": "462012_aed-shi_3",
+    "rehearsal": "passed",
+    "sha256": "a84e9323498c98a7968e946c4e40d35856e056bfb97cab407e64e87a738c9e8a"
+  },
+  {
+    "baseline": 42610,
+    "commit": {
+      "batch": "462012_aed-kuniken_1",
+      "held": 5,
+      "inserted": 88,
+      "public_aed": 42698
+    },
+    "file": "publish_462012_aed-kuniken_1.sql",
+    "held": 5,
+    "inserted": 88,
+    "key": "462012_aed-kuniken_1",
+    "rehearsal": "passed",
+    "sha256": "194493896877cb384d216af0d26d7845b08856f3a111ef9919961541e6f81f8a"
+  },
+  {
+    "baseline": 42698,
+    "commit": {
+      "batch": "462209_aed_1",
+      "held": 3,
+      "inserted": 147,
+      "public_aed": 42845
+    },
+    "file": "publish_462209_aed_1.sql",
+    "held": 3,
+    "inserted": 147,
+    "key": "462209_aed_1",
+    "rehearsal": "passed",
+    "sha256": "a45eba4c65dfa668583189a8b02619873233a8767e980b7f3ae8930a3fbf2ed7"
+  },
+  {
+    "baseline": 42845,
+    "commit": {
+      "batch": "462209_aed_2",
+      "held": 0,
+      "inserted": 9,
+      "public_aed": 42854
+    },
+    "file": "publish_462209_aed_2.sql",
+    "held": 0,
+    "inserted": 9,
+    "key": "462209_aed_2",
+    "rehearsal": "passed",
+    "sha256": "ec055b49dfc8ae9af851abf0683599a2bb1f449964a785bf51f879217ba193b1"
+  },
+  {
+    "baseline": 42854,
+    "commit": {
+      "batch": "432156_amakusa002_1",
+      "held": 15,
+      "inserted": 135,
+      "public_aed": 42989
+    },
+    "file": "publish_432156_amakusa002_1.sql",
+    "held": 15,
+    "inserted": 135,
+    "key": "432156_amakusa002_1",
+    "rehearsal": "passed",
+    "sha256": "f230892e40b8775d6753d38632f30cfbc10621425547dcb3fffc8186ddea4872"
+  },
+  {
+    "baseline": 42989,
+    "commit": {
+      "batch": "432156_amakusa002_2",
+      "held": 0,
+      "inserted": 44,
+      "public_aed": 43033
+    },
+    "file": "publish_432156_amakusa002_2.sql",
+    "held": 0,
+    "inserted": 44,
+    "key": "432156_amakusa002_2",
+    "rehearsal": "passed",
+    "sha256": "bc0520aba3b8fbc4b0d8110cac759bc74af547408deeb1bc926f40dacf5b34f5"
+  },
+  {
+    "baseline": 43033,
+    "file": "publish_402125_0009100_00011_1.sql",
+    "held": 0,
+    "inserted": 26,
+    "key": "402125_0009100_00011_1",
+    "sha256": "82eb21aa75416c779b3e830954125590aa3228894bb60ec18c501ee4fc6ea682",
+    "rehearsal": "passed",
+    "commit": {
+      "batch": "402125_0009100_00011_1",
+      "inserted": 26,
+      "held": 0,
+      "public_aed": 43059
+    }
+  }
+]

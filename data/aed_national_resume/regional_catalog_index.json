@@ -1,0 +1,317 @@
+[
+  {
+    "key": "shimane_199",
+    "url": "https://shimane-opendata.jp/datasets/199",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34768"
+    ]
+  },
+  {
+    "key": "shimane_162",
+    "url": "https://shimane-opendata.jp/datasets/162",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1571"
+    ]
+  },
+  {
+    "key": "shimane_136",
+    "url": "https://shimane-opendata.jp/datasets/136",
+    "resources": [
+      "https://shimane-opendata.jp/resources/75110",
+      "https://shimane-opendata.jp/resources/73737",
+      "https://shimane-opendata.jp/resources/37254",
+      "https://shimane-opendata.jp/resources/37243",
+      "https://shimane-opendata.jp/resources/1458",
+      "https://shimane-opendata.jp/resources/1457"
+    ]
+  },
+  {
+    "key": "shimane_277",
+    "url": "https://shimane-opendata.jp/datasets/277",
+    "resources": [
+      "https://shimane-opendata.jp/resources/37618"
+    ]
+  },
+  {
+    "key": "shimane_287",
+    "url": "https://shimane-opendata.jp/datasets/287",
+    "resources": [
+      "https://shimane-opendata.jp/resources/35049"
+    ]
+  },
+  {
+    "key": "shimane_252",
+    "url": "https://shimane-opendata.jp/datasets/252",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34899"
+    ]
+  },
+  {
+    "key": "shimane_374",
+    "url": "https://shimane-opendata.jp/datasets/374",
+    "resources": [
+      "https://shimane-opendata.jp/resources/35464"
+    ]
+  },
+  {
+    "key": "shimane_274",
+    "url": "https://shimane-opendata.jp/datasets/274",
+    "resources": [
+      "https://shimane-opendata.jp/resources/35001"
+    ]
+  },
+  {
+    "key": "shimane_258",
+    "url": "https://shimane-opendata.jp/datasets/258",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34905"
+    ]
+  },
+  {
+    "key": "shimane_156",
+    "url": "https://shimane-opendata.jp/datasets/156",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1565"
+    ]
+  },
+  {
+    "key": "shimane_255",
+    "url": "https://shimane-opendata.jp/datasets/255",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34902"
+    ]
+  },
+  {
+    "key": "shimane_205",
+    "url": "https://shimane-opendata.jp/datasets/205",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34774"
+    ]
+  },
+  {
+    "key": "shimane_159",
+    "url": "https://shimane-opendata.jp/datasets/159",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1568"
+    ]
+  },
+  {
+    "key": "shimane_127",
+    "url": "https://shimane-opendata.jp/datasets/127",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1436"
+    ]
+  },
+  {
+    "key": "shimane_257",
+    "url": "https://shimane-opendata.jp/datasets/257",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34904"
+    ]
+  },
+  {
+    "key": "shimane_171",
+    "url": "https://shimane-opendata.jp/datasets/171",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1589",
+      "https://shimane-opendata.jp/resources/1588"
+    ]
+  },
+  {
+    "key": "shimane_52",
+    "url": "https://shimane-opendata.jp/datasets/52",
+    "resources": [
+      "https://shimane-opendata.jp/resources/641",
+      "https://shimane-opendata.jp/resources/640"
+    ]
+  },
+  {
+    "key": "shimane_130",
+    "url": "https://shimane-opendata.jp/datasets/130",
+    "resources": [
+      "https://shimane-opendata.jp/resources/1440"
+    ]
+  },
+  {
+    "key": "shimane_212",
+    "url": "https://shimane-opendata.jp/datasets/212",
+    "resources": [
+      "https://shimane-opendata.jp/resources/34813"
+    ]
+  },
+  {
+    "key": "okayama_650",
+    "url": "https://www.okayama-opendata.jp/datasets/650",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/17661",
+      "https://www.okayama-opendata.jp/resources/15888",
+      "https://www.okayama-opendata.jp/resources/14051",
+      "https://www.okayama-opendata.jp/resources/13592",
+      "https://www.okayama-opendata.jp/resources/4678"
+    ]
+  },
+  {
+    "key": "okayama_649",
+    "url": "https://www.okayama-opendata.jp/datasets/649",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/17649",
+      "https://www.okayama-opendata.jp/resources/13550",
+      "https://www.okayama-opendata.jp/resources/4677"
+    ]
+  },
+  {
+    "key": "okayama_648",
+    "url": "https://www.okayama-opendata.jp/datasets/648",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/17664",
+      "https://www.okayama-opendata.jp/resources/15668",
+      "https://www.okayama-opendata.jp/resources/14048",
+      "https://www.okayama-opendata.jp/resources/13553",
+      "https://www.okayama-opendata.jp/resources/4676"
+    ]
+  },
+  {
+    "key": "okayama_643",
+    "url": "https://www.okayama-opendata.jp/datasets/643",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/17651",
+      "https://www.okayama-opendata.jp/resources/15898",
+      "https://www.okayama-opendata.jp/resources/14768",
+      "https://www.okayama-opendata.jp/resources/13542",
+      "https://www.okayama-opendata.jp/resources/11658",
+      "https://www.okayama-opendata.jp/resources/9135",
+      "https://www.okayama-opendata.jp/resources/6532",
+      "https://www.okayama-opendata.jp/resources/4671"
+    ]
+  },
+  {
+    "key": "okayama_496",
+    "url": "https://www.okayama-opendata.jp/datasets/496",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/17585",
+      "https://www.okayama-opendata.jp/resources/15908",
+      "https://www.okayama-opendata.jp/resources/14745",
+      "https://www.okayama-opendata.jp/resources/12591",
+      "https://www.okayama-opendata.jp/resources/11656",
+      "https://www.okayama-opendata.jp/resources/5150",
+      "https://www.okayama-opendata.jp/resources/3882",
+      "https://www.okayama-opendata.jp/resources/3883"
+    ]
+  },
+  {
+    "key": "okayama_781",
+    "url": "https://www.okayama-opendata.jp/datasets/781",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/5501",
+      "https://www.okayama-opendata.jp/resources/5505",
+      "https://www.okayama-opendata.jp/resources/5504",
+      "https://www.okayama-opendata.jp/resources/5503",
+      "https://www.okayama-opendata.jp/resources/5502"
+    ]
+  },
+  {
+    "key": "okayama_652",
+    "url": "https://www.okayama-opendata.jp/datasets/652",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/15876",
+      "https://www.okayama-opendata.jp/resources/13589",
+      "https://www.okayama-opendata.jp/resources/4680"
+    ]
+  },
+  {
+    "key": "okayama_6036",
+    "url": "https://www.okayama-opendata.jp/datasets/6036",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/15637"
+    ]
+  },
+  {
+    "key": "okayama_640",
+    "url": "https://www.okayama-opendata.jp/datasets/640",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/13588",
+      "https://www.okayama-opendata.jp/resources/4668"
+    ]
+  },
+  {
+    "key": "okayama_4419",
+    "url": "https://www.okayama-opendata.jp/datasets/4419",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/12685"
+    ]
+  },
+  {
+    "key": "okayama_3160",
+    "url": "https://www.okayama-opendata.jp/datasets/3160",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/10813",
+      "https://www.okayama-opendata.jp/resources/10815",
+      "https://www.okayama-opendata.jp/resources/10814"
+    ]
+  },
+  {
+    "key": "okayama_190",
+    "url": "https://www.okayama-opendata.jp/datasets/190",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/9976",
+      "https://www.okayama-opendata.jp/resources/7010",
+      "https://www.okayama-opendata.jp/resources/2877"
+    ]
+  },
+  {
+    "key": "okayama_2815",
+    "url": "https://www.okayama-opendata.jp/datasets/2815",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/10281"
+    ]
+  },
+  {
+    "key": "okayama_1084",
+    "url": "https://www.okayama-opendata.jp/datasets/1084",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/5986"
+    ]
+  },
+  {
+    "key": "okayama_1019",
+    "url": "https://www.okayama-opendata.jp/datasets/1019",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/5877"
+    ]
+  },
+  {
+    "key": "okayama_955",
+    "url": "https://www.okayama-opendata.jp/datasets/955",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/5767"
+    ]
+  },
+  {
+    "key": "okayama_653",
+    "url": "https://www.okayama-opendata.jp/datasets/653",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/4681"
+    ]
+  },
+  {
+    "key": "okayama_651",
+    "url": "https://www.okayama-opendata.jp/datasets/651",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/4679"
+    ]
+  },
+  {
+    "key": "okayama_646",
+    "url": "https://www.okayama-opendata.jp/datasets/646",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/4674"
+    ]
+  },
+  {
+    "key": "okayama_471",
+    "url": "https://www.okayama-opendata.jp/datasets/471",
+    "resources": [
+      "https://www.okayama-opendata.jp/resources/3865"
+    ]
+  }
+]

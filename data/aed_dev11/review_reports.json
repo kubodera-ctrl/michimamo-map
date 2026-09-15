@@ -1,0 +1,239 @@
+[
+  {
+    "key": "46201_aed-minkan",
+    "municipality": "鹿児島市",
+    "raw_rows": 224,
+    "eligible": 223,
+    "publish": 218,
+    "held": 5,
+    "swapped_coordinates": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 206,
+        "name": "BOOKOFF 鹿児島ジョイプラザ店",
+        "address": "鹿児島県東郡元町19-6",
+        "reason": "municipality_mismatch"
+      }
+    ]
+  },
+  {
+    "key": "462012_aed-shi",
+    "municipality": "鹿児島市",
+    "raw_rows": 423,
+    "eligible": 411,
+    "publish": 405,
+    "held": 6,
+    "swapped_coordinates": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 170,
+        "name": "南小学校",
+        "address": "鹿児島県東郡元町13-22",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "row": 228,
+        "name": "南中学校",
+        "address": "鹿児島県東郡元町13-34",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "row": 252,
+        "name": "鹿児島市冒険ランドいおうじま",
+        "address": "鹿児島県鹿児島市三島村大字硫黄島字徳躰之下202-9",
+        "reason": "outside_review_bounds"
+      },
+      {
+        "row": 323,
+        "name": "桜島フェリー 桜島丸",
+        "address": "鹿児島県鹿児島市―",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 324,
+        "name": "桜島フェリー 第二桜島丸",
+        "address": "鹿児島県鹿児島市―",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 325,
+        "name": "桜島フェリー 第十六櫻島丸",
+        "address": "鹿児島県鹿児島市―",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 326,
+        "name": "桜島フェリー 第十八櫻島丸",
+        "address": "鹿児島県鹿児島市―",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "name": "鹿児島ふれあいスポーツランド 屋内運動場棟",
+        "address": "鹿児島県鹿児島市中山町591-1",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島市平川動物公園",
+        "address": "鹿児島県鹿児島市平川町5669-1",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "平川動物公園(どうぶつ学習館内)",
+        "address": "鹿児島県鹿児島市平川町5669-1",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島市平川動物公園(ゾウ舎シェルター)",
+        "address": "鹿児島県鹿児島市平川町5669-1",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島ふれあいスポーツランド",
+        "address": "鹿児島県鹿児島市中山町591-1",
+        "reason": "same_address_coordinate_conflict"
+      }
+    ]
+  },
+  {
+    "key": "462012_aed-kuniken",
+    "municipality": "鹿児島市",
+    "raw_rows": 101,
+    "eligible": 93,
+    "publish": 88,
+    "held": 5,
+    "swapped_coordinates": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 53,
+        "name": "鹿児島第2地方合同庁舎",
+        "address": "鹿児島県東郡元町4-1",
+        "reason": "municipality_mismatch"
+      },
+      {
+        "name": "鹿児島県立鴨池陸上競技場",
+        "address": "鹿児島県鹿児島市与次郎2丁目2-2",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島県立鴨池野球場",
+        "address": "鹿児島県鹿児島市与次郎2丁目2-2",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島県立鴨池庭球場",
+        "address": "鹿児島県鹿児島市与次郎2丁目2-2",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島大学(郡元キャンパス) 農学部 共通棟",
+        "address": "鹿児島県鹿児島市郡元1丁目21-24",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島大学(郡元キャンパス) 保健管理センター",
+        "address": "鹿児島県鹿児島市郡元1丁目21-24",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島大学(郡元キャンパス) 共通教育棟",
+        "address": "鹿児島県鹿児島市郡元1丁目21-24",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "鹿児島大学(郡元キャンパス)第2体育館",
+        "address": "鹿児島県鹿児島市郡元1丁目21-24",
+        "reason": "same_address_coordinate_conflict"
+      }
+    ]
+  },
+  {
+    "key": "462209_aed",
+    "municipality": "南さつま市",
+    "raw_rows": 161,
+    "eligible": 159,
+    "publish": 156,
+    "held": 3,
+    "swapped_coordinates": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "name": "県立吹上浜海浜公園(事務所)",
+        "address": "鹿児島県南さつま市加世田高橋1936-2",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "県立吹上浜海浜公園 (キャンプ場)",
+        "address": "鹿児島県南さつま市加世田高橋1936-2",
+        "reason": "same_address_coordinate_conflict"
+      }
+    ]
+  },
+  {
+    "key": "432156_amakusa002",
+    "municipality": "天草市",
+    "raw_rows": 201,
+    "eligible": 194,
+    "publish": 179,
+    "held": 15,
+    "swapped_coordinates": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 32,
+        "name": "本渡看護専門学校",
+        "address": "熊本県天草市亀場町亀川12-1",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 33,
+        "name": "本渡看護専門学校",
+        "address": "熊本県天草市亀場町亀川12-1",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 115,
+        "name": "御所浦北診療所",
+        "address": "熊本県天草市御所浦町横浦750-13",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 119,
+        "name": "棚底地区コミュニティセンター;倉岳多目的研修施設",
+        "address": "熊本県天草市倉岳町棚底1786-4",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 134,
+        "name": "栖本福祉会館",
+        "address": "熊本県天草市栖本町馬場3682-1",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 148,
+        "name": "新和病院",
+        "address": "熊本県天草市新和町小宮地763-3",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 152,
+        "name": "大島地区コミュニティセンター",
+        "address": "熊本県天草市五和町御領9761",
+        "reason": "missing_invalid_coordinates"
+      }
+    ]
+  },
+  {
+    "key": "402125_0009100_00011",
+    "municipality": "大川市",
+    "raw_rows": 26,
+    "eligible": 26,
+    "publish": 26,
+    "held": 0,
+    "swapped_coordinates": 16,
+    "exact_removed": 0,
+    "excluded": []
+  }
+]

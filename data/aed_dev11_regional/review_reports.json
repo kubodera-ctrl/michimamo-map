@@ -1,0 +1,135 @@
+[
+  {
+    "key": "okayama_652",
+    "municipality": "矢掛町",
+    "raw_rows": 27,
+    "eligible": 24,
+    "publish": 24,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 19,
+        "name": "消防団川面分団第2部器庫",
+        "address": "岡山県小田郡矢掛町宇内1051-1",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 22,
+        "name": "消防団中川分団第2部器庫",
+        "address": "岡山県小田郡矢掛町江良313-1",
+        "reason": "missing_invalid_coordinates"
+      },
+      {
+        "row": 26,
+        "name": "消防団小田分団第2部器庫",
+        "address": "岡山県小田郡矢掛町小田6700-1",
+        "reason": "missing_invalid_coordinates"
+      }
+    ]
+  },
+  {
+    "key": "okayama_640",
+    "municipality": "笠岡市",
+    "raw_rows": 74,
+    "eligible": 74,
+    "publish": 74,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  },
+  {
+    "key": "okayama_190",
+    "municipality": "津山市",
+    "raw_rows": 113,
+    "eligible": 110,
+    "publish": 110,
+    "held": 0,
+    "exact_removed": 2,
+    "excluded": [
+      {
+        "row": 114,
+        "name": "",
+        "address": "岡山県津山市西新町5",
+        "reason": "missing_name_address"
+      }
+    ]
+  },
+  {
+    "key": "okayama_1084",
+    "municipality": "奈義町",
+    "raw_rows": 47,
+    "eligible": 44,
+    "publish": 40,
+    "held": 4,
+    "exact_removed": 0,
+    "excluded": [
+      {
+        "row": 4,
+        "name": "津山圏域消防組合日本原出張所",
+        "address": "岡山県勝田郡奈義町上町川1137",
+        "reason": "availability_requires_review"
+      },
+      {
+        "name": "やまびこ荘",
+        "address": "岡山県勝田郡奈義町小坂631-3",
+        "reason": "same_address_coordinate_conflict"
+      },
+      {
+        "name": "小坂多目的集会施設",
+        "address": "岡山県勝田郡奈義町小坂631-3",
+        "reason": "same_address_coordinate_conflict"
+      }
+    ]
+  },
+  {
+    "key": "okayama_1019",
+    "municipality": "久米南町",
+    "raw_rows": 18,
+    "eligible": 18,
+    "publish": 18,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  },
+  {
+    "key": "okayama_651",
+    "municipality": "早島町",
+    "raw_rows": 11,
+    "eligible": 11,
+    "publish": 11,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  },
+  {
+    "key": "okayama_646",
+    "municipality": "浅口市",
+    "raw_rows": 36,
+    "eligible": 36,
+    "publish": 36,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  },
+  {
+    "key": "okayama_471",
+    "municipality": "鏡野町",
+    "raw_rows": 53,
+    "eligible": 53,
+    "publish": 53,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  },
+  {
+    "key": "okayama_653",
+    "municipality": "里庄町",
+    "raw_rows": 10,
+    "eligible": 10,
+    "publish": 10,
+    "held": 0,
+    "exact_removed": 0,
+    "excluded": []
+  }
+]

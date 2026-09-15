@@ -1,0 +1,427 @@
+{
+  "production_baseline": 40683,
+  "sources": [
+    {
+      "key": "toyooka",
+      "prefecture": "兵庫県",
+      "municipality": "豊岡市",
+      "source_url": "https://data.bodik.jp/dataset/282090_aed_toyooka",
+      "source_name": "豊岡市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2021-02-26",
+      "source_date": null,
+      "review_bounds": [
+        35.4,
+        35.7,
+        134.64,
+        135.03
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/toyooka.csv",
+          "url": "https://data.bodik.jp/dataset/373284ae-1781-409c-9b6a-2cc967132c4b/resource/a5e43643-d9ed-48cc-9233-14f11f0df72a/download/townlifesavingstation.csv",
+          "sha256": "83f03a4f10add1154f0f7e80e4a83040f0081ee1e6940e2ea5527a70474ab95e",
+          "expected_raw": 92
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "kami",
+      "prefecture": "兵庫県",
+      "municipality": "香美町",
+      "source_url": "https://data.bodik.jp/dataset/285854_aed",
+      "source_name": "香美町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2021-02-20",
+      "source_date": null,
+      "review_bounds": [
+        35.37,
+        35.69,
+        134.49,
+        134.72
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/kami.csv",
+          "url": "https://data.bodik.jp/dataset/7d49932b-d742-4a97-9a22-3003858a7968/resource/c34317c5-5a8c-435b-871a-52c46160f56a/download/kami_aed.csv",
+          "sha256": "787044bb2c029ae90935be9a954f6f460ced70bbdcf23c52b2f6fd99c70acd77",
+          "expected_raw": 67
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "tondabayashi",
+      "prefecture": "大阪府",
+      "municipality": "富田林市",
+      "source_url": "https://data.bodik.jp/dataset/272141_aed",
+      "source_name": "富田林市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2026-04-06",
+      "source_date": null,
+      "review_bounds": [
+        34.43,
+        34.55,
+        135.54,
+        135.65
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/tondabayashi.csv",
+          "url": "https://data.bodik.jp/dataset/79a0e0e5-ab72-438b-975c-d9839e69d83a/resource/3f9a6650-0cee-40d9-a7dd-092e8bee0f50/download/08.aed.csv",
+          "sha256": "a91c932cac84271d5e9e4a642b2c74245bbeb9676f3c6163ae660d3bd37f1173",
+          "expected_raw": 77
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "kumatori",
+      "prefecture": "大阪府",
+      "municipality": "熊取町",
+      "source_url": "https://data.bodik.jp/dataset/273619_aed",
+      "source_name": "熊取町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2024-12-12",
+      "source_date": null,
+      "review_bounds": [
+        34.34,
+        34.43,
+        135.32,
+        135.41
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/kumatori.xlsx",
+          "url": "https://data.bodik.jp/dataset/2a40b81d-fa22-4a3c-84ce-cdafea5811b8/resource/df8041b9-22a8-46f3-bcae-bd83af84907d/download/273619_aed.xlsx",
+          "sha256": "753d876b7c33430c4939835357100f956787d8e8c2f49adad0e224a6fef9854b",
+          "expected_raw": 33
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "kaizuka",
+      "prefecture": "大阪府",
+      "municipality": "貝塚市",
+      "source_url": "https://data.bodik.jp/dataset/272086_aed",
+      "source_name": "貝塚市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2026-03-31",
+      "source_date": null,
+      "review_bounds": [
+        34.37,
+        34.47,
+        135.31,
+        135.43
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/kaizuka.csv",
+          "url": "https://data.bodik.jp/dataset/0184d5f6-47a9-4c3a-bd5d-6600cdcc61d8/resource/530333e3-e882-4e75-8de5-43343919a94a/download/272086_aed.csv",
+          "sha256": "3f3085874589a8c5153fb4813b6d5faeb6a926597c5482808880da67f9c2f1cd",
+          "expected_raw": 41
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "sango",
+      "prefecture": "奈良県",
+      "municipality": "三郷町",
+      "source_url": "https://data.bodik.jp/dataset/293431_aed",
+      "source_name": "三郷町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "PDL1.0",
+      "source_updated_at": "2026-04-21",
+      "source_date": null,
+      "review_bounds": [
+        34.57,
+        34.64,
+        135.64,
+        135.72
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/sango.csv",
+          "url": "https://data.bodik.jp/dataset/762970ae-0e7b-433c-bcf4-61ca5f93b317/resource/a6c77dbc-0c24-4be0-b7ae-e1664c1c51f4/download/293431_aed_utf-8.csv",
+          "sha256": "798989e463e6d7ed209a1a4f9871c07aeacecd80e184fae62d0e9f862e26a3f6",
+          "expected_raw": 26
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。",
+      "license_note": "PDL1.0第1.7(3)のCC BY4.0互換利用許諾による"
+    },
+    {
+      "key": "ibara",
+      "prefecture": "岡山県",
+      "municipality": "井原市",
+      "source_url": "https://www.okayama-opendata.jp/resources/17649",
+      "source_name": "井原市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "PDL1.0",
+      "source_updated_at": "2026-03-31",
+      "source_date": null,
+      "review_bounds": [
+        34.54,
+        34.75,
+        133.36,
+        133.57
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/ibara.csv",
+          "url": "https://ibara.dataeye.jp/resource_download/17649",
+          "sha256": "51eb9928a84f36e9f698fc5537f4ab04c2942ea574c41012cad19345ed937f75",
+          "expected_raw": 75
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。",
+      "license_note": "PDL1.0第1.7(3)のCC BY4.0互換利用許諾による"
+    },
+    {
+      "key": "kurashiki",
+      "prefecture": "岡山県",
+      "municipality": "倉敷市",
+      "source_url": "https://www.okayama-opendata.jp/resources/17585",
+      "source_name": "倉敷市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "PDL1.0",
+      "source_updated_at": "2026-03-31",
+      "source_date": null,
+      "review_bounds": [
+        34.41,
+        34.68,
+        133.59,
+        133.91
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/kurashiki.csv",
+          "url": "https://kurashiki.dataeye.jp/resource_download/17585",
+          "sha256": "3b62480b9ae286afb85818324087b2c2ccc83fa98fc29fbc48b001f1dda310d0",
+          "expected_raw": 273
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。",
+      "license_note": "PDL1.0第1.7(3)のCC BY4.0互換利用許諾による"
+    },
+    {
+      "key": "niimi",
+      "prefecture": "岡山県",
+      "municipality": "新見市",
+      "source_url": "https://www.okayama-opendata.jp/resources/17664",
+      "source_name": "新見市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "PDL1.0",
+      "source_updated_at": "2026-03-31",
+      "source_date": null,
+      "review_bounds": [
+        34.87,
+        35.2,
+        133.3,
+        133.62
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/niimi.csv",
+          "url": "https://niimi.dataeye.jp/resource_download/17664",
+          "sha256": "1a32cb9936a984c7afe0fd02745e251be15e609e23eb03ae6e57cafac2608f04",
+          "expected_raw": 85
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。",
+      "license_note": "PDL1.0第1.7(3)のCC BY4.0互換利用許諾による"
+    },
+    {
+      "key": "soja",
+      "prefecture": "岡山県",
+      "municipality": "総社市",
+      "source_url": "https://www.okayama-opendata.jp/resources/17651",
+      "source_name": "総社市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "PDL1.0",
+      "source_updated_at": "2026-03-31",
+      "source_date": null,
+      "review_bounds": [
+        34.62,
+        34.76,
+        133.62,
+        133.83
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/soja.csv",
+          "url": "https://soja.dataeye.jp/resource_download/17651",
+          "sha256": "0c58cd975f27272e0ee31f4cfb3ae773e78df2adc9d2749de1401c3e708ac586",
+          "expected_raw": 162
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。",
+      "license_note": "PDL1.0第1.7(3)のCC BY4.0互換利用許諾による"
+    },
+    {
+      "key": "misato",
+      "prefecture": "島根県",
+      "municipality": "美郷町",
+      "source_url": "https://shimane-opendata.jp/resources/34774",
+      "source_name": "美郷町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "CC BY",
+      "source_updated_at": "2022-05-31",
+      "source_date": null,
+      "review_bounds": [
+        34.92,
+        35.13,
+        132.48,
+        132.69
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/misato.xlsx",
+          "url": "https://shimane-opendata.jp/resource_download/34774",
+          "sha256": "362c3120a6a51686caae505251097f8323529f6dceefc4259b439def03fb7827",
+          "expected_raw": 28
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "minamiaso",
+      "prefecture": "熊本県",
+      "municipality": "南阿蘇村",
+      "source_url": "https://data.bodik.jp/dataset/434337_aed",
+      "source_name": "南阿蘇村 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2024-01-17",
+      "source_date": null,
+      "review_bounds": [
+        32.79,
+        32.89,
+        130.97,
+        131.12
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/minamiaso.csv",
+          "url": "https://data.bodik.jp/dataset/18c08181-3c70-45c6-97e7-6601c69f0271/resource/b9feb013-b8fa-408a-ab3b-f98241fada1e/download/434337_aed.csv",
+          "sha256": "7e5ca54d14cf518c01b2cdd3370fb6baa38c18a676bdad6d5ccef7ea96263565",
+          "expected_raw": 26
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "shinkamigoto",
+      "prefecture": "長崎県",
+      "municipality": "新上五島町",
+      "source_url": "https://data.bodik.jp/dataset/424111_aedshinkamigoto",
+      "source_name": "新上五島町 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2026-06-12",
+      "source_date": null,
+      "review_bounds": [
+        32.81,
+        33.08,
+        128.97,
+        129.21
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/shinkamigoto.csv",
+          "url": "https://data.bodik.jp/dataset/d1ceba0d-3e5f-4eea-85c6-0f5dcd28a4f4/resource/f3b7b28e-caca-4744-897d-c6a822838216/download/aed_kamigoto.csv",
+          "sha256": "a4876a64c930d59231a9f1ecf8b7951bfaec7b3edee990af79939da565474634",
+          "expected_raw": 92
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "shibushi",
+      "prefecture": "鹿児島県",
+      "municipality": "志布志市",
+      "source_url": "https://data.bodik.jp/dataset/462217_aed_location",
+      "source_name": "志布志市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2026-08-27",
+      "source_date": null,
+      "review_bounds": [
+        31.43,
+        31.61,
+        130.96,
+        131.18
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/shibushi.csv",
+          "url": "https://data.bodik.jp/dataset/a2053a71-5633-4b71-b46f-97bcfdf94781/resource/9ebb1e17-148e-4326-b303-d8687a823516/download/462217_aed_location_20240201.csv",
+          "sha256": "905610f8ebc2911ac1826b75bdeb414b7a0e983c4aad78f00eae3b95034d91f2",
+          "expected_raw": 69
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    },
+    {
+      "key": "kirishima",
+      "prefecture": "鹿児島県",
+      "municipality": "霧島市",
+      "source_url": "https://data.bodik.jp/dataset/462187_aed",
+      "source_name": "霧島市 AED設置箇所一覧（まちまもMAPが表記整形・位置検証）",
+      "license_id": "CC BY 4.0",
+      "original_license": "cc-by-40-intl",
+      "source_updated_at": "2026-04-21",
+      "source_date": null,
+      "review_bounds": [
+        31.59,
+        31.93,
+        130.64,
+        130.92
+      ],
+      "resources": [
+        {
+          "snapshot": "raw/kirishima.xlsx",
+          "url": "https://data.bodik.jp/dataset/d60331e5-7ec3-40f2-87cb-0bad6de0cfbf/resource/8d6257dc-5bda-4937-9763-391372a2e61e/download/462187_aed_20260401.xlsx",
+          "sha256": "e67246761fb086343b697d005500152161a1879911b97561f87ae2a241ed18b1",
+          "expected_raw": 219
+        }
+      ],
+      "review_reason": "公式データの利用条件・住所・自治体・座標範囲・重複を検証。未確認・利用制限行は公開しない",
+      "date_note": "リソース更新日。各施設の現地調査日ではない。"
+    }
+  ],
+  "evidence_hashes": {
+    "kurashiki_resource.txt": "91057a249a426d059bf6858481e9a52f74d0b062e8bea956642491558751de48",
+    "misato_resource.txt": "315c5696a4c1eadbf971da3fb7b99f4f46da9a714d5d2bd884825a84d7ae5b09",
+    "pdl_terms.txt": "8644c7df4fb29905842376d1fe4769e77c22cc4e3f4645c09e24e85ce7a640ab",
+    "download_index.json": "cf043e8996b708c7f7e283446b4f53b82d11f38d63dc878dda2166fa21ff3756",
+    "niimi_resource.txt": "ac97d7fc106b11b9e4626b4d013d2ebf6415ef7cd19d0cdee2a7ff7ffc6870e1",
+    "ibara_resource.txt": "ad3fca6351964e37bb00ab80b845e45170201b5d6b0af5649f4884b14d431687",
+    "catalog_candidates.json": "2d9bd266e012a57ca0dd8b788bfd90cc921e177a27ed296719bd84320b9e5125",
+    "shimane_terms.txt": "40fe3add4dbdb9154a7ba42f9e3f10163dc88cc7eab44fcff957f481c0d68bd5",
+    "regional_catalog_index.json": "22580f69796496fda72b10b07a4ccda610e3e278ab5743d821ef4a069140235d",
+    "soja_resource.txt": "d03bcaffb99de7d530529380525a49e168ac38f53c22fa1170878e357f18e1fb"
+  }
+}

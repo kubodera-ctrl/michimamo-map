@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-15",
+  "before_public_aed": 41987,
+  "inserted": 2299,
+  "quarantined_existing_low_precision": 382,
+  "after_public_aed": 43904,
+  "municipalities": 1741,
+  "published_municipalities": 499,
+  "unpublished_municipalities": 1242,
+  "newly_published_municipalities": 31,
+  "municipalities_lost_after_precision_hold": 1,
+  "lost_codes": [
+    "21382"
+  ],
+  "new_duplicate_holds": 159,
+  "staging_holds": 577,
+  "transactions": 39,
+  "candidate_datasets_checked": 49,
+  "files_downloaded": 43,
+  "downloaded_rows": 5526,
+  "geocoding_inputs": 3722,
+  "new_catalog_datasets": 104,
+  "queue_states": {
+    "source_discovery_required": 1176,
+    "published_aed_present": 499,
+    "candidate_processing_required": 66
+  },
+  "legacy_audit": {
+    "target": 1726,
+    "local_results": 910,
+    "confirmed_low_precision_quarantined": 382,
+    "not_yet_rechecked": 816,
+    "remaining_result_review": 122,
+    "matching_level8": 406,
+    "blocker": "Automatic approval review rejected further external geocoding of connector-derived addresses. Do not retry without explicit permission or a genuinely offline alternative."
+  },
+  "coverage_note": "掲載ありは1件以上。自治体内の全AED網羅、全国の全情報源確認はいずれも未完了。"
+}

@@ -1,0 +1,344 @@
+[
+  {
+    "key": "252115_",
+    "prefecture": "滋賀県",
+    "municipality": "湖南市",
+    "source_url": "https://data.bodik.jp/dataset/252115_",
+    "source_name": "湖南市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2024-10-17",
+    "resource_url": "https://data.bodik.jp/dataset/fd9a1e1e-56aa-49f3-8068-4f257d34d6f4/resource/070679cc-9859-47e3-b067-ccec3a47513d/download/aed.csv",
+    "sha256": "e417acd279af1b4525cffcc5a53f42fed210507622511f2063f0e96361269086",
+    "review_bounds": [
+      35.00324431999999,
+      35.045303936,
+      136.053909823,
+      136.098984948
+    ]
+  },
+  {
+    "key": "422037_aed",
+    "prefecture": "長崎県",
+    "municipality": "島原市",
+    "source_url": "https://data.bodik.jp/dataset/422037_aed",
+    "source_name": "島原市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-07-13",
+    "resource_url": "https://data.bodik.jp/dataset/08cbc19a-e59b-4399-947c-c6a14bf79875/resource/56a86d3b-1fbb-4aac-9065-e697c20e80b7/download/422037_aed.csv",
+    "sha256": "595eb075a597ee089701a0e647f01b43da225db066717e444a2e1d79f4f82baa",
+    "review_bounds": [
+      32.766551408,
+      32.85350231100001,
+      130.29850765199998,
+      130.373615124
+    ]
+  },
+  {
+    "key": "462250_aed",
+    "prefecture": "鹿児島県",
+    "municipality": "姶良市",
+    "source_url": "https://data.bodik.jp/dataset/462250_aed",
+    "source_name": "姶良市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2023-01-19",
+    "resource_url": "https://data.bodik.jp/dataset/c08bebe8-4876-4c49-b30e-93e3343d8ebb/resource/2a1085da-b171-4e5b-9ecb-6ba4d7ac41ff/download/462250_aed.csv",
+    "sha256": "41e492047c597b4b85207201d2e63e9170ea80a6fbf608c986fae9e69387e9ff",
+    "review_bounds": [
+      31.699410903000004,
+      31.840535372000005,
+      130.532016534,
+      130.674907782
+    ]
+  },
+  {
+    "key": "272230_aed",
+    "prefecture": "大阪府",
+    "municipality": "門真市",
+    "source_url": "https://data.bodik.jp/dataset/272230_aed",
+    "source_name": "門真市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-04-01",
+    "resource_url": "https://data.bodik.jp/dataset/d7e62abe-816e-420b-a50f-f51ac10c7358/resource/ab24e903-5ad5-4566-90f2-075b5f49a926/download/272230_aed.csv",
+    "sha256": "31588ee64c2c9d5fc511089d579dd471fb721c0a43ad93987ca9ccea8297a4ed",
+    "review_bounds": [
+      34.714595861,
+      34.746323028000006,
+      135.582142689,
+      135.621590641
+    ]
+  },
+  {
+    "key": "271403_sakai_aed",
+    "prefecture": "大阪府",
+    "municipality": "堺市",
+    "source_url": "https://data.bodik.jp/dataset/271403_sakai_aed",
+    "source_name": "堺市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2021-08-23",
+    "resource_url": "https://data.bodik.jp/dataset/4c0267e2-bbaf-4056-8a82-b0dc8c3c6d71/resource/5931de91-c3ff-43da-924b-41d8aeb25b06/download/sakai_aed.csv",
+    "sha256": "4f2c83d112ea623c8607960f546eefffb9b1b504be04e2bcd2e5e56b0c862c7b",
+    "review_bounds": [
+      34.455178677999996,
+      34.602360746,
+      135.425792291,
+      135.57834968
+    ]
+  },
+  {
+    "key": "454061_aed",
+    "prefecture": "宮崎県",
+    "municipality": "都農町",
+    "source_url": "https://data.bodik.jp/dataset/454061_aed",
+    "source_name": "都農町 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2024-04-18",
+    "resource_url": "https://data.bodik.jp/dataset/96b9bf34-3574-4eba-bdc0-44c65fa909cd/resource/edfbbaaf-6af2-4b5e-abb5-d64a23a237e3/download/aed.csv",
+    "sha256": "cd2529c1aba3df8f493cc5e986bf202167e9d54ed4245522635f89d01034a6cd",
+    "review_bounds": [
+      32.24750697699999,
+      32.291599157,
+      131.550231626,
+      131.578494457
+    ]
+  },
+  {
+    "key": "452033_aed",
+    "prefecture": "宮崎県",
+    "municipality": "延岡市",
+    "source_url": "https://data.bodik.jp/dataset/452033_aed",
+    "source_name": "延岡市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2020-12-14",
+    "resource_url": "https://data.bodik.jp/dataset/bf626c59-4a52-421a-922c-b7f2ae75ac8a/resource/10785bd4-c4e1-44bc-b4a8-cc1edf3babcb/download/aed.csv",
+    "sha256": "2115ca19815e401915959bc3d196f3b2d5c6968b40b640631da7445d19a870cd",
+    "review_bounds": [
+      32.522922443999995,
+      32.709090595000006,
+      131.669024492,
+      131.821802474
+    ]
+  },
+  {
+    "key": "402257_0020",
+    "prefecture": "福岡県",
+    "municipality": "うきは市",
+    "source_url": "https://data.bodik.jp/dataset/402257_0020",
+    "source_name": "うきは市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2022-12-22",
+    "resource_url": "https://data.bodik.jp/dataset/88c7fbbd-9dda-478e-893c-43e98245c6c1/resource/8c6e29d8-4c01-48d9-bd91-ca53bbcab99e/download/00020_2022.csv",
+    "sha256": "c8a109a0579af6f3d084b7293a2004ffd5320292c9df2cf67fbe5807b25a52c4",
+    "review_bounds": [
+      33.271837667,
+      33.362061902,
+      130.739298906,
+      130.841765566
+    ]
+  },
+  {
+    "key": "422029_aedmap",
+    "prefecture": "長崎県",
+    "municipality": "佐世保市",
+    "source_url": "https://data.bodik.jp/dataset/422029_aedmap",
+    "source_name": "佐世保市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2021-11-02",
+    "resource_url": "https://data.bodik.jp/dataset/1feba376-d154-4971-932a-69b3dbdb2b02/resource/6afef7d4-81e7-4326-93c1-f9ebb9fedd3b/download/aedr3.10.19.csv",
+    "sha256": "346c592ab92d6354b47bbc5c23006dccf563113a95eebf1b60b8ea8077548abb",
+    "review_bounds": [
+      33.12397970999999,
+      33.30951523700001,
+      129.573920831,
+      129.8030041
+    ]
+  },
+  {
+    "key": "452025_aed_list",
+    "prefecture": "宮崎県",
+    "municipality": "都城市",
+    "source_url": "https://data.bodik.jp/dataset/452025_aed_list",
+    "source_name": "都城市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2025-05-16",
+    "resource_url": "https://data.bodik.jp/dataset/8b605bc5-b072-43bc-ba99-e14e10473677/resource/49d64ead-b19f-468b-97c2-a6b854311e2f/download/045202_aed_20250516.xlsx",
+    "sha256": "9fd59daca5bb223b2974477de9803db9260a3a215c65c25700157bab2d602742",
+    "review_bounds": [
+      31.670191105000004,
+      31.931242137999998,
+      130.958368299,
+      131.162322472
+    ]
+  },
+  {
+    "key": "422011_aed_gk",
+    "prefecture": "長崎県",
+    "municipality": "長崎市",
+    "source_url": "https://data.bodik.jp/dataset/422011_aed_gk",
+    "source_name": "長崎市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-06",
+    "resource_url": "https://data.bodik.jp/dataset/b27a6124-28c9-439e-9494-ed2f3b6ce208/resource/8907411a-2892-4e6d-b14d-c03c610f761b/download/422011_aed_g-2.csv",
+    "sha256": "40672a6a5d0eb6aa7d3c4a8d4056356595d41961abe7fd667bda98301ecf9b6e",
+    "review_bounds": [
+      32.665065389999995,
+      32.947566552000005,
+      129.77581659999998,
+      129.95999890000002
+    ]
+  },
+  {
+    "key": "231002_7107010000_subway-stationaed",
+    "prefecture": "愛知県",
+    "municipality": "名古屋市",
+    "source_url": "https://data.bodik.jp/dataset/231002_7107010000_subway-stationaed",
+    "source_name": "名古屋市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2024-11-15",
+    "resource_url": "https://data.bodik.jp/dataset/b1528cac-e9e8-4733-b88c-95be646e4dfc/resource/32ec9eef-5cf9-4dd2-8a3b-057ea095d7fb/download/231002_aed.csv",
+    "sha256": "146bd32f0a836a8018ffd57640cd9107eb6dbb2df1bea05958abd0d2dfc7d2a8",
+    "review_bounds": [
+      35.092518819,
+      35.193092206,
+      136.87315253399998,
+      136.989469086
+    ]
+  },
+  {
+    "key": "432130_aed",
+    "prefecture": "熊本県",
+    "municipality": "宇城市",
+    "source_url": "https://data.bodik.jp/dataset/432130_aed",
+    "source_name": "宇城市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-01-28",
+    "resource_url": "https://data.bodik.jp/dataset/c1ac0356-1319-4940-99ab-b67685db26d2/resource/33d35b68-12c0-4525-a0cd-191751ad7eea/download/432130_aedaed-.csv",
+    "sha256": "7d1a75fa421cac8df330a8691ed1fae21b1e5cec838321eef672586ec24dde83",
+    "review_bounds": [
+      32.596969001999994,
+      32.651723291,
+      130.471070929,
+      130.75090177500002
+    ]
+  },
+  {
+    "key": "402044_aed",
+    "prefecture": "福岡県",
+    "municipality": "直方市",
+    "source_url": "https://data.bodik.jp/dataset/402044_aed",
+    "source_name": "直方市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2023-11-09",
+    "resource_url": "https://data.bodik.jp/dataset/f392a710-3fa3-4b76-bfe5-1d480b3dfe86/resource/c342254e-0814-4878-965d-4584984d85c5/download/aed.csv",
+    "sha256": "dadea29a663cc9c1cfd4cf1435d4c70ecffc477993ae2122d95f99c323c6db1b",
+    "review_bounds": [
+      33.735290770999995,
+      33.787225318000004,
+      130.698733435,
+      130.750904643
+    ]
+  },
+  {
+    "key": "464929_aed01",
+    "prefecture": "鹿児島県",
+    "municipality": "肝付町",
+    "source_url": "https://data.bodik.jp/dataset/464929_aed01",
+    "source_name": "肝付町 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2020-06-09",
+    "resource_url": "https://data.bodik.jp/dataset/96978176-8954-4c49-8ea9-f11f05fe6356/resource/c386aa7b-1f19-4f66-afc8-ad641b820ecb/download/464929aed.csv",
+    "sha256": "74d62df51dc5559062fe36caaa77d4b92bfc8e60dff88c8625d3c7aaeb10e781",
+    "review_bounds": [
+      31.226963322,
+      31.365500321,
+      130.912916498,
+      131.076874675
+    ]
+  },
+  {
+    "key": "252123_004103_000001",
+    "prefecture": "滋賀県",
+    "municipality": "高島市",
+    "source_url": "https://data.bodik.jp/dataset/252123_004103_000001",
+    "source_name": "高島市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2023-01-15",
+    "resource_url": "https://data.bodik.jp/dataset/af95e870-4c63-41e5-a201-14ebbbf5d136/resource/12937a10-1ac4-4385-931f-3df3ed5f3cf5/download/252123_aed.csv",
+    "sha256": "b3478fce89b76f89812541eaed17e7f3a9e3afa7b8883ab6d61c4e2bb748441e",
+    "review_bounds": [
+      35.306383405999995,
+      35.501040591000006,
+      136.00271062,
+      136.075038535
+    ]
+  },
+  {
+    "key": "422011_aed_k",
+    "prefecture": "長崎県",
+    "municipality": "長崎市",
+    "source_url": "https://data.bodik.jp/dataset/422011_aed_k",
+    "source_name": "長崎市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-06",
+    "resource_url": "https://data.bodik.jp/dataset/f06445ba-eaa9-4faf-8c94-3386ee2818b2/resource/0e12edb3-b1b6-4ec8-9ebb-10515f676902/download/422011_aed_k-1.csv",
+    "sha256": "b1f535b5d9ece9626e70c4f8113bdf6f83f28eadc4528ae81059bfafdb2e2dfd",
+    "review_bounds": [
+      32.562334019,
+      32.948735599,
+      129.597732626,
+      129.9576553
+    ]
+  },
+  {
+    "key": "272116_p_36258_36258",
+    "prefecture": "大阪府",
+    "municipality": "茨木市",
+    "source_url": "https://data.bodik.jp/dataset/272116_p_36258_36258",
+    "source_name": "茨木市 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-06-26",
+    "resource_url": "https://data.bodik.jp/dataset/a2f31ca1-42c4-4320-8878-5d837638f8e9/resource/aa6e5507-7a91-43cc-a0e6-df67971395f0/download/od362582026062700200.csv",
+    "sha256": "71a1a66d8164cd1195bc90b2596e9ab91f2a599c29b7741f9ee51be9a903a459",
+    "review_bounds": [
+      34.790016822,
+      34.863697535,
+      135.524217195,
+      135.600176712
+    ]
+  },
+  {
+    "key": "okayama_6036",
+    "prefecture": "岡山県",
+    "municipality": "吉備中央町",
+    "source_url": "https://www.okayama-opendata.jp/datasets/6036",
+    "source_name": "吉備中央町 AED設置情報（まちまもMAPが住所から位置補完）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2025-03-07",
+    "resource_url": "https://kibichuo.dataeye.jp/resource_download/15637",
+    "sha256": "bb40c8b8a2394a87b0de1f3d99bcdf2a307c0aca97f70a27ec4a002540c3a42d",
+    "review_bounds": [
+      34.792286407,
+      34.918333864000004,
+      133.671880753,
+      133.820764037
+    ]
+  }
+]

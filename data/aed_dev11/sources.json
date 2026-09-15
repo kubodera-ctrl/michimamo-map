@@ -1,0 +1,110 @@
+[
+  {
+    "key": "46201_aed-minkan",
+    "prefecture": "鹿児島県",
+    "municipality": "鹿児島市",
+    "source_url": "https://data.bodik.jp/dataset/46201_aed-minkan",
+    "source_name": "鹿児島市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2024-04-07",
+    "source_date": null,
+    "review_bounds": [
+      31.25,
+      31.8,
+      130.35,
+      130.8
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/4f769e59-58c8-4541-bfa0-6e1b252416c5/resource/52d38347-776e-4ac7-ac4f-e76e1c318da7/download/3-5_aed-minkan.csv",
+    "sha256": "047e95493bfe1bbfe1c132b21adc17b1b49e6aec7069a0807eb3ead9b34a86ae"
+  },
+  {
+    "key": "462012_aed-shi",
+    "prefecture": "鹿児島県",
+    "municipality": "鹿児島市",
+    "source_url": "https://data.bodik.jp/dataset/462012_aed-shi",
+    "source_name": "鹿児島市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2024-04-07",
+    "source_date": null,
+    "review_bounds": [
+      31.25,
+      31.8,
+      130.35,
+      130.8
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/46db60f8-aaf2-4a02-aa8b-39b4442a7e8f/resource/78679d1b-2dfd-495a-89e2-8717987c3bed/download/3-4_aed-shi.csv",
+    "sha256": "2130f087a38f3608a75331911e5058ec304c11faf4f6829a735d065de980b495"
+  },
+  {
+    "key": "462012_aed-kuniken",
+    "prefecture": "鹿児島県",
+    "municipality": "鹿児島市",
+    "source_url": "https://data.bodik.jp/dataset/462012_aed-kuniken",
+    "source_name": "鹿児島市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2023-11-30",
+    "source_date": null,
+    "review_bounds": [
+      31.25,
+      31.8,
+      130.35,
+      130.8
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/454a6be4-b869-481e-949d-f24a8cc371b1/resource/f9c90c11-0ea1-4c3a-94f0-b8744141dce2/download/3-6_aed-kuniken.csv",
+    "sha256": "00fa9b2c3b22d3fab711ac87ef65464c46fd7409d9807b77ea6bd24a222a4fb4"
+  },
+  {
+    "key": "462209_aed",
+    "prefecture": "鹿児島県",
+    "municipality": "南さつま市",
+    "source_url": "https://data.bodik.jp/dataset/462209_aed",
+    "source_name": "南さつま市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2026-09-08",
+    "source_date": null,
+    "review_bounds": [
+      31.2,
+      31.6,
+      130.1,
+      130.5
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/45bc4062-b099-453e-a64a-142783ae400b/resource/3fb42b42-e988-4b93-a6ac-6bb2536a2cbc/download/462209_aed.csv",
+    "sha256": "2bf71846806e6d9d96d69dbcc5a9931c2d8aa370228ced6bf33d840aacb23f88"
+  },
+  {
+    "key": "432156_amakusa002",
+    "prefecture": "熊本県",
+    "municipality": "天草市",
+    "source_url": "https://data.bodik.jp/dataset/432156_amakusa002",
+    "source_name": "天草市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2026-02-03",
+    "source_date": null,
+    "review_bounds": [
+      32.1,
+      32.65,
+      129.9,
+      130.5
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/7490bb7f-2062-451c-af0d-4cb0dea9124d/resource/599fc9d8-dfa4-4e8c-8a68-0831b2723d1d/download/amakusa002.xlsx",
+    "sha256": "59c57089950f10bfd75f13130a822d116334196c0a3d698a6da7d80ecf25d1fb"
+  },
+  {
+    "key": "402125_0009100_00011",
+    "prefecture": "福岡県",
+    "municipality": "大川市",
+    "source_url": "https://data.bodik.jp/dataset/402125_0009100_00011",
+    "source_name": "大川市 AED設置情報（まちまもMAPが表記整形・位置検証）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2021-02-20",
+    "source_date": null,
+    "review_bounds": [
+      33.15,
+      33.27,
+      130.3,
+      130.45
+    ],
+    "resource_url": "https://data.bodik.jp/dataset/e74f74b1-fa92-4f2e-9800-46a78f0b5ff8/resource/b2c9ba3b-71fb-4c8f-9305-c034c10db550/download/aed-2.csv",
+    "sha256": "abfcbc7f104ebb6d3329142f55b620cd0e874c1b56220af6ea6909c48625c519"
+  }
+]

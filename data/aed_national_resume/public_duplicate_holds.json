@@ -1,0 +1,46 @@
+[
+  {
+    "source_key": "bodik-reviewed:fe5f04f6da9a6dd1:1cb3d20da643af6c07de689e",
+    "reason": "公開済み市役所本庁舎と名称・住所・近接座標が一致。議会事務局付近と1階の設置位置区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:fe5f04f6da9a6dd1:75bd85dfe255fd3fc4d2c3ed",
+    "reason": "公開済み市役所本庁舎と名称・住所・近接座標が一致。10階と1階の設置位置区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:f7e1209809f1c87b:8cb2aabc91c371fc611647e2",
+    "reason": "同一施設の公開済み行と近接。フロントと夏季プール救護所の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:f7e1209809f1c87b:fe1b71c3711a68ed9332bf4e",
+    "reason": "同一施設の公開済み行と近接。病棟と胃カメラ室の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:f7e1209809f1c87b:6e9be34aae8b0dcecbfb004e",
+    "reason": "同一施設の公開済み行と近接。デイケア棟と胃カメラ室の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:7a28fe1c4591fe4fd0333b6d",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:7cc232621da0c7b23d89a190",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:830c112934a890a2e059f9c8",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:5bc02a74f0a1aa3ca40aee30",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:43e2b1a0f0d5fd50bb88877a",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  },
+  {
+    "source_key": "bodik-reviewed:d33517c584cc78dd:8be21b3ed79d56803d3bf508",
+    "reason": "国分シビックセンターの公開済み行と同名・同住所。複数設置位置の区別を追加確認"
+  }
+]

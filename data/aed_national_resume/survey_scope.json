@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-09-15",
+  "national_catalog": {
+    "url": "https://data.bodik.jp/api/3/action/package_search?q=AED&rows=1000",
+    "returned": 196,
+    "total": 196,
+    "sha256": "e248e71b30d3505ba168f5ffc0f6e5b59e44e28a02deb9bf327fc0c9c5486abf",
+    "candidate_datasets": 45,
+    "candidate_municipalities": 40
+  },
+  "regional_catalogs": [
+    {
+      "prefecture": "島根県",
+      "url": "https://shimane-opendata.jp/datasets?keyword=AED",
+      "dataset_pages": 19
+    },
+    {
+      "prefecture": "岡山県",
+      "url": "https://www.okayama-opendata.jp/datasets?keyword=AED",
+      "dataset_pages": 20,
+      "note": "取得した一覧ページ分。全ページ調査完了ではない"
+    },
+    {
+      "prefecture": "鳥取県",
+      "url": "https://odp-pref-tottori.tori-info.co.jp/dataset/search/?s%5Bkeyword%5D=AED",
+      "dataset_pages": 2,
+      "note": "今回の検索結果は既掲載自治体のみ。他自治体にデータがないという意味ではない"
+    }
+  ],
+  "scope_note": "全国自治体台帳との照合と全国カタログ検索。全自治体の公式AED情報源確認が完了した意味ではない。"
+}

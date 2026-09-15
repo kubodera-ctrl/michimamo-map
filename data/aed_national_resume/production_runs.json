@@ -1,0 +1,308 @@
+[
+  {
+    "baseline": 40683,
+    "commit": {
+      "batch": "toyooka_01",
+      "held": 0,
+      "inserted": 92,
+      "public_aed": 40775
+    },
+    "file": "publish_toyooka_01.sql",
+    "held": 0,
+    "inserted": 92,
+    "key": "toyooka_01",
+    "municipality": "豊岡市",
+    "prefecture": "兵庫県",
+    "rehearsal": "passed",
+    "sql_sha256": "8968b003b2ac9df30824b6822fed116e7c84f9729b14322d74d92fc980dcb0a6"
+  },
+  {
+    "baseline": 40775,
+    "commit": {
+      "batch": "kami_01",
+      "held": 0,
+      "inserted": 65,
+      "public_aed": 40840
+    },
+    "file": "publish_kami_01.sql",
+    "held": 0,
+    "inserted": 65,
+    "key": "kami_01",
+    "municipality": "香美町",
+    "prefecture": "兵庫県",
+    "rehearsal": "passed",
+    "sql_sha256": "341017eb18be35a8aa5a7d8f6d835b8efc2c4415bbfc00df4be1a1e6ae854fb5"
+  },
+  {
+    "baseline": 40840,
+    "commit": {
+      "batch": "tondabayashi_01",
+      "held": 0,
+      "inserted": 74,
+      "public_aed": 40914
+    },
+    "file": "publish_tondabayashi_01.sql",
+    "held": 0,
+    "inserted": 74,
+    "key": "tondabayashi_01",
+    "municipality": "富田林市",
+    "prefecture": "大阪府",
+    "rehearsal": "passed",
+    "sql_sha256": "3ef460c43bb62cccec394d6b7400d5432aad5292deec1297c5ff42585aefc670"
+  },
+  {
+    "baseline": 40914,
+    "commit": {
+      "batch": "kumatori_01",
+      "held": 0,
+      "inserted": 33,
+      "public_aed": 40947
+    },
+    "file": "publish_kumatori_01.sql",
+    "held": 0,
+    "inserted": 33,
+    "key": "kumatori_01",
+    "municipality": "熊取町",
+    "prefecture": "大阪府",
+    "rehearsal": "passed",
+    "sql_sha256": "d53d7ea86cbc7f12207e3219ec4dd552440e423e1f5a9a1be0a63a0ff9ef02ca"
+  },
+  {
+    "baseline": 40947,
+    "commit": {
+      "batch": "kaizuka_01",
+      "held": 0,
+      "inserted": 41,
+      "public_aed": 40988
+    },
+    "file": "publish_kaizuka_01.sql",
+    "held": 0,
+    "inserted": 41,
+    "key": "kaizuka_01",
+    "municipality": "貝塚市",
+    "prefecture": "大阪府",
+    "rehearsal": "passed",
+    "sql_sha256": "ad7b0c57f59b86e18b001f3232b1b8ee4e0fdf0c3f239e7ce63ae704653e0ea3"
+  },
+  {
+    "baseline": 40988,
+    "commit": {
+      "batch": "sango_01",
+      "held": 0,
+      "inserted": 26,
+      "public_aed": 41014
+    },
+    "file": "publish_sango_01.sql",
+    "held": 0,
+    "inserted": 26,
+    "key": "sango_01",
+    "municipality": "三郷町",
+    "prefecture": "奈良県",
+    "rehearsal": "passed",
+    "sql_sha256": "dd692b6bcf767ea103f18a82ddcf631cc6c8a8b645340be9a20d5752b9b5f1e0"
+  },
+  {
+    "baseline": 41014,
+    "commit": {
+      "batch": "ibara_01",
+      "held": 0,
+      "inserted": 74,
+      "public_aed": 41088
+    },
+    "file": "publish_ibara_01.sql",
+    "held": 0,
+    "inserted": 74,
+    "key": "ibara_01",
+    "municipality": "井原市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "ca168da64863a9ca9da67bd28801e3deeccfcaa2fb6a1734216657dca4a62cb0"
+  },
+  {
+    "baseline": 41088,
+    "commit": {
+      "batch": "kurashiki_01",
+      "held": 2,
+      "inserted": 148,
+      "public_aed": 41236
+    },
+    "file": "publish_kurashiki_01.sql",
+    "held": 2,
+    "inserted": 148,
+    "key": "kurashiki_01",
+    "municipality": "倉敷市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "5621f95ab9b3dc2ec9650e8effc8569b07ffd462a3b29d236cccf67670ff2d64"
+  },
+  {
+    "baseline": 41236,
+    "commit": {
+      "batch": "kurashiki_02",
+      "held": 2,
+      "inserted": 93,
+      "public_aed": 41329
+    },
+    "file": "publish_kurashiki_02.sql",
+    "held": 2,
+    "inserted": 93,
+    "key": "kurashiki_02",
+    "municipality": "倉敷市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "6019bc9f88689f60103324fa420e250cb31d699d1ef7a2ec756f00e0aeb81989"
+  },
+  {
+    "baseline": 41329,
+    "commit": {
+      "batch": "niimi_01",
+      "held": 0,
+      "inserted": 85,
+      "public_aed": 41414
+    },
+    "file": "publish_niimi_01.sql",
+    "held": 0,
+    "inserted": 85,
+    "key": "niimi_01",
+    "municipality": "新見市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "187bd3dffe840b0f81ced2c602f1a533c47d2ea794b18829efd03c6daba7d659"
+  },
+  {
+    "baseline": 41414,
+    "commit": {
+      "batch": "soja_01",
+      "held": 0,
+      "inserted": 150,
+      "public_aed": 41564
+    },
+    "file": "publish_soja_01.sql",
+    "held": 0,
+    "inserted": 150,
+    "key": "soja_01",
+    "municipality": "総社市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "e014e9bb941e791426fa1eabed289df9cf95ce3bc8477cc229d109d3a46e5641"
+  },
+  {
+    "baseline": 41564,
+    "commit": {
+      "batch": "soja_02",
+      "held": 3,
+      "inserted": 9,
+      "public_aed": 41573
+    },
+    "file": "publish_soja_02.sql",
+    "held": 3,
+    "inserted": 9,
+    "key": "soja_02",
+    "municipality": "総社市",
+    "prefecture": "岡山県",
+    "rehearsal": "passed",
+    "sql_sha256": "30804706d5ed8e0b970de440b012e2902ec238e40de2c19684276fe3fa8c65f8"
+  },
+  {
+    "baseline": 41573,
+    "commit": {
+      "batch": "misato_01",
+      "held": 0,
+      "inserted": 26,
+      "public_aed": 41599
+    },
+    "file": "publish_misato_01.sql",
+    "held": 0,
+    "inserted": 26,
+    "key": "misato_01",
+    "municipality": "美郷町",
+    "prefecture": "島根県",
+    "rehearsal": "passed",
+    "sql_sha256": "af5678a1033a996e1f70530063a8c16d39fedaf564387bebf21f0092bdfe3987"
+  },
+  {
+    "baseline": 41599,
+    "commit": {
+      "batch": "minamiaso_01",
+      "held": 0,
+      "inserted": 26,
+      "public_aed": 41625
+    },
+    "file": "publish_minamiaso_01.sql",
+    "held": 0,
+    "inserted": 26,
+    "key": "minamiaso_01",
+    "municipality": "南阿蘇村",
+    "prefecture": "熊本県",
+    "rehearsal": "passed",
+    "sql_sha256": "ca2fd4fe101966ee369df8f1e5344f66888646a2eca38755109abf29395b3be7"
+  },
+  {
+    "baseline": 41625,
+    "commit": {
+      "batch": "shinkamigoto_01",
+      "held": 0,
+      "inserted": 89,
+      "public_aed": 41714
+    },
+    "file": "publish_shinkamigoto_01.sql",
+    "held": 0,
+    "inserted": 89,
+    "key": "shinkamigoto_01",
+    "municipality": "新上五島町",
+    "prefecture": "長崎県",
+    "rehearsal": "passed",
+    "sql_sha256": "40691134676b955407e59b9bbca7ca2a8d1b4960ad77150dae8d2b6765a9c447"
+  },
+  {
+    "baseline": 41714,
+    "commit": {
+      "batch": "shibushi_01",
+      "held": 0,
+      "inserted": 68,
+      "public_aed": 41782
+    },
+    "file": "publish_shibushi_01.sql",
+    "held": 0,
+    "inserted": 68,
+    "key": "shibushi_01",
+    "municipality": "志布志市",
+    "prefecture": "鹿児島県",
+    "rehearsal": "passed",
+    "sql_sha256": "7d8b44529cc744745d804376759039a3a94f18650f3f6d5f67a2a0d114f5124e"
+  },
+  {
+    "baseline": 41782,
+    "commit": {
+      "batch": "kirishima_01",
+      "held": 0,
+      "inserted": 150,
+      "public_aed": 41932
+    },
+    "file": "publish_kirishima_01.sql",
+    "held": 0,
+    "inserted": 150,
+    "key": "kirishima_01",
+    "municipality": "霧島市",
+    "prefecture": "鹿児島県",
+    "rehearsal": "passed",
+    "sql_sha256": "78cf104827f24f9dca3260ff860c6cf0ab1b0f634809bc3599e6980be0d57d9a"
+  },
+  {
+    "baseline": 41932,
+    "commit": {
+      "batch": "kirishima_02",
+      "held": 6,
+      "inserted": 55,
+      "public_aed": 41987
+    },
+    "file": "publish_kirishima_02.sql",
+    "held": 6,
+    "inserted": 55,
+    "key": "kirishima_02",
+    "municipality": "霧島市",
+    "prefecture": "鹿児島県",
+    "rehearsal": "passed",
+    "sql_sha256": "3f17a2351283a99c4279a634a6df505d8f42bd52ff7969acff63c7107cedad06"
+  }
+]

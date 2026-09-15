@@ -1,0 +1,90 @@
+[
+  {
+    "key": "46201_aed-minkan_1",
+    "file": "publish_46201_aed-minkan_1.sql",
+    "baseline": 41987,
+    "inserted": 147,
+    "held": 3,
+    "sha256": "6dc52043d680795709d5d14739e2cb7980663a5dd02854c1a970c2ae04d2d653"
+  },
+  {
+    "key": "46201_aed-minkan_2",
+    "file": "publish_46201_aed-minkan_2.sql",
+    "baseline": 42134,
+    "inserted": 71,
+    "held": 2,
+    "sha256": "f35b49ae6abfbe5d5a2da8c8e45cccb3e2c64b9ae2ca7d4ba00b2a25e266c6e7"
+  },
+  {
+    "key": "462012_aed-shi_1",
+    "file": "publish_462012_aed-shi_1.sql",
+    "baseline": 42205,
+    "inserted": 148,
+    "held": 2,
+    "sha256": "4ff9754ddabf40815abdc8340186fdeb2db8a2d1e34800f352eb22f2b43774ad"
+  },
+  {
+    "key": "462012_aed-shi_2",
+    "file": "publish_462012_aed-shi_2.sql",
+    "baseline": 42353,
+    "inserted": 148,
+    "held": 2,
+    "sha256": "7abe91521fe2fbc02d64602d7c715d7f562cbce3f57618f2de9856034e885dd9"
+  },
+  {
+    "key": "462012_aed-shi_3",
+    "file": "publish_462012_aed-shi_3.sql",
+    "baseline": 42501,
+    "inserted": 109,
+    "held": 2,
+    "sha256": "a84e9323498c98a7968e946c4e40d35856e056bfb97cab407e64e87a738c9e8a"
+  },
+  {
+    "key": "462012_aed-kuniken_1",
+    "file": "publish_462012_aed-kuniken_1.sql",
+    "baseline": 42610,
+    "inserted": 88,
+    "held": 5,
+    "sha256": "194493896877cb384d216af0d26d7845b08856f3a111ef9919961541e6f81f8a"
+  },
+  {
+    "key": "462209_aed_1",
+    "file": "publish_462209_aed_1.sql",
+    "baseline": 42698,
+    "inserted": 147,
+    "held": 3,
+    "sha256": "a45eba4c65dfa668583189a8b02619873233a8767e980b7f3ae8930a3fbf2ed7"
+  },
+  {
+    "key": "462209_aed_2",
+    "file": "publish_462209_aed_2.sql",
+    "baseline": 42845,
+    "inserted": 9,
+    "held": 0,
+    "sha256": "ec055b49dfc8ae9af851abf0683599a2bb1f449964a785bf51f879217ba193b1"
+  },
+  {
+    "key": "432156_amakusa002_1",
+    "file": "publish_432156_amakusa002_1.sql",
+    "baseline": 42854,
+    "inserted": 135,
+    "held": 15,
+    "sha256": "f230892e40b8775d6753d38632f30cfbc10621425547dcb3fffc8186ddea4872"
+  },
+  {
+    "key": "432156_amakusa002_2",
+    "file": "publish_432156_amakusa002_2.sql",
+    "baseline": 42989,
+    "inserted": 44,
+    "held": 0,
+    "sha256": "bc0520aba3b8fbc4b0d8110cac759bc74af547408deeb1bc926f40dacf5b34f5"
+  },
+  {
+    "key": "402125_0009100_00011_1",
+    "file": "publish_402125_0009100_00011_1.sql",
+    "baseline": 43033,
+    "inserted": 26,
+    "held": 0,
+    "sha256": "82eb21aa75416c779b3e830954125590aa3228894bb60ec18c501ee4fc6ea682"
+  }
+]

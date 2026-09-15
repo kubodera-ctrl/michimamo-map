@@ -1,0 +1,3440 @@
+[
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:1dfd1e59911fad85ed724466",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:0d36317de88c74b360c2abe3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:241f3a2c3f9472f0498fa673",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:2d531c7bdfa0cf0454c5a8bf",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:3f3070580bdc2316926b726c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:76d343f7328f097db9e418ab",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:66e5a4179bde649f4c3a229d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:e1d887272a3db8cb98a670f3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:c28f3b79ef4f5241fc880d51",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:3785e4112c9c5490:fd70e12b83db1d361f11dfec",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:02:58.150662+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:001dbc6613fb2454d0cc7b22",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:03f4b916a5f52e995ceab9f1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:0520e045951461f1c3eb1ee0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:05be4ad063df77d4a4e69abc",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:038d4636364cac1388a93988",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:06b755bb2a0006d5a4e6a8be",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:003da93fad2d481d21518700",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:0444aec6dc6f40b4eaa9ba0e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:0053bbe84e875464f269f497",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:0ba275f8cc706e03710996ae",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:049c66a666b65d7b98c70afc",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:12a7fc3612f2810f41b637d9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:134e04e7008ce774e6a9c6e6",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:19a8c82e610d261c97bf19e4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:140c0f05183a8d14d17a8b03",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:1c9ac964b258250eae3b6d90",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:1faae88a46091dfb8f27548d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:222183460613320a6a6f4d34",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:22930d61ffebd1ee0dac2f1d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:19361f851a6521714e9f4039",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:19b4ba021db875fbbaa21e89",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:269a8d84fd9b212325798d8a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:1f3ce421594df72a3b40c56b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:23ce30dc80261fc2fa6097fa",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2938f46bfb0446f2741d149b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2adc9f05428b7582ac8a8939",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2942ba37623a7093e2246c79",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2686c7ff96078af17597f045",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2eed3b8392a2a4757b34a684",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2f3d779ee1f400754f52dc46",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2f6b680c48ae7ace1f710c57",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:30c705fb0061ef87fb3003ff",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2aeefc696090849fb7c225cd",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:3458f61903c4daf4df1eea9a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:371baee2fbe5df40cea762e1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:378e5bc7aaddd69ca0984dd8",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:2b92fc3651e2e3860c74a2a5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:3d3ac264bea6de16d5189717",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:3d57044825a8403b1aacbfc1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:3f30b6ddc2e0e936964d45b6",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:35af3db588cd887f00c5ab12",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:44067a20ff385a91b5bc4dea",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:3cfb77e73cadd6fe6d7aad7a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:46a3b147c93981c312b16513",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:47fc01c0d695fcbae53b5a32",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:4a9479b934623ccdd4d4ff48",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:4cc2b7fd54ec434aec18b6e7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:4d3d7923526aeb316c4da8f5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:46369e8d83f5b54fa23df026",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:54ddaaf1b225f647435f0ece",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:55350f46188b589272661975",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:55be2f9991c2154125a261b3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:536baaebfae6fa9f813226d5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:57ef62016e58321a427ed2c4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5a9bf7265bd8f16970ca2538",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5af4c7ebc464b5f28a7e80d8",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5c8e12620936b7ae02b4662e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5dbf6078392e97370248d733",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:52da730951b125fb3fe32b4e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5fe32e02ffeb115d42852923",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:6407165a4333cd6001196094",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:64772662dadb3e406d099d4e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:66fd4dc8f3edf9be2cb1dcda",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:6047176b35913ee78e4ee5d4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:6cb1a1bad8f983e64a72046b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:5e9aefdfe24182d11178fa31",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:7296bce2d83bb862d710d13b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:72d537e7120b3f72b317f65f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:7445c3eff97b69572159b5d7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:74fedae1b6a5787d35634b69",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:777aea77474510a769d64c87",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:79464a861de265d5b805fcd9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:71f5db443d24ccab25102576",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:7f0e6993db0723c59ac96911",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:817f2c451c960214e55d5395",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:81e87f824432daadc188c8c2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:85ac01c753f07648466e4f65",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:8ad641f2d10ba5940f33c671",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:8c054329416ec307cf64a94f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:9451dc6dbbc49b10311a282a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:95c73465cc99a06990451fe2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:97d7532b789f259e487fa642",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:9c5ff492b440c4abaf8444c2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:7a8240254528adfb06c66994",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:9d68b498e41d62853d654ac4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:9ffba5fb46dd9de4db18757d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a05ee14bbcb3948d079a3333",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a070f1661bd8d763e823ab32",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a0a91a39a06563a903b91945",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a0a3c415ca06c19f587d5c39",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a4bb69c7e9c54f27561317cd",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a71e8ecfe95bc23e41878da7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a860c623449e8958b58611e5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a87d1b59dadfe5e13ffdd447",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a8e288223f638b92f252d3b9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a8e79291f2528ad3b3fb14db",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:a9c0960a1addcf92d8973ace",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:aa98c34b3d9210b29f8f837d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:ad461f833ac73a33d6d5fec7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:9d3502aff47146e7772ffc23",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b3bb7a3917cf1f3f9bac3c49",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b400349ce6e73c993fd787d5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b6ae2603906a4d8ef9aafbb0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b795cfd6ff6e1c504d8d1a8c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b7b0af81d9b0d22d79c8f8b5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:b9e76491313bb59a325f4f8f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:bc7d84d62e3225106256c7a3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:c412d523a38de60493a615b9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:c459ceff292f4f1244111ed3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:c593943f0ceb107b0e4d56fe",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:c8ad32310437cf9be3e09469",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:c9cb5fe46b5894b751660188",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:ce0e98867521e072fdfe8527",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d202fd1064ecc2bad3cbce9c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d3e45b4d452159f4169365b5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d534e9e5b11fe9aa09403b78",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d54ff6cc5cfe76f172c15543",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d7b5befe0be43e216382cd8b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d8cec8651f4cae2e3eedade0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d92478f0760f3d2802d0ce83",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:d9ddda7f0cea9ad0464ff992",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:dac7be4b00983414a4f7d2a2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:dfd566e518e3a0476bd102a3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:dfeaf74b1f1bb43424a9f946",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:e26b2611721029b1a6441ae1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:e2fcd7f7c06d6bde739672d0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:e33baf2d612577b1cba4de39",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:e352539eda755196e40ae0ad",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:e4eb915ad125ef4e9a910961",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:f5dace62658893d53ffc116a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:64c295837b2b6436:fd3a866ef95ef7fd2fe40b6d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "秦野市公式CSV・CC BY4.0、Geolonia位置情報レベル8・市区町村一致、本番重複照合を確認。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 06:39:46.562659+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:1f8036c6949cd6d2da630f1f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:384d275a9516e18067e69e06",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:83b02cb1fbc65a1c1fd1348e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:93902f86eb1cfdef2a1ad4bd",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:a14a115dea2cacb5c1ae94e3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:a571126e99fe6e3c9c350200",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:e3b8903738d8b9fdd4ac219a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:ec9cf8240e200da6:ef190a5ef69aaa245d14f58d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・CC BY4.0・住所・座標範囲・利用条件・本番重複を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:55:16.3918+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:1059d6cc5ac4f89eb1807134",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:36890d5b2e1ba7eaa5a9356c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:287e8a32a93724cfc72b8f1a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:584f9b6c19df7c2499ec914d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:6fc780fdaa66efcea891d0fb",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:2cd73e2339906abfeb4662de",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:18122ee08bc01db06d18e88c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:551ec43d5dfe97d4da9eea67",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:d62571209c3f661c4ecddb8f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:e14879ad123f5b8ce01dd6d5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:f93653b9614988e0fec95f9f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:a5b8c387b377a7d2a82b3045",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:b1e9873d85c11e71383bc330",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:fced1ffe8669b31c:d4c4e9554b0ca3283ade7799",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "公式AED一覧・利用条件・自治体一致・位置範囲・本番重複照合を確認。住所位置情報レベル8。施設入口の実測座標ではない",
+    "review_next_action": "公開DBへ反映済み",
+    "reviewed_at": "2026-09-15 07:16:07.973528+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0340aed2adb2ff9e:11da8982a3664887739e0613",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0340aed2adb2ff9e:2a4a64afc65a1b345b2701ab",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0340aed2adb2ff9e:a7ccde4113b9e8a1ec9a8816",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:06e9470ec90fba1c3f48f4a3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:0ae9efd4cf75964840e80aca",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:10d3a271576da41559a53c71",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:2218b84d38347c5705867c3a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:11730cc24fc403bf2b912c2a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:39ed0c7d86e593e9a6d01750",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:5a196888f1566f0d541ee6c7",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:448ae4eb9d564a68676b9c1a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:556e0c68e211e8a9c3334e1a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:3b5bfb40fd7b62be11a23395",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:5e8debe86c30ca70b8f31783",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:7a4856ef96a71c194496579d",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:61a635184661386fc56e5356",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:73d9ea4083500d678434cd9e",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:92c2f4bc5a5ca7e698e6ce2b",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:643d617fdb93cdac502ab2b1",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:84ce206519db490f915e6f28",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:a252a74e5a0c42680090006d",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:977797d9920472246e33bec3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:c68ca052c3cd08e3a35f4bf2",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:0dc6d722fdb37fd7:9bbb4d0e5dc79413eeda5f5f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:03b94d8644fd385717a30028",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:044cdce0e1a60561cc5568b2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:0a4b50aac8b94bc1dc0198fe",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:0ad5ad567db68e98c38001b0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:0f3e1695f1ec73203ccfb427",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:10bd144bb3cc37b25a5c2243",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:148b29fe11da6279fa6b34d7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:149fd2dd62b08f6777f88f31",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:1cff35e9c46ece022497bc59",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:1df41d320e06ff6da1591bd9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:1e7faff0671e267446c59773",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:221cda8dcc6524ac6d9f68f1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:22c74cb5e0a672a161131896",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:27807a67967e0fbd3dcc68df",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:29b9ea52bd230d9c80be6ce3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:30c1f93c4fb31b6e4c18fd34",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:3058df82339c7f91e8ae6913",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:320c1027009b7205739684ca",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:32328b62e3a742c0fad13ec2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:37a2d02f2b2d6f7046d2f69d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:380b463b9bb1162f900ee1ef",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:3f7d4c2a04aa480b8315efa0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:3fde2be2925ec7eccd949f11",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:4a9052bd46ff9737449fed43",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:4f38cd17c64c992424db45f3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:4d55954431b4404cd07a0e7a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:4edb67b6d3f9e3c9a6358fe6",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:552989bd38f25a401abe4175",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:53eb82c47589ed18b9ad1b0b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:5a55d7661537acc18009c5ef",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:5ffca980f9aa50e2f087c343",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:641549b7dd18738dbdad81e4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:61caaf138b62fd9215930ca9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:6abe015209adcf6d4609cfa3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:6a31ded6c30024eaecbcfd0a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:72026861a562a023a5412a48",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:6f3efd05ff3cd7da15193a44",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:88bd030104aab36da74803dc",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:82f9342f7843e5cafd858494",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:8eb9473f9efa54fff8ddb36d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:9162eb24e713ef9a1776424e",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:9299c4e2730db0351a3a08b2",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:972a7aba2b3a83d0a95c6764",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:9a3ec3db2ae56bea795c9799",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:9be0ea0ca96907c1fb0117aa",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:a12db79f960ce22f96c60d3b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:9cad058837cdd8972c6bb1b3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:a095d36e76defa7218053df4",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:a4d9ca385dca1f6d1a9eb58d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:aa6e047db486a0d2522debe9",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:ac89056184609cd1d83ae62b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:b37c32c355268c2010b718cd",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:b1203647c6ef53f475e1e49b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:b3238ba3c907b208d9607d9f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:bdd84448b4d9bd122e0cbbbd",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:cd8691376d951a56255ab3da",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:d0f7012714e3be1cb5622469",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:d3a9f9bc278280a16224edb0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:d7d284d280146058fd0426d5",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:dd916ee35abeac6bde9e491b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:d8515affae50e11863de8dbe",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:dce3f0a36fe0cb402196ec88",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:e33224e936e4100ef911a1f8",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:e510572bd0875ac1e3700865",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:e89741d42d308d74a234ca0b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:e92dd3a3b47d9f2b7a151b0f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:ebfe0c4906eb8e31d2e88e4d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:ec7e481aeee6dc206cde3b28",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:ee64c9f3c9c861cbe3cc0255",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:ef8b9a0e47d414473bcfdcd1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:f567abfacf8be6326d7a0471",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:f8d30c4bfa3fb82c226d5a42",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:f9a3bea8285b4e7c18b86664",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e876e27d7575222:fa06f9b185822454deb5f2df",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "宮城県共同公式カタログ、再利用可能ライセンス、公式座標または住所レベル8、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 04:22:39.591429+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:2e8f8a3faa7390b1:fa5db603eb806b93f8512cba",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:44aabb689ab38217:cb70f7985e8da1811718dd3a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:02d348576f891ccd18d5862c",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:07ae1a2b3df694c69379780f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:0c2ff267a8e515d9f84bb34a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:11063b217ec878e7ce71e22a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:0eeb01e72c8846f8f93f57b0",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:0f4a815bcb50abc48fd1fb75",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:145e970885053236031f4e3c",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:162d02a5a1eac7536b2e6e93",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:159e197bb96e0ac4fac9e60d",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:1985ecebf62f4a18c42c04f3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:1d9d954d7929367e20f65ef3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:1f0147e7ed7ee692379dfefe",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:1a43d262ca1351f889832035",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:2530f0ff8f2b2f1f488bf0b1",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:2c816522fd929bbc6313951e",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:31e53a699b4d12931457fec1",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:3d58e95a3009684b1f0a574b",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:2d05597d05231d86f6ac4f83",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:355a3ff947d3d08a46fd1090",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:3ed4714393fa3380d1079009",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:4ae828d21dede248f7284d4f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:4eb3df8a168b2856f885c323",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:5965557e318adce5d42cbf6a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:4b20da0a7d4303ebf372d4f4",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:5f057de2f27eca763d98fb16",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:6c2400bd82b37a49a8850324",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:630cb185e97ab07be7293042",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:658480fc84617a94bf4ba348",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:74d85ec348d648d332f03109",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:7b67aac2e29c66d93b09288f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:83cbc883072a7e9c84049317",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:87db375a6faaad6d23fae0fa",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:8b1b7bda09ded51448150448",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:8b490aa703259bab6b880c3b",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:947f7c2c380b7c51bbf8cc93",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:90a92376786021bd5106bf19",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:9572dd9295e2124d7f6bdee0",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:96feb0e60698bdc20672b23d",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ade532fbf201e6996025dbf5",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:b489420306ed3b8839bcebfe",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ad89d189fd1bc45a8e48d374",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:b93f572c1b08b8e4ece30187",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:bf23884fd2e867d7f2d5f2b4",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:b4b33e62dff942787f8e7dc4",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:c0c36ed32e7cd0277d1573eb",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:bfb880b555120d8d3512cf94",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:c04634e3e4d318505eb41c89",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:c1bcae43436eff49de2123ec",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:c3247bbd9539fe9271a0935b",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ca0c98c06c0f7003274a5f7f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:d74dd153c21d54b43457805f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:cceb0147db8f13c31a9b97e2",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:d3f765f6fd86ed91265765e7",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:cd8670545124ca709fd10b3a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:d77b24d9e2f3541f1d5b2eb5",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:de3b3a20810ccf6d9812a574",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:db8d672a79b96fa6f9cedc1e",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:e4824085e95146d4787c00c7",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ddd411cc58628fff0643d98e",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:e2cc589090d6f6a5c1af46c4",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ef45bb734189d56c6e0a373f",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ea5a56efea46f8ed37910401",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:e33a9dbee496d46a7057cedd",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ee60f552340b9a4e85fab34a",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f16e0348142ec6a29b4a45a0",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f446c98187003e46a5b449c3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f4bb7a9bbbc6c78b65069f3c",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f52d09ad8e36fb9ae1ce3dcb",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f1754dc2f2acd0fabdf11961",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f4462f1619ecd43997f2d4ea",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f1f7b912516ae222b3a81a84",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:fb2f3e3ad8c414f47c6fabf8",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f55f8d972ab854bae2cc441c",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f83c71ba7ef5ae0263ad76b8",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:f8eff5b0ba7791852a2882c3",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:4d81556e6999a119:ff65c2892447cd75abecf3f7",
+    "active": true,
+    "quality_status": "rough",
+    "review_decision": "published",
+    "review_reason": "同一source_keyの公開AEDを本番DBで確認",
+    "review_next_action": null,
+    "reviewed_at": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:051967f1ab9c72a20c46d239",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:035b0fa3e987bc33fbaec59a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:097bb794d4e8b37976fef6fe",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:086e9bfd55d82a91805ce5e0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:177196142f4054d332ac8e30",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:2ca1003ed32a8dd4ca0d7453",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:38a6ea1cf45f448927a63dae",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:21d0b84a3fa875db4a2348ee",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:354264d55f77e30cb39acdc8",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:3a8144d5d08582d915a51c76",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:430dbfede690faf5b5cc0695",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:2ae1a36eae9a99517ff0ca42",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:466916f135384ca4c7aca317",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:46a608f727aa74f4e15d8b1c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:484e823f542bc633532ced71",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:49375166b35bf8bcaadaab1c",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:3ef99b4fdd07824748851979",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:3d7659bee2beb6242c47e8c3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:5d05932286b4c9bc73ca3e34",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:6e8f75b2d4c32ead010cfcb8",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:7bc1aca3d095feeee17747f7",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:85e430f971f98ec4b115aff3",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:61239e92e7e74d97171c2a3b",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:89ddf2ef99eb462732b1e0d1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:942f70eb2f0011a101737c97",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:a0e3762c109632c68885bd8f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:6010664e25f6ed0aee89df48",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:c23e30bca0de93b6d8209b85",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:c562d3139f499d5e806917e1",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:cb486624ed99a412b27aa26a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:d06ff82c2fc8731293d236d0",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:c5616a1e317a49be865f909f",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:dfdeeb4ce8c7896a13dc1e94",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:a848a5ffd5aad601df210539",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:e94fe6226034aee6ebef9b56",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:b689c80731a50945feedca85",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:f0827a1a046a71ed9d178680",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:f1777b63a2f5672da4eddb35",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:d0f4aee4d15cec7fa767c19a",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:f657ce31b2ee7f74266b6d8d",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:f80013ac141644989b591c66",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:f97eb8df68488b71a8ffc5ec",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  },
+  {
+    "source_key": "bodik-reviewed:geocoded20260914:6795e5fccd5862ca:fccbd01c7d3d7cbe6963f947",
+    "active": true,
+    "quality_status": "verified",
+    "review_decision": "published",
+    "review_reason": "下野市公式オープンデータ、CC BY 4.0、住所レベル8の座標、公開DB重複なしを確認",
+    "review_next_action": "公開DBへ反映",
+    "reviewed_at": "2026-09-15 05:15:36.656676+00"
+  }
+]
