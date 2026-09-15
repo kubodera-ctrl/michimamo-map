@@ -1,0 +1,9 @@
+{
+  "code": "12220",
+  "prefecture": "千葉県",
+  "municipality": "流山市",
+  "source_rows": 155,
+  "accepted": 21,
+  "held": 134,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty"
+}

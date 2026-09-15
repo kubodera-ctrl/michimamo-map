@@ -1,0 +1,3035 @@
+[
+  {
+    "row": 2,
+    "name": "さつき園",
+    "address": "千葉県流山市駒木台238-1",
+    "phone": "04‐7154‐5188",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "駒木台",
+      "addr": "238-1",
+      "level": 8,
+      "point": {
+        "lat": 35.892938,
+        "lng": 139.929728,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "流山市消防本部・中央消防署",
+    "address": "千葉県流山市大畔410番地",
+    "phone": "04-7158-0119",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字大畔",
+      "addr": "410",
+      "level": 8,
+      "point": {
+        "lat": 35.87537,
+        "lng": 139.912357,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "暁星国際流山幼稚園",
+    "address": "千葉県流山市前平井177-1",
+    "phone": "04‐7150‐2014",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "前平井",
+      "addr": "177-1",
+      "level": 8,
+      "point": {
+        "lat": 35.854197,
+        "lng": 139.915001,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "向小金小学校区学童クラブ",
+    "address": "千葉県流山市向小金3-149-1",
+    "phone": "04‐7173‐9313",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "向小金三丁目",
+      "addr": "149-1",
+      "level": 8,
+      "point": {
+        "lat": 35.837929,
+        "lng": 139.951098,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "流山市民プール",
+    "address": "千葉県流山市加1-16-4",
+    "phone": "04-7158-5276",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859537,
+        "lng": 139.904286,
+        "level": 3
+      },
+      "other": "16-4"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "東消防署",
+    "address": "千葉県流山市前ヶ崎449-1",
+    "phone": "04-7146-0119",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "前ケ崎",
+      "addr": "449-1",
+      "level": 8,
+      "point": {
+        "lat": 35.843542,
+        "lng": 139.934392,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "南消防署",
+    "address": "千葉県流山市南流山3-9-6",
+    "phone": "04-7159-0119",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839324,
+        "lng": 139.901006,
+        "level": 3
+      },
+      "other": "9-6"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "北消防署",
+    "address": "千葉県流山市美原2-139-1",
+    "phone": "04-7152-0119",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "美原二丁目",
+      "addr": "139-1",
+      "level": 8,
+      "point": {
+        "lat": 35.899013,
+        "lng": 139.902415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "東部出張所",
+    "address": "千葉県流山市名都借313-1",
+    "phone": "04-7144-2175",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "313-1",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "江戸川台駅前出張所",
+    "address": "千葉県流山市江戸川台東1‐4(JA流山市ビル内)",
+    "phone": "04-7152-3132",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東一丁目",
+      "addr": "4",
+      "level": 8,
+      "point": {
+        "lat": 35.896043,
+        "lng": 139.912722,
+        "level": 3
+      },
+      "other": "(JA流山市ビル内)"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "おおたかの森市民窓口センター(旧おおたかの森出張所)",
+    "address": "千葉県流山市おおたかの森北一丁目2-1(スターツおおたかの森ホール内2階)",
+    "phone": "04-7154-0333",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北一丁目",
+      "addr": "2-1",
+      "level": 8,
+      "point": {
+        "lat": 35.872935509,
+        "lng": 139.924994801,
+        "level": 8
+      },
+      "other": "(スターツおおたかの森ホール内2階)"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "第2コミュニティホーム",
+    "address": "千葉県流山市野々下3-797",
+    "phone": "04-7144-4258",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下三丁目",
+      "addr": "797",
+      "level": 8,
+      "point": {
+        "lat": 35.862381,
+        "lng": 139.938246,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "第3コミュニティホーム",
+    "address": "千葉県流山市芝崎388ー1",
+    "phone": "04-7158-8465",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "芝崎",
+      "addr": "388-1",
+      "level": 8,
+      "point": {
+        "lat": 35.851542,
+        "lng": 139.925419,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "駒木台福祉会館",
+    "address": "千葉県流山市駒木台221-3",
+    "phone": "04-7154-4821",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "駒木台",
+      "addr": "221-3",
+      "level": 8,
+      "point": {
+        "lat": 35.892938,
+        "lng": 139.929728,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "流山福祉会館",
+    "address": "千葉県流山市流山2-102",
+    "phone": "04-7159-1520",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.855378,
+        "lng": 139.899321,
+        "level": 3
+      },
+      "other": "102"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "江戸川台福祉会館",
+    "address": "千葉県流山市江戸川台東1-251",
+    "phone": "04-7154-3026",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.896043,
+        "lng": 139.912722,
+        "level": 3
+      },
+      "other": "251"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "西深井福祉会館",
+    "address": "千葉県流山市西深井313",
+    "phone": "04-7154-3120",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字西深井",
+      "addr": "313",
+      "level": 8,
+      "point": {
+        "lat": 35.911118,
+        "lng": 139.891704,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "思井福祉会館",
+    "address": "千葉県流山市思井79-2",
+    "phone": "04-7159-5666",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "思井",
+      "addr": "79-2",
+      "level": 8,
+      "point": {
+        "lat": 35.847493,
+        "lng": 139.912933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 21,
+    "name": "向小金福祉会館",
+    "address": "千葉県流山市向小金2-192-2",
+    "phone": "04-7173-9320",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "向小金二丁目",
+      "addr": "192-2",
+      "level": 8,
+      "point": {
+        "lat": 35.839896,
+        "lng": 139.946703,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "東深井福祉会館",
+    "address": "千葉県流山市東深井498-30",
+    "phone": "04-7155-3638",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "498-30",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "南福祉会館",
+    "address": "千葉県流山市南102-2",
+    "phone": "04-7155-3160",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字南",
+      "addr": "102-2",
+      "level": 8,
+      "point": {
+        "lat": 35.884783,
+        "lng": 139.897813,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "名都借福祉会館",
+    "address": "千葉県流山市名都借274",
+    "phone": "04-7144-5510",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "274",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "南流山福祉会館",
+    "address": "千葉県流山市南流山3-3-1",
+    "phone": "04-7150-4320",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839324,
+        "lng": 139.901006,
+        "level": 3
+      },
+      "other": "3-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "野々下福祉会館",
+    "address": "千葉県流山市野々下2-709-3",
+    "phone": "04-7145-9500",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下二丁目",
+      "addr": "709-3",
+      "level": 8,
+      "point": {
+        "lat": 35.856583,
+        "lng": 139.935131,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "赤城福祉会館",
+    "address": "千葉県流山市流山8-1071",
+    "phone": "04-7158-4545",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山八丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.846348,
+        "lng": 139.894597,
+        "level": 3
+      },
+      "other": "1071"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "平和台福祉会館",
+    "address": "千葉県流山市平和台5-45-3",
+    "phone": "04-7158-4264",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台五丁目",
+      "addr": "45-3",
+      "level": 8,
+      "point": {
+        "lat": 35.856008,
+        "lng": 139.90864,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "下花輪福祉会館(ほっとプラザ)",
+    "address": "千葉県流山市下花輪227",
+    "phone": "04-7150-4126",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字下花輪",
+      "level": 3,
+      "point": {
+        "lat": 35.872354,
+        "lng": 139.901372,
+        "level": 3
+      },
+      "other": "227"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "流山市高齢者福祉センター 森の倶楽部",
+    "address": "千葉県流山市東深井989",
+    "phone": "04-7152-2373",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "989",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "流山市地域福祉センター",
+    "address": "千葉県流山市平和台2-1-2",
+    "phone": "04-7159-7377",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台二丁目",
+      "addr": "1-2",
+      "level": 8,
+      "point": {
+        "lat": 35.853652,
+        "lng": 139.90334000000001,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "北部地域包括支援センター",
+    "address": "千葉県流山市江戸川台東2-19",
+    "phone": "04-7155-5366",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東二丁目",
+      "addr": "19",
+      "level": 8,
+      "point": {
+        "lat": 35.900341,
+        "lng": 139.910425,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "中野久木保育所",
+    "address": "千葉県流山市中野久木373",
+    "phone": "04-7152-0921",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字中野久木",
+      "level": 3,
+      "point": {
+        "lat": 35.894952,
+        "lng": 139.89814,
+        "level": 3
+      },
+      "other": "373"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "平和台保育所",
+    "address": "千葉県流山市平和台2-6-3",
+    "phone": "04-7158-1424",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台二丁目",
+      "addr": "6-3",
+      "level": 8,
+      "point": {
+        "lat": 35.853652,
+        "lng": 139.90334000000001,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "江戸川台保育所",
+    "address": "千葉県流山市江戸川台東3-5",
+    "phone": "04-7152-0611",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東三丁目",
+      "addr": "5",
+      "level": 8,
+      "point": {
+        "lat": 35.900825,
+        "lng": 139.915387,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "向小金保育所",
+    "address": "千葉県流山市向小金3-102-1",
+    "phone": "04-7174-5217",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "向小金三丁目",
+      "addr": "102-1",
+      "level": 8,
+      "point": {
+        "lat": 35.837929,
+        "lng": 139.951098,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "東深井保育所",
+    "address": "千葉県流山市東深井177-2",
+    "phone": "04-7154-6025",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "177-2",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "江戸川台第1学童クラブ",
+    "address": "千葉県流山市江戸川台東3-2",
+    "phone": "04-7154-2310",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東三丁目",
+      "addr": "2",
+      "level": 8,
+      "point": {
+        "lat": 35.900825,
+        "lng": 139.915387,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "ちびっこなかよし・ちびっこのびのびクラブ",
+    "address": "千葉県流山市加1-15-2",
+    "phone": "04-7158-7560",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859537,
+        "lng": 139.904286,
+        "level": 3
+      },
+      "other": "15-2"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 41,
+    "name": "ひよどり学童クラブ",
+    "address": "千葉県流山市長崎2-565",
+    "phone": "04-7145-4414",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "長崎二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.861004,
+        "lng": 139.931626,
+        "level": 3
+      },
+      "other": "565"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "八木北小学校区学童クラブ",
+    "address": "千葉県流山市美田69-420",
+    "phone": "04-7152-2231",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "美田",
+      "addr": "69-420",
+      "level": 8,
+      "point": {
+        "lat": 35.883809,
+        "lng": 139.929681,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "あすなろ学童クラブ",
+    "address": "千葉県流山市木487",
+    "phone": "04-7159-7970",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字木",
+      "level": 3,
+      "point": {
+        "lat": 35.833543,
+        "lng": 139.89406,
+        "level": 3
+      },
+      "other": "487"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "もりのいえ第1学童クラブ",
+    "address": "千葉県流山市東深井879-2",
+    "phone": "04-7156-0778",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "879-2",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "もりのいえ第2・第3学童クラブ",
+    "address": "千葉県流山市東深井879-2",
+    "phone": "04-7156-0778",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "879-2",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "おおぞら学童",
+    "address": "千葉県流山市流山4-451",
+    "phone": "04-7158-3568",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山四丁目",
+      "addr": "451",
+      "level": 8,
+      "point": {
+        "lat": 35.852478,
+        "lng": 139.900277,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "ひまわり学童クラブ",
+    "address": "千葉県流山市鰭ヶ崎7-1",
+    "phone": "04-7150-3366",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字鰭ケ崎",
+      "level": 3,
+      "point": {
+        "lat": 35.841674,
+        "lng": 139.912205,
+        "level": 3
+      },
+      "other": "7-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "あずま学童クラブ",
+    "address": "千葉県流山市名都借854",
+    "phone": "04-7146-8558",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "854",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "西初石子どもルーム",
+    "address": "千葉県流山市西初石4-347",
+    "phone": "04-7153-5100",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "347",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "流山市クリーンセンター",
+    "address": "千葉県流山市下花輪191",
+    "phone": "04-7157-7411",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字下花輪",
+      "level": 3,
+      "point": {
+        "lat": 35.872354,
+        "lng": 139.901372,
+        "level": 3
+      },
+      "other": "191"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 53,
+    "name": "流山市汚泥再生処理センター(森のまちエコセンター)",
+    "address": "千葉県流山市こうのす台1594",
+    "phone": "04-7154-5736",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "こうのす台",
+      "level": 3,
+      "point": {
+        "lat": 35.908354,
+        "lng": 139.91845700000002,
+        "level": 3
+      },
+      "other": "1594"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 54,
+    "name": "流山市幼児教育支援センター附属幼稚園",
+    "address": "千葉県流山市江戸川台東3-2",
+    "phone": "04-7152-0353",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東三丁目",
+      "addr": "2",
+      "level": 8,
+      "point": {
+        "lat": 35.900825,
+        "lng": 139.915387,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 55,
+    "name": "流山市立東小学校",
+    "address": "千葉県流山市名都借856",
+    "phone": "04-7145-3369",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "level": 3,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": "856"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "流山市立江戸川台小学校",
+    "address": "千葉県流山市江戸川台東3-11",
+    "phone": "04-7152-0103",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東三丁目",
+      "addr": "11",
+      "level": 8,
+      "point": {
+        "lat": 35.900825,
+        "lng": 139.915387,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 58,
+    "name": "流山市立新川小学校",
+    "address": "千葉県流山市中野久木339",
+    "phone": "04-7152-3004",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字中野久木",
+      "level": 3,
+      "point": {
+        "lat": 35.894952,
+        "lng": 139.89814,
+        "level": 3
+      },
+      "other": "339"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 59,
+    "name": "流山市立長崎小学校",
+    "address": "千葉県流山市野々下2-10-1",
+    "phone": "04-7145-2111",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下二丁目",
+      "addr": "10-1",
+      "level": 8,
+      "point": {
+        "lat": 35.856583,
+        "lng": 139.935131,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 60,
+    "name": "流山市立流山小学校",
+    "address": "千葉県流山市流山4-359",
+    "phone": "04-7158-1043",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.852478,
+        "lng": 139.900277,
+        "level": 3
+      },
+      "other": "359"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 61,
+    "name": "流山市立流山北小学校",
+    "address": "千葉県流山市加1-795-1",
+    "phone": "04-7159-5674",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859537,
+        "lng": 139.904286,
+        "level": 3
+      },
+      "other": "795-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 62,
+    "name": "流山市立西初石小学校",
+    "address": "千葉県流山市西初石4-347",
+    "phone": "04-7154-5863",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "347",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 63,
+    "name": "流山市立西深井小学校",
+    "address": "千葉県流山市西深井67-1",
+    "phone": "04-7154-8655",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字西深井",
+      "addr": "67-1",
+      "level": 8,
+      "point": {
+        "lat": 35.911118,
+        "lng": 139.891704,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "流山市立東深井小学校",
+    "address": "千葉県流山市東深井879-2",
+    "phone": "04-7153-3430",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "879-2",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 65,
+    "name": "流山市立鰭ヶ崎小学校",
+    "address": "千葉県流山市鰭ヶ崎7-1",
+    "phone": "04-7158-5911",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字鰭ケ崎",
+      "level": 3,
+      "point": {
+        "lat": 35.841674,
+        "lng": 139.912205,
+        "level": 3
+      },
+      "other": "7-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 66,
+    "name": "流山市立南流山小学校",
+    "address": "千葉県流山市木487",
+    "phone": "04-7159-2521",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字木",
+      "level": 3,
+      "point": {
+        "lat": 35.833543,
+        "lng": 139.89406,
+        "level": 3
+      },
+      "other": "487"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 67,
+    "name": "流山市立向小金小学校",
+    "address": "千葉県流山市向小金3-149-1",
+    "phone": "04-7174-1320",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "向小金三丁目",
+      "addr": "149-1",
+      "level": 8,
+      "point": {
+        "lat": 35.837929,
+        "lng": 139.951098,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 68,
+    "name": "流山市立八木北小学校",
+    "address": "千葉県流山市美田208",
+    "phone": "04-7152-4604",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "美田",
+      "level": 3,
+      "point": {
+        "lat": 35.883809,
+        "lng": 139.929681,
+        "level": 3
+      },
+      "other": "208"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 69,
+    "name": "流山市八木南小学校",
+    "address": "千葉県流山市芝崎92",
+    "phone": "04-7158-1142",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "芝崎",
+      "addr": "92",
+      "level": 8,
+      "point": {
+        "lat": 35.851542,
+        "lng": 139.925419,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 71,
+    "name": "流山市立東部中学校",
+    "address": "千葉県流山市名都借865",
+    "phone": "04-7144-3514",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "level": 3,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": "865"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 72,
+    "name": "流山市立常盤松中学校",
+    "address": "千葉県流山市東初石3-134",
+    "phone": "04-7152-0842",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "東初石三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.882511,
+        "lng": 139.922357,
+        "level": 3
+      },
+      "other": "134"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 73,
+    "name": "流山市立南部中学校",
+    "address": "千葉県流山市加3-600-1",
+    "phone": "04-7158-0137",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.861171,
+        "lng": 139.909469,
+        "level": 3
+      },
+      "other": "600-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 74,
+    "name": "流山市立西初石中学校",
+    "address": "千葉県流山市西初石4-455-1",
+    "phone": "04-7154-3091",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "455-1",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 75,
+    "name": "流山市立東深井中学校",
+    "address": "千葉県流山市東深井47",
+    "phone": "04-7154-5864",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "level": 3,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": "47"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 76,
+    "name": "流山市立北部中学校",
+    "address": "千葉県流山市中野久木577",
+    "phone": "04-7152-0036",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字中野久木",
+      "level": 3,
+      "point": {
+        "lat": 35.894952,
+        "lng": 139.89814,
+        "level": 3
+      },
+      "other": "577"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 77,
+    "name": "流山市立南流山中学校",
+    "address": "千葉県流山市流山2539-1",
+    "phone": "04-7159-2551",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字流山",
+      "addr": "2539-1",
+      "level": 8,
+      "point": {
+        "lat": 35.833641,
+        "lng": 139.90275,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "流山市立八木中学校",
+    "address": "千葉県流山市古間木210-2",
+    "phone": "04-7159-7461",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "古間木",
+      "addr": "210-2",
+      "level": 8,
+      "point": {
+        "lat": 35.855386,
+        "lng": 139.925893,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 79,
+    "name": "流山市役所(第1庁舎)",
+    "address": "千葉県流山市平和台1‐1‐1",
+    "phone": "04-7158-1111",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.856247,
+        "lng": 139.903878,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 80,
+    "name": "流山市役所(第2庁舎)",
+    "address": "千葉県流山市平和台1‐1‐1",
+    "phone": "04-7158-1111",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.856247,
+        "lng": 139.903878,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 81,
+    "name": "流山市保健センター",
+    "address": "千葉県流山市西初石4-1433-1",
+    "phone": "04-7154-0331",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "1433-1",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 82,
+    "name": "流山市平日夜間・休日診療所",
+    "address": "千葉県流山市西初石4-1433-1",
+    "phone": "04-7155-3456",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "1433-1",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 83,
+    "name": "流山市コミュニティプラザ",
+    "address": "千葉県流山市大畔25-17",
+    "phone": "04-7155-5701",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字大畔",
+      "addr": "25-17",
+      "level": 8,
+      "point": {
+        "lat": 35.87537,
+        "lng": 139.912357,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 84,
+    "name": "生涯学習センター(流山エルズ)",
+    "address": "千葉県流山市中110",
+    "phone": "04-7150-7474",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "中",
+      "addr": "110",
+      "level": 8,
+      "point": {
+        "lat": 35.851358,
+        "lng": 139.916953,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 85,
+    "name": "流山市民総合体育館(キッコーマンアリーナ)",
+    "address": "千葉県流山市野々下1-40-1",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下一丁目",
+      "addr": "40-1",
+      "level": 8,
+      "point": {
+        "lat": 35.859825,
+        "lng": 139.922983,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 86,
+    "name": "流山市文化会館",
+    "address": "千葉県流山市加1-16-2",
+    "phone": "04-7158-3462",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859537,
+        "lng": 139.904286,
+        "level": 3
+      },
+      "other": "16-2"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 87,
+    "name": "流山市北部公民館",
+    "address": "千葉県流山市美原1-158-2",
+    "phone": "04-7153-0567",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "美原一丁目",
+      "addr": "158-2",
+      "level": 8,
+      "point": {
+        "lat": 35.898491,
+        "lng": 139.905526,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 88,
+    "name": "流山市東部公民館",
+    "address": "千葉県流山市名都借756-4",
+    "phone": "04-7144-2988",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "756-4",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "流山市初石公民館",
+    "address": "千葉県流山市西初石4-381-2",
+    "phone": "04-7154-9101",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石四丁目",
+      "addr": "381-2",
+      "level": 8,
+      "point": {
+        "lat": 35.879645,
+        "lng": 139.915553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 90,
+    "name": "流山市南流山センター",
+    "address": "千葉県流山市南流山3-3-1",
+    "phone": "04-7159-4511",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839324,
+        "lng": 139.901006,
+        "level": 3
+      },
+      "other": "3-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 91,
+    "name": "一茶双樹記念館",
+    "address": "千葉県流山市流山6-670-1",
+    "phone": "04-7150-5750",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山六丁目",
+      "addr": "670-1",
+      "level": 8,
+      "point": {
+        "lat": 35.849964,
+        "lng": 139.895809,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 92,
+    "name": "杜のアトリエ黎明",
+    "address": "千葉県流山市流山6-562-2",
+    "phone": "04-7150-5750",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山六丁目",
+      "addr": "562-2",
+      "level": 8,
+      "point": {
+        "lat": 35.849964,
+        "lng": 139.895809,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 93,
+    "name": "中央図書館 ・博物館",
+    "address": "千葉県流山市加1-1225-6",
+    "phone": "04-7159-4646",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859537,
+        "lng": 139.904286,
+        "level": 3
+      },
+      "other": "1225-6"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 94,
+    "name": "森の図書館",
+    "address": "千葉県流山市東深井991",
+    "phone": "04-7152-3200",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "991",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 96,
+    "name": "つくばエクスプレス 南流山駅",
+    "address": "千葉県流山市南流山2-1",
+    "phone": "0570-000-298",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.83631,
+        "lng": 139.902525,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 97,
+    "name": "つくばエクスプレス 流山セントラルパーク駅",
+    "address": "千葉県流山市前平井119",
+    "phone": "0570-000-298",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "前平井",
+      "addr": "119",
+      "level": 8,
+      "point": {
+        "lat": 35.854197,
+        "lng": 139.915001,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 99,
+    "name": "東武野田線(東武アーバンパークライン) 運河駅",
+    "address": "千葉県流山市東深井405",
+    "phone": "04-7152-4050",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "level": 3,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": "405"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 100,
+    "name": "東武野田線(東武アーバンパークライン) 江戸川台駅",
+    "address": "千葉県流山市江戸川台東1-3",
+    "phone": "04-7152-9310",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東一丁目",
+      "addr": "3",
+      "level": 8,
+      "point": {
+        "lat": 35.896043,
+        "lng": 139.912722,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 101,
+    "name": "東武野田線(東武アーバンパークライン) 初石駅",
+    "address": "千葉県流山市西初石3-100",
+    "phone": "04-7154-2818",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西初石三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.882888,
+        "lng": 139.914577,
+        "level": 3
+      },
+      "other": "100"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 103,
+    "name": "JR武蔵野線 南流山駅",
+    "address": "千葉県流山市南流山1-1",
+    "phone": "050-2016-1600",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.837896,
+        "lng": 139.906447,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 104,
+    "name": "江戸川台ひまわり幼稚園",
+    "address": "千葉県流山市富士見台1-3-6",
+    "phone": "04-7152-0435",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "富士見台一丁目",
+      "addr": "3-6",
+      "level": 8,
+      "point": {
+        "lat": 35.891297,
+        "lng": 139.903578,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 105,
+    "name": "一の台幼稚園",
+    "address": "千葉県流山市東深井498-4",
+    "phone": "04-7152-3059",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "498-4",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 106,
+    "name": "このはな幼稚園",
+    "address": "千葉県流山市流山2-105-2",
+    "phone": "04-7158-0264",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山二丁目",
+      "addr": "105-2",
+      "level": 8,
+      "point": {
+        "lat": 35.855378,
+        "lng": 139.899321,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 107,
+    "name": "平和台幼稚園",
+    "address": "千葉県流山市平和台4-62-27",
+    "phone": "04-7158-5617",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台四丁目",
+      "addr": "62-27",
+      "level": 8,
+      "point": {
+        "lat": 35.852885,
+        "lng": 139.908163,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 108,
+    "name": "南流山幼稚園",
+    "address": "千葉県流山市流山2526",
+    "phone": "04-7159-7050",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字流山",
+      "addr": "2526",
+      "level": 8,
+      "point": {
+        "lat": 35.833641,
+        "lng": 139.90275,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 110,
+    "name": "八木幼稚園",
+    "address": "千葉県流山市長崎2-629",
+    "phone": "04-7144-7790",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "長崎二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.861004,
+        "lng": 139.931626,
+        "level": 3
+      },
+      "other": "629"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 111,
+    "name": "児童発達支援センター",
+    "address": "千葉県流山市駒木台221-3",
+    "phone": "04-7154-4822",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "駒木台",
+      "addr": "221-3",
+      "level": 8,
+      "point": {
+        "lat": 35.892938,
+        "lng": 139.929728,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 112,
+    "name": "JAとうかつ中央 南流山支店",
+    "address": "千葉県流山市南流山4-3-8",
+    "phone": "04-7159-7111",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.840871,
+        "lng": 139.903399,
+        "level": 3
+      },
+      "other": "3-8"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 113,
+    "name": "JAとうかつ中央 流山支店",
+    "address": "千葉県流山市平和台3-5-1",
+    "phone": "04-7159-1001",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台三丁目",
+      "addr": "5-1",
+      "level": 8,
+      "point": {
+        "lat": 35.851619,
+        "lng": 139.902963,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 114,
+    "name": "JAとうかつ中央 八木支店",
+    "address": "千葉県流山市野々下1-307",
+    "phone": "04-7158-2211",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859825,
+        "lng": 139.922983,
+        "level": 3
+      },
+      "other": "307"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 116,
+    "name": "JAとうかつ中央 新川支店",
+    "address": "千葉県流山市中野久木439",
+    "phone": "04-7152-3171",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字中野久木",
+      "level": 3,
+      "point": {
+        "lat": 35.894952,
+        "lng": 139.89814,
+        "level": 3
+      },
+      "other": "439"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 117,
+    "name": "JAとうかつ中央 運河支店",
+    "address": "千葉県流山市西深井597-1",
+    "phone": "04-7153-0121",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字西深井",
+      "addr": "597-1",
+      "level": 8,
+      "point": {
+        "lat": 35.911118,
+        "lng": 139.891704,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 120,
+    "name": "イトーヨーカドー流山店",
+    "address": "千葉県流山市流山9-800-2",
+    "phone": "04-7158-5211",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山九丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.84894,
+        "lng": 139.899759,
+        "level": 3
+      },
+      "other": "800-2"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 121,
+    "name": "初石サンシャインゴルフ",
+    "address": "千葉県流山市東初石1-74-3",
+    "phone": "04-7155-0562",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "東初石一丁目",
+      "addr": "74-3",
+      "level": 8,
+      "point": {
+        "lat": 35.891863,
+        "lng": 139.91605,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 122,
+    "name": "江戸川大学",
+    "address": "千葉県流山市駒木474",
+    "phone": "04-7152-0661",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "駒木",
+      "addr": "474",
+      "level": 8,
+      "point": {
+        "lat": 35.87343,
+        "lng": 139.93973200000002,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 123,
+    "name": "総合運動公園(野球場・庭球場)",
+    "address": "千葉県〒270-135 流山市野々下1-29-4",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "level": 1,
+      "point": {
+        "lat": 35.604588,
+        "lng": 140.123184,
+        "level": 1
+      },
+      "other": "〒270-135 流山市野々下1-29-4"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 124,
+    "name": "北部市民プール",
+    "address": "千葉県流山市東深井837",
+    "phone": "04-7155-3864",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字東深井",
+      "addr": "837",
+      "level": 8,
+      "point": {
+        "lat": 35.910772,
+        "lng": 139.910726,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 125,
+    "name": "おおたかの森スポーツフィールド",
+    "address": "千葉県流山市大畔64-1",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字大畔",
+      "addr": "64-1",
+      "level": 8,
+      "point": {
+        "lat": 35.87537,
+        "lng": 139.912357,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 126,
+    "name": "東部スポーツフィールド",
+    "address": "千葉県流山市名都借121-1",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "121-1",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 128,
+    "name": "流山市北部柔道場",
+    "address": "千葉県流山市青田109-1",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "青田",
+      "addr": "109-1",
+      "level": 8,
+      "point": {
+        "lat": 35.898702,
+        "lng": 139.92474,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 129,
+    "name": "流山市南部柔道場",
+    "address": "千葉県流山市流山965-14",
+    "phone": "04-7159-1212",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字流山",
+      "addr": "965-14",
+      "level": 8,
+      "point": {
+        "lat": 35.833641,
+        "lng": 139.90275,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 130,
+    "name": "江戸川台第2・第3学童クラブ",
+    "address": "千葉県流山市江戸川台東3丁目11番地",
+    "phone": "04-7154-2277",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台東三丁目",
+      "addr": "11",
+      "level": 8,
+      "point": {
+        "lat": 35.900825,
+        "lng": 139.915387,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 131,
+    "name": "京葉銀行 江戸川台支店",
+    "address": "千葉県流山市江戸川台西1-2",
+    "phone": "04‐7152‐3151",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台西一丁目",
+      "addr": "2",
+      "level": 8,
+      "point": {
+        "lat": 35.900328,
+        "lng": 139.907962,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 132,
+    "name": "京葉銀行 初石支店",
+    "address": "千葉県流山市東初石3‐96‐43",
+    "phone": "04‐7154‐5331",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "東初石三丁目",
+      "addr": "96-43",
+      "level": 8,
+      "point": {
+        "lat": 35.882511,
+        "lng": 139.922357,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 134,
+    "name": "京葉銀行 流山支店",
+    "address": "千葉県流山市平和台4‐35‐2",
+    "phone": "04‐7150‐1501",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "平和台四丁目",
+      "addr": "35-2",
+      "level": 8,
+      "point": {
+        "lat": 35.852885,
+        "lng": 139.908163,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 135,
+    "name": "南柏パークハウス自治会",
+    "address": "千葉県流山市向小金1‐378‐1",
+    "phone": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "向小金一丁目",
+      "addr": "378-1",
+      "level": 8,
+      "point": {
+        "lat": 35.842839000000005,
+        "lng": 139.948289,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 136,
+    "name": "サンコーテクノ株式会社",
+    "address": "千葉県流山市南流山3‐10‐16",
+    "phone": "04‐7157‐3535",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839324,
+        "lng": 139.901006,
+        "level": 3
+      },
+      "other": "10-16"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 137,
+    "name": "なかよし保育園",
+    "address": "千葉県流山市南流山7-5-1",
+    "phone": "04‐7158‐5500",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山七丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.842858,
+        "lng": 139.893556,
+        "level": 3
+      },
+      "other": "5-1"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 138,
+    "name": "おおたかの森ナーサリースクール",
+    "address": "千葉県流山市おおたかの森東四丁目99-4",
+    "phone": "04‐7154‐2448",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東四丁目",
+      "addr": "99-4",
+      "level": 8,
+      "point": {
+        "lat": 35.870898,
+        "lng": 139.931391,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 139,
+    "name": "八木北保育園",
+    "address": "千葉県流山市駒木台118‐1",
+    "phone": "04‐7152‐0504",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "駒木台",
+      "addr": "118-1",
+      "level": 8,
+      "point": {
+        "lat": 35.892938,
+        "lng": 139.929728,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 141,
+    "name": "かやの木保育園",
+    "address": "千葉県流山市大畔198",
+    "phone": "04‐7159‐2700",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字大畔",
+      "addr": "198",
+      "level": 8,
+      "point": {
+        "lat": 35.87537,
+        "lng": 139.912357,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 142,
+    "name": "認定こども園みやぞの幼稚園",
+    "address": "千葉県流山市宮園2‐8‐11",
+    "phone": "04‐7159‐2954",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "宮園二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.845706,
+        "lng": 139.915046,
+        "level": 3
+      },
+      "other": "8-11"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 143,
+    "name": "生活クラブ風の村わらしこ保育園流山",
+    "address": "千葉県流山市加4‐12",
+    "phone": "04‐7150‐2654",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "加四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.863018,
+        "lng": 139.90452,
+        "level": 3
+      },
+      "other": "12"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 144,
+    "name": "南流山聖華保育園",
+    "address": "千葉県流山市南流山2‐29‐4",
+    "phone": "04‐7159‐3401",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.83631,
+        "lng": 139.902525,
+        "level": 3
+      },
+      "other": "29-4"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 145,
+    "name": "城の星保育園",
+    "address": "千葉県流山市流山9‐500‐42",
+    "phone": "04‐7170‐2111",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "流山九丁目",
+      "addr": "500-42",
+      "level": 8,
+      "point": {
+        "lat": 35.84894,
+        "lng": 139.899759,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 146,
+    "name": "聖華いつき保育園",
+    "address": "千葉県流山市南流山1‐17‐4",
+    "phone": "04‐7158‐1145",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.837896,
+        "lng": 139.906447,
+        "level": 3
+      },
+      "other": "17-4"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 147,
+    "name": "聖華このみ保育園",
+    "address": "千葉県流山市南流山4‐2‐9",
+    "phone": "04‐7158‐1145",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "南流山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.840871,
+        "lng": 139.903399,
+        "level": 3
+      },
+      "other": "2-9"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 148,
+    "name": "名都借みらい保育園",
+    "address": "千葉県流山市名都借289",
+    "phone": "04‐7170‐1417",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "名都借",
+      "addr": "289",
+      "level": 8,
+      "point": {
+        "lat": 35.847133,
+        "lng": 139.939513,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 149,
+    "name": "おおたかの森聖華保育園",
+    "address": "千葉県流山市長崎2‐24‐1",
+    "phone": "04‐7146‐0303",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "長崎二丁目",
+      "addr": "24-1",
+      "level": 8,
+      "point": {
+        "lat": 35.861004,
+        "lng": 139.931626,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 150,
+    "name": "城の星おおたかの森保育園",
+    "address": "千葉県流山市野々下1‐292",
+    "phone": "04‐7197‐2666",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "野々下一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.859825,
+        "lng": 139.922983,
+        "level": 3
+      },
+      "other": "292"
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 151,
+    "name": "えどがわ南流山保育園",
+    "address": "千葉県流山市木305",
+    "phone": "04‐7157‐8855",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字木",
+      "addr": "305",
+      "level": 8,
+      "point": {
+        "lat": 35.833543,
+        "lng": 139.89406,
+        "level": 3
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "reason": "strict_level8_match_failed"
+  }
+]

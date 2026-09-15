@@ -1,0 +1,9 @@
+{
+  "code": "12207",
+  "prefecture": "千葉県",
+  "municipality": "松戸市",
+  "source_rows": 719,
+  "accepted": 6,
+  "held": 713,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty"
+}

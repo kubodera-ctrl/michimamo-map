@@ -1,0 +1,146 @@
+[
+  {
+    "row": 27,
+    "name": "ベルク松戸秋山店",
+    "address": "千葉県松戸市秋山1丁目10-8",
+    "phone": "047-330-9700",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "秋山一丁目",
+      "addr": "10-8",
+      "level": 8,
+      "point": {
+        "lat": 35.764089176,
+        "lng": 139.930245703,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.764089176,
+    "longitude": 139.930245703
+  },
+  {
+    "row": 46,
+    "name": "セブンイレブン松戸第五中学校前店",
+    "address": "千葉県松戸市秋山2丁目23-6",
+    "phone": "047-391-5840",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "秋山二丁目",
+      "addr": "23-6",
+      "level": 8,
+      "point": {
+        "lat": 35.76864596,
+        "lng": 139.935290399,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.76864596,
+    "longitude": 139.935290399
+  },
+  {
+    "row": 135,
+    "name": "社会福祉法人未来保育園きぼうのつばさ",
+    "address": "千葉県松戸市根本12-16",
+    "phone": "047-710-9939",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "根本",
+      "addr": "12-16",
+      "level": 8,
+      "point": {
+        "lat": 35.788382952,
+        "lng": 139.899928306,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.788382952,
+    "longitude": 139.899928306
+  },
+  {
+    "row": 459,
+    "name": "ファミリーマート松戸幸谷店",
+    "address": "千葉県松戸市幸谷1507-22",
+    "phone": "047-309-3370",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "幸谷",
+      "addr": "1507-22",
+      "level": 8,
+      "point": {
+        "lat": 35.823199076,
+        "lng": 139.92751537,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.823199076,
+    "longitude": 139.92751537
+  },
+  {
+    "row": 460,
+    "name": "小金消防署",
+    "address": "千葉県松戸市二ツ木2003-3",
+    "phone": "047-340-0119",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "二ツ木",
+      "addr": "2003-3",
+      "level": 8,
+      "point": {
+        "lat": 35.822688411,
+        "lng": 139.928875918,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.822688411,
+    "longitude": 139.928875918
+  },
+  {
+    "row": 647,
+    "name": "社会福祉法人みらいキッズケヤキッズスマイルルーム",
+    "address": "千葉県松戸市根本12-2",
+    "phone": "047-710-6336",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "根本",
+      "addr": "12-2",
+      "level": 8,
+      "point": {
+        "lat": 35.788465041,
+        "lng": 139.899838294,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-02-27",
+    "latitude": 35.788465041,
+    "longitude": 139.899838294
+  }
+]

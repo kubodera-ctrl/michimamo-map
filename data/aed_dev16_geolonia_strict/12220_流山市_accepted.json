@@ -1,0 +1,506 @@
+[
+  {
+    "row": 13,
+    "name": "スターツおおたかの森ホール",
+    "address": "千葉県流山市おおたかの森北一丁目2-1",
+    "phone": "04-7186-7638",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北一丁目",
+      "addr": "2-1",
+      "level": 8,
+      "point": {
+        "lat": 35.872935509,
+        "lng": 139.924994801,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.872935509,
+    "longitude": 139.924994801
+  },
+  {
+    "row": 24,
+    "name": "十太夫福祉会館",
+    "address": "千葉県流山市おおたかの森東二丁目5-3",
+    "phone": "04-7154-5254",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東二丁目",
+      "addr": "5-3",
+      "level": 8,
+      "point": {
+        "lat": 35.875843992,
+        "lng": 139.931460144,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.875843992,
+    "longitude": 139.931460144
+  },
+  {
+    "row": 50,
+    "name": "第1おおたかの森ルーム",
+    "address": "千葉県流山市おおたかの森東二丁目5-3",
+    "phone": "04-7155-8077",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東二丁目",
+      "addr": "5-3",
+      "level": 8,
+      "point": {
+        "lat": 35.875843992,
+        "lng": 139.931460144,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.875843992,
+    "longitude": 139.931460144
+  },
+  {
+    "row": 51,
+    "name": "第2おおたかの森ルーム",
+    "address": "千葉県流山市おおたかの森東一丁目12-2",
+    "phone": "04-7154-1131",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東一丁目",
+      "addr": "12-2",
+      "level": 8,
+      "point": {
+        "lat": 35.874121653,
+        "lng": 139.928047771,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.874121653,
+    "longitude": 139.928047771
+  },
+  {
+    "row": 57,
+    "name": "小山小学校",
+    "address": "千葉県流山市おおたかの森東二丁目5-3",
+    "phone": "04-7154-6937",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東二丁目",
+      "addr": "5-3",
+      "level": 8,
+      "point": {
+        "lat": 35.875843992,
+        "lng": 139.931460144,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.875843992,
+    "longitude": 139.931460144
+  },
+  {
+    "row": 70,
+    "name": "流山市立おおたかの森小学校・中学校",
+    "address": "千葉県流山市おおたかの森西二丁目13-1",
+    "phone": "04-7159-7001",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西二丁目",
+      "addr": "13-1",
+      "level": 8,
+      "point": {
+        "lat": 35.867257625,
+        "lng": 139.917052661,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.867257625,
+    "longitude": 139.917052661
+  },
+  {
+    "row": 95,
+    "name": "流山市上下水道局",
+    "address": "千葉県流山市おおたかの森西一丁目19番地",
+    "phone": "04-7159-5315",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西一丁目",
+      "addr": "19",
+      "level": 8,
+      "point": {
+        "lat": 35.872195675,
+        "lng": 139.918632548,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.872195675,
+    "longitude": 139.918632548
+  },
+  {
+    "row": 98,
+    "name": "つくばエクスプレス 流山おおたかの森駅",
+    "address": "千葉県流山市おおたかの森西一丁目1-1",
+    "phone": "0570-000-298",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.87199217,
+        "lng": 139.925230703,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.87199217,
+    "longitude": 139.925230703
+  },
+  {
+    "row": 102,
+    "name": "東武野田線(東武アーバンパークライン) 流山おおたかの森駅",
+    "address": "千葉県流山市おおたかの森東一丁目1-1",
+    "phone": "04-7153-2277",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森東一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.871708178,
+        "lng": 139.926664947,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.871708178,
+    "longitude": 139.926664947
+  },
+  {
+    "row": 109,
+    "name": "神愛幼稚園",
+    "address": "千葉県流山市おおたかの森北二丁目58-22",
+    "phone": "04-7154-1259",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北二丁目",
+      "addr": "58-22",
+      "level": 8,
+      "point": {
+        "lat": 35.878970283,
+        "lng": 139.924540364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.878970283,
+    "longitude": 139.924540364
+  },
+  {
+    "row": 115,
+    "name": "JAとうかつ中央 十太夫支店",
+    "address": "千葉県流山市おおたかの森北三丁目30-4",
+    "phone": "04-7152-2211",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北三丁目",
+      "addr": "30-4",
+      "level": 8,
+      "point": {
+        "lat": 35.880888712,
+        "lng": 139.929587609,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.880888712,
+    "longitude": 139.929587609
+  },
+  {
+    "row": 118,
+    "name": "流山おおたかの森S・C",
+    "address": "千葉県流山市おおたかの森南一丁目5-1",
+    "phone": "04-7152-3333",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森南一丁目",
+      "addr": "5-1",
+      "level": 8,
+      "point": {
+        "lat": 35.871149272,
+        "lng": 139.927705751,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.871149272,
+    "longitude": 139.927705751
+  },
+  {
+    "row": 119,
+    "name": "流山おおたかの森S・C こかげテラス",
+    "address": "千葉県流山市おおたかの森西一丁目1-1",
+    "phone": "04-7152-3333",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.87199217,
+        "lng": 139.925230703,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.87199217,
+    "longitude": 139.925230703
+  },
+  {
+    "row": 127,
+    "name": "流山市おおたかの森センター",
+    "address": "千葉県流山市おおたかの森西二丁目13-1",
+    "phone": "04-7159-7031",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西二丁目",
+      "addr": "13-1",
+      "level": 8,
+      "point": {
+        "lat": 35.867257625,
+        "lng": 139.917052661,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.867257625,
+    "longitude": 139.917052661
+  },
+  {
+    "row": 133,
+    "name": "京葉銀行 おおたかの森支店",
+    "address": "千葉県流山市おおたかの森西一丁目30-6",
+    "phone": "04‐7150‐8611",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西一丁目",
+      "addr": "30-6",
+      "level": 8,
+      "point": {
+        "lat": 35.871088031,
+        "lng": 139.921099462,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.871088031,
+    "longitude": 139.921099462
+  },
+  {
+    "row": 140,
+    "name": "たかさごスクールセントラル",
+    "address": "千葉県流山市西平井三丁目2-9",
+    "phone": "04‐7159‐7473",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "西平井三丁目",
+      "addr": "2-9",
+      "level": 8,
+      "point": {
+        "lat": 35.848780645,
+        "lng": 139.90418214,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.848780645,
+    "longitude": 139.90418214
+  },
+  {
+    "row": 152,
+    "name": "けやきの森保育園おおたかの森園",
+    "address": "千葉県流山市おおたかの森北二丁目8番地",
+    "phone": "04‐7155‐8022",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北二丁目",
+      "addr": "8",
+      "level": 8,
+      "point": {
+        "lat": 35.876073708,
+        "lng": 139.922751278,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.876073708,
+    "longitude": 139.922751278
+  },
+  {
+    "row": 153,
+    "name": "聖華マリン保育園",
+    "address": "千葉県流山市おおたかの森北三丁目9-1",
+    "phone": "04‐7154‐5252",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北三丁目",
+      "addr": "9-1",
+      "level": 8,
+      "point": {
+        "lat": 35.879783339,
+        "lng": 139.926564012,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.879783339,
+    "longitude": 139.926564012
+  },
+  {
+    "row": 154,
+    "name": "慶櫻おおたかの森保育園",
+    "address": "千葉県流山市おおたかの森南一丁目23-11",
+    "phone": "04‐7189‐8900",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森南一丁目",
+      "addr": "23-11",
+      "level": 8,
+      "point": {
+        "lat": 35.867404733,
+        "lng": 139.926364651,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.867404733,
+    "longitude": 139.926364651
+  },
+  {
+    "row": 155,
+    "name": "暁の星保育園",
+    "address": "千葉県流山市おおたかの森西四丁目17-1",
+    "phone": "04‐7197‐7756",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森西四丁目",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 35.876623641,
+        "lng": 139.91911422600003,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.876623641,
+    "longitude": 139.91911422600003
+  },
+  {
+    "row": 156,
+    "name": "けやきの森保育園おおたかの森第二",
+    "address": "千葉県流山市おおたかの森北一丁目11-1",
+    "phone": "04‐7197‐1880",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "おおたかの森北一丁目",
+      "addr": "11-1",
+      "level": 8,
+      "point": {
+        "lat": 35.874573602,
+        "lng": 139.927407053,
+        "level": 8
+      },
+      "other": ""
+    },
+    "source_url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "source_license": "cc-by4_0",
+    "source_updated_at": null,
+    "latitude": 35.874573602,
+    "longitude": 139.927407053
+  }
+]
