@@ -1,0 +1,86 @@
+{
+  "production_baseline": 39580,
+  "sources": [
+    {
+      "key": "namerikawa",
+      "prefecture": "富山県",
+      "municipality": "滑川市",
+      "source_url": "https://www.city.namerikawa.toyama.jp/soshiki/dx/opendata/6621.html",
+      "resource_url": "https://www.city.namerikawa.toyama.jp/material/files/group/4/01_162060_aed.csv",
+      "expected_raw": 115,
+      "source_updated_at": "2021-12-24",
+      "source_date": null,
+      "review_bounds": [
+        36.68,
+        36.8,
+        137.3,
+        137.46
+      ],
+      "snapshot": "raw/namerikawa.csv",
+      "license_id": "CC BY 4.0",
+      "source_name": "滑川市 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+      "sha256": "6e7b688aac9245e2d76fee6609cecd2fa5e5002a7e7c418a0278b3fc1e258ecd",
+      "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+      "license_evidence_url": "https://www.city.namerikawa.toyama.jp/material/files/group/43/20240703_opendatakiyaku.pdf",
+      "closure_evidence_url": "https://www.city.namerikawa.toyama.jp/soshiki/13/2/8137.html"
+    },
+    {
+      "key": "kawakita",
+      "prefecture": "石川県",
+      "municipality": "川北町",
+      "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/173240_aed",
+      "resource_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/1c8bb30c-abff-4202-b426-cd148f73088b/resource/45cebd51-7369-46e7-b9e3-3745753183d4/download/173240_aed.csv",
+      "expected_raw": 25,
+      "source_updated_at": "2025-12-06",
+      "source_date": null,
+      "review_bounds": [
+        36.45,
+        36.49,
+        136.49,
+        136.6
+      ],
+      "snapshot": "raw/kawakita.csv",
+      "license_id": "CC BY 4.0",
+      "source_name": "川北町 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+      "sha256": "b0737e0503fe30dead034d0176fe8984ae8253af046ffd5747dbcf25ce01d7ce",
+      "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。公式座標を使用",
+      "license_evidence_url": "https://ckan.opendata.pref.ishikawa.lg.jp/pages/tos",
+      "license_note": "利用規約7(5)イでCC BY4.0との互換性とCC BYによる利用を明示。カタログの版指定なしcc-byと併せて確認。",
+      "format_note": "ヘッダーなし29列、25行中21施設と4空行。カタログの24件は先頭行を見出しと誤認した件数。",
+      "coordinate_conflict_evidence_url": "https://www.town.kawakita.ishikawa.jp/gyosei1/jumin/entry-319.html"
+    },
+    {
+      "key": "echizen",
+      "prefecture": "福井県",
+      "municipality": "越前町",
+      "source_url": "https://www.town.echizen.fukui.jp/chousei/08/p007826.html",
+      "resource_url": "https://www.town.echizen.fukui.jp/chousei/08/p007826_d/fil/184233_aed.csv",
+      "expected_raw": 58,
+      "source_updated_at": "2026-07-01",
+      "source_date": null,
+      "review_bounds": [
+        35.87,
+        36.01,
+        135.95,
+        136.15
+      ],
+      "snapshot": "raw/echizen.csv",
+      "license_id": "CC BY 4.0",
+      "source_name": "越前町 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+      "sha256": "eb58e6026ee4bbecf575af42fa2eb8b8c345a5a69a5f89f38e9ca80cf8bd67fb",
+      "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。公式座標を使用"
+    }
+  ],
+  "evidence_hashes": {
+    "namerikawa_geocoded.jsonl": "3db7dfbe2ce1efaab65bc287ff0a57578314721d654e2f8502ee957754c0c945",
+    "kawakita_catalog.json": "a0ea596600cf5249d6917e7a4144d92cbf936e6b4403c9b50c0d1f3893df990d",
+    "ishikawa_terms.html": "5b68e805220f0def194e4f60a0f8dd47606d161be66aa6fb81f0120ceab8c16d"
+  },
+  "geocoder": {
+    "package": "@geolonia/normalize-japanese-addresses",
+    "version": "3.1.3",
+    "minimum_level": 8,
+    "run_date": "2026-09-15",
+    "coordinate_precision": "住所単位、施設入口の実測座標ではない"
+  }
+}

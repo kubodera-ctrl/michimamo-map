@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-15",
+  "batch": "development10_third_three_prefecture_set",
+  "before_public_aed": 39580,
+  "after_public_aed": 39699,
+  "inserted": 119,
+  "published_municipalities": 443,
+  "unpublished_municipalities": 1298,
+  "staging_holds": 19,
+  "validation": "県別rollback事前検証、独立トランザクション、本番重複・件数ガード、anon地図RPC45/19/55。全39699件の公式自治体コード割当確認。",
+  "sources": [
+    {
+      "prefecture": "富山県",
+      "municipality": "滑川市",
+      "published": 45,
+      "held": 2,
+      "excluded_by_reason": {
+        "geocoder_below_address_level_8": 67,
+        "facility_closed_2023_07_05": 1
+      },
+      "source_url": "https://www.city.namerikawa.toyama.jp/soshiki/dx/opendata/6621.html",
+      "raw_sha256": "6e7b688aac9245e2d76fee6609cecd2fa5e5002a7e7c418a0278b3fc1e258ecd",
+      "sql_sha256": "4bd85bd344b7af9c206748690928c8b7bfa7fed9d395aeb6a5598d3f296bf63f"
+    },
+    {
+      "prefecture": "石川県",
+      "municipality": "川北町",
+      "published": 19,
+      "held": 0,
+      "excluded_by_reason": {
+        "same_address_coordinates_disagree_over_300m": 2,
+        "blank_facility_row": 4
+      },
+      "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/173240_aed",
+      "raw_sha256": "b0737e0503fe30dead034d0176fe8984ae8253af046ffd5747dbcf25ce01d7ce",
+      "sql_sha256": "9f1c08aa85375c06aa1a4ff03a309dc6eb02f9edd7b86a37b814b3ad6f4691b5"
+    },
+    {
+      "prefecture": "福井県",
+      "municipality": "越前町",
+      "published": 55,
+      "held": 0,
+      "excluded_by_reason": {
+        "missing_official_coordinates": 1,
+        "blank_facility_row": 2
+      },
+      "source_url": "https://www.town.echizen.fukui.jp/chousei/08/p007826.html",
+      "raw_sha256": "eb58e6026ee4bbecf575af42fa2eb8b8c345a5a69a5f89f38e9ca80cf8bd67fb",
+      "sql_sha256": "d03ac2601f533d99c5513657eeaed199d9cc098523e3a8ed372937893e14cffe"
+    }
+  ],
+  "next_prefectures": [
+    "山梨県",
+    "長野県",
+    "岐阜県"
+  ]
+}

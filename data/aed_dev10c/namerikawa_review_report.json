@@ -1,0 +1,494 @@
+{
+  "source": {
+    "key": "namerikawa",
+    "prefecture": "富山県",
+    "municipality": "滑川市",
+    "source_url": "https://www.city.namerikawa.toyama.jp/soshiki/dx/opendata/6621.html",
+    "resource_url": "https://www.city.namerikawa.toyama.jp/material/files/group/4/01_162060_aed.csv",
+    "expected_raw": 115,
+    "source_updated_at": "2021-12-24",
+    "source_date": null,
+    "review_bounds": [
+      36.68,
+      36.8,
+      137.3,
+      137.46
+    ],
+    "snapshot": "raw/namerikawa.csv",
+    "license_id": "CC BY 4.0",
+    "source_name": "滑川市 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+    "sha256": "6e7b688aac9245e2d76fee6609cecd2fa5e5002a7e7c418a0278b3fc1e258ecd",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。Geolonia位置情報レベル8。施設入口の実測座標ではない",
+    "license_evidence_url": "https://www.city.namerikawa.toyama.jp/material/files/group/43/20240703_opendatakiyaku.pdf",
+    "closure_evidence_url": "https://www.city.namerikawa.toyama.jp/soshiki/13/2/8137.html"
+  },
+  "raw_rows": 115,
+  "review_rows": 47,
+  "publish_candidates": 45,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 1,
+  "excluded": [
+    {
+      "row": 3,
+      "name": "伸和工業株式会社",
+      "address": "富山県滑川市上島1203",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 4,
+      "name": "東邦工業株式会社(２台)",
+      "address": "富山県滑川市下梅沢526",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 7,
+      "name": "滑川市立図書館",
+      "address": "富山県滑川市吾妻町426",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 8,
+      "name": "滑川市児童館",
+      "address": "富山県滑川市上小泉800",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 10,
+      "name": "滑川公共職業安定所",
+      "address": "富山県滑川市辰野11-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 14,
+      "name": "認定こども園たかつき保育園",
+      "address": "富山県滑川市高月町72",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 17,
+      "name": "株式会社スギノマシン早月事業所（２台）",
+      "address": "富山県滑川市栗山2880",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 18,
+      "name": "藤堂工業株式会社（２台）",
+      "address": "富山県滑川市上島838",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 20,
+      "name": "富山県東部消防組合滑川消防署",
+      "address": "富山県滑川市上小泉24",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 22,
+      "name": "ダイナム滑川店",
+      "address": "富山県滑川市柳原64-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 23,
+      "name": "㈱廣貫堂滑川工場",
+      "address": "富山県滑川市小林250-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 24,
+      "name": "毛利医院",
+      "address": "富山県滑川市四間町527",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 25,
+      "name": "富士フイルムマニファクチャリング株式会社",
+      "address": "富山県滑川市大島1277-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 26,
+      "name": "富士フイルムマニファクチャリング株式会社",
+      "address": "富山県滑川市大島1277-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 27,
+      "name": "富士フイルムマニファクチャリング株式会社",
+      "address": "富山県滑川市大島1277-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 29,
+      "name": "JAアルプスなめりかわ支店",
+      "address": "富山県滑川市柳原79-5",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 31,
+      "name": "㈱マツダ",
+      "address": "富山県滑川市曲渕176",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 32,
+      "name": "早月加積地区公民館",
+      "address": "富山県滑川市追分3801",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 33,
+      "name": "浜加積地区公民館",
+      "address": "富山県滑川市曲渕333",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 34,
+      "name": "東加積地区公民館",
+      "address": "富山県滑川市大崎野244",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 35,
+      "name": "中加積地区公民館",
+      "address": "富山県滑川市赤浜573",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 37,
+      "name": "北加積地区公民館",
+      "address": "富山県滑川市中塚432",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 38,
+      "name": "滑川東地区公民館",
+      "address": "富山県滑川市吾妻町426",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 40,
+      "name": "滑川市立坪川保育所",
+      "address": "富山県滑川市坪川1180",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 41,
+      "name": "浜加積保育園",
+      "address": "富山県滑川市北野374",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 43,
+      "name": "和光保育園",
+      "address": "富山県滑川市本江308－5",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 48,
+      "name": "希望幼稚園",
+      "address": "富山県滑川市上小泉2005",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 49,
+      "name": "早月加積認定こども園",
+      "address": "富山県滑川市追分3801",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 50,
+      "name": "やなぎはら保育園",
+      "address": "富山県滑川市柳原6-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 52,
+      "name": "サンアビリティーズ滑川",
+      "address": "富山県滑川市柳原1537-2",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 54,
+      "name": "滑川市役所",
+      "address": "富山県滑川市寺家町104",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 55,
+      "name": "滑川市役所",
+      "address": "富山県滑川市寺家町104",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 56,
+      "name": "滑川市役所",
+      "address": "富山県滑川市寺家町104",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 57,
+      "name": "滑川市民健康センター",
+      "address": "富山県滑川市田中新町127",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 62,
+      "name": "西加積認定こども園",
+      "address": "富山県滑川市下梅沢31",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 63,
+      "name": "みのわ温泉テニス村",
+      "address": "富山県滑川市箕輪28",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 66,
+      "name": "北陸スチール㈱滑川工場",
+      "address": "富山県滑川市追分3545",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 68,
+      "name": "オークスセレモニーホール滑川",
+      "address": "富山県滑川市上小泉482-6",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 69,
+      "name": "三晶技研㈱本社",
+      "address": "富山県滑川市上小泉1586",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 72,
+      "name": "滑川市立子ども図書館",
+      "address": "富山県滑川市吾妻町426",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 73,
+      "name": "滑川市民交流プラザ",
+      "address": "富山県滑川市吾妻町426",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 74,
+      "name": "有磯海SA上り線",
+      "address": "富山県滑川市栗山2913-10",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 75,
+      "name": "網谷歯科医院",
+      "address": "富山県滑川市魚躬89-1",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 76,
+      "name": "富山医療福祉専門学校",
+      "address": "富山県滑川市柳原149-9",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 77,
+      "name": "富山医療福祉専門学校",
+      "address": "富山県滑川市柳原149-9",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 78,
+      "name": "田中精密工業滑川工場",
+      "address": "富山県滑川市上島8500",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 79,
+      "name": "大富運輸㈱",
+      "address": "富山県滑川市北野2891",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 80,
+      "name": "㈱不二越滑川事業所カーハイドロリクス事業部",
+      "address": "富山県滑川市大掛176",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 84,
+      "name": "公園通り歯科",
+      "address": "富山県滑川市常盤町公園通り181-41",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 85,
+      "name": "タラソピア",
+      "address": "富山県滑川市中川原410",
+      "reason": "facility_closed_2023_07_05"
+    },
+    {
+      "row": 86,
+      "name": "喜楽庵",
+      "address": "富山県滑川市柳原57-3",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 87,
+      "name": "滑川料金所",
+      "address": "富山県滑川市東金屋923",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 88,
+      "name": "富山県立滑川高等学校",
+      "address": "富山県滑川市加島町45",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 93,
+      "name": "石坂医院",
+      "address": "富山県滑川市大窪737",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 94,
+      "name": "YKK滑川独身寮",
+      "address": "富山県滑川市上小泉13",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 95,
+      "name": "なごみ苑",
+      "address": "富山県滑川市野町1686",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 97,
+      "name": "YKKAP㈱滑川事業所（6台）",
+      "address": "富山県滑川市杉本3003",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 98,
+      "name": "滑川自動車学校（２台）",
+      "address": "富山県滑川市菰原168",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 99,
+      "name": "スポーツ健康の森（４台）",
+      "address": "富山県滑川市柳原",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 100,
+      "name": "南部小学校",
+      "address": "富山県滑川市赤浜727",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 101,
+      "name": "滑川市総合体育センター",
+      "address": "富山県滑川市柳原238",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 102,
+      "name": "滑川室内温水プール",
+      "address": "富山県滑川市柳原258-4",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 103,
+      "name": "日医工スポーツアカデミー",
+      "address": "富山県滑川市高月町129",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 107,
+      "name": "童和保育園",
+      "address": "富山県滑川市堀江1796",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 108,
+      "name": "寺家小学校",
+      "address": "富山県滑川市寺家町98",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 111,
+      "name": "早月中学校",
+      "address": "富山県滑川市中野島1260",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 115,
+      "name": "滑川中学校",
+      "address": "富山県滑川市下島54",
+      "reason": "geocoder_below_address_level_8"
+    },
+    {
+      "row": 116,
+      "name": "西部小学校",
+      "address": "富山県滑川市上島471",
+      "reason": "geocoder_below_address_level_8"
+    }
+  ],
+  "excluded_by_reason": {
+    "geocoder_below_address_level_8": 67,
+    "facility_closed_2023_07_05": 1
+  },
+  "holds": [
+    {
+      "source_key": "bodik-reviewed:3785e4112c9c5490:4e416225d45ca150c6ca401f",
+      "facility_type": "aed",
+      "name": "東部小学校区放課後児童クラブ施設",
+      "prefecture": "富山県",
+      "prefecture_code": "16",
+      "municipality": "滑川市",
+      "address": "富山県滑川市四ツ屋135-1",
+      "phone": null,
+      "latitude": 36.777059,
+      "longitude": 137.372948,
+      "source_name": "滑川市 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+      "source_url": "https://www.city.namerikawa.toyama.jp/soshiki/dx/opendata/6621.html",
+      "source_license": "CC BY 4.0",
+      "source_updated_at": "2021-12-24",
+      "source_date": null,
+      "installation_location": null,
+      "availability": null,
+      "quality_status": "rough",
+      "geocode_source": "Geolonia住所正規化（位置情報レベル8）",
+      "active": false,
+      "duplicate_candidate": true,
+      "duplicate_group_key": "7dc2793e333f14d3"
+    },
+    {
+      "source_key": "bodik-reviewed:3785e4112c9c5490:c7bb66df442f5e89e0ccda10",
+      "facility_type": "aed",
+      "name": "東部小学校",
+      "prefecture": "富山県",
+      "prefecture_code": "16",
+      "municipality": "滑川市",
+      "address": "富山県滑川市四ツ屋134",
+      "phone": null,
+      "latitude": 36.777059,
+      "longitude": 137.372948,
+      "source_name": "滑川市 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+      "source_url": "https://www.city.namerikawa.toyama.jp/soshiki/dx/opendata/6621.html",
+      "source_license": "CC BY 4.0",
+      "source_updated_at": "2021-12-24",
+      "source_date": null,
+      "installation_location": null,
+      "availability": null,
+      "quality_status": "rough",
+      "geocode_source": "Geolonia住所正規化（位置情報レベル8）",
+      "active": false,
+      "duplicate_candidate": true,
+      "duplicate_group_key": "7dc2793e333f14d3"
+    }
+  ]
+}

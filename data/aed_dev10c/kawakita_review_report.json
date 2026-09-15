@@ -1,0 +1,75 @@
+{
+  "source": {
+    "key": "kawakita",
+    "prefecture": "石川県",
+    "municipality": "川北町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/173240_aed",
+    "resource_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/1c8bb30c-abff-4202-b426-cd148f73088b/resource/45cebd51-7369-46e7-b9e3-3745753183d4/download/173240_aed.csv",
+    "expected_raw": 25,
+    "source_updated_at": "2025-12-06",
+    "source_date": null,
+    "review_bounds": [
+      36.45,
+      36.49,
+      136.49,
+      136.6
+    ],
+    "snapshot": "raw/kawakita.csv",
+    "license_id": "CC BY 4.0",
+    "source_name": "川北町 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+    "sha256": "b0737e0503fe30dead034d0176fe8984ae8253af046ffd5747dbcf25ce01d7ce",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。公式座標を使用",
+    "license_evidence_url": "https://ckan.opendata.pref.ishikawa.lg.jp/pages/tos",
+    "license_note": "利用規約7(5)イでCC BY4.0との互換性とCC BYによる利用を明示。カタログの版指定なしcc-byと併せて確認。",
+    "format_note": "ヘッダーなし29列、25行中21施設と4空行。カタログの24件は先頭行を見出しと誤認した件数。",
+    "coordinate_conflict_evidence_url": "https://www.town.kawakita.ishikawa.jp/gyosei1/jumin/entry-319.html"
+  },
+  "raw_rows": 25,
+  "review_rows": 19,
+  "publish_candidates": 19,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 7,
+      "name": "川北町立川北保育所",
+      "address": "石川県能美郡川北町字土室丙129-1",
+      "reason": "same_address_coordinates_disagree_over_300m"
+    },
+    {
+      "row": 14,
+      "name": "川北町児童館",
+      "address": "石川県能美郡川北町字土室丙129-1",
+      "reason": "same_address_coordinates_disagree_over_300m"
+    },
+    {
+      "row": 22,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    },
+    {
+      "row": 23,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    },
+    {
+      "row": 24,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    },
+    {
+      "row": 25,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    }
+  ],
+  "excluded_by_reason": {
+    "same_address_coordinates_disagree_over_300m": 2,
+    "blank_facility_row": 4
+  },
+  "holds": []
+}

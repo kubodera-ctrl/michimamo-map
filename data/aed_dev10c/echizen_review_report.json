@@ -1,0 +1,53 @@
+{
+  "source": {
+    "key": "echizen",
+    "prefecture": "福井県",
+    "municipality": "越前町",
+    "source_url": "https://www.town.echizen.fukui.jp/chousei/08/p007826.html",
+    "resource_url": "https://www.town.echizen.fukui.jp/chousei/08/p007826_d/fil/184233_aed.csv",
+    "expected_raw": 58,
+    "source_updated_at": "2026-07-01",
+    "source_date": null,
+    "review_bounds": [
+      35.87,
+      36.01,
+      135.95,
+      136.15
+    ],
+    "snapshot": "raw/echizen.csv",
+    "license_id": "CC BY 4.0",
+    "source_name": "越前町 AED設置箇所一覧（表記整形・位置検証・不確実行除外）",
+    "sha256": "eb58e6026ee4bbecf575af42fa2eb8b8c345a5a69a5f89f38e9ca80cf8bd67fb",
+    "review_reason": "自治体公式データ・CC BY4.0・都道府県市町村一致・位置範囲・本番重複照合を確認。公式座標を使用"
+  },
+  "raw_rows": 58,
+  "review_rows": 55,
+  "publish_candidates": 55,
+  "exact_duplicates_removed": 0,
+  "internal_near_pairs": 0,
+  "excluded": [
+    {
+      "row": 49,
+      "name": "陽光館",
+      "address": "福井県丹生郡越前町気比庄57-32",
+      "reason": "missing_official_coordinates"
+    },
+    {
+      "row": 58,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    },
+    {
+      "row": 59,
+      "name": "",
+      "address": "",
+      "reason": "blank_facility_row"
+    }
+  ],
+  "excluded_by_reason": {
+    "missing_official_coordinates": 1,
+    "blank_facility_row": 2
+  },
+  "holds": []
+}
