@@ -1,0 +1,49 @@
+name: AED dev17 strict ABR review
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/geocode_aed_dev17_abr_strict.py
+      - .github/workflows/aed_dev17_abr_strict.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aed-dev17-abr-strict
+  cancel-in-progress: false
+
+jobs:
+  geocode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install strict geocoder dependencies
+        run: |
+          python -m pip install openpyxl==3.1.5
+          npm install -g @digital-go-jp/abr-geocoder@2.3.1
+      - name: Geocode address-only official AED rows
+        run: python scripts/geocode_aed_dev17_abr_strict.py
+      - name: Commit review evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aed_dev17_abr_strict
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Review three AED datasets with strict ABR"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
