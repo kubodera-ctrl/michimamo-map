@@ -1,0 +1,26 @@
+[
+  {
+    "code": "12220",
+    "municipality": "流山市",
+    "url": "https://www.city.nagareyama.chiba.jp/institution/1005119/index.html",
+    "bytes": 48060,
+    "sha256": "9493deb443a9ead0b0ea36cf870728fbb2e12e4aacb2c1172ab07519014efaf0",
+    "table_count": 1,
+    "table_row_counts": [
+      156
+    ]
+  },
+  {
+    "code": "12210",
+    "municipality": "茂原市",
+    "url": "https://www.city.mobara.chiba.jp/0000001282.html",
+    "bytes": 56174,
+    "sha256": "1502469ff7386ff2c9177089687a2d15b215af2209218d0e1840aa63a05ca47e",
+    "table_count": 3,
+    "table_row_counts": [
+      56,
+      8,
+      30
+    ]
+  }
+]
