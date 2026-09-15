@@ -1,0 +1,100 @@
+{
+  "date": "2026-09-15",
+  "batch_prefectures": [
+    "群馬県",
+    "埼玉県",
+    "千葉県"
+  ],
+  "before_public_aed": 39095,
+  "after_public_aed": 39276,
+  "inserted": 181,
+  "public_municipalities_normalized": 437,
+  "unpublished_municipalities": 1304,
+  "raw_municipality_labels": 667,
+  "counting_method": "既存1741自治体マスタの最長名称一致、郡接頭辞処理、既存例外行・確認済みoverrideで自治体コードへ正規化。全39276件を割当。",
+  "previous_progress_correction": "前回レポート439自治体は同一集計で434自治体。今回3自治体追加で437。AEDの削除なし。",
+  "holds_after": 17,
+  "validation": "県別トランザクションをrollbackで事前検証後commit。本番の件数・出典欠損0・anon get_safety_spotsで46/92/43件を確認。",
+  "sources": [
+    {
+      "municipality": "中之条町",
+      "prefecture": "群馬県",
+      "published": 46,
+      "held": 2,
+      "excluded": [],
+      "raw_sha256": "94b10208f6a763c1493080af962f1bb04b9e74068bc86e700a515ed6801c74b1",
+      "source_url": "https://www.town.nakanojo.gunma.jp/site/jouhou/1020.html",
+      "license": "CC BY 4.0",
+      "publication_sql_sha256": "7250e65a62b91b7690bc11508ce58e8de12351f02ca57d46a6efe475f3e32c82"
+    },
+    {
+      "municipality": "ふじみ野市",
+      "prefecture": "埼玉県",
+      "published": 92,
+      "held": 0,
+      "excluded": [
+        {
+          "row": 35,
+          "name": "荒川運動公園管理棟",
+          "reason": "outside_target_municipality",
+          "address": "埼玉県富士見市大字南畑新田787-1"
+        },
+        {
+          "row": 36,
+          "name": "びん沼サッカー場",
+          "reason": "outside_target_municipality",
+          "address": "埼玉県さいたま市西区塚本地先"
+        }
+      ],
+      "raw_sha256": "75ffcba08fa4cc3baf445bdce8ccea58fb576733af48746ce4bb8114c897f3dc",
+      "source_url": "https://www.city.fujimino.saitama.jp/soshikiichiran/joho_tokeika/digital/opendata/2533.html",
+      "license": "CC BY 4.0",
+      "publication_sql_sha256": "25bb65d94ea60d8636542fc8b8eaca97026365e032c5fc78fcc4cb99862cb0a9"
+    },
+    {
+      "municipality": "白井市",
+      "prefecture": "千葉県",
+      "published": 43,
+      "held": 0,
+      "excluded": [],
+      "raw_sha256": "73d156c1b814a6d4d4239d10f0277e1d7e62baa8abc60032482f53fc16629f6a",
+      "source_url": "https://www.city.shiroi.chiba.jp/shisei/joho/j01/8480.html",
+      "license": "CC BY 4.0",
+      "publication_sql_sha256": "ba6dcea460bcdeda359f70ea0778552d15c18b7a973164249d0e158cb3e2b7cc"
+    }
+  ],
+  "follow_up": [
+    {
+      "municipality": "我孫子市",
+      "rows": 91,
+      "status": "hold",
+      "reason": "座標列なし。住所表記に重複・要確認箇所あり。公式住所照合後、住所レベル8の座標候補のみ再検証。",
+      "url": "https://www.city.abiko.chiba.jp/shisei/opendata/opendata.html"
+    },
+    {
+      "municipality": "柏市",
+      "rows": 560,
+      "status": "hold",
+      "reason": "今回の公式CSVに住所・座標列なし。公式GIS等と施設単位で照合が必要。",
+      "url": "https://www.city.kashiwa.lg.jp/kyukyu/shiseijoho/jouhoukoukai/opendate/aed.html"
+    },
+    {
+      "municipality": "松戸市",
+      "rows": 723,
+      "status": "hold",
+      "reason": "座標系コード209の定義・変換を公式根拠で確認してから再検証。CC BY4.0は県リソースページで確認。",
+      "url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/opendata/shinai_iryoumap.html"
+    },
+    {
+      "municipality": "野田市",
+      "status": "hold",
+      "reason": "県カタログCSV downloadがHTTP500。自治体直接配信等を確認。",
+      "url": "https://opendata.pref.chiba.lg.jp/datasets/3327"
+    }
+  ],
+  "next_prefecture_set": [
+    "東京都",
+    "神奈川県",
+    "新潟県"
+  ]
+}

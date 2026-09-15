@@ -1,0 +1,29 @@
+{
+  "source": {
+    "key": "shiroi",
+    "prefecture": "千葉県",
+    "municipality": "白井市",
+    "source_url": "https://www.city.shiroi.chiba.jp/shisei/joho/j01/8480.html",
+    "resource_url": "https://www.city.shiroi.chiba.jp/material/files/group/2/122327_aed.csv",
+    "source_name": "白井市 AED設置個所（住所表記整形）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2025-08-19",
+    "source_date": "2025-08-19",
+    "expected_raw": 43,
+    "review_bounds": [
+      35.76,
+      35.84,
+      139.98,
+      140.12
+    ],
+    "sha256": "73d156c1b814a6d4d4239d10f0277e1d7e62baa8abc60032482f53fc16629f6a",
+    "phone_is_publisher_contact": true,
+    "notes": "電話番号は市の担当窓口が一律記載されているため、施設の電話番号としては公開しない。町字のみの住所に千葉県白井市を付加。"
+  },
+  "raw_rows": 43,
+  "review_rows": 43,
+  "publish_candidates": 43,
+  "internal_near_duplicate_pairs": 0,
+  "excluded": [],
+  "holds": []
+}

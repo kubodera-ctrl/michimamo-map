@@ -1,0 +1,39 @@
+{
+  "source": {
+    "prefecture": "群馬県",
+    "municipality": "中之条町",
+    "source_url": "https://www.town.nakanojo.gunma.jp/site/jouhou/1020.html",
+    "resource_url": "https://www.town.nakanojo.gunma.jp/uploaded/attachment/4834.csv",
+    "source_name": "中之条町 AED設置箇所一覧（表記整形）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2024-12-03",
+    "source_date": null,
+    "key": "nakanojo",
+    "expected_raw": 48,
+    "review_bounds": [
+      36.57,
+      36.73,
+      138.58,
+      138.91
+    ],
+    "require_address_prefix": "群馬県吾妻郡中之条町",
+    "sha256": "94b10208f6a763c1493080af962f1bb04b9e74068bc86e700a515ed6801c74b1"
+  },
+  "raw_rows": 48,
+  "review_rows": 48,
+  "publish_candidates": 46,
+  "internal_near_duplicate_pairs": 1,
+  "excluded": [],
+  "holds": [
+    {
+      "name": "中之条町ツインプラザ",
+      "address": "群馬県吾妻郡中之条町大字伊勢町1005-1",
+      "reason": "internal_near_duplicate"
+    },
+    {
+      "name": "中之条町ツインプラザ図書館",
+      "address": "群馬県吾妻郡中之条町大字伊勢町1005-1",
+      "reason": "internal_near_duplicate"
+    }
+  ]
+}

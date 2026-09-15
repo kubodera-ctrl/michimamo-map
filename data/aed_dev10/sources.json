@@ -1,0 +1,65 @@
+{
+  "sources": [
+    {
+      "prefecture": "群馬県",
+      "municipality": "中之条町",
+      "source_url": "https://www.town.nakanojo.gunma.jp/site/jouhou/1020.html",
+      "resource_url": "https://www.town.nakanojo.gunma.jp/uploaded/attachment/4834.csv",
+      "source_name": "中之条町 AED設置箇所一覧（表記整形）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2024-12-03",
+      "source_date": null,
+      "key": "nakanojo",
+      "expected_raw": 48,
+      "review_bounds": [
+        36.57,
+        36.73,
+        138.58,
+        138.91
+      ],
+      "require_address_prefix": "群馬県吾妻郡中之条町",
+      "sha256": "94b10208f6a763c1493080af962f1bb04b9e74068bc86e700a515ed6801c74b1"
+    },
+    {
+      "prefecture": "埼玉県",
+      "municipality": "ふじみ野市",
+      "source_url": "https://www.city.fujimino.saitama.jp/soshikiichiran/joho_tokeika/digital/opendata/2533.html",
+      "resource_url": "https://www.city.fujimino.saitama.jp/material/files/group/5/112453_aed.csv",
+      "source_name": "ふじみ野市 AED設置箇所一覧（表記整形・市内施設抽出）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2026-07-07",
+      "source_date": null,
+      "key": "fujimino",
+      "expected_raw": 94,
+      "review_bounds": [
+        35.83,
+        35.9,
+        139.47,
+        139.57
+      ],
+      "require_address_prefix": "埼玉県ふじみ野市",
+      "sha256": "75ffcba08fa4cc3baf445bdce8ccea58fb576733af48746ce4bb8114c897f3dc"
+    },
+    {
+      "key": "shiroi",
+      "prefecture": "千葉県",
+      "municipality": "白井市",
+      "source_url": "https://www.city.shiroi.chiba.jp/shisei/joho/j01/8480.html",
+      "resource_url": "https://www.city.shiroi.chiba.jp/material/files/group/2/122327_aed.csv",
+      "source_name": "白井市 AED設置個所（住所表記整形）",
+      "license_id": "CC BY 4.0",
+      "source_updated_at": "2025-08-19",
+      "source_date": "2025-08-19",
+      "expected_raw": 43,
+      "review_bounds": [
+        35.76,
+        35.84,
+        139.98,
+        140.12
+      ],
+      "sha256": "73d156c1b814a6d4d4239d10f0277e1d7e62baa8abc60032482f53fc16629f6a",
+      "phone_is_publisher_contact": true,
+      "notes": "電話番号は市の担当窓口が一律記載されているため、施設の電話番号としては公開しない。町字のみの住所に千葉県白井市を付加。"
+    }
+  ]
+}

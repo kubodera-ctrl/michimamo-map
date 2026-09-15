@@ -1,0 +1,41 @@
+{
+  "source": {
+    "prefecture": "埼玉県",
+    "municipality": "ふじみ野市",
+    "source_url": "https://www.city.fujimino.saitama.jp/soshikiichiran/joho_tokeika/digital/opendata/2533.html",
+    "resource_url": "https://www.city.fujimino.saitama.jp/material/files/group/5/112453_aed.csv",
+    "source_name": "ふじみ野市 AED設置箇所一覧（表記整形・市内施設抽出）",
+    "license_id": "CC BY 4.0",
+    "source_updated_at": "2026-07-07",
+    "source_date": null,
+    "key": "fujimino",
+    "expected_raw": 94,
+    "review_bounds": [
+      35.83,
+      35.9,
+      139.47,
+      139.57
+    ],
+    "require_address_prefix": "埼玉県ふじみ野市",
+    "sha256": "75ffcba08fa4cc3baf445bdce8ccea58fb576733af48746ce4bb8114c897f3dc"
+  },
+  "raw_rows": 94,
+  "review_rows": 92,
+  "publish_candidates": 92,
+  "internal_near_duplicate_pairs": 0,
+  "excluded": [
+    {
+      "row": 35,
+      "name": "荒川運動公園管理棟",
+      "reason": "outside_target_municipality",
+      "address": "埼玉県富士見市大字南畑新田787-1"
+    },
+    {
+      "row": 36,
+      "name": "びん沼サッカー場",
+      "reason": "outside_target_municipality",
+      "address": "埼玉県さいたま市西区塚本地先"
+    }
+  ],
+  "holds": []
+}
