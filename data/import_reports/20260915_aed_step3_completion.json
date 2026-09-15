@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-09-15",
+  "stage": "③ 未掲載を調査",
+  "scope_municipalities": 1741,
+  "investigated_municipalities": 1741,
+  "uninvestigated_municipalities": 0,
+  "official_aed_sources_already_cataloged": 373,
+  "official_sites_identified_source_not_confirmed": 1368,
+  "official_site_urls_identified": 1741,
+  "method": "地方公共団体コードで公式サイトを特定し、既存出典と公式ドメイン限定の公開検索結果を照合",
+  "interpretation": "情報源未確認はAED情報またはAED自体の不存在を意味しない",
+  "next_stage": "④ 公開可能分を反映"
+}

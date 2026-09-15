@@ -25,14 +25,30 @@ class MunicipalityAuditTest(unittest.TestCase):
                 self.assertEqual(ledger.match(pref,text,master),code)
 
     def test_snapshot_conservation(self):
-        groups=ledger.read('published_groups.json')
+        groups=ledger.read('published_groups_20260915.json')
         mapping=ledger.read('reconciliation.json')
         rows=ledger.read('ledger.json')
-        self.assertEqual(sum(g['n'] for g in groups),34561)
-        self.assertEqual(sum(m['n'] for m in mapping),34561)
-        self.assertEqual(sum(r['public_aed_count'] for r in rows),34561)
-        self.assertEqual(sum(r['public_aed_count']>0 for r in rows),361)
+        self.assertEqual(sum(g['n'] for g in groups),35432)
+        self.assertEqual(sum(m['n'] for m in mapping),35432)
+        self.assertEqual(sum(r['public_aed_count'] for r in rows),35432)
+        self.assertEqual(sum(r['public_aed_count']>0 for r in rows),373)
+        self.assertEqual(sum(r['step2_candidate_count'] for r in rows),28280)
+        self.assertEqual(sum(r['step2_published_count'] for r in rows),26128)
+        self.assertEqual(sum(r['step2_duplicate_count'] for r in rows),2111)
+        self.assertEqual(sum(r['step2_hold_count'] for r in rows),41)
+        self.assertEqual(sum(r['investigation_status']=='③公式AED情報源確認済み' for r in rows),373)
+        self.assertEqual(sum(r['investigation_status']=='③公式サイト特定・AED情報源未確認' for r in rows),1368)
+        self.assertTrue(all(r['official_site_url'].startswith(('http://','https://')) for r in rows))
         self.assertEqual(ledger.read('unresolved.json'),[])
+
+    def test_step3_official_source_audit_is_complete(self):
+        master = ledger.master()
+        audited = ledger.read('official_source_audit_20260915.json')
+        self.assertEqual(len(audited), 1741)
+        self.assertEqual({r['code'] for r in audited}, {r['code'] for r in master})
+        self.assertEqual(len({r['local_government_code'] for r in audited}), 1741)
+        self.assertTrue(all(r.get('investigated_at') and r.get('acquisition_status') and r.get('next_action') for r in audited))
+        self.assertFalse(any(r.get('investigation_status') in ('uninvestigated', '③未棚卸し') for r in audited))
 
 if __name__=='__main__':
     unittest.main()

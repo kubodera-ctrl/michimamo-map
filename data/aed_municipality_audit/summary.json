@@ -1,12 +1,24 @@
 {
-  "snapshot_date": "2026-09-14",
+  "snapshot_date": "2026-09-15",
   "scope": 1741,
-  "published_municipalities": 361,
-  "unpublished_municipalities": 1380,
-  "public_aed_count": 34561,
-  "assigned_aed_count": 34561,
+  "published_municipalities": 373,
+  "unpublished_municipalities": 1368,
+  "public_aed_count": 35432,
+  "assigned_aed_count": 35432,
   "unresolved_aed_count": 0,
-  "raw_municipality_labels": 588,
+  "raw_municipality_labels": 603,
+  "step2_candidate_count": 28280,
+  "step2_published_count": 26128,
+  "step2_duplicate_count": 2111,
+  "step2_hold_count": 41,
+  "step2_unreviewed_count": 0,
+  "step2_reviewed_municipalities": 331,
+  "step3_investigated_municipalities": 1741,
+  "step3_uninvestigated_municipalities": 0,
+  "step3_status_counts": {
+    "official_site_identified_source_not_confirmed": 1368,
+    "official_source_already_cataloged": 373
+  },
   "master_sha256": "ff312d5a5795ebc4aff330c74d02f20e546c958434d55a1ba866029b4fc3bb3b",
   "prefectures": [
     {
@@ -14,7 +26,7 @@
       "total": 179,
       "published": 25,
       "unpublished": 154,
-      "aeds": 1538
+      "aeds": 1540
     },
     {
       "prefecture": "青森県",
@@ -54,9 +66,9 @@
     {
       "prefecture": "福島県",
       "total": 59,
-      "published": 3,
-      "unpublished": 56,
-      "aeds": 271
+      "published": 5,
+      "unpublished": 54,
+      "aeds": 405
     },
     {
       "prefecture": "茨城県",
@@ -173,30 +185,30 @@
     {
       "prefecture": "三重県",
       "total": 29,
-      "published": 6,
-      "unpublished": 23,
-      "aeds": 599
+      "published": 7,
+      "unpublished": 22,
+      "aeds": 674
     },
     {
       "prefecture": "滋賀県",
       "total": 19,
       "published": 4,
       "unpublished": 15,
-      "aeds": 450
+      "aeds": 591
     },
     {
       "prefecture": "京都府",
       "total": 26,
       "published": 25,
       "unpublished": 1,
-      "aeds": 1568
+      "aeds": 1571
     },
     {
       "prefecture": "大阪府",
       "total": 43,
       "published": 6,
       "unpublished": 37,
-      "aeds": 598
+      "aeds": 623
     },
     {
       "prefecture": "兵庫県",
@@ -215,9 +227,9 @@
     {
       "prefecture": "和歌山県",
       "total": 30,
-      "published": 3,
-      "unpublished": 27,
-      "aeds": 322
+      "published": 5,
+      "unpublished": 25,
+      "aeds": 428
     },
     {
       "prefecture": "鳥取県",
@@ -306,9 +318,9 @@
     {
       "prefecture": "熊本県",
       "total": 45,
-      "published": 15,
-      "unpublished": 30,
-      "aeds": 521
+      "published": 17,
+      "unpublished": 28,
+      "aeds": 627
     },
     {
       "prefecture": "大分県",
@@ -334,9 +346,9 @@
     {
       "prefecture": "沖縄県",
       "total": 41,
-      "published": 13,
-      "unpublished": 28,
-      "aeds": 408
+      "published": 18,
+      "unpublished": 23,
+      "aeds": 687
     }
   ]
 }

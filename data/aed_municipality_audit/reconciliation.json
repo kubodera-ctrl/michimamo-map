@@ -1,15 +1,22 @@
 [
   {
+    "prefecture": "三重県",
+    "municipality": "亀山市",
+    "n": 75,
+    "code": "24210",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "三重県",
     "municipality": "員弁郡東員町",
     "n": 30,
-    "prefecture": "三重県",
     "code": "24324",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "三重県",
     "municipality": "四日市市",
     "n": 201,
-    "prefecture": "三重県",
     "code": "24202",
     "method": "official_name_prefix"
   },
@@ -38,219 +45,219 @@
     "source_key": "municipal-catalog:5935f579-afa5-474e-b3aa-d8d62604b83f:7118ee4ca3bbb928954be64b"
   },
   {
+    "prefecture": "三重県",
     "municipality": "木曽岬町",
     "n": 5,
-    "prefecture": "三重県",
     "code": "24303",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "三重県",
     "municipality": "松阪市",
     "n": 210,
-    "prefecture": "三重県",
     "code": "24204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "三重県",
     "municipality": "桑名市",
     "n": 96,
-    "prefecture": "三重県",
     "code": "24205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "三重県",
     "municipality": "熊野市",
     "n": 54,
-    "prefecture": "三重県",
     "code": "24212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "与謝野町",
     "n": 79,
-    "prefecture": "京都府",
     "code": "26465",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "久御山町",
     "n": 84,
-    "prefecture": "京都府",
     "code": "26322",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "亀岡市",
-    "n": 86,
     "prefecture": "京都府",
+    "municipality": "亀岡市",
+    "n": 89,
     "code": "26206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "井手町",
     "n": 15,
-    "prefecture": "京都府",
     "code": "26343",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "京丹後市",
     "n": 92,
-    "prefecture": "京都府",
     "code": "26212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "京田辺市",
     "n": 50,
-    "prefecture": "京都府",
     "code": "26211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "京都市",
     "n": 160,
-    "prefecture": "京都府",
     "code": "26100",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "伊根町",
     "n": 17,
-    "prefecture": "京都府",
     "code": "26463",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "八幡市",
     "n": 70,
-    "prefecture": "京都府",
     "code": "26210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "南丹市",
     "n": 80,
-    "prefecture": "京都府",
     "code": "26213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "南山城村",
     "n": 15,
-    "prefecture": "京都府",
     "code": "26367",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "向日市",
     "n": 42,
-    "prefecture": "京都府",
     "code": "26208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "和束町",
     "n": 11,
-    "prefecture": "京都府",
     "code": "26365",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "城陽市",
     "n": 171,
-    "prefecture": "京都府",
     "code": "26207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "大山崎町",
     "n": 13,
-    "prefecture": "京都府",
     "code": "26303",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "宇治市",
     "n": 91,
-    "prefecture": "京都府",
     "code": "26204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "宇治田原町",
     "n": 12,
-    "prefecture": "京都府",
     "code": "26344",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "宮津市",
     "n": 37,
-    "prefecture": "京都府",
     "code": "26205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "木津川市",
     "n": 48,
-    "prefecture": "京都府",
     "code": "26214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "相楽郡精華町",
     "n": 53,
-    "prefecture": "京都府",
     "code": "26366",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "福知山市",
     "n": 40,
-    "prefecture": "京都府",
     "code": "26201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "笠置町",
     "n": 7,
-    "prefecture": "京都府",
     "code": "26364",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "綾部市",
     "n": 122,
-    "prefecture": "京都府",
     "code": "26203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "舞鶴市",
     "n": 128,
-    "prefecture": "京都府",
     "code": "26202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "京都府",
     "municipality": "長岡京市",
     "n": 45,
-    "prefecture": "京都府",
     "code": "26209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "佐賀県",
     "municipality": "佐賀市",
     "n": 157,
-    "prefecture": "佐賀県",
     "code": "41201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "佐賀県",
     "municipality": "多久市",
     "n": 32,
-    "prefecture": "佐賀県",
     "code": "41204",
     "method": "official_name_prefix"
   },
@@ -263,576 +270,590 @@
     "source_key": "municipal-catalog:71355432-9c4b-413d-8c70-ee25fea8d011:a866392dbc27887e27e7f915"
   },
   {
+    "prefecture": "佐賀県",
     "municipality": "東松浦郡玄海町",
     "n": 20,
-    "prefecture": "佐賀県",
     "code": "41387",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "佐賀県",
     "municipality": "武雄市",
     "n": 136,
-    "prefecture": "佐賀県",
     "code": "41206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "佐賀県",
     "municipality": "神埼郡吉野ヶ里町",
     "n": 22,
-    "prefecture": "佐賀県",
     "code": "41327",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "兵庫県",
     "municipality": "丹波市",
     "n": 175,
-    "prefecture": "兵庫県",
     "code": "28223",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "兵庫県",
     "municipality": "加古川市",
     "n": 339,
-    "prefecture": "兵庫県",
     "code": "28210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "兵庫県",
     "municipality": "朝来市",
     "n": 69,
-    "prefecture": "兵庫県",
     "code": "28225",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "兵庫県",
     "municipality": "赤穂市",
     "n": 69,
-    "prefecture": "兵庫県",
     "code": "28212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "兵庫県",
     "municipality": "養父市",
     "n": 102,
-    "prefecture": "兵庫県",
     "code": "28222",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "三笠市",
     "n": 19,
-    "prefecture": "北海道",
     "code": "01222",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "京極町",
     "n": 13,
-    "prefecture": "北海道",
     "code": "01399",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "八雲町",
     "n": 47,
-    "prefecture": "北海道",
     "code": "01346",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "別海町",
     "n": 57,
-    "prefecture": "北海道",
     "code": "01691",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "北広島市",
     "n": 136,
-    "prefecture": "北海道",
     "code": "01234",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "北斗市",
     "n": 24,
-    "prefecture": "北海道",
     "code": "01236",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "北見市",
     "n": 119,
-    "prefecture": "北海道",
     "code": "01208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "占冠村",
     "n": 15,
-    "prefecture": "北海道",
     "code": "01463",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "室蘭市",
     "n": 135,
-    "prefecture": "北海道",
     "code": "01205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "富良野市",
     "n": 64,
-    "prefecture": "北海道",
     "code": "01229",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "小平町",
     "n": 13,
-    "prefecture": "北海道",
     "code": "01482",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "岩見沢市",
     "n": 240,
-    "prefecture": "北海道",
     "code": "01210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "恵庭市",
     "n": 236,
-    "prefecture": "北海道",
     "code": "01231",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "新篠津村",
     "n": 19,
-    "prefecture": "北海道",
     "code": "01304",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "枝幸町",
     "n": 39,
-    "prefecture": "北海道",
     "code": "01514",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "沼田町",
     "n": 14,
-    "prefecture": "北海道",
     "code": "01438",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "登別市",
     "n": 58,
-    "prefecture": "北海道",
     "code": "01230",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "空知郡上砂川町",
     "n": 18,
-    "prefecture": "北海道",
     "code": "01425",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "苫前郡初山別村",
     "n": 9,
-    "prefecture": "北海道",
     "code": "01485",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "苫小牧市",
     "n": 80,
-    "prefecture": "北海道",
     "code": "01213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "赤平市",
     "n": 13,
-    "prefecture": "北海道",
     "code": "01218",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "足寄町",
     "n": 18,
-    "prefecture": "北海道",
     "code": "01647",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "雨竜郡秩父別町",
     "n": 9,
-    "prefecture": "北海道",
     "code": "01434",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "音更町",
-    "n": 123,
     "prefecture": "北海道",
+    "municipality": "音更町",
+    "n": 125,
     "code": "01631",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "北海道",
     "municipality": "鹿追町",
     "n": 20,
-    "prefecture": "北海道",
     "code": "01634",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "千葉県",
     "municipality": "勝浦市",
     "n": 1,
-    "prefecture": "千葉県",
     "code": "12218",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "千葉県",
     "municipality": "浦安市",
     "n": 272,
-    "prefecture": "千葉県",
     "code": "12227",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "千葉県",
     "municipality": "船橋市",
     "n": 636,
-    "prefecture": "千葉県",
     "code": "12204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "和歌山県",
     "municipality": "和歌山市",
     "n": 217,
-    "prefecture": "和歌山県",
     "code": "30201",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "御坊市",
-    "n": 74,
     "prefecture": "和歌山県",
+    "municipality": "御坊市",
+    "n": 84,
     "code": "30205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "和歌山県",
+    "municipality": "新宮市",
+    "n": 1,
+    "code": "30207",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "和歌山県",
     "municipality": "海草郡紀美野町",
     "n": 31,
-    "prefecture": "和歌山県",
     "code": "30304",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "和歌山県",
+    "municipality": "紀の川市",
+    "n": 95,
+    "code": "30208",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "埼玉県",
     "municipality": "さいたま市",
     "n": 420,
-    "prefecture": "埼玉県",
     "code": "11100",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "中津市",
     "n": 342,
-    "prefecture": "大分県",
     "code": "44203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "九重町",
     "n": 31,
-    "prefecture": "大分県",
     "code": "44461",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "佐伯市",
     "n": 127,
-    "prefecture": "大分県",
     "code": "44205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "別府市",
     "n": 93,
-    "prefecture": "大分県",
     "code": "44202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "国東市",
     "n": 75,
-    "prefecture": "大分県",
     "code": "44214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "大分市",
     "n": 296,
-    "prefecture": "大分県",
     "code": "44201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "姫島村",
     "n": 11,
-    "prefecture": "大分県",
     "code": "44322",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "宇佐市",
     "n": 166,
-    "prefecture": "大分県",
     "code": "44211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "日出町",
     "n": 22,
-    "prefecture": "大分県",
     "code": "44341",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "日田市",
     "n": 131,
-    "prefecture": "大分県",
     "code": "44204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "杵築市",
     "n": 67,
-    "prefecture": "大分県",
     "code": "44210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "津久見市",
     "n": 49,
-    "prefecture": "大分県",
     "code": "44207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "玖珠町",
     "n": 63,
-    "prefecture": "大分県",
     "code": "44462",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "由布市",
     "n": 53,
-    "prefecture": "大分県",
     "code": "44213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "竹田市",
     "n": 99,
-    "prefecture": "大分県",
     "code": "44208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "臼杵市",
     "n": 79,
-    "prefecture": "大分県",
     "code": "44206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "豊後大野市",
     "n": 68,
-    "prefecture": "大分県",
     "code": "44212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大分県",
     "municipality": "豊後高田市",
     "n": 65,
-    "prefecture": "大分県",
     "code": "44209",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "四條畷市",
-    "n": 1,
     "prefecture": "大阪府",
+    "municipality": "四條畷市",
+    "n": 26,
     "code": "27229",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大阪府",
     "municipality": "寝屋川市",
     "n": 178,
-    "prefecture": "大阪府",
     "code": "27215",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大阪府",
     "municipality": "東大阪市",
     "n": 217,
-    "prefecture": "大阪府",
     "code": "27227",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大阪府",
     "municipality": "松原市",
     "n": 98,
-    "prefecture": "大阪府",
     "code": "27217",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大阪府",
     "municipality": "箕面市",
     "n": 84,
-    "prefecture": "大阪府",
     "code": "27220",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "大阪府",
     "municipality": "阪南市",
     "n": 20,
-    "prefecture": "大阪府",
     "code": "27232",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "奈良県",
     "municipality": "大和郡山市",
     "n": 53,
-    "prefecture": "奈良県",
     "code": "29203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "奈良県",
     "municipality": "斑鳩町",
     "n": 30,
-    "prefecture": "奈良県",
     "code": "29344",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "奈良県",
     "municipality": "橿原市",
     "n": 83,
-    "prefecture": "奈良県",
     "code": "29205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "奈良県",
     "municipality": "生駒市",
     "n": 170,
-    "prefecture": "奈良県",
     "code": "29209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "奈良県",
     "municipality": "野迫川村",
     "n": 4,
-    "prefecture": "奈良県",
     "code": "29447",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "亘理町",
     "n": 35,
-    "prefecture": "宮城県",
     "code": "04361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "塩竈市",
     "n": 10,
-    "prefecture": "宮城県",
     "code": "04203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "多賀城市",
     "n": 26,
-    "prefecture": "宮城県",
     "code": "04209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "大和町",
     "n": 31,
-    "prefecture": "宮城県",
     "code": "04421",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "東松島市",
     "n": 87,
-    "prefecture": "宮城県",
     "code": "04214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "松島町",
     "n": 35,
-    "prefecture": "宮城県",
     "code": "04401",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "栗原市",
     "n": 115,
-    "prefecture": "宮城県",
     "code": "04213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "登米市",
     "n": 173,
-    "prefecture": "宮城県",
     "code": "04212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "白石市",
     "n": 47,
-    "prefecture": "宮城県",
     "code": "04206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮城県",
     "municipality": "石巻市",
     "n": 92,
-    "prefecture": "宮城県",
     "code": "04202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮崎県",
     "municipality": "宮崎市",
     "n": 247,
-    "prefecture": "宮崎県",
     "code": "45201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "宮崎県",
     "municipality": "日向市",
     "n": 77,
-    "prefecture": "宮崎県",
     "code": "45206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "富山県",
     "municipality": "小矢部市",
     "n": 61,
-    "prefecture": "富山県",
     "code": "16209",
     "method": "official_name_prefix"
   },
@@ -845,590 +866,590 @@
     "source_key": "bodik-reviewed:gap20260914:e302afa23695fa17:20c4730d50eed02ce96c4842"
   },
   {
+    "prefecture": "山口県",
     "municipality": "上関町",
     "n": 12,
-    "prefecture": "山口県",
     "code": "35341",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "下関市",
     "n": 230,
-    "prefecture": "山口県",
     "code": "35201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "山陽小野田市",
     "n": 92,
-    "prefecture": "山口県",
     "code": "35216",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "岩国市",
     "n": 171,
-    "prefecture": "山口県",
     "code": "35208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "平生町",
     "n": 18,
-    "prefecture": "山口県",
     "code": "35344",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "美祢市",
     "n": 19,
-    "prefecture": "山口県",
     "code": "35213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "防府市",
     "n": 71,
-    "prefecture": "山口県",
     "code": "35206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山口県",
     "municipality": "阿武町",
     "n": 8,
-    "prefecture": "山口県",
     "code": "35502",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山形県",
     "municipality": "寒河江市",
     "n": 50,
-    "prefecture": "山形県",
     "code": "06206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山形県",
     "municipality": "東田川郡庄内町",
     "n": 41,
-    "prefecture": "山形県",
     "code": "06428",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山形県",
     "municipality": "舟形町",
     "n": 21,
-    "prefecture": "山形県",
     "code": "06363",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山形県",
     "municipality": "鮭川村",
     "n": 19,
-    "prefecture": "山形県",
     "code": "06366",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山梨県",
     "municipality": "北杜市",
     "n": 136,
-    "prefecture": "山梨県",
     "code": "19209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "山梨県",
     "municipality": "南部町",
     "n": 50,
-    "prefecture": "山梨県",
     "code": "19366",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "下呂市",
     "n": 179,
-    "prefecture": "岐阜県",
     "code": "21220",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "不破郡垂井町",
     "n": 2,
-    "prefecture": "岐阜県",
     "code": "21361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "中津川市",
     "n": 243,
-    "prefecture": "岐阜県",
     "code": "21206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "八百津町",
     "n": 37,
-    "prefecture": "岐阜県",
     "code": "21505",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "加茂郡八百津町",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21505",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "加茂郡川辺町",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21503",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "可児市",
     "n": 90,
-    "prefecture": "岐阜県",
     "code": "21214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "可児郡御嵩町",
     "n": 2,
-    "prefecture": "岐阜県",
     "code": "21521",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "各務原市",
     "n": 11,
-    "prefecture": "岐阜県",
     "code": "21213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "土岐市",
     "n": 74,
-    "prefecture": "岐阜県",
     "code": "21212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "垂井町",
     "n": 34,
-    "prefecture": "岐阜県",
     "code": "21361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "多治見市",
     "n": 112,
-    "prefecture": "岐阜県",
     "code": "21204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "大垣市",
     "n": 15,
-    "prefecture": "岐阜県",
     "code": "21202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "大野町",
     "n": 2,
-    "prefecture": "岐阜県",
     "code": "21403",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "山県市",
     "n": 51,
-    "prefecture": "岐阜県",
     "code": "21215",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐南町",
     "n": 21,
-    "prefecture": "岐阜県",
     "code": "21302",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐阜市",
     "n": 226,
-    "prefecture": "岐阜県",
     "code": "21201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐阜県多治見市",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐阜県海津市",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21221",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐阜県羽島市",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "岐阜県郡上市",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21219",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "恵那市",
     "n": 70,
-    "prefecture": "岐阜県",
     "code": "21210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "揖斐郡大野町",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21403",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "揖斐郡揖斐川町",
     "n": 4,
-    "prefecture": "岐阜県",
     "code": "21401",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "揖斐郡池田町",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21404",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "本巣市",
     "n": 40,
-    "prefecture": "岐阜県",
     "code": "21218",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "本巣郡北方町",
     "n": 2,
-    "prefecture": "岐阜県",
     "code": "21421",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "東白川村",
     "n": 19,
-    "prefecture": "岐阜県",
     "code": "21507",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "海津市",
     "n": 51,
-    "prefecture": "岐阜県",
     "code": "21221",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "瑞浪市",
     "n": 3,
-    "prefecture": "岐阜県",
     "code": "21208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "瑞穂市",
     "n": 29,
-    "prefecture": "岐阜県",
     "code": "21216",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "美濃加茂市",
     "n": 63,
-    "prefecture": "岐阜県",
     "code": "21211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "美濃市",
     "n": 4,
-    "prefecture": "岐阜県",
     "code": "21207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "羽島市",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "羽島郡笠松町",
     "n": 1,
-    "prefecture": "岐阜県",
     "code": "21303",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "郡上市",
     "n": 28,
-    "prefecture": "岐阜県",
     "code": "21219",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "関ケ原町",
     "n": 22,
-    "prefecture": "岐阜県",
     "code": "21362",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "関市",
     "n": 12,
-    "prefecture": "岐阜県",
     "code": "21205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "飛騨市",
     "n": 136,
-    "prefecture": "岐阜県",
     "code": "21217",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "養老郡養老町",
     "n": 3,
-    "prefecture": "岐阜県",
     "code": "21341",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岐阜県",
     "municipality": "高山市",
     "n": 13,
-    "prefecture": "岐阜県",
     "code": "21203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岡山県",
     "municipality": "高梁市",
     "n": 173,
-    "prefecture": "岡山県",
     "code": "33209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岩手県",
     "municipality": "北上市",
     "n": 345,
-    "prefecture": "岩手県",
     "code": "03206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岩手県",
     "municipality": "葛巻町",
     "n": 47,
-    "prefecture": "岩手県",
     "code": "03302",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "岩手県",
     "municipality": "西磐井郡平泉町",
     "n": 10,
-    "prefecture": "岩手県",
     "code": "03402",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "仁多郡奥出雲町",
     "n": 3,
-    "prefecture": "島根県",
     "code": "32343",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "出雲市",
     "n": 29,
-    "prefecture": "島根県",
     "code": "32203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "大田市",
     "n": 12,
-    "prefecture": "島根県",
     "code": "32205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "安来市",
     "n": 5,
-    "prefecture": "島根県",
     "code": "32206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "松江市",
     "n": 56,
-    "prefecture": "島根県",
     "code": "32201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "江津市",
     "n": 7,
-    "prefecture": "島根県",
     "code": "32207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "浜田市",
     "n": 23,
-    "prefecture": "島根県",
     "code": "32202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "益田市",
     "n": 14,
-    "prefecture": "島根県",
     "code": "32204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "邑智郡川本町",
     "n": 3,
-    "prefecture": "島根県",
     "code": "32441",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "邑智郡邑南町",
     "n": 2,
-    "prefecture": "島根県",
     "code": "32449",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "隠岐の島町",
     "n": 1,
-    "prefecture": "島根県",
     "code": "32528",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "隠岐郡海士町",
     "n": 10,
-    "prefecture": "島根県",
     "code": "32525",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "隠岐郡知夫村",
     "n": 1,
-    "prefecture": "島根県",
     "code": "32527",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "隠岐郡西ノ島町",
     "n": 3,
-    "prefecture": "島根県",
     "code": "32526",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "隠岐郡隠岐の島町",
     "n": 6,
-    "prefecture": "島根県",
     "code": "32528",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "雲南市",
     "n": 11,
-    "prefecture": "島根県",
     "code": "32209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "飯石郡飯南町",
     "n": 2,
-    "prefecture": "島根県",
     "code": "32386",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "鹿足郡吉賀町",
     "n": 1,
-    "prefecture": "島根県",
     "code": "32505",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "島根県",
     "municipality": "鹿足郡津和野町",
     "n": 3,
-    "prefecture": "島根県",
     "code": "32501",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "広島県",
     "municipality": "広島市",
     "n": 652,
-    "prefecture": "広島県",
     "code": "34100",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "徳島県",
     "municipality": "吉野川市",
     "n": 1,
-    "prefecture": "徳島県",
     "code": "36205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "徳島県",
     "municipality": "小松島市",
     "n": 42,
-    "prefecture": "徳島県",
     "code": "36203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "徳島県",
     "municipality": "阿南市",
     "n": 69,
-    "prefecture": "徳島県",
     "code": "36204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "上浮穴郡久万高原町",
     "n": 67,
-    "prefecture": "愛媛県",
     "code": "38386",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "伊予市",
     "n": 68,
-    "prefecture": "愛媛県",
     "code": "38210",
     "method": "official_name_prefix"
   },
@@ -1441,1696 +1462,1696 @@
     "source_key": "municipal-catalog:1cc72829-eb02-47ef-b691-f5a4c41401f4:a2641b59dc7945ec72d4dbdf"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "伊予郡砥部町",
     "n": 32,
-    "prefecture": "愛媛県",
     "code": "38402",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "宇和島市",
     "n": 133,
-    "prefecture": "愛媛県",
     "code": "38203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "松山市",
     "n": 480,
-    "prefecture": "愛媛県",
     "code": "38201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛媛県",
     "municipality": "鬼北町",
     "n": 36,
-    "prefecture": "愛媛県",
     "code": "38488",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛知県",
     "municipality": "尾張旭市",
     "n": 197,
-    "prefecture": "愛知県",
     "code": "23226",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛知県",
     "municipality": "日進市",
     "n": 50,
-    "prefecture": "愛知県",
     "code": "23230",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛知県",
     "municipality": "瀬戸市",
     "n": 180,
-    "prefecture": "愛知県",
     "code": "23204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛知県",
     "municipality": "犬山市",
     "n": 129,
-    "prefecture": "愛知県",
     "code": "23215",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "愛知県",
     "municipality": "長久手市",
     "n": 71,
-    "prefecture": "愛知県",
     "code": "23238",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "新潟県",
     "municipality": "新潟市",
     "n": 571,
-    "prefecture": "新潟県",
     "code": "15100",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "新潟県",
     "municipality": "村上市",
     "n": 104,
-    "prefecture": "新潟県",
     "code": "15212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "新潟県",
     "municipality": "長岡市",
     "n": 1,
-    "prefecture": "新潟県",
     "code": "15202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "世田谷区",
     "n": 357,
-    "prefecture": "東京都",
     "code": "13112",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "中央区",
     "n": 207,
-    "prefecture": "東京都",
     "code": "13102",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "中野区",
     "n": 245,
-    "prefecture": "東京都",
     "code": "13114",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "北区",
     "n": 236,
-    "prefecture": "東京都",
     "code": "13117",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "千代田区",
     "n": 153,
-    "prefecture": "東京都",
     "code": "13101",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "台東区",
     "n": 477,
-    "prefecture": "東京都",
     "code": "13106",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "品川区",
     "n": 436,
-    "prefecture": "東京都",
     "code": "13109",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "大田区",
     "n": 466,
-    "prefecture": "東京都",
     "code": "13111",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "小平市",
     "n": 1,
-    "prefecture": "東京都",
     "code": "13211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "小金井市",
     "n": 88,
-    "prefecture": "東京都",
     "code": "13210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "文京区",
     "n": 251,
-    "prefecture": "東京都",
     "code": "13105",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "新宿区",
     "n": 133,
-    "prefecture": "東京都",
     "code": "13104",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "杉並区",
     "n": 243,
-    "prefecture": "東京都",
     "code": "13115",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "東村山市",
     "n": 74,
-    "prefecture": "東京都",
     "code": "13213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "板橋区",
     "n": 251,
-    "prefecture": "東京都",
     "code": "13119",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "江戸川区",
     "n": 51,
-    "prefecture": "東京都",
     "code": "13123",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "江東区",
     "n": 251,
-    "prefecture": "東京都",
     "code": "13108",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "渋谷区",
     "n": 109,
-    "prefecture": "東京都",
     "code": "13113",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "港区",
     "n": 229,
-    "prefecture": "東京都",
     "code": "13103",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "狛江市",
     "n": 38,
-    "prefecture": "東京都",
     "code": "13219",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "町田市",
     "n": 192,
-    "prefecture": "東京都",
     "code": "13209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "目黒区",
     "n": 152,
-    "prefecture": "東京都",
     "code": "13110",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "練馬区",
     "n": 377,
-    "prefecture": "東京都",
     "code": "13120",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "羽村市",
     "n": 124,
-    "prefecture": "東京都",
     "code": "13227",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "荒川区",
     "n": 77,
-    "prefecture": "東京都",
     "code": "13118",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "葛飾区",
     "n": 248,
-    "prefecture": "東京都",
     "code": "13122",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "豊島区",
     "n": 286,
-    "prefecture": "東京都",
     "code": "13116",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "足立区",
     "n": 328,
-    "prefecture": "東京都",
     "code": "13121",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "東京都",
     "municipality": "墨田区",
     "n": 229,
-    "prefecture": "東京都",
     "code": "13107",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "壬生町",
     "n": 30,
-    "prefecture": "栃木県",
     "code": "09361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市ゆいの杜3-15-30",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上戸祭町271-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上横田町850",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上欠町151-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上欠町345-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上欠町719番地1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上田原町1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上田原町249",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上田原町355",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上田町1060-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市上籠谷町1401",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下反町町256-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下小倉町1302",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下小池町466-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下小池町569-37",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下岡本町1954-10",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下平出町158-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下平出町479",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下栗町963",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下桑島町1030-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下桑島町1078",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下桑島町465",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下田原町1722",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下田原町3434",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下田原町3435番地",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下砥上町121",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下砥上町1259-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市下荒針町3456-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中久保2丁目1-25",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中今泉3丁目5-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中今泉5丁目37-16",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中央1丁目1-13",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中央1丁目1-15",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中央本町1-29",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町2481-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町2623",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3130",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3221-4",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3225",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3397",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3709-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中岡本町3743",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中里町162",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中里町181-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中里町182-1",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市中里町201-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市五代2丁目22-33",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市京町9-25",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今泉1丁目4-33",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今泉町143-6",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今泉町3007",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今泉町47-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今里町1188-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市今里町18-4",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市元今泉1丁目7-29",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市元今泉5-3-11",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市元今泉5丁目5-18",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市元今泉5丁目9-7",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市南大通り2丁目6-6",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市南町3-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市南町6-3",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市古賀志町583",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市城南3丁目15-32",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市城東2丁目23番1号",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市城東2丁目5-17",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市塙田5丁目1-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市大和1丁目10-15",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市大曽2丁目2-21",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市大谷町1059-5",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市大谷町1402",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市大谷町1423",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市天神1丁目1-24",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市天神1丁目1-42",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宝木本町1263-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宝木本町1864-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宝木本町1868-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宝木本町1991-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宝木町2丁目1075-12",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宮の内1丁目174-8",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宮みらい1-20",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市宮原4丁目1-14",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市屋板町1072",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市屋板町143",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市屋板町251-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市屋板町558",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市屋板町576-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市山本1-37-27",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市岩曽町825-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市岩本町483",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市峰3丁目20-17",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市平出町1804",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市平出町3764-10",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市御幸ヶ原町53-2",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市御幸本町4638-1",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市徳次郎町1964",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市徳次郎町66-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市徳次郎町80-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市戸祭1丁目10-25",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市戸祭元町1-15",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市戸祭台46-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市戸祭町3043-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市新富町15-25",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市新富町9-4",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市新里町丁1608-19",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市新里町丁292",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市新里町丙254",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市旭1丁目1-5",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市明保野町7-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市明保野町7-57",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市明保野町7-66",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市明保野町7-9",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市星が丘2丁目3-31",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市春日町11-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市本丸町3520",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市東塙田1丁目6-14",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市東戸祭1丁目2-7",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市松田新田町116-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市松風台1200-220",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市板戸町1765",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市柳田町1320-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市桜3丁目2-22",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市横山町411-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市氷室町1713-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市氷室町2272-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市江曽島2丁目4-23",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市江野町8-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市河原町1-41",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市泉が丘3-17-16",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市泉が丘4丁目11-40",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市泉が丘7丁目12-14",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市海道町35-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市清原工業団地14",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市清原工業団地15-4",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市瑞穂1丁目22",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市白沢町1643",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市白沢町1791-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市白沢町1873-2",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市白沢町2411",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市白沢町385",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市石井町1213",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市石井町2800-42",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市石井町字大島2326",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市砥上町52",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市立伏町462-66",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市立伏町8-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市竹下町380-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市竹林町532",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市竹林町968",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市竹林町972",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市篠井町1885-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市簗瀬町1493",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市細谷1丁目4-38",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市細谷町604",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市緑3丁目3-12",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市緑3丁目5-3",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市緑5丁目3-16",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市緑5丁目8-8",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市若松原3丁目19-27",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市若草3-12-11",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市若草3丁目12-25",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市若草3丁目13-13",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市茂原町777-1",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市茂原町777-7",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西1丁目2-13",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西一の沢町17-32",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西刑部町1861",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西刑部町444",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西原2丁目5-42",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西川田本町3丁目11-15",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西川田町1038",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市西川田町805-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市道場宿町848",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市針ヶ谷1丁目18-21",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市錦2丁目7-15",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鐺山町231",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市長岡町1077",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市関堀町337",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市関堀町350",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市関白町471",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽南2丁目4-58",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽南4丁目5-6",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽東2丁目16-36",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽東2丁目16-38",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽東2丁目3-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市陽西町1-16",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市雀の宮3丁目10-13",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市雀の宮7丁目28-16",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市雀宮町56-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市馬場通り4-1-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市駅前通り1丁目4-6",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市駒生町2360",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市駒生町3364-29",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田2丁目21-7",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田町261",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田町2708-3",
     "n": 2,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田町3668-36",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田町3669",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "宇都宮市鶴田町970-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "小山市",
     "n": 174,
-    "prefecture": "栃木県",
     "code": "09208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "日光市瀬川1334-1",
     "n": 1,
-    "prefecture": "栃木県",
     "code": "09206",
     "method": "official_name_prefix"
   },
@@ -3199,16 +3220,16 @@
     "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:8227338e873e56bbdb0295b4"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "那須塩原市",
     "n": 96,
-    "prefecture": "栃木県",
     "code": "09213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "野木町",
     "n": 20,
-    "prefecture": "栃木県",
     "code": "09364",
     "method": "official_name_prefix"
   },
@@ -3229,730 +3250,814 @@
     "source_key": "bodik-reviewed:9787dee1-6ab7-4e09-896d-4a8d2a98c51f:b3f9242fa559c1687db007c0"
   },
   {
+    "prefecture": "栃木県",
     "municipality": "鹿沼市",
     "n": 153,
-    "prefecture": "栃木県",
     "code": "09205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "与那原町",
     "n": 21,
-    "prefecture": "沖縄県",
     "code": "47348",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "中頭郡中城村",
-    "n": 15,
     "prefecture": "沖縄県",
+    "municipality": "中城村",
+    "n": 12,
     "code": "47328",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡中城村",
+    "n": 15,
+    "code": "47328",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
     "municipality": "中頭郡北中城村",
     "n": 3,
-    "prefecture": "沖縄県",
     "code": "47327",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "中頭郡読谷村",
     "n": 67,
-    "prefecture": "沖縄県",
     "code": "47324",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "八重山郡竹富町",
     "n": 58,
-    "prefecture": "沖縄県",
     "code": "47381",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
+    "municipality": "北中城村",
+    "n": 3,
+    "code": "47327",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "北谷町",
+    "n": 57,
+    "code": "47326",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
     "municipality": "南城市",
     "n": 32,
-    "prefecture": "沖縄県",
     "code": "47215",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "名護市",
     "n": 49,
-    "prefecture": "沖縄県",
     "code": "47209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "国頭郡宜野座村",
     "n": 28,
-    "prefecture": "沖縄県",
     "code": "47313",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "大宜味村",
     "n": 6,
-    "prefecture": "沖縄県",
     "code": "47302",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
+    "municipality": "宜野湾市",
+    "n": 28,
+    "code": "47205",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
     "municipality": "島尻郡南大東村",
     "n": 12,
-    "prefecture": "沖縄県",
     "code": "47357",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
     "municipality": "島尻郡南風原町",
     "n": 20,
-    "prefecture": "沖縄県",
     "code": "47350",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "沖縄市",
-    "n": 85,
     "prefecture": "沖縄県",
+    "municipality": "沖縄市",
+    "n": 87,
     "code": "47211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
+    "municipality": "浦添市",
+    "n": 51,
+    "code": "47208",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "渡名喜村",
+    "n": 2,
+    "code": "47356",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
     "municipality": "西原町",
     "n": 12,
-    "prefecture": "沖縄県",
     "code": "47329",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "沖縄県",
+    "municipality": "読谷村",
+    "n": 1,
+    "code": "47324",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "那覇市",
+    "n": 123,
+    "code": "47201",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "滋賀県",
     "municipality": "大津市",
     "n": 366,
-    "prefecture": "滋賀県",
     "code": "25201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "滋賀県",
     "municipality": "彦根市",
     "n": 9,
-    "prefecture": "滋賀県",
     "code": "25202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "滋賀県",
     "municipality": "米原市",
     "n": 65,
-    "prefecture": "滋賀県",
     "code": "25214",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "近江八幡市",
-    "n": 10,
     "prefecture": "滋賀県",
+    "municipality": "近江八幡市",
+    "n": 151,
     "code": "25204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "上天草市",
     "n": 13,
-    "prefecture": "熊本県",
     "code": "43212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "上益城郡山都町",
     "n": 42,
-    "prefecture": "熊本県",
     "code": "43447",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "上益城郡益城町",
     "n": 29,
-    "prefecture": "熊本県",
     "code": "43443",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "八代市",
     "n": 130,
-    "prefecture": "熊本県",
     "code": "43202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "八代郡氷川町",
     "n": 17,
-    "prefecture": "熊本県",
     "code": "43468",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
+    "municipality": "和水町",
+    "n": 16,
+    "code": "43369",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "熊本県",
     "municipality": "天草郡苓北町",
     "n": 45,
-    "prefecture": "熊本県",
     "code": "43531",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "宇土市",
     "n": 42,
-    "prefecture": "熊本県",
     "code": "43211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "山鹿市",
     "n": 39,
-    "prefecture": "熊本県",
     "code": "43208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
+    "municipality": "玉名市",
+    "n": 90,
+    "code": "43206",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "熊本県",
     "municipality": "球磨郡多良木町",
     "n": 9,
-    "prefecture": "熊本県",
     "code": "43505",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "美里町",
     "n": 16,
-    "prefecture": "熊本県",
     "code": "43348",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "荒尾市",
     "n": 36,
-    "prefecture": "熊本県",
     "code": "43204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "葦北郡津奈木町",
     "n": 8,
-    "prefecture": "熊本県",
     "code": "43484",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "葦北郡芦北町",
     "n": 28,
-    "prefecture": "熊本県",
     "code": "43482",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "阿蘇市",
     "n": 45,
-    "prefecture": "熊本県",
     "code": "43214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "熊本県",
     "municipality": "阿蘇郡高森町",
     "n": 22,
-    "prefecture": "熊本県",
     "code": "43428",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "かほく市",
     "n": 44,
-    "prefecture": "石川県",
     "code": "17209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "七尾市",
     "n": 85,
-    "prefecture": "石川県",
     "code": "17202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "中能登町",
     "n": 31,
-    "prefecture": "石川県",
     "code": "17407",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "内灘町",
     "n": 2,
-    "prefecture": "石川県",
     "code": "17365",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "加賀市",
     "n": 138,
-    "prefecture": "石川県",
     "code": "17206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "宝達志水町",
     "n": 27,
-    "prefecture": "石川県",
     "code": "17386",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "小松市",
     "n": 90,
-    "prefecture": "石川県",
     "code": "17203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "志賀町",
     "n": 28,
-    "prefecture": "石川県",
     "code": "17384",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "河北郡内灘町",
     "n": 41,
-    "prefecture": "石川県",
     "code": "17365",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "河北郡津幡町",
     "n": 54,
-    "prefecture": "石川県",
     "code": "17361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "津幡町",
     "n": 6,
-    "prefecture": "石川県",
     "code": "17361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "珠洲市",
     "n": 52,
-    "prefecture": "石川県",
     "code": "17205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "白山市",
     "n": 182,
-    "prefecture": "石川県",
     "code": "17210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "穴水町",
     "n": 1,
-    "prefecture": "石川県",
     "code": "17461",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "羽咋市",
     "n": 58,
-    "prefecture": "石川県",
     "code": "17207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "羽咋郡宝達志水町",
     "n": 1,
-    "prefecture": "石川県",
     "code": "17386",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "羽咋郡志賀町",
     "n": 1,
-    "prefecture": "石川県",
     "code": "17384",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "能登町",
     "n": 2,
-    "prefecture": "石川県",
     "code": "17463",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "能美市",
     "n": 83,
-    "prefecture": "石川県",
     "code": "17211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "輪島市",
     "n": 71,
-    "prefecture": "石川県",
     "code": "17204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "野々市市",
     "n": 66,
-    "prefecture": "石川県",
     "code": "17212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "金沢市",
     "n": 377,
-    "prefecture": "石川県",
     "code": "17201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "鳳珠郡穴水町",
     "n": 30,
-    "prefecture": "石川県",
     "code": "17461",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "鳳珠郡能登町",
     "n": 53,
-    "prefecture": "石川県",
     "code": "17463",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "石川県",
     "municipality": "鹿島郡中能登町",
     "n": 2,
-    "prefecture": "石川県",
     "code": "17407",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "三浦市",
     "n": 20,
-    "prefecture": "神奈川県",
     "code": "14210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "中井町",
     "n": 12,
-    "prefecture": "神奈川県",
     "code": "14361",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "伊勢原市",
     "n": 164,
-    "prefecture": "神奈川県",
     "code": "14214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "南足柄市",
     "n": 29,
-    "prefecture": "神奈川県",
     "code": "14217",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "大井町",
     "n": 6,
-    "prefecture": "神奈川県",
     "code": "14362",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "大和市",
     "n": 480,
-    "prefecture": "神奈川県",
     "code": "14213",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "大磯町",
     "n": 102,
-    "prefecture": "神奈川県",
     "code": "14341",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "小田原市",
     "n": 197,
-    "prefecture": "神奈川県",
     "code": "14206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "平塚市",
     "n": 320,
-    "prefecture": "神奈川県",
     "code": "14203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "座間市",
     "n": 70,
-    "prefecture": "神奈川県",
     "code": "14216",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "海老名市",
     "n": 78,
-    "prefecture": "神奈川県",
     "code": "14215",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "相模原市",
     "n": 695,
-    "prefecture": "神奈川県",
     "code": "14150",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "綾瀬市",
     "n": 69,
-    "prefecture": "神奈川県",
     "code": "14218",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "茅ヶ崎市",
     "n": 126,
-    "prefecture": "神奈川県",
     "code": "14207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "葉山町",
     "n": 34,
-    "prefecture": "神奈川県",
     "code": "14301",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "藤沢市",
     "n": 266,
-    "prefecture": "神奈川県",
     "code": "14205",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "足柄下郡箱根町",
     "n": 1,
-    "prefecture": "神奈川県",
     "code": "14382",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "神奈川県",
     "municipality": "鎌倉市",
     "n": 329,
-    "prefecture": "神奈川県",
     "code": "14204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福井県",
     "municipality": "坂井市",
     "n": 123,
-    "prefecture": "福井県",
     "code": "18210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福井県",
     "municipality": "池田町",
     "n": 11,
-    "prefecture": "福井県",
     "code": "18382",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福井県",
     "municipality": "鯖江市",
     "n": 136,
-    "prefecture": "福井県",
     "code": "18207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "みやこ町",
     "n": 41,
-    "prefecture": "福岡県",
     "code": "40625",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "久留米市",
     "n": 172,
-    "prefecture": "福岡県",
     "code": "40203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "小郡市",
     "n": 41,
-    "prefecture": "福岡県",
     "code": "40216",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "春日市",
     "n": 73,
-    "prefecture": "福岡県",
     "code": "40218",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "福岡市",
     "n": 1124,
-    "prefecture": "福岡県",
     "code": "40130",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "糟屋郡新宮町",
     "n": 26,
-    "prefecture": "福岡県",
     "code": "40345",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福岡県",
     "municipality": "飯塚市",
     "n": 166,
-    "prefecture": "福岡県",
     "code": "40205",
     "method": "official_name_prefix"
   },
   {
-    "municipality": "いわき市",
-    "n": 229,
     "prefecture": "福島県",
+    "municipality": "いわき市",
+    "n": 232,
     "code": "07204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福島県",
+    "municipality": "矢吹町",
+    "n": 42,
+    "code": "07466",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "福島県",
     "municipality": "西郷村",
     "n": 21,
-    "prefecture": "福島県",
     "code": "07461",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福島県",
     "municipality": "郡山市",
     "n": 21,
-    "prefecture": "福島県",
     "code": "07203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "福島県",
+    "municipality": "須賀川市",
+    "n": 89,
+    "code": "07207",
+    "method": "official_name_prefix"
+  },
+  {
+    "prefecture": "秋田県",
     "municipality": "山本郡三種町",
     "n": 20,
-    "prefecture": "秋田県",
     "code": "05348",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "秋田県",
     "municipality": "横手市",
     "n": 119,
-    "prefecture": "秋田県",
     "code": "05203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "秋田県",
     "municipality": "能代市",
     "n": 67,
-    "prefecture": "秋田県",
     "code": "05202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "秋田県",
     "municipality": "鹿角市",
     "n": 44,
-    "prefecture": "秋田県",
     "code": "05209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "群馬県",
     "municipality": "伊勢崎市",
     "n": 151,
-    "prefecture": "群馬県",
     "code": "10204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "群馬県",
     "municipality": "富岡市",
     "n": 65,
-    "prefecture": "群馬県",
     "code": "10210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "取手市",
     "n": 99,
-    "prefecture": "茨城県",
     "code": "08217",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "古河市",
     "n": 92,
-    "prefecture": "茨城県",
     "code": "08204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "常総市",
     "n": 45,
-    "prefecture": "茨城県",
     "code": "08211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "潮来市",
     "n": 28,
-    "prefecture": "茨城県",
     "code": "08223",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "笠間市",
     "n": 90,
-    "prefecture": "茨城県",
     "code": "08216",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "茨城町",
     "n": 26,
-    "prefecture": "茨城県",
     "code": "08302",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "高萩市",
     "n": 33,
-    "prefecture": "茨城県",
     "code": "08214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "茨城県",
     "municipality": "龍ケ崎市",
     "n": 95,
-    "prefecture": "茨城県",
     "code": "08208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長崎県",
     "municipality": "五島市",
     "n": 74,
-    "prefecture": "長崎県",
     "code": "42211",
     "method": "official_name_prefix"
   },
@@ -5237,170 +5342,170 @@
     "source_key": "municipal-catalog:1f8a1e7e-5b9c-4060-9e94-7f9d3b52576f:e6490e74558d72b5b7c6a989"
   },
   {
+    "prefecture": "長崎県",
     "municipality": "対馬市",
     "n": 191,
-    "prefecture": "長崎県",
     "code": "42209",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長崎県",
     "municipality": "平戸市",
     "n": 69,
-    "prefecture": "長崎県",
     "code": "42207",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長崎県",
     "municipality": "西彼杵郡時津町",
     "n": 44,
-    "prefecture": "長崎県",
     "code": "42308",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長崎県",
     "municipality": "西彼杵郡長与町",
     "n": 55,
-    "prefecture": "長崎県",
     "code": "42307",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長野県",
     "municipality": "上田市",
     "n": 206,
-    "prefecture": "長野県",
     "code": "20203",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長野県",
     "municipality": "北佐久郡立科町",
     "n": 1,
-    "prefecture": "長野県",
     "code": "20324",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "長野県",
     "municipality": "茅野市",
     "n": 58,
-    "prefecture": "長野県",
     "code": "20214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "青森県",
     "municipality": "十和田市",
     "n": 56,
-    "prefecture": "青森県",
     "code": "02206",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "青森県",
     "municipality": "平川市",
     "n": 64,
-    "prefecture": "青森県",
     "code": "02210",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "静岡県",
     "municipality": "浜松市",
     "n": 272,
-    "prefecture": "静岡県",
     "code": "22130",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "香川県",
     "municipality": "三豊市",
     "n": 99,
-    "prefecture": "香川県",
     "code": "37208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "香川県",
     "municipality": "丸亀市",
     "n": 105,
-    "prefecture": "香川県",
     "code": "37202",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "香川県",
     "municipality": "善通寺市",
     "n": 46,
-    "prefecture": "香川県",
     "code": "37204",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "高知県",
     "municipality": "中土佐町",
     "n": 23,
-    "prefecture": "高知県",
     "code": "39401",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "高知県",
     "municipality": "宿毛市",
     "n": 8,
-    "prefecture": "高知県",
     "code": "39208",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "高知県",
     "municipality": "香南市",
     "n": 1,
-    "prefecture": "高知県",
     "code": "39211",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "高知県",
     "municipality": "香美市",
     "n": 35,
-    "prefecture": "高知県",
     "code": "39212",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "高知県",
     "municipality": "高知市",
     "n": 1,
-    "prefecture": "高知県",
     "code": "39201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鳥取県",
     "municipality": "西伯郡南部町",
     "n": 38,
-    "prefecture": "鳥取県",
     "code": "31389",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鳥取県",
     "municipality": "鳥取市",
     "n": 230,
-    "prefecture": "鳥取県",
     "code": "31201",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鹿児島県",
     "municipality": "垂水市",
     "n": 65,
-    "prefecture": "鹿児島県",
     "code": "46214",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鹿児島県",
     "municipality": "大島郡知名町",
     "n": 16,
-    "prefecture": "鹿児島県",
     "code": "46534",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鹿児島県",
     "municipality": "奄美市",
     "n": 66,
-    "prefecture": "鹿児島県",
     "code": "46222",
     "method": "official_name_prefix"
   },
   {
+    "prefecture": "鹿児島県",
     "municipality": "熊毛郡南種子町",
     "n": 17,
-    "prefecture": "鹿児島県",
     "code": "46502",
     "method": "official_name_prefix"
   }

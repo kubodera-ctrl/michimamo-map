@@ -1,0 +1,6062 @@
+[
+  {
+    "prefecture": "三重県",
+    "municipality": "亀山市",
+    "source_url": "https://data.bodik.jp/dataset/242101_01_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-10-01 06:20:22.213196+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "員弁郡東員町",
+    "source_url": "https://odm.bodik.jp/dataset/23ff4a9e-eafa-4110-a430-eb5f5adbbd4f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2024-11-28 05:41:15.466592+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "四日市市",
+    "source_url": "https://odm.bodik.jp/dataset/422f8da8-0b3c-4d84-b8dd-d88d18e914ce",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-01-24 12:58:31.597052+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "大黒田町",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-12 12:49:39.977918+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "嬉野中川町",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-12 12:49:39.977918+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "曽原町",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-12 12:49:39.977918+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "木曽岬町",
+    "source_url": "https://odm.bodik.jp/dataset/a5b687c3-3c96-47c5-a5de-b1bfe2d14738",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "松阪市",
+    "source_url": "https://data.bodik.jp/dataset/242047_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-12 12:49:39.977918+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "桑名市",
+    "source_url": "https://www.city.kuwana.lg.jp/hokeniryo/anzen/kyuukyuu/23-11581-240-500.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-08-25 06:55:01.420192+00"
+  },
+  {
+    "prefecture": "三重県",
+    "municipality": "熊野市",
+    "source_url": "https://data.bodik.jp/dataset/242128_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-03-14 06:41:39.180658+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "与謝野町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "久御山町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "亀岡市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-26 05:33:48.037966+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "井手町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京丹後市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 3,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京田辺市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "京都市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "伊根町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "八幡市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "南丹市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "南山城村",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "向日市",
+    "source_url": "https://data.bodik.jp/dataset/262081_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-06-03 02:24:36.088933+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "和束町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "城陽市",
+    "source_url": " ",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-08-22 00:26:33.39734+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "大山崎町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宇治市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宇治田原町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "宮津市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "木津川市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "相楽郡精華町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "福知山市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "笠置町",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "綾部市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 3,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-03-02 02:53:22.188139+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "舞鶴市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "京都府",
+    "municipality": "長岡京市",
+    "source_url": "https://data.bodik.jp/dataset/260002_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-04 04:29:03.357132+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "佐賀市",
+    "source_url": "https://odm.bodik.jp/dataset/c740b424-029f-4fa3-8f3c-cd1c2e0541a6",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-07-17 05:29:15.642049+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "多久市",
+    "source_url": "https://data.bodik.jp/dataset/412040_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2022-10-07 06:12:59.288086+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "東多久町",
+    "source_url": "https://data.bodik.jp/dataset/412040_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2022-10-07 06:12:59.288086+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "東松浦郡玄海町",
+    "source_url": "https://data.bodik.jp/dataset/413879_soumu001",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2022-10-17 00:29:07.854612+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "武雄市",
+    "source_url": "https://data.bodik.jp/dataset/412066_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2020-08-05 05:58:22.201813+00"
+  },
+  {
+    "prefecture": "佐賀県",
+    "municipality": "神埼郡吉野ヶ里町",
+    "source_url": "https://data.bodik.jp/dataset/413275_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-13 08:23:28.270378+00"
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "丹波市",
+    "source_url": "https://data.bodik.jp/dataset/282235_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-05-14 00:19:55.129381+00"
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "加古川市",
+    "source_url": "https://odm.bodik.jp/dataset/373851c2-0cce-44de-b25a-9cc447f1b9e2",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-10-19 04:10:08.371103+00"
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "朝来市",
+    "source_url": "https://odm.bodik.jp/dataset/ef690c7d-60f1-4376-a58c-39c550dbfdcc",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2024-09-30 07:03:46.549558+00"
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "赤穂市",
+    "source_url": "https://odm.bodik.jp/dataset/f1d1870c-7d44-4cca-bb95-e5b5a8067322",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "兵庫県",
+    "municipality": "養父市",
+    "source_url": "https://odm.bodik.jp/dataset/ce36e997-398a-46d8-b684-bf44a2b6a9b5",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2021-03-24 01:19:05.326414+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "三笠市",
+    "source_url": "https://odm.bodik.jp/dataset/3292f85b-9126-4f20-9908-30ce28f62524",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-03-15 07:05:24.012745+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "京極町",
+    "source_url": "https://odm.bodik.jp/dataset/2a81c8f5-52a9-4c37-a8f0-4125dd0fb74e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-07-25 02:48:32.506+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "八雲町",
+    "source_url": "https://odm.bodik.jp/dataset/3ed63566-b369-42d6-a781-d933a2f66c1b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2018-06-13 05:41:13.411+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "別海町",
+    "source_url": "https://odm.bodik.jp/dataset/902b004a-7f83-4552-852e-984e5e46a22b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2020-01-09 03:06:30.157+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北広島市",
+    "source_url": "https://odm.bodik.jp/dataset/c41e2add-1c06-4331-8eee-e425dcf83a1f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-01-17 02:00:57.242+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北斗市",
+    "source_url": "https://odm.bodik.jp/dataset/07ab4c0a-c3ee-4c20-b38f-6b411dc8d70e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-09-04 05:09:49.679+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "北見市",
+    "source_url": "https://odm.bodik.jp/dataset/e9a6ef86-4351-42cc-9861-982b4f547f28",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-02-06 06:10:52.208+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "占冠村",
+    "source_url": "https://odm.bodik.jp/dataset/5225c3a2-3244-40c5-b014-071dae72bded",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-06-05 08:11:07.262+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "室蘭市",
+    "source_url": "https://odm.bodik.jp/dataset/5d8ae2ab-8e3c-4c48-9422-8c24aae6da7c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2020-04-06 03:54:09.986+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "富良野市",
+    "source_url": "https://odm.bodik.jp/dataset/4803f77c-ccea-4b26-b8be-76afa9cbed2b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-07-16 08:24:25.9+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "小平町",
+    "source_url": "https://odm.bodik.jp/dataset/2023c3c4-627b-471b-8110-81bd24ef69fc",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-02-01 00:42:03.524+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "岩見沢市",
+    "source_url": "https://odm.bodik.jp/dataset/09986b09-1b2f-4b3f-9d0b-50749b31b9a7",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-03-17 05:56:03.512+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "恵庭市",
+    "source_url": "https://odm.bodik.jp/dataset/1de97f90-12b1-4034-8bed-45b0790ad14a",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-06-12 05:37:22.648+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "新篠津村",
+    "source_url": "https://odm.bodik.jp/dataset/a0ea375b-f6fb-46fc-ba94-818d96720ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2018-12-13 03:05:19.48+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "枝幸町",
+    "source_url": "https://odm.bodik.jp/dataset/de26ecb0-5242-4493-81f7-7b89ac9801de",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-06-29 23:47:03.450134+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "沼田町",
+    "source_url": "https://odm.bodik.jp/dataset/34692731-e5ea-466c-8c9e-602f30d9128e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-02-18 00:51:40.844+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "登別市",
+    "source_url": "https://odm.bodik.jp/dataset/d6c49be4-31c0-420f-a471-5a19a1723854",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-05-10 08:42:13.92737+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "空知郡上砂川町",
+    "source_url": "https://data.bodik.jp/dataset/014257_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-07-10 02:48:12.670219+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "苫前郡初山別村",
+    "source_url": "https://odm.bodik.jp/dataset/bf3c9fc7-3c91-4b2f-9321-b4a05caaabec",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-04-18 07:00:06.465+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "苫小牧市",
+    "source_url": "https://odm.bodik.jp/dataset/eb0495b6-52f8-4aaf-b331-56b035be8781",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-04-08 00:36:19.372+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "赤平市",
+    "source_url": "https://odm.bodik.jp/dataset/4a7f45c1-2b74-48cb-a4da-a60a055a6050",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "足寄町",
+    "source_url": "https://odm.bodik.jp/dataset/574bf071-1ae5-4938-bd73-e6f10355cfef",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-17 04:12:53.688+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "雨竜郡秩父別町",
+    "source_url": "https://odm.bodik.jp/dataset/d4275d23-98af-4ca0-815e-b26b78b4027e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-03-04 00:55:47.879+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "音更町",
+    "source_url": "https://odm.bodik.jp/dataset/d4ab0b04-2ba9-42ed-be65-9b72396f1419",
+    "source_url_count": 2,
+    "licenses": [
+      "BODIK API対象ライセンス（CC BY／CC BY-SA／CC0）",
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "prefecture": "北海道",
+    "municipality": "鹿追町",
+    "source_url": "https://odm.bodik.jp/dataset/148ea3ab-f66d-4787-9bea-eea36091b87d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-08 00:34:20.18+00"
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "勝浦市",
+    "source_url": "https://www.city.meguro.tokyo.jp/kurashi/anzen/kyumei/index.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-26 01:52:11.620664+00"
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "浦安市",
+    "source_url": "https://www.city.urayasu.lg.jp/todokede/anzen/kyukyu/1029669.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-03-23 04:30:23.441284+00"
+  },
+  {
+    "prefecture": "千葉県",
+    "municipality": "船橋市",
+    "source_url": "https://data.bodik.jp/dataset/122041_aed_sikoukyousisetsu",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-03-18 07:04:41.703873+00"
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "和歌山市",
+    "source_url": "https://odm.bodik.jp/dataset/92fd1e59-b6ff-4c6f-9691-9142dc20d1a9",
+    "source_url_count": 1,
+    "licenses": [
+      "PDL1.0"
+    ],
+    "latest_source_date": "2026-09-14 09:47:50.818488+00"
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "御坊市",
+    "source_url": "https://data.bodik.jp/dataset/302058_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-09-02 06:25:12.155197+00"
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "新宮市",
+    "source_url": "https://data.bodik.jp/dataset/302074_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-08-05 02:54:50.801953+00"
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "海草郡紀美野町",
+    "source_url": "https://data.bodik.jp/dataset/303046_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-08-15 00:53:28.833415+00"
+  },
+  {
+    "prefecture": "和歌山県",
+    "municipality": "紀の川市",
+    "source_url": "https://data.bodik.jp/dataset/302082_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2021-02-25 07:25:40.743791+00"
+  },
+  {
+    "prefecture": "埼玉県",
+    "municipality": "さいたま市",
+    "source_url": "https://odm.bodik.jp/dataset/f2aeb35d-0597-44ac-a3b9-00d7a61a1dca",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-10-16 00:00:00+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "中津市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "九重町",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "佐伯市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "別府市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "国東市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "大分市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "姫島村",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "宇佐市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-03 02:16:17.353284+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "日出町",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "日田市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "杵築市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "津久見市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "玖珠町",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "由布市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "竹田市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "臼杵市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "豊後大野市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大分県",
+    "municipality": "豊後高田市",
+    "source_url": "http://www.pref.oita.jp/soshiki/12620/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-17 02:55:37.647641+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "四條畷市",
+    "source_url": "https://data.bodik.jp/dataset/272299_7",
+    "source_url_count": 2,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-21 01:12:14.646744+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "寝屋川市",
+    "source_url": "https://odm.bodik.jp/dataset/a00f769c-0b01-4248-8f4c-ab4358c7af61",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-08-03 01:40:28.026788+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "東大阪市",
+    "source_url": "https://data.bodik.jp/dataset/272272_8",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-07-21 02:15:26.89736+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "松原市",
+    "source_url": "https://data.bodik.jp/dataset/_matsubara_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-11-13 07:20:13.874027+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "箕面市",
+    "source_url": "https://data.bodik.jp/dataset/272205_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-10-23 06:35:19.742619+00"
+  },
+  {
+    "prefecture": "大阪府",
+    "municipality": "阪南市",
+    "source_url": "https://data.bodik.jp/dataset/272329_03",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-08-18 01:09:51.519215+00"
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "大和郡山市",
+    "source_url": "https://odm.bodik.jp/dataset/7617f5ee-27db-44da-9dfd-b7bbc94c3c8a",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "斑鳩町",
+    "source_url": "https://odm.bodik.jp/dataset/5b8d400b-3ef4-45ac-be54-2ba66741f53d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "橿原市",
+    "source_url": "https://data.bodik.jp/dataset/292052_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-12-02 06:04:04.522968+00"
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "生駒市",
+    "source_url": "https://odm.bodik.jp/dataset/b06acd68-0fa6-4ece-9f4c-60ff6e9f8823",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2025-07-03 06:10:07.967616+00"
+  },
+  {
+    "prefecture": "奈良県",
+    "municipality": "野迫川村",
+    "source_url": "https://odm.bodik.jp/dataset/9503899a-aedc-4614-9c59-af6b37bb7732",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "亘理町",
+    "source_url": "https://odm.bodik.jp/dataset/0e12ad2d-0eea-4f75-830a-d0d894437b20",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:59:14.95211+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "塩竈市",
+    "source_url": "https://odm.bodik.jp/dataset/a5de7735-26e1-4c11-9216-848c636ca50b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:58:51.285125+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "多賀城市",
+    "source_url": "https://odm.bodik.jp/dataset/f842856d-aac0-44cf-92f7-aed71b941ce3",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:58:52.850967+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "大和町",
+    "source_url": "https://odm.bodik.jp/dataset/a7701969-973e-4f47-953f-007c0ce72e5f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:59:03.185149+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "東松島市",
+    "source_url": "https://odm.bodik.jp/dataset/42251c90-6c18-4e22-8c2f-51ea14a5ee6d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:59:22.004196+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "松島町",
+    "source_url": "https://odm.bodik.jp/dataset/d5bd9080-fc3e-4ba9-a072-bc0b1a4264fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:58:47.571354+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "栗原市",
+    "source_url": "https://odm.bodik.jp/dataset/15ea31a6-69c8-4b0c-ae2b-a1dcf51704f0",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:58:27.647807+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "登米市",
+    "source_url": "https://odm.bodik.jp/dataset/b1f0b7f8-6715-4a2d-98bd-565799db57c2",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:59:24.560874+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "白石市",
+    "source_url": "https://odm.bodik.jp/dataset/11f3a67f-33b6-479f-b65a-dbeb569aef7e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by4_0"
+    ],
+    "latest_source_date": "2026-05-13 18:58:55.556909+00"
+  },
+  {
+    "prefecture": "宮城県",
+    "municipality": "石巻市",
+    "source_url": "https://miyagi.dataeye.jp/resources/33018",
+    "source_url_count": 1,
+    "licenses": [
+      "PDL1.0"
+    ],
+    "latest_source_date": "2026-04-01 00:00:00+00"
+  },
+  {
+    "prefecture": "宮崎県",
+    "municipality": "宮崎市",
+    "source_url": "https://odm.bodik.jp/dataset/5b8584bf-9044-499e-8d85-084e32a90334",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-04-09 00:23:07.457533+00"
+  },
+  {
+    "prefecture": "宮崎県",
+    "municipality": "日向市",
+    "source_url": "https://data.bodik.jp/dataset/452068_kenkou_2201_001_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-03-19 04:27:42.208124+00"
+  },
+  {
+    "prefecture": "富山県",
+    "municipality": "小矢部市",
+    "source_url": "https://odm.bodik.jp/dataset/edb29e34-0497-412e-88b6-97baed2db047",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "2069",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/8f80095c-9eb9-4e3d-bbef-a22139644952",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-05-30 15:12:16.698107+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "上関町",
+    "source_url": "https://odm.bodik.jp/dataset/0e07865a-35e3-42c8-a87c-8c0c4f1aabd9",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-07-01 08:37:48.777132+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "下関市",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/fefb24a0-3cc2-4b25-ba5d-38b2cbae1615",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-02-03 00:56:06.722671+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "山陽小野田市",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/18c1275e-eb1b-4337-b673-5c74fdbef495",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-10-04 06:12:29.130646+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "岩国市",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/296b9f47-52f1-4396-b25e-3f8f8c332962",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-03-31 06:02:04.130515+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "平生町",
+    "source_url": "https://odm.bodik.jp/dataset/58ffbd24-8b52-4a30-bd19-b6ded8936987",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2020-03-28 02:24:51.293518+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "美祢市",
+    "source_url": "https://odm.bodik.jp/dataset/5650fcf4-1034-4cff-91df-7a4dcd7eaec2",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-01-04 04:46:51.714452+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "防府市",
+    "source_url": "https://yamaguchi-opendata.jp/ckan/dataset/ca210ebc-5b01-41ae-b1f4-66ccdcf61dd8",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-05-25 03:01:31.368214+00"
+  },
+  {
+    "prefecture": "山口県",
+    "municipality": "阿武町",
+    "source_url": "https://odm.bodik.jp/dataset/2fe3189b-3ced-4d47-a84d-f91ed3fdaf06",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-01-29 07:56:42.187061+00"
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "寒河江市",
+    "source_url": "https://odm.bodik.jp/dataset/5406bb1f-3223-4172-9c69-c2b05bf2f6e9",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-07-19 07:33:52+00"
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "東田川郡庄内町",
+    "source_url": "https://odm.bodik.jp/dataset/72b8548e-af87-4b48-8ccf-4badba049bfb",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-09 00:00:00+00"
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "舟形町",
+    "source_url": "https://odm.bodik.jp/dataset/d0dfa7d7-fe2e-4814-9f88-bd7d4aa19360",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "山形県",
+    "municipality": "鮭川村",
+    "source_url": "https://odm.bodik.jp/dataset/c04e554d-faeb-4690-b6da-fa5b97bbfb43",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "山梨県",
+    "municipality": "北杜市",
+    "source_url": "https://odm.bodik.jp/dataset/79fc79b6-cfac-455e-9339-8f43f7b3e547",
+    "source_url_count": 4,
+    "licenses": [
+      "CC-BY-4.0",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "山梨県",
+    "municipality": "南部町",
+    "source_url": "https://odm.bodik.jp/dataset/e825b1bf-125b-4842-98bd-73e690213780",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "下呂市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/21a38813-631a-4234-a696-265308d2ca50",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:07:31.312861+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "不破郡垂井町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "中津川市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:42:45.50856+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "八百津町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/f9daea90-d157-4046-a90f-49bb8dbf9512",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 07:06:57.900905+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "加茂郡八百津町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "加茂郡川辺町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "可児市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by",
+      "CC-BY-2.0"
+    ],
+    "latest_source_date": "2025-04-01 00:00:00+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "可児郡御嵩町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "各務原市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "土岐市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/51fccd9b-e36e-458c-a69d-477f90959d40",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:58:28.861889+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "垂井町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/aaf29d99-1ae1-489e-a54b-3a66d3a07fae",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:56:19.599761+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "多治見市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/2777a365-a178-48d6-a416-727f6a6a426c",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:53:40.190896+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "大垣市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "大野町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/67d54e87-e26d-4631-8e10-f928c40d0c74",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:45:54.519131+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "山県市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/29df1a85-6528-4bf6-88e8-137bef852c1a",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 07:04:07.84217+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐南町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/f931e6af-f76c-475c-9724-a8dc85199b08",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:16:18.339047+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/3128e0ef-7d8b-4112-810a-40edc07d6036",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:12:24.863171+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県多治見市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県海津市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県羽島市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "岐阜県郡上市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "恵那市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/4c7313f9-fd53-45c0-aebf-a84c0e2a49c7",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:02:01.700834+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡大野町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡揖斐川町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "揖斐郡池田町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "本巣市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:40:21.634514+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "本巣郡北方町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "東白川村",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/3b019b01-8eb0-40b4-bcd0-af0d30ab80a9",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:03:18.044785+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "海津市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:00:41.912939+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "瑞浪市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "瑞穂市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:37:20.805371+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "美濃加茂市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/12a3b468-bb2d-4121-8e59-b6e3a63f03b0",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:31:11.895173+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "美濃市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "羽島市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "羽島郡笠松町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "郡上市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:19:14.011201+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "関ケ原町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/06df54e1-37f5-4283-97e5-79fd63bb62e0",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 06:48:37.312766+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "関市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "飛騨市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-04-17 04:21:48.438527+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "養老郡養老町",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岐阜県",
+    "municipality": "高山市",
+    "source_url": "https://gifu-opendata.pref.gifu.lg.jp/dataset/5c7f9036-002c-4a4a-b26e-e0aff95b2ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-01-09 12:40:22.989271+00"
+  },
+  {
+    "prefecture": "岡山県",
+    "municipality": "高梁市",
+    "source_url": "https://www.okayama-opendata.jp/resources/17661",
+    "source_url_count": 1,
+    "licenses": [
+      "PDL1.0"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "北上市",
+    "source_url": "https://odm.bodik.jp/dataset/26008388-a1b3-439d-a077-e15b483b3c03",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2022-02-22 03:04:01+00"
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "葛巻町",
+    "source_url": "https://odm.bodik.jp/dataset/070105dc-0e38-42e6-be7a-b0e0cc797579",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-09-05 15:00:08+00"
+  },
+  {
+    "prefecture": "岩手県",
+    "municipality": "西磐井郡平泉町",
+    "source_url": "https://odm.bodik.jp/dataset/41bfadbe-4331-48ac-a098-84dd9e647e59",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2026-02-04 00:00:00+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "仁多郡奥出雲町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "出雲市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "大田市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "安来市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "松江市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "江津市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "浜田市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "益田市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "邑智郡川本町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "邑智郡邑南町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐の島町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡海士町",
+    "source_url": "https://data.bodik.jp/dataset/32525_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡知夫村",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡西ノ島町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "隠岐郡隠岐の島町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "雲南市",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "飯石郡飯南町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "鹿足郡吉賀町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "島根県",
+    "municipality": "鹿足郡津和野町",
+    "source_url": "https://shimane-opendata.jp/resources/640",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "広島県",
+    "municipality": "広島市",
+    "source_url": "https://hiroshima-opendata.dataeye.jp/resources/25496",
+    "source_url_count": 1,
+    "licenses": [
+      "PDL1.0"
+    ],
+    "latest_source_date": "2025-04-30 00:00:00+00"
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "吉野川市",
+    "source_url": "https://odm.bodik.jp/dataset/0fab6d43-5102-4169-b898-11c53f4f668d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-03-25 05:35:59.551+00"
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "小松島市",
+    "source_url": "https://odm.bodik.jp/dataset/0fab6d43-5102-4169-b898-11c53f4f668d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-03-25 05:35:59.551+00"
+  },
+  {
+    "prefecture": "徳島県",
+    "municipality": "阿南市",
+    "source_url": "https://odm.bodik.jp/dataset/cd191ec6-1744-4a9f-a304-760e95bb6585",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-02-02 08:09:31.248+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "上浮穴郡久万高原町",
+    "source_url": "https://data.bodik.jp/dataset/383864_383864000002",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-04-10 05:22:05.022574+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予市",
+    "source_url": "https://odm.bodik.jp/dataset/0aabd6ba-7510-465e-b29d-210484380dbf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2018-10-30 15:00:00+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予文砥部町",
+    "source_url": "https://data.bodik.jp/dataset/384020_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-01-26 04:32:33.364545+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "伊予郡砥部町",
+    "source_url": "https://data.bodik.jp/dataset/384020_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-01-26 04:32:33.364545+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "宇和島市",
+    "source_url": "https://odm.bodik.jp/dataset/4cc45227-043b-42a8-b654-b9be469a6881",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2020-11-29 15:00:00+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "松山市",
+    "source_url": "https://odm.bodik.jp/dataset/63f819a0-835a-49df-a489-8dd9a601448c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-02-28 15:00:00+00"
+  },
+  {
+    "prefecture": "愛媛県",
+    "municipality": "鬼北町",
+    "source_url": "https://odm.bodik.jp/dataset/98632f56-486e-4719-b3c8-9ece2fe0618b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2021-03-07 15:00:00+00"
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "尾張旭市",
+    "source_url": "https://odm.bodik.jp/dataset/21ae043e-ee07-4302-aae6-185de9864f1f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "日進市",
+    "source_url": "https://www.city.nisshin.lg.jp/data_set/juuminmuke/7794.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-06-26 13:45:29.777437+00"
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "瀬戸市",
+    "source_url": "https://odm.bodik.jp/dataset/d3c1def9-ac78-4d68-b6d1-64dbf12d87a6",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "犬山市",
+    "source_url": "https://odm.bodik.jp/dataset/43f3411a-496c-42e4-9846-da8b0bb616bd",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "愛知県",
+    "municipality": "長久手市",
+    "source_url": "https://odm.bodik.jp/dataset/edae946e-c446-4870-8829-403224d90d9e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "新潟市",
+    "source_url": "https://odm.bodik.jp/dataset/55fa3110-3db4-4176-8fd6-1d130a9f8085",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-08-31 04:11:41.194113+00"
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "村上市",
+    "source_url": "https://odm.bodik.jp/dataset/2e83ad66-d1b9-41b2-8c3c-491b19331714",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "新潟県",
+    "municipality": "長岡市",
+    "source_url": "https://odm.bodik.jp/dataset/515002b2-21fb-4b31-8025-2e1125c6c87a",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "世田谷区",
+    "source_url": "https://www.city.setagaya.lg.jp/opendata/22308.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-08-01 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "中央区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131024d0000000031",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "中野区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000111",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "北区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131172d0000000002",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-12 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "千代田区",
+    "source_url": "https://www.city.chiyoda.lg.jp/koho/kurashi/bosai/bosai-taisaku/taisei/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "千代田区ホームページ利用条件"
+    ],
+    "latest_source_date": "2024-10-01 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "台東区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131067d0000000244",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-03-14 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "品川区",
+    "source_url": "https://www2.wagmap.jp/shinagawa/OpenData?mids=100&pno=1",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "大田区",
+    "source_url": "https://www.city.ota.tokyo.jp/seikatsu/hoken/iryokikan_hoka/aed/setting_place/index.html",
+    "source_url_count": 1,
+    "licenses": [
+      "大田区ホームページ利用規約"
+    ],
+    "latest_source_date": "2026-09-02 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "小平市",
+    "source_url": "https://odm.bodik.jp/dataset/79fc79b6-cfac-455e-9339-8f43f7b3e547",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "小金井市",
+    "source_url": "https://odm.bodik.jp/dataset/79fc79b6-cfac-455e-9339-8f43f7b3e547",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "文京区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131059d0000000002",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "新宿区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131041d0000000119",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "杉並区",
+    "source_url": "https://www.city.suginami.tokyo.jp/s045/1474.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-03-01 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "東村山市",
+    "source_url": "https://odm.bodik.jp/dataset/0a30900d-c394-40c6-b59d-a58b2768a852",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2024-06-18 15:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "板橋区",
+    "source_url": "https://www.city.itabashi.tokyo.jp/kusei/joho/1035613/1035617.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-02-04 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "江戸川区",
+    "source_url": "https://www.city.edogawa.tokyo.jp/e004/kuseijoho/opendata/map_data.html",
+    "source_url_count": 1,
+    "licenses": [
+      "江戸川区オープンデータ利用条件"
+    ],
+    "latest_source_date": "2025-03-18 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "江東区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131083d0000000027",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "渋谷区",
+    "source_url": "https://www.city.shibuya.tokyo.jp/kusei/tokei_shibuya/kusei/open-data.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-05-15 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "港区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131032d0000000241",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-07-03 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "狛江市",
+    "source_url": "https://odm.bodik.jp/dataset/53f673e8-4455-41c9-91c9-f2cc2d2da3a9",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2024-02-09 09:16:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "町田市",
+    "source_url": "https://odm.bodik.jp/dataset/c78b2305-322e-4a9d-92a9-6d9f7eed01a0",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "目黒区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131105d0000000108",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "練馬区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131202d0000000111",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "羽村市",
+    "source_url": "https://odm.bodik.jp/dataset/68cf7508-4e5e-4774-8107-4b6b3eccb3e9",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2025-11-26 15:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "荒川区",
+    "source_url": "https://www.city.arakawa.tokyo.jp/a013/anzen/kyuukyuu/aedsetchi.html",
+    "source_url_count": 1,
+    "licenses": [
+      "荒川区ホームページ利用条件"
+    ],
+    "latest_source_date": "2026-06-01 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "葛飾区",
+    "source_url": "https://www2.city.katsushika.lg.jp/kurashi/1004028/1004040/1004904.html",
+    "source_url_count": 1,
+    "licenses": [
+      "葛飾区ホームページ利用条件"
+    ],
+    "latest_source_date": "2026-09-02 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "豊島区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131164d0000000001",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-13 12:38:40.787916+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "足立区",
+    "source_url": "https://www.city.adachi.tokyo.jp/bosai/aed.html",
+    "source_url_count": 1,
+    "licenses": [
+      "足立区ホームページ利用条件"
+    ],
+    "latest_source_date": "2025-12-21 00:00:00+00"
+  },
+  {
+    "prefecture": "東京都",
+    "municipality": "墨田区",
+    "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131075d0000000100",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2021-08-18 00:00:00+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "壬生町",
+    "source_url": "https://odm.bodik.jp/dataset/e2fc6680-83e5-4bce-b574-64b95ef2735a",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市ゆいの杜3-15-30",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上戸祭町271-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上横田町850",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町151-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町345-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上欠町719番地1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町249",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田原町355",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上田町1060-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市上籠谷町1401",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下反町町256-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小倉町1302",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小池町466-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下小池町569-37",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下岡本町1954-10",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下平出町158-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下平出町479",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下栗町963",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町1030-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町1078",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下桑島町465",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町1722",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町3434",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下田原町3435番地",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下砥上町121",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下砥上町1259-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市下荒針町3456-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中久保2丁目1-25",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中今泉3丁目5-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中今泉5丁目37-16",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央1丁目1-13",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央1丁目1-15",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中央本町1-29",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町2481-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町2623",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3130",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3221-4",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3225",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3397",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3709-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中岡本町3743",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町162",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町181-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町182-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市中里町201-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市五代2丁目22-33",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市京町9-25",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉1丁目4-33",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町143-6",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町3007",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今泉町47-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今里町1188-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市今里町18-4",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉1丁目7-29",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5-3-11",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5丁目5-18",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市元今泉5丁目9-7",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南大通り2丁目6-6",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南町3-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市南町6-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市古賀志町583",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城南3丁目15-32",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城東2丁目23番1号",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市城東2丁目5-17",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市塙田5丁目1-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大和1丁目10-15",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大曽2丁目2-21",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1059-5",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1402",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市大谷町1423",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市天神1丁目1-24",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市天神1丁目1-42",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1263-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1864-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1868-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木本町1991-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宝木町2丁目1075-12",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮の内1丁目174-8",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮みらい1-20",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市宮原4丁目1-14",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町1072",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町143",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町251-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町558",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市屋板町576-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市山本1-37-27",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市岩曽町825-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市岩本町483",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市峰3丁目20-17",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市平出町1804",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市平出町3764-10",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市御幸ヶ原町53-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市御幸本町4638-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町1964",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町66-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市徳次郎町80-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭1丁目10-25",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭元町1-15",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭台46-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市戸祭町3043-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新富町15-25",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新富町9-4",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丁1608-19",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丁292",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市新里町丙254",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市旭1丁目1-5",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-57",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-66",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市明保野町7-9",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市星が丘2丁目3-31",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市春日町11-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市本丸町3520",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市東塙田1丁目6-14",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市東戸祭1丁目2-7",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市松田新田町116-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市松風台1200-220",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市板戸町1765",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市柳田町1320-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市桜3丁目2-22",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市横山町411-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市氷室町1713-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市氷室町2272-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市江曽島2丁目4-23",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市江野町8-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市河原町1-41",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘3-17-16",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘4丁目11-40",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市泉が丘7丁目12-14",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市海道町35-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市清原工業団地14",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市清原工業団地15-4",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市瑞穂1丁目22",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1643",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1791-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町1873-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町2411",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市白沢町385",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町1213",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町2800-42",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市石井町字大島2326",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市砥上町52",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市立伏町462-66",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市立伏町8-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹下町380-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町532",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町968",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市竹林町972",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市篠井町1885-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市簗瀬町1493",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市細谷1丁目4-38",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市細谷町604",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑3丁目3-12",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑3丁目5-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑5丁目3-16",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市緑5丁目8-8",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若松原3丁目19-27",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3-12-11",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3丁目12-25",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市若草3丁目13-13",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市茂原町777-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市茂原町777-7",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西1丁目2-13",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西一の沢町17-32",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西刑部町1861",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西刑部町444",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西原2丁目5-42",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田本町3丁目11-15",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田町1038",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市西川田町805-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市道場宿町848",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市針ヶ谷1丁目18-21",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市錦2丁目7-15",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鐺山町231",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市長岡町1077",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関堀町337",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関堀町350",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市関白町471",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽南2丁目4-58",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽南4丁目5-6",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目16-36",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目16-38",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽東2丁目3-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市陽西町1-16",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀の宮3丁目10-13",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀の宮7丁目28-16",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市雀宮町56-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市馬場通り4-1-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駅前通り1丁目4-6",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駒生町2360",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市駒生町3364-29",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田2丁目21-7",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町261",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町2708-3",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町3668-36",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町3669",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "宇都宮市鶴田町970-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "小山市",
+    "source_url": "https://odm.bodik.jp/dataset/bce48311-90e1-4192-a494-4379b3ce17fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-03-19 00:00:00+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "日光市瀬川1334-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "東浦町4-12",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "松原3丁目1-5",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "松田新田町483",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "泉が丘6-8-12",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "白沢町396-2",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "石井町2989",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "竹林町226",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "若松原2-18-30",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "那須塩原市",
+    "source_url": "https://odm.bodik.jp/dataset/07048368-62b9-443b-9e24-e6aefb057b74",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "野木町",
+    "source_url": "https://odm.bodik.jp/dataset/df408690-e506-40ee-a94c-28fbbc6679fd",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2022-03-30 00:00:00+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "駒生町1792",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "鶴田町970-1",
+    "source_url": "https://odm.bodik.jp/dataset/141ae5b3-a837-4524-8353-650e657b978c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-12-09 08:49:49.16737+00"
+  },
+  {
+    "prefecture": "栃木県",
+    "municipality": "鹿沼市",
+    "source_url": "https://odm.bodik.jp/dataset/03591965-499b-43d2-be46-5ef2097628ce",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "与那原町",
+    "source_url": "https://data.bodik.jp/dataset/473481_aed01",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-02-06 04:33:56.173229+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中城村",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_nakagusuku",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:16:32.439487+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡中城村",
+    "source_url": "https://data.bodik.jp/dataset/473286_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-09-03 06:02:50.117667+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡北中城村",
+    "source_url": "https://data.bodik.jp/dataset/473278_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-03-24 04:28:10.774958+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "中頭郡読谷村",
+    "source_url": "https://data.bodik.jp/dataset/473243_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-08-29 06:41:38.954136+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "八重山郡竹富町",
+    "source_url": "https://data.bodik.jp/dataset/473812_",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-07-17 04:34:52.450203+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "北中城村",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_kitanakagusuku",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:17:47.028342+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "北谷町",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_chatan",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:17:40.975746+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "南城市",
+    "source_url": "https://odm.bodik.jp/dataset/431363dc-f368-42d9-b6ca-30dbc8642eb2",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2023-07-14 04:47:07.181591+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "名護市",
+    "source_url": "https://data.bodik.jp/dataset/472093_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2019-10-01 01:34:17.757673+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "国頭郡宜野座村",
+    "source_url": "https://data.bodik.jp/dataset/473138_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-02-24 06:38:07.471459+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "大宜味村",
+    "source_url": "https://odm.bodik.jp/dataset/5c17ded2-2095-4cf1-b69c-375d5a8855e4",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2023-01-25 00:54:02.676802+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "宜野湾市",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_ginowan",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:15:36.06882+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "島尻郡南大東村",
+    "source_url": "https://data.bodik.jp/dataset/473570_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-02-10 01:20:27.145635+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "島尻郡南風原町",
+    "source_url": "https://data.bodik.jp/dataset/473502_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-02-16 01:56:10.903469+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "沖縄市",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_chatan",
+    "source_url_count": 3,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:17:40.975746+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "浦添市",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_urasoe",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:14:57.28541+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "渡名喜村",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_tonaki",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:16:43.203814+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "西原町",
+    "source_url": "https://odm.bodik.jp/dataset/e7a99151-cae4-4ec3-a026-0eb7f4599ebf",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2024-03-13 07:08:09.156161+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "読谷村",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_yomitan",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:16:55.489168+00"
+  },
+  {
+    "prefecture": "沖縄県",
+    "municipality": "那覇市",
+    "source_url": "https://data.bodik.jp/dataset/okinawa-dpf_",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 04:14:15.113873+00"
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "大津市",
+    "source_url": "https://odm.bodik.jp/dataset/999caef4-7e90-4fd2-98eb-fd94368e9a2f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-02-27 00:00:00+00"
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "彦根市",
+    "source_url": "https://data.bodik.jp/dataset/252026_aed20210315",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2022-06-03 06:39:20.403305+00"
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "米原市",
+    "source_url": "https://data.bodik.jp/dataset/252140_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-03-22 04:36:04.001497+00"
+  },
+  {
+    "prefecture": "滋賀県",
+    "municipality": "近江八幡市",
+    "source_url": "https://www.city.omihachiman.lg.jp/soshiki/gyosei/3/20066.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-11-10 05:07:26.089704+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上天草市",
+    "source_url": "https://data.bodik.jp/dataset/432121_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-12-25 06:01:46.109479+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上益城郡山都町",
+    "source_url": "https://data.bodik.jp/dataset/434477_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-14 23:48:31.390107+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "上益城郡益城町",
+    "source_url": "https://data.bodik.jp/dataset/434434_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-01-26 02:49:17.392516+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "八代市",
+    "source_url": "https://data.bodik.jp/dataset/432024_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-06-10 06:04:30.7452+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "八代郡氷川町",
+    "source_url": "https://data.bodik.jp/dataset/434680_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-04-17 06:03:01.010888+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "和水町",
+    "source_url": "https://data.bodik.jp/dataset/433691_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-12-18 23:54:22.375506+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "天草郡苓北町",
+    "source_url": "https://odm.bodik.jp/dataset/270ba8c6-2d8a-4513-bd5a-cb277d38f0a9",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "宇土市",
+    "source_url": "https://odm.bodik.jp/dataset/3d5c2cf5-cd4a-4532-8534-605bd10448c1",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2021-03-30 01:06:44.840372+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "山鹿市",
+    "source_url": "https://data.bodik.jp/dataset/432083_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-06-03 08:53:27.812392+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "玉名市",
+    "source_url": "https://data.bodik.jp/dataset/432067_16",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-11-11 07:29:43.383247+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "球磨郡多良木町",
+    "source_url": "https://data.bodik.jp/dataset/taragiaed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-07-05 01:40:08.802681+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "美里町",
+    "source_url": "https://odm.bodik.jp/dataset/aed13782-4a6a-4cd8-9583-e4280ac162b0",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2024-09-09 00:14:00.018541+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "荒尾市",
+    "source_url": "https://data.bodik.jp/dataset/432041_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-04-01 02:53:20.27171+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "葦北郡津奈木町",
+    "source_url": "https://odm.bodik.jp/dataset/41db1ac8-e9e8-4b97-9e9e-405b0622905b",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-10-31 05:56:57.34362+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "葦北郡芦北町",
+    "source_url": "https://data.bodik.jp/dataset/434825_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-02-28 01:04:23.031006+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "阿蘇市",
+    "source_url": "https://www.city.aso.kumamoto.jp/citizens/health_medical_welfare/aed_map/",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-01-29 02:37:33.395891+00"
+  },
+  {
+    "prefecture": "熊本県",
+    "municipality": "阿蘇郡高森町",
+    "source_url": "https://data.bodik.jp/dataset/434281_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2021-01-26 05:55:09.363556+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "かほく市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-05-19 07:55:40.891925+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "七尾市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/050d1672-6020-440d-84fb-97313540f0c2",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "中能登町",
+    "source_url": "https://odm.bodik.jp/dataset/d25e2f20-75fd-4632-ac2e-249c2c709084",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "内灘町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "加賀市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/03abca92-1f4e-4289-b176-188279447d94",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "宝達志水町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/c917906d-0e2a-464e-85dc-8b2b843e2670",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-09-26 00:12:19.4724+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "小松市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "志賀町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "河北郡内灘町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "河北郡津幡町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-08-13 00:34:08.529779+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "津幡町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "珠洲市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-05-20 23:41:59.990665+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "白山市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "穴水町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/07535ca5-44db-441b-b4bc-672b059f8480",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋郡宝達志水町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "羽咋郡志賀町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "能登町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "能美市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "輪島市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "野々市市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "金沢市",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-06-30 01:59:34.82328+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鳳珠郡穴水町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鳳珠郡能登町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "石川県",
+    "municipality": "鹿島郡中能登町",
+    "source_url": "https://ckan.opendata.pref.ishikawa.lg.jp/dataset/0ae00c45-358f-4c25-a98e-8c2c81c592fa",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:01:48.495938+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "三浦市",
+    "source_url": "https://www.city.miura.kanagawa.jp/soshiki/digitalka/digitalka_dx/316.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2022-07-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "中井町",
+    "source_url": "https://www.town.nakai.kanagawa.jp/choseijoho/nakaimachinoshokai/tokei_opendata/1708.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2022-03-31 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "伊勢原市",
+    "source_url": "https://www.city.isehara.kanagawa.jp/docs/2014103100077/",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 3.0"
+    ],
+    "latest_source_date": "2024-04-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "南足柄市",
+    "source_url": "https://odm.bodik.jp/dataset/77ace471-67b5-410a-932c-93269394423f",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大井町",
+    "source_url": "https://odm.bodik.jp/dataset/75065e14-c5c3-4f97-aee1-d892766a959e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大和市",
+    "source_url": "https://www.city.yamato.lg.jp/gyosei/soshik/52/aed_kankei/14141.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-11-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "大磯町",
+    "source_url": "https://www.town.oiso.kanagawa.jp/soshiki/seisaku/seisaku/tantou/dx/11460.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-04-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "小田原市",
+    "source_url": "https://www.city.odawara.kanagawa.jp/field/municipality/itpolicy/p25549.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2025-09-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "平塚市",
+    "source_url": "https://www.city.hiratsuka.kanagawa.jp/keikaku/page81_00019.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-03-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "座間市",
+    "source_url": "https://odm.bodik.jp/dataset/8ed10023-ab00-4bf5-a085-0434c476b396",
+    "source_url_count": 2,
+    "licenses": [
+      "CC BY 4.0",
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "海老名市",
+    "source_url": "https://odm.bodik.jp/dataset/9cca12b0-722a-4ee6-9cc8-0f65cdca4327",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "相模原市",
+    "source_url": "https://opendata.city.sagamihara.kanagawa.jp/dataset/aed",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-09-09 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "綾瀬市",
+    "source_url": "https://www.city.ayase.kanagawa.jp/soshiki/johoseisakuka/johokokai_kojinjohohogo_gyoseifufukushinsa/5822.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2022-02-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "茅ヶ崎市",
+    "source_url": "https://www.city.chigasaki.kanagawa.jp/jyohosuishin/1045355/1045162.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2023-04-01 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "葉山町",
+    "source_url": "https://www.town.hayama.lg.jp/chousei/5822.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-03-05 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "藤沢市",
+    "source_url": "https://www.city.fujisawa.kanagawa.jp/kyoso/shise/kekaku/kakushu/datalibrary.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-03-26 00:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "足柄下郡箱根町",
+    "source_url": "https://odm.bodik.jp/dataset/c48fb748-5df4-4dc2-b70e-6d23878e1256",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2023-04-30 15:00:00+00"
+  },
+  {
+    "prefecture": "神奈川県",
+    "municipality": "鎌倉市",
+    "source_url": "https://www.city.kamakura.kanagawa.jp/qq-kyumei/aed-data.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY 4.0"
+    ],
+    "latest_source_date": "2026-07-13 00:00:00+00"
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "坂井市",
+    "source_url": "https://odm.bodik.jp/dataset/4671c7d2-760f-40ee-b4a4-182477854307",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "池田町",
+    "source_url": "https://odm.bodik.jp/dataset/8e45593c-19da-412a-a9ce-892890838a36",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-2.1"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "福井県",
+    "municipality": "鯖江市",
+    "source_url": "https://odm.bodik.jp/dataset/92dcdb18-176b-42fa-b2bc-4e02b0ac76ae",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-2.1"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "みやこ町",
+    "source_url": "https://odm.bodik.jp/dataset/24e260ab-3590-4055-b262-8d014c6dfdec",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2020-12-21 06:50:52.491968+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "久留米市",
+    "source_url": "https://data.bodik.jp/dataset/402036_0009100_00011",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution"
+    ],
+    "latest_source_date": "2025-05-21 01:14:06.892461+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "小郡市",
+    "source_url": "https://odm.bodik.jp/dataset/dae93bbb-7dfa-4bc9-b0c2-944950003a84",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-03-18 06:44:43.862801+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "春日市",
+    "source_url": "https://odm.bodik.jp/dataset/4a7e0ba1-a824-4380-a558-c543acbbb6a4",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-06-16 06:05:15.09985+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "福岡市",
+    "source_url": "https://odm.bodik.jp/dataset/657e3c99-9c43-4480-a3f0-e1213644e641",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-12-09 02:26:07.583285+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "糟屋郡新宮町",
+    "source_url": "https://data.bodik.jp/dataset/403458_",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-08-23 07:10:16.465151+00"
+  },
+  {
+    "prefecture": "福岡県",
+    "municipality": "飯塚市",
+    "source_url": "https://data.bodik.jp/dataset/402052_01",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-06-01 04:24:52.711349+00"
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "いわき市",
+    "source_url": "https://odm.bodik.jp/dataset/21f026b0-96e5-441b-b4d5-0c383f9079df",
+    "source_url_count": 3,
+    "licenses": [
+      "BODIK API対象ライセンス（CC BY／CC BY-SA／CC0）",
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "矢吹町",
+    "source_url": "https://aitoz-machinery.co.jp/",
+    "source_url_count": 25,
+    "licenses": [
+      "BODIK API対象ライセンス（CC BY／CC BY-SA／CC0）"
+    ],
+    "latest_source_date": "2026-09-15 00:07:36.612661+00"
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "西郷村",
+    "source_url": "https://odm.bodik.jp/dataset/68dcc508-10e1-4487-94fd-2773892d4655",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "郡山市",
+    "source_url": "https://odm.bodik.jp/dataset/1d6c1019-8aad-4a2f-b926-1306ca734799",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "福島県",
+    "municipality": "須賀川市",
+    "source_url": "https://www.city.sukagawa.fukushima.jp/shisei/gaiyo/opendata/1004898/1015939.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-01 09:31:10.072124+00"
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "山本郡三種町",
+    "source_url": "https://odm.bodik.jp/dataset/ad589687-d653-49d7-b32c-75c39d364307",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2024-07-12 00:00:00+00"
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "横手市",
+    "source_url": "https://odm.bodik.jp/dataset/45e2c9b8-24fa-4cb0-abd5-8ce241f80471",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-21-jp"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "能代市",
+    "source_url": "https://odm.bodik.jp/dataset/f33e1f5c-845a-4eff-8715-422992fdb657",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "秋田県",
+    "municipality": "鹿角市",
+    "source_url": "https://www.city.kazuno.lg.jp/opendata/9418.html",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-03-25 10:31:11.083286+00"
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "伊勢崎市",
+    "source_url": "https://odm.bodik.jp/dataset/515002b2-21fb-4b31-8025-2e1125c6c87a",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "群馬県",
+    "municipality": "富岡市",
+    "source_url": "https://odm.bodik.jp/dataset/1e13607d-e964-4de9-a549-8c5fda380519",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "取手市",
+    "source_url": "https://odm.bodik.jp/dataset/0411ff4e-8017-42b4-a2b9-a231a6f9e3f9",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-21-jp"
+    ],
+    "latest_source_date": "2025-11-17 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "古河市",
+    "source_url": "https://odm.bodik.jp/dataset/1df8ae0a-50a4-47de-96a3-a561030c53e1",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "常総市",
+    "source_url": "https://odm.bodik.jp/dataset/d98d122f-759c-4f56-bd22-7ee297dbe549",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-11-26 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "潮来市",
+    "source_url": "https://odm.bodik.jp/dataset/9a267adb-10b1-475b-86b8-da51b52693a3",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2023-07-11 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "笠間市",
+    "source_url": "https://odm.bodik.jp/dataset/0c36e93a-ef9f-40d2-8b25-651ac6d2cbe1",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-02-02 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "茨城町",
+    "source_url": "https://odm.bodik.jp/dataset/c2bbcc24-a243-46e2-8f06-f48adb982e57",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-21-jp"
+    ],
+    "latest_source_date": "2025-12-03 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "高萩市",
+    "source_url": "https://odm.bodik.jp/dataset/fce72ca6-de01-4a3b-a0ca-072d8badd975",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2019-07-31 00:00:00+00"
+  },
+  {
+    "prefecture": "茨城県",
+    "municipality": "龍ケ崎市",
+    "source_url": "https://odm.bodik.jp/dataset/2778e652-4db5-41cf-9a4a-0dee0a127c2c",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-07-18 00:30:00+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "五島市",
+    "source_url": "https://data.bodik.jp/dataset/422118_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-01-14 05:14:27.909905+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "大村",
+    "source_url": "https://data.bodik.jp/dataset/422053_aedsetti",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2020-12-23 10:17:48.270409+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "対馬市",
+    "source_url": "https://data.bodik.jp/dataset/422096_",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-01-06 04:53:37.369033+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "平戸市",
+    "source_url": "https://data.bodik.jp/dataset/422070_aed",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2024-10-31 01:19:55.612503+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "西彼杵郡時津町",
+    "source_url": "https://data.bodik.jp/dataset/423084_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2020-03-06 10:16:26.887313+00"
+  },
+  {
+    "prefecture": "長崎県",
+    "municipality": "西彼杵郡長与町",
+    "source_url": "https://data.bodik.jp/dataset/423076_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2025-03-28 10:46:08.886738+00"
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "上田市",
+    "source_url": "https://odm.bodik.jp/dataset/58e5fb10-963a-4d69-a42b-153d7219d418",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "北佐久郡立科町",
+    "source_url": "https://odm.bodik.jp/dataset/c48fb748-5df4-4dc2-b70e-6d23878e1256",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2023-04-30 15:00:00+00"
+  },
+  {
+    "prefecture": "長野県",
+    "municipality": "茅野市",
+    "source_url": "https://data.bodik.jp/dataset/202142_aed_place",
+    "source_url_count": 2,
+    "licenses": [
+      "cc-by-40-intl",
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2026-04-03 00:30:26.257576+00"
+  },
+  {
+    "prefecture": "青森県",
+    "municipality": "十和田市",
+    "source_url": "https://odm.bodik.jp/dataset/6fae7a33-accf-4ece-aee3-155a6768da2d",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-06-20 06:01:20.824+00"
+  },
+  {
+    "prefecture": "青森県",
+    "municipality": "平川市",
+    "source_url": "https://odm.bodik.jp/dataset/5e3d4557-ac77-4eaf-a51b-a53c7e2e31d0",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-01-21 01:14:52.192+00"
+  },
+  {
+    "prefecture": "静岡県",
+    "municipality": "浜松市",
+    "source_url": "https://odm.bodik.jp/dataset/fd81d62e-37c2-4bc9-8fc9-8d567ac7174f",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "三豊市",
+    "source_url": "https://odm.bodik.jp/dataset/9407d13b-8b9c-4db6-a640-69d8c11e8553",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-06-09 02:13:21.99+00"
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "丸亀市",
+    "source_url": "https://odm.bodik.jp/dataset/22cafade-2ecb-40f7-9f68-ea186b7e9397",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2025-09-19 03:01:55.406+00"
+  },
+  {
+    "prefecture": "香川県",
+    "municipality": "善通寺市",
+    "source_url": "https://odm.bodik.jp/dataset/9db017bf-9dd5-4180-9434-3e65f02848ef",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-06-18 05:43:32.835+00"
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "中土佐町",
+    "source_url": "https://www.town.nakatosa.lg.jp/opendata/",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-14 08:31:00.180857+00"
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "宿毛市",
+    "source_url": "https://www.city.sukumo.kochi.jp/06/14/30866.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2022-06-30 00:00:00+00"
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "香南市",
+    "source_url": "https://odm.bodik.jp/dataset/4bf03b95-2f50-44a7-81e6-456eae7c4f5e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "香美市",
+    "source_url": "https://www.city.kami.lg.jp/soshiki/3/opendata.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC-BY-4.0"
+    ],
+    "latest_source_date": "2026-09-14 08:31:00.180857+00"
+  },
+  {
+    "prefecture": "高知県",
+    "municipality": "高知市",
+    "source_url": "https://odm.bodik.jp/dataset/4bf03b95-2f50-44a7-81e6-456eae7c4f5e",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-09-14 06:59:15.374501+00"
+  },
+  {
+    "prefecture": "鳥取県",
+    "municipality": "西伯郡南部町",
+    "source_url": "https://odm.bodik.jp/dataset/48d5e387-a9a7-4501-b1ca-7cbe4656ead3",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by"
+    ],
+    "latest_source_date": "2026-06-03 06:58:10.901+00"
+  },
+  {
+    "prefecture": "鳥取県",
+    "municipality": "鳥取市",
+    "source_url": "https://odp-pref-tottori.tori-info.co.jp/dataset/1640.html",
+    "source_url_count": 1,
+    "licenses": [
+      "CC BY"
+    ],
+    "latest_source_date": "2026-09-14 08:31:00.180857+00"
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "垂水市",
+    "source_url": "https://odm.bodik.jp/dataset/7c1914af-df01-4cda-823c-210450ccb5ae",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2022-06-03 03:40:19.393985+00"
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "大島郡知名町",
+    "source_url": "https://data.bodik.jp/dataset/465348_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2023-03-29 01:02:52.257002+00"
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "奄美市",
+    "source_url": "https://odm.bodik.jp/dataset/7538c038-23ec-4f6e-8c9d-1e9fb1e5e712",
+    "source_url_count": 1,
+    "licenses": [
+      "cc-by-40-intl"
+    ],
+    "latest_source_date": "2025-02-26 09:02:01.69527+00"
+  },
+  {
+    "prefecture": "鹿児島県",
+    "municipality": "熊毛郡南種子町",
+    "source_url": "https://data.bodik.jp/dataset/465020_aed",
+    "source_url_count": 1,
+    "licenses": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "latest_source_date": "2022-09-02 09:57:00.070878+00"
+  }
+]
+

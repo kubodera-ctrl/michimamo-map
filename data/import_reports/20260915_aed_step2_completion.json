@@ -1,0 +1,43 @@
+{
+  "completed_at": "2026-09-15T00:07:36Z",
+  "stage_rows": 28280,
+  "decisions": {
+    "published": 26128,
+    "duplicate": 2111,
+    "hold": 41,
+    "unreviewed": 0
+  },
+  "final_pass": {
+    "production_baseline": 35385,
+    "unreviewed_candidates": 1750,
+    "exact_production_duplicates": 1141,
+    "near_production_duplicates_within_50m": 536,
+    "internal_near_match_holds": 26,
+    "safe_new_publications": 47,
+    "new_publications_by_municipality": {
+      "北海道音更町": 2,
+      "福島県いわき市": 3,
+      "福島県矢吹町": 42
+    }
+  },
+  "existing_holds": {
+    "rows": 15,
+    "municipality": "滋賀県近江八幡市",
+    "reason": "自治体カタログの複数施設に同一の代表座標が割り当てられ、施設単位の位置を確定できない",
+    "next_action": "自治体の公式地図または施設公式ページで施設単位の座標を確認して再判定"
+  },
+  "production_after": {
+    "public_aed": 35432,
+    "prefectures": 47,
+    "published_municipalities": 373,
+    "unpublished_municipalities": 1368,
+    "invalid_public_rows": 0
+  },
+  "verification": {
+    "active_stage_rows": 0,
+    "unreviewed_stage_rows": 0,
+    "holds_without_reason_or_next_action": 0,
+    "unit_tests": 33,
+    "unit_test_status": "passed"
+  }
+}
