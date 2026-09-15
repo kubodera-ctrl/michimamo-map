@@ -5,7 +5,8 @@
   "remaining_catalog_entries": 39,
   "decision_counts": {
     "address_only_strict_geocode_required": 1,
-    "needs_resource_recovery": 36,
+    "needs_resource_recovery": 34,
+    "official_coordinates_review": 2,
     "hold_known_low_precision_geocode": 2
   },
   "rows": [
@@ -301,14 +302,16 @@
       "code": "12203",
       "prefecture": "千葉県",
       "municipality": "市川市",
-      "fetch_status": "resource_selection_failed",
-      "license": null,
+      "fetch_status": "downloaded",
+      "license": "cc-by4_0",
       "parsed_rows": 0,
-      "resource_id": null,
-      "format": null,
-      "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3288",
-      "download_url": null,
-      "decision": "needs_resource_recovery"
+      "resource_id": "ichikawa_53056",
+      "format": "CSV",
+      "source_url": "https://www.city.ichikawa.lg.jp/page/4744.html",
+      "download_url": "https://www.city.ichikawa.lg.jp/uploaded/attachment/53056.csv",
+      "valid_coordinate_rows": 305,
+      "missing_coordinate_rows": 0,
+      "decision": "official_coordinates_review"
     },
     {
       "code": "12207",
@@ -327,14 +330,16 @@
       "code": "12208",
       "prefecture": "千葉県",
       "municipality": "野田市",
-      "fetch_status": "resource_selection_failed",
-      "license": null,
+      "fetch_status": "downloaded",
+      "license": "cc-by4_0",
       "parsed_rows": 0,
-      "resource_id": null,
-      "format": null,
-      "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3327",
-      "download_url": null,
-      "decision": "needs_resource_recovery"
+      "resource_id": "noda_26_7aed",
+      "format": "CSV",
+      "source_url": "https://www.city.noda.chiba.jp/shisei/johokoukai/opendata/1007928.html",
+      "download_url": "https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/007/928/26.7aed.csv",
+      "valid_coordinate_rows": 110,
+      "missing_coordinate_rows": 1,
+      "decision": "official_coordinates_review"
     },
     {
       "code": "12210",
