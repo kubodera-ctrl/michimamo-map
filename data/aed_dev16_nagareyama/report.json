@@ -1,0 +1,18 @@
+{
+  "source_page": "https://www.city.nagareyama.chiba.jp/institution/1005119/1015913.html",
+  "license": "CC BY 4.0",
+  "attempts": [
+    {
+      "kind": "csv",
+      "url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.csv",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "kind": "xlsx",
+      "url": "https://www.city.nagareyama.chiba.jp/_res/projects/default_project/_page_/001/015/913/aed20231017.xlsx",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    }
+  ]
+}
