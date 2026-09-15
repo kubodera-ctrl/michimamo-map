@@ -1,0 +1,30 @@
+{
+  "run_date": "2026-09-15",
+  "roadmap_step": 4,
+  "method": "Official municipal AED rows geocoded with Geolonia address normalization; only level 8 results accepted",
+  "official_sources_checked": 4,
+  "raw_rows": 632,
+  "geocode_candidates": 631,
+  "address_level_matches_before_dedupe": 240,
+  "rejected_below_address_level": 391,
+  "exact_same_installation_rows_removed": 1,
+  "internal_near_duplicate_pairs": 0,
+  "staged_rows": 239,
+  "existing_exact_duplicates": 0,
+  "published_rows": 239,
+  "published_by_municipality": {
+    "千葉市": 193,
+    "大網白里市": 26,
+    "田原本町": 18,
+    "大東市": 2
+  },
+  "not_published_rows": 393,
+  "not_published_reason": "391 rows did not resolve at address/parcel level, one incomplete row was skipped, and one exact same-installation duplicate was removed",
+  "baseline_public_aed": 36094,
+  "final_public_aed": 36333,
+  "final_published_municipalities": 383,
+  "final_unpublished_municipalities": 1358,
+  "remaining_stage_hold": 15,
+  "invalid_coordinates": 0,
+  "next_action": "Continue finding coordinate-complete official sources and investigate the remaining low-precision address backlog"
+}

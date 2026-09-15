@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "prefecture": "千葉県",
+      "municipality": "大網白里市",
+      "source_name": "大網白里市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/cf02668b-0c92-4f78-8efb-438edbdc27d0",
+      "resource_url": "https://www.city.oamishirasato.lg.jp/cmsfiles/contents/0000011/11179/122394_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2023-09-26T15:06:19.572452"
+    },
+    {
+      "prefecture": "奈良県",
+      "municipality": "田原本町",
+      "source_name": "田原本町 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/7c13a6a1-c1d0-4417-ba41-d8aed2e99421",
+      "resource_url": "http://www.town.tawaramoto.nara.jp/material/files/group/3/293636_aed.csv",
+      "license_id": "CC BY",
+      "source_updated_at": "2026-05-12T10:16:22.544800"
+    },
+    {
+      "prefecture": "大阪府",
+      "municipality": "大東市",
+      "source_name": "大東市 AED設置箇所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e",
+      "resource_url": "https://data.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e/resource/a81b6562-f5f4-4380-9961-9c5f8f44eed1/download/5051130aed.xlsx",
+      "license_id": "CC BY 2.1 Japan"
+    },
+    {
+      "prefecture": "千葉県",
+      "municipality": "千葉市",
+      "source_name": "千葉市 市の公共施設AED設置場所一覧",
+      "source_url": "https://odm.bodik.jp/dataset/62276195-4d9f-4a7f-9a74-f8f87e4b7359",
+      "resource_url": "https://www.city.chiba.jp/hokenfukushi/iryoeisei/seisaku/documents/aed20230701.xlsx",
+      "license_id": "CC BY 2.1 Japan",
+      "source_updated_at": "2023-07-01",
+      "header_row": 3,
+      "address_join_fields": ["施設住所", "__column_4"]
+    }
+  ]
+}

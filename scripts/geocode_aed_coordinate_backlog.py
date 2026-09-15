@@ -7,28 +7,43 @@ from pathlib import Path
 import subprocess
 
 from import_aed_open_data import first_value, read_records
-from import_nationwide_aed import clean, PREFECTURES, mark_duplicates
+from import_nationwide_aed import clean, fetch_bytes, PREFECTURES, mark_duplicates
 from prepare_bodik_aed_review import make_row
 
 NAME_FIELDS = ('名称','施設名','施設名称','施設名等')
 ADDRESS_FIELDS = ('所在地_連結表記','所在地_連結標記','住所','所在地','設置施設住所')
 CITY_FIELDS = ('所在地_市区町村','市区町村','市区町村名')
 
+def municipality_matches(geocoded_city, municipality):
+    geocoded_city=clean(geocoded_city); municipality=clean(municipality)
+    return bool(
+        geocoded_city == municipality
+        or geocoded_city.startswith(municipality)
+        or ('郡' in geocoded_city and geocoded_city.endswith(municipality))
+    )
+
 def candidates(input_dir, supplement):
     result=[]
     for source in supplement['sources']:
         cache=input_dir/(hashlib.sha256(source['resource_url'].encode()).hexdigest()+'.bin')
-        if not cache.exists(): continue
-        try: records=read_records(cache.read_bytes())
+        if not cache.exists(): cache.write_bytes(fetch_bytes(source['resource_url']))
+        try: records=read_records(cache.read_bytes(),int(source.get('header_row',1)))
         except Exception: continue
         for raw in records:
             p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in raw.items()}
+            restriction=clean(first_value(p,('外部利用不可',))).lower()
+            if restriction and restriction not in ('0','false','なし','無'):
+                continue
             lat=first_value(p,('緯度',)); lng=first_value(p,('経度',))
             try:
                 if 20 <= float(lat) <= 46 and 122 <= float(lng) <= 154: continue
             except (ValueError,TypeError): pass
-            name=first_value(p,NAME_FIELDS); address=first_value(p,ADDRESS_FIELDS)
-            city=first_value(p,CITY_FIELDS) or source.get('municipality','')
+            name=first_value(p,NAME_FIELDS)
+            if source.get('address_join_fields'):
+                address=''.join(first_value(p,(field,)) for field in source['address_join_fields'])
+            else:
+                address=first_value(p,ADDRESS_FIELDS)
+            city=source.get('municipality','') or first_value(p,CITY_FIELDS)
             pref=source['prefecture']
             if not city and address.startswith(pref):
                 city=next((address[len(pref):i+1] for i,c in enumerate(address[len(pref):],len(pref)) if c in '市区町村'), '')
@@ -59,7 +74,7 @@ def main():
     for (source,p),geo in zip(items,geos):
         if geo.get('error') or geo.get('level') != 8 or geo.get('lat') is None or geo.get('lon') is None:
             rejected['not_address_level']+=1;continue
-        if clean(geo.get('pref')) != source['prefecture'] or clean(geo.get('city')) != clean(p['cityName']):
+        if clean(geo.get('pref')) != source['prefecture'] or not municipality_matches(geo.get('city'),p['cityName']):
             rejected['administrative_mismatch']+=1;continue
         identity='geocoded20260914:'+hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16]
         row=make_row(p,[geo['lon'],geo['lat']],source,identity)

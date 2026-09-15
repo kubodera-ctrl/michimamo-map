@@ -202,12 +202,14 @@ def mark_duplicates(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], i
         nearby = [item for x in range(bucket[0] - 1, bucket[0] + 2) for y in range(bucket[1] - 1, bucket[1] + 2) for item in buckets.get((x, y), [])]
         for other in nearby:
             a, b = compact(row["name"]), compact(other["name"])
-            same_facility = a == b and compact(row["address"]) == compact(other["address"])
-            different_installations = compact(row.get("installation_location")) != compact(other.get("installation_location"))
-            if same_facility and different_installations:
+            same_address = compact(row["address"]) == compact(other["address"])
+            row_location = compact(row.get("installation_location"))
+            other_location = compact(other.get("installation_location"))
+            different_installations = row_location and other_location and row_location != other_location
+            if same_address and different_installations:
                 # A current official file can list multiple AEDs in one building.
                 # Distinct installation locations are evidence of separate devices,
-                # even when their map coordinates are identical.
+                # even when facility labels differ slightly or coordinates match.
                 continue
             name_related = a == b or (min(len(a), len(b)) >= 3 and (a in b or b in a))
             if name_related and haversine_m(row, other) <= 50:

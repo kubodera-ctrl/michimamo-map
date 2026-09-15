@@ -73,7 +73,14 @@ def read_records(payload: bytes, header_row: int = 1) -> list[dict[str, Any]]:
             headers = next(values, None)
             if not headers or not any(headers):
                 continue
-            keys = [normalized(value) for value in headers]
+            keys = []
+            seen_headers: dict[str, int] = {}
+            for index, value in enumerate(headers, 1):
+                key = normalized(value) or f"__column_{index}"
+                seen_headers[key] = seen_headers.get(key, 0) + 1
+                if seen_headers[key] > 1:
+                    key = f"{key}_{seen_headers[key]}"
+                keys.append(key)
             return [dict(zip(keys, row)) for row in values if any(value is not None for value in row)]
         return []
     text = decode_csv(payload)
