@@ -1,0 +1,77 @@
+[
+  {
+    "row": 16,
+    "name": "四街道保育園",
+    "address": "千葉県四街道市四街道3-10-9",
+    "phone": "422-2720",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道三丁目",
+      "addr": "10-9",
+      "level": 8,
+      "point": {
+        "lat": 35.6588371,
+        "lng": 140.155936606,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.6588371,
+    "longitude": 140.155936606
+  },
+  {
+    "row": 34,
+    "name": "めいわクリニック",
+    "address": "千葉県四街道市めいわ4-3-32",
+    "phone": "433-7717",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "めいわ四丁目",
+      "addr": "3-32",
+      "level": 8,
+      "point": {
+        "lat": 35.651261131,
+        "lng": 140.168999633,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.651261131,
+    "longitude": 140.168999633
+  },
+  {
+    "row": 63,
+    "name": "千代田公民館",
+    "address": "千葉県四街道市もねの里3-20-30",
+    "phone": "422-4151",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "もねの里三丁目",
+      "addr": "20-30",
+      "level": 8,
+      "point": {
+        "lat": 35.690259675,
+        "lng": 140.192477306,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.690259675,
+    "longitude": 140.192477306
+  }
+]

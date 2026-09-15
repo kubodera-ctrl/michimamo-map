@@ -1,0 +1,2067 @@
+[
+  {
+    "row": 2,
+    "name": "四街道高等学校",
+    "address": "千葉県四街道市鹿渡809-2",
+    "phone": "422-6215",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "809-2",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "四街道高等学校",
+    "address": "千葉県四街道市鹿渡809-2",
+    "phone": "422-6215",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "809-2",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "四街道北高等学校",
+    "address": "千葉県四街道市栗山1055-4",
+    "phone": "422-1788",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "栗山",
+      "addr": "1055-4",
+      "level": 8,
+      "point": {
+        "lat": 35.678868,
+        "lng": 140.178254,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "見学ルーム",
+    "address": "千葉県四街道市和田166番地",
+    "phone": "432-8960",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "level": 3,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": "166"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "警備室(工場駐車場内)",
+    "address": "千葉県四街道市和田166番地",
+    "phone": "432-8960",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "level": 3,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": "166"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "四街道徳洲会病院",
+    "address": "千葉県四街道市吉岡1830-1",
+    "phone": "214-0111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "吉岡",
+      "addr": "1830-1",
+      "level": 8,
+      "point": {
+        "lat": 35.641315,
+        "lng": 140.194879,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "四街道徳洲会病院",
+    "address": "千葉県四街道市吉岡1830-1",
+    "phone": "214-0111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "吉岡",
+      "addr": "1830-1",
+      "level": 8,
+      "point": {
+        "lat": 35.641315,
+        "lng": 140.194879,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "医療法人社団威風会 栗山中央病院",
+    "address": "千葉県四街道市栗山906番地1",
+    "phone": "421-0007",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "栗山",
+      "addr": "906-1",
+      "level": 8,
+      "point": {
+        "lat": 35.678868,
+        "lng": 140.178254,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "コープみらいえ四街道",
+    "address": "千葉県四街道市大日1793-15",
+    "phone": "304-9266",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "addr": "1793-15",
+      "level": 8,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "医療法人社団蒼生会陽光医院",
+    "address": "千葉県四街道市山梨761-1",
+    "phone": "432-0010",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "山梨",
+      "addr": "761-1",
+      "level": 8,
+      "point": {
+        "lat": 35.672618,
+        "lng": 140.193469,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "一般財団法人関東電気保安協会千葉事業本部",
+    "address": "千葉県四街道市大日緑ヶ丘1793-1",
+    "phone": "312-0349",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "緑ヶ丘1793-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "緑ケ丘幼稚園",
+    "address": "千葉県四街道市大日393",
+    "phone": "422-2230",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "393"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "テンダーラビング保育園わらび",
+    "address": "千葉県四街道市和良比517-15",
+    "phone": "312-1601",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "517-15",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "株式会社久永製作所",
+    "address": "千葉県四街道市物井598番地",
+    "phone": "422-2112",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "物井",
+      "level": 3,
+      "point": {
+        "lat": 35.688182,
+        "lng": 140.198141,
+        "level": 3
+      },
+      "other": "598"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "まちの保育園四街道駅前",
+    "address": "千葉県四街道市四街道2-2-21オークウッド1階",
+    "phone": "308-7710",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道二丁目",
+      "addr": "2-21",
+      "level": 8,
+      "point": {
+        "lat": 35.662132164,
+        "lng": 140.165116575,
+        "level": 8
+      },
+      "other": "オークウッド1階"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "まちの保育園成山",
+    "address": "千葉県四街道市成山114-4",
+    "phone": "312-0069",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "成山",
+      "addr": "114-4",
+      "level": 8,
+      "point": {
+        "lat": 35.66239000000001,
+        "lng": 140.21067,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "ゆうゆう保育園",
+    "address": "千葉県四街道市和良比686-1",
+    "phone": "308-3295",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "686-1",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "特別養護老人ホームあさひ園",
+    "address": "千葉県四街道市山梨1488-1",
+    "phone": "432-6382",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "山梨",
+      "addr": "1488-1",
+      "level": 8,
+      "point": {
+        "lat": 35.672618,
+        "lng": 140.193469,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 21,
+    "name": "ケアハウスろうたす",
+    "address": "千葉県四街道市大日1623-1",
+    "phone": "424-8030",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "addr": "1623-1",
+      "level": 8,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "特別養護老人ホームあすみの丘",
+    "address": "千葉県四街道市大日1623-1",
+    "phone": "421-5188",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "addr": "1623-1",
+      "level": 8,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "潤生堂医院",
+    "address": "千葉県四街道市和良比254-20",
+    "phone": "432-2316",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "254-20",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 24,
+    "name": "近藤歯科医院",
+    "address": "千葉県四街道市鹿渡933-296",
+    "phone": "422-6118",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "933-296",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "千葉みらい農協 四街道支店",
+    "address": "千葉県四街道市内黒田356-3",
+    "phone": "422-2200",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "内黒田",
+      "addr": "356-3",
+      "level": 8,
+      "point": {
+        "lat": 35.689611,
+        "lng": 140.171109,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "四街道メンタルクリニック",
+    "address": "千葉県四街道市和良比245-9",
+    "phone": "433-2231",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "245-9",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "翠昴会身体障害者療護施設 永幸苑",
+    "address": "千葉県四街道市上野199",
+    "phone": "432-2851",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "上野",
+      "level": 3,
+      "point": {
+        "lat": 35.657688,
+        "lng": 140.19112,
+        "level": 3
+      },
+      "other": "199"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "そうクリニック",
+    "address": "千葉県四街道市大日741-3",
+    "phone": "424-1103",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "addr": "741-3",
+      "level": 8,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "ピクシーフォレスト",
+    "address": "千葉県四街道市上野199",
+    "phone": "432-2851",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "上野",
+      "level": 3,
+      "point": {
+        "lat": 35.657688,
+        "lng": 140.19112,
+        "level": 3
+      },
+      "other": "199"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "フォーレ四街道駅前ショッピングビル",
+    "address": "千葉県四街道市鹿渡2002-10",
+    "phone": "421-0965",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "2002-10",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "誠クリニック",
+    "address": "千葉県四街道市四街道1-4-19プレアデスビル1階",
+    "phone": "423-7671",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.664188,
+        "lng": 140.163458,
+        "level": 3
+      },
+      "other": "4-19プレアデスビル1階"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "ミシュランタイヤ千葉販売(株)",
+    "address": "千葉県四街道市小名木83-1",
+    "phone": "432-8000",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "小名木",
+      "addr": "83-1",
+      "level": 8,
+      "point": {
+        "lat": 35.65480900000001,
+        "lng": 140.183221,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "千葉田園スイミングクラブ",
+    "address": "千葉県四街道市大日866",
+    "phone": "421-2421",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "866"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "株式会社千葉銀行四街道南支店",
+    "address": "千葉県四街道市和良比247番地1",
+    "phone": "432-4840",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "247-1",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "株式会社千葉銀行四街道支店",
+    "address": "千葉県四街道市鹿渡2001番地の8",
+    "phone": "422-1511",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "2001-8",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "千葉盲学校",
+    "address": "千葉県四街道市大日468-1",
+    "phone": "422-0231",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "addr": "468-1",
+      "level": 8,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "千葉盲学校(寄宿舎)",
+    "address": "千葉県四街道市大日522",
+    "phone": "422-1171",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "522"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "四街道特別支援学校",
+    "address": "千葉県四街道市鹿渡934-45",
+    "phone": "422-2609",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "934-45",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "四街道警察署",
+    "address": "千葉県四街道市和良比635-5",
+    "phone": "432-0110",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "635-5",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 41,
+    "name": "四街道中央公園",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "422-9923",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "四街道市営霊園",
+    "address": "千葉県四街道市内黒田1010",
+    "phone": "422-8411",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "内黒田",
+      "addr": "1010",
+      "level": 8,
+      "point": {
+        "lat": 35.689611,
+        "lng": 140.171109,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "美しが丘近隣公園",
+    "address": "千葉県四街道市美しが丘2ー1",
+    "phone": "432-4421",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "美しが丘二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.657172,
+        "lng": 140.160609,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "千代田近隣公園",
+    "address": "千葉県四街道市千代田5ー28",
+    "phone": "424-1954",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "千代田五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.691695,
+        "lng": 140.185162,
+        "level": 3
+      },
+      "other": "28"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "鷹の台公園",
+    "address": "千葉県四街道市鷹の台2ー36",
+    "phone": "237-4142",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鷹の台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.632745,
+        "lng": 140.194886,
+        "level": 3
+      },
+      "other": "36"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "わらび近隣公園",
+    "address": "千葉県四街道市めいわ2ー12",
+    "phone": "433-2722",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "めいわ二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.653889,
+        "lng": 140.17211200000003,
+        "level": 3
+      },
+      "other": "12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "池花公園",
+    "address": "千葉県四街道市池花2ー25",
+    "phone": "424-5504",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "池花二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.690249,
+        "lng": 140.177062,
+        "level": 3
+      },
+      "other": "25"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "四街道市役所",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "421-2111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "四街道市文化センター",
+    "address": "千葉県四街道市大日396",
+    "phone": "423-1618",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "396"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 50,
+    "name": "四街道市南部総合福祉センター わろうべの里",
+    "address": "千葉県四街道市和良比635-4",
+    "phone": "433-6201",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "addr": "635-4",
+      "level": 8,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 51,
+    "name": "四街道市温水プール",
+    "address": "千葉県四街道市山梨2027",
+    "phone": "432-6410",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "山梨",
+      "addr": "2027",
+      "level": 8,
+      "point": {
+        "lat": 35.672618,
+        "lng": 140.193469,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "旭中学校",
+    "address": "千葉県四街道市南波佐間267",
+    "phone": "432-8451",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "南波佐間",
+      "addr": "267",
+      "level": 8,
+      "point": {
+        "lat": 35.655635000000004,
+        "lng": 140.196687,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 53,
+    "name": "四街道中学校",
+    "address": "千葉県四街道市めいわ1-3",
+    "phone": "433-3636",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "めいわ一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.657643,
+        "lng": 140.17419600000002,
+        "level": 3
+      },
+      "other": "3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 54,
+    "name": "四街道西中学校",
+    "address": "千葉県四街道市大日23",
+    "phone": "421-2081",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "23"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 55,
+    "name": "四街道北中学校",
+    "address": "千葉県四街道市栗山1055",
+    "phone": "422-5101",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "栗山",
+      "level": 3,
+      "point": {
+        "lat": 35.678868,
+        "lng": 140.178254,
+        "level": 3
+      },
+      "other": "1055"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "千代田中学校",
+    "address": "千葉県四街道市千代田5-27",
+    "phone": "423-4611",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "千代田五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.691695,
+        "lng": 140.185162,
+        "level": 3
+      },
+      "other": "27"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 57,
+    "name": "鹿放ケ丘ふれあいセンター",
+    "address": "千葉県四街道市鹿放ヶ丘284-12",
+    "phone": "424-1577",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿放ケ丘",
+      "addr": "284-12",
+      "level": 8,
+      "point": {
+        "lat": 35.679947,
+        "lng": 140.144477,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 58,
+    "name": "四街道市消防本部",
+    "address": "千葉県四街道市鹿渡934-26",
+    "phone": "422-2494",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "934-26",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 59,
+    "name": "四街道市消防署旭分署",
+    "address": "千葉県四街道市みそら1-25",
+    "phone": "432-0119",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "みそら一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.666644,
+        "lng": 140.195772,
+        "level": 3
+      },
+      "other": "25"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 60,
+    "name": "四街道市消防署千代田分署",
+    "address": "千葉県四街道市千代田5-33",
+    "phone": "424-0119",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "千代田五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.691695,
+        "lng": 140.185162,
+        "level": 3
+      },
+      "other": "33"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 61,
+    "name": "四街道公民館",
+    "address": "千葉県四街道市四街道1532-17",
+    "phone": "422-2926",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道",
+      "addr": "1532-17",
+      "level": 8,
+      "point": {
+        "lat": 35.664378,
+        "lng": 140.159784,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 62,
+    "name": "旭公民館",
+    "address": "千葉県四街道市和田54-10",
+    "phone": "432-6371",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "addr": "54-10",
+      "level": 8,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "四街道小学校",
+    "address": "千葉県四街道市四街道1557",
+    "phone": "422-2726",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道",
+      "level": 3,
+      "point": {
+        "lat": 35.664378,
+        "lng": 140.159784,
+        "level": 3
+      },
+      "other": "1557"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 65,
+    "name": "旭小学校",
+    "address": "千葉県四街道市山梨1485",
+    "phone": "432-8981",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "山梨",
+      "level": 3,
+      "point": {
+        "lat": 35.672618,
+        "lng": 140.193469,
+        "level": 3
+      },
+      "other": "1485"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 66,
+    "name": "南小学校",
+    "address": "千葉県四街道市物井1536",
+    "phone": "422-2905",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "物井",
+      "level": 3,
+      "point": {
+        "lat": 35.688182,
+        "lng": 140.198141,
+        "level": 3
+      },
+      "other": "1536"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 67,
+    "name": "中央小学校",
+    "address": "千葉県四街道市鹿渡917",
+    "phone": "422-2138",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "917"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 68,
+    "name": "大日小学校",
+    "address": "千葉県四街道市大日978",
+    "phone": "422-2711",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "978"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 69,
+    "name": "八木原小学校",
+    "address": "千葉県四街道市千代田5-4",
+    "phone": "423-7611",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "千代田五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.691695,
+        "lng": 140.185162,
+        "level": 3
+      },
+      "other": "4"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 70,
+    "name": "四和小学校",
+    "address": "千葉県四街道市和良比228",
+    "phone": "432-5411",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和良比",
+      "level": 3,
+      "point": {
+        "lat": 35.654506,
+        "lng": 140.167582,
+        "level": 3
+      },
+      "other": "228"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 71,
+    "name": "山梨小学校",
+    "address": "千葉県四街道市旭ヶ丘1-9-12",
+    "phone": "432-0506",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "旭ケ丘一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.662563,
+        "lng": 140.182957,
+        "level": 3
+      },
+      "other": "9-12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 72,
+    "name": "みそら小学校",
+    "address": "千葉県四街道市みそら2-13",
+    "phone": "432-1500",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "みそら二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.670116,
+        "lng": 140.199296,
+        "level": 3
+      },
+      "other": "13"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 73,
+    "name": "栗山小学校",
+    "address": "千葉県四街道市つくし座3-1-8",
+    "phone": "422-3155",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "つくし座三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.672637,
+        "lng": 140.180722,
+        "level": 3
+      },
+      "other": "1-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 74,
+    "name": "和良比小学校",
+    "address": "千葉県四街道市美しが丘3-12",
+    "phone": "432-3780",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "美しが丘三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.655006,
+        "lng": 140.159959,
+        "level": 3
+      },
+      "other": "12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 75,
+    "name": "吉岡小学校",
+    "address": "千葉県四街道市鷹の台3-2",
+    "phone": "237-5990",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鷹の台三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.632884,
+        "lng": 140.191648,
+        "level": 3
+      },
+      "other": "2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 76,
+    "name": "駅市民サービスセンター",
+    "address": "千葉県四街道市四街道1丁目",
+    "phone": "432-6226",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "四街道一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.664188,
+        "lng": 140.163458,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 77,
+    "name": "保健センター",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "421-6100",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "図書館",
+    "address": "千葉県四街道市大日396",
+    "phone": "423-6443",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "大日",
+      "level": 3,
+      "point": {
+        "lat": 35.683144000000006,
+        "lng": 140.160942,
+        "level": 3
+      },
+      "other": "396"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 79,
+    "name": "市役所第二庁舎",
+    "address": "千葉県四街道市鹿渡2001-10",
+    "phone": "421-2111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "2001-10",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 80,
+    "name": "企業庁舎",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "421-2111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 81,
+    "name": "中央保育所",
+    "address": "千葉県四街道市鹿渡895-33",
+    "phone": "423-0061",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "addr": "895-33",
+      "level": 8,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 82,
+    "name": "中央保育所分園",
+    "address": "千葉県四街道市みそら2-13",
+    "phone": "433-4105",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "みそら二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.670116,
+        "lng": 140.199296,
+        "level": 3
+      },
+      "other": "13"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 83,
+    "name": "千代田保育所",
+    "address": "千葉県四街道市千代田5-30",
+    "phone": "423-4872",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "千代田五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.691695,
+        "lng": 140.185162,
+        "level": 3
+      },
+      "other": "30"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 84,
+    "name": "総合福祉センター",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "422-2945",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 85,
+    "name": "四街道総合公園体育館",
+    "address": "千葉県四街道市和田161",
+    "phone": "433-1111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 86,
+    "name": "四街道総合公園多目的運動場",
+    "address": "千葉県四街道市和田161",
+    "phone": "433-1111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 87,
+    "name": "四街道総合公園野球場",
+    "address": "千葉県四街道市和田161",
+    "phone": "433-1111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 88,
+    "name": "四街道市立武道館",
+    "address": "千葉県四街道市鹿渡無番地",
+    "phone": "424-8926",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "鹿渡",
+      "level": 3,
+      "point": {
+        "lat": 35.668062,
+        "lng": 140.180445,
+        "level": 3
+      },
+      "other": "無番地"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "四街道北高等学校",
+    "address": "千葉県四街道市栗山1055-4",
+    "phone": "422-1788",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "栗山",
+      "addr": "1055-4",
+      "level": 8,
+      "point": {
+        "lat": 35.678868,
+        "lng": 140.178254,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 90,
+    "name": "国民保養センター鹿島荘",
+    "address": "千葉県四街道市みそら3-625-7",
+    "phone": "432-8725",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "みそら三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.673695,
+        "lng": 140.202716,
+        "level": 3
+      },
+      "other": "625-7"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 91,
+    "name": "四街道総合公園キャンプ場",
+    "address": "千葉県四街道市和田161",
+    "phone": "433-1111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "normalized": {
+      "pref": "千葉県",
+      "city": "四街道市",
+      "town": "和田",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 35.6649,
+        "lng": 140.191901,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 92,
+    "name": "資料:千葉県「ちば情報マップ(AED位置情報マップ)」",
+    "address": "",
+    "phone": null,
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "reason": "missing_name_or_address"
+  },
+  {
+    "row": 93,
+    "name": "注釈:利用可能な曜日、利用可能な時間はAED設置者が県に提出した「自動体外式除細動器(AED)設置届出書」の記載内容を引用",
+    "address": "",
+    "phone": null,
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56525",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-03-27",
+    "data_as_of": "2025-04-01",
+    "reason": "missing_name_or_address"
+  }
+]

@@ -1,0 +1,2796 @@
+[
+  {
+    "row": 2,
+    "name": "君津市役所",
+    "address": "千葉県君津市久保2-13-1",
+    "phone": "0439-56-1375",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久保二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.330732,
+        "lng": 139.90143,
+        "level": 3
+      },
+      "other": "13-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "市立中央図書館",
+    "address": "千葉県君津市久保2-13-3",
+    "phone": "0439-52-4646",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久保二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.330732,
+        "lng": 139.90143,
+        "level": 3
+      },
+      "other": "13-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "老人憩いの家「すえよし」",
+    "address": "千葉県君津市末吉1068-3",
+    "phone": "0439-35-4426",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "addr": "1068-3",
+      "level": 8,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "生きがい支援センター",
+    "address": "千葉県君津市糠田103-1",
+    "phone": "0439-32-5651",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "糠田",
+      "addr": "103-1",
+      "level": 8,
+      "point": {
+        "lat": 35.300833,
+        "lng": 139.971264,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "君津市衛生センター",
+    "address": "千葉県君津市戸崎2650-24",
+    "phone": "0439-35-2206",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "戸崎",
+      "addr": "2650-24",
+      "level": 8,
+      "point": {
+        "lat": 35.313281,
+        "lng": 140.030161,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "君津市民体育館",
+    "address": "千葉県君津市内箕輪1-1-1",
+    "phone": "0439-52-8222",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "内箕輪一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.324245,
+        "lng": 139.928046,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "君津市生涯学習交流センター",
+    "address": "千葉県君津市久保2-13-2",
+    "phone": "0439-50-3980",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久保二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.330732,
+        "lng": 139.90143,
+        "level": 3
+      },
+      "other": "13-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "八重原公民館",
+    "address": "千葉県君津市南子安9-17-2",
+    "phone": "0439-55-1840",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "南子安九丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.327499,
+        "lng": 139.927431,
+        "level": 3
+      },
+      "other": "17-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "小糸公民館",
+    "address": "千葉県君津市糠田55",
+    "phone": "0439-32-2184",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "糠田",
+      "addr": "55",
+      "level": 8,
+      "point": {
+        "lat": 35.300833,
+        "lng": 139.971264,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "周南公民館",
+    "address": "千葉県君津市大山野26",
+    "phone": "0439-52-4915",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大山野",
+      "addr": "26",
+      "level": 8,
+      "point": {
+        "lat": 35.28122400000001,
+        "lng": 139.92896,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "清和公民館",
+    "address": "千葉県君津市西粟倉57",
+    "phone": "0439-37-2195",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "西粟倉",
+      "addr": "57",
+      "level": 8,
+      "point": {
+        "lat": 35.251968,
+        "lng": 139.992832,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "小櫃公民館",
+    "address": "千葉県君津市末吉128",
+    "phone": "0439-35-2488",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "addr": "128",
+      "level": 8,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "上総地域交流センター",
+    "address": "千葉県君津市久留里市場192-5",
+    "phone": "0439-27-3181",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "addr": "192-5",
+      "level": 8,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "久留里城址資料館",
+    "address": "千葉県君津市久留里448-1",
+    "phone": "0439-27-3478",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里",
+      "addr": "448-1",
+      "level": 8,
+      "point": {
+        "lat": 35.291525,
+        "lng": 140.095908,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "神門コミュニティセンター",
+    "address": "千葉県君津市人見1462-41",
+    "phone": "0439-87-1958",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "人見",
+      "addr": "1462-41",
+      "level": 8,
+      "point": {
+        "lat": 35.339872,
+        "lng": 139.86710400000004,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "松丘コミュニティセンター",
+    "address": "千葉県君津市松丘1840-1",
+    "phone": "0439-29-2321",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "level": 2,
+      "point": {
+        "lat": 35.330424,
+        "lng": 139.902561,
+        "level": 2
+      },
+      "other": "松丘1840-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "亀山コミュニティセンター",
+    "address": "千葉県君津市坂畑321-1",
+    "phone": "0439-70-7117",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "坂畑",
+      "addr": "321-1",
+      "level": 8,
+      "point": {
+        "lat": 35.24218,
+        "lng": 140.106717,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 24,
+    "name": "翔凜高等学校・中学校",
+    "address": "千葉県君津市三直1348-1",
+    "phone": "0439-55-1200",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "三直",
+      "addr": "1348-1",
+      "level": 8,
+      "point": {
+        "lat": 35.324716,
+        "lng": 139.939929,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "千葉県立君津高等学校",
+    "address": "千葉県君津市坂田454",
+    "phone": "0439-52-4583",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "坂田",
+      "level": 3,
+      "point": {
+        "lat": 35.342531,
+        "lng": 139.885147,
+        "level": 3
+      },
+      "other": "454"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "千葉県立君津高等学校上総キャンパス",
+    "address": "千葉県君津市上957",
+    "phone": "0439-32-2311",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "上",
+      "level": 3,
+      "point": {
+        "lat": 35.310224,
+        "lng": 139.955229,
+        "level": 3
+      },
+      "other": "957"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "千葉県立君津青葉高等学校",
+    "address": "千葉県君津市青柳48",
+    "phone": "0439-27-2351",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "青柳",
+      "addr": "48",
+      "level": 8,
+      "point": {
+        "lat": 35.304641,
+        "lng": 140.069245,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "千葉県立君津特別支援学校",
+    "address": "千葉県君津市北子安6-14-1",
+    "phone": "0439-55-4333",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "北子安六丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.332299,
+        "lng": 139.921629,
+        "level": 3
+      },
+      "other": "14-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "千葉医療福祉専門学校",
+    "address": "千葉県君津市上湯江1019",
+    "phone": "0439-55-4001",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "上湯江",
+      "level": 3,
+      "point": {
+        "lat": 35.312618,
+        "lng": 139.893539,
+        "level": 3
+      },
+      "other": "1019"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "君津市立君津中学校",
+    "address": "千葉県君津市杢師1-10-1",
+    "phone": "0439-52-0113",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "杢師一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.325701,
+        "lng": 139.908943,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "君津市立周西中学校",
+    "address": "千葉県君津市坂田560",
+    "phone": "0439-52-1517",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "坂田",
+      "addr": "560",
+      "level": 8,
+      "point": {
+        "lat": 35.342531,
+        "lng": 139.885147,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "君津市立周南中学校",
+    "address": "千葉県君津市宮下1-4-1",
+    "phone": "0439-52-0624",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "宮下一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.300469,
+        "lng": 139.927368,
+        "level": 3
+      },
+      "other": "4-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "君津市立周東中学校",
+    "address": "千葉県君津市塚原120",
+    "phone": "0439-32-2126",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "塚原",
+      "addr": "120",
+      "level": 8,
+      "point": {
+        "lat": 35.298313,
+        "lng": 139.978617,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "君津市立上総小櫃中学校",
+    "address": "千葉県君津市俵田1110",
+    "phone": "0439-35-2021",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "俵田",
+      "addr": "1110",
+      "level": 8,
+      "point": {
+        "lat": 35.317772,
+        "lng": 140.054844,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "君津市立周西南中学校",
+    "address": "千葉県君津市中野2-30-1",
+    "phone": "0439-55-0190",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中野二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.327358,
+        "lng": 139.894732,
+        "level": 3
+      },
+      "other": "30-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "君津市立八重原中学校",
+    "address": "千葉県君津市三直1305",
+    "phone": "0439-52-4300",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "三直",
+      "addr": "1305",
+      "level": 8,
+      "point": {
+        "lat": 35.324716,
+        "lng": 139.939929,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "君津市立八重原小学校",
+    "address": "千葉県君津市南子安9-17-1",
+    "phone": "0439-52-0112",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "南子安九丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.327499,
+        "lng": 139.927431,
+        "level": 3
+      },
+      "other": "17-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "君津市立周西小学校",
+    "address": "千葉県君津市中野3-14-1",
+    "phone": "0439-52-0017",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中野三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.329635,
+        "lng": 139.889967,
+        "level": 3
+      },
+      "other": "14-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "君津市立周西の丘小学校",
+    "address": "千葉県君津市大和田425",
+    "phone": "0439-52-1550",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "425"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "君津市立周南小学校",
+    "address": "千葉県君津市宮下2-25-5",
+    "phone": "0439-52-0259",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "宮下二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.300502,
+        "lng": 139.929608,
+        "level": 3
+      },
+      "other": "25-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "君津市立小糸小学校",
+    "address": "千葉県君津市中島678",
+    "phone": "0439-32-2016",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中島",
+      "level": 3,
+      "point": {
+        "lat": 35.303666,
+        "lng": 139.960912,
+        "level": 3
+      },
+      "other": "678"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "君津市立清和小学校",
+    "address": "千葉県君津市東日笠522",
+    "phone": "0439-38-2285",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東日笠",
+      "addr": "522",
+      "level": 8,
+      "point": {
+        "lat": 35.234868,
+        "lng": 140.002625,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "君津市立小櫃小学校",
+    "address": "千葉県君津市俵田1416",
+    "phone": "0439-35-2501",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "俵田",
+      "level": 3,
+      "point": {
+        "lat": 35.317772,
+        "lng": 140.054844,
+        "level": 3
+      },
+      "other": "1416"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "君津市立上総小学校",
+    "address": "千葉県君津市久留里474",
+    "phone": "0439-27-2361",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里",
+      "addr": "474",
+      "level": 8,
+      "point": {
+        "lat": 35.291525,
+        "lng": 140.095908,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "君津市立北子安小学校",
+    "address": "千葉県君津市北子安853",
+    "phone": "0439-53-1031",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "北子安",
+      "addr": "853",
+      "level": 8,
+      "point": {
+        "lat": 35.336616,
+        "lng": 139.919333,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "君津市立外箕輪小学校",
+    "address": "千葉県君津市外箕輪1-34-1",
+    "phone": "0439-57-1753",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "外箕輪一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.31492,
+        "lng": 139.920059,
+        "level": 3
+      },
+      "other": "34-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 50,
+    "name": "暁星君津幼稚園",
+    "address": "千葉県君津市大和田324",
+    "phone": "0439-52-0757",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "324"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "久留里カトリック幼稚園",
+    "address": "千葉県君津市久留里市場696",
+    "phone": "0439-27-2055",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "level": 3,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": "696"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 54,
+    "name": "君津市立中保育園",
+    "address": "千葉県君津市中島252-1",
+    "phone": "0439-32-2198",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中島",
+      "addr": "252-1",
+      "level": 8,
+      "point": {
+        "lat": 35.303666,
+        "lng": 139.960912,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 55,
+    "name": "君津市立小糸保育園",
+    "address": "千葉県君津市大井戸467-2",
+    "phone": "0439-32-3716",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大井戸",
+      "addr": "467-2",
+      "level": 8,
+      "point": {
+        "lat": 35.294093,
+        "lng": 139.990659,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "君津市立小櫃保育園",
+    "address": "千葉県君津市末吉437-1",
+    "phone": "0439-35-2101",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "addr": "437-1",
+      "level": 8,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 57,
+    "name": "君津市立かずさあけぼの保育園",
+    "address": "千葉県君津市広岡945",
+    "phone": "0439-29-2061",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "広岡",
+      "addr": "945",
+      "level": 8,
+      "point": {
+        "lat": 35.25923,
+        "lng": 140.064736,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 59,
+    "name": "心身障害児通園施設 きみつ愛児園",
+    "address": "千葉県君津市外箕輪1041",
+    "phone": "0439-53-1161",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "外箕輪",
+      "level": 3,
+      "point": {
+        "lat": 35.313807000000004,
+        "lng": 139.928129,
+        "level": 3
+      },
+      "other": "1041"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 61,
+    "name": "君津市森林体験交流センター",
+    "address": "千葉県君津市久留里市場1018",
+    "phone": "0439-27-2422",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "addr": "1018",
+      "level": 8,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 62,
+    "name": "君津市農村環境改善センター",
+    "address": "千葉県君津市久留里市場347-1",
+    "phone": "0439-27-2537",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "level": 3,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": "347-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "君津市小糸スポーツ広場野球場",
+    "address": "千葉県君津市塚原51",
+    "phone": "0439-32-5232",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "塚原",
+      "addr": "51",
+      "level": 8,
+      "point": {
+        "lat": 35.298313,
+        "lng": 139.978617,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 65,
+    "name": "君津グラウンドゴルフ場",
+    "address": "千葉県君津市作木201-3",
+    "phone": "0439-55-6225",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "作木",
+      "addr": "201-3",
+      "level": 8,
+      "point": {
+        "lat": 35.273303,
+        "lng": 139.921843,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 66,
+    "name": "ふれあいパークきみつ",
+    "address": "千葉県君津市笹1766-3",
+    "phone": "0439-39-3939",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "笹",
+      "addr": "1766-3",
+      "level": 8,
+      "point": {
+        "lat": 35.201395,
+        "lng": 140.074381,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 67,
+    "name": "君津職業能力開発促進センター",
+    "address": "千葉県君津市坂田428",
+    "phone": "0439-52-0219",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "坂田",
+      "level": 3,
+      "point": {
+        "lat": 35.342531,
+        "lng": 139.885147,
+        "level": 3
+      },
+      "other": "428"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 68,
+    "name": "千葉オイレッシュ(株)",
+    "address": "千葉県君津市笹1249-3",
+    "phone": "0439-39-3033",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "笹",
+      "addr": "1249-3",
+      "level": 8,
+      "point": {
+        "lat": 35.201395,
+        "lng": 140.074381,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 75,
+    "name": "大江戸温泉物語 君津の森",
+    "address": "千葉県君津市法木384-119",
+    "phone": "0439-70-1226",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "法木",
+      "addr": "384-119",
+      "level": 8,
+      "point": {
+        "lat": 35.299887,
+        "lng": 140.007588,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 77,
+    "name": "ヤスミ資材(株)",
+    "address": "千葉県君津市吉野300",
+    "phone": "0439-27-2081",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "吉野",
+      "addr": "300",
+      "level": 8,
+      "point": {
+        "lat": 35.318272,
+        "lng": 140.09383300000002,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "たびだちの村君津",
+    "address": "千葉県君津市尾車635-1",
+    "phone": "0439-32-2372",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "尾車",
+      "addr": "635-1",
+      "level": 8,
+      "point": {
+        "lat": 35.28763,
+        "lng": 139.94526800000003,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 79,
+    "name": "サニーライフ君津",
+    "address": "千葉県君津市東猪原248-2",
+    "phone": "0439-37-3600",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東猪原",
+      "addr": "248-2",
+      "level": 8,
+      "point": {
+        "lat": 35.253893,
+        "lng": 140.017225,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 81,
+    "name": "山の手フラワーヒル",
+    "address": "千葉県君津市大山野875",
+    "phone": "0439-55-8601",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大山野",
+      "level": 3,
+      "point": {
+        "lat": 35.28122400000001,
+        "lng": 139.92896,
+        "level": 3
+      },
+      "other": "875"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 82,
+    "name": "君津市自然休養村管理センター",
+    "address": "千葉県君津市大岩286",
+    "phone": "0439-38-2200",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大岩",
+      "level": 3,
+      "point": {
+        "lat": 35.222099,
+        "lng": 140.021766,
+        "level": 3
+      },
+      "other": "286"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 84,
+    "name": "木更津東カントリークラブ",
+    "address": "千葉県君津市川俣旧川俣346-2",
+    "phone": "0439-39-3131",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "川俣旧川俣",
+      "addr": "346-2",
+      "level": 8,
+      "point": {
+        "lat": 35.215031,
+        "lng": 140.081962,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 85,
+    "name": "新香木原カントリークラブ",
+    "address": "千葉県君津市香木原288",
+    "phone": "0439-39-2261",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "香木原",
+      "level": 3,
+      "point": {
+        "lat": 35.171203,
+        "lng": 140.052061,
+        "level": 3
+      },
+      "other": "288"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 86,
+    "name": "新君津ベルグリーンカントリー倶楽部",
+    "address": "千葉県君津市東猪原12",
+    "phone": "0439-70-5130",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東猪原",
+      "level": 3,
+      "point": {
+        "lat": 35.253893,
+        "lng": 140.017225,
+        "level": 3
+      },
+      "other": "12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 87,
+    "name": "上総富士ゴルフクラブ",
+    "address": "千葉県君津市大坂1639",
+    "phone": "0439-29-2713",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大坂",
+      "level": 3,
+      "point": {
+        "lat": 35.240907,
+        "lng": 140.034743,
+        "level": 3
+      },
+      "other": "1639"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 88,
+    "name": "ゴールド木更津カントリークラブ",
+    "address": "千葉県君津市大野台765-2",
+    "phone": "0439-70-5111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大野台",
+      "addr": "765-2",
+      "level": 8,
+      "point": {
+        "lat": 35.27114,
+        "lng": 140.011859,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "ジャパンPGAゴルフクラブ",
+    "address": "千葉県君津市平田223",
+    "phone": "0439-37-3700",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "平田",
+      "addr": "223",
+      "level": 8,
+      "point": {
+        "lat": 35.235091,
+        "lng": 139.984444,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 90,
+    "name": "医療法人社団 慈永会 永峯医院",
+    "address": "千葉県君津市青柳18-1",
+    "phone": "0439-27-2021",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "青柳",
+      "addr": "18-1",
+      "level": 8,
+      "point": {
+        "lat": 35.304641,
+        "lng": 140.069245,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 94,
+    "name": "セントケアホーム君津",
+    "address": "千葉県君津市大和田4-2-14",
+    "phone": "0439-50-0405",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.335234,
+        "lng": 139.880398,
+        "level": 3
+      },
+      "other": "2-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 95,
+    "name": "デイサービスみのり",
+    "address": "千葉県君津市宮下1-13-12",
+    "phone": "0439-27-0586",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "宮下一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.300469,
+        "lng": 139.927368,
+        "level": 3
+      },
+      "other": "13-12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 97,
+    "name": "河村産業(株) かずさ事業部",
+    "address": "千葉県君津市かずさ小糸3-10",
+    "phone": "0439-70-1122",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "かずさ小糸",
+      "level": 3,
+      "point": {
+        "lat": 35.31619,
+        "lng": 139.999622,
+        "level": 3
+      },
+      "other": "3-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 99,
+    "name": "株式会社 寄(やどりぎ)",
+    "address": "千葉県君津市人見1422-1",
+    "phone": "0439-88-6262",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "人見",
+      "addr": "1422-1",
+      "level": 8,
+      "point": {
+        "lat": 35.339872,
+        "lng": 139.86710400000004,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 100,
+    "name": "千葉信用金庫 久留里支店",
+    "address": "千葉県君津市久留里市場173",
+    "phone": "0439-27-2221",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "level": 3,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": "173"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 103,
+    "name": "サンキュウリサーチアンドクリエイト東日本能力開発センター",
+    "address": "千葉県君津市人見1041-2",
+    "phone": "0439-52-3111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "人見",
+      "addr": "1041-2",
+      "level": 8,
+      "point": {
+        "lat": 35.339872,
+        "lng": 139.86710400000004,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 104,
+    "name": "(株)ロマンの森",
+    "address": "千葉県君津市豊英659-1",
+    "phone": "0439-38-2211",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "豊英",
+      "level": 3,
+      "point": {
+        "lat": 35.176664,
+        "lng": 140.011882,
+        "level": 3
+      },
+      "other": "659-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 105,
+    "name": "久留里カトリック幼稚園",
+    "address": "千葉県君津市久留里市場696",
+    "phone": "0439-27-2055",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "level": 3,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": "696"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 106,
+    "name": "特別養護老人ホーム 上総園",
+    "address": "千葉県君津市広岡375",
+    "phone": "0439-50-7211",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "広岡",
+      "level": 3,
+      "point": {
+        "lat": 35.25923,
+        "lng": 140.064736,
+        "level": 3
+      },
+      "other": "375"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 109,
+    "name": "日本製鉄(株) 君津体育館",
+    "address": "千葉県君津市大和田324",
+    "phone": "0439-52-3571",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "324"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 110,
+    "name": "日本製鉄(株) 君津寮",
+    "address": "千葉県君津市大和田324",
+    "phone": "0439-52-1831",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "324"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 111,
+    "name": "日本製鉄(株) 八重原寮",
+    "address": "千葉県君津市八重原172",
+    "phone": "0439-52-0235",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "八重原",
+      "level": 3,
+      "point": {
+        "lat": 35.32807,
+        "lng": 139.936677,
+        "level": 3
+      },
+      "other": "172"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 112,
+    "name": "スーパー銭湯君津の湯",
+    "address": "千葉県君津市外箕輪154",
+    "phone": "0439-57-2641",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "外箕輪",
+      "addr": "154",
+      "level": 8,
+      "point": {
+        "lat": 35.313807000000004,
+        "lng": 139.928129,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 113,
+    "name": "パチンコグランド日の丸",
+    "address": "千葉県君津市坂田673-11",
+    "phone": "0120-010-267",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "坂田",
+      "addr": "673-11",
+      "level": 8,
+      "point": {
+        "lat": 35.342531,
+        "lng": 139.885147,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 114,
+    "name": "パチンコ日の丸サザン",
+    "address": "千葉県君津市外箕輪91-1",
+    "phone": "0120-010-267",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "外箕輪",
+      "addr": "91-1",
+      "level": 8,
+      "point": {
+        "lat": 35.313807000000004,
+        "lng": 139.928129,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 117,
+    "name": "JAきみつ 本店",
+    "address": "千葉県君津市塚原185",
+    "phone": "0439-70-1331",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "塚原",
+      "addr": "185",
+      "level": 8,
+      "point": {
+        "lat": 35.298313,
+        "lng": 139.978617,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 119,
+    "name": "JAきみつ 小櫃支店",
+    "address": "千葉県君津市末吉152",
+    "phone": "0439-35-2511",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "level": 3,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": "152"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 120,
+    "name": "JAきみつ 亀山支店",
+    "address": "千葉県君津市藤林268-1",
+    "phone": "0439-39-2111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "藤林",
+      "addr": "268-1",
+      "level": 8,
+      "point": {
+        "lat": 35.233351,
+        "lng": 140.088174,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 121,
+    "name": "JAきみつ 小糸支店",
+    "address": "千葉県君津市中島681-1",
+    "phone": "0439-32-2591",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中島",
+      "addr": "681-1",
+      "level": 8,
+      "point": {
+        "lat": 35.303666,
+        "lng": 139.960912,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 122,
+    "name": "JAきみつ 小櫃給油所",
+    "address": "千葉県君津市末吉238-1",
+    "phone": "0439-35-2255",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "addr": "238-1",
+      "level": 8,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 123,
+    "name": "JAきみつ 小糸給油所",
+    "address": "千葉県君津市根本431",
+    "phone": "0439-32-2590",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "根本",
+      "addr": "431",
+      "level": 8,
+      "point": {
+        "lat": 35.305484,
+        "lng": 139.987614,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 125,
+    "name": "JAきみつ 虹のホールおびつ",
+    "address": "千葉県君津市戸崎2626-7",
+    "phone": "0439-35-3699",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "戸崎",
+      "addr": "2626-7",
+      "level": 8,
+      "point": {
+        "lat": 35.313281,
+        "lng": 140.030161,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 128,
+    "name": "上総モナークカントリークラブ",
+    "address": "千葉県君津市柳城字安郷沢856-2",
+    "phone": "0439-29-3100",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "柳城",
+      "level": 3,
+      "point": {
+        "lat": 35.248392,
+        "lng": 140.095118,
+        "level": 3
+      },
+      "other": "字安郷沢856-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 129,
+    "name": "ロイヤルスターゴルフクラブ",
+    "address": "千葉県君津市平山32-1",
+    "phone": "0439-29-3111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "平山",
+      "addr": "32-1",
+      "level": 8,
+      "point": {
+        "lat": 35.270094,
+        "lng": 140.071909,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 130,
+    "name": "特別養護老人ホーム あんしん君津",
+    "address": "千葉県君津市愛宕字162-1",
+    "phone": "0439-27-0023",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "愛宕",
+      "level": 3,
+      "point": {
+        "lat": 35.293273,
+        "lng": 140.051251,
+        "level": 3
+      },
+      "other": "字162-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 131,
+    "name": "日鉄環境株式会社",
+    "address": "千葉県君津市泉字八幡堀152-1",
+    "phone": "0439-32-2865",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "泉",
+      "level": 3,
+      "point": {
+        "lat": 35.299995,
+        "lng": 139.948129,
+        "level": 3
+      },
+      "other": "字八幡堀152-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 132,
+    "name": "十全社メモリアルホール 君津",
+    "address": "千葉県君津市泉312-1",
+    "phone": "0439-32-4211",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "泉",
+      "addr": "312-1",
+      "level": 8,
+      "point": {
+        "lat": 35.299995,
+        "lng": 139.948129,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 134,
+    "name": "まえだクリニック",
+    "address": "千葉県君津市浦田2-1",
+    "phone": "0439-27-2005",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "浦田",
+      "addr": "2-1",
+      "level": 8,
+      "point": {
+        "lat": 35.274342,
+        "lng": 140.084044,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 135,
+    "name": "日本製鉄(株) 君津球場",
+    "address": "千葉県君津市大和田324",
+    "phone": "0439-54-0226",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "324"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 136,
+    "name": "Honda Cars 木更津 君津店",
+    "address": "千葉県君津市大和田667",
+    "phone": "0439-55-7511",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "大和田",
+      "level": 3,
+      "point": {
+        "lat": 35.341429,
+        "lng": 139.87563,
+        "level": 3
+      },
+      "other": "667"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 137,
+    "name": "習志野市鹿野山少年自然の家",
+    "address": "千葉県君津市鹿野山常緑平731",
+    "phone": "0439-37-2197",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "鹿野山",
+      "level": 3,
+      "point": {
+        "lat": 35.25251,
+        "lng": 139.96059,
+        "level": 3
+      },
+      "other": "常緑平731"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 138,
+    "name": "かずさリゾート鹿野山",
+    "address": "千葉県君津市鹿野山319",
+    "phone": "0439-37-3411",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "鹿野山",
+      "level": 3,
+      "point": {
+        "lat": 35.25251,
+        "lng": 139.96059,
+        "level": 3
+      },
+      "other": "319"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 139,
+    "name": "ファミリーサポートひるがお",
+    "address": "千葉県君津市北子安1-12-21",
+    "phone": "0439-50-0710",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "北子安一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.329179,
+        "lng": 139.909059,
+        "level": 3
+      },
+      "other": "12-21"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 145,
+    "name": "JR君津駅",
+    "address": "千葉県君津市東坂田1-1-1",
+    "phone": "050-2016-1600",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東坂田一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.334312,
+        "lng": 139.895825,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 146,
+    "name": "JR久留里駅",
+    "address": "千葉県君津市久留里市場198",
+    "phone": "050-2016-1600",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "久留里市場",
+      "addr": "198",
+      "level": 8,
+      "point": {
+        "lat": 35.294956,
+        "lng": 140.072802,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 150,
+    "name": "君津亀山少年自然の家",
+    "address": "千葉県君津市笹字片倉1661-1",
+    "phone": "0439-39-2628",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "笹",
+      "level": 3,
+      "point": {
+        "lat": 35.201395,
+        "lng": 140.074381,
+        "level": 3
+      },
+      "other": "字片倉1661-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 151,
+    "name": "君津市国民健康保険 小櫃診療所",
+    "address": "千葉県君津市末吉1046",
+    "phone": "0439-35-2020",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "末吉",
+      "level": 3,
+      "point": {
+        "lat": 35.327865,
+        "lng": 140.062113,
+        "level": 3
+      },
+      "other": "1046"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 158,
+    "name": "清和県民の森 管理事務所",
+    "address": "千葉県君津市豊英660",
+    "phone": "0439-38-2222",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "豊英",
+      "level": 3,
+      "point": {
+        "lat": 35.176664,
+        "lng": 140.011882,
+        "level": 3
+      },
+      "other": "660"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 160,
+    "name": "ウェルシア君津 中島店",
+    "address": "千葉県君津市中島285-3",
+    "phone": "0439-70-1202",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中島",
+      "addr": "285-3",
+      "level": 8,
+      "point": {
+        "lat": 35.303666,
+        "lng": 139.960912,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 167,
+    "name": "君津ピースデンタルクリニック",
+    "address": "千葉県君津市中野5-17-1、イオンタウン君津C棟",
+    "phone": "0439-27-1451",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中野五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.334076,
+        "lng": 139.887945,
+        "level": 3
+      },
+      "other": "17-1、イオンタウン君津C棟"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 168,
+    "name": "エニタイムフィットネスイオンタウン君津店",
+    "address": "千葉県君津市中野5-17-1",
+    "phone": "0439-32-1721",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "中野五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.334076,
+        "lng": 139.887945,
+        "level": 3
+      },
+      "other": "17-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 169,
+    "name": "京葉銀行 君津支店",
+    "address": "千葉県君津市東坂田1-3-3-101",
+    "phone": "0439-52-9111",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東坂田一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.334312,
+        "lng": 139.895825,
+        "level": 3
+      },
+      "other": "3-3-101"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 170,
+    "name": "カーブス 君津",
+    "address": "千葉県君津市東坂田1-6-1 3F",
+    "phone": "0439-55-3911",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "東坂田一丁目",
+      "addr": "6-1",
+      "level": 8,
+      "point": {
+        "lat": 35.333912858,
+        "lng": 139.897692453,
+        "level": 8
+      },
+      "other": " 3F"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 171,
+    "name": "株式会社 宮本組 関東支店",
+    "address": "千葉県君津市人見1040-12",
+    "phone": "0439-52-3636",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "人見",
+      "addr": "1040-12",
+      "level": 8,
+      "point": {
+        "lat": 35.339872,
+        "lng": 139.86710400000004,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 172,
+    "name": "菅原 君津営業所",
+    "address": "千葉県君津市人見1040-13",
+    "phone": "0439-52-1715",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "人見",
+      "addr": "1040-13",
+      "level": 8,
+      "point": {
+        "lat": 35.339872,
+        "lng": 139.86710400000004,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 173,
+    "name": "松丘診療所",
+    "address": "千葉県君津市広岡1726-1",
+    "phone": "0439-29-2604",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "広岡",
+      "addr": "1726-1",
+      "level": 8,
+      "point": {
+        "lat": 35.25923,
+        "lng": 140.064736,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 174,
+    "name": "内山緑地建設(株) 君津事業所",
+    "address": "千葉県君津市馬登入道谷677-1",
+    "phone": "0439-50-1700",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "馬登",
+      "level": 3,
+      "point": {
+        "lat": 35.273798,
+        "lng": 139.940715,
+        "level": 3
+      },
+      "other": "入道谷677-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 181,
+    "name": "ケアハウスグランディきみつ",
+    "address": "千葉県君津市三直522",
+    "phone": "0439-53-1711",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "三直",
+      "level": 3,
+      "point": {
+        "lat": 35.324716,
+        "lng": 139.939929,
+        "level": 3
+      },
+      "other": "522"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 182,
+    "name": "君津市清掃事務所",
+    "address": "千葉県君津市三直1552-35",
+    "phone": "0439-52-5353",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "三直",
+      "addr": "1552-35",
+      "level": 8,
+      "point": {
+        "lat": 35.324716,
+        "lng": 139.939929,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 188,
+    "name": "サン・ラポール壱番館",
+    "address": "千葉県君津市豊英355-1",
+    "phone": "0439-38-2231",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "豊英",
+      "level": 3,
+      "point": {
+        "lat": 35.176664,
+        "lng": 140.011882,
+        "level": 3
+      },
+      "other": "355-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 189,
+    "name": "サン・ラポール弐番館",
+    "address": "千葉県君津市豊英355-10",
+    "phone": "0439-38-2100",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "豊英",
+      "level": 3,
+      "point": {
+        "lat": 35.176664,
+        "lng": 140.011882,
+        "level": 3
+      },
+      "other": "355-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 190,
+    "name": "日伸精機株式会社 かずさ工場",
+    "address": "千葉県君津市かずさ小糸3-2",
+    "phone": "0439-70-1313",
+    "source_url": "https://opendata.pref.chiba.lg.jp/resources/56087",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2025-03-17",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "千葉県",
+      "city": "君津市",
+      "town": "かずさ小糸",
+      "level": 3,
+      "point": {
+        "lat": 35.31619,
+        "lng": 139.999622,
+        "level": 3
+      },
+      "other": "3-2"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

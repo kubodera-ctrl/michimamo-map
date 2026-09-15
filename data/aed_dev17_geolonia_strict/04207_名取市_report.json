@@ -1,0 +1,9 @@
+{
+  "code": "04207",
+  "prefecture": "宮城県",
+  "municipality": "名取市",
+  "source_rows": 158,
+  "accepted": 98,
+  "held": 60,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND municipality bounds"
+}

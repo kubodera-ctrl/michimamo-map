@@ -1,0 +1,2452 @@
+[
+  {
+    "row": 2,
+    "name": "名取市役所",
+    "address": "宮城県名取市増田字柳田80",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田字柳田",
+      "addr": "80",
+      "level": 8,
+      "point": {
+        "lat": 38.171675712,
+        "lng": 140.891585271,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171675712,
+    "longitude": 140.891585271
+  },
+  {
+    "row": 4,
+    "name": "市民体育館",
+    "address": "宮城県名取市増田字柳田250",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田字柳田",
+      "addr": "250",
+      "level": 8,
+      "point": {
+        "lat": 38.170058134,
+        "lng": 140.891613782,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.170058134,
+    "longitude": 140.891613782
+  },
+  {
+    "row": 6,
+    "name": "増田公民館",
+    "address": "宮城県名取市増田四丁目7-30",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田四丁目",
+      "addr": "7-30",
+      "level": 8,
+      "point": {
+        "lat": 38.173537283,
+        "lng": 140.883645181,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173537283,
+    "longitude": 140.883645181
+  },
+  {
+    "row": 7,
+    "name": "増田西公民館",
+    "address": "宮城県名取市手倉田字堰根265-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字堰根",
+      "addr": "265-1",
+      "level": 8,
+      "point": {
+        "lat": 38.173625815,
+        "lng": 140.872289585,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173625815,
+    "longitude": 140.872289585
+  },
+  {
+    "row": 13,
+    "name": "下増田公民館",
+    "address": "宮城県名取市美田園七丁目23-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園七丁目",
+      "addr": "23-1",
+      "level": 8,
+      "point": {
+        "lat": 38.158474298,
+        "lng": 140.908340732,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158474298,
+    "longitude": 140.908340732
+  },
+  {
+    "row": 15,
+    "name": "愛島公民館",
+    "address": "宮城県名取市愛島笠島字上平27",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島笠島字上平",
+      "addr": "27",
+      "level": 8,
+      "point": {
+        "lat": 38.149707307,
+        "lng": 140.84840381,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.149707307,
+    "longitude": 140.84840381
+  },
+  {
+    "row": 16,
+    "name": "名取市図書館",
+    "address": "宮城県名取市増田四丁目7-30",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田四丁目",
+      "addr": "7-30",
+      "level": 8,
+      "point": {
+        "lat": 38.173537283,
+        "lng": 140.883645181,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173537283,
+    "longitude": 140.883645181
+  },
+  {
+    "row": 19,
+    "name": "館腰小学校",
+    "address": "宮城県名取市植松一丁目2-17",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松一丁目",
+      "addr": "2-17",
+      "level": 8,
+      "point": {
+        "lat": 38.151413956,
+        "lng": 140.882615783,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.151413956,
+    "longitude": 140.882615783
+  },
+  {
+    "row": 22,
+    "name": "下増田小学校",
+    "address": "宮城県名取市美田園七丁目23-3",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園七丁目",
+      "addr": "23-3",
+      "level": 8,
+      "point": {
+        "lat": 38.158120177,
+        "lng": 140.910217214,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158120177,
+    "longitude": 140.910217214
+  },
+  {
+    "row": 23,
+    "name": "増田小学校",
+    "address": "宮城県名取市増田三丁目9-20",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田三丁目",
+      "addr": "9-20",
+      "level": 8,
+      "point": {
+        "lat": 38.171953428,
+        "lng": 140.888687053,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171953428,
+    "longitude": 140.888687053
+  },
+  {
+    "row": 27,
+    "name": "増田中学校",
+    "address": "宮城県名取市増田字柳田230",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田字柳田",
+      "addr": "230",
+      "level": 8,
+      "point": {
+        "lat": 38.16980817,
+        "lng": 140.895231876,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.16980817,
+    "longitude": 140.895231876
+  },
+  {
+    "row": 28,
+    "name": "第一中学校",
+    "address": "宮城県名取市小山一丁目8-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "小山一丁目",
+      "addr": "8-1",
+      "level": 8,
+      "point": {
+        "lat": 38.163862628,
+        "lng": 140.881477358,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.163862628,
+    "longitude": 140.881477358
+  },
+  {
+    "row": 29,
+    "name": "第二中学校",
+    "address": "宮城県名取市高舘吉田字吉合90",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字吉合",
+      "addr": "90",
+      "level": 8,
+      "point": {
+        "lat": 38.180308239000006,
+        "lng": 140.865768,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.180308239000006,
+    "longitude": 140.865768
+  },
+  {
+    "row": 31,
+    "name": "閖上小中学校",
+    "address": "宮城県名取市閖上西一丁目25",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "閖上西一丁目",
+      "addr": "25",
+      "level": 8,
+      "point": {
+        "lat": 38.180684434,
+        "lng": 140.940013727,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.180684434,
+    "longitude": 140.940013727
+  },
+  {
+    "row": 32,
+    "name": "友愛作業所",
+    "address": "宮城県名取市増田一丁目7-28",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田一丁目",
+      "addr": "7-28",
+      "level": 8,
+      "point": {
+        "lat": 38.165692781,
+        "lng": 140.888408436,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.165692781,
+    "longitude": 140.888408436
+  },
+  {
+    "row": 33,
+    "name": "増田保育所",
+    "address": "宮城県名取市増田一丁目8-33",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田一丁目",
+      "addr": "8-33",
+      "level": 8,
+      "point": {
+        "lat": 38.166478381,
+        "lng": 140.88819391400003,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.166478381,
+    "longitude": 140.88819391400003
+  },
+  {
+    "row": 36,
+    "name": "高舘あおぞら保育園",
+    "address": "宮城県名取市高舘熊野堂字五反田山1-2",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘熊野堂字五反田山",
+      "addr": "1-2",
+      "level": 8,
+      "point": {
+        "lat": 38.204558907,
+        "lng": 140.838292538,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.204558907,
+    "longitude": 140.838292538
+  },
+  {
+    "row": 37,
+    "name": "名取みたぞの保育園",
+    "address": "宮城県名取市美田園五丁目3-5",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園五丁目",
+      "addr": "3-5",
+      "level": 8,
+      "point": {
+        "lat": 38.158338009000005,
+        "lng": 140.917214362,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158338009000005,
+    "longitude": 140.917214362
+  },
+  {
+    "row": 38,
+    "name": "増田児童センター",
+    "address": "宮城県名取市増田三丁目9-56",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田三丁目",
+      "addr": "9-56",
+      "level": 8,
+      "point": {
+        "lat": 38.170585172,
+        "lng": 140.888669114,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.170585172,
+    "longitude": 140.888669114
+  },
+  {
+    "row": 41,
+    "name": "館腰児童センター",
+    "address": "宮城県名取市植松三丁目1-19",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松三丁目",
+      "addr": "1-19",
+      "level": 8,
+      "point": {
+        "lat": 38.149170908,
+        "lng": 140.881564211,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.149170908,
+    "longitude": 140.881564211
+  },
+  {
+    "row": 45,
+    "name": "愛島児童センター",
+    "address": "宮城県名取市愛島笠島字弁天19-3",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島笠島字弁天",
+      "addr": "19-3",
+      "level": 8,
+      "point": {
+        "lat": 38.150808147,
+        "lng": 140.849151043,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.150808147,
+    "longitude": 140.849151043
+  },
+  {
+    "row": 47,
+    "name": "下増田児童センター",
+    "address": "宮城県名取市美田園七丁目23-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園七丁目",
+      "addr": "23-1",
+      "level": 8,
+      "point": {
+        "lat": 38.158474298,
+        "lng": 140.908340732,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158474298,
+    "longitude": 140.908340732
+  },
+  {
+    "row": 48,
+    "name": "名取市斎場",
+    "address": "宮城県名取市小塚原字新鍋島159-2",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "小塚原字新鍋島",
+      "addr": "159-2",
+      "level": 8,
+      "point": {
+        "lat": 38.16513185,
+        "lng": 140.945408296,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.16513185,
+    "longitude": 140.945408296
+  },
+  {
+    "row": 50,
+    "name": "名取駅コミュニティプラザ",
+    "address": "宮城県名取市手倉田字八幡287-15",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字八幡",
+      "addr": "287-15",
+      "level": 8,
+      "point": {
+        "lat": 38.173047867,
+        "lng": 140.882458161,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173047867,
+    "longitude": 140.882458161
+  },
+  {
+    "row": 52,
+    "name": "宮城県農業高等学校",
+    "address": "宮城県名取市高舘吉田字吉合66",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字吉合",
+      "addr": "66",
+      "level": 8,
+      "point": {
+        "lat": 38.181538644,
+        "lng": 140.863311199,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.181538644,
+    "longitude": 140.863311199
+  },
+  {
+    "row": 55,
+    "name": "宮城県警察学校",
+    "address": "宮城県名取市愛島郷二丁目1-25",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島郷二丁目",
+      "addr": "1-25",
+      "level": 8,
+      "point": {
+        "lat": 38.158771146,
+        "lng": 140.856347258,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158771146,
+    "longitude": 140.856347258
+  },
+  {
+    "row": 56,
+    "name": "田高町西集会所",
+    "address": "宮城県名取市増田四丁目4-8",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田四丁目",
+      "addr": "4-8",
+      "level": 8,
+      "point": {
+        "lat": 38.176444367,
+        "lng": 140.8849477,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.176444367,
+    "longitude": 140.8849477
+  },
+  {
+    "row": 62,
+    "name": "仙台空港鉄道株式会社 美田園駅",
+    "address": "宮城県名取市美田園五丁目29",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園五丁目",
+      "addr": "29",
+      "level": 8,
+      "point": {
+        "lat": 38.159482973,
+        "lng": 140.918146559,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.159482973,
+    "longitude": 140.918146559
+  },
+  {
+    "row": 64,
+    "name": "株式会社 東日本宇佐美 4号仙台南SS",
+    "address": "宮城県名取市本郷字大門161",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字大門",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 38.131467586,
+        "lng": 140.875851883,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.131467586,
+    "longitude": 140.875851883
+  },
+  {
+    "row": 65,
+    "name": "株式会社 東日本宇佐美東北支店",
+    "address": "宮城県名取市本郷字大門161",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字大門",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 38.131467586,
+        "lng": 140.875851883,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.131467586,
+    "longitude": 140.875851883
+  },
+  {
+    "row": 67,
+    "name": "パラディソ名取店",
+    "address": "宮城県名取市田高字原220-9",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "田高字原",
+      "addr": "220-9",
+      "level": 8,
+      "point": {
+        "lat": 38.181889448,
+        "lng": 140.874911436,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.181889448,
+    "longitude": 140.874911436
+  },
+  {
+    "row": 68,
+    "name": "DCMホーマック名取店",
+    "address": "宮城県名取市田高字原509",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "田高字原",
+      "addr": "509",
+      "level": 8,
+      "point": {
+        "lat": 38.17846657,
+        "lng": 140.877790242,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.17846657,
+    "longitude": 140.877790242
+  },
+  {
+    "row": 69,
+    "name": "サッポロビール株式会社 仙台工場",
+    "address": "宮城県名取市手倉田字八幡310-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字八幡",
+      "addr": "310-1",
+      "level": 8,
+      "point": {
+        "lat": 38.175081409,
+        "lng": 140.881007878,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.175081409,
+    "longitude": 140.881007878
+  },
+  {
+    "row": 70,
+    "name": "株式会社 ユアテック仙台南営業所",
+    "address": "宮城県名取市飯野坂土城堀98-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "飯野坂字土城堀",
+      "addr": "98-1",
+      "level": 8,
+      "point": {
+        "lat": 38.155624545,
+        "lng": 140.88810011,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.155624545,
+    "longitude": 140.88810011
+  },
+  {
+    "row": 71,
+    "name": "宮城トヨタ自動車株式会社 岩沼店",
+    "address": "宮城県名取市本郷字観音215",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字観音",
+      "addr": "215",
+      "level": 8,
+      "point": {
+        "lat": 38.128083957,
+        "lng": 140.873828743,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.128083957,
+    "longitude": 140.873828743
+  },
+  {
+    "row": 73,
+    "name": "スーパービバホーム新名取店",
+    "address": "宮城県名取市美田園六丁目14-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園六丁目",
+      "addr": "14-1",
+      "level": 8,
+      "point": {
+        "lat": 38.159103846,
+        "lng": 140.913587431,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.159103846,
+    "longitude": 140.913587431
+  },
+  {
+    "row": 74,
+    "name": "イオンタウン名取",
+    "address": "宮城県名取市飯野坂三丁目5-10",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "飯野坂三丁目",
+      "addr": "5-10",
+      "level": 8,
+      "point": {
+        "lat": 38.158157978,
+        "lng": 140.886276122,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158157978,
+    "longitude": 140.886276122
+  },
+  {
+    "row": 76,
+    "name": "カーブスイオンタウン名取店",
+    "address": "宮城県名取市飯野坂三丁目5-10",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "飯野坂三丁目",
+      "addr": "5-10",
+      "level": 8,
+      "point": {
+        "lat": 38.158157978,
+        "lng": 140.886276122,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158157978,
+    "longitude": 140.886276122
+  },
+  {
+    "row": 77,
+    "name": "ダイナム宮城名取美田園店",
+    "address": "宮城県名取市美田園一丁目8-33",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園一丁目",
+      "addr": "8-33",
+      "level": 8,
+      "point": {
+        "lat": 38.160716053,
+        "lng": 140.915819207,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.160716053,
+    "longitude": 140.915819207
+  },
+  {
+    "row": 79,
+    "name": "仙台農業協同組合 名取中央店",
+    "address": "宮城県名取市増田一丁目12-36",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田一丁目",
+      "addr": "12-36",
+      "level": 8,
+      "point": {
+        "lat": 38.168206764000004,
+        "lng": 140.889842756,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.168206764000004,
+    "longitude": 140.889842756
+  },
+  {
+    "row": 80,
+    "name": "仙台農業協同組合 美田園支店",
+    "address": "宮城県名取市美田園六丁目15-6",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園六丁目",
+      "addr": "15-6",
+      "level": 8,
+      "point": {
+        "lat": 38.157542001,
+        "lng": 140.911976786,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.157542001,
+    "longitude": 140.911976786
+  },
+  {
+    "row": 81,
+    "name": "仙台農業協同組合 館腰支店",
+    "address": "宮城県名取市植松三丁目4-5",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松三丁目",
+      "addr": "4-5",
+      "level": 8,
+      "point": {
+        "lat": 38.147261703,
+        "lng": 140.880381622,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.147261703,
+    "longitude": 140.880381622
+  },
+  {
+    "row": 82,
+    "name": "仙台農業協同組合 名取西支店",
+    "address": "宮城県名取市愛島郷二丁目1-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島郷二丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 38.159850384,
+        "lng": 140.855941058,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.159850384,
+    "longitude": 140.855941058
+  },
+  {
+    "row": 83,
+    "name": "仙台農業協同組合 増田支店",
+    "address": "宮城県名取市増田二丁目6-34",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田二丁目",
+      "addr": "6-34",
+      "level": 8,
+      "point": {
+        "lat": 38.171483986,
+        "lng": 140.883130872,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171483986,
+    "longitude": 140.883130872
+  },
+  {
+    "row": 84,
+    "name": "仙台農業協同組合 名取岩沼営農センター",
+    "address": "宮城県名取市植松字入生354-3",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字入生",
+      "addr": "354-3",
+      "level": 8,
+      "point": {
+        "lat": 38.153721558,
+        "lng": 140.888220371,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.153721558,
+    "longitude": 140.888220371
+  },
+  {
+    "row": 85,
+    "name": "仙台農業協同組合 名取給油所",
+    "address": "宮城県名取市増田一丁目12-36",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田一丁目",
+      "addr": "12-36",
+      "level": 8,
+      "point": {
+        "lat": 38.168206764000004,
+        "lng": 140.889842756,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.168206764000004,
+    "longitude": 140.889842756
+  },
+  {
+    "row": 86,
+    "name": "やすらぎホール美田園",
+    "address": "宮城県名取市美田園六丁目15-4",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園六丁目",
+      "addr": "15-4",
+      "level": 8,
+      "point": {
+        "lat": 38.157938397,
+        "lng": 140.91220854100004,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.157938397,
+    "longitude": 140.91220854100004
+  },
+  {
+    "row": 87,
+    "name": "養護老人ホーム松寿園",
+    "address": "宮城県名取市手倉田字山208-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字山",
+      "addr": "208-1",
+      "level": 8,
+      "point": {
+        "lat": 38.164177549,
+        "lng": 140.869851258,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.164177549,
+    "longitude": 140.869851258
+  },
+  {
+    "row": 88,
+    "name": "パナソニック株式会社 AVC社仙台工場",
+    "address": "宮城県名取市増田字北谷11",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田字北谷",
+      "addr": "11",
+      "level": 8,
+      "point": {
+        "lat": 38.176331113,
+        "lng": 140.891455063,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.176331113,
+    "longitude": 140.891455063
+  },
+  {
+    "row": 89,
+    "name": "ホームふるさと",
+    "address": "宮城県名取市本郷字大門6-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字大門",
+      "addr": "6-1",
+      "level": 8,
+      "point": {
+        "lat": 38.129031116,
+        "lng": 140.878214839,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.129031116,
+    "longitude": 140.878214839
+  },
+  {
+    "row": 90,
+    "name": "桂實苑",
+    "address": "宮城県名取市本郷字東六軒132-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字東六軒",
+      "addr": "132-1",
+      "level": 8,
+      "point": {
+        "lat": 38.1371928,
+        "lng": 140.872609498,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.1371928,
+    "longitude": 140.872609498
+  },
+  {
+    "row": 91,
+    "name": "介護老人保健施設 なとり",
+    "address": "宮城県名取市高舘熊野堂字岩口下1-2",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘熊野堂字岩口下",
+      "addr": "1-2",
+      "level": 8,
+      "point": {
+        "lat": 38.19764929400001,
+        "lng": 140.845945743,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.19764929400001,
+    "longitude": 140.845945743
+  },
+  {
+    "row": 92,
+    "name": "特別養護老人ホーム松陽苑",
+    "address": "宮城県名取市手倉田字八幡80-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字八幡",
+      "addr": "80-1",
+      "level": 8,
+      "point": {
+        "lat": 38.173727018,
+        "lng": 140.877418338,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173727018,
+    "longitude": 140.877418338
+  },
+  {
+    "row": 94,
+    "name": "株式会社 リコー 応用電子研究所",
+    "address": "宮城県名取市高舘熊野堂字余方上5-10",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘熊野堂字余方上",
+      "addr": "5-10",
+      "level": 8,
+      "point": {
+        "lat": 38.216020972,
+        "lng": 140.816874486,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.216020972,
+    "longitude": 140.816874486
+  },
+  {
+    "row": 95,
+    "name": "食品館イトー名取店",
+    "address": "宮城県名取市愛島郷一丁目1-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島郷一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 38.161318203,
+        "lng": 140.856582263,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.161318203,
+    "longitude": 140.856582263
+  },
+  {
+    "row": 96,
+    "name": "ユースポーツクラブ名取",
+    "address": "宮城県名取市増田一丁目14-20",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田一丁目",
+      "addr": "14-20",
+      "level": 8,
+      "point": {
+        "lat": 38.166818094,
+        "lng": 140.889249503,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.166818094,
+    "longitude": 140.889249503
+  },
+  {
+    "row": 100,
+    "name": "株式会社 リーベン",
+    "address": "宮城県名取市高舘吉田字東内舘37-3",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字東内舘",
+      "addr": "37-3",
+      "level": 8,
+      "point": {
+        "lat": 38.18466218300001,
+        "lng": 140.864546971,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.18466218300001,
+    "longitude": 140.864546971
+  },
+  {
+    "row": 101,
+    "name": "ブリヂストン物流株式会社 東日本支社仙台事業所",
+    "address": "宮城県名取市植松字新橋205",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字新橋",
+      "addr": "205",
+      "level": 8,
+      "point": {
+        "lat": 38.138402459,
+        "lng": 140.87919647,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.138402459,
+    "longitude": 140.87919647
+  },
+  {
+    "row": 102,
+    "name": "日立物流ダイレックス株式会社 仙台営業所物流センター",
+    "address": "宮城県名取市堀内字南161",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "堀内字南",
+      "addr": "161",
+      "level": 8,
+      "point": {
+        "lat": 38.110356342,
+        "lng": 140.879339738,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.110356342,
+    "longitude": 140.879339738
+  },
+  {
+    "row": 104,
+    "name": "社会福祉法人 みのり会 知的障害者複合施設",
+    "address": "宮城県名取市上余田字千刈田528-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "上余田字千刈田",
+      "addr": "528-1",
+      "level": 8,
+      "point": {
+        "lat": 38.185733974,
+        "lng": 140.888930042,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.185733974,
+    "longitude": 140.888930042
+  },
+  {
+    "row": 105,
+    "name": "仙台トヨペット株式会社 名取パーク店",
+    "address": "宮城県名取市田高字沢目63-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "田高字沢目",
+      "addr": "63-1",
+      "level": 8,
+      "point": {
+        "lat": 38.180546669,
+        "lng": 140.89130363,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.180546669,
+    "longitude": 140.89130363
+  },
+  {
+    "row": 106,
+    "name": "株式会社 エムズテニスパーク",
+    "address": "宮城県名取市高舘吉田字前沖104",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字前沖",
+      "addr": "104",
+      "level": 8,
+      "point": {
+        "lat": 38.178454409,
+        "lng": 140.86986495,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.178454409,
+    "longitude": 140.86986495
+  },
+  {
+    "row": 107,
+    "name": "日建リース工業株式会社 仙台支店",
+    "address": "宮城県名取市植松字田野部16-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字田野部",
+      "addr": "16-1",
+      "level": 8,
+      "point": {
+        "lat": 38.149444318,
+        "lng": 140.88487511,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.149444318,
+    "longitude": 140.88487511
+  },
+  {
+    "row": 108,
+    "name": "トヨタカローラ宮城株式会社 アムシスU-Car仙台南店",
+    "address": "宮城県名取市植松字入生1-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字入生",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 38.150286986,
+        "lng": 140.884087929,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.150286986,
+    "longitude": 140.884087929
+  },
+  {
+    "row": 110,
+    "name": "第一貨物株式会社 仙台南支店",
+    "address": "宮城県名取市飯野坂二丁目1-2",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "飯野坂二丁目",
+      "addr": "1-2",
+      "level": 8,
+      "point": {
+        "lat": 38.1623426,
+        "lng": 140.884975331,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.1623426,
+    "longitude": 140.884975331
+  },
+  {
+    "row": 111,
+    "name": "株式会社 日産サティオ宮城名取店",
+    "address": "宮城県名取市植松字入生101-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字入生",
+      "addr": "101-1",
+      "level": 8,
+      "point": {
+        "lat": 38.150932532,
+        "lng": 140.88556224,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.150932532,
+    "longitude": 140.88556224
+  },
+  {
+    "row": 112,
+    "name": "株式会社 ジャムコエアロマニュファクチャリング",
+    "address": "宮城県名取市愛島台七丁目101-36",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島台七丁目",
+      "addr": "101-36",
+      "level": 8,
+      "point": {
+        "lat": 38.149433938,
+        "lng": 140.820184789,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.149433938,
+    "longitude": 140.820184789
+  },
+  {
+    "row": 113,
+    "name": "パチンコまるたま名取店",
+    "address": "宮城県名取市植松字錦田4-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字錦田",
+      "addr": "4-1",
+      "level": 8,
+      "point": {
+        "lat": 38.14358677300001,
+        "lng": 140.882198287,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.14358677300001,
+    "longitude": 140.882198287
+  },
+  {
+    "row": 114,
+    "name": "株式会社 ワタケン",
+    "address": "宮城県名取市下余田字中荷627-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "下余田字中荷",
+      "addr": "627-1",
+      "level": 8,
+      "point": {
+        "lat": 38.17393433,
+        "lng": 140.898543907,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.17393433,
+    "longitude": 140.898543907
+  },
+  {
+    "row": 120,
+    "name": "ヘキサコア株式会社",
+    "address": "宮城県名取市愛島台七丁目101-51",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島台七丁目",
+      "addr": "101-51",
+      "level": 8,
+      "point": {
+        "lat": 38.150265726,
+        "lng": 140.818539432,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.150265726,
+    "longitude": 140.818539432
+  },
+  {
+    "row": 121,
+    "name": "株式会社 若菜仙台工場",
+    "address": "宮城県名取市高舘吉田字前沖150-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字前沖",
+      "addr": "150-1",
+      "level": 8,
+      "point": {
+        "lat": 38.179621607,
+        "lng": 140.87125675,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.179621607,
+    "longitude": 140.87125675
+  },
+  {
+    "row": 122,
+    "name": "協業組合 名取環境事業公社",
+    "address": "宮城県名取市飯野坂字南沖61-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "飯野坂字南沖",
+      "addr": "61-1",
+      "level": 8,
+      "point": {
+        "lat": 38.158651184,
+        "lng": 140.889638339,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.158651184,
+    "longitude": 140.889638339
+  },
+  {
+    "row": 128,
+    "name": "株式会社 仙台カントリークラブ",
+    "address": "宮城県名取市愛島笠島字南北沢1-8",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島笠島字南北沢",
+      "addr": "1-8",
+      "level": 8,
+      "point": {
+        "lat": 38.148184323,
+        "lng": 140.838116072,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.148184323,
+    "longitude": 140.838116072
+  },
+  {
+    "row": 129,
+    "name": "なとり幼稚園",
+    "address": "宮城県名取市増田三丁目8-8",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田三丁目",
+      "addr": "8-8",
+      "level": 8,
+      "point": {
+        "lat": 38.169772917,
+        "lng": 140.887556856,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.169772917,
+    "longitude": 140.887556856
+  },
+  {
+    "row": 131,
+    "name": "宮城トヨタ自動車株式会社 ハイブリッドプラザ名取",
+    "address": "宮城県名取市増田五丁目18-38",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田五丁目",
+      "addr": "18-38",
+      "level": 8,
+      "point": {
+        "lat": 38.173715469,
+        "lng": 140.890206186,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173715469,
+    "longitude": 140.890206186
+  },
+  {
+    "row": 132,
+    "name": "トヨタカローラ宮城株式会社 岩沼店",
+    "address": "宮城県名取市堀内字南竹188-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "堀内字南竹",
+      "addr": "188-1",
+      "level": 8,
+      "point": {
+        "lat": 38.118107467,
+        "lng": 140.875592361,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.118107467,
+    "longitude": 140.875592361
+  },
+  {
+    "row": 133,
+    "name": "センコーエーラインアマノ株式会社 仙台営業所",
+    "address": "宮城県名取市植松字南79-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字南",
+      "addr": "79-1",
+      "level": 8,
+      "point": {
+        "lat": 38.137204864,
+        "lng": 140.889659912,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.137204864,
+    "longitude": 140.889659912
+  },
+  {
+    "row": 134,
+    "name": "クボタアグリサービス株式会社 仙台事務所",
+    "address": "宮城県名取市田高字原182-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "田高字原",
+      "addr": "182-1",
+      "level": 8,
+      "point": {
+        "lat": 38.180859522,
+        "lng": 140.874656665,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.180859522,
+    "longitude": 140.874656665
+  },
+  {
+    "row": 136,
+    "name": "株式会社 仙台銀行名取支店",
+    "address": "宮城県名取市増田三丁目3-6",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田三丁目",
+      "addr": "3-6",
+      "level": 8,
+      "point": {
+        "lat": 38.171576431,
+        "lng": 140.886341461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171576431,
+    "longitude": 140.886341461
+  },
+  {
+    "row": 137,
+    "name": "株式会社 宮城運輸",
+    "address": "宮城県名取市高舘熊野堂字岩口下46-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘熊野堂字岩口下",
+      "addr": "46-1",
+      "level": 8,
+      "point": {
+        "lat": 38.199472135,
+        "lng": 140.849047451,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.199472135,
+    "longitude": 140.849047451
+  },
+  {
+    "row": 138,
+    "name": "株式会社 ホンダカーズ宮城中央名取バイパス店",
+    "address": "宮城県名取市増田七丁目13-26",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田七丁目",
+      "addr": "13-26",
+      "level": 8,
+      "point": {
+        "lat": 38.178117136,
+        "lng": 140.89040325,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.178117136,
+    "longitude": 140.89040325
+  },
+  {
+    "row": 139,
+    "name": "フジフーズ株式会社 仙台工場",
+    "address": "宮城県名取市本郷字焼野17-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "本郷字焼野",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 38.136300147,
+        "lng": 140.878803879,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.136300147,
+    "longitude": 140.878803879
+  },
+  {
+    "row": 141,
+    "name": "みやぎ生協共同購入運営部 仙台南センター",
+    "address": "宮城県名取市高舘吉田字野来8-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "高舘吉田字野来",
+      "addr": "8-1",
+      "level": 8,
+      "point": {
+        "lat": 38.180452331,
+        "lng": 140.87201459,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.180452331,
+    "longitude": 140.87201459
+  },
+  {
+    "row": 143,
+    "name": "宮城第一信用金庫 名取支店",
+    "address": "宮城県名取市増田七丁目3-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田七丁目",
+      "addr": "3-1",
+      "level": 8,
+      "point": {
+        "lat": 38.178657742,
+        "lng": 140.88583530600002,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.178657742,
+    "longitude": 140.88583530600002
+  },
+  {
+    "row": 144,
+    "name": "名取市サイクルスポーツセンター",
+    "address": "宮城県名取市閖上字東須賀2-20",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "閖上字東須賀",
+      "addr": "2-20",
+      "level": 8,
+      "point": {
+        "lat": 38.168125814,
+        "lng": 140.956851237,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.168125814,
+    "longitude": 140.956851237
+  },
+  {
+    "row": 145,
+    "name": "株式会社 宮本工業 東北支店 仙台工場",
+    "address": "宮城県名取市植松字田野部43-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "植松字田野部",
+      "addr": "43-1",
+      "level": 8,
+      "point": {
+        "lat": 38.148985438,
+        "lng": 140.884653865,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.148985438,
+    "longitude": 140.884653865
+  },
+  {
+    "row": 146,
+    "name": "特別養護老人ホーム けやき",
+    "address": "宮城県名取市愛島小豆島字山ノ前49-2",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "愛島小豆島字山ノ前",
+      "addr": "49-2",
+      "level": 8,
+      "point": {
+        "lat": 38.153389471,
+        "lng": 140.868090529,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.153389471,
+    "longitude": 140.868090529
+  },
+  {
+    "row": 147,
+    "name": "武田内科医院",
+    "address": "宮城県名取市増田二丁目6-11",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田二丁目",
+      "addr": "6-11",
+      "level": 8,
+      "point": {
+        "lat": 38.171081297,
+        "lng": 140.884922533,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171081297,
+    "longitude": 140.884922533
+  },
+  {
+    "row": 148,
+    "name": "名取駅東口クリニック",
+    "address": "宮城県名取市増田四丁目7-20",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田四丁目",
+      "addr": "7-20",
+      "level": 8,
+      "point": {
+        "lat": 38.173272622,
+        "lng": 140.884483769,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173272622,
+    "longitude": 140.884483769
+  },
+  {
+    "row": 149,
+    "name": "優歯科医院",
+    "address": "宮城県名取市増田二丁目3-39",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田二丁目",
+      "addr": "3-39",
+      "level": 8,
+      "point": {
+        "lat": 38.173148314,
+        "lng": 140.885977183,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173148314,
+    "longitude": 140.885977183
+  },
+  {
+    "row": 151,
+    "name": "清水歯科医院",
+    "address": "宮城県名取市増田二丁目6-24",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田二丁目",
+      "addr": "6-24",
+      "level": 8,
+      "point": {
+        "lat": 38.171040311,
+        "lng": 140.883788219,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.171040311,
+    "longitude": 140.883788219
+  },
+  {
+    "row": 152,
+    "name": "わく沢眼科医院",
+    "address": "宮城県名取市増田二丁目6-12",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "増田二丁目",
+      "addr": "6-12",
+      "level": 8,
+      "point": {
+        "lat": 38.170995167,
+        "lng": 140.884889031,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.170995167,
+    "longitude": 140.884889031
+  },
+  {
+    "row": 153,
+    "name": "ゆりあげクリニック",
+    "address": "宮城県名取市美田園七丁目17-3",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "美田園七丁目",
+      "addr": "17-3",
+      "level": 8,
+      "point": {
+        "lat": 38.15998791,
+        "lng": 140.910893344,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.15998791,
+    "longitude": 140.910893344
+  },
+  {
+    "row": 154,
+    "name": "原田乳腺クリニック",
+    "address": "宮城県名取市手倉田字八幡423-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "手倉田字八幡",
+      "addr": "423-1",
+      "level": 8,
+      "point": {
+        "lat": 38.173029565,
+        "lng": 140.880105951,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.173029565,
+    "longitude": 140.880105951
+  },
+  {
+    "row": 155,
+    "name": "曽我内科こどもクリニック",
+    "address": "宮城県名取市杉が袋字前沖71-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "杉ケ袋字前沖",
+      "addr": "71-1",
+      "level": 8,
+      "point": {
+        "lat": 38.155143383,
+        "lng": 140.91626114,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.155143383,
+    "longitude": 140.91626114
+  },
+  {
+    "row": 156,
+    "name": "春ウイメンズクリニック",
+    "address": "宮城県名取市田高字南27-1",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "田高字南",
+      "addr": "27-1",
+      "level": 8,
+      "point": {
+        "lat": 38.182471053,
+        "lng": 140.875883438,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.182471053,
+    "longitude": 140.875883438
+  },
+  {
+    "row": 158,
+    "name": "松永眼科",
+    "address": "宮城県名取市小山二丁目3-26",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "小山二丁目",
+      "addr": "3-26",
+      "level": 8,
+      "point": {
+        "lat": 38.16532306900001,
+        "lng": 140.879646153,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.16532306900001,
+    "longitude": 140.879646153
+  },
+  {
+    "row": 159,
+    "name": "金沢内科胃腸科",
+    "address": "宮城県名取市小山二丁目3-32",
+    "phone": null,
+    "source_url": "https://miyagi.dataeye.jp/resources/32919",
+    "source_license": "cc-by4_0",
+    "source_updated_at": "2026-05-25",
+    "data_as_of": null,
+    "normalized": {
+      "pref": "宮城県",
+      "city": "名取市",
+      "town": "小山二丁目",
+      "addr": "3-32",
+      "level": 8,
+      "point": {
+        "lat": 38.165345786,
+        "lng": 140.880355914,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 38.165345786,
+    "longitude": 140.880355914
+  }
+]

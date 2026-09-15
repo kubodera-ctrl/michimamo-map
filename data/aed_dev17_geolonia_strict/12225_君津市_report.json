@@ -1,0 +1,9 @@
+{
+  "code": "12225",
+  "prefecture": "千葉県",
+  "municipality": "君津市",
+  "source_rows": 189,
+  "accepted": 70,
+  "held": 119,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND municipality bounds"
+}

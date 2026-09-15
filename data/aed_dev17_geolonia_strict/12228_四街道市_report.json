@@ -1,0 +1,9 @@
+{
+  "code": "12228",
+  "prefecture": "千葉県",
+  "municipality": "四街道市",
+  "source_rows": 92,
+  "accepted": 3,
+  "held": 89,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND municipality bounds"
+}
