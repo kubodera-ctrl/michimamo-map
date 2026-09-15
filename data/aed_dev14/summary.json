@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-15",
+  "starting_public_aed": 43598,
+  "published_rows": 1783,
+  "final_public_aed": 45381,
+  "newly_published_municipalities": 19,
+  "invalid_public_coordinates": 0,
+  "duplicate_holds": 39,
+  "coordinate_outlier_holds": 9,
+  "catalog_datasets_checked": 59,
+  "catalog_datasets_downloaded": 55,
+  "catalog_parsed_rows": 6517,
+  "candidate_municipalities_remaining": 47,
+  "zero_listing_recovery": {
+    "municipalities": 2,
+    "official_rows": 119,
+    "published": 0,
+    "held": 119,
+    "reason": "all available geocodes were representative points at level 2 or 3"
+  },
+  "anonymous_rpc": {
+    "sources": 19,
+    "rows": 1783,
+    "status": "passed"
+  }
+}

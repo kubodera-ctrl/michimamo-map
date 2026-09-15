@@ -26,6 +26,18 @@ ROOT = Path("data/aed_dev14")
 RAW = ROOT / "raw"
 QUEUE = Path("data/aed_dev11/municipality_queue.json")
 USER_AGENT = "machimamo-map-aed-source-audit/2026-09-15"
+RECOVERY_CODES = {"12239"}
+RECOVERY_DIRECT = [
+    {
+        "code": "27218",
+        "prefecture": "大阪府",
+        "municipality": "大東市",
+        "url": "https://odm.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e",
+        "direct_download_url": "https://data.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e/resource/a81b6562-f5f4-4380-9961-9c5f8f44eed1/download/5051130aed.xlsx",
+        "declared_license": "CC BY 2.1 Japan",
+        "recovery_reason": "all previously published coordinates matched a low-precision representative point",
+    }
+]
 
 
 class LinkParser(HTMLParser):
@@ -92,6 +104,36 @@ def resource_rank(item: dict[str, object]) -> tuple[str, int, int]:
     return str(item.get("updated_at") or "0000-00-00"), is_tabular, is_utf8
 
 
+def catalog_api_url(dataset_url: str) -> str | None:
+    parsed = urllib.parse.urlparse(dataset_url)
+    match = re.fullmatch(r"/datasets/(\d+)/?", parsed.path)
+    if not match:
+        return None
+    return urllib.parse.urlunparse((parsed.scheme, parsed.netloc, "/ckan_api/package_show", "", "id=" + match.group(1), ""))
+
+
+def api_profiles(payload: bytes, dataset_url: str) -> list[dict[str, object]]:
+    result = json.loads(payload)["result"]
+    base = dataset_url.split("/datasets/", 1)[0]
+    profiles: list[dict[str, object]] = []
+    for resource in result.get("resources", []):
+        resource_id = str(resource["id"])
+        profiles.append(
+            {
+                "resource_url": f"{base}/resources/{resource_id}",
+                "resource_id": resource_id,
+                "resource_title": resource.get("title") or resource.get("name") or "",
+                "download_url": resource.get("url"),
+                "filename": None,
+                "updated_at": (resource.get("last_modified") or resource.get("created") or "")[:10] or None,
+                "format": str(resource.get("format") or "").upper() or None,
+                "license": resource.get("resource_license_id"),
+                "declared_size": resource.get("size"),
+            }
+        )
+    return profiles
+
+
 @dataclass
 class Session:
     opener: urllib.request.OpenerDirector
@@ -121,16 +163,33 @@ def process(entry: dict[str, object]) -> dict[str, object]:
     session = Session.create()
     profiles: list[dict[str, object]] = []
     errors: list[dict[str, str]] = []
-    for resource_url in entry.get("resource_pages", []):
-        try:
-            payload, _, final_url = session.get(str(resource_url), str(entry["url"]))
-            profiles.append(metadata(payload, final_url))
-        except Exception as error:
-            errors.append({"url": str(resource_url), "error": type(error).__name__ + ": " + str(error)})
-    eligible = [x for x in profiles if x.get("download_url") and resource_rank(x)[1]]
-    if not eligible:
-        return {**entry, "fetch_status": "resource_selection_failed", "resource_profiles": profiles, "errors": errors}
-    selected = max(eligible, key=resource_rank)
+    if entry.get("direct_download_url"):
+        selected = {
+            "resource_url": entry["url"],
+            "resource_id": "direct",
+            "resource_title": entry["municipality"] + " AED設置箇所一覧",
+            "download_url": entry["direct_download_url"],
+            "license": entry.get("declared_license"),
+        }
+    else:
+        api_url = catalog_api_url(str(entry["url"]))
+        if api_url:
+            try:
+                payload, _, _ = session.get(api_url, str(entry["url"]))
+                profiles.extend(api_profiles(payload, str(entry["url"])))
+            except Exception as error:
+                errors.append({"url": api_url, "error": type(error).__name__ + ": " + str(error)})
+        if not profiles:
+            for resource_url in entry.get("resource_pages", []):
+                try:
+                    payload, _, final_url = session.get(str(resource_url), str(entry["url"]))
+                    profiles.append(metadata(payload, final_url))
+                except Exception as error:
+                    errors.append({"url": str(resource_url), "error": type(error).__name__ + ": " + str(error)})
+        eligible = [x for x in profiles if x.get("download_url") and resource_rank(x)[1]]
+        if not eligible:
+            return {**entry, "fetch_status": "resource_selection_failed", "resource_profiles": profiles, "errors": errors}
+        selected = max(eligible, key=resource_rank)
     try:
         payload, headers, final_url = session.get(str(selected["download_url"]), str(selected["resource_url"]))
         code = str(entry["code"])
@@ -171,10 +230,11 @@ def queued_catalogs() -> list[dict[str, object]]:
     rows = json.loads(QUEUE.read_text())
     result: list[dict[str, object]] = []
     for row in rows:
-        if row.get("status") != "candidate_processing_required":
+        if row.get("status") != "candidate_processing_required" and row.get("code") not in RECOVERY_CODES:
             continue
         for item in row.get("new_catalog_candidates", []):
             result.append({**item, "code": row["code"], "municipality": row["municipality"]})
+    result.extend(RECOVERY_DIRECT)
     return result
 
 
@@ -187,7 +247,7 @@ def main() -> None:
         for result in pool.map(process, entries):
             results.append(result)
             print(result["code"], result["municipality"], result["fetch_status"], result.get("rows"), flush=True)
-    (ROOT / "catalog_fetch.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n")
+    (ROOT / "catalog_fetch.json").write_text(json.dumps(results, ensure_ascii=False, indent=2, default=str) + "\n")
     summary = {
         "date": "2026-09-15",
         "datasets": len(results),
@@ -196,7 +256,7 @@ def main() -> None:
         "failed": [{"code": x["code"], "municipality": x["municipality"], "status": x["fetch_status"]} for x in results if x.get("fetch_status") != "downloaded"],
         "publication": "not_started",
     }
-    (ROOT / "catalog_fetch_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
+    (ROOT / "catalog_fetch_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, default=str) + "\n")
 
 
 if __name__ == "__main__":

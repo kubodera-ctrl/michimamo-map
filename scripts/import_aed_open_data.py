@@ -19,12 +19,12 @@ import openpyxl
 
 
 NAME_FIELDS = (
-    "名称", "施設名称", "施設名", "設置施設名", "AED設置施設名称", "AED設置施設", "設置場所",
+    "名称", "施設名称", "施設名", "設置施設名", "設置施設", "設置場所_名称", "AED設置施設名称", "AED設置施設", "設置場所",
 )
-ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地連結表記")
-LATITUDE_FIELDS = ("緯度", "latitude", "lat", "Y座標", "Y")
-LONGITUDE_FIELDS = ("経度", "longitude", "lng", "lon", "X座標", "X")
-PHONE_FIELDS = ("電話番号", "電話", "TEL", "tel")
+ADDRESS_FIELDS = ("住所", "所在地", "所在地_連結表記", "所在地_連結表記（方書含む）", "所在地連結表記", "設置場所_住所")
+LATITUDE_FIELDS = ("緯度", "設置場所_緯度", "latitude", "lat", "Y座標", "Y")
+LONGITUDE_FIELDS = ("経度", "設置場所_経度", "longitude", "lng", "lon", "X座標", "X")
+PHONE_FIELDS = ("電話番号", "設置場所_電話番号", "電話", "TEL", "tel")
 MUNICIPALITY_FIELDS = ("市区町村名", "地方公共団体名", "所在地_市区町村", "所在地市区町村")
 
 

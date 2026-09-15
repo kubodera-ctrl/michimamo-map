@@ -1,0 +1,194 @@
+[
+  {
+    "key": "dev14_11201_6471_1",
+    "file": "publish_dev14_11201_6471_1.sql",
+    "baseline": 43598,
+    "inserted": 14,
+    "held": 0,
+    "sha256": "e892ce4ffa9b08540ace6e92c46479d6aca88379ff507f99314dccb4906f2c85"
+  },
+  {
+    "key": "dev14_11203_2043_1",
+    "file": "publish_dev14_11203_2043_1.sql",
+    "baseline": 43612,
+    "inserted": 147,
+    "held": 3,
+    "sha256": "eb6aaea39d56d3dd0c053376bb4055147ae90ad0320ac8a226e59300a9abe391"
+  },
+  {
+    "key": "dev14_11203_2043_2",
+    "file": "publish_dev14_11203_2043_2.sql",
+    "baseline": 43759,
+    "inserted": 150,
+    "held": 0,
+    "sha256": "ad606771920baf80abe307cfcd8c886ed16c621a1494218f5c9af59315e620d5"
+  },
+  {
+    "key": "dev14_11203_2043_3",
+    "file": "publish_dev14_11203_2043_3.sql",
+    "baseline": 43909,
+    "inserted": 67,
+    "held": 0,
+    "sha256": "95c59c0a5b19e4d1146743a827926d1e20030e3578752eb79419dd39f253b0ac"
+  },
+  {
+    "key": "dev14_11206_854_1",
+    "file": "publish_dev14_11206_854_1.sql",
+    "baseline": 43976,
+    "inserted": 96,
+    "held": 0,
+    "sha256": "b92caace98bf83399505e281e92476134e7a2f01332427cccc0c6ac113acc0a0"
+  },
+  {
+    "key": "dev14_11212_855_1",
+    "file": "publish_dev14_11212_855_1.sql",
+    "baseline": 44072,
+    "inserted": 5,
+    "held": 0,
+    "sha256": "0dfb9b512d650f2c209e722db68082cb155ca9880c9c7e06350b62962a72900c"
+  },
+  {
+    "key": "dev14_11214_6509_1",
+    "file": "publish_dev14_11214_6509_1.sql",
+    "baseline": 44077,
+    "inserted": 39,
+    "held": 0,
+    "sha256": "4ec0bc7971d64508fb03951cb45fa0d7158af8042167d60477413f669bb662d9"
+  },
+  {
+    "key": "dev14_11218_5215_1",
+    "file": "publish_dev14_11218_5215_1.sql",
+    "baseline": 44116,
+    "inserted": 150,
+    "held": 0,
+    "sha256": "0c7b1858959cb5c51b6e69416e20d5c37c9465fe667fcf523b2648a7181cb1bb"
+  },
+  {
+    "key": "dev14_11218_5215_2",
+    "file": "publish_dev14_11218_5215_2.sql",
+    "baseline": 44266,
+    "inserted": 91,
+    "held": 0,
+    "sha256": "4aa5a1743bb3cbe020705b9c63ebbc08d66afe8df4001c6485a9931f740b7cae"
+  },
+  {
+    "key": "dev14_11222_2314_1",
+    "file": "publish_dev14_11222_2314_1.sql",
+    "baseline": 44357,
+    "inserted": 149,
+    "held": 1,
+    "sha256": "c9d7707279ad2c57cf4c97d767a2373d587b669f6d00df03118cfd9c99594d50"
+  },
+  {
+    "key": "dev14_11222_2314_2",
+    "file": "publish_dev14_11222_2314_2.sql",
+    "baseline": 44506,
+    "inserted": 22,
+    "held": 1,
+    "sha256": "7696713f687c877369b9bc8203ce77977bc41d9bcc5ee66cd70ba32a5708d63c"
+  },
+  {
+    "key": "dev14_11227_882_1",
+    "file": "publish_dev14_11227_882_1.sql",
+    "baseline": 44528,
+    "inserted": 150,
+    "held": 0,
+    "sha256": "2f977b58eb3d30176fc19dca5ca7b37e0c4db49b16b0e3420ff1b0547589f8e7"
+  },
+  {
+    "key": "dev14_11227_882_2",
+    "file": "publish_dev14_11227_882_2.sql",
+    "baseline": 44678,
+    "inserted": 41,
+    "held": 0,
+    "sha256": "0c5edfdf8e821bb9e8695dcc4764ee3409c2a6567f52346fc5b2971491f88744"
+  },
+  {
+    "key": "dev14_11229_5171_1",
+    "file": "publish_dev14_11229_5171_1.sql",
+    "baseline": 44719,
+    "inserted": 115,
+    "held": 0,
+    "sha256": "8ebc9a1ab2501b6b9e70bb60be317abcdea977446c477bd1eae6e08f199b7a9e"
+  },
+  {
+    "key": "dev14_11230_1064_1",
+    "file": "publish_dev14_11230_1064_1.sql",
+    "baseline": 44834,
+    "inserted": 92,
+    "held": 0,
+    "sha256": "70445d210569a41dafa482d6a67ce84c63e79a33f54140a524f0605135229e46"
+  },
+  {
+    "key": "dev14_11237_150_1",
+    "file": "publish_dev14_11237_150_1.sql",
+    "baseline": 44926,
+    "inserted": 91,
+    "held": 0,
+    "sha256": "316cd9f6340e2cfe2be752c21d69a1ece91ae42d900d9afc1fe832df80ea1ecf"
+  },
+  {
+    "key": "dev14_11242_1598_1",
+    "file": "publish_dev14_11242_1598_1.sql",
+    "baseline": 45017,
+    "inserted": 57,
+    "held": 0,
+    "sha256": "b215d95320fe741d9e2effc4ad3715b7aa5c27c702edd72d7a12f1dccad57f6e"
+  },
+  {
+    "key": "dev14_11347_4291_1",
+    "file": "publish_dev14_11347_4291_1.sql",
+    "baseline": 45074,
+    "inserted": 22,
+    "held": 0,
+    "sha256": "12717589a51b4f648d831e130ad09d185f48088b335b67899012c1f7077b105b"
+  },
+  {
+    "key": "dev14_11369_856_1",
+    "file": "publish_dev14_11369_856_1.sql",
+    "baseline": 45096,
+    "inserted": 8,
+    "held": 0,
+    "sha256": "5e0af5fae1c5f5310ea57d48c3fa8e7852ba8d983492add64bd0649dd667bb6e"
+  },
+  {
+    "key": "dev14_11464_866_1",
+    "file": "publish_dev14_11464_866_1.sql",
+    "baseline": 45104,
+    "inserted": 69,
+    "held": 0,
+    "sha256": "0d8c658eda7a4c9bb1e9c209ad5d0075b5d6ea881a68795251383f2c898a21af"
+  },
+  {
+    "key": "dev14_12205_53590_1",
+    "file": "publish_dev14_12205_53590_1.sql",
+    "baseline": 45173,
+    "inserted": 43,
+    "held": 0,
+    "sha256": "ceeb57a96de54cbee4ef99c5aa503ad5d43a2c0c2d2814da018a6e413aab50db"
+  },
+  {
+    "key": "dev14_12222_55839_1",
+    "file": "publish_dev14_12222_55839_1.sql",
+    "baseline": 45216,
+    "inserted": 87,
+    "held": 3,
+    "sha256": "b71608a2547a65d2570c3bd02e201aced5dfdbe3b1d6eabc61b7ff2a92525c99"
+  },
+  {
+    "key": "dev14_12236_56647_1",
+    "file": "publish_dev14_12236_56647_1.sql",
+    "baseline": 45303,
+    "inserted": 71,
+    "held": 11,
+    "sha256": "d21186f0379390689ca17b8f527e73d7bcb3ca16fac125f78b390c0437d5e4f3"
+  },
+  {
+    "key": "dev14_12329_56765_1",
+    "file": "publish_dev14_12329_56765_1.sql",
+    "baseline": 45374,
+    "inserted": 36,
+    "held": 0,
+    "sha256": "30eeeecb166ce67f432749c741b7dc4f63ac37850fc63a754f9b2755efcd7ba4"
+  }
+]

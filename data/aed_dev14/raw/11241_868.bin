@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVH8NCKLE0"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-FVH8NCKLE0');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=1300">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta property="og:url" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.city.tsurugashima.lg.jp/web_clip_icon.png">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:image" content="https://www.city.tsurugashima.lg.jp/web_clip_icon.png">
+<title>&nbsp;|&nbsp;鶴ヶ島市公式ホームページ</title>
+<base href="https://www.city.tsurugashima.lg.jp/">
+<link rel="shortcut icon" href="./favicon.ico">
+<link rel="apple-touch-icon" href="./web_clip_icon.png">
+<link rel="stylesheet" href="./skin/default/css/import.css?260326" type="text/css" media="all">
+<link rel="stylesheet" href="./skin/common/css/print.css" type="text/css" media="print">
+<script src="./skin/common/js/jquery.js"></script>
+<script src="./skin/common/js/jquery.jg.js"></script>
+<script src="./skin/common/js/functions.js"></script>
+<script src="./skin/common/js/rwdImageMaps.js"></script>
+<script src="./skin/common/js/colorbox/colorbox.js"></script>
+<script src="./skin/common/js/plugins.js"></script>
+<script src="./skin/common/js/chatbot.js"></script>
+<script src="./skin/common/js/gsearch.js"></script>
+<script src="./skin/common/js/ready.common.js"></script>
+<script src="//api.vdsapi.ne.jp/tools/engine/1.0/vds?key=s9vhf1rq1lc8gc88sg0s8oggcwg0kc" async></script>
+<script src="./count.php?type=10000&amp;code=0&amp;career=0" id="myTypeCode" data-type="10000" data-code="0"></script>
+</head>
+<body id="DEFAULT">
+<div id="container">
+	<header id="header">
+		<div id="headerInner">
+			<div id="headerContents">
+				<div id="logoTitle"><a href="./">鶴ヶ島市役所ホームページ</a></div>
+				<span class="hide"><a href="#wrapper">本文へ移動する</a></span>
+				<div id="tools">
+					<div id="toolsInner">
+						<div id="searchBox">
+							<div id="search" title="キーワード入力によるサイト内検索">
+								<form action="./search.php">
+									<input type="hidden" name="cx" value="6efc4633893936bca">
+									<input type="hidden" name="ie" value="UTF-8">
+									<label for="field_search" class="hide">お探しの情報は何でしょうか？</label>
+									<input id="field_search" type="text" name="q" placeholder="例：住民票" autocomplete="off">
+									<input id="btn_search" type="submit" value="検索する" title="ボタンを押すと検索を開始します">
+								</form>
+							<!-- /#search --></div>
+						<!-- /#searchBox --></div>
+						<dl id="sizeChanger">
+							<dt>文字サイズ</dt>
+							<dd id="df"><span tabindex="0">標準</span></dd>
+							<dd id="zf"><span tabindex="0">拡大</span></dd>
+						</dl>
+						<dl id="colorChanger">
+							<dt>色変更</dt>
+							<dd id="bg_default"><span tabindex="0" title="背景を白(標準)にします">白</span></dd>
+							<dd id="bg_blue"><a href="./skin/common/css/colorChanger/bg_blue.css" title="背景を青色にします">青</a></dd>
+							<dd id="bg_yellow"><a href="./skin/common/css/colorChanger/bg_yellow.css" title="背景を黄色にします">黄</a></dd>
+							<dd id="bg_black"><a href="./skin/common/css/colorChanger/bg_black.css" title="背景を黒色にします">黒</a></dd>
+						</dl>
+						<div id="btnBrowserSupport">
+							<span id="vdsBtn" tabindex="0">音声読み上げ・ふりがな</span>
+						</div>
+						<div id="foreigners">
+							<span id="btn_foreigners">Language</span>
+							<ul>
+								<li><a href="./gyousei/ict/foreigners/page002138.html">To foreigners</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=en&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">English</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=zh-CN&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">简体中文</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=zh-TW&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">繁體中文</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=ko&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">한국어</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=pt&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">Portugues</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=es&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">Espanol</a></li>
+								<li><a href="https://www-city-tsurugashima-lg-jp.translate.goog/_x_tr_sl=ja&amp;_x_tr_tl=th&amp;_x_tr_hl=ja&amp;_x_tr_pto=nui" target="_blank">ไทย</a></li>
+							</ul>
+						</div>
+					</div>
+				<!-- /#tools --></div>
+			<!-- /#headerContents --></div>
+		</div>
+		<nav id="gNav">
+			<ul>
+				<li class="nav01">
+					<a href="./kurashi-tetsuduki/"><span>くらし・手続き</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav02">
+					<a href="./kosodate-kyouiku/"><span>子育て・教育</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav03">
+					<a href="./kenkou-iryou-fukushi/"><span>健康・医療・福祉</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav04">
+					<a href="./kankyou-machidukuri/"><span>環境・まちづくり</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav05">
+					<a href="./bunka-sports-kankou/"><span>文化・スポーツ・観光</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav06">
+					<a href="./shigoto-sangyou/"><span>仕事・産業</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav07">
+					<a href="./gyousei/"><span>市政情報</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+				<li class="nav08">
+					<a href="./gikai/"><span>議会</span></a>
+					<div class="gNavBox">
+						<div class="gNavBoxInner"></div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div id="atFirstArea">
+			<dl>
+				<dt>まずコレ！</dt>
+				<dd class="atFirst01"><a href="./kurashi-tetsuduki/anshin-anzen/bousai-kishou/">防災・気象</a></dd>
+				<dd class="atFirst02"><a href="./kenkou-iryou-fukushi/hoken-iryou/kyukan/page001081.html">休日急患診療</a></dd>
+				<dd class="atFirst03"><a href="./kurashi-tetsuduki/anshin-anzen/bouhan/fushinsha/">不審者情報</a></dd>
+				<dd class="atFirst04"><a href="./mm_pro/backnumber_bousai.php">防災行政無線</a></dd>
+				<dd class="atFirst05"><a href="./kurashi-tetsuduki/anshin-anzen/bouhan/page000092.html">防犯情報</a></dd>
+			</dl>
+		</div>
+	<!-- /#header --></header>
+	<div id="wrapper">
+
+
+		<nav id="topicpath">
+			<ol>
+				<li class="first"><a href="/">ホーム</a></li>
+				<li></li>
+			</ol>
+		<!-- /#topicpath --></nav>
+
+		<main id="main">
+			<div id="mainContents">
+
+				<h1 id="pageTitle"><span class="innerTitle"></span></h1>
+<div id="errorDocumentBox">
+	<div id="errorDocumentBoxInner">
+		<p></p>
+	</div>
+</div>
+
+			<!-- /#mainContents --></div>
+
+			<div id="pageInfo">
+				<div id="pageInfoInner">
+					<ul>
+						<!--cms contents manage code-->
+						<!--cms contents update-->
+						<!--cms contents access-->
+						<li id="print" title="このページを印刷する"><span tabindex="0">印刷する</span></li>
+					</ul>
+				</div>
+			<!-- /#pageInfo --></div>
+
+		<!-- /#main --></main>
+	<!-- /#wrapper --></div>
+<!-- /#container --></div>
+<footer id="footer">
+	<div id="footerInnerBlock">
+		<div id="footerInner">
+			<div id="footerInnerLeft">
+				<a id="footerLogo" href="./">鶴ヶ島市役所</a>
+				<div id="footerLinkArea">
+					<ul>
+						<li class="footerLink01"><a href="./gyousei/gaiyou/page002093.html">市役所へのアクセス</a></li>
+						<li class="footerLink02"><a href="./gyousei/gaiyou/page000222.html">土曜日の業務</a></li>
+					</ul>
+				</div>
+				<div id="footerAddress">
+					<dl>
+						<dt>【住所】</dt>
+						<dd>〒350-2292<br>埼玉県鶴ヶ島市大字三ツ木16番地1</dd>
+					</dl>
+					<dl>
+						<dt>【開庁日】</dt>
+						<dd>月曜日から金曜日</dd>
+					</dl>
+					<dl>
+						<dt>【開庁時間】</dt>
+						<dd>8時30分から17時15分まで</dd>
+					</dl>
+					<dl>
+						<dt>【電話番号】</dt>
+						<dd>049-271-1111</dd>
+					</dl>
+					<dl>
+						<dt>【ファクス】</dt>
+						<dd>049-271-1190</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="footerInnerRight">
+				<p id="footerCatchcopy">しあわせ共感 安心のまち つるがしま</p>
+				<div id="footerSNS">
+					<h2>鶴ヶ島市公式SNS</h2>
+					<dl id="btnFacebook">
+						<dt><a href="https://www.facebook.com/tsurugashimacity/" target="_blank">鶴ヶ島市公式Facebook</a></dt>
+						<dd>Facebook</dd>
+					</dl>
+					<dl id="btnX">
+						<dt><a href="https://x.com/tsurugashima" target="_blank">鶴ヶ島市公式X</a></dt>
+						<dd>X</dd>
+					</dl>
+					<dl id="btnLine">
+						<dt><a href="https://page.line.me/tsurugashimacity" target="_blank">鶴ヶ島市公式LINE</a></dt>
+						<dd>LINE</dd>
+					</dl>
+					<dl id="btnYoutube">
+						<dt><a href="https://www.youtube.com/channel/UC-ehILZv1NmVk_dtx_RtZzw" target="_blank">鶴ヶ島市公式YouTube</a></dt>
+						<dd>YouTube</dd>
+					</dl>
+					<dl id="btnInstagram">
+						<dt><a href="https://www.instagram.com/tsurugashimacity/" target="_blank">鶴ヶ島市公式Instagram</a></dt>
+						<dd>Instagram</dd>
+					</dl>
+					<dl id="btnMail">
+						<dt><a href="./gyousei/kouhou/mail-magazine/page001172.html">鶴ヶ島市メールマガジン</a></dt>
+						<dd>メールマガジン</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footerContentsBlock">
+		<div id="footerContents">
+			<p id="copyright">&copy; CITY OF TSURUGASHIMA.</p>
+			<div id="footerNav">
+				<ul>
+					<li><a href="./gyousei/kouchou/toiawase/page002100.html">ご意見・ご要望</a></li>
+					<li><a href="./inq.php">お問い合わせ</a></li>
+					<li><a href="./sitemap.php">サイトマップ</a></li>
+					<li><a href="./gyousei/ict/site-about/page001739.html">個人情報の取り扱い</a></li>
+					<li><a href="./gyousei/ict/page009429.html">著作権について</a></li>
+					<li><a href="./gyousei/ict/site-about/index.html">このサイトについて</a></li>
+					<li><a href="./gyousei/ict/site-about/page001740.html">リンク集</a></li>
+				</ul>
+			</div>
+			<span id="pageTop"><a href="#container">このページの<br>先頭に戻る</a></span>
+		</div>
+		<div id="adBanner">
+			<div id="adBannerInner">
+				<h2>このサイトで宣伝しませんか？</h2>
+				<div id="aboutBanner"><a href="./shigoto-sangyou/koukoku/yuryou-koukoku/page001227.html">広告募集について</a></div>
+				<span id="btn_bnr_close">固定する</span>
+			</div>
+		<!-- /#adBanner --></div>
+	</div>
+</footer>
+</body>
+</html>

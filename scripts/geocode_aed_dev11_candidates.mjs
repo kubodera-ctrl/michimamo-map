@@ -1,7 +1,8 @@
 import { normalize } from '@geolonia/normalize-japanese-addresses';
 import fs from 'node:fs';
-const path='data/aed_dev11/geocode_results.ndjson';
-const input=JSON.parse(fs.readFileSync('data/aed_dev11/geocode_inputs.json','utf8'));
+const root=process.env.AED_GEOCODE_ROOT || 'data/aed_dev11';
+const path=`${root}/geocode_results.ndjson`;
+const input=JSON.parse(fs.readFileSync(`${root}/geocode_inputs.json`,'utf8'));
 const completed=new Set(fs.existsSync(path)?fs.readFileSync(path,'utf8').trim().split('\n').filter(Boolean).map(line=>{const r=JSON.parse(line);return `${r.dataset}:${r.row}`}):[]);
 const pending=input.filter(r=>!completed.has(`${r.dataset}:${r.row}`));let cursor=0;
 async function worker(){while(cursor<pending.length){const r=pending[cursor++];let timer;try{

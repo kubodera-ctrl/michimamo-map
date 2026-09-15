@@ -1,0 +1,344 @@
+[
+  {
+    "key": "dev14_11201_6471",
+    "prefecture": "埼玉県",
+    "municipality": "川越市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/8",
+    "source_name": "川越市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2025-07-08",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/6471",
+    "sha256": "2608bd068eede6c6b017f607d706936bd59a6a014e5728287019ffb88ba7754e",
+    "review_bounds": [
+      35.859075999999995,
+      35.944569,
+      139.398033,
+      139.503953
+    ]
+  },
+  {
+    "key": "dev14_11203_2043",
+    "prefecture": "埼玉県",
+    "municipality": "川口市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/413",
+    "source_name": "川口市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2020-09-03",
+    "resource_url": "https://www.city.kawaguchi.lg.jp/material/files/group/1/112038_aed.csv",
+    "sha256": "f785cecf84ad0c3033b855e73edfe7aba9ba5df7f407a4acbc3f42133835047c",
+    "review_bounds": [
+      35.291496869999996,
+      36.79154983,
+      138.9819522,
+      139.8485886
+    ]
+  },
+  {
+    "key": "dev14_11206_854",
+    "prefecture": "埼玉県",
+    "municipality": "行田市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/138",
+    "source_name": "行田市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2017-03-21",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/854",
+    "sha256": "68c97feabd3b4f7811746c9e390857664300f2c6d941444894d793b4e295a514",
+    "review_bounds": [
+      35.64425,
+      36.19251800000001,
+      139.428258,
+      139.523444
+    ]
+  },
+  {
+    "key": "dev14_11212_855",
+    "prefecture": "埼玉県",
+    "municipality": "東松山市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/139",
+    "source_name": "東松山市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2017-03-02",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/855",
+    "sha256": "4e6948d13a10616022ad1da48d10419d6778e30d38335b157681cb3c83efd44b",
+    "review_bounds": [
+      36.023075,
+      36.054231,
+      139.366033,
+      139.42752000000002
+    ]
+  },
+  {
+    "key": "dev14_11214_6509",
+    "prefecture": "埼玉県",
+    "municipality": "春日部市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2138",
+    "source_name": "春日部市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2026-02-25",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/6509",
+    "sha256": "5d45f2401a08d8f2deb0b6f6c0b57768cce4d6b8e2ea0170bc2f594140da4c36",
+    "review_bounds": [
+      35.947596073676785,
+      36.0111009526684,
+      139.71300910374796,
+      139.81456033385786
+    ]
+  },
+  {
+    "key": "dev14_11218_5215",
+    "prefecture": "埼玉県",
+    "municipality": "深谷市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/259",
+    "source_name": "深谷市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2024-06-04",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/5215",
+    "sha256": "edbba1925027b16e464d1033d67f397e3e0e147a0602ecd97d36735c43354d00",
+    "review_bounds": [
+      36.110198999999994,
+      36.23432869444445,
+      139.19373611111112,
+      139.3316676111111
+    ]
+  },
+  {
+    "key": "dev14_11222_2314",
+    "prefecture": "埼玉県",
+    "municipality": "越谷市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/490",
+    "source_name": "越谷市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2025-02-18",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/2314",
+    "sha256": "9afb336472b88c23a9aa953d7976434d8f04e236bdda83fc04d6f18c1d69604f",
+    "review_bounds": [
+      35.860958,
+      35.947303000000005,
+      139.752622,
+      139.831127
+    ]
+  },
+  {
+    "key": "dev14_11227_882",
+    "prefecture": "埼玉県",
+    "municipality": "朝霞市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/157",
+    "source_name": "朝霞市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2026-03-16",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/882",
+    "sha256": "9a455ef7e00ab73f1f0de09343877607211c6e956531e53a4afb7e4c4ceafd2b",
+    "review_bounds": [
+      35.78535305,
+      35.828942530000006,
+      139.5747117,
+      139.6156465
+    ]
+  },
+  {
+    "key": "dev14_11229_5171",
+    "prefecture": "埼玉県",
+    "municipality": "和光市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/114",
+    "source_name": "和光市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2026-04-09",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/5171",
+    "sha256": "74e0898651852e723b95de1acff931b601201fd553d17a3be58ec4c14dfb9f52",
+    "review_bounds": [
+      35.47121,
+      35.805063000000004,
+      139.37008,
+      139.63525
+    ]
+  },
+  {
+    "key": "dev14_11230_1064",
+    "prefecture": "埼玉県",
+    "municipality": "新座市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/196",
+    "source_name": "新座市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2022-11-07",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/1064",
+    "sha256": "0d9dfde407ceacbda1285004f02f4fc683b0264441c101d6dee8b5cd5fccb39f",
+    "review_bounds": [
+      35.75666,
+      35.82190000000001,
+      139.527396,
+      139.587917
+    ]
+  },
+  {
+    "key": "dev14_11237_150",
+    "prefecture": "埼玉県",
+    "municipality": "三郷市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/30",
+    "source_name": "三郷市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2026-07-08",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/150",
+    "sha256": "81ca5c9c1b072324f8194715ab6fe86d034ed11b2d6d2ee22ce818602bbc1637",
+    "review_bounds": [
+      35.50279999999999,
+      35.862003,
+      139.5154,
+      139.888597
+    ]
+  },
+  {
+    "key": "dev14_11242_1598",
+    "prefecture": "埼玉県",
+    "municipality": "日高市",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/297",
+    "source_name": "日高市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2019-03-15",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/1598",
+    "sha256": "50b33c4dc3f4bc8fd60ae2aa3fa83a5fc31f1857875729bfe10deff86eae647f",
+    "review_bounds": [
+      35.870508599999994,
+      35.9223313,
+      139.289235,
+      139.390266
+    ]
+  },
+  {
+    "key": "dev14_11347_4291",
+    "prefecture": "埼玉県",
+    "municipality": "吉見町",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/896",
+    "source_name": "吉見町 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2017-10-25",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/4291",
+    "sha256": "8dff6e54075f0084f66c9d6dccd5f2c322d503a166befe52acb793b569c66672",
+    "review_bounds": [
+      36.026163999999994,
+      36.064139000000004,
+      139.421298,
+      139.494993
+    ]
+  },
+  {
+    "key": "dev14_11369_856",
+    "prefecture": "埼玉県",
+    "municipality": "東秩父村",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/140",
+    "source_name": "東秩父村 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2017-02-15",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/856",
+    "sha256": "45cf66b4d0d8bd8a8faf5c968b47646c5378a572b3966f762dcc3033bb5844f9",
+    "review_bounds": [
+      36.050194,
+      36.058248000000006,
+      139.178379,
+      139.212344
+    ]
+  },
+  {
+    "key": "dev14_11464_866",
+    "prefecture": "埼玉県",
+    "municipality": "杉戸町",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/148",
+    "source_name": "杉戸町 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "PDL 1.0",
+    "source_date": null,
+    "source_updated_at": "2018-02-16",
+    "resource_url": "https://opendata.pref.saitama.lg.jp/resource_download/866",
+    "sha256": "bee18e39e3b691c751ed7a43c5e1f0344e4a92cbb3525822ab924d2aee7fb6ec",
+    "review_bounds": [
+      36.00197,
+      36.055744000000004,
+      139.26507999999998,
+      139.792757
+    ]
+  },
+  {
+    "key": "dev14_12205_53590",
+    "prefecture": "千葉県",
+    "municipality": "館山市",
+    "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3046",
+    "source_name": "館山市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-09",
+    "resource_url": "https://opendata.pref.chiba.lg.jp/resource_download/53590",
+    "sha256": "728ebf264c2373074f9a92c48115845d8e9f3946a40f277a78dc1aae7bed3afb",
+    "review_bounds": [
+      34.921524999999995,
+      35.027837000000005,
+      139.79294,
+      139.919274
+    ]
+  },
+  {
+    "key": "dev14_12222_55839",
+    "prefecture": "千葉県",
+    "municipality": "我孫子市",
+    "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3648",
+    "source_name": "我孫子市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-09",
+    "resource_url": "https://opendata.pref.chiba.lg.jp/resource_download/55839",
+    "sha256": "d9251d64c1d9779d843f7ce5e5900d936d7b14cbbcb643c8871f90f6d6cd525f",
+    "review_bounds": [
+      35.84404,
+      35.885421,
+      139.995158,
+      140.138078
+    ]
+  },
+  {
+    "key": "dev14_12236_56647",
+    "prefecture": "千葉県",
+    "municipality": "香取市",
+    "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3907",
+    "source_name": "香取市 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-09",
+    "resource_url": "https://opendata.pref.chiba.lg.jp/resource_download/56647",
+    "sha256": "442ec9d102c00f617338c1cf4f69f1afe067b699b4c569b97d8c07cfdc6ef707",
+    "review_bounds": [
+      35.77928,
+      35.95124542000001,
+      140.431469,
+      140.630627
+    ]
+  },
+  {
+    "key": "dev14_12329_56765",
+    "prefecture": "千葉県",
+    "municipality": "栄町",
+    "source_url": "https://opendata.pref.chiba.lg.jp/datasets/4022",
+    "source_name": "栄町 AED設置情報（自治体公式座標・まちまもMAP審査済み）",
+    "license_id": "CC BY 4.0",
+    "source_date": null,
+    "source_updated_at": "2026-08-09",
+    "resource_url": "https://opendata.pref.chiba.lg.jp/resource_download/56765",
+    "sha256": "ea652adcdc33210c68bba85e28cf93bc2d4ea6b80820e7bc6ab67685ad486196",
+    "review_bounds": [
+      35.822809,
+      35.869635,
+      140.17306299999998,
+      140.28375400000002
+    ]
+  }
+]

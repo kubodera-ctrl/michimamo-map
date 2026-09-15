@@ -1,0 +1,101 @@
+[
+  {
+    "source_key": "bodik-reviewed:55cfbf991de1cbb5:5ee96176382f91d797d9842d",
+    "municipality": "川口市",
+    "name": "大貫海浜学園",
+    "address": "埼玉県川口市千葉県富津市千種新田755-1",
+    "latitude": 35.29159687,
+    "longitude": 139.8484886,
+    "median_latitude": 35.83008736,
+    "median_longitude": 139.7269241,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:55cfbf991de1cbb5:2658c78e2300431325fef61a",
+    "municipality": "川口市",
+    "name": "水上少年自然の家",
+    "address": "埼玉県川口市群馬県みなかみ町大字大穴15",
+    "latitude": 36.79144983,
+    "longitude": 138.9820522,
+    "median_latitude": 35.83008736,
+    "median_longitude": 139.7269241,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:c0a924db7ad91ac3:362e6489c49ac9132dd25556",
+    "municipality": "行田市",
+    "name": "行田市総合公園野球場",
+    "address": "埼玉県行田市和田1165",
+    "latitude": 35.64435,
+    "longitude": 139.428358,
+    "median_latitude": 36.139345,
+    "median_longitude": 139.46778949999998,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:c0a924db7ad91ac3:451b538e5bea7562d0ccf98c",
+    "municipality": "行田市",
+    "name": "行田市総合公園庭球場",
+    "address": "埼玉県行田市和田1165",
+    "latitude": 35.64435,
+    "longitude": 139.428358,
+    "median_latitude": 36.139345,
+    "median_longitude": 139.46778949999998,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:c0a924db7ad91ac3:3f82e590d573e87c68fdaa1d",
+    "municipality": "行田市",
+    "name": "行田市総合公園弓道場",
+    "address": "埼玉県行田市和田1165",
+    "latitude": 35.64435,
+    "longitude": 139.428358,
+    "median_latitude": 36.139345,
+    "median_longitude": 139.46778949999998,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:c0a924db7ad91ac3:6911c9b44b92ab3ee008ab1c",
+    "municipality": "行田市",
+    "name": "行田市総合公園 管理事務所",
+    "address": "埼玉県行田市和田1165",
+    "latitude": 35.64435,
+    "longitude": 139.428358,
+    "median_latitude": 36.139345,
+    "median_longitude": 139.46778949999998,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:28f6a7a09182e72f:d4a17772413a4d6209801bf7",
+    "municipality": "和光市",
+    "name": "やとじま☆リトルスター保育園",
+    "address": "埼玉県和光市下新倉二丁目6-6",
+    "latitude": 35.47131,
+    "longitude": 139.37018,
+    "median_latitude": 35.784795,
+    "median_longitude": 139.614715,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:d6127a67ec81f505:021246934d21bc3ad42d1d56",
+    "municipality": "三郷市",
+    "name": "三郷市陸上競技場公園",
+    "address": "埼玉県三郷市泉3-4",
+    "latitude": 35.5029,
+    "longitude": 139.5155,
+    "median_latitude": 35.835218,
+    "median_longitude": 139.873305,
+    "reason": "municipality_coordinate_outlier"
+  },
+  {
+    "source_key": "bodik-reviewed:ee468590171fe650:3f8ece45f5ddb5d46fee5766",
+    "municipality": "杉戸町",
+    "name": "小島内科医院",
+    "address": "埼玉県杉戸町杉戸4-2-2",
+    "latitude": 36.029706,
+    "longitude": 139.26518,
+    "median_latitude": 36.03357,
+    "median_longitude": 139.732137,
+    "reason": "municipality_coordinate_outlier"
+  }
+]

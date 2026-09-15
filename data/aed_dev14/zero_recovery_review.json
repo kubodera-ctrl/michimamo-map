@@ -1,0 +1,33 @@
+[
+  {
+    "code": "12239",
+    "municipality": "大網白里市",
+    "official_rows": 34,
+    "geocode_point_levels": {
+      "3": 34
+    },
+    "publish": 0,
+    "held": 34,
+    "decision": "公開保留（施設単位の公式座標または位置情報レベル8が必要）",
+    "source_url": "https://opendata.pref.chiba.lg.jp/datasets/3916",
+    "resource_url": "https://opendata.pref.chiba.lg.jp/resource_download/56659",
+    "source_license": "PDL 1.0",
+    "source_sha256": "f2573858d461e3c1ac29a1714d1cd998b803fa7b926fde25978017dfb085146f"
+  },
+  {
+    "code": "27218",
+    "municipality": "大東市",
+    "official_rows": 85,
+    "geocode_point_levels": {
+      "3": 81,
+      "2": 4
+    },
+    "publish": 0,
+    "held": 85,
+    "decision": "公開保留（施設単位の公式座標または位置情報レベル8が必要）",
+    "source_url": "https://odm.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e",
+    "resource_url": "https://data.bodik.jp/dataset/1666dc4a-3def-4181-94e1-ae288002791e/resource/a81b6562-f5f4-4380-9961-9c5f8f44eed1/download/5051130aed.xlsx",
+    "source_license": "CC BY 2.1 Japan",
+    "source_sha256": "319dd3d9692d69f0f7755843b7253aa5667779cdf0a149726b2ae8fa94d8763f"
+  }
+]

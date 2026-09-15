@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-15",
+  "initial_batches_committed": [
+    "dev14_11201_6471_1",
+    "dev14_11203_2043_1",
+    "dev14_11203_2043_2"
+  ],
+  "stopped_batch_rolled_back": "dev14_11203_2043_3",
+  "resume_batches_committed": 21,
+  "quarantine_coordinate_outliers_committed": 9,
+  "starting_public_aed": 43598,
+  "after_publication_before_outlier_audit": 45390,
+  "final_public_aed": 45381
+}

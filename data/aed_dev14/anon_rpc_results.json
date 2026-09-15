@@ -1,0 +1,154 @@
+[
+  {
+    "key": "dev14_11201_6471",
+    "municipality": "川越市",
+    "count": 14,
+    "expected": 14,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11203_2043",
+    "municipality": "川口市",
+    "count": 355,
+    "expected": 355,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11206_854",
+    "municipality": "行田市",
+    "count": 92,
+    "expected": 92,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11212_855",
+    "municipality": "東松山市",
+    "count": 5,
+    "expected": 5,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11214_6509",
+    "municipality": "春日部市",
+    "count": 39,
+    "expected": 39,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11218_5215",
+    "municipality": "深谷市",
+    "count": 241,
+    "expected": 241,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11222_2314",
+    "municipality": "越谷市",
+    "count": 158,
+    "expected": 158,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11227_882",
+    "municipality": "朝霞市",
+    "count": 191,
+    "expected": 191,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11229_5171",
+    "municipality": "和光市",
+    "count": 114,
+    "expected": 114,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11230_1064",
+    "municipality": "新座市",
+    "count": 92,
+    "expected": 92,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11237_150",
+    "municipality": "三郷市",
+    "count": 90,
+    "expected": 90,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11242_1598",
+    "municipality": "日高市",
+    "count": 57,
+    "expected": 57,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11347_4291",
+    "municipality": "吉見町",
+    "count": 22,
+    "expected": 22,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11369_856",
+    "municipality": "東秩父村",
+    "count": 8,
+    "expected": 8,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_11464_866",
+    "municipality": "杉戸町",
+    "count": 68,
+    "expected": 68,
+    "license": "PDL 1.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_12205_53590",
+    "municipality": "館山市",
+    "count": 43,
+    "expected": 43,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_12222_55839",
+    "municipality": "我孫子市",
+    "count": 87,
+    "expected": 87,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_12236_56647",
+    "municipality": "香取市",
+    "count": 71,
+    "expected": 71,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  },
+  {
+    "key": "dev14_12329_56765",
+    "municipality": "栄町",
+    "count": 36,
+    "expected": 36,
+    "license": "CC BY 4.0",
+    "status": "passed"
+  }
+]
