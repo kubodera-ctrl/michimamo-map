@@ -1,0 +1,57 @@
+{
+  "source": "山形県 AED設置箇所一覧",
+  "source_scope": "県有施設及び県内市町村",
+  "source_date": "2025-04-01",
+  "source_updated_at": "2025-12-22",
+  "raw_rows": 1750,
+  "published": {
+    "municipalities": {
+      "三川町": 20,
+      "上山市": 49,
+      "中山町": 21,
+      "南陽市": 38,
+      "大江町": 32,
+      "大石田町": 14,
+      "大蔵村": 12,
+      "天童市": 73,
+      "小国町": 21,
+      "尾花沢市": 40,
+      "山形市": 303,
+      "山辺町": 32,
+      "川西町": 28,
+      "戸沢村": 14,
+      "新庄市": 63,
+      "最上町": 21,
+      "村山市": 42,
+      "東根市": 51,
+      "河北町": 34,
+      "白鷹町": 30,
+      "真室川町": 28,
+      "米沢市": 117,
+      "西川町": 17,
+      "遊佐町": 36,
+      "酒田市": 151,
+      "金山町": 16,
+      "長井市": 52,
+      "飯豊町": 34,
+      "高畠町": 52,
+      "鶴岡市": 122
+    },
+    "rows": 1563
+  },
+  "excluded": {
+    "invalid_or_incomplete": 1,
+    "already_published_municipalities": 164,
+    "exact_duplicates": 3,
+    "near_duplicate_candidates": 19,
+    "municipality_without_source_rows": [
+      "朝日町"
+    ]
+  },
+  "coordinate_source": "山形県公式CSV掲載座標",
+  "production_baseline": 37404,
+  "production_after_publication": 38967,
+  "published_municipalities_after_publication": 432,
+  "unpublished_municipalities_after_publication": 1309,
+  "held_review_rows": 15
+}

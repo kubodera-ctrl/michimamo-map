@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "prefecture": "山形県",
+      "municipality": "",
+      "source_name": "山形県 AED設置箇所一覧",
+      "source_url": "https://www.pref.yamagata.jp/020051/kensei/shoukai/toukeijouhou/tokeijoho-opendate/opendata/cata2.html",
+      "resource_url": "https://www.pref.yamagata.jp/documents/1567/r7_aed.csv",
+      "license_id": "CC BY 4.0",
+      "source_date": "2025-04-01",
+      "source_updated_at": "2025-12-22",
+      "excluded_municipalities": [
+        "寒河江市",
+        "庄内町",
+        "舟形町",
+        "鮭川村"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "municipality": "朝日町",
+      "reason": "山形県公式AED設置箇所一覧CSV（令和7年4月1日現在）に掲載行なし"
+    }
+  ]
+}

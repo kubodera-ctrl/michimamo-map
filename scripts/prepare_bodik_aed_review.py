@@ -12,10 +12,22 @@ from import_aed_open_data import read_records, first_value, sql_text
 
 def municipality_from_address(prefecture, address):
     body=clean(address).removeprefix(clean(prefecture))
+    body=re.sub(r'^[（(][^）)]*[）)]', '', body)
     city=re.match(r'^(.+?市)',body)
     if city: return city.group(1)
     town=re.match(r'^(?:.+?郡)?(.+?[町村])',body)
     return town.group(1) if town else ''
+
+
+def supplemental_coordinates(record):
+    """Return [longitude, latitude] from standard or combined coordinate fields."""
+    longitude=first_value(record,('経度','longitude'))
+    latitude=first_value(record,('緯度','latitude'))
+    if longitude and latitude:
+        return [longitude,latitude]
+    combined=first_value(record,('緯度、経度','緯度,経度','緯度・経度'))
+    values=[clean(value) for value in re.split(r'[,，、]',combined) if clean(value)]
+    return [values[1],values[0]] if len(values)>=2 else ['', '']
 
 
 def make_row(p, coords, source, identity):
@@ -44,6 +56,7 @@ def make_row(p, coords, source, identity):
               and not re.match(r'.+?市|.+?郡.+?[町村]',address)):
             address=pref+city+address
         else: return None
+    address=pref+re.sub(r'^[（(][^）)]*[）)]', '', address.removeprefix(pref))
     city=municipality_from_address(pref,address) or city
     install=clean(p.get('placeOfInstallation'))
     digest=hashlib.sha256(f'{name}|{address}|{lat:.7f}|{lng:.7f}|{install}'.encode()).hexdigest()[:24]
@@ -79,6 +92,7 @@ def main():
                 cache.write_bytes(payload)
             records=read_records(payload,int(source.get('header_row',1)))
             accepted=0
+            excluded_municipalities=set(source.get('excluded_municipalities',[]))
             for p in records:
                 p={clean(k).removesuffix(' 必須').removesuffix('必須').strip():v for k,v in p.items()}
                 record_pref=first_value(p,('所在地_都道府県','都道府県名'))
@@ -102,9 +116,12 @@ def main():
                 mapped={'name':first_value(p,('名称','施設名','施設名称','施設名等','店舗名','SAFIELD000')),'address':address,'prefectureName':source['prefecture'],'cityName':city,'telephoneNumber':first_value(p,('電話番号','電話','連 絡 先','設置場所_電話番号')),'placeOfInstallation':first_value(p,('設置位置','設置場所','設置場所1')),'limitationOfUse':first_value(p,('外部利用不可',))}
                 for target,header in (('openingDays','利用可能曜日'),('startTime','開始時間'),('endTime','終了時間'),('openingHoursRemarks','利用可能日時特記事項')):
                     mapped[target]=first_value(p,(header,))
-                mapped['openingHoursRemarks']=' / '.join(filter(None,[mapped.get('openingHoursRemarks'),('休業日：'+p['休業日']) if p.get('休業日') else '',p.get('市民が使用する場合の条件')]))
-                row=make_row(mapped,[first_value(p,('経度','longitude')),first_value(p,('緯度','latitude'))],source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
-                if row: rows.append(row); accepted+=1
+                mapped['openingHoursRemarks']=' / '.join(filter(None,[mapped.get('openingHoursRemarks'),first_value(p,('使用可能時間帯等',)),('24時間使用可：'+first_value(p,('24時間\n使用可','24時間使用可'))) if first_value(p,('24時間\n使用可','24時間使用可')) else '',('休業日：'+p['休業日']) if p.get('休業日') else '',p.get('市民が使用する場合の条件')]))
+                row=make_row(mapped,supplemental_coordinates(p),source,hashlib.sha256(source['resource_url'].encode()).hexdigest()[:16])
+                if row and row['municipality'] in excluded_municipalities:
+                    rejected['supplemental_existing_municipality']+=1
+                elif row:
+                    rows.append(row); accepted+=1
             supplemental.append({'source':source,'raw_rows':len(records),'accepted':accepted,'sha256':hashlib.sha256(payload).hexdigest(),'columns':list(records[0]) if records else []})
         except Exception as error: supplemental.append({'source':source,'error':str(error)})
     rows.sort(key=lambda r:(str(r.get('source_updated_at') or r.get('source_date') or ''),r['source_key']),reverse=True)
