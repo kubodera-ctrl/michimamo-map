@@ -1,0 +1,45 @@
+{
+  "completed_at": "2026-09-15",
+  "stage": "④ 公開可能分を反映（BODIK API上限超過組織）",
+  "refresh": {
+    "organizations": 252,
+    "fetched_rows": 28534,
+    "resources": 299,
+    "resource_ids_added": 0,
+    "resource_ids_removed": 0,
+    "metadata_changes": 1,
+    "metadata_change_detail": "宮崎市の自治体保有AEDデータを再利用可能と正しく判定"
+  },
+  "oversized_sources": {
+    "raw_rows": 6672,
+    "accepted_before_deduplication": 4468,
+    "review_rows_after_internal_deduplication": 4411,
+    "internal_duplicate_candidates_excluded": 181,
+    "staged_for_production_reconciliation": 4230
+  },
+  "production_reconciliation": {
+    "previously_reviewed_rows": 1228,
+    "newly_staged_rows": 3002,
+    "exact_production_duplicates": 2050,
+    "near_production_duplicates_within_50m": 902,
+    "published": 50,
+    "published_by_municipality": {
+      "京都府船井郡京丹波町": 49,
+      "京都府相楽郡精華町": 1
+    }
+  },
+  "production_after": {
+    "public_aed": 35482,
+    "prefectures": 47,
+    "published_municipalities": 374,
+    "unpublished_municipalities": 1367,
+    "invalid_public_rows": 0
+  },
+  "verification": {
+    "aed_unit_tests": 14,
+    "aed_unit_test_status": "passed",
+    "publication_transaction": "passed",
+    "duplicate_candidates_published": 0
+  },
+  "next_action": "④を継続し、未確認自治体の公式情報源探索、既存情報源の更新差分、保留41件を処理"
+}
