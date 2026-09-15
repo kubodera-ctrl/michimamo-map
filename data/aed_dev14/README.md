@@ -28,4 +28,4 @@
 - 市川市・野田市は公式ポータルの最新ファイルがHTTP 500。茂原市・岡山市は表形式AEDリソースを選択できなかった。
 - 鶴ヶ島市、白岡市、習志野市、袖ケ浦市などは拡張子・内容不一致または旧Excel形式の解析が必要。
 
-`catalog_fetch.json` は取得メタデータ・SHA-256・列・標本、`coordinate_review_reports.json` は行単位除外理由、`anon_rpc_results.json` は公開確認を保持する。
+`catalog_fetch.json` は取得メタデータ・SHA-256・列・標本、`dev14_*_review.json` は自治体別の行審査、`anon_rpc_results.json` は公開確認を保持する。
