@@ -1,0 +1,9 @@
+{
+  "code": "11215",
+  "prefecture": "埼玉県",
+  "municipality": "狭山市",
+  "source_rows": 152,
+  "accepted": 76,
+  "held": 76,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

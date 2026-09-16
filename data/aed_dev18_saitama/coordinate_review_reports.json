@@ -1,0 +1,74 @@
+[
+  {
+    "code": "11215",
+    "municipality": "狭山市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 152
+  },
+  {
+    "code": "11216",
+    "municipality": "羽生市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 50
+  },
+  {
+    "code": "11217",
+    "municipality": "鴻巣市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 110
+  },
+  {
+    "code": "11219",
+    "municipality": "上尾市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 351
+  },
+  {
+    "code": "11223",
+    "municipality": "蕨市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 61
+  },
+  {
+    "code": "11225",
+    "municipality": "入間市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 151
+  },
+  {
+    "code": "11228",
+    "municipality": "志木市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 55
+  },
+  {
+    "code": "11232",
+    "municipality": "久喜市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 126
+  },
+  {
+    "code": "11238",
+    "municipality": "蓮田市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 45
+  },
+  {
+    "code": "11239",
+    "municipality": "坂戸市",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 100
+  },
+  {
+    "code": "11326",
+    "municipality": "毛呂山町",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 34
+  },
+  {
+    "code": "11408",
+    "municipality": "寄居町",
+    "status": "address_only_strict_geocode_required",
+    "raw_rows": 40
+  }
+]

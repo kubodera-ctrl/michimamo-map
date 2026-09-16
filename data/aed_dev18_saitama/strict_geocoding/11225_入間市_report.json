@@ -1,0 +1,9 @@
+{
+  "code": "11225",
+  "prefecture": "埼玉県",
+  "municipality": "入間市",
+  "source_rows": 151,
+  "accepted": 97,
+  "held": 54,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

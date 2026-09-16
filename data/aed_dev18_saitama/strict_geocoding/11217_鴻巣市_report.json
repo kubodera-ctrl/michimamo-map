@@ -1,0 +1,9 @@
+{
+  "code": "11217",
+  "prefecture": "埼玉県",
+  "municipality": "鴻巣市",
+  "source_rows": 110,
+  "accepted": 40,
+  "held": 70,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

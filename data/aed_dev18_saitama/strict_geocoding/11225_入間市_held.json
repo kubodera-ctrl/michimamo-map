@@ -1,0 +1,1180 @@
+[
+  {
+    "row": 9,
+    "name": "扇町屋地区センター 久保稲荷分館",
+    "address": "埼玉県入間市久保稲荷3-9-3",
+    "phone": "04-2965-8448",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "久保稲荷三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.823506,
+        "lng": 139.39331600000003,
+        "level": 3
+      },
+      "other": "9-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "市民活動センター",
+    "address": "埼玉県入間市豊岡4-2-2",
+    "phone": "04-2964-2536",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "豊岡四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.83343500000001,
+        "lng": 139.393087,
+        "level": 3
+      },
+      "other": "2-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "黒須小学校",
+    "address": "埼玉県入間市春日町2-14-60",
+    "phone": "04-2964-4451",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "春日町二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.849511,
+        "lng": 139.38669,
+        "level": 3
+      },
+      "other": "14-60"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "扇小学校",
+    "address": "埼玉県入間市久保稲荷4-1195-2",
+    "phone": "04-2962-9005",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "久保稲荷四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.82508,
+        "lng": 139.391141,
+        "level": 3
+      },
+      "other": "1195-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "東町小学校",
+    "address": "埼玉県入間市向陽台2-1009-3",
+    "phone": "04-2964-2220",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "向陽台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.836669,
+        "lng": 139.402372,
+        "level": 3
+      },
+      "other": "1009-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "豊岡中学校",
+    "address": "埼玉県入間市向陽台2-1-20",
+    "phone": "04-2962-5274",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "向陽台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.836669,
+        "lng": 139.402372,
+        "level": 3
+      },
+      "other": "1-20"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "向原中学校",
+    "address": "埼玉県入間市久保稲荷3-34-1",
+    "phone": "04-2963-2131",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "久保稲荷三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.823506,
+        "lng": 139.39331600000003,
+        "level": 3
+      },
+      "other": "34-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "東町中学校",
+    "address": "埼玉県入間市向陽台2-1-22",
+    "phone": "04-2965-2631",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "向陽台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.836669,
+        "lng": 139.402372,
+        "level": 3
+      },
+      "other": "1-22"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "東町学童保育室",
+    "address": "埼玉県入間市向陽台2-1009-3",
+    "phone": "04-2963-8515",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "向陽台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.836669,
+        "lng": 139.402372,
+        "level": 3
+      },
+      "other": "1009-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "黒須学童保育室",
+    "address": "埼玉県入間市春日町2-14-59",
+    "phone": "04-2964-9925",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "春日町二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.849511,
+        "lng": 139.38669,
+        "level": 3
+      },
+      "other": "14-59"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "扇学童保育室",
+    "address": "埼玉県入間市久保稲荷5-7-14",
+    "phone": "04-2964-7899",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "久保稲荷五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.821604,
+        "lng": 139.389108,
+        "level": 3
+      },
+      "other": "7-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "市民体育館",
+    "address": "埼玉県入間市豊岡4-2-1",
+    "phone": "04-2962-1125",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "豊岡四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.83343500000001,
+        "lng": 139.393087,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "黒須運動場",
+    "address": "埼玉県入間市春日町(入間川河川敷)",
+    "phone": "04-2962-1125",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": "春日町(入間川河川敷)"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "東金子小学校",
+    "address": "埼玉県入間市小谷田1524",
+    "phone": "04-2964-3742",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字小谷田",
+      "level": 3,
+      "point": {
+        "lat": 35.82355,
+        "lng": 139.369706,
+        "level": 3
+      },
+      "other": "1524"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "学校給食センター",
+    "address": "埼玉県入間市新久129",
+    "phone": "04-2963-8801",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字新久",
+      "level": 3,
+      "point": {
+        "lat": 35.824599,
+        "lng": 139.360277,
+        "level": 3
+      },
+      "other": "129"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "中央公園",
+    "address": "埼玉県入間市扇町屋1250-1",
+    "phone": "04-2934-5724",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字扇町屋",
+      "addr": "1250-1",
+      "level": 8,
+      "point": {
+        "lat": 35.815172,
+        "lng": 139.37865,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "金子小学校",
+    "address": "埼玉県入間市西三ツ木150",
+    "phone": "04-2936-0211",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字西三ツ木",
+      "level": 3,
+      "point": {
+        "lat": 35.813635,
+        "lng": 139.338136,
+        "level": 3
+      },
+      "other": "150"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "金子中学校",
+    "address": "埼玉県入間市西三ツ木187",
+    "phone": "04-2936-0131",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字西三ツ木",
+      "level": 3,
+      "point": {
+        "lat": 35.813635,
+        "lng": 139.338136,
+        "level": 3
+      },
+      "other": "187"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "金子学童保育室",
+    "address": "埼玉県入間市西三ツ木150",
+    "phone": "04-2936-3271",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字西三ツ木",
+      "level": 3,
+      "point": {
+        "lat": 35.813635,
+        "lng": 139.338136,
+        "level": 3
+      },
+      "other": "150"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 53,
+    "name": "農村環境改善センター",
+    "address": "埼玉県入間市下谷ヶ貫915-3",
+    "phone": "04-2936-0900",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下谷ケ貫",
+      "addr": "915-3",
+      "level": 8,
+      "point": {
+        "lat": 35.814608,
+        "lng": 139.348802,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "武蔵中学校",
+    "address": "埼玉県入間市宮寺3193",
+    "phone": "04-2934-2234",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "宮寺",
+      "level": 3,
+      "point": {
+        "lat": 35.794927,
+        "lng": 139.376559,
+        "level": 3
+      },
+      "other": "3193"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 63,
+    "name": "宮寺地区体育館",
+    "address": "埼玉県入間市宮寺567",
+    "phone": "04-2934-1565",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "宮寺",
+      "level": 3,
+      "point": {
+        "lat": 35.794927,
+        "lng": 139.376559,
+        "level": 3
+      },
+      "other": "567"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "博物館アリット",
+    "address": "埼玉県入間市二本木100",
+    "phone": "04-2934-7711",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字二本木",
+      "level": 3,
+      "point": {
+        "lat": 35.79721500000001,
+        "lng": 139.357993,
+        "level": 3
+      },
+      "other": "100"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 66,
+    "name": "藤沢小学校",
+    "address": "埼玉県入間市上藤沢384",
+    "phone": "04-2962-5252",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字上藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.816057,
+        "lng": 139.392161,
+        "level": 3
+      },
+      "other": "384"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 73,
+    "name": "藤沢第二保育所",
+    "address": "埼玉県入間市下藤沢276-1",
+    "phone": "04-2962-3680",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "276-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "藤沢地区センター",
+    "address": "埼玉県入間市下藤沢846-1",
+    "phone": "04-2962-6475",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "846-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 88,
+    "name": "西武中央保育所",
+    "address": "埼玉県入間市野田519",
+    "phone": "04-2932-2905",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字野田",
+      "level": 3,
+      "point": {
+        "lat": 35.844261,
+        "lng": 139.35454,
+        "level": 3
+      },
+      "other": "519"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "西武学童保育室",
+    "address": "埼玉県入間市野田498",
+    "phone": "04-2932-2701",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字野田",
+      "level": 3,
+      "point": {
+        "lat": 35.844261,
+        "lng": 139.35454,
+        "level": 3
+      },
+      "other": "498"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 92,
+    "name": "西武地区体育館",
+    "address": "埼玉県入間市野田1134-57",
+    "phone": "04-2932-2004",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字野田",
+      "addr": "1134-57",
+      "level": 8,
+      "point": {
+        "lat": 35.844261,
+        "lng": 139.35454,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 95,
+    "name": "入間市コミュニティバスてぃーろーど",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 96,
+    "name": "入間市コミュニティバスてぃーろーど",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 97,
+    "name": "入間市コミュニティバスてぃーろーど",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 98,
+    "name": "入間市コミュニティバスてぃーろーど",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 99,
+    "name": "消防団第1分団第3部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 100,
+    "name": "消防団第2分団第3部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 101,
+    "name": "消防団第3分団第2部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 102,
+    "name": "消防団第4分団第1部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 103,
+    "name": "消防団第5分団第3部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 104,
+    "name": "消防団第6分団第2部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 105,
+    "name": "消防団第7分団第3部",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 106,
+    "name": "扇台福祉作業所",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 107,
+    "name": "扇台福祉作業所",
+    "address": "埼玉県入間市",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "level": 2,
+      "point": {
+        "lat": 35.835769,
+        "lng": 139.391058,
+        "level": 2
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 117,
+    "name": "ファミリーマート入間春日町",
+    "address": "埼玉県入間市春日町1-716-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "春日町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.848779,
+        "lng": 139.379245,
+        "level": 3
+      },
+      "other": "716-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 119,
+    "name": "ローソン入間高倉四丁目",
+    "address": "埼玉県入間市高倉4-22-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "高倉四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.83649,
+        "lng": 139.379983,
+        "level": 3
+      },
+      "other": "22-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 121,
+    "name": "ミニストップ入間市駅前",
+    "address": "埼玉県入間市河原町1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "河原町",
+      "level": 3,
+      "point": {
+        "lat": 35.843074,
+        "lng": 139.3876,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 122,
+    "name": "セブンイレブン入間新久",
+    "address": "埼玉県入間市新久915-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字新久",
+      "addr": "915-1",
+      "level": 8,
+      "point": {
+        "lat": 35.824599,
+        "lng": 139.360277,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 123,
+    "name": "ファミリーマート入間武蔵工業団地",
+    "address": "埼玉県入間市小谷田1261-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字小谷田",
+      "level": 3,
+      "point": {
+        "lat": 35.82355,
+        "lng": 139.369706,
+        "level": 3
+      },
+      "other": "1261-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 134,
+    "name": "セブンイレブン入間下藤沢東",
+    "address": "埼玉県入間市下藤沢314-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "314-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 135,
+    "name": "セブンイレブン入間下藤沢",
+    "address": "埼玉県入間市下藤沢765-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "765-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 138,
+    "name": "ファミリーマート武蔵藤沢駅前",
+    "address": "埼玉県入間市下藤沢1331-4",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "1331-4"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 143,
+    "name": "ローソン武蔵藤沢駅前",
+    "address": "埼玉県入間市下藤沢492-25",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "492-25"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 145,
+    "name": "ミニストップ入間市下藤沢",
+    "address": "埼玉県入間市下藤沢438-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字下藤沢",
+      "level": 3,
+      "point": {
+        "lat": 35.823437,
+        "lng": 139.407357,
+        "level": 3
+      },
+      "other": "438-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 149,
+    "name": "ファミリーマート仏子駅前",
+    "address": "埼玉県入間市仏子880",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字仏子",
+      "level": 3,
+      "point": {
+        "lat": 35.836021,
+        "lng": 139.354493,
+        "level": 3
+      },
+      "other": "880"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 150,
+    "name": "ファミリーマート入間野田",
+    "address": "埼玉県入間市野田887",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/141",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-02-01",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間市",
+      "town": "大字野田",
+      "level": 3,
+      "point": {
+        "lat": 35.844261,
+        "lng": 139.35454,
+        "level": 3
+      },
+      "other": "887"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "phase": "aed_dev20_final",
+  "generated_at": "2026-09-16T01:45:00Z",
+  "production": {
+    "active_aeds_before": 47392,
+    "active_aeds_after": 48620,
+    "added": 1228,
+    "municipality_labels_with_aeds": 775,
+    "invalid_active_coordinates": 0,
+    "photo_aeds": 0,
+    "user_submitted_aeds": 0
+  },
+  "final_phase_candidates": {
+    "processed": 4865,
+    "published": 1228,
+    "duplicates": 1,
+    "held_or_excluded": 3636,
+    "representative_point_publications": 0
+  },
+  "original_holds": {
+    "processed": 3497,
+    "rescued_from_address": 187,
+    "duplicates": 1,
+    "continuing_hold": 3309,
+    "local": {"processed": 2558, "published": 100, "held": 2458},
+    "supabase": {"processed": 939, "published": 87, "duplicates": 1, "held": 851}
+  },
+  "priority_prefectures": {
+    "initial_actual_missing_municipalities": {"Tokyo": 32, "Kanagawa": 14, "Yamanashi": 24, "Osaka": 30},
+    "final_missing_municipalities": {"Tokyo": 26, "Kanagawa": 13, "Yamanashi": 24, "Osaka": 30},
+    "published": {"Tokyo": 522, "Kanagawa": 519, "Yamanashi": 0, "Osaka": 0},
+    "strictly_held": {"Tokyo": 238, "Kanagawa": 0, "Yamanashi": 0, "Osaka": 85},
+    "other_excluded": {"Tokyo": 4, "Kanagawa": 0, "Yamanashi": 0, "Osaka": 0}
+  },
+  "foundation": {
+    "source_registry_rows": 508,
+    "cc_by_label_auto_classified": 175,
+    "license_terms_recheck_before_next_update": 333,
+    "tables": [
+      "aed_sources", "aed_import_batches", "aed_source_records", "aed_field_provenance",
+      "aed_lifecycle_reports", "aed_submissions", "aed_submission_rewards"
+    ],
+    "private_photo_bucket": "aed-submission-images",
+    "reward_points": 30,
+    "reward_atomic": true
+  },
+  "verification": {
+    "python_tests": 63,
+    "javascript_syntax": "pass",
+    "diff_check": "pass",
+    "anon_map_rpc": "pass",
+    "anonymous_nearby_submission_rpc": "permission_denied_as_designed",
+    "real_account_photo_submission_e2e": "requires_user_and_admin_login"
+  }
+}

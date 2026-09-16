@@ -1,0 +1,31 @@
+{
+  "processed": 282,
+  "publishable": 282,
+  "held": 0,
+  "municipalities": {
+    "西東京市": 109,
+    "稲城市": 173
+  },
+  "quality_rank": "A",
+  "policy": "official CC BY XLSX; official coordinates; municipality bounds; required fields; installation-aware duplicate guard",
+  "sources": [
+    {
+      "municipality": "西東京市",
+      "rows": 109,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132292d0000000007",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/nishitokyo/132292_aed.xlsx",
+      "license": "CC BY 4.0",
+      "metadata_modified": "2025-12-12T10:01:05.147632+00:00",
+      "sha256": "fb7d64a668cd1eec2d9609769bd8de2c962edd9f742111b06c9ca3d5137c7d8f"
+    },
+    {
+      "municipality": "稲城市",
+      "rows": 173,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132250d0000000047",
+      "resource_url": "https://www.city.inagi.tokyo.jp/_res/projects/default_project/_page_/001/009/446/001_hyojun.xlsx",
+      "license": "CC BY 4.0",
+      "metadata_modified": "2025-12-12T10:00:03.770195+00:00",
+      "sha256": "dc76f1e445154053fe6738483300cdb5a758048ccbac0653b8ec0daf9aa6791a"
+    }
+  ]
+}

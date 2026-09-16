@@ -1,0 +1,9 @@
+{
+  "code": "11326",
+  "prefecture": "埼玉県",
+  "municipality": "毛呂山町",
+  "source_rows": 34,
+  "accepted": 0,
+  "held": 34,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

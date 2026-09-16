@@ -1,0 +1,1826 @@
+[
+  {
+    "row": 2,
+    "name": "狭山市役所",
+    "address": "埼玉県狭山市入間川1-23-5",
+    "phone": "04-2953-1111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川一丁目",
+      "addr": "23-5",
+      "level": 8,
+      "point": {
+        "lat": 35.853530978,
+        "lng": 139.411774461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853530978,
+    "longitude": 139.411774461
+  },
+  {
+    "row": 3,
+    "name": "狭山市役所",
+    "address": "埼玉県狭山市入間川1-23-5",
+    "phone": "04-2953-1111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川一丁目",
+      "addr": "23-5",
+      "level": 8,
+      "point": {
+        "lat": 35.853530978,
+        "lng": 139.411774461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853530978,
+    "longitude": 139.411774461
+  },
+  {
+    "row": 5,
+    "name": "狭山市コミュニティーセンター",
+    "address": "埼玉県狭山市入間川4-16-4",
+    "phone": "04-2953-4007",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川四丁目",
+      "addr": "16-4",
+      "level": 8,
+      "point": {
+        "lat": 35.853699983,
+        "lng": 139.402707794,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853699983,
+    "longitude": 139.402707794
+  },
+  {
+    "row": 6,
+    "name": "狭山市市民健康文化センター",
+    "address": "埼玉県狭山市下奥富2552-1",
+    "phone": "04-2969-3809",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字下奥富",
+      "addr": "2552-1",
+      "level": 8,
+      "point": {
+        "lat": 35.879479789,
+        "lng": 139.417711993,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.879479789,
+    "longitude": 139.417711993
+  },
+  {
+    "row": 8,
+    "name": "狭山市市民会館",
+    "address": "埼玉県狭山市入間川2-33-1",
+    "phone": "04-2953-9101",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "33-1",
+      "level": 8,
+      "point": {
+        "lat": 35.862202347,
+        "lng": 139.408972281,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.862202347,
+    "longitude": 139.408972281
+  },
+  {
+    "row": 12,
+    "name": "狭山市奥富環境センター",
+    "address": "埼玉県狭山市上奥富897-1",
+    "phone": "04-2953-2831",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字上奥富",
+      "addr": "897-1",
+      "level": 8,
+      "point": {
+        "lat": 35.878822431,
+        "lng": 139.417490921,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878822431,
+    "longitude": 139.417490921
+  },
+  {
+    "row": 13,
+    "name": "狭山市社会福祉会館",
+    "address": "埼玉県狭山市入間川2-4-13",
+    "phone": "04-2954-0294",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "4-13",
+      "level": 8,
+      "point": {
+        "lat": 35.859951558,
+        "lng": 139.410163325,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.859951558,
+    "longitude": 139.410163325
+  },
+  {
+    "row": 14,
+    "name": "狭山市立中央児童館",
+    "address": "埼玉県狭山市入間川4-14-8",
+    "phone": "04-2953-0208",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川四丁目",
+      "addr": "14-8",
+      "level": 8,
+      "point": {
+        "lat": 35.852047533,
+        "lng": 139.401897128,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.852047533,
+    "longitude": 139.401897128
+  },
+  {
+    "row": 15,
+    "name": "狭山市立狭山台児童館",
+    "address": "埼玉県狭山市中央3-3-31",
+    "phone": "04-2958-7407",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央三丁目",
+      "addr": "3-31",
+      "level": 8,
+      "point": {
+        "lat": 35.85589425,
+        "lng": 139.427496364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.85589425,
+    "longitude": 139.427496364
+  },
+  {
+    "row": 18,
+    "name": "狭山市子育てプレイス奥富",
+    "address": "埼玉県狭山市下奥富1100",
+    "phone": "04-2952-6801",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字下奥富",
+      "addr": "1100",
+      "level": 8,
+      "point": {
+        "lat": 35.878435919,
+        "lng": 139.422268156,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878435919,
+    "longitude": 139.422268156
+  },
+  {
+    "row": 19,
+    "name": "狭山市立新狭山保育所",
+    "address": "埼玉県狭山市東三ツ木300-1",
+    "phone": "04-2954-2300",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字東三ツ木",
+      "addr": "300-1",
+      "level": 8,
+      "point": {
+        "lat": 35.870953701,
+        "lng": 139.427667496,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.870953701,
+    "longitude": 139.427667496
+  },
+  {
+    "row": 22,
+    "name": "狭山市立山王保育所",
+    "address": "埼玉県狭山市南入曽30-1",
+    "phone": "04-2958-3863",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "30-1",
+      "level": 8,
+      "point": {
+        "lat": 35.843476964,
+        "lng": 139.442584284,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.843476964,
+    "longitude": 139.442584284
+  },
+  {
+    "row": 23,
+    "name": "狭山市立入曽保育所",
+    "address": "埼玉県狭山市南入曽428-1",
+    "phone": "04-2958-6347",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "428-1",
+      "level": 8,
+      "point": {
+        "lat": 35.832919952,
+        "lng": 139.432177173,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.832919952,
+    "longitude": 139.432177173
+  },
+  {
+    "row": 24,
+    "name": "狭山市立広瀬保育所",
+    "address": "埼玉県狭山市広瀬2-2-13",
+    "phone": "04-2952-6230",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "広瀬二丁目",
+      "addr": "2-13",
+      "level": 8,
+      "point": {
+        "lat": 35.859211972,
+        "lng": 139.393456547,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.859211972,
+    "longitude": 139.393456547
+  },
+  {
+    "row": 25,
+    "name": "狭山市立笹井保育所",
+    "address": "埼玉県狭山市笹井2-17-1",
+    "phone": "04-2953-1808",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "笹井二丁目",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 35.857042322,
+        "lng": 139.379234325,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.857042322,
+    "longitude": 139.379234325
+  },
+  {
+    "row": 27,
+    "name": "狭山市立祇園保育所",
+    "address": "埼玉県狭山市祇園14-3",
+    "phone": "04-2957-3001",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "祇園",
+      "addr": "14-3",
+      "level": 8,
+      "point": {
+        "lat": 35.857578716,
+        "lng": 139.419002411,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.857578716,
+    "longitude": 139.419002411
+  },
+  {
+    "row": 28,
+    "name": "狭山市障害者基幹相談支援センター",
+    "address": "埼玉県狭山市富士見1-1-11",
+    "phone": "04-2937-7771",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "富士見一丁目",
+      "addr": "1-11",
+      "level": 8,
+      "point": {
+        "lat": 35.854737453,
+        "lng": 139.414065219,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.854737453,
+    "longitude": 139.414065219
+  },
+  {
+    "row": 29,
+    "name": "狭山市立青い実学園",
+    "address": "埼玉県狭山市柏原758-1",
+    "phone": "04-2952-3302",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "柏原",
+      "addr": "758-1",
+      "level": 8,
+      "point": {
+        "lat": 35.89123008,
+        "lng": 139.399044287,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.89123008,
+    "longitude": 139.399044287
+  },
+  {
+    "row": 30,
+    "name": "狭山市立老人福祉センター寿荘",
+    "address": "埼玉県狭山市加佐志513-2",
+    "phone": "04-2959-7241",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字加佐志",
+      "addr": "513-2",
+      "level": 8,
+      "point": {
+        "lat": 35.863690271,
+        "lng": 139.441140357,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.863690271,
+    "longitude": 139.441140357
+  },
+  {
+    "row": 41,
+    "name": "狭山市入曽多目的広場",
+    "address": "埼玉県狭山市南入曽755-1",
+    "phone": "04-2956-6797",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "755-1",
+      "level": 8,
+      "point": {
+        "lat": 35.8319867,
+        "lng": 139.414690231,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8319867,
+    "longitude": 139.414690231
+  },
+  {
+    "row": 42,
+    "name": "狭山市広瀬河川敷公園",
+    "address": "埼玉県狭山市広瀬1-36-3",
+    "phone": "04-2954-6859",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "広瀬一丁目",
+      "addr": "36-3",
+      "level": 8,
+      "point": {
+        "lat": 35.853683778,
+        "lng": 139.386456458,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853683778,
+    "longitude": 139.386456458
+  },
+  {
+    "row": 50,
+    "name": "狭山市堀兼・上赤坂公園",
+    "address": "埼玉県狭山市堀兼2484-3",
+    "phone": "04-2959-1200",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字堀兼",
+      "addr": "2484-3",
+      "level": 8,
+      "point": {
+        "lat": 35.844882803,
+        "lng": 139.454671082,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.844882803,
+    "longitude": 139.454671082
+  },
+  {
+    "row": 58,
+    "name": "狭山市立富士見小学校",
+    "address": "埼玉県狭山市中央4-17-1",
+    "phone": "04-2957-9107",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 35.851418592,
+        "lng": 139.424818517,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.851418592,
+    "longitude": 139.424818517
+  },
+  {
+    "row": 61,
+    "name": "狭山市立入間野中学校",
+    "address": "埼玉県狭山市北入曽1028-1",
+    "phone": "04-2959-9311",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "1028-1",
+      "level": 8,
+      "point": {
+        "lat": 35.83902449,
+        "lng": 139.41996016,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.83902449,
+    "longitude": 139.41996016
+  },
+  {
+    "row": 62,
+    "name": "狭山市立御狩場小学校",
+    "address": "埼玉県狭山市北入曽755-4",
+    "phone": "04-2957-3421",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "755-4",
+      "level": 8,
+      "point": {
+        "lat": 35.845651522,
+        "lng": 139.427957488,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.845651522,
+    "longitude": 139.427957488
+  },
+  {
+    "row": 64,
+    "name": "狭山市立山王小学校",
+    "address": "埼玉県狭山市南入曽55",
+    "phone": "04-2957-4857",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "55",
+      "level": 8,
+      "point": {
+        "lat": 35.840188026,
+        "lng": 139.437671364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840188026,
+    "longitude": 139.437671364
+  },
+  {
+    "row": 67,
+    "name": "狭山市立入間川小学校",
+    "address": "埼玉県狭山市鵜ノ木5-9",
+    "phone": "04-2952-6221",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "鵜ノ木",
+      "addr": "5-9",
+      "level": 8,
+      "point": {
+        "lat": 35.853757792,
+        "lng": 139.397369422,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853757792,
+    "longitude": 139.397369422
+  },
+  {
+    "row": 68,
+    "name": "狭山市立入間川中学校",
+    "address": "埼玉県狭山市鵜ノ木6-46",
+    "phone": "04-2953-3683",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "鵜ノ木",
+      "addr": "6-46",
+      "level": 8,
+      "point": {
+        "lat": 35.852697717,
+        "lng": 139.393963342,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.852697717,
+    "longitude": 139.393963342
+  },
+  {
+    "row": 70,
+    "name": "狭山市立笹井小学校",
+    "address": "埼玉県狭山市笹井1700",
+    "phone": "04-2954-2290",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字笹井",
+      "addr": "1700",
+      "level": 8,
+      "point": {
+        "lat": 35.853715405,
+        "lng": 139.371320364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853715405,
+    "longitude": 139.371320364
+  },
+  {
+    "row": 73,
+    "name": "狭山市立柏原中学校",
+    "address": "埼玉県狭山市柏原2520-11",
+    "phone": "04-2954-5073",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "柏原",
+      "addr": "2520-11",
+      "level": 8,
+      "point": {
+        "lat": 35.878224174,
+        "lng": 139.407352385,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878224174,
+    "longitude": 139.407352385
+  },
+  {
+    "row": 74,
+    "name": "狭山市立入間川東小学校",
+    "address": "埼玉県狭山市入間川2-7-23",
+    "phone": "04-2952-3118",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "7-23",
+      "level": 8,
+      "point": {
+        "lat": 35.860837044,
+        "lng": 139.412673644,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.860837044,
+    "longitude": 139.412673644
+  },
+  {
+    "row": 75,
+    "name": "狭山市立入間野小学校",
+    "address": "埼玉県狭山市北入曽980",
+    "phone": "04-2958-2718",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "980",
+      "level": 8,
+      "point": {
+        "lat": 35.840282562,
+        "lng": 139.422203809,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840282562,
+    "longitude": 139.422203809
+  },
+  {
+    "row": 76,
+    "name": "狭山市立南小学校",
+    "address": "埼玉県狭山市水野815-1",
+    "phone": "04-2957-9102",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "815-1",
+      "level": 8,
+      "point": {
+        "lat": 35.827126471,
+        "lng": 139.424014114,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.827126471,
+    "longitude": 139.424014114
+  },
+  {
+    "row": 81,
+    "name": "狭山市立入間川東小学校",
+    "address": "埼玉県狭山市入間川2-7-23",
+    "phone": "04-2952-3118",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "7-23",
+      "level": 8,
+      "point": {
+        "lat": 35.860837044,
+        "lng": 139.412673644,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.860837044,
+    "longitude": 139.412673644
+  },
+  {
+    "row": 82,
+    "name": "狭山市立富士見小学校",
+    "address": "埼玉県狭山市中央4-17-1",
+    "phone": "04-2957-9107",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 35.851418592,
+        "lng": 139.424818517,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.851418592,
+    "longitude": 139.424818517
+  },
+  {
+    "row": 85,
+    "name": "狭山市立入間野中学校",
+    "address": "埼玉県狭山市北入曽1028-1",
+    "phone": "04-2959-9311",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "1028-1",
+      "level": 8,
+      "point": {
+        "lat": 35.83902449,
+        "lng": 139.41996016,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.83902449,
+    "longitude": 139.41996016
+  },
+  {
+    "row": 86,
+    "name": "狭山市立御狩場小学校",
+    "address": "埼玉県狭山市北入曽755-4",
+    "phone": "04-2957-3421",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "755-4",
+      "level": 8,
+      "point": {
+        "lat": 35.845651522,
+        "lng": 139.427957488,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.845651522,
+    "longitude": 139.427957488
+  },
+  {
+    "row": 87,
+    "name": "狭山市立入間野小学校",
+    "address": "埼玉県狭山市北入曽980",
+    "phone": "04-2958-2718",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "980",
+      "level": 8,
+      "point": {
+        "lat": 35.840282562,
+        "lng": 139.422203809,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840282562,
+    "longitude": 139.422203809
+  },
+  {
+    "row": 89,
+    "name": "狭山市立山王小学校",
+    "address": "埼玉県狭山市南入曽55",
+    "phone": "04-2957-4857",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "55",
+      "level": 8,
+      "point": {
+        "lat": 35.840188026,
+        "lng": 139.437671364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840188026,
+    "longitude": 139.437671364
+  },
+  {
+    "row": 90,
+    "name": "狭山市立南小学校",
+    "address": "埼玉県狭山市水野815-1",
+    "phone": "04-2957-9102",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "815-1",
+      "level": 8,
+      "point": {
+        "lat": 35.827126471,
+        "lng": 139.424014114,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.827126471,
+    "longitude": 139.424014114
+  },
+  {
+    "row": 93,
+    "name": "狭山市立入間川小学校",
+    "address": "埼玉県狭山市鵜ノ木5-9",
+    "phone": "04-2952-6221",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "鵜ノ木",
+      "addr": "5-9",
+      "level": 8,
+      "point": {
+        "lat": 35.853757792,
+        "lng": 139.397369422,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853757792,
+    "longitude": 139.397369422
+  },
+  {
+    "row": 94,
+    "name": "狭山市立入間川中学校",
+    "address": "埼玉県狭山市鵜ノ木6-46",
+    "phone": "04-2953-3683",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "鵜ノ木",
+      "addr": "6-46",
+      "level": 8,
+      "point": {
+        "lat": 35.852697717,
+        "lng": 139.393963342,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.852697717,
+    "longitude": 139.393963342
+  },
+  {
+    "row": 96,
+    "name": "狭山市立笹井小学校",
+    "address": "埼玉県狭山市笹井1700",
+    "phone": "04-2954-2290",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字笹井",
+      "addr": "1700",
+      "level": 8,
+      "point": {
+        "lat": 35.853715405,
+        "lng": 139.371320364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853715405,
+    "longitude": 139.371320364
+  },
+  {
+    "row": 99,
+    "name": "狭山市立柏原中学校",
+    "address": "埼玉県狭山市柏原2520-11",
+    "phone": "04-2954-5073",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "柏原",
+      "addr": "2520-11",
+      "level": 8,
+      "point": {
+        "lat": 35.878224174,
+        "lng": 139.407352385,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878224174,
+    "longitude": 139.407352385
+  },
+  {
+    "row": 101,
+    "name": "狭山市立富士見集会所",
+    "address": "埼玉県狭山市富士見1-1-18",
+    "phone": "04-2959-6230",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "富士見一丁目",
+      "addr": "1-18",
+      "level": 8,
+      "point": {
+        "lat": 35.854712028,
+        "lng": 139.413340739,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.854712028,
+    "longitude": 139.413340739
+  },
+  {
+    "row": 102,
+    "name": "狭山市役所",
+    "address": "埼玉県狭山市入間川1-23-5",
+    "phone": "04-2946-8738",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川一丁目",
+      "addr": "23-5",
+      "level": 8,
+      "point": {
+        "lat": 35.853530978,
+        "lng": 139.411774461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853530978,
+    "longitude": 139.411774461
+  },
+  {
+    "row": 104,
+    "name": "狭山市民総合体育館",
+    "address": "埼玉県狭山市柏原555",
+    "phone": "04-2952-0511",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "柏原",
+      "addr": "555",
+      "level": 8,
+      "point": {
+        "lat": 35.878866383,
+        "lng": 139.393068704,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878866383,
+    "longitude": 139.393068704
+  },
+  {
+    "row": 105,
+    "name": "狭山市立武道館",
+    "address": "埼玉県狭山市入間川4-18-21",
+    "phone": "04-2935-7035",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川四丁目",
+      "addr": "18-21",
+      "level": 8,
+      "point": {
+        "lat": 35.853742747,
+        "lng": 139.40275635,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853742747,
+    "longitude": 139.40275635
+  },
+  {
+    "row": 107,
+    "name": "狭山市立富士見公民館",
+    "address": "埼玉県狭山市入間川3156",
+    "phone": "04-2959-0175",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川",
+      "addr": "3156",
+      "level": 8,
+      "point": {
+        "lat": 35.843886246,
+        "lng": 139.424841526,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.843886246,
+    "longitude": 139.424841526
+  },
+  {
+    "row": 108,
+    "name": "狭山市立富士見公民館",
+    "address": "埼玉県狭山市入間川3156",
+    "phone": "04-2959-0175",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川",
+      "addr": "3156",
+      "level": 8,
+      "point": {
+        "lat": 35.843886246,
+        "lng": 139.424841526,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.843886246,
+    "longitude": 139.424841526
+  },
+  {
+    "row": 109,
+    "name": "狭山市立水野公民館",
+    "address": "埼玉県狭山市水野891-4",
+    "phone": "04-2958-7991",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "891-4",
+      "level": 8,
+      "point": {
+        "lat": 35.822945429,
+        "lng": 139.42480911,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.822945429,
+    "longitude": 139.42480911
+  },
+  {
+    "row": 110,
+    "name": "狭山市立水野公民館",
+    "address": "埼玉県狭山市水野891-4",
+    "phone": "04-2958-7991",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "891-4",
+      "level": 8,
+      "point": {
+        "lat": 35.822945429,
+        "lng": 139.42480911,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.822945429,
+    "longitude": 139.42480911
+  },
+  {
+    "row": 113,
+    "name": "狭山市立入曽地域交流センター",
+    "address": "埼玉県狭山市南入曽428-3",
+    "phone": "04-2959-3004",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "428-3",
+      "level": 8,
+      "point": {
+        "lat": 35.832807815,
+        "lng": 139.431556573,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.832807815,
+    "longitude": 139.431556573
+  },
+  {
+    "row": 117,
+    "name": "狭山市立奥富公民館",
+    "address": "埼玉県狭山市下奥富1007-1",
+    "phone": "04-2954-4829",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字下奥富",
+      "addr": "1007-1",
+      "level": 8,
+      "point": {
+        "lat": 35.877723819,
+        "lng": 139.424233987,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.877723819,
+    "longitude": 139.424233987
+  },
+  {
+    "row": 119,
+    "name": "狭山市立水富公民館",
+    "address": "埼玉県狭山市根岸2-17-13",
+    "phone": "04-2954-4730",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "根岸二丁目",
+      "addr": "17-13",
+      "level": 8,
+      "point": {
+        "lat": 35.857619456,
+        "lng": 139.382112044,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.857619456,
+    "longitude": 139.382112044
+  },
+  {
+    "row": 120,
+    "name": "狭山市立中央図書館",
+    "address": "埼玉県狭山市入間川2-2-25",
+    "phone": "04-2954-4646",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "2-25",
+      "level": 8,
+      "point": {
+        "lat": 35.858555939,
+        "lng": 139.4116337,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.858555939,
+    "longitude": 139.4116337
+  },
+  {
+    "row": 121,
+    "name": "狭山市立入間川幼稚園",
+    "address": "埼玉県狭山市入間川2-7-41",
+    "phone": "04-2954-3102",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "7-41",
+      "level": 8,
+      "point": {
+        "lat": 35.8599288,
+        "lng": 139.414605867,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8599288,
+    "longitude": 139.414605867
+  },
+  {
+    "row": 125,
+    "name": "狭山市立富士見小第一・第二学童保育室",
+    "address": "埼玉県狭山市中央4-17-1",
+    "phone": "04-2957-0600",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "17-1",
+      "level": 8,
+      "point": {
+        "lat": 35.851418592,
+        "lng": 139.424818517,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.851418592,
+    "longitude": 139.424818517
+  },
+  {
+    "row": 126,
+    "name": "狭山市立南小第一・第二学童保育室",
+    "address": "埼玉県狭山市水野815-1",
+    "phone": "04-2958-7993",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "815-1",
+      "level": 8,
+      "point": {
+        "lat": 35.827126471,
+        "lng": 139.424014114,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.827126471,
+    "longitude": 139.424014114
+  },
+  {
+    "row": 127,
+    "name": "狭山市立入間川小学童保育室",
+    "address": "埼玉県狭山市鵜ノ木5-9",
+    "phone": "04-2954-8625",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "鵜ノ木",
+      "addr": "5-9",
+      "level": 8,
+      "point": {
+        "lat": 35.853757792,
+        "lng": 139.397369422,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853757792,
+    "longitude": 139.397369422
+  },
+  {
+    "row": 128,
+    "name": "狭山市立山王小学童保育室",
+    "address": "埼玉県狭山市南入曽55",
+    "phone": "04-2956-2005",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字南入曽",
+      "addr": "55",
+      "level": 8,
+      "point": {
+        "lat": 35.840188026,
+        "lng": 139.437671364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840188026,
+    "longitude": 139.437671364
+  },
+  {
+    "row": 130,
+    "name": "狭山市立笹井小学童保育室",
+    "address": "埼玉県狭山市笹井1700",
+    "phone": "04-2955-0410",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字笹井",
+      "addr": "1700",
+      "level": 8,
+      "point": {
+        "lat": 35.853715405,
+        "lng": 139.371320364,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853715405,
+    "longitude": 139.371320364
+  },
+  {
+    "row": 132,
+    "name": "入間川東小・富士見小学童保育室分室",
+    "address": "埼玉県狭山市富士見1-13-33",
+    "phone": "04-2959-2671",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "富士見一丁目",
+      "addr": "13-33",
+      "level": 8,
+      "point": {
+        "lat": 35.852103797,
+        "lng": 139.414230625,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.852103797,
+    "longitude": 139.414230625
+  },
+  {
+    "row": 133,
+    "name": "狭山市立広瀬小学童保育室分室",
+    "address": "埼玉県狭山市広瀬2-2-17",
+    "phone": "04-2941-2236",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "広瀬二丁目",
+      "addr": "2-17",
+      "level": 8,
+      "point": {
+        "lat": 35.858894639,
+        "lng": 139.393700161,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.858894639,
+    "longitude": 139.393700161
+  },
+  {
+    "row": 135,
+    "name": "狭山市立入間川東小第一・第二学童保育室",
+    "address": "埼玉県狭山市入間川2-7-23",
+    "phone": "04-2968-7011",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川二丁目",
+      "addr": "7-23",
+      "level": 8,
+      "point": {
+        "lat": 35.860837044,
+        "lng": 139.412673644,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.860837044,
+    "longitude": 139.412673644
+  },
+  {
+    "row": 136,
+    "name": "狭山市立御狩場小学童保育室",
+    "address": "埼玉県狭山市北入曽755-4",
+    "phone": "04-2958-1537",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "755-4",
+      "level": 8,
+      "point": {
+        "lat": 35.845651522,
+        "lng": 139.427957488,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.845651522,
+    "longitude": 139.427957488
+  },
+  {
+    "row": 137,
+    "name": "狭山市立入間野小第一・第二・第三学童保育室",
+    "address": "埼玉県狭山市北入曽980",
+    "phone": "04-2958-2754",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字北入曽",
+      "addr": "980",
+      "level": 8,
+      "point": {
+        "lat": 35.840282562,
+        "lng": 139.422203809,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.840282562,
+    "longitude": 139.422203809
+  },
+  {
+    "row": 139,
+    "name": "狭山市立奥富学童保育室",
+    "address": "埼玉県狭山市下奥富1100",
+    "phone": "04-2953-3540",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字下奥富",
+      "addr": "1100",
+      "level": 8,
+      "point": {
+        "lat": 35.878435919,
+        "lng": 139.422268156,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.878435919,
+    "longitude": 139.422268156
+  },
+  {
+    "row": 142,
+    "name": "狭山市役所",
+    "address": "埼玉県狭山市入間川1-23-5",
+    "phone": "04-2968-6572",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "入間川一丁目",
+      "addr": "23-5",
+      "level": 8,
+      "point": {
+        "lat": 35.853530978,
+        "lng": 139.411774461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.853530978,
+    "longitude": 139.411774461
+  },
+  {
+    "row": 143,
+    "name": "狭山消防署富士見分署",
+    "address": "埼玉県狭山市中央4-15-10",
+    "phone": "04-2957-5651",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "15-10",
+      "level": 8,
+      "point": {
+        "lat": 35.850452781,
+        "lng": 139.423049475,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.850452781,
+    "longitude": 139.423049475
+  },
+  {
+    "row": 144,
+    "name": "狭山消防署富士見分署",
+    "address": "埼玉県狭山市中央4-15-10",
+    "phone": "04-2957-5651",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "15-10",
+      "level": 8,
+      "point": {
+        "lat": 35.850452781,
+        "lng": 139.423049475,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.850452781,
+    "longitude": 139.423049475
+  },
+  {
+    "row": 145,
+    "name": "狭山消防署富士見分署",
+    "address": "埼玉県狭山市中央4-15-10",
+    "phone": "04-2957-5651",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "中央四丁目",
+      "addr": "15-10",
+      "level": 8,
+      "point": {
+        "lat": 35.850452781,
+        "lng": 139.423049475,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.850452781,
+    "longitude": 139.423049475
+  },
+  {
+    "row": 146,
+    "name": "狭山消防署水野分署",
+    "address": "埼玉県狭山市水野15-1",
+    "phone": "04-2958-5119",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "15-1",
+      "level": 8,
+      "point": {
+        "lat": 35.839919424,
+        "lng": 139.441200981,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.839919424,
+    "longitude": 139.441200981
+  },
+  {
+    "row": 147,
+    "name": "狭山消防署水野分署",
+    "address": "埼玉県狭山市水野15-1",
+    "phone": "04-2958-5119",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "大字水野",
+      "addr": "15-1",
+      "level": 8,
+      "point": {
+        "lat": 35.839919424,
+        "lng": 139.441200981,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.839919424,
+    "longitude": 139.441200981
+  },
+  {
+    "row": 148,
+    "name": "狭山消防署広瀬分署",
+    "address": "埼玉県狭山市広瀬2-3-30",
+    "phone": "04-2953-0554",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "広瀬二丁目",
+      "addr": "3-30",
+      "level": 8,
+      "point": {
+        "lat": 35.859922339,
+        "lng": 139.392908603,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.859922339,
+    "longitude": 139.392908603
+  },
+  {
+    "row": 149,
+    "name": "狭山消防署広瀬分署",
+    "address": "埼玉県狭山市広瀬2-3-30",
+    "phone": "04-2953-0554",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/17",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "狭山市",
+      "town": "広瀬二丁目",
+      "addr": "3-30",
+      "level": 8,
+      "point": {
+        "lat": 35.859922339,
+        "lng": 139.392908603,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.859922339,
+    "longitude": 139.392908603
+  }
+]

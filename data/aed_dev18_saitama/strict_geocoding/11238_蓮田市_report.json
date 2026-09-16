@@ -1,0 +1,9 @@
+{
+  "code": "11238",
+  "prefecture": "埼玉県",
+  "municipality": "蓮田市",
+  "source_rows": 45,
+  "accepted": 15,
+  "held": 30,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

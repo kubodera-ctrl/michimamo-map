@@ -1,0 +1,20 @@
+{
+  "production": {
+    "published_aeds": 48620,
+    "invalid_coordinates": 0,
+    "submissions": 0
+  },
+  "verification": {
+    "python_tests_passed": 68,
+    "nearby_race_tests_passed": 3,
+    "popup_regression": "pass",
+    "embedded_javascript_syntax": "pass",
+    "real_account_e2e": "not_run"
+  },
+  "publication": {
+    "status": "authorized_for_github_connector_publication",
+    "destination": "kubodera-ctrl/michimamo-map main",
+    "method": "atomic tree commit and non-force ref update",
+    "reason": "git_cli_missing_credentials"
+  }
+}

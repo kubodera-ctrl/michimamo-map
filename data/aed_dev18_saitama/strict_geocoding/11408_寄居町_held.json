@@ -1,0 +1,881 @@
+[
+  {
+    "row": 2,
+    "name": "寄居小学校",
+    "address": "埼玉県大里郡寄居町大字寄居206",
+    "phone": "048-581-0102",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "level": 3,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": "206"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "桜沢小学校",
+    "address": "埼玉県大里郡寄居町大字桜沢2740",
+    "phone": "048-581-0131",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字桜沢",
+      "level": 3,
+      "point": {
+        "lat": 36.127231,
+        "lng": 139.198365,
+        "level": 3
+      },
+      "other": "2740"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "用土小学校",
+    "address": "埼玉県大里郡寄居町大字用土2859",
+    "phone": "048-584-2004",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字用土",
+      "level": 3,
+      "point": {
+        "lat": 36.156287,
+        "lng": 139.214121,
+        "level": 3
+      },
+      "other": "2859"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "折原小学校",
+    "address": "埼玉県大里郡寄居町大字立原385",
+    "phone": "048-581-0328",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字立原",
+      "level": 3,
+      "point": {
+        "lat": 36.103218,
+        "lng": 139.189489,
+        "level": 3
+      },
+      "other": "385"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "鉢形小学校",
+    "address": "埼玉県大里郡寄居町大字鉢形645",
+    "phone": "048-581-3300",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字鉢形",
+      "level": 3,
+      "point": {
+        "lat": 36.107206,
+        "lng": 139.203596,
+        "level": 3
+      },
+      "other": "645"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "男衾小学校",
+    "address": "埼玉県大里郡寄居町大字富田53",
+    "phone": "048-582-0037",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字富田",
+      "level": 3,
+      "point": {
+        "lat": 36.099264,
+        "lng": 139.23349900000002,
+        "level": 3
+      },
+      "other": "53"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "寄居中学校",
+    "address": "埼玉県大里郡寄居町大字桜沢2000",
+    "phone": "048-581-0172",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字桜沢",
+      "addr": "2000",
+      "level": 8,
+      "point": {
+        "lat": 36.127231,
+        "lng": 139.198365,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "城南中学校",
+    "address": "埼玉県大里郡寄居町大字鉢形2222",
+    "phone": "048-581-0127",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字鉢形",
+      "addr": "2222",
+      "level": 8,
+      "point": {
+        "lat": 36.107206,
+        "lng": 139.203596,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "男衾中学校",
+    "address": "埼玉県大里郡寄居町大字富田65",
+    "phone": "048-582-0032",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字富田",
+      "level": 3,
+      "point": {
+        "lat": 36.099264,
+        "lng": 139.23349900000002,
+        "level": 3
+      },
+      "other": "65"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "総合社会福祉センターかわせみ荘",
+    "address": "埼玉県大里郡寄居町大字保田原321",
+    "phone": "048-581-3861",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字保田原",
+      "addr": "321",
+      "level": 8,
+      "point": {
+        "lat": 36.116781,
+        "lng": 139.213455,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "保健福祉総合センター(ユウネス)",
+    "address": "埼玉県大里郡寄居町大字保田原301",
+    "phone": "048-581-8523",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字保田原",
+      "addr": "301",
+      "level": 8,
+      "point": {
+        "lat": 36.116781,
+        "lng": 139.213455,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "セブンイレブン寄居今市店",
+    "address": "埼玉県大里郡寄居町大字今市638-1",
+    "phone": "048-582-3660",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字今市",
+      "addr": "638-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098727,
+        "lng": 139.264341,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "セブンイレブン埼玉寄居東店",
+    "address": "埼玉県大里郡寄居町大字保田原184-1",
+    "phone": "048-581-7110",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字保田原",
+      "addr": "184-1",
+      "level": 8,
+      "point": {
+        "lat": 36.116781,
+        "lng": 139.213455,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "セブンイレブン寄居駅南店",
+    "address": "埼玉県大里郡寄居町大字寄居585-3",
+    "phone": "048-586-0066",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "addr": "585-3",
+      "level": 8,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "セブンイレブン寄居ホンダ工場前店",
+    "address": "埼玉県大里郡寄居町大字富田2505-1",
+    "phone": "048-582-3110",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字富田",
+      "addr": "2505-1",
+      "level": 8,
+      "point": {
+        "lat": 36.099264,
+        "lng": 139.23349900000002,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "セブンイレブン寄居桜沢店",
+    "address": "埼玉県大里郡寄居町大字桜沢53-1",
+    "phone": "048-581-0555",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字桜沢",
+      "addr": "53-1",
+      "level": 8,
+      "point": {
+        "lat": 36.127231,
+        "lng": 139.198365,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "セブンイレブン寄居赤浜店",
+    "address": "埼玉県大里郡寄居町大字赤浜673-1",
+    "phone": "048-582-1817",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "赤浜",
+      "level": 3,
+      "point": {
+        "lat": 36.111978,
+        "lng": 139.2543,
+        "level": 3
+      },
+      "other": "673-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "ファミリーマート寄居富田店",
+    "address": "埼玉県大里郡寄居町大字富田3572-2",
+    "phone": "048-577-1380",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字富田",
+      "addr": "3572-2",
+      "level": 8,
+      "point": {
+        "lat": 36.099264,
+        "lng": 139.23349900000002,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "ファミリーマート寄居花園橋南店",
+    "address": "埼玉県大里郡寄居町大字富田98-1",
+    "phone": "048-577-2737",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字富田",
+      "addr": "98-1",
+      "level": 8,
+      "point": {
+        "lat": 36.099264,
+        "lng": 139.23349900000002,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 21,
+    "name": "ファミリーマートながおかや寄居店",
+    "address": "埼玉県大里郡寄居町大字寄居1613-1",
+    "phone": "048-580-0339",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "addr": "1613-1",
+      "level": 8,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "ファミリーマート寄居店",
+    "address": "埼玉県大里郡寄居町大字寄居392",
+    "phone": "048-580-0165",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "addr": "392",
+      "level": 8,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "ローソン寄居町鉢形店",
+    "address": "埼玉県大里郡寄居町大字鉢形100-1",
+    "phone": "048-586-0321",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字鉢形",
+      "addr": "100-1",
+      "level": 8,
+      "point": {
+        "lat": 36.107206,
+        "lng": 139.203596,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 24,
+    "name": "ローソン寄居仙元前店",
+    "address": "埼玉県大里郡寄居町大字用土810-2",
+    "phone": "048-584-6608",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字用土",
+      "addr": "810-2",
+      "level": 8,
+      "point": {
+        "lat": 36.14253291,
+        "lng": 139.198869652,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "ローソン寄居用土店",
+    "address": "埼玉県大里郡寄居町大字用土1871-2",
+    "phone": "048-584-5010",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字用土",
+      "addr": "1871-2",
+      "level": 8,
+      "point": {
+        "lat": 36.156287,
+        "lng": 139.214121,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "障害者交流センター",
+    "address": "埼玉県大里郡寄居町大字寄居653-1",
+    "phone": "048-598-6961",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "addr": "653-1",
+      "level": 8,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "セブンイレブン寄居バイパス店",
+    "address": "埼玉県大里郡寄居町大字桜沢741",
+    "phone": "048-580-0711",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字桜沢",
+      "addr": "741",
+      "level": 8,
+      "point": {
+        "lat": 36.127231,
+        "lng": 139.198365,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "ファミリーマート寄居桜沢店",
+    "address": "埼玉県大里郡寄居町大字桜沢773-1",
+    "phone": "048-581-5600",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字桜沢",
+      "addr": "773-1",
+      "level": 8,
+      "point": {
+        "lat": 36.127231,
+        "lng": 139.198365,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "寄居町役場庁舎",
+    "address": "埼玉県大里郡大字寄居1180-1",
+    "phone": "048-581-2121",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字寄居1180-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "寄居町鉢形財産区会館",
+    "address": "埼玉県大里郡大字鉢形211-3",
+    "phone": "048-581-2123",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字鉢形211-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "寄居保育所",
+    "address": "埼玉県大里郡大字寄居1333-5",
+    "phone": "048-581-1295",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字寄居1333-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "用土保育所",
+    "address": "埼玉県大里郡大字用土3069",
+    "phone": "048-584-3209",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字用土3069"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "男衾保育所",
+    "address": "埼玉県大里郡大字富田152-14",
+    "phone": "048-582-1811",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字富田152-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "男衾子育て支援センター",
+    "address": "埼玉県大里郡寄居町大字152-14",
+    "phone": "048-579-5930",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "level": 2,
+      "point": {
+        "lat": 36.118348,
+        "lng": 139.193014,
+        "level": 2
+      },
+      "other": "大字152-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "寄居町総合体育館・アタゴ記念館",
+    "address": "埼玉県大里郡大字寄居1173",
+    "phone": "048-581-8311",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字寄居1173"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "中央公民館",
+    "address": "埼玉県大里郡大字寄居1300",
+    "phone": "048-581-2662",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字寄居1300"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "男衾コミュニティセンター",
+    "address": "埼玉県大里郡大字赤浜1267-1",
+    "phone": "048-582-0882",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字赤浜1267-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "カタクリ体育センター",
+    "address": "埼玉県大里郡大字折原1856",
+    "phone": "048-581-1530",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字折原1856"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "鉢形城歴史館・寄居町埋蔵文化財センター",
+    "address": "埼玉県大里郡大字鉢形2496-2",
+    "phone": "048-586-0315",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "大里郡大字鉢形2496-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "寄居町勤労福祉センター",
+    "address": "埼玉県大里郡寄居町大字寄居941-1",
+    "phone": "048-581-5188",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "大字寄居",
+      "addr": "941-1",
+      "level": 8,
+      "point": {
+        "lat": 36.117617,
+        "lng": 139.192595,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 41,
+    "name": "寄居町日本の里",
+    "address": "埼玉県大里郡寄居町大字風布74",
+    "phone": "048-581-5341",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/892",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-03-25",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "大里郡寄居町",
+      "town": "風布",
+      "level": 3,
+      "point": {
+        "lat": 36.106669,
+        "lng": 139.1502,
+        "level": 3
+      },
+      "other": "74"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "code": "11216",
+  "prefecture": "埼玉県",
+  "municipality": "羽生市",
+  "source_rows": 50,
+  "accepted": 8,
+  "held": 42,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

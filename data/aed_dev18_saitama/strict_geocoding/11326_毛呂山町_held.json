@@ -1,0 +1,765 @@
+[
+  {
+    "row": 2,
+    "name": "毛呂山町役場",
+    "address": "埼玉県毛呂山町中央2-1",
+    "phone": "049-295-2112",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "中央二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.941805,
+        "lng": 139.31716600000001,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "ウィズもろやま(福祉会館)",
+    "address": "埼玉県毛呂山町岩井西5-16-1",
+    "phone": "049-295-3111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.943068,
+        "lng": 139.310322,
+        "level": 3
+      },
+      "other": "16-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "山根荘",
+    "address": "埼玉県毛呂山町阿諏訪1527番地",
+    "phone": "049-294-5545",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字阿諏訪",
+      "level": 3,
+      "point": {
+        "lat": 35.929514,
+        "lng": 139.284364,
+        "level": 3
+      },
+      "other": "1527"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "毛呂山町保健センター",
+    "address": "埼玉県毛呂山町川角305",
+    "phone": "049-294-5511",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "level": 3,
+      "point": {
+        "lat": 35.951055,
+        "lng": 139.336505,
+        "level": 3
+      },
+      "other": "305"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "毛呂山町中央公民館",
+    "address": "埼玉県毛呂山町岩井西1-15-1",
+    "phone": "049-294-1250",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.945896,
+        "lng": 139.310248,
+        "level": 3
+      },
+      "other": "15-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "毛呂山町東公民館",
+    "address": "埼玉県毛呂山町川角298番地1",
+    "phone": "049-295-2277",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "addr": "298-1",
+      "level": 8,
+      "point": {
+        "lat": 35.942630585,
+        "lng": 139.335631676,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "毛呂山総合公園",
+    "address": "埼玉県毛呂山町大谷木443番地",
+    "phone": "049-294-7101",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字大谷木",
+      "addr": "443",
+      "level": 8,
+      "point": {
+        "lat": 35.92110184,
+        "lng": 139.308203323,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "毛呂山町立図書館",
+    "address": "埼玉県毛呂山町岩井西4-18-1",
+    "phone": "049-295-1015",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.940255,
+        "lng": 139.31202,
+        "level": 3
+      },
+      "other": "18-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "毛呂山町立毛呂山小学校",
+    "address": "埼玉県毛呂山町岩井西4-2-1",
+    "phone": "049-294-0009",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.940255,
+        "lng": 139.31202,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "毛呂山町立川角小学校",
+    "address": "埼玉県毛呂山町川角1271番地",
+    "phone": "049-294-1142",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "level": 3,
+      "point": {
+        "lat": 35.951055,
+        "lng": 139.336505,
+        "level": 3
+      },
+      "other": "1271"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "毛呂山町立光山小学校",
+    "address": "埼玉県毛呂山町市場475番地",
+    "phone": "049-294-3032",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字市場",
+      "addr": "475",
+      "level": 8,
+      "point": {
+        "lat": 35.940427057,
+        "lng": 139.336414353,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "毛呂山町立泉野小学校",
+    "address": "埼玉県毛呂山町岩井353番地",
+    "phone": "049-295-3591",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字岩井",
+      "addr": "353",
+      "level": 8,
+      "point": {
+        "lat": 35.952392549,
+        "lng": 139.315065794,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "毛呂山町立毛呂山中学校",
+    "address": "埼玉県毛呂山町岩井西4-12-1",
+    "phone": "049-294-0019",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.940255,
+        "lng": 139.31202,
+        "level": 3
+      },
+      "other": "12-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "毛呂山町立川角中学校",
+    "address": "埼玉県毛呂山町川角264番地",
+    "phone": "049-294-0142",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "level": 3,
+      "point": {
+        "lat": 35.951055,
+        "lng": 139.336505,
+        "level": 3
+      },
+      "other": "264"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "旭台保育園",
+    "address": "埼玉県毛呂山町旭台69-2",
+    "phone": "049-294-0857",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字旭台",
+      "addr": "69-2",
+      "level": 8,
+      "point": {
+        "lat": 35.938293811,
+        "lng": 139.331480214,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "ゆずの里保育園",
+    "address": "埼玉県毛呂山町平山1-47-2",
+    "phone": "049-294-6066",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "平山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.948776,
+        "lng": 139.309287,
+        "level": 3
+      },
+      "other": "47-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "歴史民俗資料館",
+    "address": "埼玉県毛呂山町大類535",
+    "phone": "049-295-8282",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字大類",
+      "level": 3,
+      "point": {
+        "lat": 35.956461,
+        "lng": 139.349191,
+        "level": 3
+      },
+      "other": "535"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "大類グラウンド",
+    "address": "埼玉県毛呂山町大類717",
+    "phone": "049-295-5300",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字大類",
+      "addr": "717",
+      "level": 8,
+      "point": {
+        "lat": 35.959498712,
+        "lng": 139.344073368,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "教育センター",
+    "address": "埼玉県毛呂山町毛呂本郷7-4",
+    "phone": "049-295-0622",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字毛呂本郷",
+      "addr": "7-4",
+      "level": 8,
+      "point": {
+        "lat": 35.94095842,
+        "lng": 139.30799767,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 21,
+    "name": "障害者地域デイケア施設あいあい滝ノ入作業所",
+    "address": "埼玉県毛呂山町滝ノ入159",
+    "phone": "049-295-1256",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字滝ノ入",
+      "addr": "159",
+      "level": 8,
+      "point": {
+        "lat": 35.942970175,
+        "lng": 139.29887237,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "障害者地域デイケア施設あいあい作業所",
+    "address": "埼玉県毛呂山町川角449-1",
+    "phone": "049-295-3045",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "addr": "449-1",
+      "level": 8,
+      "point": {
+        "lat": 35.9445756,
+        "lng": 139.33862314,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "防犯活動センター",
+    "address": "埼玉県毛呂山町中央2-28-1",
+    "phone": "049-295-8181",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "中央二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.941805,
+        "lng": 139.31716600000001,
+        "level": 3
+      },
+      "other": "28-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 24,
+    "name": "岩井第一・第二学童保育所",
+    "address": "埼玉県毛呂山町岩井西4-5-6",
+    "phone": "049-295-1082",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.940255,
+        "lng": 139.31202,
+        "level": 3
+      },
+      "other": "5-6"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "光山学童保育所",
+    "address": "埼玉県毛呂山町川角309",
+    "phone": "049-295-5084",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "level": 3,
+      "point": {
+        "lat": 35.951055,
+        "lng": 139.336505,
+        "level": 3
+      },
+      "other": "309"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "児童館",
+    "address": "埼玉県毛呂山町川角449-4",
+    "phone": "049-295-4111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "addr": "449-4",
+      "level": 8,
+      "point": {
+        "lat": 35.944650792,
+        "lng": 139.338129315,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "あけぼの幼児園",
+    "address": "埼玉県毛呂山町長瀬398-5",
+    "phone": "049-295-2340",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字長瀬",
+      "addr": "398-5",
+      "level": 8,
+      "point": {
+        "lat": 35.937381023,
+        "lng": 139.31762868700002,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "毛呂山みどり幼児園",
+    "address": "埼玉県毛呂山町葛貫799-12",
+    "phone": "049-294-0979",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字葛貫",
+      "addr": "799-12",
+      "level": 8,
+      "point": {
+        "lat": 35.92495125,
+        "lng": 139.312139039,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "ときわぎ幼稚園",
+    "address": "埼玉県毛呂山町平山2-11-1",
+    "phone": "049-294-4992",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "平山二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.948491,
+        "lng": 139.312743,
+        "level": 3
+      },
+      "other": "11-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "ながせ幼稚園",
+    "address": "埼玉県毛呂山町前久保497",
+    "phone": "049-294-2243",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字前久保",
+      "addr": "497",
+      "level": 8,
+      "point": {
+        "lat": 35.949505879,
+        "lng": 139.325166408,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "愛仕幼稚園",
+    "address": "埼玉県毛呂山町岩井西4-13-2",
+    "phone": "049-294-0977",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "岩井西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.940255,
+        "lng": 139.31202,
+        "level": 3
+      },
+      "other": "13-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "泉野学童保育所",
+    "address": "埼玉県毛呂山町岩井729-2",
+    "phone": "049-295-5632",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字岩井",
+      "addr": "729-2",
+      "level": 8,
+      "point": {
+        "lat": 35.951597261,
+        "lng": 139.31481913,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "役場(貸出用)",
+    "address": "埼玉県毛呂山町中央2-1",
+    "phone": "049-295-2112",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "中央二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.941805,
+        "lng": 139.31716600000001,
+        "level": 3
+      },
+      "other": "1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "川角第一・第二学童保育所",
+    "address": "埼玉県毛呂山町川角1271-1",
+    "phone": "049-295-2333",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "大字川角",
+      "addr": "1271-1",
+      "level": 8,
+      "point": {
+        "lat": 35.948841144,
+        "lng": 139.335384309,
+        "level": 8
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "学校給食センター",
+    "address": "埼玉県毛呂山町目白台4-3-4",
+    "phone": "049-294-2242",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/143",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2023-07-12",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "入間郡毛呂山町",
+      "town": "目白台四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.959307,
+        "lng": 139.328402,
+        "level": 3
+      },
+      "other": "3-4"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

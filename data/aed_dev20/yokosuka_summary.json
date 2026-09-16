@@ -1,0 +1,39 @@
+{
+  "processed": 519,
+  "publishable": 519,
+  "held": 0,
+  "municipality": "横須賀市",
+  "quality_rank": "A",
+  "internal_same_name_address_groups": 1,
+  "internal_same_name_address_note": "Soleil Hill has five separately located official markers and distinct installation notes/coordinates",
+  "policy": "official CC BY coordinates; required fields; Yokosuka bounds; installation-aware internal and production duplicate review",
+  "sources": [
+    {
+      "dataset": 54,
+      "rows": 326,
+      "catalog_url": "https://data.bodik.jp/dataset/142018_wagamap_lid_54",
+      "resource_url": "https://www2.wagmap.jp/yokosuka/yokosuka/opendatafile/map_3/CSV/opendata_54.csv",
+      "license": "CC BY 4.0",
+      "metadata_modified": "2025-04-01T00:15:46.341988+00:00",
+      "sha256": "3de916737916a0f44eb30c03611c35c5ce5eaa3bd00adaa6a0eb7e3be409bc0c"
+    },
+    {
+      "dataset": 55,
+      "rows": 75,
+      "catalog_url": "https://data.bodik.jp/dataset/142018_wagamap_lid_55",
+      "resource_url": "https://www2.wagmap.jp/yokosuka/yokosuka/opendatafile/map_3/CSV/opendata_55.csv",
+      "license": "CC BY 4.0",
+      "metadata_modified": "2025-04-01T00:15:46.687185+00:00",
+      "sha256": "5618236329fb25f3060c9aa7d9a7e3c270746cff657ff274f65832e5d1072f4a"
+    },
+    {
+      "dataset": 56,
+      "rows": 118,
+      "catalog_url": "https://data.bodik.jp/dataset/142018_wagamap_lid_56",
+      "resource_url": "https://www2.wagmap.jp/yokosuka/yokosuka/opendatafile/map_3/CSV/opendata_56.csv",
+      "license": "CC BY 4.0",
+      "metadata_modified": "2025-04-01T00:15:47.069196+00:00",
+      "sha256": "7f0e31140a9dbfb1720a0935a3f66c10173b546601f4031c63e89962452e5f0a"
+    }
+  ]
+}

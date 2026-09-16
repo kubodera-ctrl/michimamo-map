@@ -1,0 +1,36 @@
+{
+  "processed": 192,
+  "publishable": 188,
+  "held": 4,
+  "hold_reasons": {
+    "lending_only": 4
+  },
+  "municipalities": {
+    "日野市": 103,
+    "三鷹市": 85
+  },
+  "quality_rank": "A",
+  "policy": "official CC BY coordinates, municipality/address/bounds, required fields, internal identity, and production duplicate guard",
+  "sources": {
+    "hino": {
+      "filename": "hino.csv",
+      "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132128d3000000008",
+      "resource_url": "https://www.city.hino.lg.jp/_res/projects/default_project/_page_/001/026/905/132128_aed.csv",
+      "source_name": "日野市 AED設置個所一覧",
+      "source_updated_at": "2025-12-12T09:46:55.630294+00:00",
+      "sha256": "ea53201eed04498de664903bf8d6f331cd7d49e2b85c72daae626d7bbd905594",
+      "rows": 103,
+      "held": 4
+    },
+    "mitaka": {
+      "filename": "mitaka.csv",
+      "source_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132047d0000000003",
+      "resource_url": "https://www.city.mitaka.lg.jp/c_service/074/attached/attach_74205_5.csv",
+      "source_name": "三鷹市 市関係施設に設置しているAED",
+      "source_updated_at": "2025-12-12T09:01:53.058877+00:00",
+      "sha256": "b73da8b2808f26068ae64a6e88615e6ee92dec88b6f9f6e6c7fb37e6f6da784c",
+      "rows": 85,
+      "held": 0
+    }
+  }
+}

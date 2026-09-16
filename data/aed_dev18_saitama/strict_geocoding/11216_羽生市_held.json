@@ -1,0 +1,937 @@
+[
+  {
+    "row": 2,
+    "name": "羽生市役所",
+    "address": "埼玉県羽生市東6丁目15番地",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東六丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.172941,
+        "lng": 139.548841,
+        "level": 3
+      },
+      "other": "15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "羽生市役所",
+    "address": "埼玉県羽生市東6丁目15番地",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東六丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.172941,
+        "lng": 139.548841,
+        "level": 3
+      },
+      "other": "15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "羽生市役所",
+    "address": "埼玉県羽生市東6丁目15番地",
+    "phone": "048-561-1121",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東六丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.172941,
+        "lng": 139.548841,
+        "level": 3
+      },
+      "other": "15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 5,
+    "name": "羽生市体育館",
+    "address": "埼玉県羽生市東9丁目1-1",
+    "phone": "048-563-0150",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東九丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.175924,
+        "lng": 139.553516,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "羽生中央公園",
+    "address": "埼玉県羽生市東9丁目1-1",
+    "phone": "048-563-0150",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東九丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.175924,
+        "lng": 139.553516,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "羽生中央公園",
+    "address": "埼玉県羽生市東9丁目1-1",
+    "phone": "048-563-0150",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東九丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.175924,
+        "lng": 139.553516,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "羽生市消防署 本署",
+    "address": "埼玉県羽生市藤井下組990-1",
+    "phone": "048-565-1919",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字藤井下組",
+      "addr": "990-1",
+      "level": 8,
+      "point": {
+        "lat": 36.176236,
+        "lng": 139.561516,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "羽生市消防署 西分署",
+    "address": "埼玉県羽生市上岩瀬718-1",
+    "phone": "048-561-8124",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上岩瀬",
+      "addr": "718-1",
+      "level": 8,
+      "point": {
+        "lat": 36.16805,
+        "lng": 139.518959,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "羽生市保健センター",
+    "address": "埼玉県羽生市東7丁目5-2",
+    "phone": "048-562-1771",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東七丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.170341,
+        "lng": 139.548542,
+        "level": 3
+      },
+      "other": "5-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 11,
+    "name": "羽生市清掃センター",
+    "address": "埼玉県羽生市三田ヶ谷1863",
+    "phone": "048-565-3979",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字三田ケ谷",
+      "addr": "1863",
+      "level": 8,
+      "point": {
+        "lat": 36.17293,
+        "lng": 139.604305,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "羽生市水質浄化センター",
+    "address": "埼玉県羽生市大沼2丁目63番地",
+    "phone": "048-565-1551",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大沼二丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.166985,
+        "lng": 139.566349,
+        "level": 3
+      },
+      "other": "63"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "羽生市水道課",
+    "address": "埼玉県羽生市下羽生134",
+    "phone": "048-561-0969",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下羽生",
+      "level": 3,
+      "point": {
+        "lat": 36.165697,
+        "lng": 139.552339,
+        "level": 3
+      },
+      "other": "134"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "羽生市産業文化ホール",
+    "address": "埼玉県羽生市下羽生876",
+    "phone": "048-561-4911",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下羽生",
+      "addr": "876",
+      "level": 8,
+      "point": {
+        "lat": 36.165697,
+        "lng": 139.552339,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "羽生勤労者総合福祉センター",
+    "address": "埼玉県羽生市下羽生1014-1",
+    "phone": "048-563-5111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下羽生",
+      "addr": "1014-1",
+      "level": 8,
+      "point": {
+        "lat": 36.165697,
+        "lng": 139.552339,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "羽生市図書館",
+    "address": "埼玉県羽生市下羽生948",
+    "phone": "048-561-8223",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下羽生",
+      "level": 3,
+      "point": {
+        "lat": 36.165697,
+        "lng": 139.552339,
+        "level": 3
+      },
+      "other": "948"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "三田ヶ谷農林公園キヤッセ羽生",
+    "address": "埼玉県羽生市三田ヶ谷1725",
+    "phone": "048-565-5255",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字三田ケ谷",
+      "addr": "1725",
+      "level": 8,
+      "point": {
+        "lat": 36.17293,
+        "lng": 139.604305,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 21,
+    "name": "羽生市新郷公民館",
+    "address": "埼玉県羽生市上新郷5630-4",
+    "phone": "048-561-1013",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上新郷",
+      "addr": "5630-4",
+      "level": 8,
+      "point": {
+        "lat": 36.174715,
+        "lng": 139.499033,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "羽生市須影公民館",
+    "address": "埼玉県羽生市須影714",
+    "phone": "048-563-1204",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字須影",
+      "level": 3,
+      "point": {
+        "lat": 36.148519,
+        "lng": 139.546504,
+        "level": 3
+      },
+      "other": "714"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 23,
+    "name": "羽生市岩瀬公民館",
+    "address": "埼玉県羽生市上岩瀬2367",
+    "phone": "048-561-5070",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上岩瀬",
+      "level": 3,
+      "point": {
+        "lat": 36.16805,
+        "lng": 139.518959,
+        "level": 3
+      },
+      "other": "2367"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 24,
+    "name": "羽生市川俣公民館",
+    "address": "埼玉県羽生市本川俣630",
+    "phone": "048-562-0321",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字本川俣",
+      "level": 3,
+      "point": {
+        "lat": 36.1873,
+        "lng": 139.534358,
+        "level": 3
+      },
+      "other": "630"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "羽生市井泉公民館",
+    "address": "埼玉県羽生市藤井上組275",
+    "phone": "048-565-1009",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字藤井上組",
+      "level": 3,
+      "point": {
+        "lat": 36.182485,
+        "lng": 139.555383,
+        "level": 3
+      },
+      "other": "275"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "羽生市手子林公民館",
+    "address": "埼玉県羽生市下手子林805",
+    "phone": "048-565-2668",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下手子林",
+      "level": 3,
+      "point": {
+        "lat": 36.154716,
+        "lng": 139.57588600000003,
+        "level": 3
+      },
+      "other": "805"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "羽生市三田ヶ谷公民館",
+    "address": "埼玉県羽生市弥勒634",
+    "phone": "048-565-0040",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字弥勒",
+      "level": 3,
+      "point": {
+        "lat": 36.180505,
+        "lng": 139.58556,
+        "level": 3
+      },
+      "other": "634"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "羽生市村君公民館",
+    "address": "埼玉県羽生市下村君2227",
+    "phone": "048-565-3538",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下村君",
+      "level": 3,
+      "point": {
+        "lat": 36.199106,
+        "lng": 139.58204,
+        "level": 3
+      },
+      "other": "2227"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "羽生市立西中学校",
+    "address": "埼玉県羽生市羽生120",
+    "phone": "048-561-0161",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字羽生",
+      "level": 3,
+      "point": {
+        "lat": 36.177719,
+        "lng": 139.526584,
+        "level": 3
+      },
+      "other": "120"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "羽生市立南中学校",
+    "address": "埼玉県羽生市中岩瀬226",
+    "phone": "048-563-0253",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字中岩瀬",
+      "level": 3,
+      "point": {
+        "lat": 36.16308800000001,
+        "lng": 139.534478,
+        "level": 3
+      },
+      "other": "226"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "羽生市立東中学校",
+    "address": "埼玉県羽生市今泉1448",
+    "phone": "048-565-3741",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 36.179507,
+        "lng": 139.571519,
+        "level": 3
+      },
+      "other": "1448"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "羽生市立羽生南小学校",
+    "address": "埼玉県羽生市南6丁目5-1",
+    "phone": "048-562-1901",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "南六丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.166095,
+        "lng": 139.54461600000002,
+        "level": 3
+      },
+      "other": "5-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "羽生市立新郷第一小学校",
+    "address": "埼玉県羽生市上新郷5641",
+    "phone": "048-561-0409",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上新郷",
+      "level": 3,
+      "point": {
+        "lat": 36.174715,
+        "lng": 139.499033,
+        "level": 3
+      },
+      "other": "5641"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "羽生市立新郷第二小学校",
+    "address": "埼玉県羽生市下新郷1099",
+    "phone": "048-561-0778",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下新郷",
+      "addr": "1099",
+      "level": 8,
+      "point": {
+        "lat": 36.146672,
+        "lng": 139.520321,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "羽生市立岩瀬小学校",
+    "address": "埼玉県羽生市上岩瀬1756",
+    "phone": "048-561-0803",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上岩瀬",
+      "level": 3,
+      "point": {
+        "lat": 36.16805,
+        "lng": 139.518959,
+        "level": 3
+      },
+      "other": "1756"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "羽生市立川俣小学校",
+    "address": "埼玉県羽生市本川俣629",
+    "phone": "048-561-1006",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字本川俣",
+      "level": 3,
+      "point": {
+        "lat": 36.1873,
+        "lng": 139.534358,
+        "level": 3
+      },
+      "other": "629"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "羽生市立羽生東小学校",
+    "address": "埼玉県羽生市藤井上組270",
+    "phone": "048-565-2320",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字藤井上組",
+      "addr": "270",
+      "level": 8,
+      "point": {
+        "lat": 36.182485,
+        "lng": 139.555383,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "羽生市立須影小学校",
+    "address": "埼玉県羽生市須影672",
+    "phone": "048-561-0666",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字須影",
+      "level": 3,
+      "point": {
+        "lat": 36.148519,
+        "lng": 139.546504,
+        "level": 3
+      },
+      "other": "672"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "羽生市立手子林小学校",
+    "address": "埼玉県羽生市下手子林555",
+    "phone": "048-565-1069",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下手子林",
+      "addr": "555",
+      "level": 8,
+      "point": {
+        "lat": 36.154716,
+        "lng": 139.57588600000003,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "羽生南学童保育",
+    "address": "埼玉県羽生市南6丁目2-15",
+    "phone": "048-561-3599",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "南六丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.166095,
+        "lng": 139.54461600000002,
+        "level": 3
+      },
+      "other": "2-15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "羽生岩瀬学童保育",
+    "address": "埼玉県羽生市上岩瀬1756",
+    "phone": "048-563-4365",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上岩瀬",
+      "level": 3,
+      "point": {
+        "lat": 36.16805,
+        "lng": 139.518959,
+        "level": 3
+      },
+      "other": "1756"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "羽生新郷第一学童保育",
+    "address": "埼玉県羽生市上新郷5716",
+    "phone": "048-561-1481",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上新郷",
+      "level": 3,
+      "point": {
+        "lat": 36.174715,
+        "lng": 139.499033,
+        "level": 3
+      },
+      "other": "5716"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "羽生新郷第二学童保育",
+    "address": "埼玉県羽生市下新郷1009",
+    "phone": "048-561-1481",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字下新郷",
+      "level": 3,
+      "point": {
+        "lat": 36.146672,
+        "lng": 139.520321,
+        "level": 3
+      },
+      "other": "1009"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "羽生川俣学童保育",
+    "address": "埼玉県羽生市本川俣629",
+    "phone": "048-561-1070",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字本川俣",
+      "level": 3,
+      "point": {
+        "lat": 36.1873,
+        "lng": 139.534358,
+        "level": 3
+      },
+      "other": "629"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "羽生市いわせ保育所",
+    "address": "埼玉県羽生市上岩瀬1797-1",
+    "phone": "048-561-9288",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上岩瀬",
+      "addr": "1797-1",
+      "level": 8,
+      "point": {
+        "lat": 36.16805,
+        "lng": 139.518959,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 51,
+    "name": "道の駅はにゅう",
+    "address": "埼玉県羽生市上新郷7066",
+    "phone": "048-560-1010",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "大字上新郷",
+      "level": 3,
+      "point": {
+        "lat": 36.174715,
+        "lng": 139.499033,
+        "level": 3
+      },
+      "other": "7066"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

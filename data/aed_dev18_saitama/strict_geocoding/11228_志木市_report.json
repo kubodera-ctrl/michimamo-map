@@ -1,0 +1,9 @@
+{
+  "code": "11228",
+  "prefecture": "埼玉県",
+  "municipality": "志木市",
+  "source_rows": 55,
+  "accepted": 23,
+  "held": 32,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

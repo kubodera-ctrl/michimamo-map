@@ -1,0 +1,9 @@
+{
+  "code": "11223",
+  "prefecture": "埼玉県",
+  "municipality": "蕨市",
+  "source_rows": 61,
+  "accepted": 55,
+  "held": 6,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

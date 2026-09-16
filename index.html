@@ -687,6 +687,7 @@
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminAlertCount">0</strong><div class="muted" style="font-size:.65rem;">要確認</div></div>
                             </div>
                             <h3 style="font-size:.92rem; color:#991b1b; margin:16px 0 6px;">退会・削除申請</h3><div id="adminDeletionArea"></div>
+                            <h3 style="font-size:.92rem; color:#9a3412; margin:16px 0 6px;">AED写真投稿の審査</h3><div id="adminAedSubmissionArea"></div>
                             <h3 style="font-size:.92rem; color:#9f1239; margin:16px 0 6px;">通報された投稿</h3><div id="adminReportedArea"></div>
                             <h3 style="font-size:.92rem; color:#92400e; margin:16px 0 6px;">ポイント要確認</h3>
                             <div style="background:white;border:1px solid #fde68a;padding:9px;border-radius:8px;margin-bottom:8px;">
@@ -938,9 +939,22 @@
                 <option value="reckless">🟡 暴走・騒音車両</option>
                 <option value="abandoned">🟣 不法放置 (写真必須)</option>
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="aed">❤️ AEDを現地から投稿 (承認で30pt)</option>
             </select>
-            <label>タイトル</label><input type="text" id="postTitle" required maxlength="30">
-            <label>状況コメント</label><textarea id="postComment" rows="3" maxlength="100"></textarea>
+            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
+            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
+
+            <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
+                <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">現地でGPSと写真を確認し、運営が新規AEDとして承認した場合だけ30ptを付与します。掲載済み・重複は0ptで存在確認記録になります。</div>
+                <label>都道府県</label><input type="text" id="aedPrefecture" maxlength="8" placeholder="例：東京都">
+                <label>施設住所</label><input type="text" id="aedAddress" maxlength="300" placeholder="番地まで入力してください">
+                <div id="aedGpsStatus" style="font-size:.75rem; color:#64748b; margin-top:10px;">GPSを取得していません。</div>
+                <button type="button" onclick="captureAedGps()" style="width:100%; margin-top:7px; padding:10px; border:1px solid #fb923c; color:#9a3412; background:white; border-radius:8px; font-weight:800;">現在地GPSを取得</button>
+                <div style="font-size:.76rem; font-weight:800; margin-top:12px;">周辺の掲載済みAED</div>
+                <div id="aedNearbyCandidates" style="font-size:.72rem; color:#64748b; margin-top:5px; line-height:1.5;">GPS取得後に表示します。</div>
+                <label style="display:flex; gap:8px; align-items:flex-start; margin-top:12px; line-height:1.45;"><input type="checkbox" id="aedPhotoLicense" style="width:18px; height:18px; flex:none;">投稿者本人が撮影し、まちまもMAPでの掲載・加工利用を許諾します（第三者による無断転載は禁止）。</label>
+                <label style="display:flex; gap:8px; align-items:flex-start; margin-top:9px; line-height:1.45;"><input type="checkbox" id="aedPrivacyConfirmed" style="width:18px; height:18px; flex:none;">顔・車両番号・個人情報が写っていないことを確認しました。画像のEXIFは送信前に削除されます。</label>
+            </div>
 
             <label id="reportCheckArea" style="display:flex; align-items:center; gap:8px; margin-top:14px; padding:12px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; cursor:pointer; color:#1e3a8a;">
                 <input type="checkbox" id="postIsReported" style="width:20px; height:20px;">
@@ -954,7 +968,7 @@
                 <img id="imagePreview" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
             </div>
 
-            <button type="submit" class="primary" style="margin-top:20px;">情報を投稿 (+10pt)</button>
+            <button type="submit" id="postSubmitButton" class="primary" style="margin-top:20px;">情報を投稿 (+10pt)</button>
         </form>
     </div>
 </div>
@@ -990,7 +1004,7 @@
         </div>
         <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>ナンバー・顔等の保護：</strong> 個人情報保護のため、画像処理機能（モザイク処理等）の導入・検証を進めています。</li>
-            <li style="margin-bottom:8px;"><strong>EXIF等のメタデータ：</strong> 画像からのメタデータ自動削除機能の実装を進めています。意図しない情報が含まれないようご自身での確認をお願いします。</li>
+            <li style="margin-bottom:8px;"><strong>EXIF等のメタデータ：</strong> AED投稿写真は端末内で再生成し、EXIFを削除してから非公開領域へ送信します。GPSは現地確認用に別途取得します。</li>
             <li style="margin-bottom:8px;"><strong>不適切コンテンツへの対応：</strong> 誹謗中傷や個人情報は、運営の判断または通報機能により非表示化される場合があります。</li>
         </ul>
         <div style="text-align:center; margin-bottom:20px;">
@@ -1581,12 +1595,13 @@ function shareSpot(title, address, category, event) {
 
     async function loadAdminDashboard() {
         const password = getAdminPassword(); if (!password) return;
-        const [{ data, error }, { data: statsData, error: statsError }] = await Promise.all([
+        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }] = await Promise.all([
             db.rpc('admin_get_dashboard', { p_password: password }),
-            db.rpc('admin_get_statistics', { p_password: password })
+            db.rpc('admin_get_statistics', { p_password: password }),
+            db.rpc('admin_get_aed_submissions', { p_password: password })
         ]);
-        if (error || statsError || !data || !statsData) {
-            const message = error?.message || statsError?.message || '';
+        if (error || statsError || aedError || !data || !statsData) {
+            const message = error?.message || statsError?.message || aedError?.message || '';
             showToast(message.includes('invalid_password') ? 'パスワードが違います' : message.includes('admin_required') || message.includes('authentication_required') ? '管理者権限を確認できません' : '管理データの取得に失敗しました'); return;
         }
         const deletions = Array.isArray(data.deletions) ? data.deletions : [];
@@ -1611,17 +1626,60 @@ function shareSpot(title, address, category, event) {
         renderAdminBreakdown('adminCategoryStats', Array.isArray(statsData.categories) ? statsData.categories : [], x => categoryLabels[x.category] || x.category || '未分類');
 
         document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
+        await renderAdminAedSubmissions(Array.isArray(aedSubmissions) ? aedSubmissions : []);
 
         document.getElementById('adminReportedArea').innerHTML = reports.length ? reports.map(x => `<div style="background:white;border:1px solid #fecdd3;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.title || '名称なし')}</strong>　🚩${Number(x.report_count || 0)}</div><div class="muted" style="margin:4px 0;">${escapeHtml(x.address || '場所不明')}・投稿者 ${escapeHtml(x.name || '名称未設定')}</div>${adminButton(x.is_hidden ? '投稿を復元' : '一時非表示', `moderateAdminSpot(${Number(x.id)},${x.is_hidden ? 'false' : 'true'})`, x.is_hidden ? '#166534' : '#b91c1c')}</div>`).join('') : '<div class="muted" style="font-size:.75rem;">通報された投稿はありません。</div>';
 
         const ruleLabels = {balance_mismatch:'残高と台帳が不一致',post_daily_limit:'投稿ポイント上限超過',quiz_daily_limit:'クイズ上限超過',like_velocity:'いいね操作が急増',rapid_earning:'短時間にポイント急増'};
         document.getElementById('adminPointAlertArea').innerHTML = alerts.length ? alerts.map(x => `<div style="background:white;border:1px solid ${x.severity === 'critical' ? '#fca5a5' : '#fde68a'};padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#b91c1c;">${escapeHtml(ruleLabels[x.rule_code] || x.rule_code)}</span></div><div class="muted" style="margin:4px 0;">残高 ${Number(x.balance || 0).toLocaleString()}pt・検知 ${formatHistoryDate(x.detected_at)}</div><div class="muted" style="font-size:.66rem;margin:4px 0;">${escapeHtml(JSON.stringify(x.evidence || {}))}<br>ID: ${escapeHtml(x.user_id)}</div><div style="display:flex;gap:5px;flex-wrap:wrap;">${adminButton('ポイント修正', `preparePointAdjustment('${escapeHtml(x.user_id)}')`, '#92400e')}${adminButton('確認済み', `updatePointAlert(${Number(x.id)},'reviewed')`, '#166534')}${adminButton('誤検知', `updatePointAlert(${Number(x.id)},'dismissed')`, '#64748b')}${adminButton(x.user_status === 'suspended' ? '停止解除' : '利用停止', `setAdminSuspension('${escapeHtml(x.user_id)}',${x.user_status === 'suspended' ? 'false' : 'true'})`, x.user_status === 'suspended' ? '#166534' : '#b91c1c')}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">現在、未確認の不正アラートはありません。</div>';
 
-        const pointReasonLabels = {spot_post:'投稿',spot_like:'いいね',quiz:'クイズ',gacha_cost:'ガチャ消費',gacha_prize:'ガチャ当選',admin:'管理者修正'};
+        const pointReasonLabels = {spot_post:'投稿',spot_like:'いいね',quiz:'クイズ',gacha_cost:'ガチャ消費',gacha_prize:'ガチャ当選',admin:'管理者修正',aed_new_approval:'新規AED承認'};
         document.getElementById('adminPointHistoryArea').innerHTML = pointTransactions.length ? pointTransactions.map(x => `<div style="padding:7px 0;border-bottom:1px solid #e2e8f0;font-size:.71rem;"><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:${Number(x.amount) >= 0 ? '#15803d' : '#b91c1c'};font-weight:bold;">${Number(x.amount) >= 0 ? '+' : ''}${Number(x.amount).toLocaleString()}pt</span><div class="muted" style="font-size:.64rem;">${escapeHtml(pointReasonLabels[x.reason] || x.reason)}・${formatHistoryDate(x.created_at)}・${escapeHtml(x.user_id)}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">ポイント履歴はありません。</div>';
 
         const labels = {hide:'投稿を非表示',restore:'投稿を復元',suspend:'利用停止',unsuspend:'停止解除',deletion_processing:'退会対応開始',deletion_cancelled:'退会申請却下',point_adjustment:'ポイント修正',point_alert_reviewed:'不正アラート確認済み',point_alert_dismissed:'不正アラート誤検知'};
         document.getElementById('adminAuditArea').innerHTML = audit.length ? audit.map(x => `<div style="padding:7px 0;border-bottom:1px solid #dbe5df;font-size:.72rem;"><strong>${escapeHtml(labels[x.action] || x.action)}</strong>・${escapeHtml(x.target_type)} ${escapeHtml(x.target_id)}<div class="muted" style="font-size:.65rem;">${formatHistoryDate(x.created_at)}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">操作履歴はありません。</div>';
+    }
+
+    async function renderAdminAedSubmissions(rows) {
+        const target = document.getElementById('adminAedSubmissionArea');
+        if (!rows.length) { target.innerHTML = '<div class="muted" style="font-size:.75rem;">審査待ちのAED投稿はありません。</div>'; return; }
+        const cards = await Promise.all(rows.map(async x => {
+            const { data: signed } = await db.storage.from('aed-submission-images').createSignedUrl(x.photo_object_path, 600);
+            const flags = Array.isArray(x.fraud_flags) && x.fraud_flags.length ? x.fraud_flags.join(' / ') : 'なし';
+            const nearby = Array.isArray(x.nearby_candidate_ids) && x.nearby_candidate_ids.length ? x.nearby_candidate_ids.join(', ') : 'なし';
+            return `<div style="background:white;border:1px solid #fed7aa;padding:10px;border-radius:9px;margin-bottom:8px;font-size:.73rem;line-height:1.5;">
+                <div><strong>${escapeHtml(x.facility_name)}</strong>　<span style="color:#9a3412;">${escapeHtml(x.status)}</span></div>
+                <div>${escapeHtml(x.address)}<br>設置場所：${escapeHtml(x.installation_location)}</div>
+                <div class="muted" style="font-size:.65rem;margin-top:4px;">GPS精度 ${Math.round(Number(x.gps_accuracy_m))}m・周辺候補ID ${escapeHtml(nearby)}・検知 ${escapeHtml(flags)}・${formatHistoryDate(x.created_at)}</div>
+                ${signed?.signedUrl ? `<a href="${escapeHtml(signed.signedUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:6px 0;color:#c2410c;font-weight:bold;">投稿写真を10分間表示</a>` : '<div style="color:#b91c1c;">写真URLを発行できません</div>'}
+                <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;">
+                    ${adminButton('新規承認 +30pt', `reviewAedSubmission('${x.id}','approved_new',null)`, '#15803d')}
+                    ${adminButton('掲載済み 0pt', `reviewAedSubmission('${x.id}','approved_existing',${x.matched_safety_spot_id ? Number(x.matched_safety_spot_id) : 'null'})`, '#1d4ed8')}
+                    ${adminButton('要修正', `reviewAedSubmission('${x.id}','needs_changes',null)`, '#92400e')}
+                    ${adminButton('却下', `reviewAedSubmission('${x.id}','rejected',null)`, '#b91c1c')}
+                </div></div>`;
+        }));
+        target.innerHTML = cards.join('');
+    }
+
+    async function reviewAedSubmission(submissionId, decision, existingSpotId) {
+        const password = getAdminPassword(); if (!password) return;
+        if (decision === 'approved_existing' && !existingSpotId) {
+            const input = prompt('対応する掲載済みAEDのIDを入力してください');
+            if (!input || !/^\d+$/.test(input)) return;
+            existingSpotId = Number(input);
+        }
+        const labels = {approved_new:'新規AEDとして承認し、投稿者へ30ptを付与',approved_existing:'掲載済みAEDの確認記録として0ptで承認',needs_changes:'要修正として差し戻し',rejected:'却下'};
+        if (!confirm(`${labels[decision]}しますか？この操作は審査履歴に保存されます。`)) return;
+        const notes = prompt('審査メモ（任意）') || null;
+        const { data, error } = await db.rpc('admin_review_aed_submission_secure', {
+            p_password: password, p_submission_id: submissionId, p_decision: decision,
+            p_existing_safety_spot_id: existingSpotId, p_review_notes: notes
+        });
+        if (error) { showToast('AED審査を確定できませんでした：' + error.message); return; }
+        showToast(decision === 'approved_new' ? `新規AEDを公開し30pt付与しました（AED ID ${data.safetySpotId}）` : 'AED投稿の審査結果を保存しました');
+        loadAdminDashboard();
+        if (decision === 'approved_new') loadSafetySpots();
     }
 
     async function moderateAdminSpot(spotId, hide) {
@@ -2062,9 +2120,11 @@ function shareSpot(title, address, category, event) {
         const sourceName = spot.source_name || fallbackSourceName;
         const sourceDateValue = spot.source_updated_at || spot.source_date;
         const sourceDate = sourceDateValue ? String(sourceDateValue).slice(0,10).replace(/-/g, '/') : '基準日不明';
-        const coordinateNote = String(spot.geocode_source || '').includes('公式')
-            ? '公式データの座標を掲載しています。'
-            : 'まちまもMAPが住所から座標を補完・加工。座標は目安です。';
+        const isOfficialCoordinate = String(spot.geocode_source || '').includes('公式')
+            && !String(spot.geocode_source || '').includes('住所');
+        const coordinateNote = isOfficialCoordinate
+            ? '公式データの座標を掲載しています。現地の設置場所は案内表示や施設スタッフへご確認ください。'
+            : '住所から推定した位置のため誤差がある場合があります。現地の案内表示や施設スタッフへご確認ください。';
         const navigationUrl = buildSafetyNavigationUrl(spot.lat, spot.lng);
         marker.bindPopup(`
             <div style="width:min(250px,72vw);">
@@ -2073,6 +2133,7 @@ function shareSpot(title, address, category, event) {
                 <div style="font-size:.78rem;color:#475569;line-height:1.5;">${escapeHtml(spot.address || '住所情報なし')}</div>
                 ${spot.installation_location ? `<div style="font-size:.75rem;color:#475569;margin-top:5px;">設置場所：${escapeHtml(spot.installation_location)}</div>` : ''}
                 ${spot.availability ? `<div style="font-size:.75rem;color:#475569;margin-top:3px;">利用可能時間：${escapeHtml(spot.availability)}</div>` : ''}
+                ${isAed ? `<div style="font-size:.7rem;color:#92400e;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:6px 8px;margin-top:7px;line-height:1.45;">利用可能時間は変更される場合があります。緊急時は119番へ通報し、通信指令員の指示に従ってください。</div>` : ''}
                 ${navigationUrl ? `<a href="${escapeHtml(navigationUrl)}" target="_blank" rel="noopener noreferrer" class="popup-action-btn" style="display:flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box;background:#15803d;color:white;margin-top:10px;text-decoration:none;">📍ここまでナビ</a>
                 <div style="font-size:.7rem;color:#475569;line-height:1.5;margin-top:4px;">Googleマップで経路を開きます。現在地を使えない場合は出発地を指定してください。</div>` : ''}
                 ${spot.parent_name ? `<div style="font-size:.7rem;color:#64748b;margin-top:4px;">所属：${escapeHtml(spot.parent_name)}</div>` : ''}
@@ -2250,6 +2311,12 @@ function shareSpot(title, address, category, event) {
     }
 
     let uploadedImageFile = null;
+    let aedPhotoMeta = null;
+    let aedGps = null;
+    let aedNearbyReady = false;
+    let aedGpsRequest = 0;
+    let aedNearbyCandidateIds = [];
+    let aedExistingSpotId = null;
 
     map.on('click', (e) => {
         window.postLat = e.latlng.lat; window.postLng = e.latlng.lng;
@@ -2263,32 +2330,173 @@ function shareSpot(title, address, category, event) {
         const cat = document.getElementById('postCategory').value;
         const area = document.getElementById('imageUploadArea');
         const reportArea = document.getElementById('reportCheckArea');
+        const aedArea = document.getElementById('aedSubmissionArea');
+        const submitButton = document.getElementById('postSubmitButton');
+        const titleLabel = document.getElementById('postTitleLabel');
+        const commentLabel = document.getElementById('postCommentLabel');
 
-        if(cat === 'abandoned') {
+        if(cat === 'abandoned' || cat === 'aed') {
             area.style.display = 'block';
         } else {
             area.style.display = 'none';
             uploadedImageFile = null;
+            aedPhotoMeta = null;
             if(document.getElementById('imagePreview')) document.getElementById('imagePreview').style.display='none';
         }
 
-        if(cat === 'patrol') {
+        if(cat === 'patrol' || cat === 'aed') {
             reportArea.style.display = 'none';
             document.getElementById('postIsReported').checked = false;
         } else {
             reportArea.style.display = 'flex';
         }
+        const isAed = cat === 'aed';
+        aedArea.style.display = isAed ? 'block' : 'none';
+        titleLabel.textContent = isAed ? '施設名' : 'タイトル';
+        commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : '状況コメント';
+        submitButton.textContent = isAed ? 'AEDを審査へ送信（新規承認で30pt）' : '情報を投稿 (+10pt)';
+        if (isAed && !aedGps) captureAedGps();
     }
 
-    document.getElementById('postImageInput').addEventListener('change', function(e) {
+    async function normalizeAedPhoto(file) {
+        const bitmap = await createImageBitmap(file);
+        const scale = Math.min(1, 2048 / Math.max(bitmap.width, bitmap.height));
+        const width = Math.max(1, Math.round(bitmap.width * scale));
+        const height = Math.max(1, Math.round(bitmap.height * scale));
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        canvas.getContext('2d', { alpha: false }).drawImage(bitmap, 0, 0, width, height);
+        bitmap.close();
+        const blob = await new Promise((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('image_conversion_failed')), 'image/jpeg', .86));
+        const digest = await crypto.subtle.digest('SHA-256', await blob.arrayBuffer());
+        const sha256 = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
+        return { file: new File([blob], 'aed.jpg', { type: 'image/jpeg' }), width, height, sha256 };
+    }
+
+    document.getElementById('postImageInput').addEventListener('change', async function(e) {
         const file = e.target.files[0]; if(!file) return;
-        uploadedImageFile = file;
+        try {
+            if (document.getElementById('postCategory').value === 'aed') {
+                aedPhotoMeta = await normalizeAedPhoto(file);
+                uploadedImageFile = aedPhotoMeta.file;
+            } else {
+                uploadedImageFile = file;
+                aedPhotoMeta = null;
+            }
+        } catch (_) {
+            uploadedImageFile = null; aedPhotoMeta = null;
+            alert('写真を安全な形式へ変換できませんでした。別の写真でお試しください。');
+            return;
+        }
         const reader = new FileReader();
         reader.onload = function(event) { document.getElementById('imagePreview').src = event.target.result; document.getElementById('imagePreview').style.display = 'block'; }
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(uploadedImageFile);
     });
 
-    function closePostModal() { document.getElementById('postModal').classList.remove('open'); document.getElementById('postForm').reset(); document.getElementById('aiLoading').style.display = 'none'; toggleImageUpload(); }
+    function closePostModal() {
+        document.getElementById('postModal').classList.remove('open');
+        document.getElementById('postForm').reset();
+        document.getElementById('aiLoading').style.display = 'none';
+        uploadedImageFile = null; aedPhotoMeta = null; aedGps = null;
+        aedNearbyReady = false; aedGpsRequest++;
+        aedNearbyCandidateIds = []; aedExistingSpotId = null;
+        document.getElementById('aedNearbyCandidates').textContent = 'GPS取得後に表示します。';
+        document.getElementById('aedGpsStatus').textContent = 'GPSを取得していません。';
+        toggleImageUpload();
+    }
+
+    function selectExistingAed(id) {
+        aedExistingSpotId = id ? Number(id) : null;
+        document.querySelectorAll('[data-aed-candidate]').forEach(el => {
+            el.style.borderColor = Number(el.dataset.aedCandidate) === aedExistingSpotId ? '#ea580c' : '#e2e8f0';
+            el.style.background = Number(el.dataset.aedCandidate) === aedExistingSpotId ? '#fff7ed' : '#fff';
+        });
+    }
+
+    async function loadNearbyAedCandidates() {
+        if (!aedGps) return;
+        const gps = aedGps;
+        aedNearbyReady = false;
+        aedNearbyCandidateIds = []; aedExistingSpotId = null;
+        const box = document.getElementById('aedNearbyCandidates');
+        box.textContent = '周辺AEDを確認中…';
+        let data, error;
+        try {
+            ({ data, error } = await db.rpc('get_nearby_aed_candidates', {
+                p_latitude: gps.latitude, p_longitude: gps.longitude, p_radius_m: 500, p_limit: 10
+            }));
+        } catch (err) { error = err; }
+        if (aedGps !== gps) return;
+        if (error) { box.textContent = '周辺AEDを取得できませんでした。送信前に再取得してください。'; return; }
+        aedNearbyReady = true;
+        aedNearbyCandidateIds = (data || []).map(x => Number(x.id));
+        aedExistingSpotId = null;
+        if (!data || !data.length) { box.textContent = '500m以内に掲載済みAEDはありません。'; return; }
+        box.innerHTML = '<div style="margin-bottom:6px;">同じAEDがあれば選択してください。選択時は存在確認（0pt）として保存します。</div>'
+            + '<button type="button" onclick="selectExistingAed(null)" style="width:100%;padding:8px;border:1px solid #e2e8f0;background:#fff;border-radius:7px;margin-bottom:5px;">該当なし（新規候補）</button>'
+            + data.map(x => `<button type="button" data-aed-candidate="${Number(x.id)}" onclick="selectExistingAed(${Number(x.id)})" style="width:100%;text-align:left;padding:8px;border:1px solid #e2e8f0;background:#fff;border-radius:7px;margin-bottom:5px;"><strong>${escapeHtml(x.name)}</strong><br>${Math.round(x.distance_m)}m・${escapeHtml(x.address || '住所なし')}${x.installation_location ? `<br>${escapeHtml(x.installation_location)}` : ''}</button>`).join('');
+    }
+
+    function captureAedGps() {
+        const request = ++aedGpsRequest;
+        aedGps = null; aedNearbyReady = false;
+        aedNearbyCandidateIds = []; aedExistingSpotId = null;
+        const status = document.getElementById('aedGpsStatus');
+        if (!navigator.geolocation) { status.textContent = 'この端末ではGPSを利用できません。'; return; }
+        status.textContent = '現在地GPSを取得中…';
+        navigator.geolocation.getCurrentPosition(async pos => {
+            if (request !== aedGpsRequest) return;
+            aedGps = { latitude: pos.coords.latitude, longitude: pos.coords.longitude, accuracy: pos.coords.accuracy };
+            status.textContent = `GPS取得済み（精度 約${Math.round(pos.coords.accuracy)}m）`;
+            await loadNearbyAedCandidates();
+        }, () => {
+            if (request !== aedGpsRequest) return;
+            aedGps = null;
+            status.textContent = 'GPSを取得できませんでした。位置情報を許可し、現地で再取得してください。';
+        }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+    }
+
+    async function handleAedSubmission(authUser, facilityName, installationLocation) {
+        const prefecture = document.getElementById('aedPrefecture').value.trim();
+        const address = document.getElementById('aedAddress').value.trim();
+        if (!aedGps || aedGps.accuracy > 100) { alert('現地GPS（精度100m以内）が必要です。GPSを再取得してください。'); return; }
+        if (!uploadedImageFile || !aedPhotoMeta) { alert('現地で撮影したAED写真が必要です。'); return; }
+        if (facilityName.trim().length < 2 || installationLocation.trim().length < 2 || !prefecture || address.length < 3) {
+            alert('施設名、設置場所、都道府県、番地までの住所を入力してください。'); return;
+        }
+        if (!document.getElementById('aedPhotoLicense').checked || !document.getElementById('aedPrivacyConfirmed').checked) {
+            alert('写真の利用許諾と個人情報の確認が必要です。'); return;
+        }
+        if (!aedNearbyReady) {
+            alert('周辺AEDの確認が完了していません。GPSを再取得してください。'); return;
+        }
+
+        const submissionId = crypto.randomUUID();
+        const objectPath = `${authUser.id}/${submissionId}.jpg`;
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold;color:#1f6feb;">EXIF削除済み写真を安全に送信中…</div>';
+        document.getElementById('aiLoading').style.display = 'flex';
+        const { error: uploadError } = await db.storage.from('aed-submission-images').upload(objectPath, uploadedImageFile, { contentType: 'image/jpeg', upsert: false });
+        if (uploadError) { document.getElementById('aiLoading').style.display = 'none'; alert('写真を送信できませんでした。'); return; }
+
+        const payload = {
+            id: submissionId, user_id: authUser.id,
+            submission_kind: aedExistingSpotId ? 'existing_confirmation' : 'new',
+            facility_name: facilityName.trim(), installation_location: installationLocation.trim(),
+            address, prefecture, latitude: aedGps.latitude, longitude: aedGps.longitude,
+            gps_accuracy_m: aedGps.accuracy, photo_object_path: objectPath,
+            photo_sha256: aedPhotoMeta.sha256, photo_width: aedPhotoMeta.width, photo_height: aedPhotoMeta.height,
+            nearby_candidate_ids: aedNearbyCandidateIds, matched_safety_spot_id: aedExistingSpotId,
+            submitter_photo_license_accepted: true, privacy_confirmed: true, terms_version: 'aed-photo-v1-20260916'
+        };
+        const { data, error } = await db.from('aed_submissions').insert(payload).select('id,status').single();
+        if (error) {
+            await db.storage.from('aed-submission-images').remove([objectPath]);
+            document.getElementById('aiLoading').style.display = 'none';
+            alert('AED投稿を保存できませんでした：' + error.message); return;
+        }
+        showToast(data.status === 'needs_review' ? 'AED投稿を受け付けました。不正・重複確認後に審査します。' : 'AED投稿を受け付けました。新規承認時に30ptを付与します。');
+        closePostModal();
+    }
 
     function checkWithAI(title, comment) {
         return new Promise((resolve) => {
@@ -2307,7 +2515,9 @@ function shareSpot(title, address, category, event) {
         if (!authUser) return;
         checkLimitsReset();
 
-        if (actionLimits.postCount >= 5) {
+        const cat = document.getElementById('postCategory').value;
+
+        if (cat !== 'aed' && actionLimits.postCount >= 5) {
             alert('【上限到達】本日の安全ポイント獲得（投稿）は5回までです。明日またお願いします！');
             closePostModal();
             return;
@@ -2315,8 +2525,12 @@ function shareSpot(title, address, category, event) {
 
         let title = document.getElementById('postTitle').value;
         const comment = document.getElementById('postComment').value;
-        const cat = document.getElementById('postCategory').value;
         const isReported = document.getElementById('postIsReported').checked;
+
+        if (cat === 'aed') {
+            await handleAedSubmission(authUser, title, comment);
+            return;
+        }
 
         if (isReported) {
             title = "【通報済】" + title;

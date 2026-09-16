@@ -1,0 +1,362 @@
+[
+  {
+    "row": 5,
+    "name": "消防署南分署",
+    "address": "埼玉県蓮田市馬込1-256",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "馬込一丁目",
+      "addr": "256",
+      "level": 8,
+      "point": {
+        "lat": 35.976185508,
+        "lng": 139.657929073,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.976185508,
+    "longitude": 139.657929073
+  },
+  {
+    "row": 6,
+    "name": "図書館",
+    "address": "埼玉県蓮田市上2-11-7",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "上二丁目",
+      "addr": "11-7",
+      "level": 8,
+      "point": {
+        "lat": 35.98723566,
+        "lng": 139.6542119,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.98723566,
+    "longitude": 139.6542119
+  },
+  {
+    "row": 8,
+    "name": "中央公民館",
+    "address": "埼玉県蓮田市東6-1-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "東六丁目",
+      "addr": "1-8",
+      "level": 8,
+      "point": {
+        "lat": 35.97924167,
+        "lng": 139.6525575,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.97924167,
+    "longitude": 139.6525575
+  },
+  {
+    "row": 9,
+    "name": "中央公民館関山分館",
+    "address": "埼玉県蓮田市関山4-5-32",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "関山四丁目",
+      "addr": "5-32",
+      "level": 8,
+      "point": {
+        "lat": 35.99241629,
+        "lng": 139.653973,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.99241629,
+    "longitude": 139.653973
+  },
+  {
+    "row": 11,
+    "name": "保健センター",
+    "address": "埼玉県蓮田市緑町2-3-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "緑町二丁目",
+      "addr": "3-11",
+      "level": 8,
+      "point": {
+        "lat": 35.98588947,
+        "lng": 139.660782,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.98588947,
+    "longitude": 139.660782
+  },
+  {
+    "row": 13,
+    "name": "老人福祉センター",
+    "address": "埼玉県蓮田市蓮田4-236",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "蓮田四丁目",
+      "addr": "236",
+      "level": 8,
+      "point": {
+        "lat": 35.970106123,
+        "lng": 139.656038748,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.970106123,
+    "longitude": 139.656038748
+  },
+  {
+    "row": 14,
+    "name": "勤労青少年ホーム",
+    "address": "埼玉県蓮田市見沼町4-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "見沼町",
+      "addr": "4-3",
+      "level": 8,
+      "point": {
+        "lat": 35.98251373,
+        "lng": 139.6469953,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.98251373,
+    "longitude": 139.6469953
+  },
+  {
+    "row": 17,
+    "name": "児童センター",
+    "address": "埼玉県蓮田市蓮田2-182",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "蓮田二丁目",
+      "addr": "182",
+      "level": 8,
+      "point": {
+        "lat": 35.973440977,
+        "lng": 139.653946381,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.973440977,
+    "longitude": 139.653946381
+  },
+  {
+    "row": 21,
+    "name": "蓮田南保育園",
+    "address": "埼玉県蓮田市蓮田2-182",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "蓮田二丁目",
+      "addr": "182",
+      "level": 8,
+      "point": {
+        "lat": 35.973440977,
+        "lng": 139.653946381,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.973440977,
+    "longitude": 139.653946381
+  },
+  {
+    "row": 22,
+    "name": "東保育園",
+    "address": "埼玉県蓮田市東5-8-32",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "東五丁目",
+      "addr": "8-32",
+      "level": 8,
+      "point": {
+        "lat": 35.97804357,
+        "lng": 139.6557224,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.97804357,
+    "longitude": 139.6557224
+  },
+  {
+    "row": 23,
+    "name": "蓮田ねがやど保育園",
+    "address": "埼玉県蓮田市蓮田4-79",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "蓮田四丁目",
+      "addr": "79",
+      "level": 8,
+      "point": {
+        "lat": 35.970768838,
+        "lng": 139.654659132,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.970768838,
+    "longitude": 139.654659132
+  },
+  {
+    "row": 24,
+    "name": "中央学童保育所",
+    "address": "埼玉県蓮田市関山3-6-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "関山三丁目",
+      "addr": "6-10",
+      "level": 8,
+      "point": {
+        "lat": 35.989317400000004,
+        "lng": 139.6540167,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.989317400000004,
+    "longitude": 139.6540167
+  },
+  {
+    "row": 28,
+    "name": "蓮田南小学校",
+    "address": "埼玉県蓮田市東6-9-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "東六丁目",
+      "addr": "9-11",
+      "level": 8,
+      "point": {
+        "lat": 35.97609357000001,
+        "lng": 139.6523238,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.97609357000001,
+    "longitude": 139.6523238
+  },
+  {
+    "row": 32,
+    "name": "蓮田中央小学校",
+    "address": "埼玉県蓮田市関山3-6-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "関山三丁目",
+      "addr": "6-1",
+      "level": 8,
+      "point": {
+        "lat": 35.98840383,
+        "lng": 139.653829,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.98840383,
+    "longitude": 139.653829
+  },
+  {
+    "row": 45,
+    "name": "中央保育園",
+    "address": "埼玉県蓮田市上2-11-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "上二丁目",
+      "addr": "11-2",
+      "level": 8,
+      "point": {
+        "lat": 35.98658222,
+        "lng": 139.6544279,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.98658222,
+    "longitude": 139.6544279
+  }
+]

@@ -1,0 +1,1274 @@
+[
+  {
+    "row": 2,
+    "name": "坂戸市役所",
+    "address": "埼玉県坂戸市千代田1-1-1",
+    "phone": "049-283-1331",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.957041525,
+        "lng": 139.402304914,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957041525,
+    "longitude": 139.402304914
+  },
+  {
+    "row": 3,
+    "name": "坂戸市役所",
+    "address": "埼玉県坂戸市千代田1-1-1",
+    "phone": "049-283-1331",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.957041525,
+        "lng": 139.402304914,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957041525,
+    "longitude": 139.402304914
+  },
+  {
+    "row": 4,
+    "name": "坂戸市役所",
+    "address": "埼玉県坂戸市千代田1-1-1",
+    "phone": "049-283-1331",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.957041525,
+        "lng": 139.402304914,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957041525,
+    "longitude": 139.402304914
+  },
+  {
+    "row": 5,
+    "name": "勤労女性センター",
+    "address": "埼玉県坂戸市千代田1-1-22",
+    "phone": "049-281-3595",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "1-22",
+      "level": 8,
+      "point": {
+        "lat": 35.957147011,
+        "lng": 139.404468225,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957147011,
+    "longitude": 139.404468225
+  },
+  {
+    "row": 6,
+    "name": "入西地域交流センター",
+    "address": "埼玉県坂戸市新堀159-1",
+    "phone": "049-281-0044",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字新堀",
+      "addr": "159-1",
+      "level": 8,
+      "point": {
+        "lat": 35.964659392,
+        "lng": 139.371938404,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.964659392,
+    "longitude": 139.371938404
+  },
+  {
+    "row": 10,
+    "name": "若葉駅第2自転車駐車場",
+    "address": "埼玉県坂戸市千代田3-22-1",
+    "phone": "049-283-9022",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田三丁目",
+      "addr": "22-1",
+      "level": 8,
+      "point": {
+        "lat": 35.951086386,
+        "lng": 139.41057635,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.951086386,
+    "longitude": 139.41057635
+  },
+  {
+    "row": 15,
+    "name": "千代田児童センター",
+    "address": "埼玉県坂戸市千代田4-12-17",
+    "phone": "049-282-3099",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田四丁目",
+      "addr": "12-17",
+      "level": 8,
+      "point": {
+        "lat": 35.954661806,
+        "lng": 139.410165369,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.954661806,
+    "longitude": 139.410165369
+  },
+  {
+    "row": 16,
+    "name": "大家児童センター",
+    "address": "埼玉県坂戸市厚川238-1",
+    "phone": "049-284-1425",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字厚川",
+      "addr": "238-1",
+      "level": 8,
+      "point": {
+        "lat": 35.946928928,
+        "lng": 139.368144663,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.946928928,
+    "longitude": 139.368144663
+  },
+  {
+    "row": 17,
+    "name": "三芳野児童センター",
+    "address": "埼玉県坂戸市紺屋150-5",
+    "phone": "049-284-4813",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字紺屋",
+      "addr": "150-5",
+      "level": 8,
+      "point": {
+        "lat": 35.958276424,
+        "lng": 139.44447948,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.958276424,
+    "longitude": 139.44447948
+  },
+  {
+    "row": 20,
+    "name": "千代田保育園",
+    "address": "埼玉県坂戸市千代田4-13-1",
+    "phone": "049-283-7244",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田四丁目",
+      "addr": "13-1",
+      "level": 8,
+      "point": {
+        "lat": 35.955482142,
+        "lng": 139.40992005,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.955482142,
+    "longitude": 139.40992005
+  },
+  {
+    "row": 24,
+    "name": "学童保育所たけのこクラブ",
+    "address": "埼玉県坂戸市浅羽836-3",
+    "phone": "049-283-7091",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字浅羽",
+      "addr": "836-3",
+      "level": 8,
+      "point": {
+        "lat": 35.952657587,
+        "lng": 139.380036809,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.952657587,
+    "longitude": 139.380036809
+  },
+  {
+    "row": 27,
+    "name": "学童保育所わんぱくクラブ",
+    "address": "埼玉県坂戸市千代田2-30-7",
+    "phone": "049-283-6263",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田二丁目",
+      "addr": "30-7",
+      "level": 8,
+      "point": {
+        "lat": 35.958855003,
+        "lng": 139.411024258,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.958855003,
+    "longitude": 139.411024258
+  },
+  {
+    "row": 28,
+    "name": "学童保育所ちびっこクラブ",
+    "address": "埼玉県坂戸市新堀381-1",
+    "phone": "049-289-0336",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字新堀",
+      "addr": "381-1",
+      "level": 8,
+      "point": {
+        "lat": 35.968030087,
+        "lng": 139.370617362,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.968030087,
+    "longitude": 139.370617362
+  },
+  {
+    "row": 31,
+    "name": "ことぶき荘",
+    "address": "埼玉県坂戸市赤尾2149-1",
+    "phone": "049-283-0223",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字赤尾",
+      "addr": "2149-1",
+      "level": 8,
+      "point": {
+        "lat": 35.982490959,
+        "lng": 139.437684836,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.982490959,
+    "longitude": 139.437684836
+  },
+  {
+    "row": 33,
+    "name": "勝呂福祉作業所",
+    "address": "埼玉県坂戸市石井309-3",
+    "phone": "049-283-5044",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字石井",
+      "addr": "309-3",
+      "level": 8,
+      "point": {
+        "lat": 35.974289728,
+        "lng": 139.422950432,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.974289728,
+    "longitude": 139.422950432
+  },
+  {
+    "row": 37,
+    "name": "東清掃センター",
+    "address": "埼玉県坂戸市赤尾2292",
+    "phone": "049-284-0690",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字赤尾",
+      "addr": "2292",
+      "level": 8,
+      "point": {
+        "lat": 35.981383627,
+        "lng": 139.438637301,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.981383627,
+    "longitude": 139.438637301
+  },
+  {
+    "row": 40,
+    "name": "中央地域交流センター",
+    "address": "埼玉県坂戸市千代田1-2-3",
+    "phone": "049-281-1567",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "2-3",
+      "level": 8,
+      "point": {
+        "lat": 35.95674632800001,
+        "lng": 139.402460106,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.95674632800001,
+    "longitude": 139.402460106
+  },
+  {
+    "row": 41,
+    "name": "三芳野地域交流センター",
+    "address": "埼玉県坂戸市横沼153-3",
+    "phone": "049-281-0058",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字横沼",
+      "addr": "153-3",
+      "level": 8,
+      "point": {
+        "lat": 35.964091294,
+        "lng": 139.442183205,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.964091294,
+    "longitude": 139.442183205
+  },
+  {
+    "row": 42,
+    "name": "勝呂地域交流センター",
+    "address": "埼玉県坂戸市石井1526",
+    "phone": "049-284-8600",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字石井",
+      "addr": "1526",
+      "level": 8,
+      "point": {
+        "lat": 35.97810733800001,
+        "lng": 139.414842346,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.97810733800001,
+    "longitude": 139.414842346
+  },
+  {
+    "row": 43,
+    "name": "大家地域交流センター",
+    "address": "埼玉県坂戸市森戸445",
+    "phone": "049-285-2002",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字森戸",
+      "addr": "445",
+      "level": 8,
+      "point": {
+        "lat": 35.938040281,
+        "lng": 139.364280924,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.938040281,
+    "longitude": 139.364280924
+  },
+  {
+    "row": 46,
+    "name": "浅羽野地域交流センター",
+    "address": "埼玉県坂戸市浅羽779-4",
+    "phone": "049-283-6262",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字浅羽",
+      "addr": "779-4",
+      "level": 8,
+      "point": {
+        "lat": 35.955564811,
+        "lng": 139.381401325,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.955564811,
+    "longitude": 139.381401325
+  },
+  {
+    "row": 47,
+    "name": "千代田地域交流センター",
+    "address": "埼玉県坂戸市千代田4-12-6",
+    "phone": "049-283-3822",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田四丁目",
+      "addr": "12-6",
+      "level": 8,
+      "point": {
+        "lat": 35.95511294400001,
+        "lng": 139.410214711,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.95511294400001,
+    "longitude": 139.410214711
+  },
+  {
+    "row": 48,
+    "name": "中央図書館",
+    "address": "埼玉県坂戸市仲町1-23",
+    "phone": "049-281-6369",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "仲町",
+      "addr": "1-23",
+      "level": 8,
+      "point": {
+        "lat": 35.962103517,
+        "lng": 139.396057517,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.962103517,
+    "longitude": 139.396057517
+  },
+  {
+    "row": 49,
+    "name": "歴史民俗資料館",
+    "address": "埼玉県坂戸市石井1800-6",
+    "phone": "049-284-1052",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字石井",
+      "addr": "1800-6",
+      "level": 8,
+      "point": {
+        "lat": 35.976531338,
+        "lng": 139.419425919,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.976531338,
+    "longitude": 139.419425919
+  },
+  {
+    "row": 54,
+    "name": "三芳野小学校",
+    "address": "埼玉県坂戸市横沼213-2",
+    "phone": "049-281-0300",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字横沼",
+      "addr": "213-2",
+      "level": 8,
+      "point": {
+        "lat": 35.962932712000004,
+        "lng": 139.442525753,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.962932712000004,
+    "longitude": 139.442525753
+  },
+  {
+    "row": 57,
+    "name": "大家小学校",
+    "address": "埼玉県坂戸市森戸449-1",
+    "phone": "049-285-2012",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字森戸",
+      "addr": "449-1",
+      "level": 8,
+      "point": {
+        "lat": 35.937562404,
+        "lng": 139.363159421,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.937562404,
+    "longitude": 139.363159421
+  },
+  {
+    "row": 59,
+    "name": "千代田小学校",
+    "address": "埼玉県坂戸市千代田2-17-5",
+    "phone": "049-281-3940",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田二丁目",
+      "addr": "17-5",
+      "level": 8,
+      "point": {
+        "lat": 35.961021806,
+        "lng": 139.407209833,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.961021806,
+    "longitude": 139.407209833
+  },
+  {
+    "row": 62,
+    "name": "南小学校",
+    "address": "埼玉県坂戸市千代田4-8-1",
+    "phone": "049-283-6531",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田四丁目",
+      "addr": "8-1",
+      "level": 8,
+      "point": {
+        "lat": 35.955734003,
+        "lng": 139.408101564,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.955734003,
+    "longitude": 139.408101564
+  },
+  {
+    "row": 65,
+    "name": "坂戸中学校",
+    "address": "埼玉県坂戸市千代田1-3-1",
+    "phone": "049-283-0219",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "3-1",
+      "level": 8,
+      "point": {
+        "lat": 35.956467064,
+        "lng": 139.402816781,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.956467064,
+    "longitude": 139.402816781
+  },
+  {
+    "row": 66,
+    "name": "住吉中学校",
+    "address": "埼玉県坂戸市塚越114-1",
+    "phone": "049-281-0301",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字塚越",
+      "addr": "114-1",
+      "level": 8,
+      "point": {
+        "lat": 35.96619131,
+        "lng": 139.428285115,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.96619131,
+    "longitude": 139.428285115
+  },
+  {
+    "row": 68,
+    "name": "千代田中学校",
+    "address": "埼玉県坂戸市千代田4-3-1",
+    "phone": "049-284-1646",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田四丁目",
+      "addr": "3-1",
+      "level": 8,
+      "point": {
+        "lat": 35.957367561,
+        "lng": 139.408161597,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957367561,
+    "longitude": 139.408161597
+  },
+  {
+    "row": 69,
+    "name": "浅羽野中学校",
+    "address": "埼玉県坂戸市浅羽753-1",
+    "phone": "049-284-1441",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字浅羽",
+      "addr": "753-1",
+      "level": 8,
+      "point": {
+        "lat": 35.956451368,
+        "lng": 139.38162096,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.956451368,
+    "longitude": 139.38162096
+  },
+  {
+    "row": 71,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸中小坂店",
+    "address": "埼玉県坂戸市大字中小坂543-2",
+    "phone": "049-289-9990",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字中小坂",
+      "addr": "543-2",
+      "level": 8,
+      "point": {
+        "lat": 35.950164972,
+        "lng": 139.441140194,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.950164972,
+    "longitude": 139.441140194
+  },
+  {
+    "row": 72,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸横沼店",
+    "address": "埼玉県坂戸市大字横沼362-1",
+    "phone": "049-289-6299",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字横沼",
+      "addr": "362-1",
+      "level": 8,
+      "point": {
+        "lat": 35.963758819,
+        "lng": 139.445507153,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.963758819,
+    "longitude": 139.445507153
+  },
+  {
+    "row": 74,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸本町店",
+    "address": "埼玉県坂戸市本町1-19",
+    "phone": "049-282-4159",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "本町",
+      "addr": "1-19",
+      "level": 8,
+      "point": {
+        "lat": 35.960803961,
+        "lng": 139.395011081,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.960803961,
+    "longitude": 139.395011081
+  },
+  {
+    "row": 75,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸泉町店",
+    "address": "埼玉県坂戸市泉町11-1",
+    "phone": "049-282-8050",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "泉町",
+      "addr": "11-1",
+      "level": 8,
+      "point": {
+        "lat": 35.963564842,
+        "lng": 139.391844506,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.963564842,
+    "longitude": 139.391844506
+  },
+  {
+    "row": 77,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸鎌倉町店",
+    "address": "埼玉県坂戸市鎌倉町3-26",
+    "phone": "049-289-8200",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "鎌倉町",
+      "addr": "3-26",
+      "level": 8,
+      "point": {
+        "lat": 35.966278475,
+        "lng": 139.403129828,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.966278475,
+    "longitude": 139.403129828
+  },
+  {
+    "row": 79,
+    "name": "(株)セブン‐イレブン・ジャパン 若葉駅東口店",
+    "address": "埼玉県坂戸市千代田三丁目21-23",
+    "phone": "049-289-5600",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田三丁目",
+      "addr": "21-23",
+      "level": 8,
+      "point": {
+        "lat": 35.950221553,
+        "lng": 139.410191708,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.950221553,
+    "longitude": 139.410191708
+  },
+  {
+    "row": 80,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸浅羽店",
+    "address": "埼玉県坂戸市大字浅羽1538-1",
+    "phone": "049-282-7606",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字浅羽",
+      "addr": "1538-1",
+      "level": 8,
+      "point": {
+        "lat": 35.948676559,
+        "lng": 139.37587908,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.948676559,
+    "longitude": 139.37587908
+  },
+  {
+    "row": 82,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸毛呂山バイパス店",
+    "address": "埼玉県坂戸市大字善能寺263-1",
+    "phone": "049-289-8686",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字善能寺",
+      "addr": "263-1",
+      "level": 8,
+      "point": {
+        "lat": 35.961185473,
+        "lng": 139.359348461,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.961185473,
+    "longitude": 139.359348461
+  },
+  {
+    "row": 86,
+    "name": "(株)セブン‐イレブン・ジャパン 坂戸一本松店",
+    "address": "埼玉県坂戸市大字厚川11-9",
+    "phone": "049-289-1198",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字厚川",
+      "addr": "11-9",
+      "level": 8,
+      "point": {
+        "lat": 35.942373196,
+        "lng": 139.368929279,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.942373196,
+    "longitude": 139.368929279
+  },
+  {
+    "row": 87,
+    "name": "(株)ファミリーマート 坂戸中小坂南店",
+    "address": "埼玉県坂戸市大字中小坂328-1",
+    "phone": "049-288-3280",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字中小坂",
+      "addr": "328-1",
+      "level": 8,
+      "point": {
+        "lat": 35.948777947,
+        "lng": 139.45011146,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.948777947,
+    "longitude": 139.45011146
+  },
+  {
+    "row": 88,
+    "name": "(株)ファミリーマート 坂戸青木店",
+    "address": "埼玉県坂戸市大字青木764-1",
+    "phone": "049-288-6305",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字青木",
+      "addr": "764-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967145928,
+        "lng": 139.431051445,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.967145928,
+    "longitude": 139.431051445
+  },
+  {
+    "row": 89,
+    "name": "(株)ファミリーマート 坂戸塚越店",
+    "address": "埼玉県坂戸市大字塚越1232-1",
+    "phone": "049-288-4175",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字塚越",
+      "addr": "1232-1",
+      "level": 8,
+      "point": {
+        "lat": 35.964676767,
+        "lng": 139.421769169,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.964676767,
+    "longitude": 139.421769169
+  },
+  {
+    "row": 90,
+    "name": "(株)ファミリーマート 坂戸駅北口店",
+    "address": "埼玉県坂戸市日の出町3-21",
+    "phone": "049-280-7781",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "日の出町",
+      "addr": "3-21",
+      "level": 8,
+      "point": {
+        "lat": 35.957365992,
+        "lng": 139.392680475,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957365992,
+    "longitude": 139.392680475
+  },
+  {
+    "row": 92,
+    "name": "(株)ファミリーマート 坂戸南町店",
+    "address": "埼玉県坂戸市南町17-16",
+    "phone": "049-288-2505",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "南町",
+      "addr": "17-16",
+      "level": 8,
+      "point": {
+        "lat": 35.956109847,
+        "lng": 139.395436353,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.956109847,
+    "longitude": 139.395436353
+  },
+  {
+    "row": 94,
+    "name": "(株)ファミリーマート 坂戸千代田1丁目店",
+    "address": "埼玉県坂戸市千代田一丁目16-6",
+    "phone": "049-288-1100",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "千代田一丁目",
+      "addr": "16-6",
+      "level": 8,
+      "point": {
+        "lat": 35.955467192,
+        "lng": 139.40719865,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.955467192,
+    "longitude": 139.40719865
+  },
+  {
+    "row": 95,
+    "name": "(株)ローソン 坂戸駅北口店",
+    "address": "埼玉県坂戸市日の出町1-1",
+    "phone": "049-280-0565",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "日の出町",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.957401717,
+        "lng": 139.393502828,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.957401717,
+    "longitude": 139.393502828
+  },
+  {
+    "row": 96,
+    "name": "(株)ローソン 坂戸南町店",
+    "address": "埼玉県坂戸市南町4-15",
+    "phone": "049-282-3900",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "南町",
+      "addr": "4-15",
+      "level": 8,
+      "point": {
+        "lat": 35.955215106,
+        "lng": 139.39347264200003,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.955215106,
+    "longitude": 139.39347264200003
+  },
+  {
+    "row": 97,
+    "name": "(株)ローソン 坂戸仲町店",
+    "address": "埼玉県坂戸市仲町11-7",
+    "phone": "049-299-7034",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "仲町",
+      "addr": "11-7",
+      "level": 8,
+      "point": {
+        "lat": 35.962298967,
+        "lng": 139.396333969,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.962298967,
+    "longitude": 139.396333969
+  },
+  {
+    "row": 98,
+    "name": "(株)ローソン 坂戸塚越店",
+    "address": "埼玉県坂戸市大字塚越1144-5",
+    "phone": "049-281-5586",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字塚越",
+      "addr": "1144-5",
+      "level": 8,
+      "point": {
+        "lat": 35.960905248,
+        "lng": 139.421667699,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.960905248,
+    "longitude": 139.421667699
+  },
+  {
+    "row": 99,
+    "name": "(株)ローソン 坂戸石井店",
+    "address": "埼玉県坂戸市大字石井1911-5",
+    "phone": "049-282-6136",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字石井",
+      "addr": "1911-5",
+      "level": 8,
+      "point": {
+        "lat": 35.973116229,
+        "lng": 139.418453513,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.973116229,
+    "longitude": 139.418453513
+  },
+  {
+    "row": 100,
+    "name": "(株)ローソン 坂戸上吉田店",
+    "address": "埼玉県坂戸市大字上吉田231-1",
+    "phone": "049-280-2255",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2525",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-09-19",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "坂戸市",
+      "town": "大字上吉田",
+      "addr": "231-1",
+      "level": 8,
+      "point": {
+        "lat": 35.979265923,
+        "lng": 139.394863992,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.979265923,
+    "longitude": 139.394863992
+  }
+]

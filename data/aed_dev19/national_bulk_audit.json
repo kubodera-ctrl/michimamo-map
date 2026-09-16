@@ -1,0 +1,45 @@
+{
+  "audited_at": "2026-09-16T00:00:00Z",
+  "goal": "商用再利用可能な全国一括AEDデータを優先し、10万件級追加の可否を検証",
+  "production_before": {
+    "public_aed": 47392,
+    "invalid_public_coordinates": 0
+  },
+  "routes": [
+    {
+      "name": "BODIK AED API",
+      "status": "available_already_integrated",
+      "organizations": 252,
+      "fetched_rows": 28534,
+      "previous_normalized_rows": 20441,
+      "previous_published_after_production_deduplication": 12502,
+      "new_rows_detected": 0
+    },
+    {
+      "name": "AEDオープンデータプラットフォーム",
+      "license": "CC BY 3.0",
+      "status": "api_discontinued_or_unreachable",
+      "fetched_rows": 0
+    },
+    {
+      "name": "G空間情報センター 全国AED 設置位置",
+      "resource_id": "bfc3b8da-073a-4e3b-98c7-ff2f40edb621",
+      "status": "not_publicly_accessible",
+      "fetched_rows": 0
+    },
+    {
+      "name": "aedm.jp / 日本救急医療財団全国AEDマップ",
+      "status": "excluded_no_bulk_reuse_permission_confirmed",
+      "fetched_rows": 0
+    }
+  ],
+  "candidate_rows_secured_this_run": 28534,
+  "new_rows_after_comparison": 0,
+  "new_rows_after_deduplication": 0,
+  "published_this_run": 0,
+  "production_after": {
+    "public_aed": 47392,
+    "invalid_public_coordinates": 0
+  },
+  "hundred_thousand_scale_result": "not_available_from_confirmed_reusable_sources"
+}

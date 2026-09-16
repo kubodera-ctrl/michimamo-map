@@ -1,0 +1,9 @@
+{
+  "code": "11408",
+  "prefecture": "埼玉県",
+  "municipality": "寄居町",
+  "source_rows": 40,
+  "accepted": 0,
+  "held": 40,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

@@ -1,0 +1,5088 @@
+[
+  {
+    "row": 4,
+    "name": "尾山台出張所",
+    "address": "埼玉県上尾市大字瓦葺2528-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2528-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "緑丘五丁目公民館",
+    "address": "埼玉県上尾市緑丘5-15-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "緑丘五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.9867,
+        "lng": 139.588136,
+        "level": 3
+      },
+      "other": "15-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "陣屋公民館",
+    "address": "埼玉県上尾市大字上尾下910",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾下",
+      "level": 3,
+      "point": {
+        "lat": 35.970962,
+        "lng": 139.612342,
+        "level": 3
+      },
+      "other": "910"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "二ツ宮公民館",
+    "address": "埼玉県上尾市二ツ宮943",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "二ツ宮",
+      "addr": "943",
+      "level": 8,
+      "point": {
+        "lat": 35.981087,
+        "lng": 139.601213,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "向原公民館",
+    "address": "埼玉県上尾市大字上尾村543-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "addr": "543-3",
+      "level": 8,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "春日土地区画整理組合記念会館",
+    "address": "埼玉県上尾市春日1-45-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "春日一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.978551,
+        "lng": 139.581529,
+        "level": 3
+      },
+      "other": "45-9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "富士見団地集会所",
+    "address": "埼玉県上尾市富士見2-260-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "富士見二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.968408,
+        "lng": 139.58338,
+        "level": 3
+      },
+      "other": "260-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "原新町公民館",
+    "address": "埼玉県上尾市原新町12-19",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "原新町",
+      "level": 3,
+      "point": {
+        "lat": 35.98557,
+        "lng": 139.578372,
+        "level": 3
+      },
+      "other": "12-19"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "上尾東団地集会所",
+    "address": "埼玉県上尾市本町6-13-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "本町六丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.984523,
+        "lng": 139.592402,
+        "level": 3
+      },
+      "other": "13-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "上尾向原集会所",
+    "address": "埼玉県上尾市大字上尾村1269-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "addr": "1269-1",
+      "level": 8,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "平方新田集落センター",
+    "address": "埼玉県上尾市大字平方4072",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平方",
+      "level": 3,
+      "point": {
+        "lat": 35.946355,
+        "lng": 139.548224,
+        "level": 3
+      },
+      "other": "4072"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "原市一区公民館",
+    "address": "埼玉県上尾市大字原市1006-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "1006-2",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "原市二区集会所",
+    "address": "埼玉県上尾市原市北1-21-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "原市北一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.972389,
+        "lng": 139.620415,
+        "level": 3
+      },
+      "other": "21-11"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "原市三区公民館",
+    "address": "埼玉県上尾市大字原市2252-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "2252-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "原市四区公民館",
+    "address": "埼玉県上尾市大字原市2362",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "2362",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "白樺団地公民館",
+    "address": "埼玉県上尾市大字原市3233",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "3233"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "原市五区公民館",
+    "address": "埼玉県上尾市大字原市3705",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "3705"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 50,
+    "name": "原市六区集会所",
+    "address": "埼玉県上尾市大字原市4141",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "4141"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 51,
+    "name": "原市むつみ水交自治会館",
+    "address": "埼玉県上尾市大字原市569-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "569-15",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "東大宮ハウス集会所",
+    "address": "埼玉県上尾市大字原市3873-12",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3873-12",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 53,
+    "name": "原市第七区集会所",
+    "address": "埼玉県上尾市大字瓦葺1524-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "1524-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 54,
+    "name": "瓦葺自治会館",
+    "address": "埼玉県上尾市大字瓦葺1035-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "1035-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 55,
+    "name": "原市九区自治会館",
+    "address": "埼玉県上尾市瓦葺2280-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2280-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "はらいち台自治会館",
+    "address": "埼玉県上尾市大字原市1790-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "1790-9",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 57,
+    "name": "柳通り北区自治会館",
+    "address": "埼玉県上尾市大字原市1380-4",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "1380-4",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 60,
+    "name": "下芝公民館",
+    "address": "埼玉県上尾市中分2-277",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中分二丁目",
+      "addr": "277",
+      "level": 8,
+      "point": {
+        "lat": 35.975731,
+        "lng": 139.554033,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 61,
+    "name": "中分公民館",
+    "address": "埼玉県上尾市中分3-101",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中分三丁目",
+      "addr": "101",
+      "level": 8,
+      "point": {
+        "lat": 35.979547,
+        "lng": 139.551202,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 62,
+    "name": "藤波公民館",
+    "address": "埼玉県上尾市藤波1-282-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "藤波一丁目",
+      "addr": "282-1",
+      "level": 8,
+      "point": {
+        "lat": 35.98531,
+        "lng": 139.54319,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 63,
+    "name": "井戸木記念会館",
+    "address": "埼玉県上尾市井戸木1-22-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "井戸木一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.989689,
+        "lng": 139.56304,
+        "level": 3
+      },
+      "other": "22-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "中妻公民館",
+    "address": "埼玉県上尾市中妻2-9-4",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.982402,
+        "lng": 139.571473,
+        "level": 3
+      },
+      "other": "9-4"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 65,
+    "name": "浅間台会館",
+    "address": "埼玉県上尾市浅間台3-7-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "浅間台三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.976222,
+        "lng": 139.572973,
+        "level": 3
+      },
+      "other": "7-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 69,
+    "name": "大石農民センター",
+    "address": "埼玉県上尾市大字畔吉835",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字畔吉",
+      "level": 3,
+      "point": {
+        "lat": 35.962632,
+        "lng": 139.545374,
+        "level": 3
+      },
+      "other": "835"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 71,
+    "name": "みついホール",
+    "address": "埼玉県上尾市大字小泉6-97",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "小泉六丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.970937,
+        "lng": 139.565085,
+        "level": 3
+      },
+      "other": "97"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 72,
+    "name": "三井サニータウン自治会集会所",
+    "address": "埼玉県上尾市大字今泉352-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "352-9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 73,
+    "name": "西上尾メイプルタウン集会所",
+    "address": "埼玉県上尾市大字小敷谷858-21",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "858-21",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 74,
+    "name": "泉台記念会館",
+    "address": "埼玉県上尾市泉台2-17-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "泉台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.986338,
+        "lng": 139.55768,
+        "level": 3
+      },
+      "other": "17-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 75,
+    "name": "町谷公民館",
+    "address": "埼玉県上尾市大字上122-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "122-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 76,
+    "name": "宮の下集会所",
+    "address": "埼玉県上尾市大字上654-4",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "654-4"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 77,
+    "name": "上郷区集会所",
+    "address": "埼玉県上尾市大字上1257-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "1257-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "箕の木区公民館",
+    "address": "埼玉県上尾市大字上953-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "953-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 79,
+    "name": "上新梨子集会所",
+    "address": "埼玉県上尾市大字上723-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "723-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 80,
+    "name": "久保自治会館",
+    "address": "埼玉県上尾市大字久保330-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字久保",
+      "addr": "330-1",
+      "level": 8,
+      "point": {
+        "lat": 35.993358,
+        "lng": 139.579058,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 81,
+    "name": "西門前集会所",
+    "address": "埼玉県上尾市大字西門前412-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字西門前",
+      "addr": "412-15",
+      "level": 8,
+      "point": {
+        "lat": 35.99507,
+        "lng": 139.583307,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 82,
+    "name": "南区公民館",
+    "address": "埼玉県上尾市大字南228-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字南",
+      "addr": "228-2",
+      "level": 8,
+      "point": {
+        "lat": 36.002704,
+        "lng": 139.585575,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 83,
+    "name": "南新梨子公民館",
+    "address": "埼玉県上尾市大字南303-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字南",
+      "addr": "303-1",
+      "level": 8,
+      "point": {
+        "lat": 36.002704,
+        "lng": 139.585575,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 84,
+    "name": "下組区公民館",
+    "address": "埼玉県上尾市菅谷1-25",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷一丁目",
+      "addr": "25",
+      "level": 8,
+      "point": {
+        "lat": 35.999002,
+        "lng": 139.593364,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 85,
+    "name": "北中地公民館",
+    "address": "埼玉県上尾市菅谷2-32",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷二丁目",
+      "addr": "32",
+      "level": 8,
+      "point": {
+        "lat": 36.001298,
+        "lng": 139.596735,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 86,
+    "name": "新田公民館",
+    "address": "埼玉県上尾市菅谷3-30",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷三丁目",
+      "addr": "30",
+      "level": 8,
+      "point": {
+        "lat": 36.001266,
+        "lng": 139.592129,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 87,
+    "name": "上組公民館",
+    "address": "埼玉県上尾市菅谷6-111",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷六丁目",
+      "addr": "111",
+      "level": 8,
+      "point": {
+        "lat": 36.006724,
+        "lng": 139.591533,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 88,
+    "name": "須ケ谷集落センター",
+    "address": "埼玉県上尾市須ケ谷2-111",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "須ケ谷二丁目",
+      "addr": "111",
+      "level": 8,
+      "point": {
+        "lat": 36.00326,
+        "lng": 139.598879,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "上平塚区民センター",
+    "address": "埼玉県上尾市平塚1-148",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "平塚一丁目",
+      "addr": "148",
+      "level": 8,
+      "point": {
+        "lat": 35.996518,
+        "lng": 139.595571,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 90,
+    "name": "中平塚自治会館",
+    "address": "埼玉県上尾市平塚1708",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "level": 3,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": "1708"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 91,
+    "name": "下平塚区自治会館",
+    "address": "埼玉県上尾市大字平塚518",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "addr": "518",
+      "level": 8,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 92,
+    "name": "平塚団地集会所",
+    "address": "埼玉県上尾市大字平塚2025",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "level": 3,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": "2025"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 93,
+    "name": "上尾第一団地集会所",
+    "address": "埼玉県上尾市大字上1481-81",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "1481-81"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 94,
+    "name": "シラコバト団地第一集会所",
+    "address": "埼玉県上尾市大字上370",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "370"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 95,
+    "name": "錦町第1公民館",
+    "address": "埼玉県上尾市上平中央2-17-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.99230500000001,
+        "lng": 139.584239,
+        "level": 3
+      },
+      "other": "17-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 96,
+    "name": "錦町第2公民館",
+    "address": "埼玉県上尾市錦町35-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "錦町",
+      "level": 3,
+      "point": {
+        "lat": 35.988549,
+        "lng": 139.587851,
+        "level": 3
+      },
+      "other": "35-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 99,
+    "name": "今泉公民館",
+    "address": "埼玉県上尾市今泉2-33-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "2-33-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 100,
+    "name": "今泉公民館別館だんらんの家",
+    "address": "埼玉県上尾市大字今泉255-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "255-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 101,
+    "name": "東今泉集会所",
+    "address": "埼玉県上尾市東今泉22-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "level": 2,
+      "point": {
+        "lat": 35.977408,
+        "lng": 139.593203,
+        "level": 2
+      },
+      "other": "東今泉22-15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 102,
+    "name": "向山自治センター",
+    "address": "埼玉県上尾市向山1-43-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.960935,
+        "lng": 139.583224,
+        "level": 3
+      },
+      "other": "43-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 103,
+    "name": "大谷本郷自治会館",
+    "address": "埼玉県上尾市大字大谷本郷802-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "802-1",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 107,
+    "name": "天神会館",
+    "address": "埼玉県上尾市西宮下1-225",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下一丁目",
+      "addr": "225",
+      "level": 8,
+      "point": {
+        "lat": 35.967443,
+        "lng": 139.591616,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 108,
+    "name": "西宮下二区公民館",
+    "address": "埼玉県上尾市西宮下3-18-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下三丁目",
+      "addr": "18-1",
+      "level": 8,
+      "point": {
+        "lat": 35.962918,
+        "lng": 139.595048,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 109,
+    "name": "西宮下三丁目自治会別館",
+    "address": "埼玉県上尾市西宮下3-241-81",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下三丁目",
+      "addr": "241-81",
+      "level": 8,
+      "point": {
+        "lat": 35.962918,
+        "lng": 139.595048,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 110,
+    "name": "川公民館",
+    "address": "埼玉県上尾市川2-3-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "川二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.964724,
+        "lng": 139.578768,
+        "level": 3
+      },
+      "other": "3-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 112,
+    "name": "原市団地自治会事務所",
+    "address": "埼玉県上尾市大字原市3336",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "3336"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 113,
+    "name": "尾山台団地尾山台みんなのひろば",
+    "address": "埼玉県上尾市大字瓦葺2716",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2716"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 114,
+    "name": "尾山台団地自治会",
+    "address": "埼玉県上尾市大字瓦葺2716",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2716"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 115,
+    "name": "西上尾第一団地自治会事務所",
+    "address": "埼玉県上尾市大字小敷谷845-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "845-1",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 117,
+    "name": "上尾市文化センター",
+    "address": "埼玉県上尾市二ツ宮750",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "二ツ宮",
+      "level": 3,
+      "point": {
+        "lat": 35.981087,
+        "lng": 139.601213,
+        "level": 3
+      },
+      "other": "750"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 119,
+    "name": "原市支所",
+    "address": "埼玉県上尾市大字原市3241",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3241",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 120,
+    "name": "イコス上尾",
+    "address": "埼玉県上尾市大字平塚951-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "addr": "951-2",
+      "level": 8,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 124,
+    "name": "上平公民館",
+    "address": "埼玉県上尾市上平中央3-31-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.993017,
+        "lng": 139.586748,
+        "level": 3
+      },
+      "other": "31-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 126,
+    "name": "原市公民館",
+    "address": "埼玉県上尾市大字原市3499",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3499",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 128,
+    "name": "大谷公民館",
+    "address": "埼玉県上尾市大字大谷本郷949-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "949-1",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 129,
+    "name": "原市集会所",
+    "address": "埼玉県上尾市大字原市4169-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "4169-3",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 132,
+    "name": "児童館こどもの城",
+    "address": "埼玉県上尾市今泉3-18-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "3-18-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 134,
+    "name": "尾山台学童保育所",
+    "address": "埼玉県上尾市大字瓦葺510",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "510"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 135,
+    "name": "瓦葺小学童保育所",
+    "address": "埼玉県上尾市大字瓦葺2260",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2260"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 136,
+    "name": "原市学童保育所",
+    "address": "埼玉県上尾市大字原市3508-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3508-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 137,
+    "name": "原市南学童保育所",
+    "address": "埼玉県上尾市大字原市3990",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "3990"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 138,
+    "name": "芝川学童保育所",
+    "address": "埼玉県上尾市上平中央1-8-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.990648,
+        "lng": 139.581631,
+        "level": 3
+      },
+      "other": "8-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 139,
+    "name": "今泉小学童保育所",
+    "address": "埼玉県上尾市今泉3-17-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "3-17-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 141,
+    "name": "富士見小学童保育所",
+    "address": "埼玉県上尾市柏座4-3-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "柏座四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.970672,
+        "lng": 139.579222,
+        "level": 3
+      },
+      "other": "3-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 144,
+    "name": "東小学童保育所",
+    "address": "埼玉県上尾市大字上尾村1171-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "addr": "1171-2",
+      "level": 8,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 145,
+    "name": "鴨川小学童保育所",
+    "address": "埼玉県上尾市西宮下4-400",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.965085,
+        "lng": 139.588623,
+        "level": 3
+      },
+      "other": "400"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 147,
+    "name": "大石南小学童保育所",
+    "address": "埼玉県上尾市大字畔吉1333",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字畔吉",
+      "level": 3,
+      "point": {
+        "lat": 35.962632,
+        "lng": 139.545374,
+        "level": 3
+      },
+      "other": "1333"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 148,
+    "name": "上平北学童保育所",
+    "address": "埼玉県上尾市大字久保414-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字久保",
+      "addr": "414-3",
+      "level": 8,
+      "point": {
+        "lat": 35.993358,
+        "lng": 139.579058,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 150,
+    "name": "大谷学童保育所",
+    "address": "埼玉県上尾市大字大谷本郷631-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "631-1",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 151,
+    "name": "上平小学童保育所",
+    "address": "埼玉県上尾市大字南102",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字南",
+      "addr": "102",
+      "level": 8,
+      "point": {
+        "lat": 36.002704,
+        "lng": 139.585575,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 152,
+    "name": "東町小学童保育所",
+    "address": "埼玉県上尾市東町3-1947",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "東町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.973823,
+        "lng": 139.60555,
+        "level": 3
+      },
+      "other": "1947"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 153,
+    "name": "東小第二学童保育所",
+    "address": "埼玉県上尾市大字上尾村496",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "level": 3,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": "496"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 154,
+    "name": "大石北小学童保育所",
+    "address": "埼玉県上尾市井戸木4-23",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "井戸木四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.987235,
+        "lng": 139.56128100000004,
+        "level": 3
+      },
+      "other": "23"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 155,
+    "name": "西小なかよし児童クラブ",
+    "address": "埼玉県上尾市今泉1-7-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "今泉一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.969376,
+        "lng": 139.573447,
+        "level": 3
+      },
+      "other": "7-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 156,
+    "name": "平方北小学童保育所",
+    "address": "埼玉県上尾市大字平方3657",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平方",
+      "level": 3,
+      "point": {
+        "lat": 35.946355,
+        "lng": 139.548224,
+        "level": 3
+      },
+      "other": "3657"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 157,
+    "name": "大石第三学童保育所",
+    "address": "埼玉県上尾市中分1-7-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中分一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.970365,
+        "lng": 139.558019,
+        "level": 3
+      },
+      "other": "7-9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 158,
+    "name": "原市第二学童にこにこクラブ",
+    "address": "埼玉県上尾市大字原市3508-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3508-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 159,
+    "name": "原市第三学童保育所",
+    "address": "埼玉県上尾市大字原市3508-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3508-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 160,
+    "name": "大谷第二学童保育所",
+    "address": "埼玉県上尾市向山2-17-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.958758,
+        "lng": 139.578316,
+        "level": 3
+      },
+      "other": "17-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 161,
+    "name": "芝川第二学童保育所",
+    "address": "埼玉県上尾市錦町18-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "錦町",
+      "level": 3,
+      "point": {
+        "lat": 35.988549,
+        "lng": 139.587851,
+        "level": 3
+      },
+      "other": "18-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 163,
+    "name": "大石第二学童保育所",
+    "address": "埼玉県上尾市中分2-107",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中分二丁目",
+      "addr": "107",
+      "level": 8,
+      "point": {
+        "lat": 35.975731,
+        "lng": 139.554033,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 164,
+    "name": "大石北小第二学童保育所",
+    "address": "埼玉県上尾市泉台2-6-21",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "泉台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.986338,
+        "lng": 139.55768,
+        "level": 3
+      },
+      "other": "6-21"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 165,
+    "name": "東町小第二学童保育所",
+    "address": "埼玉県上尾市東町3-1588-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "東町三丁目",
+      "addr": "1588-2",
+      "level": 8,
+      "point": {
+        "lat": 35.973823,
+        "lng": 139.60555,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 166,
+    "name": "大谷第三学童保育所",
+    "address": "埼玉県上尾市大字大谷本郷314-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "314-2",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 169,
+    "name": "鴨川小第二学童保育所",
+    "address": "埼玉県上尾市西宮下1-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.967443,
+        "lng": 139.591616,
+        "level": 3
+      },
+      "other": "9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 170,
+    "name": "原市南第二学童保育所",
+    "address": "埼玉県上尾市大字原市4012-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "4012-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 171,
+    "name": "芝川第三学童保育所",
+    "address": "埼玉県上尾市上平中央1-27-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.990648,
+        "lng": 139.581631,
+        "level": 3
+      },
+      "other": "27-11"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 175,
+    "name": "原市保育所",
+    "address": "埼玉県上尾市大字原市3241",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3241",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 176,
+    "name": "上尾西保育所",
+    "address": "埼玉県上尾市春日2-20-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "春日二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.976710000000004,
+        "lng": 139.578473,
+        "level": 3
+      },
+      "other": "20-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 178,
+    "name": "かわらぶき保育所",
+    "address": "埼玉県上尾市大字瓦葺2248",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2248"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 179,
+    "name": "大谷保育所",
+    "address": "埼玉県上尾市西宮下4-380-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下四丁目",
+      "addr": "380-3",
+      "level": 8,
+      "point": {
+        "lat": 35.965085,
+        "lng": 139.588623,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 181,
+    "name": "小敷谷保育所",
+    "address": "埼玉県上尾市大字小敷谷723-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "723-1",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 182,
+    "name": "原市南保育所",
+    "address": "埼玉県上尾市大字原市4166",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "4166"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 184,
+    "name": "上平保育所",
+    "address": "埼玉県上尾市大字西門前498-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字西門前",
+      "addr": "498-1",
+      "level": 8,
+      "point": {
+        "lat": 35.99507,
+        "lng": 139.583307,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 186,
+    "name": "さつき保育園",
+    "address": "埼玉県上尾市大字菅谷43-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字菅谷",
+      "addr": "43-1",
+      "level": 8,
+      "point": {
+        "lat": 35.999757,
+        "lng": 139.589083,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 187,
+    "name": "保育園アミ・クレイシュ",
+    "address": "埼玉県上尾市浅間台1-18-30",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "浅間台一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.983071,
+        "lng": 139.577034,
+        "level": 3
+      },
+      "other": "18-30"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 189,
+    "name": "向山保育園",
+    "address": "埼玉県上尾市向山4-3-21",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.961544,
+        "lng": 139.576472,
+        "level": 3
+      },
+      "other": "3-21"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 190,
+    "name": "こどもの園プラムハウス",
+    "address": "埼玉県上尾市西宮下1-16-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下一丁目",
+      "addr": "16-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967443,
+        "lng": 139.591616,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 191,
+    "name": "こどもの園プラムハウス分園",
+    "address": "埼玉県上尾市西宮下2-23-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下二丁目",
+      "addr": "23-3",
+      "level": 8,
+      "point": {
+        "lat": 35.963554,
+        "lng": 139.591982,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 192,
+    "name": "ゆうゆうくじら保育園",
+    "address": "埼玉県上尾市大字原市3870-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3870-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 193,
+    "name": "カオルキッズランド中妻園",
+    "address": "埼玉県上尾市中妻5-28-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.985681,
+        "lng": 139.565157,
+        "level": 3
+      },
+      "other": "28-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 195,
+    "name": "ゆうゆうくじら第2保育園",
+    "address": "埼玉県上尾市大字原市4004-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "4004-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 196,
+    "name": "ころぽっくる第二保育園",
+    "address": "埼玉県上尾市大字上野567",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上野",
+      "level": 3,
+      "point": {
+        "lat": 35.943792,
+        "lng": 139.560427,
+        "level": 3
+      },
+      "other": "567"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 197,
+    "name": "白ばら学園第2こどもの家",
+    "address": "埼玉県上尾市小泉1-8-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "小泉一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.97062,
+        "lng": 139.571566,
+        "level": 3
+      },
+      "other": "8-22"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 198,
+    "name": "ヴィラ・アミクレイシュ",
+    "address": "埼玉県上尾市大字平塚789-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "addr": "789-1",
+      "level": 8,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 199,
+    "name": "スターファーム保育園",
+    "address": "埼玉県上尾市今泉3-11-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "3-11-15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 200,
+    "name": "Gakkenほいくえん北上尾",
+    "address": "埼玉県上尾市原新町4-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "原新町",
+      "level": 3,
+      "point": {
+        "lat": 35.98557,
+        "lng": 139.578372,
+        "level": 3
+      },
+      "other": "4-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 202,
+    "name": "プリスクレール ディゾ アンジェ",
+    "address": "埼玉県上尾市緑丘3-3-11-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "緑丘三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.987785,
+        "lng": 139.580147,
+        "level": 3
+      },
+      "other": "3-11-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 203,
+    "name": "みつばちBunBun保育園",
+    "address": "埼玉県上尾市大字大谷本郷824-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "824-5",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 204,
+    "name": "上尾たいよう保育園",
+    "address": "埼玉県上尾市大字瓦葺1951-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "1951-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 205,
+    "name": "北上尾たいよう保育園",
+    "address": "埼玉県上尾市上平中央2-18-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.99230500000001,
+        "lng": 139.584239,
+        "level": 3
+      },
+      "other": "18-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 206,
+    "name": "うぐす保育園上尾春日",
+    "address": "埼玉県上尾市春日1-21-7",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "春日一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.978551,
+        "lng": 139.581529,
+        "level": 3
+      },
+      "other": "21-7"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 209,
+    "name": "つつみの森認定こども園",
+    "address": "埼玉県上尾市大字上22-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "22-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 212,
+    "name": "原市文化認定こども園",
+    "address": "埼玉県上尾市大字瓦葺1032",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "1032"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 214,
+    "name": "エンゼル愛児園",
+    "address": "埼玉県上尾市向山4-6-18",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.961544,
+        "lng": 139.576472,
+        "level": 3
+      },
+      "other": "6-18"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 218,
+    "name": "あおぞら保育園",
+    "address": "埼玉県上尾市大字上尾下888",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾下",
+      "level": 3,
+      "point": {
+        "lat": 35.970962,
+        "lng": 139.612342,
+        "level": 3
+      },
+      "other": "888"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 221,
+    "name": "バンビーナ北上尾園",
+    "address": "埼玉県上尾市原新町15-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "原新町",
+      "level": 3,
+      "point": {
+        "lat": 35.98557,
+        "lng": 139.578372,
+        "level": 3
+      },
+      "other": "15-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 222,
+    "name": "ナーサリーdeアンジェ北上尾",
+    "address": "埼玉県上尾市浅間台1-7-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "浅間台一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.983071,
+        "lng": 139.577034,
+        "level": 3
+      },
+      "other": "7-6"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 224,
+    "name": "グローバルキッズアリオ上尾園",
+    "address": "埼玉県上尾市壱丁目北29-14",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "壱丁目北",
+      "level": 3,
+      "point": {
+        "lat": 35.977408,
+        "lng": 139.593203,
+        "level": 2
+      },
+      "other": "29-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 225,
+    "name": "ナーサリーdeアンジェ上尾",
+    "address": "埼玉県上尾市柏座1-10-3-88",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "柏座一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.975568,
+        "lng": 139.585846,
+        "level": 3
+      },
+      "other": "10-3-88"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 228,
+    "name": "上尾すずらん保育園",
+    "address": "埼玉県上尾市原市北1-1-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "原市北一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.972389,
+        "lng": 139.620415,
+        "level": 3
+      },
+      "other": "1-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 229,
+    "name": "みんないっしょのいっぽ西保育園",
+    "address": "埼玉県上尾市中妻4-1-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.982721,
+        "lng": 139.565679,
+        "level": 3
+      },
+      "other": "1-11"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 231,
+    "name": "親愛上尾保育園",
+    "address": "埼玉県上尾市小泉1-21-13",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "小泉一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.97062,
+        "lng": 139.571566,
+        "level": 3
+      },
+      "other": "21-13"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 232,
+    "name": "うぐす保育園上尾原市",
+    "address": "埼玉県上尾市大字原市4276-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "4276-2",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 234,
+    "name": "埼玉ヤクルト保育園北上尾もぐもぐ保育ルーム",
+    "address": "埼玉県上尾市中妻1-14-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.984991,
+        "lng": 139.574472,
+        "level": 3
+      },
+      "other": "14-9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 236,
+    "name": "みんないっしょのいっぽ保育園",
+    "address": "埼玉県上尾市上尾下859-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾下",
+      "addr": "859-1",
+      "level": 8,
+      "point": {
+        "lat": 35.970962,
+        "lng": 139.612342,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 239,
+    "name": "上尾みずほ幼稚園",
+    "address": "埼玉県上尾市大字原市50-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "50-3",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 240,
+    "name": "尾山台幼稚園",
+    "address": "埼玉県上尾市大字瓦葺2716",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2716"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 241,
+    "name": "上尾寿幼稚園",
+    "address": "埼玉県上尾市大字上1521",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "1521"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 242,
+    "name": "花園幼稚園",
+    "address": "埼玉県上尾市中妻2-13-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.982402,
+        "lng": 139.571473,
+        "level": 3
+      },
+      "other": "13-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 244,
+    "name": "西上尾しらぎく幼稚園",
+    "address": "埼玉県上尾市今泉2-23-14",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "2-23-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 246,
+    "name": "妙厳寺幼稚園",
+    "address": "埼玉県上尾市大字原市977-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "977-2",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 247,
+    "name": "星野学園幼稚園",
+    "address": "埼玉県上尾市大字小敷谷858-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "858-2",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 249,
+    "name": "双葉台幼稚園",
+    "address": "埼玉県上尾市今泉2-1-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "2-1-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 250,
+    "name": "上尾寿第二幼稚園",
+    "address": "埼玉県上尾市二ツ宮1087",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "二ツ宮",
+      "addr": "1087",
+      "level": 8,
+      "point": {
+        "lat": 35.981087,
+        "lng": 139.601213,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 251,
+    "name": "カオル幼稚園",
+    "address": "埼玉県上尾市藤波4-125",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "藤波四丁目",
+      "addr": "125",
+      "level": 8,
+      "point": {
+        "lat": 35.987314,
+        "lng": 139.54875,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 252,
+    "name": "みやした幼稚園",
+    "address": "埼玉県上尾市西宮下1-68",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下一丁目",
+      "addr": "68",
+      "level": 8,
+      "point": {
+        "lat": 35.967443,
+        "lng": 139.591616,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 253,
+    "name": "ひかわ幼稚園",
+    "address": "埼玉県上尾市二ツ宮864",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "二ツ宮",
+      "addr": "864",
+      "level": 8,
+      "point": {
+        "lat": 35.981087,
+        "lng": 139.601213,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 254,
+    "name": "セブンイレブン上尾川店",
+    "address": "埼玉県上尾市川2-3-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "川二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.964724,
+        "lng": 139.578768,
+        "level": 3
+      },
+      "other": "3-9"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 255,
+    "name": "セブンイレブン上尾沼南店",
+    "address": "埼玉県上尾市大字原市3656-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3656-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 260,
+    "name": "セブンイレブン上尾原市バイパス店",
+    "address": "埼玉県上尾市大字原市1105",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "1105",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 261,
+    "name": "セブンイレブン上尾平塚2丁目店",
+    "address": "埼玉県上尾市平塚2-159",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "平塚二丁目",
+      "addr": "159",
+      "level": 8,
+      "point": {
+        "lat": 35.998344,
+        "lng": 139.599326,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 262,
+    "name": "セブンイレブン上尾二ツ宮店",
+    "address": "埼玉県上尾市二ツ宮826-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "二ツ宮",
+      "addr": "826-1",
+      "level": 8,
+      "point": {
+        "lat": 35.981087,
+        "lng": 139.601213,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 268,
+    "name": "セブンイレブン上尾中分1丁目店",
+    "address": "埼玉県上尾市中分1-25-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中分一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.970365,
+        "lng": 139.558019,
+        "level": 3
+      },
+      "other": "25-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 269,
+    "name": "セブンイレブン上尾向山店",
+    "address": "埼玉県上尾市向山1-27-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.960935,
+        "lng": 139.583224,
+        "level": 3
+      },
+      "other": "27-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 270,
+    "name": "セブンイレブン上尾上店",
+    "address": "埼玉県上尾市大字上233-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "233-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 271,
+    "name": "セブンイレブン上尾中妻1丁目店",
+    "address": "埼玉県上尾市中妻1-15-19",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.984991,
+        "lng": 139.574472,
+        "level": 3
+      },
+      "other": "15-19"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 273,
+    "name": "セブンイレブン上尾原市店",
+    "address": "埼玉県上尾市大字原市4273-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "4273-6",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 275,
+    "name": "セブンイレブン上尾日の出4丁目店",
+    "address": "埼玉県上尾市日の出4-540-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "日の出四丁目",
+      "addr": "540-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967667,
+        "lng": 139.61054,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 277,
+    "name": "セブンイレブン上尾中妻3丁目店",
+    "address": "埼玉県上尾市中妻3-21-39",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.985349,
+        "lng": 139.569791,
+        "level": 3
+      },
+      "other": "21-39"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 278,
+    "name": "セブンイレブン上尾モンシェリー店",
+    "address": "埼玉県上尾市谷津2-1-50-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "谷津二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.971566,
+        "lng": 139.588161,
+        "level": 3
+      },
+      "other": "1-50-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 279,
+    "name": "セブンイレブン上尾原市団地店",
+    "address": "埼玉県上尾市大字原市3912-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3912-8",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 280,
+    "name": "セブンイレブンアリコベール上尾店",
+    "address": "埼玉県上尾市宮本町2-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "宮本町",
+      "level": 3,
+      "point": {
+        "lat": 35.974934000000005,
+        "lng": 139.59135100000003,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 281,
+    "name": "セブンイレブン上尾西門前店",
+    "address": "埼玉県上尾市上平中央1-24-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.990648,
+        "lng": 139.581631,
+        "level": 3
+      },
+      "other": "24-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 282,
+    "name": "セブンイレブン上尾菅谷1丁目店",
+    "address": "埼玉県上尾市菅谷1-69",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷一丁目",
+      "addr": "69",
+      "level": 8,
+      "point": {
+        "lat": 35.999002,
+        "lng": 139.593364,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 284,
+    "name": "セブンイレブン上尾西宮下店",
+    "address": "埼玉県上尾市西宮下2-333-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下二丁目",
+      "addr": "333-1",
+      "level": 8,
+      "point": {
+        "lat": 35.963554,
+        "lng": 139.591982,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 287,
+    "name": "セブンイレブン上尾上平消防署前店",
+    "address": "埼玉県上尾市上542-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上",
+      "level": 3,
+      "point": {
+        "lat": 35.999478,
+        "lng": 139.577774,
+        "level": 3
+      },
+      "other": "542-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 288,
+    "name": "ファミリーマート上尾小敷谷東店",
+    "address": "埼玉県上尾市大字小敷谷918-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "918-1",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 289,
+    "name": "セブンイレブン上尾東町3丁目店",
+    "address": "埼玉県上尾市東町3-1935-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "東町三丁目",
+      "addr": "1935-1",
+      "level": 8,
+      "point": {
+        "lat": 35.973823,
+        "lng": 139.60555,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 291,
+    "name": "ファミリーマート上尾原市西店",
+    "address": "埼玉県上尾市大字原市339-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "339-5",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 293,
+    "name": "ファミリーマート上尾中妻五丁目店",
+    "address": "埼玉県上尾市中妻5-23-4",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.985681,
+        "lng": 139.565157,
+        "level": 3
+      },
+      "other": "23-4"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 294,
+    "name": "ファミリーマート上尾藤波店",
+    "address": "埼玉県上尾市藤波3-273-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "藤波三丁目",
+      "addr": "273-1",
+      "level": 8,
+      "point": {
+        "lat": 35.990056,
+        "lng": 139.547755,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 295,
+    "name": "ファミリーマート北上尾駅西口店",
+    "address": "埼玉県上尾市中妻1-2-14",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.984991,
+        "lng": 139.574472,
+        "level": 3
+      },
+      "other": "2-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 296,
+    "name": "ファミリーマート上尾西門前店",
+    "address": "埼玉県上尾市上平中央1-13-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.990648,
+        "lng": 139.581631,
+        "level": 3
+      },
+      "other": "13-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 297,
+    "name": "ファミリーマート上尾菅谷四丁目店",
+    "address": "埼玉県上尾市菅谷4-35-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "菅谷四丁目",
+      "addr": "35-2",
+      "level": 8,
+      "point": {
+        "lat": 36.003049,
+        "lng": 139.594025,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 298,
+    "name": "ファミリーマート上尾上平公園南店",
+    "address": "埼玉県上尾市大字上尾村582-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "addr": "582-5",
+      "level": 8,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 299,
+    "name": "ファミリーマート上尾水上公園店",
+    "address": "埼玉県上尾市大字上尾下1033-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾下",
+      "addr": "1033-5",
+      "level": 8,
+      "point": {
+        "lat": 35.970962,
+        "lng": 139.612342,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 303,
+    "name": "ファミリーマート上尾小敷谷店",
+    "address": "埼玉県上尾市大字小敷谷659-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "659-1",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 304,
+    "name": "ファミリーマート上尾平塚店",
+    "address": "埼玉県上尾市大字平塚853-17",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平塚",
+      "addr": "853-17",
+      "level": 8,
+      "point": {
+        "lat": 35.986992,
+        "lng": 139.607925,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 306,
+    "name": "ファミリーマート上尾瓦葺店",
+    "address": "埼玉県上尾市大字瓦葺715-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "715-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 307,
+    "name": "ファミリーマート上尾泉台一丁目店",
+    "address": "埼玉県上尾市泉台1-7-12",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "泉台一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.981341,
+        "lng": 139.563274,
+        "level": 3
+      },
+      "other": "7-12"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 309,
+    "name": "ローソン上尾井戸木二丁目店",
+    "address": "埼玉県上尾市井戸木2-14-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "井戸木二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.992779,
+        "lng": 139.561843,
+        "level": 3
+      },
+      "other": "14-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 311,
+    "name": "ローソン上尾小敷谷店",
+    "address": "埼玉県上尾市大字小敷谷713-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "addr": "713-3",
+      "level": 8,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 312,
+    "name": "ローソン上尾平塚南店",
+    "address": "埼玉県上尾市大字原市1287-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "1287-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 313,
+    "name": "ローソン上尾大谷本郷店",
+    "address": "埼玉県上尾市大字大谷本郷984-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "984-1",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 314,
+    "name": "ローソン上尾須ヶ谷三丁目店",
+    "address": "埼玉県上尾市須ケ谷3-71",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "須ケ谷三丁目",
+      "addr": "71",
+      "level": 8,
+      "point": {
+        "lat": 36.005115,
+        "lng": 139.596865,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 316,
+    "name": "ローソン上尾瓦葺店",
+    "address": "埼玉県上尾市大字瓦葺545-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "545-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 317,
+    "name": "ローソン上尾瓦葺安中店",
+    "address": "埼玉県上尾市大字瓦葺2449-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2449-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 320,
+    "name": "大谷小学校",
+    "address": "埼玉県上尾市大字大谷本郷528",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "addr": "528",
+      "level": 8,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 323,
+    "name": "原市小学校",
+    "address": "埼玉県上尾市大字原市3508-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3508-1",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 324,
+    "name": "上平小学校",
+    "address": "埼玉県上尾市大字南102",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字南",
+      "addr": "102",
+      "level": 8,
+      "point": {
+        "lat": 36.002704,
+        "lng": 139.585575,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 325,
+    "name": "富士見小学校",
+    "address": "埼玉県上尾市柏座4-3-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "柏座四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.970672,
+        "lng": 139.579222,
+        "level": 3
+      },
+      "other": "3-8"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 326,
+    "name": "尾山台小学校",
+    "address": "埼玉県上尾市大字瓦葺509-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "509-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 327,
+    "name": "東小学校",
+    "address": "埼玉県上尾市大字上尾村1171-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "addr": "1171-2",
+      "level": 8,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 328,
+    "name": "大石南小学校",
+    "address": "埼玉県上尾市大字畔吉1333",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字畔吉",
+      "level": 3,
+      "point": {
+        "lat": 35.962632,
+        "lng": 139.545374,
+        "level": 3
+      },
+      "other": "1333"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 330,
+    "name": "原市南小学校",
+    "address": "埼玉県上尾市大字原市3990",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "level": 3,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": "3990"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 331,
+    "name": "鴨川小学校",
+    "address": "埼玉県上尾市西宮下4-400",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "西宮下四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.965085,
+        "lng": 139.588623,
+        "level": 3
+      },
+      "other": "400"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 332,
+    "name": "芝川小学校",
+    "address": "埼玉県上尾市上平中央1-8-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "上平中央一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.990648,
+        "lng": 139.581631,
+        "level": 3
+      },
+      "other": "8-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 333,
+    "name": "瓦葺小学校",
+    "address": "埼玉県上尾市大字瓦葺2260",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "2260"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 334,
+    "name": "今泉小学校",
+    "address": "埼玉県上尾市今泉3-17-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字今泉",
+      "level": 3,
+      "point": {
+        "lat": 35.964569,
+        "lng": 139.569815,
+        "level": 3
+      },
+      "other": "3-17-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 335,
+    "name": "西小学校",
+    "address": "埼玉県上尾市今泉1-7-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "今泉一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.969376,
+        "lng": 139.573447,
+        "level": 3
+      },
+      "other": "7-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 336,
+    "name": "東町小学校",
+    "address": "埼玉県上尾市東町3-1947",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "東町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.973823,
+        "lng": 139.60555,
+        "level": 3
+      },
+      "other": "1947"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 337,
+    "name": "平方北小学校",
+    "address": "埼玉県上尾市大字平方3657",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字平方",
+      "level": 3,
+      "point": {
+        "lat": 35.946355,
+        "lng": 139.548224,
+        "level": 3
+      },
+      "other": "3657"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 338,
+    "name": "大石北小学校",
+    "address": "埼玉県上尾市井戸木4-23",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "井戸木四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.987235,
+        "lng": 139.56128100000004,
+        "level": 3
+      },
+      "other": "23"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 339,
+    "name": "上平北小学校",
+    "address": "埼玉県上尾市大字南287",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字南",
+      "addr": "287",
+      "level": 8,
+      "point": {
+        "lat": 36.002704,
+        "lng": 139.585575,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 342,
+    "name": "大石中学校",
+    "address": "埼玉県上尾市中妻4-19",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "中妻四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.982721,
+        "lng": 139.565679,
+        "level": 3
+      },
+      "other": "19"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 343,
+    "name": "原市中学校",
+    "address": "埼玉県上尾市大字原市3479",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字原市",
+      "addr": "3479",
+      "level": 8,
+      "point": {
+        "lat": 35.967704,
+        "lng": 139.627496,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 344,
+    "name": "上平中学校",
+    "address": "埼玉県上尾市大字菅谷121",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字菅谷",
+      "level": 3,
+      "point": {
+        "lat": 35.999757,
+        "lng": 139.589083,
+        "level": 3
+      },
+      "other": "121"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 345,
+    "name": "西中学校",
+    "address": "埼玉県上尾市東今泉5-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "level": 2,
+      "point": {
+        "lat": 35.977408,
+        "lng": 139.593203,
+        "level": 2
+      },
+      "other": "東今泉5-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 346,
+    "name": "東中学校",
+    "address": "埼玉県上尾市大字上尾村479",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾村",
+      "level": 3,
+      "point": {
+        "lat": 35.987527,
+        "lng": 139.596124,
+        "level": 3
+      },
+      "other": "479"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 347,
+    "name": "大石南中学校",
+    "address": "埼玉県上尾市大字小敷谷1105",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字小敷谷",
+      "level": 3,
+      "point": {
+        "lat": 35.959948,
+        "lng": 139.558176,
+        "level": 3
+      },
+      "other": "1105"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 348,
+    "name": "瓦葺中学校",
+    "address": "埼玉県上尾市大字瓦葺163",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字瓦葺",
+      "level": 3,
+      "point": {
+        "lat": 35.961321,
+        "lng": 139.640754,
+        "level": 3
+      },
+      "other": "163"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 349,
+    "name": "南中学校",
+    "address": "埼玉県上尾市大字大谷本郷124",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字大谷本郷",
+      "level": 3,
+      "point": {
+        "lat": 35.9558,
+        "lng": 139.583933,
+        "level": 3
+      },
+      "other": "124"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 350,
+    "name": "大谷中学校",
+    "address": "埼玉県上尾市向山4-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "向山四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.961544,
+        "lng": 139.576472,
+        "level": 3
+      },
+      "other": "10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 352,
+    "name": "東中学校向原分校",
+    "address": "埼玉県上尾市大字上尾宿2096",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/136",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-03-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "上尾市",
+      "town": "大字上尾宿",
+      "level": 3,
+      "point": {
+        "lat": 35.986343,
+        "lng": 139.600897,
+        "level": 3
+      },
+      "other": "2096"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

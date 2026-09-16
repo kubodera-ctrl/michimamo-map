@@ -1,0 +1,216 @@
+{
+  "processed": 2558,
+  "accepted": 100,
+  "remaining_hold": 2458,
+  "reason_counts": {
+    "no_unambiguous_abr_detail_match": 1644,
+    "accepted_parcel_detail": 89,
+    "missing_name_or_address": 787,
+    "address_without_number": 27,
+    "accepted_residence_detail": 11
+  },
+  "target_municipalities": 19,
+  "municipality_results": {
+    "04207_名取市": {
+      "no_unambiguous_abr_detail_match": 54,
+      "address_without_number": 6
+    },
+    "11215_狭山市": {
+      "no_unambiguous_abr_detail_match": 70,
+      "accepted_parcel_detail": 6
+    },
+    "11216_羽生市": {
+      "no_unambiguous_abr_detail_match": 36,
+      "accepted_parcel_detail": 6
+    },
+    "11217_鴻巣市": {
+      "no_unambiguous_abr_detail_match": 68,
+      "address_without_number": 1,
+      "accepted_residence_detail": 1
+    },
+    "11219_上尾市": {
+      "no_unambiguous_abr_detail_match": 221,
+      "accepted_parcel_detail": 6
+    },
+    "11223_蕨市": {
+      "accepted_residence_detail": 5,
+      "no_unambiguous_abr_detail_match": 1
+    },
+    "11225_入間市": {
+      "no_unambiguous_abr_detail_match": 34,
+      "accepted_parcel_detail": 6,
+      "address_without_number": 14
+    },
+    "11228_志木市": {
+      "no_unambiguous_abr_detail_match": 30,
+      "accepted_residence_detail": 2
+    },
+    "11232_久喜市": {
+      "missing_name_or_address": 126
+    },
+    "11238_蓮田市": {
+      "no_unambiguous_abr_detail_match": 29,
+      "accepted_residence_detail": 1
+    },
+    "11239_坂戸市": {
+      "no_unambiguous_abr_detail_match": 31,
+      "accepted_parcel_detail": 16
+    },
+    "11326_毛呂山町": {
+      "no_unambiguous_abr_detail_match": 9,
+      "accepted_parcel_detail": 25
+    },
+    "11408_寄居町": {
+      "no_unambiguous_abr_detail_match": 40
+    },
+    "12207_松戸市": {
+      "no_unambiguous_abr_detail_match": 704,
+      "accepted_parcel_detail": 9
+    },
+    "12217_柏市": {
+      "missing_name_or_address": 560
+    },
+    "12220_流山市": {
+      "no_unambiguous_abr_detail_match": 134
+    },
+    "12221_八千代市": {
+      "missing_name_or_address": 99
+    },
+    "12225_君津市": {
+      "accepted_parcel_detail": 15,
+      "no_unambiguous_abr_detail_match": 103,
+      "accepted_residence_detail": 1
+    },
+    "12228_四街道市": {
+      "no_unambiguous_abr_detail_match": 80,
+      "accepted_residence_detail": 1,
+      "address_without_number": 6,
+      "missing_name_or_address": 2
+    }
+  },
+  "policy": "ABR current residence-detail or parcel-detail coordinate; municipality code exact; numbered address; unique coordinate; no numeric unmatched suffix; no town/block fallback",
+  "abr_sources": {
+    "04": {
+      "data": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt/pref/mt_rsdtdsp_rsdt_pref04.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt_pos/pref/mt_rsdtdsp_rsdt_pos_pref04.csv.zip",
+      "data_sha256": "8aaa8541194346047e31938ef9d13ea124fa9bc4168e752723739ba85f7f173f",
+      "position_sha256": "6ff1357bb60ab05b17cade45330dec4aec690d2561d751cdfa0aa63938681651"
+    },
+    "11": {
+      "data": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt/pref/mt_rsdtdsp_rsdt_pref11.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt_pos/pref/mt_rsdtdsp_rsdt_pos_pref11.csv.zip",
+      "data_sha256": "07f2d6aa7a4f56493631f9758f43405c1cd137b500ee29d5211688b482f78f96",
+      "position_sha256": "26454abe3acafc298788efdfc5689ec02115711f646717f6e3a6dc64db9e1fc5"
+    },
+    "12": {
+      "data": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt/pref/mt_rsdtdsp_rsdt_pref12.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_rsdtdsp_rsdt_pos/pref/mt_rsdtdsp_rsdt_pos_pref12.csv.zip",
+      "data_sha256": "c405a48e9daa5aca2aa769aa703679184e6c848872a64e1fa3fa0d0cb730317b",
+      "position_sha256": "8a83b2438daa9478e06a063c157efb541840d5cb9c72d47bc92811593fa865c8"
+    }
+  },
+  "abr_parcel_sources": {
+    "04207": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city042072.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city042072.csv.zip",
+      "data_sha256": "b0b6cd3da1e548e04da3cddcfab844e604acb40efcecf9db760eec80f5291b94",
+      "position_sha256": "f2687fd6e4e1f38e1bbcc14656cbe0c821c548841b56d96659d4a70744126fad"
+    },
+    "11215": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112151.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112151.csv.zip",
+      "data_sha256": "09429e5e3d1340477a07c747778d905c81365b2777886c8069217283a0bfdcf2",
+      "position_sha256": "97ce25205b4b2533f98d480a1f17323a485ebc2ceba775a8150e347d7ce0aed0"
+    },
+    "11216": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112160.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112160.csv.zip",
+      "data_sha256": "63aa61636ec7ff8e9f5ca8583f7949b87d045322d362c6d578d02f8e03cb8cc3",
+      "position_sha256": "a489227f69b017ad288a02164c865c6c2fb3a38c347c5979ee8d92c1c49cc309"
+    },
+    "11217": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112178.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112178.csv.zip",
+      "data_sha256": "086bbc56d2c51b95ff9256f86d64c11279889804bef74f87992e65368da4a5a2",
+      "position_sha256": "af42b6807b5f62efbb2ad3f88f8e8879a67da951d32464674ad69fe3fbe39b85"
+    },
+    "11219": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112194.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112194.csv.zip",
+      "data_sha256": "4b6e1562756c4949078c974a5df096a00c4c94c7af8f5d978435c757c31df697",
+      "position_sha256": "d809d2aaf9c9176435cb7944458d928988b858112521d010ca3d9555a72746fb"
+    },
+    "11225": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112259.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112259.csv.zip",
+      "data_sha256": "5991cf4defc5321fca674a5aa720d0b959c763c43feb91d6174d09c037b147a5",
+      "position_sha256": "444619cfee5f47e56724de9339a633b2abed10a7f6ba06280cf3d1fe988e718a"
+    },
+    "11228": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112283.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112283.csv.zip",
+      "data_sha256": "fb80d4fb25de5c6b4c313bebfd9a49d99289b6bbdb47b5577cd301ed85030972",
+      "position_sha256": "87168814b2e055da0e87ff3777fafeb980cb95daf0a24f4447870254046d3fe8"
+    },
+    "11232": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112321.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112321.csv.zip",
+      "data_sha256": "898baae327b36f5338e595c171ce467cb00fb415ff8af5f28239233caa3ce104",
+      "position_sha256": "e9c5bdc0d22814661751e530f9d830c02036a50512a4fae7b03dc69ffc61d08b"
+    },
+    "11239": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city112399.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city112399.csv.zip",
+      "data_sha256": "a70dc0a0cae7ddff97893df287c3c01637f9f3507946f1049df543d79285a53b",
+      "position_sha256": "36d6446ed98910d8a7e8bdaba56a8e06dff116db2d03bc3a36f4356e26370c30"
+    },
+    "11326": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city113263.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city113263.csv.zip",
+      "data_sha256": "1b75447adac184a902dfada1be9e9747bcad71f27f37daaedec6abe46146f297",
+      "position_sha256": "892f367c8dfd2a3bad479bbf606a0054f208dfbe5b4699e988c704f90f8a7d7c"
+    },
+    "11408": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city114081.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city114081.csv.zip",
+      "data_sha256": "4726202a3db430fea4bb0b2d01165da5a6cd45edd31162bbfc0bef0c47d73559",
+      "position_sha256": "a5bcfa95ad73186b7ffb04e94d815880dd48539e1b0b3b569d60373d001af242"
+    },
+    "12207": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122076.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122076.csv.zip",
+      "data_sha256": "c78a6ce17aa6053cbfbdb258e0539529f07a307eb35641db396e5bfba72a6dde",
+      "position_sha256": "b19acb3eb2bca04309d082d40ae2540c3fc1998a771b87fa06fe145f85328b48"
+    },
+    "12217": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122173.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122173.csv.zip",
+      "data_sha256": "c7a9e7974a8b35e242e0d32867fe81f171e5fe1d1cf14d23369bc2304da194ff",
+      "position_sha256": "80cd7c2ddeaa8c0240d5e018e18cc30089860879ece8da568513105959f68d03"
+    },
+    "12220": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122203.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122203.csv.zip",
+      "data_sha256": "2fb7de45c1c25f4fac0dbcc02d1d045092525023938eb2aaf474ba2b2057ca3a",
+      "position_sha256": "e5afbcd91e9542e594bef7d4031540b6d7df95ff8e410566f412e980edcc9ed8"
+    },
+    "12221": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122211.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122211.csv.zip",
+      "data_sha256": "3fda9411db45ef6a89cb0c61aee3c01e49f8008794caaa23f75aea5876ec8481",
+      "position_sha256": "64db9661c3999ca4ba5d426559eb6b4917ba14b04b030617a4f907f104fc9d99"
+    },
+    "12225": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122254.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122254.csv.zip",
+      "data_sha256": "0ca78a727cbcb73de62398105ea38e054bb91dfb01603f6dcef251f411c5b44a",
+      "position_sha256": "3692816e5b7d40a4679daac60b776f61a19d9fd28fa4232806cabb02422217f1"
+    },
+    "12228": {
+      "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city122289.csv.zip",
+      "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city122289.csv.zip",
+      "data_sha256": "d8539b2db87481a1e018beaec09d6c4c84429b3dd944d33708595a0f9e3939ba",
+      "position_sha256": "3b1fa9753b3d1798514b3ddb6bbec827fc17737413b2e782ec0ae137cb243bbe"
+    }
+  }
+}

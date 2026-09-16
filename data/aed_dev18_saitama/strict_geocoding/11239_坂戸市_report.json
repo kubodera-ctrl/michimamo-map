@@ -1,0 +1,9 @@
+{
+  "code": "11239",
+  "prefecture": "埼玉県",
+  "municipality": "坂戸市",
+  "source_rows": 100,
+  "accepted": 53,
+  "held": 47,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

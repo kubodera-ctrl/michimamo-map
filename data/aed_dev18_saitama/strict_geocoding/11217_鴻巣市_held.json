@@ -1,0 +1,1581 @@
+[
+  {
+    "row": 2,
+    "name": "市役所新館",
+    "address": "埼玉県鴻巣市中央1-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "中央",
+      "level": 3,
+      "point": {
+        "lat": 36.06583,
+        "lng": 139.522558,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "市役所本庁舎",
+    "address": "埼玉県鴻巣市中央1-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "中央",
+      "level": 3,
+      "point": {
+        "lat": 36.06583,
+        "lng": 139.522558,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 6,
+    "name": "鴻巣市文化センター(クレアこうのす)",
+    "address": "埼玉県鴻巣市中央29-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "中央",
+      "level": 3,
+      "point": {
+        "lat": 36.06583,
+        "lng": 139.522558,
+        "level": 3
+      },
+      "other": "29-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 8,
+    "name": "総合体育館",
+    "address": "埼玉県鴻巣市鴻巣864-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "鴻巣",
+      "addr": "864-1",
+      "level": 8,
+      "point": {
+        "lat": 36.069095,
+        "lng": 139.517553,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 9,
+    "name": "コスモスアリーナふきあげ",
+    "address": "埼玉県鴻巣市明用636-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "明用",
+      "addr": "636-1",
+      "level": 8,
+      "point": {
+        "lat": 36.090278,
+        "lng": 139.456037,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "高齢者福祉センター白雲荘",
+    "address": "埼玉県鴻巣市原馬室2917-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "addr": "2917-1",
+      "level": 8,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "高齢者福祉センターひまわり荘",
+    "address": "埼玉県鴻巣市関新田1300-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "addr": "1300-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "鴻巣市保健センター",
+    "address": "埼玉県鴻巣市中央2-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "中央",
+      "level": 3,
+      "point": {
+        "lat": 36.06583,
+        "lng": 139.522558,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "陸上競技場",
+    "address": "埼玉県鴻巣市634-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "level": 2,
+      "point": {
+        "lat": 36.065758,
+        "lng": 139.522172,
+        "level": 2
+      },
+      "other": "634-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "上谷総合公園野球場(フラワースタジアム)",
+    "address": "埼玉県鴻巣市上谷707",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "上谷",
+      "addr": "707",
+      "level": 8,
+      "point": {
+        "lat": 36.057652,
+        "lng": 139.533227,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "上谷総合公園東側管理棟",
+    "address": "埼玉県鴻巣市西中曽根407",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "西中曽根",
+      "addr": "407",
+      "level": 8,
+      "point": {
+        "lat": 36.057936,
+        "lng": 139.542019,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "吹上パークゴルフ場",
+    "address": "埼玉県鴻巣市大芦地内(河川敷)",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "大芦",
+      "level": 3,
+      "point": {
+        "lat": 36.091246,
+        "lng": 139.443945,
+        "level": 3
+      },
+      "other": "地内(河川敷)"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "総合福祉センター",
+    "address": "埼玉県鴻巣市箕田4211-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "箕田",
+      "addr": "4211-1",
+      "level": 8,
+      "point": {
+        "lat": 36.079867,
+        "lng": 139.478585,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "吹上福祉活動センター",
+    "address": "埼玉県鴻巣市鎌塚57-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "鎌塚",
+      "addr": "57-1",
+      "level": 8,
+      "point": {
+        "lat": 36.112289,
+        "lng": 139.450327,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "鴻巣中央図書館",
+    "address": "埼玉県鴻巣市1-2-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "level": 2,
+      "point": {
+        "lat": 36.065758,
+        "lng": 139.522172,
+        "level": 2
+      },
+      "other": "1-2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 22,
+    "name": "川里図書館",
+    "address": "埼玉県鴻巣市関新田1281-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "addr": "1281-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "笠原複合施設",
+    "address": "埼玉県鴻巣市笠原791-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "笠原",
+      "addr": "791-1",
+      "level": 8,
+      "point": {
+        "lat": 36.067455,
+        "lng": 139.55289,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "常光公民館",
+    "address": "埼玉県鴻巣市常光196-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "常光",
+      "level": 3,
+      "point": {
+        "lat": 36.046037,
+        "lng": 139.557973,
+        "level": 3
+      },
+      "other": "196-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "あたご公民館",
+    "address": "埼玉県鴻巣市原馬室3460-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "addr": "3460-1",
+      "level": 8,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "田間宮生涯学習センター",
+    "address": "埼玉県鴻巣市登戸149",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "登戸",
+      "level": 3,
+      "point": {
+        "lat": 36.066976,
+        "lng": 139.493367,
+        "level": 3
+      },
+      "other": "149"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "北新宿生涯学習センター",
+    "address": "埼玉県鴻巣市北新宿943",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "北新宿",
+      "addr": "943",
+      "level": 8,
+      "point": {
+        "lat": 36.109631,
+        "lng": 139.438793,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "コミュニティふれあいセンター",
+    "address": "埼玉県鴻巣市登戸449",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "登戸",
+      "addr": "449",
+      "level": 8,
+      "point": {
+        "lat": 36.066976,
+        "lng": 139.493367,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "市民活動センター",
+    "address": "埼玉県鴻巣市本町1-2-1 3階",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "本町一丁目",
+      "addr": "2-1",
+      "level": 8,
+      "point": {
+        "lat": 36.060679936,
+        "lng": 139.508880717,
+        "level": 8
+      },
+      "other": " 3階"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "鴻巣市コウノトリ野生復帰センター「天空の里」",
+    "address": "埼玉県鴻巣市明用632",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "明用",
+      "addr": "632",
+      "level": 8,
+      "point": {
+        "lat": 36.090278,
+        "lng": 139.456037,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "川里農業研修センター",
+    "address": "埼玉県鴻巣市関新田1800",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "level": 3,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": "1800"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "つつみ学園",
+    "address": "埼玉県鴻巣市大間829-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "大間",
+      "addr": "829-3",
+      "level": 8,
+      "point": {
+        "lat": 36.057264,
+        "lng": 139.499546,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "馬室小学校",
+    "address": "埼玉県鴻巣市滝馬室555",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "滝馬室",
+      "level": 3,
+      "point": {
+        "lat": 36.048476,
+        "lng": 139.500937,
+        "level": 3
+      },
+      "other": "555"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "田間宮小学校",
+    "address": "埼玉県鴻巣市糠田2985",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "糠田",
+      "addr": "2985",
+      "level": 8,
+      "point": {
+        "lat": 36.063041,
+        "lng": 139.482033,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "箕田小学校",
+    "address": "埼玉県鴻巣市箕田408",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "箕田",
+      "level": 3,
+      "point": {
+        "lat": 36.079867,
+        "lng": 139.478585,
+        "level": 3
+      },
+      "other": "408"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "旧笠原小学校",
+    "address": "埼玉県鴻巣市笠原1613",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "笠原",
+      "level": 3,
+      "point": {
+        "lat": 36.067455,
+        "lng": 139.55289,
+        "level": 3
+      },
+      "other": "1613"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "旧常光小学校",
+    "address": "埼玉県鴻巣市下谷369",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "下谷",
+      "addr": "369",
+      "level": 8,
+      "point": {
+        "lat": 36.048905,
+        "lng": 139.548201,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "松原小学校",
+    "address": "埼玉県鴻巣市原馬室2425",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "level": 3,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": "2425"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 50,
+    "name": "赤見台第一小学校",
+    "address": "埼玉県鴻巣市赤見台4-19-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "赤見台四丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.082157,
+        "lng": 139.483261,
+        "level": 3
+      },
+      "other": "19-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 51,
+    "name": "赤見台第二小学校",
+    "address": "埼玉県鴻巣市赤見台2-6-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "赤見台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.088979,
+        "lng": 139.477043,
+        "level": 3
+      },
+      "other": "6-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "鴻巣中央小学校",
+    "address": "埼玉県鴻巣市中央30-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "中央",
+      "level": 3,
+      "point": {
+        "lat": 36.06583,
+        "lng": 139.522558,
+        "level": 3
+      },
+      "other": "30-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 54,
+    "name": "教育支援センター",
+    "address": "埼玉県鴻巣市小谷1890-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "小谷",
+      "addr": "1890-1",
+      "level": 8,
+      "point": {
+        "lat": 36.074042,
+        "lng": 139.469166,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 55,
+    "name": "下忍小学校",
+    "address": "埼玉県鴻巣市鎌塚10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "鎌塚",
+      "level": 3,
+      "point": {
+        "lat": 36.112289,
+        "lng": 139.450327,
+        "level": 3
+      },
+      "other": "10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "大芦小学校",
+    "address": "埼玉県鴻巣市大芦923-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "大芦",
+      "level": 3,
+      "point": {
+        "lat": 36.091246,
+        "lng": 139.443945,
+        "level": 3
+      },
+      "other": "923-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 61,
+    "name": "鴻巣北中学校",
+    "address": "埼玉県鴻巣市箕田4280",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "箕田",
+      "level": 3,
+      "point": {
+        "lat": 36.079867,
+        "lng": 139.478585,
+        "level": 3
+      },
+      "other": "4280"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 62,
+    "name": "鴻巣西中学校",
+    "address": "埼玉県鴻巣市大間1161",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "大間",
+      "addr": "1161",
+      "level": 8,
+      "point": {
+        "lat": 36.057264,
+        "lng": 139.499546,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 63,
+    "name": "鴻巣南中学校",
+    "address": "埼玉県鴻巣市原馬室3685",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "level": 3,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": "3685"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 64,
+    "name": "赤見台中学校",
+    "address": "埼玉県鴻巣市赤見台4-25-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "赤見台四丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.082157,
+        "lng": 139.483261,
+        "level": 3
+      },
+      "other": "25-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 66,
+    "name": "吹上北中学校",
+    "address": "埼玉県鴻巣市鎌塚550",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "鎌塚",
+      "addr": "550",
+      "level": 8,
+      "point": {
+        "lat": 36.112289,
+        "lng": 139.450327,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 67,
+    "name": "川里中学校",
+    "address": "埼玉県鴻巣市関新田1560-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "addr": "1560-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 69,
+    "name": "馬室保育所",
+    "address": "埼玉県鴻巣市滝馬室1152-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "滝馬室",
+      "addr": "1152-1",
+      "level": 8,
+      "point": {
+        "lat": 36.048476,
+        "lng": 139.500937,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 70,
+    "name": "生出塚保育所",
+    "address": "埼玉県鴻巣市生出塚2-7-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "生出塚二丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.062189000000004,
+        "lng": 139.529574,
+        "level": 3
+      },
+      "other": "7-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 71,
+    "name": "登戸保育所",
+    "address": "埼玉県鴻巣市登戸612",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "登戸",
+      "addr": "612",
+      "level": 8,
+      "point": {
+        "lat": 36.066976,
+        "lng": 139.493367,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 73,
+    "name": "吹上富士見保育所",
+    "address": "埼玉県鴻巣市吹上富士見4-8-18",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "吹上富士見四丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.097107,
+        "lng": 139.453544,
+        "level": 3
+      },
+      "other": "8-18"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 74,
+    "name": "川里ひまわり保育園",
+    "address": "埼玉県鴻巣市関新田1261-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "addr": "1261-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 78,
+    "name": "あたご放課後児童クラブ本室",
+    "address": "埼玉県鴻巣市原馬室3460-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "addr": "3460-1",
+      "level": 8,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 79,
+    "name": "あたご放課後児童クラブ分室",
+    "address": "埼玉県鴻巣市原馬室2425",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "level": 3,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": "2425"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 83,
+    "name": "赤見台第二放課後児童クラブ分室",
+    "address": "埼玉県鴻巣市赤見台2-6-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "赤見台二丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.088979,
+        "lng": 139.477043,
+        "level": 3
+      },
+      "other": "6-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 85,
+    "name": "田間宮放課後児童クラブ",
+    "address": "埼玉県鴻巣市北中野9-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "北中野",
+      "addr": "9-2",
+      "level": 8,
+      "point": {
+        "lat": 36.058004,
+        "lng": 139.49085,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 86,
+    "name": "馬室放課後児童クラブ",
+    "address": "埼玉県鴻巣市滝馬室571-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "滝馬室",
+      "addr": "571-1",
+      "level": 8,
+      "point": {
+        "lat": 36.048476,
+        "lng": 139.500937,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 87,
+    "name": "箕田放課後児童クラブ",
+    "address": "埼玉県鴻巣市宮前16-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "宮前",
+      "addr": "16-2",
+      "level": 8,
+      "point": {
+        "lat": 36.070852,
+        "lng": 139.488904,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 89,
+    "name": "下忍放課後児童クラブ",
+    "address": "埼玉県鴻巣市鎌塚10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "鎌塚",
+      "level": 3,
+      "point": {
+        "lat": 36.112289,
+        "lng": 139.450327,
+        "level": 3
+      },
+      "other": "10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 90,
+    "name": "大芦放課後児童クラブ",
+    "address": "埼玉県鴻巣市大芦923-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "大芦",
+      "level": 3,
+      "point": {
+        "lat": 36.091246,
+        "lng": 139.443945,
+        "level": 3
+      },
+      "other": "923-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 91,
+    "name": "屈巣放課後児童クラブ",
+    "address": "埼玉県鴻巣市屈巣4526-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "屈巣",
+      "level": 3,
+      "point": {
+        "lat": 36.089212,
+        "lng": 139.511123,
+        "level": 3
+      },
+      "other": "4526-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 95,
+    "name": "どんぐり学童保育室",
+    "address": "埼玉県鴻巣市糠田2800-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "糠田",
+      "addr": "2800-2",
+      "level": 8,
+      "point": {
+        "lat": 36.063041,
+        "lng": 139.482033,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 96,
+    "name": "小谷学童",
+    "address": "埼玉県鴻巣市三町免89-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "三町免",
+      "addr": "89-2",
+      "level": 8,
+      "point": {
+        "lat": 36.084646,
+        "lng": 139.45927,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 98,
+    "name": "学童保育ふくろうの森",
+    "address": "埼玉県鴻巣市袋917-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "袋",
+      "addr": "917-9",
+      "level": 8,
+      "point": {
+        "lat": 36.098568,
+        "lng": 139.471921,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 99,
+    "name": "なのはな学童保育",
+    "address": "埼玉県鴻巣市北新宿927",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "北新宿",
+      "addr": "927",
+      "level": 8,
+      "point": {
+        "lat": 36.109631,
+        "lng": 139.438793,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 100,
+    "name": "田間宮学童 結",
+    "address": "埼玉県鴻巣市北中野127-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "北中野",
+      "addr": "127-3",
+      "level": 8,
+      "point": {
+        "lat": 36.058004,
+        "lng": 139.49085,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 101,
+    "name": "あしたばポプラ作業所",
+    "address": "埼玉県鴻巣市箕田4211-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "箕田",
+      "addr": "4211-1",
+      "level": 8,
+      "point": {
+        "lat": 36.079867,
+        "lng": 139.478585,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 102,
+    "name": "あしたば第二作業所",
+    "address": "埼玉県鴻巣市原馬室3116-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "原馬室",
+      "addr": "3116-2",
+      "level": 8,
+      "point": {
+        "lat": 36.038701,
+        "lng": 139.508325,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 103,
+    "name": "市民農園「こうのとり四季菜ファーム」",
+    "address": "埼玉県鴻巣市寺谷736",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "寺谷",
+      "addr": "736",
+      "level": 8,
+      "point": {
+        "lat": 36.084302,
+        "lng": 139.496616,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 106,
+    "name": "鴻巣消防署",
+    "address": "埼玉県鴻巣市箕田1638-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "箕田",
+      "addr": "1638-1",
+      "level": 8,
+      "point": {
+        "lat": 36.079867,
+        "lng": 139.478585,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 108,
+    "name": "鴻巣西分署",
+    "address": "埼玉県鴻巣市滝馬室1139-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "滝馬室",
+      "addr": "1139-1",
+      "level": 8,
+      "point": {
+        "lat": 36.048476,
+        "lng": 139.500937,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 110,
+    "name": "川里分署",
+    "address": "埼玉県鴻巣市関新田1330-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "関新田",
+      "addr": "1330-1",
+      "level": 8,
+      "point": {
+        "lat": 36.098099,
+        "lng": 139.527915,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 111,
+    "name": "ふるさと総合緑道休憩施設 愛里巣",
+    "address": "埼玉県鴻巣市滝馬室587-9",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/1078",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2026-08-17",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "鴻巣市",
+      "town": "滝馬室",
+      "addr": "587-9",
+      "level": 8,
+      "point": {
+        "lat": 36.048476,
+        "lng": 139.500937,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

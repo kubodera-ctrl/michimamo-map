@@ -1,0 +1,349 @@
+{
+  "baseline": 46945,
+  "expected_final": 47392,
+  "reports": [
+    {
+      "code": "11215",
+      "municipality": "狭山市",
+      "strict_accepted": 76,
+      "review_rows": 56,
+      "publish": 56,
+      "held": 0,
+      "exact_removed": 20,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11215",
+          "municipality": "狭山市",
+          "file": "publish_dev18_saitama_11215_01.sql",
+          "baseline": 46945,
+          "inserted": 56,
+          "held": 0,
+          "expected_final": 47001,
+          "sha256": "dafa50c8f22bb3bc087cffb94120d74f093747770831af34b79051d479d4e9e9"
+        }
+      ]
+    },
+    {
+      "code": "11216",
+      "municipality": "羽生市",
+      "strict_accepted": 8,
+      "review_rows": 8,
+      "publish": 8,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11216",
+          "municipality": "羽生市",
+          "file": "publish_dev18_saitama_11216_01.sql",
+          "baseline": 47001,
+          "inserted": 8,
+          "held": 0,
+          "expected_final": 47009,
+          "sha256": "f68317e5e3d2b7514ade7a1fd76eee3c66a1b2231bdeddbe5bb7496c3da3d549"
+        }
+      ]
+    },
+    {
+      "code": "11217",
+      "municipality": "鴻巣市",
+      "strict_accepted": 40,
+      "review_rows": 40,
+      "publish": 40,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11217",
+          "municipality": "鴻巣市",
+          "file": "publish_dev18_saitama_11217_01.sql",
+          "baseline": 47009,
+          "inserted": 40,
+          "held": 0,
+          "expected_final": 47049,
+          "sha256": "e850437e6cd2c97423f19d05658164cc3a789e32b58b099d3496daf1f0680449"
+        }
+      ]
+    },
+    {
+      "code": "11219",
+      "municipality": "上尾市",
+      "strict_accepted": 124,
+      "review_rows": 124,
+      "publish": 124,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11219",
+          "municipality": "上尾市",
+          "file": "publish_dev18_saitama_11219_01.sql",
+          "baseline": 47049,
+          "inserted": 100,
+          "held": 0,
+          "expected_final": 47149,
+          "sha256": "00eff27e052ed67c0e52abd2eafb8f45e0e7eff058852cb748d506348efad31c"
+        },
+        {
+          "code": "11219",
+          "municipality": "上尾市",
+          "file": "publish_dev18_saitama_11219_02.sql",
+          "baseline": 47149,
+          "inserted": 24,
+          "held": 0,
+          "expected_final": 47173,
+          "sha256": "e2c0834068be245f74b644b469e70b72a4a57c2b4508e2625ea9f67f827def41"
+        }
+      ]
+    },
+    {
+      "code": "11223",
+      "municipality": "蕨市",
+      "strict_accepted": 55,
+      "review_rows": 41,
+      "publish": 41,
+      "held": 0,
+      "exact_removed": 14,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11223",
+          "municipality": "蕨市",
+          "file": "publish_dev18_saitama_11223_01.sql",
+          "baseline": 47173,
+          "inserted": 41,
+          "held": 0,
+          "expected_final": 47214,
+          "sha256": "3d480bd024ddb62cf2af9ec7673ad6c97eab9f79b47640085ff8a8d3fc179d15"
+        }
+      ]
+    },
+    {
+      "code": "11225",
+      "municipality": "入間市",
+      "strict_accepted": 97,
+      "review_rows": 94,
+      "publish": 94,
+      "held": 0,
+      "exact_removed": 3,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11225",
+          "municipality": "入間市",
+          "file": "publish_dev18_saitama_11225_01.sql",
+          "baseline": 47214,
+          "inserted": 94,
+          "held": 0,
+          "expected_final": 47308,
+          "sha256": "193f5115e67863d6b655c22955afd2e1f96f14c19171c7286c8eca694d82dce1"
+        }
+      ]
+    },
+    {
+      "code": "11228",
+      "municipality": "志木市",
+      "strict_accepted": 23,
+      "review_rows": 18,
+      "publish": 18,
+      "held": 0,
+      "exact_removed": 5,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11228",
+          "municipality": "志木市",
+          "file": "publish_dev18_saitama_11228_01.sql",
+          "baseline": 47308,
+          "inserted": 18,
+          "held": 0,
+          "expected_final": 47326,
+          "sha256": "c3979d1e64d2258ef6ba5106bfe4565c2a19060a3684f583656b3ae59451eb6e"
+        }
+      ]
+    },
+    {
+      "code": "11232",
+      "municipality": "久喜市",
+      "strict_accepted": 0,
+      "review_rows": 0,
+      "publish": 0,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": []
+    },
+    {
+      "code": "11238",
+      "municipality": "蓮田市",
+      "strict_accepted": 15,
+      "review_rows": 15,
+      "publish": 15,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11238",
+          "municipality": "蓮田市",
+          "file": "publish_dev18_saitama_11238_01.sql",
+          "baseline": 47326,
+          "inserted": 15,
+          "held": 0,
+          "expected_final": 47341,
+          "sha256": "a76c276c9c7e95cb9666d6b950ec4fe4808e5975aca0b061cddd6842f83aa328"
+        }
+      ]
+    },
+    {
+      "code": "11239",
+      "municipality": "坂戸市",
+      "strict_accepted": 53,
+      "review_rows": 51,
+      "publish": 51,
+      "held": 0,
+      "exact_removed": 2,
+      "near_duplicate_pairs": 0,
+      "batches": [
+        {
+          "code": "11239",
+          "municipality": "坂戸市",
+          "file": "publish_dev18_saitama_11239_01.sql",
+          "baseline": 47341,
+          "inserted": 51,
+          "held": 0,
+          "expected_final": 47392,
+          "sha256": "8c6d5c4c48d9b471eef39206ee97d2dc2b4484ef5b72ed3fa3ee782eadcfa804"
+        }
+      ]
+    },
+    {
+      "code": "11326",
+      "municipality": "毛呂山町",
+      "strict_accepted": 0,
+      "review_rows": 0,
+      "publish": 0,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": []
+    },
+    {
+      "code": "11408",
+      "municipality": "寄居町",
+      "strict_accepted": 0,
+      "review_rows": 0,
+      "publish": 0,
+      "held": 0,
+      "exact_removed": 0,
+      "near_duplicate_pairs": 0,
+      "batches": []
+    }
+  ],
+  "batches": [
+    {
+      "code": "11215",
+      "municipality": "狭山市",
+      "file": "publish_dev18_saitama_11215_01.sql",
+      "baseline": 46945,
+      "inserted": 56,
+      "held": 0,
+      "expected_final": 47001,
+      "sha256": "dafa50c8f22bb3bc087cffb94120d74f093747770831af34b79051d479d4e9e9"
+    },
+    {
+      "code": "11216",
+      "municipality": "羽生市",
+      "file": "publish_dev18_saitama_11216_01.sql",
+      "baseline": 47001,
+      "inserted": 8,
+      "held": 0,
+      "expected_final": 47009,
+      "sha256": "f68317e5e3d2b7514ade7a1fd76eee3c66a1b2231bdeddbe5bb7496c3da3d549"
+    },
+    {
+      "code": "11217",
+      "municipality": "鴻巣市",
+      "file": "publish_dev18_saitama_11217_01.sql",
+      "baseline": 47009,
+      "inserted": 40,
+      "held": 0,
+      "expected_final": 47049,
+      "sha256": "e850437e6cd2c97423f19d05658164cc3a789e32b58b099d3496daf1f0680449"
+    },
+    {
+      "code": "11219",
+      "municipality": "上尾市",
+      "file": "publish_dev18_saitama_11219_01.sql",
+      "baseline": 47049,
+      "inserted": 100,
+      "held": 0,
+      "expected_final": 47149,
+      "sha256": "00eff27e052ed67c0e52abd2eafb8f45e0e7eff058852cb748d506348efad31c"
+    },
+    {
+      "code": "11219",
+      "municipality": "上尾市",
+      "file": "publish_dev18_saitama_11219_02.sql",
+      "baseline": 47149,
+      "inserted": 24,
+      "held": 0,
+      "expected_final": 47173,
+      "sha256": "e2c0834068be245f74b644b469e70b72a4a57c2b4508e2625ea9f67f827def41"
+    },
+    {
+      "code": "11223",
+      "municipality": "蕨市",
+      "file": "publish_dev18_saitama_11223_01.sql",
+      "baseline": 47173,
+      "inserted": 41,
+      "held": 0,
+      "expected_final": 47214,
+      "sha256": "3d480bd024ddb62cf2af9ec7673ad6c97eab9f79b47640085ff8a8d3fc179d15"
+    },
+    {
+      "code": "11225",
+      "municipality": "入間市",
+      "file": "publish_dev18_saitama_11225_01.sql",
+      "baseline": 47214,
+      "inserted": 94,
+      "held": 0,
+      "expected_final": 47308,
+      "sha256": "193f5115e67863d6b655c22955afd2e1f96f14c19171c7286c8eca694d82dce1"
+    },
+    {
+      "code": "11228",
+      "municipality": "志木市",
+      "file": "publish_dev18_saitama_11228_01.sql",
+      "baseline": 47308,
+      "inserted": 18,
+      "held": 0,
+      "expected_final": 47326,
+      "sha256": "c3979d1e64d2258ef6ba5106bfe4565c2a19060a3684f583656b3ae59451eb6e"
+    },
+    {
+      "code": "11238",
+      "municipality": "蓮田市",
+      "file": "publish_dev18_saitama_11238_01.sql",
+      "baseline": 47326,
+      "inserted": 15,
+      "held": 0,
+      "expected_final": 47341,
+      "sha256": "a76c276c9c7e95cb9666d6b950ec4fe4808e5975aca0b061cddd6842f83aa328"
+    },
+    {
+      "code": "11239",
+      "municipality": "坂戸市",
+      "file": "publish_dev18_saitama_11239_01.sql",
+      "baseline": 47341,
+      "inserted": 51,
+      "held": 0,
+      "expected_final": 47392,
+      "sha256": "8c6d5c4c48d9b471eef39206ee97d2dc2b4484ef5b72ed3fa3ee782eadcfa804"
+    }
+  ]
+}

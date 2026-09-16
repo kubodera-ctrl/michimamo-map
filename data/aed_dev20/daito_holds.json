@@ -1,0 +1,512 @@
+[
+  {
+    "source_row": 2,
+    "name": "大東市役所",
+    "address": "大阪府大東市谷川1-1-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 3,
+    "name": "大東市役所",
+    "address": "大阪府大東市谷川1-1-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 4,
+    "name": "野崎まいり公園",
+    "address": "大阪府大東市野崎2-6-10",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 5,
+    "name": "市民会館",
+    "address": "大阪府大東市曙町4-6",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 6,
+    "name": "北条人権文化センター",
+    "address": "大阪府大東市北条3-10-5",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 7,
+    "name": "野崎人権文化センター",
+    "address": "大阪府大東市野埼1-24-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 8,
+    "name": "北条コミュニティセンター（いいもりぷらざ内）",
+    "address": "大阪府大東市北条1-16-16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 9,
+    "name": "北条コミュニティセンター（いいもりぷらざ内）",
+    "address": "大阪府大東市北条1-16-16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 10,
+    "name": "総合福祉センター",
+    "address": "大阪府大東市新町13-13",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 11,
+    "name": "北条こども園",
+    "address": "大阪府大東市北条3-9-18",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 12,
+    "name": "南郷保育所",
+    "address": "大阪府大東市太子田3-1-20",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 13,
+    "name": "野崎保育所",
+    "address": "大阪府大東市野埼1-6-35",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 14,
+    "name": "子ども発達支援センター（いいもりぷらざ内）",
+    "address": "大阪府大東市北条1-16-16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 15,
+    "name": "四条子育て支援センター",
+    "address": "大阪府大東市野埼1-6-35",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 16,
+    "name": "南郷子育て支援センター",
+    "address": "大阪府大東市太子田1-12-37",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 17,
+    "name": "キッズプラザ",
+    "address": "大阪府大東市幸町8-8",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 18,
+    "name": "諸福老人福祉センター",
+    "address": "大阪府大東市諸福1-12-12",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 19,
+    "name": "北条老人憩の家",
+    "address": "大阪府大東市北条3-15-15",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 20,
+    "name": "野崎老人憩の家",
+    "address": "大阪府大東市野埼1-8-28",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 21,
+    "name": "保健医療福祉センター",
+    "address": "大阪府大東市幸町8-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 22,
+    "name": "野崎青少年教育センター",
+    "address": "大阪府大東市野崎1-24-31",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 23,
+    "name": "北条青少年教育センター",
+    "address": "大阪府大東市北条3ｰ18-18",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 24,
+    "name": "生涯学習センター　アクロス",
+    "address": "大阪府大東市末広町1-301",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 25,
+    "name": "文化情報センター　ＤＩＣ２１",
+    "address": "大阪府大東市住道2-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 26,
+    "name": "生涯学習ルーム　まなび北新",
+    "address": "大阪府大東市北新町3-101",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 27,
+    "name": "野外活動センター",
+    "address": "大阪府大東市大字龍間1846",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 28,
+    "name": "総合文化センター（サーティホール内）",
+    "address": "大阪府大東市新町13-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 29,
+    "name": "東部図書館（来ぶらり四条内）",
+    "address": "大阪府大東市野崎3-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 30,
+    "name": "西部図書館（来ぶらり南郷内）",
+    "address": "大阪府大東市氷野4-4-70",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 31,
+    "name": "泉小学校放課後児童クラブ",
+    "address": "大阪府大東市泉町1-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 32,
+    "name": "四条北小学校放課後児童クラブ",
+    "address": "大阪府大東市西楠の里町14-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 33,
+    "name": "四条小学校放課後児童クラブ",
+    "address": "大阪府大東市野崎4-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 34,
+    "name": "住道北小学校放課後児童クラブ",
+    "address": "大阪府大東市浜町2-12",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 35,
+    "name": "住道南小学校放課後児童クラブ",
+    "address": "大阪府大東市末広町16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 36,
+    "name": "深野小学校放課後児童クラブ",
+    "address": "大阪府大東市深野4-15-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 37,
+    "name": "北条小学校放課後児童クラブ",
+    "address": "大阪府大東市北条6-11-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 38,
+    "name": "諸福小学校放課後児童クラブ",
+    "address": "大阪府大東市諸福1-2-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 39,
+    "name": "灰塚小放課後児童クラブ",
+    "address": "大阪府大東市灰塚1-5-17",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 40,
+    "name": "三箇小学校放課後児童クラブ",
+    "address": "大阪府大東市三箇1-23-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 41,
+    "name": "南郷小学校放課後児童クラブ",
+    "address": "大阪府大東市太子田1-12-38",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 42,
+    "name": "氷野小学校放課後児童クラブ",
+    "address": "大阪府大東市大東町9-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 43,
+    "name": "市民体育館",
+    "address": "大阪府大東市寺川1-20-20",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 44,
+    "name": "市立テニスコート",
+    "address": "大阪府大東市谷川2-9",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 45,
+    "name": "龍間運動広場",
+    "address": "大阪府大東市龍間1981-7",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 46,
+    "name": "南郷小学校",
+    "address": "大阪府大東市太子田1-12-38",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 47,
+    "name": "住道北小学校",
+    "address": "大阪府大東市浜町2-12",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 48,
+    "name": "住道南小学校",
+    "address": "大阪府大東市末広町16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 49,
+    "name": "四条小学校",
+    "address": "大阪府大東市野崎4-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 50,
+    "name": "四条北小学校",
+    "address": "大阪府大東市西楠の里町14-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 51,
+    "name": "深野小学校",
+    "address": "大阪府大東市深野4-15-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 52,
+    "name": "北条小学校",
+    "address": "大阪府大東市北条6-11-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 53,
+    "name": "氷野小学校",
+    "address": "大阪府大東市大東町9-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 54,
+    "name": "泉小学校",
+    "address": "大阪府大東市泉町1-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 55,
+    "name": "諸福小学校",
+    "address": "大阪府大東市諸福1-2-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 56,
+    "name": "灰塚小学校",
+    "address": "大阪府大東市灰塚1-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 57,
+    "name": "三箇小学校",
+    "address": "大阪府大東市三箇1-23-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 58,
+    "name": "南郷中学校",
+    "address": "大阪府大東市赤井3-15-3",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 59,
+    "name": "住道中学校",
+    "address": "大阪府大東市末広町17-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 60,
+    "name": "四条中学校",
+    "address": "大阪府大東市寺川2-7-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 61,
+    "name": "深野中学校",
+    "address": "大阪府大東市深野北1-15-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 62,
+    "name": "北条中学校",
+    "address": "大阪府大東市北条2-19-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 63,
+    "name": "谷川中学校",
+    "address": "大阪府大東市谷川2-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 64,
+    "name": "諸福中学校",
+    "address": "大阪府大東市諸福5-11-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 65,
+    "name": "大東中学校",
+    "address": "大阪府大東市朋来1-30-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 66,
+    "name": "諸福幼稚園",
+    "address": "大阪府大東市諸福1-2-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 67,
+    "name": "南郷小学校",
+    "address": "大阪府大東市太子田1-12-38",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 68,
+    "name": "住道北小学校",
+    "address": "大阪府大東市浜町2-12",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 69,
+    "name": "住道南小学校",
+    "address": "大阪府大東市末広町16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 70,
+    "name": "四条小学校",
+    "address": "大阪府大東市野崎4-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 71,
+    "name": "四条北小学校",
+    "address": "大阪府大東市西楠の里町14-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 72,
+    "name": "深野小学校",
+    "address": "大阪府大東市深野4-15-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 73,
+    "name": "北条小学校",
+    "address": "大阪府大東市北条6-11-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 74,
+    "name": "氷野小学校",
+    "address": "大阪府大東市大東町9-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 75,
+    "name": "泉小学校",
+    "address": "大阪府大東市泉町1-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 76,
+    "name": "諸福小学校",
+    "address": "大阪府大東市諸福1-2-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 77,
+    "name": "灰塚小学校",
+    "address": "大阪府大東市灰塚1-3-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 78,
+    "name": "三箇小学校",
+    "address": "大阪府大東市三箇1-23-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 79,
+    "name": "南郷中学校",
+    "address": "大阪府大東市赤井3-15-3",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 80,
+    "name": "住道中学校",
+    "address": "大阪府大東市末広町17-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 81,
+    "name": "四条中学校",
+    "address": "大阪府大東市寺川2-7-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 82,
+    "name": "深野中学校",
+    "address": "大阪府大東市深野北1-15-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 83,
+    "name": "北条中学校",
+    "address": "大阪府大東市北条2-19-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 84,
+    "name": "谷川中学校",
+    "address": "大阪府大東市谷川2-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 85,
+    "name": "諸福中学校",
+    "address": "大阪府大東市諸福5-11-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "source_row": 86,
+    "name": "大東中学校",
+    "address": "大阪府大東市朋来1-30-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  }
+]

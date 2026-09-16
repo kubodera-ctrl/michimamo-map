@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "hino",
+    "source_row": 95,
+    "name": "市役所本庁舎【貸出用】",
+    "address": "東京都日野市神明1-12-1",
+    "reason": "lending_only"
+  },
+  {
+    "dataset": "hino",
+    "source_row": 96,
+    "name": "市役所本庁舎【貸出用】",
+    "address": "東京都日野市神明1-12-1",
+    "reason": "lending_only"
+  },
+  {
+    "dataset": "hino",
+    "source_row": 97,
+    "name": "市役所本庁舎【貸出用】",
+    "address": "東京都日野市神明1-12-1",
+    "reason": "lending_only"
+  },
+  {
+    "dataset": "hino",
+    "source_row": 101,
+    "name": "防災情報センター【貸出用】",
+    "address": "東京都日野市神明1-11-16",
+    "reason": "lending_only"
+  }
+]

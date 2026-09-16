@@ -1,0 +1,194 @@
+[
+  {
+    "row": 14,
+    "name": "羽生市民プラザ",
+    "address": "埼玉県羽生市中央3丁目7-5",
+    "phone": "048-560-3111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "中央三丁目",
+      "addr": "7-5",
+      "level": 8,
+      "point": {
+        "lat": 36.172940228,
+        "lng": 139.538932881,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.172940228,
+    "longitude": 139.538932881
+  },
+  {
+    "row": 15,
+    "name": "羽生市男女共同参画推進センター",
+    "address": "埼玉県羽生市中央3丁目7-5",
+    "phone": "048-561-1681",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "中央三丁目",
+      "addr": "7-5",
+      "level": 8,
+      "point": {
+        "lat": 36.172940228,
+        "lng": 139.538932881,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.172940228,
+    "longitude": 139.538932881
+  },
+  {
+    "row": 20,
+    "name": "羽生市中央公民館",
+    "address": "埼玉県羽生市中央2丁目8-10",
+    "phone": "048-562-1558",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "中央二丁目",
+      "addr": "8-10",
+      "level": 8,
+      "point": {
+        "lat": 36.173584036,
+        "lng": 139.537394103,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.173584036,
+    "longitude": 139.537394103
+  },
+  {
+    "row": 32,
+    "name": "羽生市立羽生北小学校",
+    "address": "埼玉県羽生市北2丁目1-1",
+    "phone": "048-561-0058",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "北二丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 36.175400558,
+        "lng": 139.53857016900002,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.175400558,
+    "longitude": 139.53857016900002
+  },
+  {
+    "row": 41,
+    "name": "羽生北学童保育",
+    "address": "埼玉県羽生市北2丁目1-1",
+    "phone": "048-563-5013",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "北二丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 36.175400558,
+        "lng": 139.53857016900002,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.175400558,
+    "longitude": 139.53857016900002
+  },
+  {
+    "row": 47,
+    "name": "羽生市第一保育所",
+    "address": "埼玉県羽生市中央1丁目3-23",
+    "phone": "048-561-3572",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "中央一丁目",
+      "addr": "3-23",
+      "level": 8,
+      "point": {
+        "lat": 36.170819142,
+        "lng": 139.535803492,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.170819142,
+    "longitude": 139.535803492
+  },
+  {
+    "row": 48,
+    "name": "羽生市第三保育所",
+    "address": "埼玉県羽生市北2丁目5-22",
+    "phone": "048-561-1021",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "北二丁目",
+      "addr": "5-22",
+      "level": 8,
+      "point": {
+        "lat": 36.178252292,
+        "lng": 139.537068092,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.178252292,
+    "longitude": 139.537068092
+  },
+  {
+    "row": 50,
+    "name": "羽生市斎場",
+    "address": "埼玉県羽生市東3丁目42-2",
+    "phone": "048-561-0436",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2772",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-28",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "羽生市",
+      "town": "東三丁目",
+      "addr": "42-2",
+      "level": 8,
+      "point": {
+        "lat": 36.183543356,
+        "lng": 139.539547869,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 36.183543356,
+    "longitude": 139.539547869
+  }
+]

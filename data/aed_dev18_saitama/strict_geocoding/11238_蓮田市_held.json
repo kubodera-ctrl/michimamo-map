@@ -1,0 +1,677 @@
+[
+  {
+    "row": 2,
+    "name": "市役所",
+    "address": "埼玉県蓮田市大字黒浜2799-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "addr": "2799-1",
+      "level": 8,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "市役所",
+    "address": "埼玉県蓮田市大字黒浜2799-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "addr": "2799-1",
+      "level": 8,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 4,
+    "name": "消防本部",
+    "address": "埼玉県蓮田市閏戸178-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "addr": "178-1",
+      "level": 8,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 7,
+    "name": "総合市民体育館(パルシー)",
+    "address": "埼玉県蓮田市閏戸2343-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "addr": "2343-1",
+      "level": 8,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 10,
+    "name": "コミュニティセンター",
+    "address": "埼玉県蓮田市貝塚1015",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字貝塚",
+      "addr": "1015",
+      "level": 8,
+      "point": {
+        "lat": 36.018628,
+        "lng": 139.647062,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 12,
+    "name": "農業者トレーニングセンター",
+    "address": "埼玉県蓮田市井沼1017",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字井沼",
+      "addr": "1017",
+      "level": 8,
+      "point": {
+        "lat": 36.023232,
+        "lng": 139.629267,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 15,
+    "name": "蓮田駅西口行政センター",
+    "address": "埼玉県蓮田市本町6-1(プレックス蓮田)",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "本町",
+      "addr": "6-1",
+      "level": 8,
+      "point": {
+        "lat": 35.98221626,
+        "lng": 139.652978,
+        "level": 8
+      },
+      "other": "(プレックス蓮田)"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "環境学習館",
+    "address": "埼玉県蓮田市黒浜1061",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "level": 3,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": "1061"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "蓮田みぬま保育園",
+    "address": "埼玉県蓮田市蓮田見沼町4-3",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字蓮田",
+      "level": 3,
+      "point": {
+        "lat": 35.971295000000005,
+        "lng": 139.645293,
+        "level": 3
+      },
+      "other": "見沼町4-3"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "閏戸保育園",
+    "address": "埼玉県蓮田市閏戸3126-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "addr": "3126-1",
+      "level": 8,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 20,
+    "name": "黒浜保育園",
+    "address": "埼玉県蓮田市黒浜3119",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "addr": "3119",
+      "level": 8,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 25,
+    "name": "蓮田北学童保育所",
+    "address": "埼玉県蓮田市閏戸3-6-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "level": 3,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": "3-6-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 26,
+    "name": "平野学童保育所",
+    "address": "埼玉県蓮田市井沼935-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字井沼",
+      "addr": "935-1",
+      "level": 8,
+      "point": {
+        "lat": 36.023232,
+        "lng": 139.629267,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "黒浜西学童保育所",
+    "address": "埼玉県蓮田西新宿3-84",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "level": 1,
+      "point": {
+        "lat": 35.856907,
+        "lng": 139.648854,
+        "level": 1
+      },
+      "other": "蓮田西新宿3-84"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "蓮田北小学校",
+    "address": "埼玉県蓮田市閏戸3236",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "level": 3,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": "3236"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "平野小学校",
+    "address": "埼玉県蓮田市井沼937",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字井沼",
+      "level": 3,
+      "point": {
+        "lat": 36.023232,
+        "lng": 139.629267,
+        "level": 3
+      },
+      "other": "937"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "黒浜小学校",
+    "address": "埼玉県蓮田市黒浜3069",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "level": 3,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": "3069"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "黒浜西小学校",
+    "address": "埼玉県蓮田市西新宿3-84",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "西新宿三丁目",
+      "addr": "84",
+      "level": 8,
+      "point": {
+        "lat": 36.003653,
+        "lng": 139.650966,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 34,
+    "name": "黒浜南小学校",
+    "address": "埼玉県蓮田市黒浜722",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "level": 3,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": "722"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 35,
+    "name": "黒浜北小学校",
+    "address": "埼玉県蓮田市南新宿800",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字南新宿",
+      "level": 3,
+      "point": {
+        "lat": 36.008425,
+        "lng": 139.660379,
+        "level": 3
+      },
+      "other": "800"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "蓮田中学校",
+    "address": "埼玉県蓮田市閏戸147-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "addr": "147-1",
+      "level": 8,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "平野中学校",
+    "address": "埼玉県蓮田市井沼932",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字井沼",
+      "addr": "932",
+      "level": 8,
+      "point": {
+        "lat": 36.023232,
+        "lng": 139.629267,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "黒浜中学校",
+    "address": "埼玉県蓮田市黒浜4748",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "level": 3,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": "4748"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "蓮田南中学校",
+    "address": "埼玉県蓮田市蓮田1519",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字蓮田",
+      "level": 3,
+      "point": {
+        "lat": 35.971295000000005,
+        "lng": 139.645293,
+        "level": 3
+      },
+      "other": "1519"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "黒浜西中学校",
+    "address": "埼玉県蓮田市黒浜3862",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "level": 3,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": "3862"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 41,
+    "name": "はなみずき作業所",
+    "address": "埼玉県蓮田市根金1490",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字根金",
+      "level": 3,
+      "point": {
+        "lat": 36.025082,
+        "lng": 139.63851,
+        "level": 3
+      },
+      "other": "1490"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "かもめ作業所",
+    "address": "埼玉県蓮田市黒浜1247-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "addr": "1247-2",
+      "level": 8,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "総合文化会館(ハストピア)",
+    "address": "埼玉県蓮田市閏戸2343-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字閏戸",
+      "addr": "2343-2",
+      "level": 8,
+      "point": {
+        "lat": 36.004786,
+        "lng": 139.642415,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "黒浜公園",
+    "address": "埼玉県蓮田市黒浜4088-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "大字黒浜",
+      "addr": "4088-2",
+      "level": 8,
+      "point": {
+        "lat": 35.996206,
+        "lng": 139.669229,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "西新宿会館",
+    "address": "埼玉県蓮田市西新宿2-129-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/2636",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2025-11-04",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蓮田市",
+      "town": "西新宿二丁目",
+      "addr": "129-1",
+      "level": 8,
+      "point": {
+        "lat": 36.004031,
+        "lng": 139.653801,
+        "level": 3
+      },
+      "other": ""
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

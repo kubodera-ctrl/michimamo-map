@@ -1,0 +1,74 @@
+{
+  "processed": 290,
+  "publishable": 52,
+  "held": 238,
+  "published_by_municipality": {
+    "昭島市": 1,
+    "あきる野市": 51,
+    "調布市": 0,
+    "清瀬市": 0
+  },
+  "quality_rank": "B",
+  "policy": "official CC BY address plus unique current ABR parcel-detail coordinate; no town/block fallback",
+  "sources": [
+    {
+      "municipality": "昭島市",
+      "raw_rows": 55,
+      "accepted": 1,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132071d0000000003",
+      "resource_url": "https://www.opendata.metro.tokyo.lg.jp/akishima/AED.xlsx",
+      "license": "CC BY 4.0",
+      "source_sha256": "4df8e09a746641c83bfd5dba2654e360e393b722a08ac4e10d8646f5f0ce86fd",
+      "abr_available": true,
+      "abr": {
+        "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city132071.csv.zip",
+        "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city132071.csv.zip",
+        "data_sha256": "d61d8e8bd09b3200c320dfbb9c4288c144e04bff3f3c55fefd9434f057b95098",
+        "position_sha256": "8659888f766cb34df1b06257dfaf829938efd9192113df5a4e7ec690f56eb8b7"
+      }
+    },
+    {
+      "municipality": "あきる野市",
+      "raw_rows": 172,
+      "accepted": 51,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132284d3100000009",
+      "resource_url": "https://www.city.akiruno.tokyo.jp/cmsfiles/contents/0000015/15465/132284_aed.csv",
+      "license": "CC BY 4.0",
+      "source_sha256": "d138697ee0d0a6caee9bfa7c1a505989b0a036d6537cb714a247990cae7cd107",
+      "abr_available": true,
+      "abr": {
+        "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city132284.csv.zip",
+        "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city132284.csv.zip",
+        "data_sha256": "5be594db1092400da8313b92acd06576d8d5991bcb352a0478b43608a582dc8d",
+        "position_sha256": "f524c1fdec635cc7d3264b1f0ed8a18d1015e2f013309d55ff62301cf9a2d535"
+      }
+    },
+    {
+      "municipality": "調布市",
+      "raw_rows": 13,
+      "accepted": 0,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132080d3100000417",
+      "resource_url": "https://www.city.chofu.lg.jp/documents/4691/1.csv",
+      "license": "CC BY 4.0",
+      "source_sha256": "85694fc106d172ffd05bbcdfff7ea20bdc78ddfda8d50383a015e80fa90a7d5a",
+      "abr_available": true,
+      "abr": {
+        "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city132080.csv.zip",
+        "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city132080.csv.zip",
+        "data_sha256": "cd439e9502451fd0766c6726cab29f635b12874ba480e4d9e074aad1af6c2cff",
+        "position_sha256": "fda2924f073b2aeff4c6268856fa508eb3badfc55258a1859c0a1832854e9728"
+      }
+    },
+    {
+      "municipality": "清瀬市",
+      "raw_rows": 50,
+      "accepted": 0,
+      "catalog_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132217d0000000010",
+      "resource_url": "https://www.city.kiyose.lg.jp/_res/projects/default_project/_page_/001/001/605/20260901_aed.csv",
+      "license": "CC BY 4.0",
+      "source_sha256": "f0be1b5d542b2e567622546b4554d771913a810e5ddc24069e35944a29d6d25e",
+      "abr_available": false,
+      "abr": null
+    }
+  ]
+}

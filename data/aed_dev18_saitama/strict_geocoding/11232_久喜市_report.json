@@ -1,0 +1,9 @@
+{
+  "code": "11232",
+  "prefecture": "埼玉県",
+  "municipality": "久喜市",
+  "source_rows": 126,
+  "accepted": 0,
+  "held": 126,
+  "policy": "normalize level=8 AND point.level=8 AND pref/city exact AND other empty AND Saitama review bounds"
+}

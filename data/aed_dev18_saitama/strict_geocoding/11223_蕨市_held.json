@@ -1,0 +1,139 @@
+[
+  {
+    "row": 5,
+    "name": "蕨市北町地区留守家庭児童指導室(B館)",
+    "address": "埼玉県蕨市北町2-11-6北小学校体育館内",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "11-6",
+      "level": 8,
+      "point": {
+        "lat": 35.827049742,
+        "lng": 139.679413386,
+        "level": 8
+      },
+      "other": "北小学校体育館内"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "蕨市塚越東地区留守家庭児童指導室(B館)",
+    "address": "埼玉県蕨市塚越3-10-36東小学校内",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越三丁目",
+      "addr": "10-36",
+      "level": 8,
+      "point": {
+        "lat": 35.824468314,
+        "lng": 139.698347856,
+        "level": 8
+      },
+      "other": "東小学校内"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 19,
+    "name": "蕨市塚越地区留守家庭児童指導室(B館)",
+    "address": "埼玉県蕨市塚越5-7-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越五丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.82117300000001,
+        "lng": 139.702618,
+        "level": 3
+      },
+      "other": "7-15"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "蕨市南町地区留守家庭児童指導室(C館)",
+    "address": "埼玉県蕨市南町1-36-6南小学校内",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町一丁目",
+      "addr": "36-6",
+      "level": 8,
+      "point": {
+        "lat": 35.818436014,
+        "lng": 139.692238392,
+        "level": 8
+      },
+      "other": "南小学校内"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "蕨市中央地区留守家庭児童指導室(B館)",
+    "address": "埼玉県蕨市中央6-8-25中央小学校内",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央六丁目",
+      "addr": "8-25",
+      "level": 8,
+      "point": {
+        "lat": 35.822411989,
+        "lng": 139.683030378,
+        "level": 8
+      },
+      "other": "中央小学校内"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 58,
+    "name": "蕨市錦町地区留守家庭児童指導室(B館)",
+    "address": "埼玉県蕨市錦町5-11-30西小学校内",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "11-30",
+      "level": 8,
+      "point": {
+        "lat": 35.830291244,
+        "lng": 139.668923367,
+        "level": 8
+      },
+      "other": "西小学校内"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

@@ -1,0 +1,707 @@
+[
+  {
+    "row": 2,
+    "name": "宗岡第四小学校",
+    "address": "埼玉県志木市上宗岡1-1-2",
+    "phone": "473-5250",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "上宗岡一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.841525,
+        "lng": 139.580793,
+        "level": 3
+      },
+      "other": "1-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 3,
+    "name": "宗岡第四小学校",
+    "address": "埼玉県志木市上宗岡1-1-2",
+    "phone": "473-5250",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "上宗岡一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.841525,
+        "lng": 139.580793,
+        "level": 3
+      },
+      "other": "1-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 13,
+    "name": "志木市役所",
+    "address": "埼玉県志木市中宗岡1-1-1",
+    "phone": "473-1111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "中宗岡一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839952,
+        "lng": 139.585473,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 14,
+    "name": "志木市役所",
+    "address": "埼玉県志木市中宗岡1-1-1",
+    "phone": "473-1111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "中宗岡一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.839952,
+        "lng": 139.585473,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 16,
+    "name": "宗岡小学校",
+    "address": "埼玉県志木市中宗岡3-1-1",
+    "phone": "471-0307",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "中宗岡三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.838915,
+        "lng": 139.594205,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 17,
+    "name": "宗岡小学校",
+    "address": "埼玉県志木市中宗岡3-1-1",
+    "phone": "471-0307",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "中宗岡三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.838915,
+        "lng": 139.594205,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 18,
+    "name": "宗岡学童保育クラブ",
+    "address": "埼玉県志木市中宗岡3-1-1",
+    "phone": "473-4400",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "中宗岡三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.838915,
+        "lng": 139.594205,
+        "level": 3
+      },
+      "other": "1-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 27,
+    "name": "志木小学校",
+    "address": "埼玉県志木市本町1-10-1",
+    "phone": "471-0111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.8327,
+        "lng": 139.577551,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 28,
+    "name": "志木小学校",
+    "address": "埼玉県志木市本町1-10-1",
+    "phone": "471-0111",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.8327,
+        "lng": 139.577551,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 29,
+    "name": "いろは遊学館",
+    "address": "埼玉県志木市本町1-10-1",
+    "phone": "471-1297",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.8327,
+        "lng": 139.577551,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 30,
+    "name": "志木学童保育クラブ",
+    "address": "埼玉県志木市本町1-10-1",
+    "phone": "472-9551",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.8327,
+        "lng": 139.577551,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 31,
+    "name": "志木学童保育クラブ別棟",
+    "address": "埼玉県志木市本町1-10-1",
+    "phone": "070-7523-4884",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.8327,
+        "lng": 139.577551,
+        "level": 3
+      },
+      "other": "10-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 32,
+    "name": "志木市民サービスステーション",
+    "address": "埼玉県志木市本町5-26-1マルイファミリー志木8階",
+    "phone": "473-3988",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町五丁目",
+      "addr": "26-1",
+      "level": 8,
+      "point": {
+        "lat": 35.823555744,
+        "lng": 139.574921564,
+        "level": 8
+      },
+      "other": "マルイファミリー志木8階"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 33,
+    "name": "市民会館",
+    "address": "埼玉県志木市本町5ー26ー1マルイファミリー志木8階",
+    "phone": "474-3030",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "本町五丁目",
+      "addr": "26-1",
+      "level": 8,
+      "point": {
+        "lat": 35.823555744,
+        "lng": 139.574921564,
+        "level": 8
+      },
+      "other": "マルイファミリー志木8階"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 36,
+    "name": "志木第二小学校",
+    "address": "埼玉県志木市館1-2-1",
+    "phone": "472-0540",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 37,
+    "name": "志木第二小学校",
+    "address": "埼玉県志木市館1-2-1",
+    "phone": "472-0540",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 38,
+    "name": "志木第二学童保育クラブ",
+    "address": "埼玉県志木市館1-2-1",
+    "phone": "474-1100",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 39,
+    "name": "志木第二学童保育クラブ別棟",
+    "address": "埼玉県志木市館1-2-1",
+    "phone": "471-8110",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 40,
+    "name": "志木第二中学校",
+    "address": "埼玉県志木市館1-3-1",
+    "phone": "473-2379",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "3-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 41,
+    "name": "志木第二中学校",
+    "address": "埼玉県志木市館1-3-1",
+    "phone": "473-2379",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "3-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 42,
+    "name": "志木第四小学校",
+    "address": "埼玉県志木市館1-4-1",
+    "phone": "474-7911",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "4-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 43,
+    "name": "志木第四小学校",
+    "address": "埼玉県志木市館1-4-1",
+    "phone": "474-7911",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "4-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 44,
+    "name": "志木第四学童保育クラブ",
+    "address": "埼玉県志木市館1-4-1",
+    "phone": "471-3020",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.826447,
+        "lng": 139.56169,
+        "level": 3
+      },
+      "other": "4-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 45,
+    "name": "市民体育館",
+    "address": "埼玉県志木市館2-2-5",
+    "phone": "474-7666",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.82803,
+        "lng": 139.55856,
+        "level": 3
+      },
+      "other": "2-5"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 46,
+    "name": "柳瀬川図書館",
+    "address": "埼玉県志木市館2-6-14",
+    "phone": "487-2004",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.82803,
+        "lng": 139.55856,
+        "level": 3
+      },
+      "other": "6-14"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 47,
+    "name": "柳瀬川駅前出張所",
+    "address": "埼玉県志木市館2-6-10",
+    "phone": "472-4449",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "館二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.82803,
+        "lng": 139.55856,
+        "level": 3
+      },
+      "other": "6-10"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 48,
+    "name": "志木第三小学校",
+    "address": "埼玉県志木市柏町3-2-1",
+    "phone": "471-1062",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "柏町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.832974,
+        "lng": 139.569765,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 49,
+    "name": "志木第三小学校",
+    "address": "埼玉県志木市柏町3-2-1",
+    "phone": "471-1062",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "柏町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.832974,
+        "lng": 139.569765,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 50,
+    "name": "志木第三学童保育クラブ",
+    "address": "埼玉県志木市柏町3-2-1",
+    "phone": "471-0822",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "柏町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.832974,
+        "lng": 139.569765,
+        "level": 3
+      },
+      "other": "2-1"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 52,
+    "name": "志木中学校",
+    "address": "埼玉県志木市柏町3-2-2",
+    "phone": "471-0143",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "柏町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.832974,
+        "lng": 139.569765,
+        "level": 3
+      },
+      "other": "2-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 53,
+    "name": "志木中学校",
+    "address": "埼玉県志木市柏町3-2-2",
+    "phone": "471-0143",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "town": "柏町三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.832974,
+        "lng": 139.569765,
+        "level": 3
+      },
+      "other": "2-2"
+    },
+    "reason": "strict_level8_match_failed"
+  },
+  {
+    "row": 56,
+    "name": "八ヶ岳自然の家",
+    "address": "埼玉県志木市長野県南佐久郡南牧村大字海ノ口字八ヶ岳2255-1",
+    "phone": "0267-98-2297",
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/146",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-02-20",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "志木市",
+      "level": 2,
+      "point": {
+        "lat": 35.836614,
+        "lng": 139.58023,
+        "level": 2
+      },
+      "other": "長野県南佐久郡南牧村大字海ノ口字八ヶ岳2255-1"
+    },
+    "reason": "strict_level8_match_failed"
+  }
+]

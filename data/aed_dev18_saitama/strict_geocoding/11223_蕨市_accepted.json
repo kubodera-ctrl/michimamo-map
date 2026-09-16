@@ -1,0 +1,1322 @@
+[
+  {
+    "row": 2,
+    "name": "蕨市民体育館(蕨市立北町公民館)(蕨市立北町児童館)",
+    "address": "埼玉県蕨市北町1-27-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町一丁目",
+      "addr": "27-15",
+      "level": 8,
+      "point": {
+        "lat": 35.831150703,
+        "lng": 139.680769303,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.831150703,
+    "longitude": 139.680769303
+  },
+  {
+    "row": 3,
+    "name": "蕨市北町地区留守家庭児童指導室(A館)",
+    "address": "埼玉県蕨市北町2-11-33",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "11-33",
+      "level": 8,
+      "point": {
+        "lat": 35.828034939,
+        "lng": 139.679398367,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828034939,
+    "longitude": 139.679398367
+  },
+  {
+    "row": 4,
+    "name": "蕨市北町地区留守家庭児童指導室(C館)",
+    "address": "埼玉県蕨市北町2-11-33",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "11-33",
+      "level": 8,
+      "point": {
+        "lat": 35.828034939,
+        "lng": 139.679398367,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828034939,
+    "longitude": 139.679398367
+  },
+  {
+    "row": 6,
+    "name": "蕨市立北小学校",
+    "address": "埼玉県蕨市北町2-11-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "11-6",
+      "level": 8,
+      "point": {
+        "lat": 35.827049742,
+        "lng": 139.679413386,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.827049742,
+    "longitude": 139.679413386
+  },
+  {
+    "row": 7,
+    "name": "蕨市立北小学校",
+    "address": "埼玉県蕨市北町2-11-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "11-6",
+      "level": 8,
+      "point": {
+        "lat": 35.827049742,
+        "lng": 139.679413386,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.827049742,
+    "longitude": 139.679413386
+  },
+  {
+    "row": 8,
+    "name": "蕨市保健センター",
+    "address": "埼玉県蕨市北町2-12-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "12-15",
+      "level": 8,
+      "point": {
+        "lat": 35.828161425,
+        "lng": 139.67937361400004,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828161425,
+    "longitude": 139.67937361400004
+  },
+  {
+    "row": 9,
+    "name": "蕨市立病院",
+    "address": "埼玉県蕨市北町2-12-18",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町二丁目",
+      "addr": "12-18",
+      "level": 8,
+      "point": {
+        "lat": 35.828496667,
+        "lng": 139.679547269,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828496667,
+    "longitude": 139.679547269
+  },
+  {
+    "row": 10,
+    "name": "蕨市立みどり保育園",
+    "address": "埼玉県蕨市北町3-1-27",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "北町三丁目",
+      "addr": "1-27",
+      "level": 8,
+      "point": {
+        "lat": 35.829985939,
+        "lng": 139.678520544,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.829985939,
+    "longitude": 139.678520544
+  },
+  {
+    "row": 11,
+    "name": "蕨市立塚越児童館(蕨市塚越東地区留守家庭児童指導室(A館))",
+    "address": "埼玉県蕨市塚越2-11-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越二丁目",
+      "addr": "11-8",
+      "level": 8,
+      "point": {
+        "lat": 35.826343483,
+        "lng": 139.696156456,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.826343483,
+    "longitude": 139.696156456
+  },
+  {
+    "row": 12,
+    "name": "蕨市立東小学校",
+    "address": "埼玉県蕨市塚越3-10-36",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越三丁目",
+      "addr": "10-36",
+      "level": 8,
+      "point": {
+        "lat": 35.824468314,
+        "lng": 139.698347856,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824468314,
+    "longitude": 139.698347856
+  },
+  {
+    "row": 13,
+    "name": "蕨市立東小学校",
+    "address": "埼玉県蕨市塚越3-10-36",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越三丁目",
+      "addr": "10-36",
+      "level": 8,
+      "point": {
+        "lat": 35.824468314,
+        "lng": 139.698347856,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824468314,
+    "longitude": 139.698347856
+  },
+  {
+    "row": 15,
+    "name": "蕨市立東公民館(蕨市塚越地区留守家庭児童指導室(A館))",
+    "address": "埼玉県蕨市塚越3-19-13",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越三丁目",
+      "addr": "19-13",
+      "level": 8,
+      "point": {
+        "lat": 35.825061036,
+        "lng": 139.701358106,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825061036,
+    "longitude": 139.701358106
+  },
+  {
+    "row": 16,
+    "name": "蕨市消防本部 蕨市消防署塚越分署",
+    "address": "埼玉県蕨市塚越4-1-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越四丁目",
+      "addr": "1-6",
+      "level": 8,
+      "point": {
+        "lat": 35.824734875,
+        "lng": 139.697937094,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824734875,
+    "longitude": 139.697937094
+  },
+  {
+    "row": 17,
+    "name": "蕨市立老人福祉センターけやき荘",
+    "address": "埼玉県蕨市塚越5-6-10",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越五丁目",
+      "addr": "6-10",
+      "level": 8,
+      "point": {
+        "lat": 35.8241888,
+        "lng": 139.703372731,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8241888,
+    "longitude": 139.703372731
+  },
+  {
+    "row": 18,
+    "name": "蕨市立たんぽぽ保育園",
+    "address": "埼玉県蕨市塚越5-6-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越五丁目",
+      "addr": "6-5",
+      "level": 8,
+      "point": {
+        "lat": 35.82402405,
+        "lng": 139.702749858,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.82402405,
+    "longitude": 139.702749858
+  },
+  {
+    "row": 20,
+    "name": "蕨市立塚越小学校",
+    "address": "埼玉県蕨市塚越5-7-20",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越五丁目",
+      "addr": "7-20",
+      "level": 8,
+      "point": {
+        "lat": 35.823681628,
+        "lng": 139.704984439,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.823681628,
+    "longitude": 139.704984439
+  },
+  {
+    "row": 21,
+    "name": "蕨市立塚越小学校",
+    "address": "埼玉県蕨市塚越5-7-20",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越五丁目",
+      "addr": "7-20",
+      "level": 8,
+      "point": {
+        "lat": 35.823681628,
+        "lng": 139.704984439,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.823681628,
+    "longitude": 139.704984439
+  },
+  {
+    "row": 22,
+    "name": "蕨市立東中学校",
+    "address": "埼玉県蕨市塚越6-7-34",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越六丁目",
+      "addr": "7-34",
+      "level": 8,
+      "point": {
+        "lat": 35.824931331,
+        "lng": 139.702932061,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824931331,
+    "longitude": 139.702932061
+  },
+  {
+    "row": 23,
+    "name": "蕨市立東中学校",
+    "address": "埼玉県蕨市塚越6-7-34",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "塚越六丁目",
+      "addr": "7-34",
+      "level": 8,
+      "point": {
+        "lat": 35.824931331,
+        "lng": 139.702932061,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824931331,
+    "longitude": 139.702932061
+  },
+  {
+    "row": 24,
+    "name": "蕨市立図書館",
+    "address": "埼玉県蕨市南町1-12-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町一丁目",
+      "addr": "12-1",
+      "level": 8,
+      "point": {
+        "lat": 35.8214,
+        "lng": 139.694658419,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8214,
+    "longitude": 139.694658419
+  },
+  {
+    "row": 25,
+    "name": "蕨市立南小学校",
+    "address": "埼玉県蕨市南町1-36-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町一丁目",
+      "addr": "36-6",
+      "level": 8,
+      "point": {
+        "lat": 35.818436014,
+        "lng": 139.692238392,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818436014,
+    "longitude": 139.692238392
+  },
+  {
+    "row": 26,
+    "name": "蕨市立南小学校",
+    "address": "埼玉県蕨市南町1-36-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町一丁目",
+      "addr": "36-6",
+      "level": 8,
+      "point": {
+        "lat": 35.818436014,
+        "lng": 139.692238392,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818436014,
+    "longitude": 139.692238392
+  },
+  {
+    "row": 28,
+    "name": "蕨市立くるみ保育園",
+    "address": "埼玉県蕨市南町2-20-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町二丁目",
+      "addr": "20-1",
+      "level": 8,
+      "point": {
+        "lat": 35.819607447,
+        "lng": 139.69550547800003,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.819607447,
+    "longitude": 139.69550547800003
+  },
+  {
+    "row": 29,
+    "name": "交流プラザさくら(蕨市立南児童館)(みつわ苑)(蕨市南町地区留守家庭児童指導室(A館))",
+    "address": "埼玉県蕨市南町2-21-2",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町二丁目",
+      "addr": "21-2",
+      "level": 8,
+      "point": {
+        "lat": 35.819465683,
+        "lng": 139.695927133,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.819465683,
+    "longitude": 139.695927133
+  },
+  {
+    "row": 30,
+    "name": "蕨市立南公民館(蕨市南町地区留守家庭児童指導室(B館))",
+    "address": "埼玉県蕨市南町2-23-19",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町二丁目",
+      "addr": "23-19",
+      "level": 8,
+      "point": {
+        "lat": 35.818362733,
+        "lng": 139.696098875,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818362733,
+    "longitude": 139.696098875
+  },
+  {
+    "row": 31,
+    "name": "蕨市立第一中学校",
+    "address": "埼玉県蕨市南町3-1-29",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町三丁目",
+      "addr": "1-29",
+      "level": 8,
+      "point": {
+        "lat": 35.818385256,
+        "lng": 139.700290817,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818385256,
+    "longitude": 139.700290817
+  },
+  {
+    "row": 32,
+    "name": "蕨市立第一中学校",
+    "address": "埼玉県蕨市南町3-1-29",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "南町三丁目",
+      "addr": "1-29",
+      "level": 8,
+      "point": {
+        "lat": 35.818385256,
+        "lng": 139.700290817,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818385256,
+    "longitude": 139.700290817
+  },
+  {
+    "row": 33,
+    "name": "蕨市立旭町公民館",
+    "address": "埼玉県蕨市中央1-23-8",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央一丁目",
+      "addr": "23-8",
+      "level": 8,
+      "point": {
+        "lat": 35.826726114,
+        "lng": 139.690920469,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.826726114,
+    "longitude": 139.690920469
+  },
+  {
+    "row": 34,
+    "name": "蕨市水道部庁舎",
+    "address": "埼玉県蕨市中央2-10-6",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央二丁目",
+      "addr": "10-6",
+      "level": 8,
+      "point": {
+        "lat": 35.822539617,
+        "lng": 139.687884394,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.822539617,
+    "longitude": 139.687884394
+  },
+  {
+    "row": 35,
+    "name": "蕨市立さくら保育園",
+    "address": "埼玉県蕨市中央2-13-12",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央二丁目",
+      "addr": "13-12",
+      "level": 8,
+      "point": {
+        "lat": 35.821723031,
+        "lng": 139.689767067,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.821723031,
+    "longitude": 139.689767067
+  },
+  {
+    "row": 36,
+    "name": "蕨市立福祉・児童センター(蕨市中央地区留守家庭児童指導室(A館))",
+    "address": "埼玉県蕨市中央4-9-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央四丁目",
+      "addr": "9-22",
+      "level": 8,
+      "point": {
+        "lat": 35.824241489,
+        "lng": 139.683577792,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.824241489,
+    "longitude": 139.683577792
+  },
+  {
+    "row": 37,
+    "name": "蕨市立中央公民館",
+    "address": "埼玉県蕨市中央4-21-29",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央四丁目",
+      "addr": "21-29",
+      "level": 8,
+      "point": {
+        "lat": 35.825782542,
+        "lng": 139.682668403,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825782542,
+    "longitude": 139.682668403
+  },
+  {
+    "row": 38,
+    "name": "蕨市役所",
+    "address": "埼玉県蕨市中央5-14-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央五丁目",
+      "addr": "14-15",
+      "level": 8,
+      "point": {
+        "lat": 35.825673072,
+        "lng": 139.679451525,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825673072,
+    "longitude": 139.679451525
+  },
+  {
+    "row": 39,
+    "name": "蕨市教育委員会学校教育課",
+    "address": "埼玉県蕨市中央5-14-15",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央五丁目",
+      "addr": "14-15",
+      "level": 8,
+      "point": {
+        "lat": 35.825673072,
+        "lng": 139.679451525,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825673072,
+    "longitude": 139.679451525
+  },
+  {
+    "row": 40,
+    "name": "蕨市立中央小学校",
+    "address": "埼玉県蕨市中央6-8-25",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央六丁目",
+      "addr": "8-25",
+      "level": 8,
+      "point": {
+        "lat": 35.822411989,
+        "lng": 139.683030378,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.822411989,
+    "longitude": 139.683030378
+  },
+  {
+    "row": 41,
+    "name": "蕨市立中央小学校",
+    "address": "埼玉県蕨市中央6-8-25",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央六丁目",
+      "addr": "8-25",
+      "level": 8,
+      "point": {
+        "lat": 35.822411989,
+        "lng": 139.683030378,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.822411989,
+    "longitude": 139.683030378
+  },
+  {
+    "row": 43,
+    "name": "蕨市立中央東小学校",
+    "address": "埼玉県蕨市中央7-18-7",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央七丁目",
+      "addr": "18-7",
+      "level": 8,
+      "point": {
+        "lat": 35.8190263,
+        "lng": 139.687527375,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8190263,
+    "longitude": 139.687527375
+  },
+  {
+    "row": 44,
+    "name": "蕨市立中央東小学校",
+    "address": "埼玉県蕨市中央7-18-7",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央七丁目",
+      "addr": "18-7",
+      "level": 8,
+      "point": {
+        "lat": 35.8190263,
+        "lng": 139.687527375,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8190263,
+    "longitude": 139.687527375
+  },
+  {
+    "row": 45,
+    "name": "蕨市中央東地区留守家庭児童指導室(A)",
+    "address": "埼玉県蕨市中央7-21-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央七丁目",
+      "addr": "21-5",
+      "level": 8,
+      "point": {
+        "lat": 35.818553575,
+        "lng": 139.686665208,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818553575,
+    "longitude": 139.686665208
+  },
+  {
+    "row": 46,
+    "name": "蕨市中央東地区留守家庭児童指導室(B)",
+    "address": "埼玉県蕨市中央7-21-5",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央七丁目",
+      "addr": "21-5",
+      "level": 8,
+      "point": {
+        "lat": 35.818553575,
+        "lng": 139.686665208,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.818553575,
+    "longitude": 139.686665208
+  },
+  {
+    "row": 47,
+    "name": "蕨市立下蕨公民館",
+    "address": "埼玉県蕨市中央7-41-1",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "中央七丁目",
+      "addr": "41-1",
+      "level": 8,
+      "point": {
+        "lat": 35.816786525,
+        "lng": 139.68815455,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.816786525,
+    "longitude": 139.68815455
+  },
+  {
+    "row": 48,
+    "name": "蕨市立錦町児童館(蕨市錦町地区留守家庭児童指導室(A館))",
+    "address": "埼玉県蕨市錦町2-15-23",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町二丁目",
+      "addr": "15-23",
+      "level": 8,
+      "point": {
+        "lat": 35.825579192,
+        "lng": 139.672767811,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825579192,
+    "longitude": 139.672767811
+  },
+  {
+    "row": 49,
+    "name": "蕨市立さつき保育園",
+    "address": "埼玉県蕨市錦町2-7-11",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町二丁目",
+      "addr": "7-11",
+      "level": 8,
+      "point": {
+        "lat": 35.825067083,
+        "lng": 139.673982108,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.825067083,
+    "longitude": 139.673982108
+  },
+  {
+    "row": 50,
+    "name": "蕨市総合社会福祉センター",
+    "address": "埼玉県蕨市錦町3-3-27",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "3-27",
+      "level": 8,
+      "point": {
+        "lat": 35.8278283,
+        "lng": 139.672687608,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8278283,
+    "longitude": 139.672687608
+  },
+  {
+    "row": 51,
+    "name": "蕨市総合社会福祉センター",
+    "address": "埼玉県蕨市錦町3-3-27",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "3-27",
+      "level": 8,
+      "point": {
+        "lat": 35.8278283,
+        "lng": 139.672687608,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.8278283,
+    "longitude": 139.672687608
+  },
+  {
+    "row": 52,
+    "name": "老人福祉センター 松原会館",
+    "address": "埼玉県蕨市錦町3-3-41",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "3-41",
+      "level": 8,
+      "point": {
+        "lat": 35.828466669,
+        "lng": 139.674146575,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828466669,
+    "longitude": 139.674146575
+  },
+  {
+    "row": 53,
+    "name": "蕨市立西公民館",
+    "address": "埼玉県蕨市錦町3-3-41",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "3-41",
+      "level": 8,
+      "point": {
+        "lat": 35.828466669,
+        "lng": 139.674146575,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828466669,
+    "longitude": 139.674146575
+  },
+  {
+    "row": 54,
+    "name": "蕨市立第二中学校",
+    "address": "埼玉県蕨市錦町3-9-38",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "9-38",
+      "level": 8,
+      "point": {
+        "lat": 35.828893917,
+        "lng": 139.672054683,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828893917,
+    "longitude": 139.672054683
+  },
+  {
+    "row": 55,
+    "name": "蕨市立第二中学校",
+    "address": "埼玉県蕨市錦町3-9-38",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町三丁目",
+      "addr": "9-38",
+      "level": 8,
+      "point": {
+        "lat": 35.828893917,
+        "lng": 139.672054683,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.828893917,
+    "longitude": 139.672054683
+  },
+  {
+    "row": 56,
+    "name": "蕨市立西小学校",
+    "address": "埼玉県蕨市錦町5-11-30",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "11-30",
+      "level": 8,
+      "point": {
+        "lat": 35.830291244,
+        "lng": 139.668923367,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.830291244,
+    "longitude": 139.668923367
+  },
+  {
+    "row": 57,
+    "name": "蕨市立西小学校",
+    "address": "埼玉県蕨市錦町5-11-30",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "11-30",
+      "level": 8,
+      "point": {
+        "lat": 35.830291244,
+        "lng": 139.668923367,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.830291244,
+    "longitude": 139.668923367
+  },
+  {
+    "row": 59,
+    "name": "蕨市消防本部",
+    "address": "埼玉県蕨市錦町5-1-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "1-22",
+      "level": 8,
+      "point": {
+        "lat": 35.831492925,
+        "lng": 139.67220445,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.831492925,
+    "longitude": 139.67220445
+  },
+  {
+    "row": 60,
+    "name": "蕨市消防本部",
+    "address": "埼玉県蕨市錦町5-1-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "1-22",
+      "level": 8,
+      "point": {
+        "lat": 35.831492925,
+        "lng": 139.67220445,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.831492925,
+    "longitude": 139.67220445
+  },
+  {
+    "row": 61,
+    "name": "蕨市消防本部",
+    "address": "埼玉県蕨市錦町5-1-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "1-22",
+      "level": 8,
+      "point": {
+        "lat": 35.831492925,
+        "lng": 139.67220445,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.831492925,
+    "longitude": 139.67220445
+  },
+  {
+    "row": 62,
+    "name": "蕨市消防本部",
+    "address": "埼玉県蕨市錦町5-1-22",
+    "phone": null,
+    "source_url": "https://opendata.pref.saitama.lg.jp/datasets/246",
+    "source_license": "PDL 1.0",
+    "source_updated_at": "2024-03-11",
+    "normalized": {
+      "pref": "埼玉県",
+      "city": "蕨市",
+      "town": "錦町五丁目",
+      "addr": "1-22",
+      "level": 8,
+      "point": {
+        "lat": 35.831492925,
+        "lng": 139.67220445,
+        "level": 8
+      },
+      "other": ""
+    },
+    "latitude": 35.831492925,
+    "longitude": 139.67220445
+  }
+]

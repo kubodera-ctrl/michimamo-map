@@ -1,0 +1,17 @@
+{
+  "processed": 85,
+  "publishable": 0,
+  "held": 85,
+  "quality_rank": "B",
+  "municipality": "大東市",
+  "source_license": "CC BY 2.1 JP",
+  "source_modified": "2023-11-30",
+  "source_sha256": "319dd3d9692d69f0f7755843b7253aa5667779cdf0a149726b2ae8fa94d8763f",
+  "coordinate_policy": "unique current ABR parcel detail only; no representative fallback",
+  "abr": {
+    "data": "https://data.address-br.digital.go.jp/mt_parcel/city/mt_parcel_city272183.csv.zip",
+    "position": "https://data.address-br.digital.go.jp/mt_parcel_pos/city/mt_parcel_pos_city272183.csv.zip",
+    "data_sha256": "f03e28f59043bf47fbd55f43c92ff9c3d75f79bcc217ff8b6b0965aaeb345fa9",
+    "position_sha256": "e2f8178c43d216608628d4dc5a87ae31d18d2bb8614a9886ac1ec8f3b1bb5b36"
+  }
+}

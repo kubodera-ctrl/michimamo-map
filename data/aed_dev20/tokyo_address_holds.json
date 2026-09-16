@@ -1,0 +1,1668 @@
+[
+  {
+    "dataset": "akishima",
+    "source_row": 2,
+    "name": "市役所",
+    "address": "東京都昭島市田中町1-17-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 3,
+    "name": "保健福祉センター",
+    "address": "東京都昭島市昭和町4-7-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 4,
+    "name": "松原町高齢者福祉センター",
+    "address": "東京都昭島市松原町1-13-3",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 5,
+    "name": "朝日町高齢者福祉センター",
+    "address": "東京都昭島市朝日町4-5-9",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 6,
+    "name": "拝島町高齢者福祉センター",
+    "address": "東京都昭島市拝島町3-10-4",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 7,
+    "name": "総合スポーツセンター",
+    "address": "東京都昭島市東町5-13-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 8,
+    "name": "Ｓ＆Ｄ昭島スタジアム（昭島市民球場）",
+    "address": "東京都昭島市東町5-13-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 9,
+    "name": "みほり体育館",
+    "address": "東京都昭島市美堀町4-20-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 10,
+    "name": "大神グラウンド管理棟",
+    "address": "東京都昭島市宮沢町3-14-10",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 11,
+    "name": "市民プール（夏季）",
+    "address": "東京都昭島市宮沢町3-16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 12,
+    "name": "市民会館・公民館",
+    "address": "東京都昭島市つつじが丘3-7-7",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 13,
+    "name": "福島会館",
+    "address": "東京都昭島市福島町1-19-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 14,
+    "name": "玉川会館",
+    "address": "東京都昭島市玉川町3-10-15",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 15,
+    "name": "朝日会館",
+    "address": "東京都昭島市朝日町5-6-20",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 16,
+    "name": "富士見会館",
+    "address": "東京都昭島市中神町1282",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 17,
+    "name": "大神会館",
+    "address": "東京都昭島市大神町3-10-5",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 18,
+    "name": "昭和会館",
+    "address": "東京都昭島市松原町1-2-25",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 19,
+    "name": "緑会館",
+    "address": "東京都昭島市緑町4-13-26",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 20,
+    "name": "堀向会館",
+    "address": "東京都昭島市美堀町2-6-11",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 21,
+    "name": "拝島会館",
+    "address": "東京都昭島市拝島町2-4-13",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 22,
+    "name": "やまのかみ会館",
+    "address": "東京都昭島市拝島町3-10-3",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 23,
+    "name": "武蔵野会館",
+    "address": "東京都昭島市中神町1172-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 24,
+    "name": "児童センター",
+    "address": "東京都昭島市つつじが丘2-3-21",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 25,
+    "name": "アキシマエンシス（教育福祉総合センター）",
+    "address": "東京都昭島市つつじが丘3-3-15",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 26,
+    "name": "昭和中学校",
+    "address": "東京都昭島市東町2-6-22",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 27,
+    "name": "福島中学校",
+    "address": "東京都昭島市福島町3-20-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 28,
+    "name": "瑞雲中学校",
+    "address": "東京都昭島市つつじが丘2-2-6",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 29,
+    "name": "清泉中学校",
+    "address": "東京都昭島市宮沢町1-9-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 30,
+    "name": "拝島中学校",
+    "address": "東京都昭島市緑町2-2-12",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 31,
+    "name": "多摩辺中学校",
+    "address": "東京都昭島市拝島町4-6-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 32,
+    "name": "東小学校",
+    "address": "東京都昭島市東町2-2-18",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 33,
+    "name": "共成小学校",
+    "address": "東京都昭島市郷地町2-6-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 34,
+    "name": "富士見丘小学校",
+    "address": "東京都昭島市福島町890",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 36,
+    "name": "玉川小学校",
+    "address": "東京都昭島市福島町2-8-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 37,
+    "name": "中神小学校",
+    "address": "東京都昭島市朝日町5-8-5",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 38,
+    "name": "つつじが丘小学校",
+    "address": "東京都昭島市つつじが丘2-1-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 39,
+    "name": "光華小学校",
+    "address": "東京都昭島市昭和町4-5-13",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 40,
+    "name": "成隣小学校",
+    "address": "東京都昭島市大神町4-4-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 41,
+    "name": "田中小学校",
+    "address": "東京都昭島市田中町3-4-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 42,
+    "name": "拝島第一小学校",
+    "address": "東京都昭島市拝島町1-14-14",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 43,
+    "name": "拝島第二小学校",
+    "address": "東京都昭島市代官山1-6-7",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 44,
+    "name": "拝島第三小学校",
+    "address": "東京都昭島市松原町3-12-15",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 45,
+    "name": "旧拝島第四小学校",
+    "address": "東京都昭島市拝島町5-6-30",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 46,
+    "name": "勤労商工市民センター",
+    "address": "東京都昭島市昭和町3-10-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 47,
+    "name": "中神土地区画整理事務所",
+    "address": "東京都昭島市中神町1136-16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 48,
+    "name": "昭島市水道部",
+    "address": "東京都昭島市朝日町4-23-28",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 49,
+    "name": "環境コミュニケーションセンター",
+    "address": "東京都昭島市美堀町3-8-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 50,
+    "name": "エコパーク",
+    "address": "東京都昭島市美堀町3-8-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 51,
+    "name": "昭島市清掃センター",
+    "address": "東京都昭島市田中町4-3-14",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 52,
+    "name": "松原町コミュニティセンター",
+    "address": "東京都昭島市松原町1-3-10",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 53,
+    "name": "なしのき保育園",
+    "address": "東京都昭島市上川原町1-23-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 54,
+    "name": "多摩川遊歩道・昭島市民プール前",
+    "address": "東京都昭島市宮沢町3-16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 55,
+    "name": "青少年交流センター",
+    "address": "東京都昭島市昭和町1-6-11",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akishima",
+    "source_row": 56,
+    "name": "昭和公園陸上競技場",
+    "address": "東京都昭島市東町5-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 3,
+    "name": "多摩川幼稚園",
+    "address": "東京都あきる野市雨間430",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 4,
+    "name": "萩野センター",
+    "address": "東京都あきる野市雨間533",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 9,
+    "name": "よつぎ第一保育園",
+    "address": "東京都あきる野市雨間1946",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 10,
+    "name": "いきいきセンター",
+    "address": "東京都あきる野市雨間1946",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 11,
+    "name": "東部図書館エル",
+    "address": "東京都あきる野市野辺39-27",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 12,
+    "name": "前田小学校",
+    "address": "東京都あきる野市野辺92",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 13,
+    "name": "前田児童館",
+    "address": "東京都あきる野市野辺126-4",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 14,
+    "name": "東秋留駅",
+    "address": "東京都あきる野市野辺458",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 17,
+    "name": "東秋留保育園",
+    "address": "東京都あきる野市野辺1104",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 18,
+    "name": "東秋留小学校",
+    "address": "東京都あきる野市野辺1123",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 19,
+    "name": "若竹児童館",
+    "address": "東京都あきる野市野辺1123",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 20,
+    "name": "野辺駐在所",
+    "address": "東京都あきる野市野辺1140",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 22,
+    "name": "秋川ふれあいランド",
+    "address": "東京都あきる野市小川1343-101",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 23,
+    "name": "日本アルミット（株）第一研究所",
+    "address": "東京都あきる野市小川東1-2-15",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 24,
+    "name": "岡部製作所",
+    "address": "東京都あきる野市小川東1-2-20",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 25,
+    "name": "星野小児科内科クリニック",
+    "address": "東京都あきる野市小川東1-19-20",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 26,
+    "name": "日本アルミット（株）マイクロ接合研究所",
+    "address": "東京都あきる野市小川東1-23-14",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 27,
+    "name": "玉見会館",
+    "address": "東京都あきる野市小川東2-9-8",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 28,
+    "name": "ほうりんじ幼稚園",
+    "address": "東京都あきる野市小川東2-12-24",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 29,
+    "name": "秋多中学校",
+    "address": "東京都あきる野市二宮334",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 30,
+    "name": "あきる野市役所",
+    "address": "東京都あきる野市二宮350",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 31,
+    "name": "秋留台学童クラブ",
+    "address": "東京都あきる野市二宮350",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 32,
+    "name": "秋川健康会館",
+    "address": "東京都あきる野市二宮670",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 33,
+    "name": "中央公民館",
+    "address": "東京都あきる野市二宮683",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 34,
+    "name": "秋川体育館",
+    "address": "東京都あきる野市二宮683",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 35,
+    "name": "秋川ファーマーズセンター",
+    "address": "東京都あきる野市二宮811",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 36,
+    "name": "二宮地区会館",
+    "address": "東京都あきる野市二宮1151",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 37,
+    "name": "二宮考古館",
+    "address": "東京都あきる野市二宮1151",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 38,
+    "name": "二宮駐在所",
+    "address": "東京都あきる野市二宮2213",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 39,
+    "name": "総合グラウンド（クラブハウス）",
+    "address": "東京都あきる野市二宮東1-11-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 40,
+    "name": "屋城小学校",
+    "address": "東京都あきる野市二宮東1-12-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 41,
+    "name": "屋城保育園",
+    "address": "東京都あきる野市二宮東1-12-9",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 42,
+    "name": "屋城児童館（屋城学童クラブ）",
+    "address": "東京都あきる野市二宮東1-13-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 43,
+    "name": "旧秋川図書館",
+    "address": "東京都あきる野市平沢32",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 45,
+    "name": "東中学校",
+    "address": "東京都あきる野市平沢200",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 46,
+    "name": "農業会館",
+    "address": "東京都あきる野市平沢300-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 50,
+    "name": "麦久保園",
+    "address": "東京都あきる野市草花2219",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 51,
+    "name": "立川国際カントリークラブ",
+    "address": "東京都あきる野市草花2390",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 52,
+    "name": "多西児童館",
+    "address": "東京都あきる野市草花2572",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 54,
+    "name": "草花保育園",
+    "address": "東京都あきる野市草花3056",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 55,
+    "name": "くさばな幼稚園",
+    "address": "東京都あきる野市草花3060",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 56,
+    "name": "草花駐在所",
+    "address": "東京都あきる野市草花3062",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 61,
+    "name": "御堂中学校",
+    "address": "東京都あきる野市草花3322",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 66,
+    "name": "和敬園",
+    "address": "東京都あきる野市菅生1159",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 67,
+    "name": "松楓園コスモホーム",
+    "address": "東京都あきる野市菅生1159",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 68,
+    "name": "東海大学菅生中学校",
+    "address": "東京都あきる野市菅生1468",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 69,
+    "name": "菅生学園初等学校",
+    "address": "東京都あきる野市菅生1468",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 70,
+    "name": "東海大学菅生高等学校",
+    "address": "東京都あきる野市菅生1817",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 73,
+    "name": "神明保育園",
+    "address": "東京都あきる野市瀬戸岡446",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 74,
+    "name": "秋川あすなろ保育園",
+    "address": "東京都あきる野市原小宮2-6-6",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 75,
+    "name": "秋川あすなろ保育園　赤ちゃんの家",
+    "address": "東京都あきる野市原小宮2-8-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 76,
+    "name": "あきる野市民プール",
+    "address": "東京都あきる野市原小宮353",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 77,
+    "name": "あきる野市民球場",
+    "address": "東京都あきる野市原小宮353",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 78,
+    "name": "武蔵引田駅",
+    "address": "東京都あきる野市引田16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 79,
+    "name": "公立阿伎留医療センター",
+    "address": "東京都あきる野市引田78",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 81,
+    "name": "秋川文化幼稚園",
+    "address": "東京都あきる野市引田388",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 83,
+    "name": "リバーサイドパーク一の谷",
+    "address": "東京都あきる野市引田776",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 84,
+    "name": "一の谷児童館",
+    "address": "東京都あきる野市引田928",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 85,
+    "name": "一の谷小学校",
+    "address": "東京都あきる野市引田980",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 89,
+    "name": "西多摩療育支援センター",
+    "address": "東京都あきる野市上代継84-6",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 90,
+    "name": "あきる野学園",
+    "address": "東京都あきる野市上代継123",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 91,
+    "name": "西中学校",
+    "address": "東京都あきる野市上代継190",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 93,
+    "name": "西秋留小学校",
+    "address": "東京都あきる野市上代継292",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 94,
+    "name": "西秋留保育園",
+    "address": "東京都あきる野市上代継300",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 96,
+    "name": "千代里会館",
+    "address": "東京都あきる野市上代継424",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 97,
+    "name": "東京サマーランド",
+    "address": "東京都あきる野市上代継600",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 98,
+    "name": "代継会館",
+    "address": "東京都あきる野市上代継693-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 100,
+    "name": "秋川駅",
+    "address": "東京都あきる野市油平49",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 101,
+    "name": "秋川駅前交番",
+    "address": "東京都あきる野市油平61-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 105,
+    "name": "あきる野とうきゅう",
+    "address": "東京都あきる野市秋川1-17-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 106,
+    "name": "あきる野ルピア",
+    "address": "東京都あきる野市秋川1-8",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 107,
+    "name": "子育てひろば　るぴああきる野っ子",
+    "address": "東京都あきる野市秋川1-8　あきる野ﾙﾋﾟｱ1階",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 108,
+    "name": "子ども家庭支援センター",
+    "address": "東京都あきる野市秋川1-8　あきる野ﾙﾋﾟｱ2階",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 109,
+    "name": "秋川キララホール",
+    "address": "東京都あきる野市秋川1-16-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 110,
+    "name": "中央図書館",
+    "address": "東京都あきる野市秋川1-16-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 111,
+    "name": "佐藤内科循環器クリニック",
+    "address": "東京都あきる野市秋川2-5-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 112,
+    "name": "よつぎっ子えん西",
+    "address": "東京都あきる野市秋川2-7-4　丸昌ﾋﾞﾙ1階",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 113,
+    "name": "東京都水道局あきる野SS",
+    "address": "東京都あきる野市秋川3-2-10",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 114,
+    "name": "あきる野こどもの家",
+    "address": "東京都あきる野市秋川3-7-9",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 115,
+    "name": "あきる野保健相談所",
+    "address": "東京都あきる野市秋川6-1-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 116,
+    "name": "青梅信用金庫秋川支店",
+    "address": "東京都あきる野市秋川6-2-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 117,
+    "name": "すもも木幼稚園",
+    "address": "東京都あきる野市秋川6-17-10",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 118,
+    "name": "山田グラウンド管理事務所",
+    "address": "東京都あきる野市山田1-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 119,
+    "name": "山田駐在所",
+    "address": "東京都あきる野市山田569-23",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 120,
+    "name": "誠和保育園",
+    "address": "東京都あきる野市山田880",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 121,
+    "name": "秋川幼稚園",
+    "address": "東京都あきる野市山田951",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 122,
+    "name": "福楽園",
+    "address": "東京都あきる野市網代326-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 123,
+    "name": "五日市カントリークラブ",
+    "address": "東京都あきる野市網代745",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 127,
+    "name": "武蔵増戸駅",
+    "address": "東京都あきる野市伊奈873-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 132,
+    "name": "増戸中学校",
+    "address": "東京都あきる野市伊奈1181",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 133,
+    "name": "伊奈駐在所",
+    "address": "東京都あきる野市伊奈1569",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 134,
+    "name": "増戸保育園",
+    "address": "東京都あきる野市横沢134",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 135,
+    "name": "金木犀の里",
+    "address": "東京都あきる野市三内489-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 136,
+    "name": "五日市わかば保育園",
+    "address": "東京都あきる野市五日市98",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 140,
+    "name": "五日市保育園",
+    "address": "東京都あきる野市五日市345",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 141,
+    "name": "五日市図書館",
+    "address": "東京都あきる野市五日市368",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 144,
+    "name": "あきる野市役所五日市出張所",
+    "address": "東京都あきる野市五日市411",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 145,
+    "name": "五日市会館",
+    "address": "東京都あきる野市五日市412",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 149,
+    "name": "五日市警察署",
+    "address": "東京都あきる野市五日市888-7",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 150,
+    "name": "五日市郷土館",
+    "address": "東京都あきる野市五日市920-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 151,
+    "name": "黒茶屋",
+    "address": "東京都あきる野市小中野167",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 152,
+    "name": "小和田グラウンド休憩所",
+    "address": "東京都あきる野市小和田8",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 153,
+    "name": "第二紫水園",
+    "address": "東京都あきる野市小和田15-4",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 154,
+    "name": "小和田会館",
+    "address": "東京都あきる野市小和田180-2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 155,
+    "name": "光明第六保育園",
+    "address": "東京都あきる野市留原50",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 157,
+    "name": "紫水園",
+    "address": "東京都あきる野市留原396",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 158,
+    "name": "秋川橋河川公園",
+    "address": "東京都あきる野市留原814",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 160,
+    "name": "あたご苑ケアハウス",
+    "address": "東京都あきる野市入野599-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 161,
+    "name": "特別養護老人ホーム　あたご苑",
+    "address": "東京都あきる野市入野811",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 162,
+    "name": "戸倉会館",
+    "address": "東京都あきる野市戸倉133-4",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 163,
+    "name": "戸倉しろやまテラス",
+    "address": "東京都あきる野市戸倉325",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 164,
+    "name": "戸倉駐在所",
+    "address": "東京都あきる野市戸倉728-7",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 165,
+    "name": "すぎの子保育園",
+    "address": "東京都あきる野市戸倉783",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 166,
+    "name": "小宮駐在所",
+    "address": "東京都あきる野市乙津488-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 167,
+    "name": "瀬音の湯",
+    "address": "東京都あきる野市乙津565",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 168,
+    "name": "小宮ふるさと自然体験学校",
+    "address": "東京都あきる野市乙津1984",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 169,
+    "name": "小宮会館",
+    "address": "東京都あきる野市乙津1997",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 170,
+    "name": "武蔵五日市駅",
+    "address": "東京都あきる野市舘谷台16",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 171,
+    "name": "五日市センター",
+    "address": "東京都あきる野市舘谷台17",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 172,
+    "name": "五日市駅前交番",
+    "address": "東京都あきる野市舘谷台26",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "akiruno",
+    "source_row": 173,
+    "name": "横河マニファクチャリング株式会社",
+    "address": "東京都あきる野市小峰台2",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 3,
+    "name": "調布市総合体育館",
+    "address": "東京都調布市深大寺北町2-1-65",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 4,
+    "name": "市民西調布体育館",
+    "address": "東京都調布市上石原2-4-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 5,
+    "name": "市民西町野球場",
+    "address": "東京都調布市西町290-3(都立武蔵野の森公園内)",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 6,
+    "name": "市民西町少年野球場",
+    "address": "東京都調布市西町290-3(都立武蔵野の森公園内)",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 7,
+    "name": "市民西町サッカー場",
+    "address": "東京都調布市西町290-3(都立武蔵野の森公園内)",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 8,
+    "name": "市民野球場",
+    "address": "東京都調布市染地2-43-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 9,
+    "name": "市民プール",
+    "address": "東京都調布市染地2-43-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 10,
+    "name": "市民多摩川テニスコート",
+    "address": "東京都調布市染地2-43-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 11,
+    "name": "市民深大寺テニスコート",
+    "address": "東京都調布市深大寺北町4-4-3",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 12,
+    "name": "市民緑ヶ丘テニスコート",
+    "address": "東京都調布市緑ヶ丘2-63-1",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 13,
+    "name": "市民大町スポーツ施設",
+    "address": "東京都調布市菊野台3-27-40",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 14,
+    "name": "調布基地跡地運動広場",
+    "address": "東京都調布市西町290-3ほか",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "chofu",
+    "source_row": 15,
+    "name": "多摩川児童公園内運動施設",
+    "address": "東京都調布市多摩川3-75先",
+    "reason": "no_unambiguous_abr_parcel_detail_match"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 2,
+    "name": "清瀬市役所",
+    "address": "東京都清瀬市中里五丁目842",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 3,
+    "name": "清瀬けやきホール",
+    "address": "東京都清瀬市元町一丁目6ｰ6",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 4,
+    "name": "野塩地域市民センター",
+    "address": "東京都清瀬市野塩一丁目322-2",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 5,
+    "name": "下宿地域市民センター",
+    "address": "東京都清瀬市下宿二丁目524-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 6,
+    "name": "中里地域市民センター",
+    "address": "東京都清瀬市中里四丁目1301",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 7,
+    "name": "竹丘地域市民センター",
+    "address": "東京都清瀬市竹丘一丁目11-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 8,
+    "name": "中清戸地域市民センター",
+    "address": "東京都清瀬市中清戸四丁目847-5",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 9,
+    "name": "しあわせ未来センター",
+    "address": "東京都清瀬市中里五丁目842",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 10,
+    "name": "生涯学習センター",
+    "address": "東京都清瀬市元町一丁目2-11",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 11,
+    "name": "きよせボランティア・市民活動センター",
+    "address": "東京都清瀬市上清戸二丁目6-10",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 12,
+    "name": "障害者福祉センター",
+    "address": "東京都清瀬市上清戸一丁目16-62",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 13,
+    "name": "清瀬市郷土博物館",
+    "address": "東京都清瀬市上清戸二丁目6-41",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 14,
+    "name": "児童センター",
+    "address": "東京都清瀬市中清戸三丁目235-5",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 15,
+    "name": "駅前図書館",
+    "address": "東京都清瀬市元町一丁目4-5",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 16,
+    "name": "清瀬市立清瀬小学校",
+    "address": "東京都清瀬市中里五丁目741",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 17,
+    "name": "清瀬市立芝山小学校",
+    "address": "東京都清瀬市元町二丁目16-8",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 18,
+    "name": "清瀬市立清瀬第三小学校",
+    "address": "東京都清瀬市竹丘一丁目15-4",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 19,
+    "name": "清瀬市立清瀬第四小学校",
+    "address": "東京都清瀬市中里二丁目1471",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 20,
+    "name": "清瀬市立清瀬第六小学校",
+    "address": "東京都清瀬市梅園二丁目9-45",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 21,
+    "name": "清瀬市立清瀬第七小学校",
+    "address": "東京都清瀬市松山三丁目1-92",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 22,
+    "name": "清瀬市立清瀬第八小学校",
+    "address": "東京都清瀬市中清戸四丁目1070",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 23,
+    "name": "清瀬市立清瀬第十小学校",
+    "address": "東京都清瀬市中清戸一丁目454-14",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 24,
+    "name": "清瀬市立清明小学校",
+    "address": "東京都清瀬市旭が丘二丁目8-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 25,
+    "name": "清瀬市立清瀬清瀬中学校",
+    "address": "東京都清瀬市中里五丁目624",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 26,
+    "name": "清瀬市立清瀬第二中学校",
+    "address": "東京都清瀬市梅園二丁目9-15",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 27,
+    "name": "清瀬市立清瀬第三中学校",
+    "address": "東京都清瀬市旭が丘一丁目262",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 28,
+    "name": "清瀬市立清瀬第四中学校",
+    "address": "東京都清瀬市野塩三丁目2-3",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 29,
+    "name": "清瀬市立清瀬第五中学校",
+    "address": "東京都清瀬市中清戸三丁目258-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 30,
+    "name": "第１保育園",
+    "address": "東京都清瀬市松山三丁目1-73",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 31,
+    "name": "第３保育園",
+    "address": "東京都清瀬市旭が丘三丁目755-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 32,
+    "name": "清瀬小第1学童クラブ",
+    "address": "東京都清瀬市中里五丁目741",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 33,
+    "name": "清瀬小第2第3学童クラブ",
+    "address": "東京都清瀬市中里五丁目624",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 34,
+    "name": "芝山小第1第2第3学童クラブ",
+    "address": "東京都清瀬市元町二丁目16-５",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 35,
+    "name": "三小第1第2学童クラブ",
+    "address": "東京都清瀬市竹丘一丁目15-4",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 36,
+    "name": "四小第1第2学童クラブ",
+    "address": "東京都清瀬市中里二丁目1471",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 37,
+    "name": "十小第1第2第3第4学童クラブ",
+    "address": "東京都清瀬市中清戸一丁目454-356",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 38,
+    "name": "コミュニティプラザひまわり",
+    "address": "東京都清瀬市下清戸一丁目212-4",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 39,
+    "name": "清瀬消防署",
+    "address": "東京都清瀬市中清戸二丁目850-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 40,
+    "name": "清瀬消防署竹丘出張所",
+    "address": "東京都清瀬市竹丘二丁目7-6",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 41,
+    "name": "清瀬内山運動公園",
+    "address": "東京都清瀬市下宿三丁目1375",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 42,
+    "name": "清瀬駅北口地下駐輪場",
+    "address": "東京都清瀬市元町一丁目4-3",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 43,
+    "name": "クレア市営駐車場",
+    "address": "東京都清瀬市元町一丁目4ｰ5",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 44,
+    "name": "環境課清掃事務所",
+    "address": "東京都清瀬市下宿二丁目553",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 45,
+    "name": "子どもの発達支援・交流センター",
+    "address": "東京都清瀬市竹丘一丁目15-8",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 46,
+    "name": "梅園第1第2第3学童クラブ",
+    "address": "東京都清瀬市梅園二丁目9-38",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 47,
+    "name": "七小第1第2学童クラブ",
+    "address": "東京都清瀬市松山三丁目1-92",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 48,
+    "name": "清明小第1第2学童クラブ",
+    "address": "東京都清瀬市旭が丘二丁目8-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 49,
+    "name": "八小第1第2第3学童クラブ",
+    "address": "東京都清瀬市中清戸四丁目1070",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 50,
+    "name": "下清戸運動公園テニスコート",
+    "address": "東京都清瀬市下清戸3-68-1",
+    "reason": "abr_parcel_unavailable"
+  },
+  {
+    "dataset": "kiyose",
+    "source_row": 51,
+    "name": "南部児童館等複合施設",
+    "address": "東京都清瀬市梅園1-2-77",
+    "reason": "abr_parcel_unavailable"
+  }
+]
