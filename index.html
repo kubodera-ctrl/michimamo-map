@@ -350,11 +350,13 @@
         .leaflet-popup-content a,
         .leaflet-popup-content button,
         .leaflet-popup-content [role="button"] { pointer-events: auto; }
+        .leaflet-popup-content.leaflet-popup-scrolled { pointer-events:auto; overscroll-behavior:contain; touch-action:pan-y; }
         .popup-action-btn { min-height: 44px; font-size: 15px; }
             #adminStatsCards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
             #adminDashboardArea [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
         }
     </style>
+    <link rel="stylesheet" href="nearby-safety.css">
 </head>
 <body>
 
@@ -417,6 +419,7 @@
                 <!-- AIパトロール起動ボタン -->
                 <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
 
+                <button class="nearby-launch" type="button" onclick="openNearbySafety()"><i class="fa-solid fa-heart-pulse"></i>近くのAED</button>
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button class="fab wbgt-fab" onclick="openWbgtModal()" aria-label="本日の暑さ指数予報を確認"><i class="fa-solid fa-sun"></i> 本日のWBGT予報</button>
 
@@ -1068,6 +1071,7 @@
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="map-viewport.js"></script>
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let currentAuthUserId = null;
@@ -1191,7 +1195,7 @@
         b.onclick = () => {
             document.querySelectorAll(".nav").forEach(x => x.classList.remove("active")); b.classList.add("active");
             document.querySelectorAll(".view").forEach(v => v.classList.remove("active")); document.getElementById(b.dataset.view).classList.add("active");
-            if (b.dataset.view === "mapView") setTimeout(() => map.invalidateSize(), 100);
+            if (b.dataset.view === "mapView") setTimeout(() => refreshMapLayout(), 100);
         };
     });
 
@@ -1990,7 +1994,7 @@ function shareSpot(title, address, category, event) {
         showToast("ダウンロードが完了しました");
     }
 
-    const map = L.map('map', { attributionControl: false, zoomControl: false }).setView([35.681236, 139.767125], 13);
+    const map = L.map('map', { attributionControl: false, zoomControl: false, trackResize: false }).setView([35.681236, 139.767125], 13);
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
@@ -2045,31 +2049,82 @@ function shareSpot(title, address, category, event) {
         safetyLoadTimer = setTimeout(loadSafetySpots, 350);
     });
 
+    function renderedMapGeometry() {
+        const container = map.getContainer(), rect = container.getBoundingClientRect();
+        const vv = window.visualViewport;
+        const viewport = { left: vv?.offsetLeft || 0, top: vv?.offsetTop || 0,
+            right: (vv?.offsetLeft || 0) + (vv?.width || window.innerWidth),
+            bottom: (vv?.offsetTop || 0) + (vv?.height || window.innerHeight) };
+        const scaleX = rect.width / (container.clientWidth || rect.width || 1);
+        const scaleY = rect.height / (container.clientHeight || rect.height || 1);
+        const bounds = { left: Math.max(rect.left, viewport.left) + 10,
+            right: Math.min(rect.right, viewport.right) - 10,
+            top: Math.max(rect.top, viewport.top) + 10,
+            bottom: Math.min(rect.bottom, viewport.bottom) - 10 };
+        // Leave the search and top controls usable instead of putting the popup behind them.
+        document.querySelectorAll('.search-box, .filter-toggle-btn, #accidentAreaToggle, #aiPatrolBtn').forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.width && r.height) bounds.top = Math.max(bounds.top, r.bottom + 8);
+        });
+        return { rect, viewport, bounds, scaleX: scaleX || 1, scaleY: scaleY || 1 };
+    }
     function getMapPopupOptions() {
-        const mobile = window.matchMedia('(max-width: 768px)').matches;
-        const availableHeight = window.visualViewport?.height || window.innerHeight;
+        const g = renderedMapGeometry();
         return {
-            autoPan: false,
-            keepInView: false,
-            closeOnClick: false,
-            maxHeight: Math.max(220, Math.min(430, availableHeight - (mobile ? 390 : 140))),
+            autoPan: false, keepInView: false, closeOnClick: false,
+            maxWidth: Math.max(120, Math.min(300, (g.bounds.right - g.bounds.left) / g.scaleX - 40)),
+            minWidth: 100,
+            maxHeight: Math.max(60, Math.min(430, (g.bounds.bottom - g.bounds.top) / g.scaleY - 65))
         };
     }
-
     function focusSelectedPopup(marker, popup) {
         if (!marker?.getLatLng || !popup) return;
         popupFocusPanUntil = performance.now() + 800;
         requestAnimationFrame(() => requestAnimationFrame(() => {
-            if (map._popup !== popup) return;
-            const markerLatLng = marker.getLatLng();
-            if (!Number.isFinite(markerLatLng?.lat) || !Number.isFinite(markerLatLng?.lng)) return;
-            map.invalidateSize({ animate: false, pan: false });
+            if (map._popup !== popup || !popup.isOpen()) return;
+            Object.assign(popup.options, getMapPopupOptions());
             popup.update();
-            // Center the exact marker coordinate. Pixel offsets become incorrect
-            // when iPhone viewport compensation changes the rendered map scale.
-            map.panTo(markerLatLng, { animate: false });
+            const el = popup.getElement();
+            if (!el) return;
+            const g = renderedMapGeometry();
+            const shift = MapViewportGeometry.popupPan(el.getBoundingClientRect(), g.bounds, g.scaleX, g.scaleY);
+            if (Math.abs(shift[0]) > 1 || Math.abs(shift[1]) > 1) map.panBy(shift, { animate: false });
         }));
     }
+    let refreshingMapLayout = false;
+    function refreshMapLayout(refitPopup = true) {
+        const el = map.getContainer();
+        if (refreshingMapLayout || !el.clientWidth || !el.clientHeight) return;
+        refreshingMapLayout = true;
+        const center = map.getCenter(), zoom = map.getZoom();
+        map.invalidateSize({ animate: false, pan: false });
+        map.setView(center, zoom, { animate: false });
+        refreshingMapLayout = false;
+        if (refitPopup && map._popup?.isOpen?.()) focusSelectedPopup(map._popup._source, map._popup);
+    }
+    window.refreshMapLayout = refreshMapLayout;
+    let layoutFrame;
+    function scheduleMapLayout() {
+        cancelAnimationFrame(layoutFrame);
+        layoutFrame = requestAnimationFrame(refreshMapLayout);
+    }
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(scheduleMapLayout).observe(map.getContainer());
+    window.addEventListener('resize', scheduleMapLayout);
+    window.addEventListener('pageshow', scheduleMapLayout);
+    window.visualViewport?.addEventListener('resize', scheduleMapLayout);
+    function centerCurrentPosition(lat, lng, animate) {
+        map.stop();
+        refreshMapLayout(false);
+        const g = renderedMapGeometry();
+        const offset = MapViewportGeometry.centerOffset(g.rect, g.viewport, g.scaleX, g.scaleY);
+        const center = map.unproject(map.project([lat, lng], 15).subtract(L.point(offset)), 15);
+        popupFocusPanUntil = performance.now() + 1200;
+        if (animate) map.flyTo(center, 15, { animate: true, duration: 0.7 });
+        else map.setView(center, 15, { animate: false });
+    }
+    let initialGpsCentering = true, initialGpsAccuracy = Infinity, firstGpsAt = 0;
+    map.on('dragstart popupopen', () => { initialGpsCentering = false; });
+    map.on('zoomstart', () => { if (isFirstLocationSet) initialGpsCentering = false; });
 
     map.on('popupopen', (event) => {
         const marker = event.popup?._source;
@@ -2085,29 +2140,28 @@ function shareSpot(title, address, category, event) {
         navigator.geolocation.watchPosition(
             (pos) => {
                 userLat = pos.coords.latitude; userLng = pos.coords.longitude; userAccuracy = pos.coords.accuracy;
-                if (!isFirstLocationSet) { map.setView([userLat, userLng], 15); isFirstLocationSet = true; }
+                if (!Number.isFinite(userLat) || !Number.isFinite(userLng)) return;
+                if (!isFirstLocationSet || (initialGpsCentering && Date.now() - firstGpsAt < 15000 && userAccuracy < initialGpsAccuracy * 0.7)) {
+                    if (!isFirstLocationSet) firstGpsAt = Date.now();
+                    centerCurrentPosition(userLat, userLng, false);
+                    initialGpsAccuracy = userAccuracy; isFirstLocationSet = true;
+                }
                 const gpsIcon = L.divIcon({ className: 'gps-marker-container', html: '<div class="gps-marker"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
-                if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>');
+                if (gpsMarkerObj) gpsMarkerObj.setLatLng([userLat, userLng]); else gpsMarkerObj = L.marker([userLat, userLng], { icon: gpsIcon }).addTo(map).bindPopup('<b>📍 現在地</b>', getMapPopupOptions());
                 checkProximity(userLat, userLng);
             }, (err) => console.log('GPS Error'), { enableHighAccuracy: true, maximumAge: 0 }
         );
     }
     function goToCurrentLocation() {
         const liveLocation = gpsMarkerObj?.getLatLng?.();
-        const targetLat = liveLocation?.lat ?? Number(userLat);
-        const targetLng = liveLocation?.lng ?? Number(userLng);
+        const targetLat = liveLocation?.lat ?? userLat;
+        const targetLng = liveLocation?.lng ?? userLng;
         if (!Number.isFinite(targetLat) || !Number.isFinite(targetLng)) {
             showToast('位置情報が取得できません');
             return;
         }
-        // Keep an explicitly opened facility popup mounted. It must only close
-        // when the user taps its close button, even while the map is moving.
-        popupFocusPanUntil = performance.now() + 1200;
-        map.stop();
-        // Recalculate the mobile viewport before centering. This prevents a
-        // stale iPhone/LINE browser map size from placing the GPS dot off-centre.
-        map.invalidateSize({ animate: false, pan: false });
-        map.flyTo([targetLat, targetLng], 15, { animate: true, duration: 0.7 });
+        initialGpsCentering = false;
+        centerCurrentPosition(targetLat, targetLng, true);
     }
 
     async function searchLocation() {
@@ -2344,7 +2398,7 @@ function shareSpot(title, address, category, event) {
             : '住所から推定した位置のため誤差がある場合があります。現地の案内表示や施設スタッフへご確認ください。';
         const navigationUrl = buildSafetyNavigationUrl(spot.lat, spot.lng);
         marker.bindPopup(`
-            <div style="width:min(250px,72vw);">
+            <div style="width:min(250px,72vw);max-width:100%;">
                 <div style="font-size:.72rem;color:${style.color};font-weight:900;"><i class="fa-solid ${style.icon}"></i> 安全スポット・${style.label}</div>
                 <div style="font-size:1rem;font-weight:900;margin:5px 0;">${escapeHtml(spot.name || style.label)}</div>
                 <div style="font-size:.78rem;color:#475569;line-height:1.5;">${escapeHtml(spot.address || '住所情報なし')}</div>
@@ -4032,7 +4086,7 @@ function shareSpot(title, address, category, event) {
 
             // Leaflet needs a size refresh after viewport compensation.
             setTimeout(function () {
-                try { if (window.map && typeof window.map.invalidateSize === 'function') window.map.invalidateSize(true); } catch (e) {}
+                if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
             }, 150);
         } else {
             root.classList.remove('ios-desktop-viewport');
@@ -4063,6 +4117,7 @@ function shareSpot(title, address, category, event) {
 </script>
 
 <script src="wbgt.js"></script>
+<script src="nearby-safety.js"></script>
 
 
 

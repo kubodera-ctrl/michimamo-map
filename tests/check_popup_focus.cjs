@@ -1,32 +1,26 @@
-const fs = require('fs');
-const assert = require('assert');
-
-const html = fs.readFileSync('index.html', 'utf8');
-
-assert.match(html, /function focusSelectedPopup\(marker, popup\)/);
-assert.match(html, /function getMapPopupOptions\(\)/);
-assert.match(html, /maxHeight: Math\.max\(220, Math\.min\(430/);
-assert.match(html, /autoPan: false/);
-assert.match(html, /keepInView: false/);
-assert.match(html, /closeOnClick: false/);
-assert.doesNotMatch(html, /popup\._adjustPan\(\)/);
-assert.match(html, /const markerLatLng = marker\.getLatLng\(\)/);
-assert.match(html, /Number\.isFinite\(markerLatLng\?\.lat\)/);
-assert.match(html, /map\.invalidateSize\(\{ animate: false, pan: false \}\)/);
-assert.match(html, /map\.panTo\(markerLatLng, \{ animate: false \}\)/);
-assert.doesNotMatch(html, /const desired = L\.point/);
-assert.doesNotMatch(html, /map\.panBy\(\[current\.x - desired\.x/);
-assert.match(html, /map\.on\('popupopen'/);
-assert.match(html, /function goToCurrentLocation\(\) \{/);
-assert.match(html, /map\.stop\(\)/);
-assert.match(html, /gpsMarkerObj\?\.getLatLng\?\.\(\)/);
-assert.match(html, /map\.invalidateSize\(\{ animate: false, pan: false \}\)/);
-assert.match(html, /map\.flyTo\(\[targetLat, targetLng\], 15, \{ animate: true, duration: 0\.7 \}\)/);
-assert.doesNotMatch(html, /function goToCurrentLocation\(\)[\s\S]*?map\.closePopup\(\)[\s\S]*?\n    \}/);
-assert.match(html, /performance\.now\(\) < popupFocusPanUntil/);
-assert.match(html, /map\._popup\?\.isOpen\?\.\(\)/);
-assert.match(html, /map\.on\('popupclose'/);
-assert.match(html, /\.leaflet-popup-content-wrapper,[\s\S]*pointer-events: none/);
-assert.match(html, /\.leaflet-popup-close-button,[\s\S]*pointer-events: auto/);
-
-console.log('popup focus checks passed');
+const assert = require('node:assert/strict');
+const geometry = require('../map-viewport.js');
+const bounds = {left:10,right:380,top:200,bottom:700};
+for (const scale of [0.5,1,2]) {
+  for (const rect of [
+    {left:90,right:350,top:120,bottom:620}, // tall popup formerly cut above controls
+    {left:180,right:440,top:220,bottom:720}, // right and bottom edges
+    {left:-30,right:230,top:230,bottom:620}, // left edge
+    {left:70,right:330,top:250,bottom:650} // already visible
+  ]) {
+    const [x,y] = geometry.popupPan(rect,bounds,scale,scale);
+    assert(rect.left-x*scale >= bounds.left);
+    assert(rect.right-x*scale <= bounds.right);
+    assert(rect.top-y*scale >= bounds.top);
+    assert(rect.bottom-y*scale <= bounds.bottom);
+    if (rect.top===250) assert.deepEqual([x,y],[0,0]);
+  }
+}
+// A compensated layout taller than the actual visible viewport must target the visible center.
+const rect={left:0,right:780,top:100,bottom:1500};
+const viewport={left:0,right:780,top:0,bottom:1300};
+const [x,y]=geometry.centerOffset(rect,viewport,2,2);
+assert.equal((rect.left+rect.right)/2+x*2,390);
+assert.equal((rect.top+rect.bottom)/2+y*2,700);
+assert.deepEqual(geometry.centerOffset(bounds,{left:0,right:400,top:0,bottom:800}),[0,0]);
+console.log('PASS: popup containment at 0.5x/1x/2x scales and visible map centering');
