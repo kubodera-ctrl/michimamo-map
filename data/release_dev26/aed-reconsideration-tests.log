@@ -1,0 +1,18 @@
+✔ eligible, expired, cleaning, pending, legacy display and same-id form (5.528426ms)
+✔ removal plus verification before success; missing object retry remains idempotent (1.292501ms)
+✔ storage error, verification error, remaining object and malformed path cannot finalize success (0.865727ms)
+✔ claim or result failure propagates instead of reporting completed (0.406193ms)
+PASS: lazy loading, photo and checklist gates, candidate binding, failed search, failed photo, stale responses, map cleanup, invalid coordinates
+✔ tests/aed_review_logic.test.cjs (63.573562ms)
+PASS: inline syntax, camera lifecycle/races/denied permission, paid API blocked despite enabled settings, auth retained. No live paid request.
+(node:15) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tests/free_camera_and_ai_pause.test.cjs (105.547343ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.024738

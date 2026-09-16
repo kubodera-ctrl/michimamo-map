@@ -572,7 +572,7 @@
                             <details id="guide-aed"><summary><span>05　AEDを見つけたら投稿する</span><small>現地写真・GPS・審査・30ptの条件</small></summary><div class="guide-body">
                                 <ol><li>AEDのある現地でログイン。地図をタップし、種類を<strong>AEDを現地から投稿</strong>にします。</li><li>GPSを取得し、周辺に同じAEDがないか確認します。同じものがあれば候補を選択します。</li><li>施設名、設置場所（例：1階受付横）、都道府県、番地までの住所と現地写真を入力します。</li><li>写真の利用許諾・個人情報の確認にチェックして審査へ送信します。</li><li>「活動履歴」→<strong>AED投稿・審査結果</strong>で確認。「審査結果を更新」で最新情報を読み込めます。</li></ol>
                                 <p>GPS精度が100mを超える場合や周辺確認が終わっていない場合は送信できません。安全に移動できる範囲で再取得してください。</p>
-                                <p><strong>送信だけでは掲載・ポイント付与は確定しません。</strong>新しいAEDとして最初に承認された投稿に30pt。掲載済み・重複・否認は0ptです。否認の理由を確認し、判断に疑問があれば履歴の「判断について異議申立て」から伝えられます。</p>
+                                <p><strong>送信だけでは掲載・ポイント付与は確定しません。</strong>新しいAEDとして最初に承認された投稿に30pt。掲載済み・重複・否認は0ptです。否認・要修正の返答から7日以内に、履歴の「再審査を申し込む」から理由や補足を送れます。申込中は削除を止め、再度の返答から7日以内に再申込できます。期限までに申込がなければ写真・投稿内容・その案件の申立て内容を順次削除します。承認済みや審査中の投稿は対象外です。</p>
                             </div></details>
                             <details id="guide-camera"><summary><span>06　AIカメラで撮影・加工・投稿</span><small>無料版の使い方と写真の公開範囲</small></summary><div class="guide-body">
                                 <ol><li>「マップ」→「メニュー」→<strong>AIカメラ</strong>を開き、カメラの使用を許可します。</li><li>「散歩」を選び、安全な場所で<strong>手動撮影・加工（停車中のみ）</strong>を押します。歩きながらの操作も避けてください。</li><li>写真は最初に全体がモザイクになります。必要に応じてモザイク・黒塗りを調整します。</li><li>顔やナンバーなどの隠し漏れがないか画像全体を確認し、確認のチェックを入れて<strong>投稿へ進む</strong>を押します。</li><li>GPS取得後、青い円の中（現在地から50m以内）をタップし、種類と内容を入力して送信します。</li></ol>
@@ -608,7 +608,7 @@
                             <details id="guide-history"><summary><span>11　履歴・削除・審査への質問・退会</span><small>マイページの「活動履歴」にまとまっています</small></summary><div class="guide-body">
                                 <p>「マイページ」上部の<strong>活動履歴</strong>を開くと、今日の活動、AED審査結果、非公開画像、ポイント履歴、自分の投稿、ガチャ結果を確認できます。</p>
                                 <p><strong>自分の投稿を消す：</strong>「自分の投稿」から削除を選びます。非公開カメラ画像も削除したい場合は、画像の一覧から早期削除を申請してください。</p>
-                                <p><strong>運営の判断について伝える：</strong>対象の履歴に表示される「判断について異議申立て」から、見直してほしい理由を送ります。回答は「異議申立て・運営の回答」で確認できます。</p>
+                                <p><strong>運営の判断について伝える：</strong>AEDは「再審査を申し込む」、その他の対象投稿は「判断について異議申立て」から、見直してほしい理由を送ります。回答は「異議申立て・運営の回答」で確認できます。</p>
                                 <p><strong>退会：</strong>活動履歴の下部にある「退会・データ削除を申請」から申し込みます。申請だけで即時削除されず、運営が確認して処理します。処理開始後は取り消せず、アカウント・投稿・写真・ポイントは戻せません。</p>
                                 <p>確認済みAEDの施設情報は、投稿者との紐付けを外して残ります。端末内の車載ログや再送データは遠隔消去されないため、不要になったら使用したブラウザーのサイトデータも消去してください。ログアウトは退会ではありません。</p>
                             </div></details>
@@ -787,6 +787,7 @@
                         <div class="card">
                             <h2 style="font-size:1.05rem;">AED投稿・審査結果</h2>
                             <button type="button" onclick="loadMyAedHistory()" style="padding:9px 12px;border:1px solid #cbd5e1;background:white;border-radius:8px;">審査結果を更新</button>
+                            <p class="muted" style="font-size:.8rem;line-height:1.6;">否認・要修正の返答から7日以内に再審査を申し込めます。申込がなければ期限後に写真・投稿内容を順次削除します。承認済み・審査中・再審査申込中は対象外です。</p>
                             <div id="myAedHistoryArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
                         </div>
                         <div class="card" id="myCameraEvidenceCard">
@@ -1306,7 +1307,6 @@
         notice.style.display = 'none';
         dashboard.style.display = 'block';
 
-        await loadMyAppeals();
         await loadMyAedHistory();
         const { data, error } = await db.rpc('get_my_dashboard');
         if (error || !data) {
@@ -1364,8 +1364,8 @@
             needs_review: '内容を確認中です（まだポイントは付与されていません）',
             approved_new: '承認され、30pt付与されました。',
             approved_existing: '掲載済みAEDの存在確認として受け付けました（0pt）。',
-            rejected: '否認されました（0pt）。内容を確認して情報を再送信できます。',
-            needs_changes: '情報の修正が必要です（0pt）。内容を修正して再送信してください。'
+            rejected: '否認されました（0pt）。',
+            needs_changes: '情報の修正が必要です（0pt）。'
         };
         return rows.length ? rows.map(item => {
             const retry = ['rejected', 'needs_changes'].includes(item.status)
@@ -1376,8 +1376,8 @@
                 <div style="margin-top:7px;font-weight:bold;color:${item.status === 'approved_new' ? '#15803d' : '#334155'};">${escapeHtml(labels[item.status] || '審査状況を確認しています。')}</div>
                 ${item.review_notes ? `<div style="margin-top:6px;">運営から：${escapeHtml(item.review_notes)}</div>` : ''}
                 <div class="muted" style="font-size:.75rem;">投稿：${formatHistoryDate(item.created_at)}${item.reviewed_at ? `／審査：${formatHistoryDate(item.reviewed_at)}` : ''}</div>
-                ${retry ? renderAppealButton('aed_submission', item.id) : ''}
-                ${retry ? `<button type="button" onclick="resubmitMyAed('${item.id}')" style="margin-top:10px;padding:12px;border:1px solid #1f6feb;color:#1f6feb;background:white;border-radius:10px;font-weight:bold;">情報を再送信</button><div class="muted" style="font-size:.75rem;margin-top:5px;">施設情報を引き継ぎます。現地GPSとAED写真を取り直し、新しい投稿として審査へ送信します。</div>` : ''}
+                ${retry ? renderAedReconsideration(item) : ''}
+
             </div>`;
         }).join('') : '<div class="muted" style="padding:12px 0;">AEDの投稿履歴はありません。</div>';
     }
@@ -1387,11 +1387,12 @@
         const area = document.getElementById('myAedHistoryArea');
         area.textContent = '審査結果を読み込み中…';
         try {
+            await loadMyAppeals();
             const { data: auth } = await db.auth.getUser();
             if (request !== myAedHistoryRequest) return;
             if (!auth?.user) { area.textContent = 'LINEログインすると審査結果を確認できます。'; return; }
             const { data, error } = await db.from('aed_submissions')
-                .select('id,facility_name,address,installation_location,status,review_notes,created_at,reviewed_at')
+                .select('id,facility_name,address,installation_location,status,review_notes,created_at,reviewed_at,reconsider_until,cleanup_started_at')
                 .eq('user_id', auth.user.id).order('created_at', { ascending: false }).limit(50);
             if (request !== myAedHistoryRequest || currentAuthUserId !== auth.user.id) return;
             if (error) throw error;
@@ -1401,25 +1402,13 @@
         }
     }
 
-    async function resubmitMyAed(id) {
-        const { data: auth } = await db.auth.getUser();
-        if (!auth?.user) { showToast('LINEログインしてください'); return; }
-        const { data: item, error } = await db.from('aed_submissions')
-            .select('facility_name,installation_location,address,prefecture,status')
-            .eq('id', id).eq('user_id', auth.user.id).maybeSingle();
-        if (error || !item || currentAuthUserId !== auth.user.id) { showToast('投稿情報を取得できませんでした'); return; }
-        if (!['rejected', 'needs_changes'].includes(item.status)) { showToast('この投稿は再送信の対象ではありません'); return; }
-        closePostModal();
-        document.getElementById('postCategory').value = 'aed';
-        document.getElementById('postTitle').value = item.facility_name;
-        document.getElementById('postComment').value = item.installation_location;
-        document.getElementById('aedPrefecture').value = item.prefecture;
-        document.getElementById('aedAddress').value = item.address;
-        document.getElementById('postImageInput').value = '';
-        document.getElementById('imagePreview').style.display = 'none';
-        openPostModal();
-        toggleImageUpload();
-        showToast('内容を修正し、現地GPSとAED写真を取り直してください');
+    function renderAedReconsideration(item) {
+        if (appealsOwnerId !== currentAuthUserId) return '<div class="muted">再審査の受付状況を確認できません。「審査結果を更新」で再試行してください。</div>';
+        const pending = appealsOwnerId === currentAuthUserId && myAppeals.some(x => x.target_type === 'aed_submission' && x.target_id === item.id && x.status === 'pending');
+        if (pending) return '<div style="margin-top:8px;">再審査申込を受け付けました。運営の確認中は期限による削除を行いません。</div>';
+        if (item.cleanup_started_at || (item.reconsider_until && Date.parse(item.reconsider_until) <= Date.now())) return '<div class="muted" style="margin-top:8px;">再審査の受付期限を過ぎました。写真・投稿内容は順次削除されます。</div>';
+        const deadline = item.reconsider_until ? `申込期限：${formatHistoryDate(item.reconsider_until)}（返答から7日間）。期限までに申込がなければ、写真・投稿内容・この案件の申立て内容を順次削除します。` : 'この投稿は制度変更前のため、自動削除の期限は設定されていません。次の返答から7日間の期限が適用されます。';
+        return `<div style="font-size:.8rem;margin-top:8px;">${escapeHtml(deadline)}</div><button type="button" onclick="openModerationAppeal('aed_submission','${item.id}')" style="margin-top:8px;padding:12px;background:white;color:#1d4ed8;border:1px solid #1d4ed8;border-radius:10px;font-weight:bold;">再審査を申し込む</button><div class="muted" style="font-size:.75rem;margin-top:6px;">同じ投稿と写真を使い、理由や補足を送ります。新しい写真を送る場合は、現地から新規投稿してください。</div>`;
     }
 
     let myAppeals = [];
@@ -1454,7 +1443,8 @@
     function openModerationAppeal(type, id) {
         if (appealSending) return;
         appealTarget = { type, id, userId: currentAuthUserId };
-        document.getElementById('appealTargetLabel').textContent = `${type === 'aed_submission' ? 'AED投稿' : '非表示の投稿'}の判断について送信します。同じ投稿への申立ては1回、1日3件までです。`;
+        document.getElementById('appealTargetLabel').textContent = type === 'aed_submission' ? 'AED投稿の再審査を申し込みます。返答から7日以内に、理由や補足・修正内容を送ってください。申込中は削除しません。申立て全体で1日3件までです。' : '非表示の投稿の判断について送信します。同じ投稿への申立ては1回、1日3件までです。';
+        document.getElementById('appealSubmitButton').textContent = type === 'aed_submission' ? '再審査を申し込む' : '異議申立てを送信';
         document.getElementById('appealReason').value = '';
         document.getElementById('appealForm').hidden = false;
         document.getElementById('appealForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1480,11 +1470,11 @@
             const { error } = await db.rpc('submit_moderation_appeal', { p_target_type: target.type, p_target_id: target.id, p_reason: reason });
             if (error) throw error;
             appealSending = false; closeModerationAppeal();
-            showToast('異議申立てを受け付けました');
+            showToast(target.type === 'aed_submission' ? '再審査の申込を受け付けました' : '異議申立てを受け付けました');
             await loadMyDashboard();
         } catch (error) {
             const message = error?.message || '';
-            showToast(message.includes('appeal_already_submitted') ? 'この投稿は申立て済みです' : message.includes('appeal_daily_limit') ? '申立ては1日3件までです' : message.includes('appeal_target_unavailable') ? '対象の投稿や審査状況が変わっています。履歴を更新してください' : '送信できませんでした。ログインと対象の投稿を確認してください');
+            showToast(message.includes('reconsideration_expired') ? '再審査の受付期限を過ぎています。審査結果を更新してください' : message.includes('appeal_already_submitted') ? 'この投稿は申立て済みです' : message.includes('appeal_daily_limit') ? '申立ては1日3件までです' : message.includes('appeal_target_unavailable') ? '対象の投稿や審査状況が変わっています。履歴を更新してください' : '送信できませんでした。ログインと対象の投稿を確認してください');
         } finally {
             appealSending = false;
             document.getElementById('appealSubmitButton').disabled = false;
