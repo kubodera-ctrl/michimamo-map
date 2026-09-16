@@ -162,7 +162,7 @@
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
 
         label { font-size: 13px; font-weight: 900; display: block; margin: 14px 0 6px; color: #374151; }
-        select, textarea, input[type="text"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
+        select, textarea, input[type="text"], input[type="password"] { width: 100%; border: 1px solid #d9dee4; border-radius: 12px; padding: 12px; font: inherit; background: #f9fafb; }
 
         .alert-toast { position: fixed; top: 130px; left: 50%; transform: translateX(-50%); background: #9333ea; color: white; padding: 12px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: bold; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4); z-index: 3000; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; display: flex; align-items: center; gap: 8px; cursor: pointer; width: 85%; max-width: 400px; line-height: 1.4; }
         .alert-toast.show { opacity: 1; transform: translateX(-50%) translateY(10px); pointer-events: auto; }
@@ -356,6 +356,13 @@
         .popup-action-btn { min-height: 44px; font-size: 15px; }
             #adminStatsCards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
             #adminDashboardArea [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
+        }
+    </style>
+    <style>
+        @media (pointer: coarse) {
+            input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+                font-size: 16px !important;
+            }
         }
     </style>
     <link rel="stylesheet" href="nearby-safety.css">
@@ -1777,6 +1784,7 @@ function shareSpot(title, address, category, event) {
                 const { data, error } = await db.rpc('is_current_user_admin');
                 if (error || data !== true) { showToast('このアカウントには管理者権限がありません'); adminTapCount = 0; return; }
                 csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました");
+                requestAnimationFrame(() => csvCard.scrollIntoView({ block: 'start', behavior: 'smooth' }));
             }
             else { csvCard.style.display = 'none'; document.getElementById('adminExportPassword').value = ''; document.getElementById('adminDashboardArea').style.display = 'none'; showToast("🔒 管理者モードを終了しました"); }
             adminTapCount = 0;
@@ -3807,7 +3815,11 @@ function shareSpot(title, address, category, event) {
 
 <script id="iosViewportCompensation">
 (function () {
+    var compensatedOrientation = null;
     function applyFix() {
+        // Keep a detected desktop-view compensation through focus/keyboard zoom changes.
+        var orientation = window.matchMedia('(orientation: landscape)').matches ? 'landscape' : 'portrait';
+        if (compensatedOrientation === orientation) return;
         var vv = window.visualViewport;
         var outer = window.outerWidth || 0;
         var inner = window.innerWidth || 0;
@@ -3820,6 +3832,7 @@ function shareSpot(title, address, category, event) {
         var app = document.getElementById('app');
 
         if (phoneOuter && doubledLayout && halfScale && body && app) {
+            compensatedOrientation = orientation;
             root.classList.add('ios-desktop-viewport');
             body.style.width = outer + 'px';
             body.style.maxWidth = outer + 'px';
@@ -3847,6 +3860,7 @@ function shareSpot(title, address, category, event) {
                 if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
             }, 150);
         } else {
+            compensatedOrientation = null;
             root.classList.remove('ios-desktop-viewport');
             root.style.zoom = '';
             root.style.width = '';
