@@ -85,7 +85,9 @@
             if(result.duplicates.length)log()?.increment('duplicate',result.duplicates.length);
             if(candidates){const thumb=await makeBlob(input);if(!thumb)log()?.increment('imageFailure');for(const item of result.newCandidates)await log()?.recordEvent({...item,duplicate:false,lat:location?.lat,lng:location?.lng},thumb);for(const item of result.duplicates)await log()?.recordEvent({...item,duplicate:true,lat:location?.lat,lng:location?.lng},thumb);}
             if(result.invalidExpired)log()?.increment('invalid',result.invalidExpired);
-            const active=log()?.active();setStatus(`車載MVP検知中・候補 ${active?.counters?.candidates||0}件（約1fps）`);
+            const active=log()?.active();setStatus(active
+                ? `車載・自動候補記録中 ${active.counters.candidates}件（重複含む）／手動撮影は不要`
+                : '車載・検出のみ／ログ保存なし。停車中に管理画面で「テスト開始」してください');
         }catch(error){log()?.increment('aiPaused');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
         const elapsed=performance.now()-began;if(elapsed>900)log()?.increment('fpsDrop');lastLoop=elapsed;
         schedule(elapsed>1800?3000:Math.max(250,1000-elapsed));

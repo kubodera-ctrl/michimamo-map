@@ -37,7 +37,7 @@
           <p id="cameraPhotoStatus" role="status" class="photo-note"></p>
           <label class="photo-check"><input type="checkbox" id="cameraPhotoChecked"><span>画像全体を確認し、顔・ナンバーなどの隠し漏れがないことを確認しました</span></label>
           <p class="photo-note">確認後は地図へ移動します。現在地から50m以内の投稿位置を選び、種類などを入力して投稿してください。加工画像は端末へ保存せず、投稿後も一般公開しません。</p>
-          <details class="photo-evidence"><summary>元画像を非公開で10日保存する</summary><p class="photo-note">同じ車両の再発確認に備える機能です。元画像は公開されず、通常10日で削除されます。必要な場合だけ管理者が理由を記録して30日保全し、その後は7日以内に延長判断がなければ削除します。</p><label class="photo-check"><input type="checkbox" id="cameraEvidenceConsent"><span>元画像（顔・ナンバーを含む場合があります）の非公開保存と期限後の削除に同意します</span></label><button type="button" id="cameraEvidenceSave" disabled>元画像を非公開で10日保存</button></details>
+          <details class="photo-evidence"><summary>事故・事件に備えて元画像を非公開で10日保存する（任意）</summary><p class="photo-note">万が一、事故・事件に関係した場合に、現場の状況を確認する資料として保管します。所轄警察署など関係機関から依頼があった際は、管理者が依頼内容と提供の可否を確認し、必要な範囲で提供する場合があります。自動で提出するものではなく、証拠としての採用を保証するものでもありません。元画像は一般公開せず、通常10日で削除します。必要な場合は管理者が理由を記録して30日保全し、その満了後7日以内に延長判断がなければ削除します。</p><label class="photo-check"><input type="checkbox" id="cameraEvidenceConsent"><span>元画像（顔・ナンバーを含む場合があります）の非公開保存、上記目的での関係機関への提供、期限後の削除に同意します</span></label><button type="button" id="cameraEvidenceSave" disabled>元画像を非公開で10日保存</button></details>
         </div>
         <footer><button type="button" id="cameraPhotoSave" disabled>投稿へ進む</button></footer>
       </dialog>`);

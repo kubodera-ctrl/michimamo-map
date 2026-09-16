@@ -30,7 +30,7 @@ function stream() { const track = { stopped: false, stop() { this.stopped = true
     assert.equal(s.elements.videoElement.srcObject, current);
     s.context.setCameraMode('drive');
     assert.equal(s.elements.cameraModeDrive.attrs['aria-pressed'],'true');
-    assert.match(s.elements.cameraStatus.textContent,/自動シャッター準備中/);
+    assert.match(s.elements.cameraStatus.textContent,/自動候補記録.*テスト開始/);
     s.document.hidden = true; s.handlers.visibilitychange();
     assert.equal(current.track.stopped, true); assert.equal(s.elements.videoElement.srcObject, null); assert.equal(s.active.size, 0);
     s.document.hidden = false;

@@ -445,8 +445,8 @@
                         <button class="btn-close-cam" aria-label="カメラを終了" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div class="camera-capture-controls">
-                        <button id="cameraShutter" type="button" disabled>撮影して加工する</button>
-                        <p>散歩は2〜3秒の短時間撮影、車載は走行中の操作ゼロを目標に開発中です。<br>現在は手動撮影・手動加工が利用できます。運転中は操作しないでください。</p>
+                        <button id="cameraShutter" type="button" disabled>手動撮影・加工（停車中のみ）</button>
+                        <p>車載は自動で候補を検出する試験版です。記録するには、停車中に管理画面で「テスト開始」→ここで「車載」を選択してください。<br>自動記録は縮小画像とログのみ。投稿は自動では行いません。走行中は操作せず、画面を前面に表示してください。</p>
                     </div>
                 </div>
             </div>
@@ -3019,6 +3019,9 @@ function shareSpot(title, address, category, event) {
             await loadAuthenticatedProfile();
             showToast(cameraImageSaved ? `安全情報を共有しました！ (本日 ${actionLimits.postCount}/5 回・+10pt)` : '投稿しましたが、非公開画像の送信に失敗しました');
             closePostModal();
+            visibleMapCategories.add(cat);
+            syncFilterChips();
+            await loadSpots();
         }
         else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); }
     }
@@ -3043,7 +3046,7 @@ function shareSpot(title, address, category, event) {
         if (drive) drive.setAttribute('aria-pressed', String(cameraMode === 'drive'));
         const status = document.getElementById('cameraStatus');
         if (status && mediaStream) status.textContent = cameraMode === 'drive'
-            ? '車載モード・自動シャッター準備中（低負荷設計）'
+            ? '車載モード・自動候補記録（試験）／保存には管理画面でテスト開始'
             : '散歩モード・短時間自動撮影は準備中';
     }
     function setCameraMode(mode) {
@@ -4147,8 +4150,8 @@ function shareSpot(title, address, category, event) {
 <script src="road-review.js?v=24-connect2"></script>
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=25-post1"></script>
-<script src="camera-capture.js?v=25-post1"></script>
+<script src="camera-capture.js?v=25-post2"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
-<script src="camera-drive-mvp.js?v=25-mvp1"></script>
+<script src="camera-drive-mvp.js?v=25-mvp2"></script>
 </body>
 </html>
