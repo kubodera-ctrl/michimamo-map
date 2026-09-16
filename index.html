@@ -693,6 +693,7 @@
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminReportCount">0</strong><div class="muted" style="font-size:.65rem;">通報投稿</div></div>
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminAlertCount">0</strong><div class="muted" style="font-size:.65rem;">要確認</div></div>
                             </div>
+                            <h3 style="font-size:.92rem; margin:16px 0 6px;">異議申立て</h3><div id="adminAppealsArea"></div>
                             <h3 style="font-size:.92rem; color:#991b1b; margin:16px 0 6px;">退会・削除申請</h3><div id="adminDeletionArea"></div>
                             <h3 style="font-size:.92rem; color:#9a3412; margin:16px 0 6px;">AED写真投稿の審査</h3><div id="adminAedSubmissionArea"></div>
                             <h3 style="font-size:.92rem; color:#9f1239; margin:16px 0 6px;">通報された投稿</h3><div id="adminReportedArea"></div>
@@ -734,6 +735,17 @@
                             <div id="myAedHistoryArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
                         </div>
                         <div class="card">
+                            <h2 style="font-size:1.05rem;">異議申立て・運営の回答</h2>
+                            <div id="myAppealsArea" aria-live="polite">読み込み中…</div>
+                            <form id="appealForm" hidden onsubmit="submitModerationAppeal(event)">
+                                <p id="appealTargetLabel" style="font-size:.85rem;"></p>
+                                <label for="appealReason">判断を見直してほしい理由（10〜1,000文字）</label>
+                                <textarea id="appealReason" minlength="10" maxlength="1000" required rows="5" style="width:100%;box-sizing:border-box;margin:8px 0;" placeholder="事実関係や、判断と異なる点を具体的に記入してください。個人情報は記入しないでください。"></textarea>
+                                <button id="appealSubmitButton" type="submit" class="primary">異議申立てを送信</button>
+                                <button type="button" onclick="closeModerationAppeal()" style="margin-top:8px;padding:10px;">キャンセル</button>
+                            </form>
+                        </div>
+                        <div class="card">
                             <h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2>
                             <div id="pointHistoryArea"><div class="muted">読み込み中...</div></div>
                         </div>
@@ -747,7 +759,7 @@
                         </div>
                         <div class="card" style="border:1px solid #fecaca; background:#fffafa;">
                             <h2 style="font-size:1rem; color:#991b1b;"><i class="fa-solid fa-user-slash"></i> 退会・データ削除</h2>
-                            <p class="muted" style="font-size:.78rem; line-height:1.6;">申請後、運営が本人確認と処理を行います。申請だけでは即時削除されません。</p>
+                            <p class="muted" style="font-size:.78rem; line-height:1.6;">申請後、運営が内容を確認して処理します。申請だけでは即時削除されません。処理するとアカウント・投稿・写真・ポイントは削除され、元に戻せません。確認済みAEDの施設情報は投稿者との紐付けを外して残します。</p>
                             <div id="deletionRequestArea">
                                 <button onclick="requestAccountDeletion()" style="width:100%; padding:11px; border:1px solid #fca5a5; color:#b91c1c; background:white; border-radius:10px; font-weight:bold; cursor:pointer;">退会・データ削除を申請</button>
                             </div>
@@ -1227,6 +1239,7 @@
         notice.style.display = 'none';
         dashboard.style.display = 'block';
 
+        await loadMyAppeals();
         await loadMyAedHistory();
         const { data, error } = await db.rpc('get_my_dashboard');
         if (error || !data) {
@@ -1234,6 +1247,7 @@
             return;
         }
 
+        if (currentAuthUserId !== authData.user.id) return;
         const today = data.today || {};
         document.getElementById('todayEarned').textContent = `${Number(today.earned || 0).toLocaleString()}pt`;
         document.getElementById('todayPosts').textContent = `${Number(today.postCount || 0)}/5`;
@@ -1260,6 +1274,7 @@
             <div style="padding:11px 0; border-bottom:1px solid #eef1f4;">
                 <div style="display:flex; justify-content:space-between; gap:8px;"><strong style="font-size:.84rem;">${escapeHtml(item.title || '名称なし')}</strong><span class="muted" style="font-size:.68rem; white-space:nowrap;">${formatHistoryDate(item.created_at)}</span></div>
                 <div class="muted" style="font-size:.72rem; margin-top:5px;">${escapeHtml(categoryLabels[item.category] || item.category)}・${escapeHtml(item.address || '場所不明')}　👍${Number(item.like_count || 0)}　🚩${Number(item.report_count || 0)}</div>
+                ${item.is_hidden || Number(item.report_count) >= 3 ? renderAppealButton('spot', String(item.id)) : ''}
             </div>`).join('') : '<div class="muted" style="padding:10px 0;">まだ投稿はありません。</div>';
 
         const gacha = Array.isArray(data.gacha) ? data.gacha : [];
@@ -1269,9 +1284,9 @@
                 <div style="font-weight:900; color:#9333ea;">+${Number(item.prize_points || 0).toLocaleString()}pt</div>
             </div>`).join('') : '<div class="muted" style="padding:10px 0;">まだガチャ履歴はありません。</div>';
 
-        if (data.deletionStatus) {
-            document.getElementById('deletionRequestArea').innerHTML = '<div style="padding:11px; border-radius:10px; background:#fee2e2; color:#991b1b; font-size:.82rem; font-weight:bold; text-align:center;">退会・データ削除申請を受付済みです</div>';
-        }
+        document.getElementById('deletionRequestArea').innerHTML = data.deletionStatus
+            ? `<div style="padding:11px;border-radius:10px;background:#fee2e2;color:#991b1b;">${data.deletionStatus === 'processing' ? '退会・データ削除を処理中です' : '退会・データ削除申請を受付済みです'}</div>`
+            : '<button onclick="requestAccountDeletion()" style="padding:11px;border:1px solid #fca5a5;color:#b91c1c;background:white;border-radius:10px;">退会・データ削除を申請</button>';
     }
 
     let myAedHistoryRequest = 0;
@@ -1294,6 +1309,7 @@
                 <div style="margin-top:7px;font-weight:bold;color:${item.status === 'approved_new' ? '#15803d' : '#334155'};">${escapeHtml(labels[item.status] || '審査状況を確認しています。')}</div>
                 ${item.review_notes ? `<div style="margin-top:6px;">運営から：${escapeHtml(item.review_notes)}</div>` : ''}
                 <div class="muted" style="font-size:.75rem;">投稿：${formatHistoryDate(item.created_at)}${item.reviewed_at ? `／審査：${formatHistoryDate(item.reviewed_at)}` : ''}</div>
+                ${retry ? renderAppealButton('aed_submission', item.id) : ''}
                 ${retry ? `<button type="button" onclick="resubmitMyAed('${item.id}')" style="margin-top:10px;padding:12px;border:1px solid #1f6feb;color:#1f6feb;background:white;border-radius:10px;font-weight:bold;">情報を再送信</button><div class="muted" style="font-size:.75rem;margin-top:5px;">施設情報を引き継ぎます。現地GPSとAED写真を取り直し、新しい投稿として審査へ送信します。</div>` : ''}
             </div>`;
         }).join('') : '<div class="muted" style="padding:12px 0;">AEDの投稿履歴はありません。</div>';
@@ -1339,9 +1355,115 @@
         showToast('内容を修正し、現地GPSとAED写真を取り直してください');
     }
 
+    let myAppeals = [];
+    let appealsOwnerId = null;
+    let myAppealsRequest = 0;
+    let appealTarget = null;
+    let appealSending = false;
+    function renderAppealButton(type, id) {
+        if (!['spot', 'aed_submission'].includes(type) || !/^[0-9a-f-]+$/i.test(id)) return '';
+        const exists = appealsOwnerId === currentAuthUserId && myAppeals.some(x => x.target_type === type && x.target_id === id);
+        return exists ? '<div class="muted" style="margin-top:8px;">異議申立て済みです。「異議申立て・運営の回答」で確認できます。</div>'
+            : `<button type="button" onclick="openModerationAppeal('${type}','${id}')" style="margin:8px 6px 0 0;padding:11px;background:white;border:1px solid #64748b;border-radius:10px;">判断について異議申立て</button>`;
+    }
+    async function loadMyAppeals() {
+        const request = ++myAppealsRequest;
+        const area = document.getElementById('myAppealsArea');
+        myAppeals = []; appealsOwnerId = null;
+        area.textContent = '読み込み中…';
+        const { data: auth } = await db.auth.getUser();
+        if (request !== myAppealsRequest) return;
+        if (!auth?.user) { area.textContent = 'LINEログインすると確認できます。'; return; }
+        const { data, error } = await db.from('moderation_appeals').select('id,target_type,target_id,reason,status,outcome,response,created_at,reviewed_at').eq('user_id', auth.user.id).order('created_at', { ascending: false }).limit(100);
+        if (request !== myAppealsRequest || currentAuthUserId !== auth.user.id) return;
+        if (error) { area.textContent = '異議申立てを読み込めませんでした。活動履歴を開き直してください。'; return; }
+        myAppeals = data || []; appealsOwnerId = auth.user.id;
+        area.innerHTML = myAppeals.length ? myAppeals.map(x => `<div style="padding:12px 0;border-bottom:1px solid #e2e8f0;overflow-wrap:anywhere;">
+            <strong>${x.target_type === 'aed_submission' ? 'AED投稿' : '安全情報の投稿'}：${x.status === 'pending' ? '運営が確認中' : x.outcome === 'reconsider' ? '見直しを受け付けました' : '元の判断を維持'}</strong>
+            <div style="white-space:pre-wrap;margin-top:6px;">${escapeHtml(x.reason)}</div>
+            ${x.response ? `<div style="white-space:pre-wrap;margin-top:6px;">運営から：${escapeHtml(x.response)}</div>` : ''}
+            <div class="muted" style="font-size:.75rem;">${formatHistoryDate(x.created_at)}</div></div>`).join('') : '異議申立てはありません。';
+    }
+    function openModerationAppeal(type, id) {
+        if (appealSending) return;
+        appealTarget = { type, id, userId: currentAuthUserId };
+        document.getElementById('appealTargetLabel').textContent = `${type === 'aed_submission' ? 'AED投稿' : '非表示の投稿'}の判断について送信します。同じ投稿への申立ては1回、1日3件までです。`;
+        document.getElementById('appealReason').value = '';
+        document.getElementById('appealForm').hidden = false;
+        document.getElementById('appealForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('appealReason').focus({ preventScroll: true });
+    }
+    function closeModerationAppeal() {
+        if (appealSending) return;
+        appealTarget = null;
+        document.getElementById('appealReason').value = '';
+        document.getElementById('appealForm').hidden = true;
+    }
+    async function submitModerationAppeal(event) {
+        event.preventDefault();
+        if (appealSending || !appealTarget) return;
+        const target = { ...appealTarget };
+        const reason = document.getElementById('appealReason').value.trim();
+        if (reason.length < 10 || reason.length > 1000) { showToast('理由は10〜1,000文字で記入してください'); return; }
+        appealSending = true;
+        document.getElementById('appealSubmitButton').disabled = true;
+        try {
+            const { data: auth } = await db.auth.getUser();
+            if (!auth?.user || auth.user.id !== target.userId) throw new Error('authentication_required');
+            const { error } = await db.rpc('submit_moderation_appeal', { p_target_type: target.type, p_target_id: target.id, p_reason: reason });
+            if (error) throw error;
+            appealSending = false; closeModerationAppeal();
+            showToast('異議申立てを受け付けました');
+            await loadMyDashboard();
+        } catch (error) {
+            const message = error?.message || '';
+            showToast(message.includes('appeal_already_submitted') ? 'この投稿は申立て済みです' : message.includes('appeal_daily_limit') ? '申立ては1日3件までです' : message.includes('appeal_target_unavailable') ? '対象の投稿や審査状況が変わっています。履歴を更新してください' : '送信できませんでした。ログインと対象の投稿を確認してください');
+        } finally {
+            appealSending = false;
+            document.getElementById('appealSubmitButton').disabled = false;
+        }
+    }
+    function renderAdminAppeals(rows) {
+        document.getElementById('adminAppealsArea').innerHTML = rows.length ? rows.map(x => `<div style="padding:12px;background:white;margin-bottom:8px;border:1px solid #cbd5e1;border-radius:8px;overflow-wrap:anywhere;">
+            <strong>${escapeHtml(x.user_name || '名称未設定')}：${x.target_type === 'aed_submission' ? 'AED投稿' : '安全情報の投稿'}（${x.status === 'pending' ? '未対応' : '回答済み'}）</strong>
+            <div class="muted">対象ID：${escapeHtml(x.target_id)}／元の判断：${escapeHtml(x.original_decision)}</div>
+            <div style="white-space:pre-wrap;">${escapeHtml(x.original_notes || '')}</div>
+            <div style="white-space:pre-wrap;margin:6px 0;">${escapeHtml(x.reason)}</div>
+            ${x.status === 'pending' && /^[0-9a-f-]{36}$/i.test(x.id) ? adminButton(x.target_type === 'aed_submission' ? '再審査へ戻す' : '投稿を復元', `resolveModerationAppeal('${x.id}','reconsider')`) + adminButton('判断を維持して回答', `resolveModerationAppeal('${x.id}','maintain')`, '#64748b') : `<div style="white-space:pre-wrap;">運営の回答：${escapeHtml(x.response || '')}</div>`}
+            </div>`).join('') : '<div class="muted">異議申立てはありません。</div>';
+    }
+    async function resolveModerationAppeal(id, outcome) {
+        const password = getAdminPassword(); if (!password) return;
+        const response = prompt('本人に伝える回答を入力してください（5〜1,000文字）。AEDは再審査へ戻り、自動承認・ポイント付与はしません。投稿の復元では通報数をリセットし、操作履歴を残します。');
+        if (response === null) return;
+        if (response.trim().length < 5 || response.trim().length > 1000) { showToast('回答は5〜1,000文字で記入してください'); return; }
+        const { error } = await db.rpc('admin_resolve_moderation_appeal', { p_password: password, p_appeal_id: id, p_outcome: outcome, p_response: response.trim() });
+        showToast(error ? '処理できませんでした。対象の状態と管理者権限を確認してください' : '回答を保存しました');
+        if (!error) { await loadAdminDashboard(); loadSpots(); }
+    }
+    const deletionExecutions = new Set();
+    async function executeAccountDeletion(id) {
+        if (deletionExecutions.has(id)) return;
+        const password = getAdminPassword(); if (!password) return;
+        if (prompt(`申請番号 ${id} のアカウント・投稿・写真・ポイントを削除します。開始後は取り消せません。本人の申請と対象を確認し、実行する申請番号 ${id} を入力してください。途中で失敗した場合も同じボタンで再開できます。`) !== String(id)) return;
+        deletionExecutions.add(id);
+        showToast('削除を処理しています。完了表示までお待ちください');
+        try {
+            const { data, error } = await db.functions.invoke('account-deletion', { body: { requestId: id, password } });
+            if (error || data?.error) {
+                let code = data?.error;
+                if (!code && error?.context?.json) { try { code = (await error.context.json()).error; } catch (_) {} }
+                throw new Error(code || 'deletion_incomplete_resume_required');
+            }
+            showToast(data?.status === 'completed' ? 'アカウントとデータの削除が完了しました' : '写真を削除中です。同じ申請の「削除を実行／再開」を押して続きを処理してください');
+        } catch (error) {
+            showToast(error.message === 'admin_account_requires_manual_handover' ? '管理者アカウントは権限の引継ぎが必要です' : error.message === 'legacy_photo_ownership_review_required' ? '旧形式の写真があります。所有者の確認が必要です' : error.message === 'admin_validation_failed' ? '管理者権限とパスワードを確認してください' : '削除は完了していません。同じ申請の実行ボタンから再開できます');
+        } finally { deletionExecutions.delete(id); await loadAdminDashboard(); }
+    }
+
     async function requestAccountDeletion() {
         if (!await requireAuthenticatedUser()) return;
-        if (!confirm('退会・データ削除を申請しますか？\n申請後、運営が内容を確認して処理します。')) return;
+        if (!confirm('退会・データ削除を申請しますか？\n申請後、運営が内容を確認して処理します。\n処理開始後は取り消せません。アカウント・投稿・写真・ポイントを削除します。確認済みAEDの施設情報は投稿者との紐付けを外して残します。')) return;
 
         const reason = prompt('差し支えなければ退会理由をご入力ください（空欄でも申請できます）') || '';
         const { data, error } = await db.rpc('request_account_deletion', { p_reason: reason });
@@ -1675,13 +1797,14 @@ function shareSpot(title, address, category, event) {
 
     async function loadAdminDashboard() {
         const password = getAdminPassword(); if (!password) return;
-        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }] = await Promise.all([
+        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }] = await Promise.all([
             db.rpc('admin_get_dashboard', { p_password: password }),
             db.rpc('admin_get_statistics', { p_password: password }),
-            db.rpc('admin_get_aed_submissions', { p_password: password })
+            db.rpc('admin_get_aed_submissions', { p_password: password }),
+            db.rpc('admin_get_moderation_appeals', { p_password: password })
         ]);
-        if (error || statsError || aedError || !data || !statsData) {
-            const message = error?.message || statsError?.message || aedError?.message || '';
+        if (error || statsError || aedError || appealsError || !data || !statsData) {
+            const message = error?.message || statsError?.message || aedError?.message || appealsError?.message || '';
             showToast(message.includes('invalid_password') ? 'パスワードが違います' : message.includes('admin_required') || message.includes('authentication_required') ? '管理者権限を確認できません' : '管理データの取得に失敗しました'); return;
         }
         const deletions = Array.isArray(data.deletions) ? data.deletions : [];
@@ -1705,7 +1828,8 @@ function shareSpot(title, address, category, event) {
         renderAdminBreakdown('adminRegionStats', Array.isArray(statsData.regions) ? statsData.regions : [], x => x.region || '地域不明');
         renderAdminBreakdown('adminCategoryStats', Array.isArray(statsData.categories) ? statsData.categories : [], x => categoryLabels[x.category] || x.category || '未分類');
 
-        document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
+        document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('削除を実行／再開', `executeAccountDeletion(${Number(x.id)})`, '#991b1b') : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
+        renderAdminAppeals(Array.isArray(appeals) ? appeals : []);
         await renderAdminAedSubmissions(Array.isArray(aedSubmissions) ? aedSubmissions : []);
 
         document.getElementById('adminReportedArea').innerHTML = reports.length ? reports.map(x => `<div style="background:white;border:1px solid #fecdd3;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.title || '名称なし')}</strong>　🚩${Number(x.report_count || 0)}</div><div class="muted" style="margin:4px 0;">${escapeHtml(x.address || '場所不明')}・投稿者 ${escapeHtml(x.name || '名称未設定')}</div>${adminButton(x.is_hidden ? '投稿を復元' : '一時非表示', `moderateAdminSpot(${Number(x.id)},${x.is_hidden ? 'false' : 'true'})`, x.is_hidden ? '#166534' : '#b91c1c')}</div>`).join('') : '<div class="muted" style="font-size:.75rem;">通報された投稿はありません。</div>';
@@ -3704,7 +3828,16 @@ function shareSpot(title, address, category, event) {
                         currentSession
                     ) => {
 
-                        currentAuthUserId = currentSession && currentSession.user ? currentSession.user.id : null;
+                        const nextUserId = currentSession?.user?.id || null;
+                        if (nextUserId !== currentAuthUserId) {
+                            myAppealsRequest++; myAedHistoryRequest++;
+                            myAppeals = []; appealsOwnerId = null; appealTarget = null;
+                            document.getElementById('appealForm').hidden = true;
+                            document.getElementById('appealReason').value = '';
+                            document.getElementById('myAppealsArea').textContent = '';
+                            document.getElementById('myAedHistoryArea').textContent = '';
+                        }
+                        currentAuthUserId = nextUserId;
 
                         // Sessionが無くなった場合は
                         // 表示情報も消す
