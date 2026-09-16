@@ -1,0 +1,14 @@
+#adminRoadReports { margin:18px 0; padding:12px; background:#fff; border:1px solid #cbd5e1; border-radius:12px; font-size:16px; line-height:1.6; overflow-wrap:anywhere; }
+#adminRoadReports:empty { display:none; }
+#adminRoadReports h3 { margin:0 0 8px; font-size:18px; }
+#adminRoadReports p { font-size:14px; }
+#adminRoadReports details { margin:12px 0; padding:10px; border:1px solid #cbd5e1; border-radius:8px; }
+#adminRoadReports summary { cursor:pointer; font-weight:700; }
+#adminRoadReports label { display:block; margin:12px 0 6px; font-size:14px; }
+#adminRoadReports input,#adminRoadReports select { display:block; width:100%; box-sizing:border-box; font-size:16px; min-height:44px; }
+#adminRoadReports .road-check { display:flex; gap:10px; align-items:flex-start; }
+#adminRoadReports .road-check input { width:22px; height:22px; min-height:22px; flex-shrink:0; margin:2px 0 0; }
+#adminRoadReports button { min-height:44px; margin:5px 5px 5px 0; padding:8px 12px; border:1px solid #94a3b8; border-radius:8px; background:#eff6ff; color:#1e3a8a; font:inherit; cursor:pointer; }
+#adminRoadReports button:disabled { opacity:.45; cursor:default; }
+#adminRoadReports table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+#adminRoadReports th,#adminRoadReports td { border-bottom:1px solid #e2e8f0; padding:6px; text-align:left; }
