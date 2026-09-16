@@ -1,5 +1,4 @@
 #adminRoadReports { margin:18px 0; padding:12px; background:#fff; border:1px solid #cbd5e1; border-radius:12px; font-size:16px; line-height:1.6; overflow-wrap:anywhere; }
-#adminRoadReports:empty { display:none; }
 #adminRoadReports h3 { margin:0 0 8px; font-size:18px; }
 #adminRoadReports p { font-size:14px; }
 #adminRoadReports details { margin:12px 0; padding:10px; border:1px solid #cbd5e1; border-radius:8px; }

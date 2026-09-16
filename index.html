@@ -29,7 +29,7 @@
     <title>まちまも MAP - 交通安全情報共有マップ</title>
     <link rel="stylesheet" href="camera-guide.css?v=23-qa2">
     <link rel="stylesheet" href="camera-capture.css?v=23-capture1">
-    <link rel="stylesheet" href="road-review.css?v=24-connect1">
+    <link rel="stylesheet" href="road-review.css?v=24-connect2">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
@@ -683,7 +683,10 @@
                         <button class="primary" style="margin-top:10px; background:#166534;" onclick="loadAdminDashboard()"><i class="fa-solid fa-gauge-high"></i> 管理画面を読み込む</button>
                         <button id="adminExportButton" style="width:100%; margin-top:8px; padding:11px; background:white; color:#166534; border:1px solid #86efac; border-radius:10px; font-weight:bold; cursor:pointer;" onclick="downloadCSV()"><i class="fa-solid fa-download"></i> 投稿CSVをダウンロード</button>
                         <div id="adminDashboardArea" style="display:none; margin-top:18px;">
-                            <section id="adminRoadReports" aria-label="道路別集計と確認待ち"></section>
+                            <section id="adminRoadReports" aria-label="道路別集計と確認待ち">
+                                <h3>道路別集計・確認待ち（管理者限定）</h3>
+                                <p role="status">管理画面を読み込むと、ここに確認待ちの投稿が表示されます。</p>
+                            </section>
                             <h3 style="font-size:.92rem; color:#166534; margin:0 0 8px;">運営サマリー</h3>
                             <div id="adminStatsCards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px;text-align:center;"></div>
                             <div id="adminStatsSubline" class="muted" style="font-size:.68rem;margin-bottom:12px;"></div>
@@ -1834,7 +1837,18 @@ function shareSpot(title, address, category, event) {
         const pointTransactions = Array.isArray(data.pointTransactions) ? data.pointTransactions : [];
         const audit = Array.isArray(data.audit) ? data.audit : [];
         document.getElementById('adminDashboardArea').style.display = 'block';
-        window.MachimamoRoadReview?.load({rpc:(...args)=>db.rpc(...args),password,isCurrent:()=>request===adminDashboardRequest && authUser===currentAuthUserId});
+        const roadReports = document.getElementById('adminRoadReports');
+        if (window.MachimamoRoadReview) {
+            window.MachimamoRoadReview.load({rpc:(...args)=>db.rpc(...args),password,isCurrent:()=>request===adminDashboardRequest && authUser===currentAuthUserId});
+        } else if (roadReports) {
+            roadReports.replaceChildren();
+            const title = document.createElement('h3');
+            title.textContent = '道路別集計・確認待ち（管理者限定）';
+            const errorText = document.createElement('p');
+            errorText.setAttribute('role', 'alert');
+            errorText.textContent = '確認待ち機能を読み込めませんでした。ページを再読み込みしてください。';
+            roadReports.append(title, errorText);
+        }
         document.getElementById('adminDeletionCount').textContent = deletions.filter(x => ['pending','processing'].includes(x.status)).length;
         document.getElementById('adminReportCount').textContent = reports.length;
         document.getElementById('adminAlertCount').textContent = alerts.length;
@@ -4012,8 +4026,8 @@ function shareSpot(title, address, category, event) {
 </script>
 
 <script src="camera-guide.js?v=24-detection1"></script>
-<script src="road-parking-summary.js?v=24-connect1"></script>
-<script src="road-review.js?v=24-connect1"></script>
+<script src="road-parking-summary.js?v=24-connect2"></script>
+<script src="road-review.js?v=24-connect2"></script>
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-capture.js?v=24-detection1"></script>
 </body>
