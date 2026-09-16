@@ -39,6 +39,7 @@
         const precision = point.basis === 'gps' && point.accuracy > 100 ? '<p class="nearby-note">現在地の誤差が大きいため、距離や並び順は目安です。「現在地で更新」から再取得できます。</p>' : '';
         results.innerHTML = `<div class="nearby-status">${escape(heading)}</div>${precision}` + (rows.length ? rows.map(spot => {
             const nav = buildSafetyNavigationUrl(spot.lat, spot.lng);
+            const appleNav = buildSafetyNavigationUrl(spot.lat, spot.lng, 'apple');
             const source = /^https:\/\//i.test(spot.source_url || '') ? spot.source_url : null;
             const date = String(spot.source_updated_at || spot.source_date || '').slice(0,10) || '不明';
             return `<article class="nearby-card">
@@ -46,7 +47,8 @@
                 <h3>${escape(spot.name)}</h3><p>${escape(spot.address || '住所情報なし')}</p>
                 <p>設置場所：${escape(spot.installation_location || '詳細情報なし。現地の案内をご確認ください。')}</p>
                 <p>利用時間：${escape(spot.availability || '情報なし。施設への確認が必要です。')}</p>
-                ${nav ? `<a class="nearby-nav" href="${escape(nav)}" target="_blank" rel="noopener noreferrer">ここまでナビ</a>` : ''}
+                ${nav ? `<a class="nearby-nav" href="${escape(nav)}" target="_blank" rel="noopener noreferrer">Googleマップでナビ</a>
+                <a class="nearby-nav" style="background:#334155;" href="${escape(appleNav)}" target="_blank" rel="noopener noreferrer">Appleマップでナビ</a>` : ''}
                 <details><summary>出典・位置情報</summary>
                   ${source ? `<a href="${escape(source)}" target="_blank" rel="noopener noreferrer">${escape(spot.source_name || '情報元')}</a>` : escape(spot.source_name || '情報元不明')}
                   <div>データ基準日：${escape(date)}</div><div>${escape(spot.source_license || '')}</div>
