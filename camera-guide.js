@@ -7,7 +7,7 @@
           <h2 id="cameraGuideTitle">カメラのQ&amp;A</h2>
           <button type="button" class="camera-guide-close" aria-label="Q&Aを閉じる" autofocus>×</button>
         </div>
-        <div class="camera-guide-content">
+        <div id="cameraGuideContent" class="camera-guide-content" tabindex="0" role="region" aria-label="カメラの説明">
           <p class="camera-guide-intro">無料で使える機能と、これから登場する有料版をご案内します。</p>
           <section class="camera-guide-section" aria-labelledby="cameraFreeTitle">
             <span class="camera-guide-tag">通常は無料版</span>
@@ -62,11 +62,38 @@
             </div>
           </section>
         </div>
+        <div class="camera-guide-footer"><button id="cameraGuideTopButton" type="button" class="camera-guide-button" aria-controls="cameraGuideContent">▲ 一番上へ</button></div>
       </dialog>`);
     const dialog = document.getElementById('cameraGuideDialog');
     const trigger = document.getElementById('cameraHelpButton');
     const reward = document.getElementById('cameraRewardButton');
     const offers = document.getElementById('cameraRewardOffers');
+    const content = document.getElementById('cameraGuideContent');
+    const topButton = document.getElementById('cameraGuideTopButton');
+    // Match the visible viewport in pre-zoom layout pixels, including the existing
+    // iPhone desktop-view compensation. Header/footer never enter the scroll area.
+    function fitViewport() {
+        if (!dialog.open) return;
+        const zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+        const viewport = root.visualViewport;
+        const width = (viewport ? viewport.width : root.innerWidth) / zoom;
+        const height = (viewport ? viewport.height : root.innerHeight) / zoom;
+        const inset = Math.min(12, width / 20, height / 20);
+        const panelWidth = Math.min(580, width - inset * 2);
+        dialog.style.width = panelWidth + 'px';
+        dialog.style.height = Math.max(1, height - inset * 2) + 'px';
+        dialog.style.left = ((viewport?.offsetLeft || 0) / zoom + (width - panelWidth) / 2) + 'px';
+        dialog.style.top = ((viewport?.offsetTop || 0) / zoom + inset) + 'px';
+    }
+    const scrollBehavior = () => root.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    root.addEventListener('resize', fitViewport);
+    root.visualViewport?.addEventListener('resize', fitViewport);
+    root.visualViewport?.addEventListener('scroll', fitViewport);
+    new MutationObserver(fitViewport).observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+    topButton.onclick = () => {
+        content.scrollTo({ top: 0, behavior: scrollBehavior() });
+        content.focus({ preventScroll: true });
+    };
     function close() { if (dialog.open) dialog.close(); }
     root.MachimamoCameraGuide = {
         open() {
@@ -74,7 +101,8 @@
             offers.hidden = true;
             reward.setAttribute('aria-expanded', 'false');
             dialog.showModal();
-            dialog.scrollTop = 0;
+            fitViewport();
+            content.scrollTop = 0;
             trigger?.setAttribute('aria-expanded', 'true');
         },
         close
@@ -89,6 +117,10 @@
     reward.onclick = () => {
         offers.hidden = !offers.hidden;
         reward.setAttribute('aria-expanded', String(!offers.hidden));
-        if (!offers.hidden) offers.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        if (!offers.hidden) {
+            const zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+            const top = content.scrollTop + (offers.getBoundingClientRect().top - content.getBoundingClientRect().top) / zoom;
+            content.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior() });
+        }
     };
 })(window);
