@@ -1,5 +1,8 @@
 # AED画像AI事前チェック・マスクプレビュー
 
+## 現在の状態：保留（2026-09-16）
+ユーザー方針により有料APIの登録・有効化・実画像試験は保留。画面の実行操作とサーバーの `PAID_IMAGE_AI_PAUSED` ゲートで停止する。Secretsだけを変更しても再開しない。後日、費用・必要性・予算を再確認し、明示的な再開決定後にコードの停止ゲートと画面を更新してから下記手順を使う。人による審査・手動マスクは利用可能。無料カメラとは別の保留項目として管理する。
+
 ## 実装範囲
 - 管理者画面から明示的に実行。サーバーでログイン・管理権限・管理パスワードを検証。
 - 非公開AED投稿写真をサーバーからOpenAI Responses APIへ送信。GPSや投稿者名を別途プロンプトへ追加しない。通常投稿画面の画像変換・EXIF除去を継続。
@@ -9,7 +12,7 @@
 - モザイク候補プレビュー、ドラッグで範囲追加、追加範囲取消、確認後JPEG保存を実装。自動検出矩形は15%ずつ広げる。
 - 加工画像は管理者の端末に保存するだけ。サーバーへの加工画像保存、投稿者への加工画像表示、自動公開、10日削除／保全延長は今回の対象外。
 
-## 有効化
+## 再開決定後の有効化手順（現在は実施しない）
 この作業では本番のAPIキーやSecretsの設定値を確認・変更できていない。実画像をAIに送信する試験も未実施。
 1. Supabase対象プロジェクトのEdge Functions → Secretsに OPENAI_API_KEY を設定（キーをチャット・GitHub・フロントエンドへ貼らない）。
 2. AED_AI_ENABLED を true に設定。停止時は false にする。
@@ -37,3 +40,4 @@ store:falseを無保存・ゼロデータ保持の保証とは扱わない。利
 - [モデル](https://developers.openai.com/api/docs/models/gpt-4.1-mini)
 - [データ取扱](https://developers.openai.com/api/docs/guides/your-data)
 - [Supabase RLS診断](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy)
+
