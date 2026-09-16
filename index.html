@@ -971,6 +971,7 @@
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">現地でGPSと写真を確認し、運営が新規AEDとして承認した場合だけ30ptを付与します。掲載済み・重複は0ptで存在確認記録になります。</div>
+                <div style="font-size:.78rem;color:#9a3412;margin-top:8px;line-height:1.6;">AED投稿は1人1日10件・週20件まで（審査待ち・否認・再送信を含む）。日本時間の毎日0時／月曜0時にリセットします。承認が翌週でも、新規承認なら30ptを付与します。</div>
                 <label>都道府県</label><input type="text" id="aedPrefecture" maxlength="8" placeholder="例：東京都">
                 <label>施設住所</label><input type="text" id="aedAddress" maxlength="300" placeholder="番地まで入力してください">
                 <div id="aedGpsStatus" style="font-size:.75rem; color:#64748b; margin-top:10px;">GPSを取得していません。</div>
@@ -2820,7 +2821,10 @@ function shareSpot(title, address, category, event) {
         if (error) {
             await db.storage.from('aed-submission-images').remove([objectPath]);
             document.getElementById('aiLoading').style.display = 'none';
-            alert('AED投稿を保存できませんでした：' + error.message); return;
+            const limitMessage = String(error.message || '');
+            alert(limitMessage.includes('aed_weekly_limit') ? '今週のAED投稿上限（20件）に達しました。日本時間の月曜0時以降に投稿できます。' :
+                limitMessage.includes('aed_daily_limit') ? '今日のAED投稿上限（10件）に達しました。日本時間の翌日0時以降に投稿できます。' :
+                'AED投稿を保存できませんでした：' + error.message); return;
         }
         showToast(data.status === 'needs_review' ? 'AED投稿を受け付けました。不正・重複確認後に審査します。' : 'AED投稿を受け付けました。新規承認時に30ptを付与します。');
         closePostModal();
