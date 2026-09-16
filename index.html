@@ -131,14 +131,9 @@
         .camera-view { display: none; position: absolute; inset: 0; z-index: 2000; background: #000; flex-direction: column; overflow: hidden; }
         .camera-view.active { display: flex; }
         #videoElement { width: 100%; height: 100%; object-fit: cover; }
-        .camera-overlay { position: absolute; inset: 0; pointer-events: none; border: 4px solid rgba(31, 111, 235, 0.5); }
-        .scan-line { width: 100%; height: 4px; background: rgba(31, 111, 235, 0.8); position: absolute; box-shadow: 0 0 15px rgba(31, 111, 235, 1); animation: scan 3s linear infinite; }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
         .camera-ui-top { position: absolute; top: calc(20px + env(safe-area-inset-top)); left: 20px; right: 20px; display: flex; justify-content: space-between; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8); pointer-events: auto; }
         .btn-close-cam { background: rgba(0,0,0,0.5); border: 2px solid white; color: white; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; font-size: 1.2rem; backdrop-filter: blur(4px); }
         .ai-status { background: rgba(31, 111, 235, 0.8); padding: 8px 16px; border-radius: 20px; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(4px); }
-        .mock-detection-box { display: none; position: absolute; border: 3px solid #facc15; width: 120px; height: 60px; background: rgba(250, 204, 21, 0.2); pointer-events: none; transition: top 0.2s, left 0.2s; }
-        .mock-detection-box::after { content: "[検知] ナンバーマスキング中..."; position: absolute; top: -25px; left: -3px; background: #facc15; color: black; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; white-space: nowrap; }
 
         .page { padding: 24px 18px 90px; max-width: 700px; margin: auto; }
         .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin-bottom: 20px; }
@@ -433,16 +428,14 @@
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
                 <div id="cameraView" class="camera-view">
-                    <video id="videoElement" autoplay playsinline></video>
-                    <div class="camera-overlay"><div class="scan-line"></div></div>
-                    <div id="mockDetectionBox" class="mock-detection-box"></div>
+                    <video id="videoElement" autoplay playsinline muted></video>
                     <div class="camera-ui-top">
-                        <div class="ai-status"><i class="fa-solid fa-circle-notch fa-spin"></i> 路上駐車を自動スキャン中...</div>
-                        <button class="btn-close-cam" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="ai-status" id="cameraStatus" role="status">無料カメラ・映像確認</div>
+                        <button class="btn-close-cam" aria-label="カメラを終了" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div style="position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                        スマホをダッシュボードに設置してください<br>
-                        <span style="font-size:0.75rem; color:#93c5fd;">※プライバシー保護のため、スマホ内でモザイク処理を行ってから送信されます</span>
+                        安全な場所で、停車してから操作してください<br>
+                        <span style="font-size:0.85rem; color:#bfdbfe;">現在は映像確認のみ。録画・保存・送信は行いません。<br>AI検知・自動撮影・自動モザイクは準備中です。</span>
                     </div>
                 </div>
             </div>
@@ -1206,6 +1199,7 @@
         b.onclick = () => {
             document.querySelectorAll(".nav").forEach(x => x.classList.remove("active")); b.classList.add("active");
             document.querySelectorAll(".view").forEach(v => v.classList.remove("active")); document.getElementById(b.dataset.view).classList.add("active");
+            if (b.dataset.view !== "mapView") stopAIPatrol(false);
             if (b.dataset.view === "mapView") setTimeout(() => refreshMapLayout(), 100);
         };
     });
@@ -2927,42 +2921,49 @@ function shareSpot(title, address, category, event) {
         });
     }
 
+    // Free camera foundation: local preview only; no inference, upload or paid API.
     let mediaStream = null;
-    let detectionInterval = null;
-
+    let cameraRequestVersion = 0;
     async function startAIPatrol() {
         const camView = document.getElementById('cameraView');
+        if (camView.classList.contains('active')) return;
+        if (!navigator.mediaDevices?.getUserMedia) {
+            showToast('このブラウザーではカメラを利用できません。');
+            return;
+        }
         const video = document.getElementById('videoElement');
+        const version = ++cameraRequestVersion;
         camView.classList.add('active');
-
+        document.getElementById('cameraStatus').textContent = 'カメラの許可を確認中…';
         try {
-            mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-            video.srcObject = mediaStream;
-            showToast("AIパトロールを開始しました");
-
-            detectionInterval = setInterval(() => {
-                const box = document.getElementById('mockDetectionBox');
-                if(box) {
-                    box.style.display = 'block';
-                    box.style.left = (15 + Math.random() * 50) + '%';
-                    box.style.top = (25 + Math.random() * 40) + '%';
-                    setTimeout(() => { box.style.display = 'none'; }, 800);
-                }
-            }, 2500);
-
-        } catch (err) {
-            alert("カメラへのアクセスが許可されていません。");
-            stopAIPatrol();
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: 'environment' } } });
+            if (version !== cameraRequestVersion || document.hidden) {
+                stream.getTracks().forEach(track => track.stop());
+                return;
+            }
+            mediaStream = stream;
+            video.srcObject = stream;
+            await video.play();
+            if (version !== cameraRequestVersion) return;
+            document.getElementById('cameraStatus').textContent = '無料カメラ・映像確認';
+        } catch (error) {
+            if (version !== cameraRequestVersion) return;
+            stopAIPatrol(false);
+            showToast(error.name === 'NotAllowedError' ? 'カメラの利用が許可されていません。ブラウザーの設定を確認してください。' : 'カメラを開始できません。ほかのアプリの使用状況を確認して再度お試しください。');
         }
     }
-
-    function stopAIPatrol() {
+    function stopAIPatrol(notify = true) {
         const camView = document.getElementById('cameraView');
+        const wasActive = camView.classList.contains('active');
+        ++cameraRequestVersion;
         camView.classList.remove('active');
         if (mediaStream) { mediaStream.getTracks().forEach(track => track.stop()); mediaStream = null; }
-        if (detectionInterval) { clearInterval(detectionInterval); }
-        showToast("AIパトロールを終了しました");
+        const video = document.getElementById('videoElement');
+        video.pause(); video.srcObject = null;
+        if (notify && wasActive) showToast('カメラを終了しました');
     }
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stopAIPatrol(false); });
+    window.addEventListener('pagehide', () => stopAIPatrol(false));
 
     let accidentCircles = [];
     let isAccidentDataVisible = false;
