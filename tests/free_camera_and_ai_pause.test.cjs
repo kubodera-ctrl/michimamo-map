@@ -9,9 +9,11 @@ const camera = html.slice(html.indexOf('    let mediaStream = null;'), html.inde
 function setup() {
     const pending = [], handlers = {}, alerts = [];
     const active = new Set();
-    const elements = { cameraView: { classList: { add: x => active.add(x), remove: x => active.delete(x), contains: x => active.has(x) } }, videoElement: { srcObject: null, pause() {}, async play() {} }, cameraStatus: {} };
+    const modeButton = () => ({attrs:{},setAttribute(k,v){this.attrs[k]=v;}});
+    const elements = { cameraView: { classList: { add: x => active.add(x), remove: x => active.delete(x), contains: x => active.has(x) } }, videoElement: { srcObject: null, pause() {}, async play() {} }, cameraStatus: {}, cameraModeWalk:modeButton(), cameraModeDrive:modeButton() };
     const document = { hidden: false, getElementById: id => elements[id], addEventListener: (name, fn) => handlers[name] = fn };
-    const context = { document, window: { addEventListener: (name, fn) => handlers[name] = fn }, navigator: { mediaDevices: { getUserMedia: options => { assert.equal(options.audio, false); return new Promise((resolve, reject) => pending.push({resolve, reject})); } } }, showToast: text => alerts.push(text) };
+    const storage=new Map();
+    const context = { document, localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)}, window: { addEventListener: (name, fn) => handlers[name] = fn }, navigator: { mediaDevices: { getUserMedia: options => { assert.equal(options.audio, false); return new Promise((resolve, reject) => pending.push({resolve, reject})); } } }, showToast: text => alerts.push(text) };
     vm.createContext(context); vm.runInContext(camera, context);
     return { context, pending, handlers, document, elements, alerts, active };
 }
@@ -26,6 +28,9 @@ function stream() { const track = { stopped: false, stop() { this.stopped = true
     assert.equal(old.track.stopped, true, 'late permission after closing releases camera');
     const current = stream(); s.pending[1].resolve(current); await second;
     assert.equal(s.elements.videoElement.srcObject, current);
+    s.context.setCameraMode('drive');
+    assert.equal(s.elements.cameraModeDrive.attrs['aria-pressed'],'true');
+    assert.match(s.elements.cameraStatus.textContent,/自動シャッター準備中/);
     s.document.hidden = true; s.handlers.visibilitychange();
     assert.equal(current.track.stopped, true); assert.equal(s.elements.videoElement.srcObject, null); assert.equal(s.active.size, 0);
     s.document.hidden = false;

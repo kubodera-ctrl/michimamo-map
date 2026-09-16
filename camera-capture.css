@@ -3,6 +3,9 @@
 .camera-capture-controls p { margin:0; max-width:420px; padding:8px 12px; border-radius:12px; background:#000b; font-size:13px; line-height:1.5; }
 #cameraShutter { min-height:52px; padding:12px 28px; border:3px solid #bfdbfe; border-radius:32px; background:#fff; color:#17385d; font:inherit; font-weight:800; cursor:pointer; }
 #cameraShutter:disabled { background:#cbd5e1; color:#475569; cursor:default; }
+.camera-mode-switch { display:flex;gap:6px;margin-top:8px; }
+.camera-mode-switch button { min-height:36px;padding:6px 10px;border:1px solid #fff9;border-radius:18px;background:#1119;color:#fff;font-weight:800; }
+.camera-mode-switch button[aria-pressed="true"] { background:#fff;color:#17385d;border-color:#fff; }
 #cameraPhotoDialog { box-sizing:border-box; position:fixed; inset:auto; margin:0; padding:0; border:0; border-radius:20px; max-width:620px; max-height:none; overflow:hidden; color:#17212b; background:#f8fafc; font-size:16px; line-height:1.6; touch-action:pan-y; }
 #cameraPhotoDialog[open] { display:flex; flex-direction:column; }
 #cameraPhotoDialog::backdrop { background:#0b172bd9; }
