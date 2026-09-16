@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const path=require('node:path');
 const source=fs.readFileSync(path.join(__dirname,'../camera-capture.js'),'utf8');
 function setup(detection) {
-    const blobs=[],downloads=[],canvases=[],handlers={};
+    const blobs=[],downloads=[],drafts=[],canvases=[],handlers={};
     function element(tag='div') {
         const el={tag,style:{},listeners:{},attrs:{},width:1,height:1,scrollTop:0,disabled:false,checked:false,open:false,
             setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,v){this.listeners[k]=v;},focus(){},append(){},remove(){},
@@ -24,10 +24,10 @@ function setup(detection) {
     els.cameraPhotoDialog.querySelector=s=>s==='.photo-close'?close:body;
     Object.assign(els.videoElement,{readyState:2,videoWidth:1920,videoHeight:1080,srcObject:{}});
     const document={body:{insertAdjacentHTML(){},append(){}},documentElement:{},hidden:false,getElementById:id=>els[id],createElement:element};
-    const window={MachimamoCameraDetection:detection,innerWidth:390,innerHeight:700,addEventListener:(n,f)=>handlers[n]=f};
+    const window={MachimamoCameraDetection:detection,startCameraPostDraft:d=>{drafts.push(d);return true;},innerWidth:390,innerHeight:700,addEventListener:(n,f)=>handlers[n]=f};
     const context={window,document,getComputedStyle:()=>({zoom:'1'}),MutationObserver:class{observe(){}},URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},setTimeout(){},clearTimeout(){}};
     vm.runInNewContext(source,context);
-    return {api:window.MachimamoCameraCapture,math:window.MachimamoCameraPrivacy,els,document,blobs,downloads,canvases,close};
+    return {api:window.MachimamoCameraCapture,math:window.MachimamoCameraPrivacy,els,document,blobs,downloads,drafts,canvases,close};
 }
 const s=setup(), e=s.els;
 assert.equal(s.api.capture(),false,'cannot capture before stream is ready');
@@ -40,14 +40,14 @@ e.cameraPhotoSave.onclick();assert.equal(s.blobs.length,1);assert.equal(s.blobs[
 e.cameraPhotoAll.onclick();assert.equal(e.cameraPhotoChecked.checked,false);
 s.blobs[0].callback({});assert.equal(s.downloads.length,0,'editing invalidates in-flight export');
 e.cameraPhotoChecked.checked=true;e.cameraPhotoChecked.onchange();e.cameraPhotoSave.onclick();s.blobs[1].callback({});
-assert.equal(s.downloads.length,1);assert.match(s.downloads[0],/^machimamo-masked-/);
+assert.equal(s.downloads.length,0);assert.equal(s.drafts.length,1);assert.equal(s.drafts[0].width,1600);assert.equal(s.drafts[0].height,900);
 e.cameraPhotoSelect.onclick();e.cameraPhotoSolid.onclick();
 e.cameraPhotoCanvas.onpointerdown({pointerId:1,button:0,clientX:170,clientY:110});
 e.cameraPhotoCanvas.onpointerup({pointerId:1,clientX:330,clientY:200});
 assert.ok(e.cameraPhotoCanvas.ops.some(op=>op[0]==='fill'),'manual solid mask is drawn');
 assert.equal(e.cameraPhotoChecked.checked,false);
 e.cameraPhotoChecked.checked=true;e.cameraPhotoChecked.onchange();e.cameraPhotoSave.onclick();
-s.api.reset();s.blobs[2].callback({});assert.equal(s.downloads.length,1,'no image export after closing or backgrounding');
+s.api.reset();s.blobs[2].callback({});assert.equal(s.drafts.length,1,'no post draft after closing or backgrounding');
 assert.equal(e.cameraPhotoCanvas.width,1);assert.equal(e.cameraPhotoDialog.open,false);assert.equal(e.cameraShutter.disabled,true);
 s.api.setReady(true);s.document.hidden=true;assert.equal(s.api.capture(),false);s.document.hidden=false;
 e.videoElement.readyState=1;assert.equal(s.api.capture(),false);
@@ -59,7 +59,7 @@ const broken=setup();broken.api.setReady(true);broken.els.cameraPhotoCanvas.fail
 assert.equal(broken.els.cameraPhotoSave.disabled,true,'draw failure must not enable source image export');
 broken.els.cameraPhotoChecked.checked=true;broken.els.cameraPhotoChecked.onchange();assert.equal(broken.els.cameraPhotoSave.disabled,true);
 broken.els.cameraPhotoAll.onclick();broken.els.cameraPhotoSave.onclick();assert.equal(broken.blobs.length,0);
-console.log('PASS: capture readiness/double tap, resizing, review gate, protected overlap source, manual solid mask, stale export denial, close cleanup, background guard, draw failure. Browser rendering/touch/download require real-device verification.');
+console.log('PASS: capture readiness/double tap, resizing, review gate, protected overlap source, manual solid mask, stale draft denial, close cleanup, background guard, draw failure. Browser rendering/touch/map handoff require real-device verification.');
 
 (async()=>{
     let resolve;

@@ -446,7 +446,7 @@
                     </div>
                     <div class="camera-capture-controls">
                         <button id="cameraShutter" type="button" disabled>撮影して加工する</button>
-                        <p>安全な場所で、停車してから操作してください。<br>手動撮影・手動加工・端末保存のみ。自動検知・自動撮影は準備中です。</p>
+                        <p>散歩は2〜3秒の短時間撮影、車載は走行中の操作ゼロを目標に開発中です。<br>現在は手動撮影・手動加工が利用できます。運転中は操作しないでください。</p>
                     </div>
                 </div>
             </div>
@@ -697,6 +697,10 @@
                             <section id="adminCameraEvidence" aria-label="非公開カメラ証拠の保存期限管理">
                                 <h3>非公開カメラ証拠・保存期限</h3>
                                 <p role="status">管理画面を読み込むと、10日削除・30日保全・7日回答待ちの対象が表示されます。</p>
+                            </section>
+                            <section aria-label="車載モード実走テストログ" style="margin:14px 0">
+                                <h3 style="font-size:.92rem;color:#1d4ed8;margin:0 0 8px">車載モード実走テストログ</h3>
+                                <div id="adminDriveTestLog"><p role="status">管理画面を読み込むと、この端末のテスト履歴を表示します。</p></div>
                             </section>
                             <h3 style="font-size:.92rem; color:#166534; margin:0 0 8px;">運営サマリー</h3>
                             <div id="adminStatsCards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px;text-align:center;"></div>
@@ -1018,6 +1022,7 @@
             <div id="imageUploadArea" style="display:none; margin-top:14px; background:#f3f4f6; padding:12px; border-radius:12px;">
                 <label style="margin-top:0; color:#ef4444;"><i class="fa-solid fa-camera"></i> 現地の写真 (その場で撮影)</label>
                 <div style="font-size: 0.7rem; color: #ef4444; margin-bottom: 5px;">現地で撮影してください。端末によっては写真選択画面が開きます。</div>
+                <div id="cameraPostImageNote" style="display:none;font-size:.78rem;color:#1e3a8a;margin-bottom:8px;line-height:1.5;">AIカメラで加工済みの画像です。投稿に紐づけて非公開で10日保存し、一般公開はしません。</div>
                 <input type="file" id="postImageInput" accept="image/*" capture="environment" style="border:none; padding:0; background:transparent;">
                 <img id="imagePreview" alt="投稿する写真の確認" style="max-width:100%; margin-top:10px; border-radius:8px; display:none;">
                 <label id="spotPhotoPrivacyArea" style="display:none; align-items:flex-start; gap:8px; line-height:1.5;"><input type="checkbox" id="spotPhotoPrivacyConfirmed" style="width:18px;height:18px;flex:none;">公開する写真に顔・車両番号・個人情報が写っていないことを確認しました。自動モザイクは未対応です。</label>
@@ -1867,6 +1872,7 @@ function shareSpot(title, address, category, event) {
             roadReports.append(title, errorText);
         }
         window.MachimamoCameraEvidence?.loadAdmin(password, () => request === adminDashboardRequest && authUser === currentAuthUserId);
+        window.MachimamoDriveTestLog?.renderAdmin();
         document.getElementById('adminDeletionCount').textContent = deletions.filter(x => ['pending','processing'].includes(x.status)).length;
         document.getElementById('adminReportCount').textContent = reports.length;
         document.getElementById('adminAlertCount').textContent = alerts.length;
@@ -2632,6 +2638,8 @@ function shareSpot(title, address, category, event) {
 
     let photoSelectionRequest = 0;
     let uploadedImageFile = null;
+    let cameraPostDraft = null;
+    let cameraPostRadius = null;
     let aedPhotoMeta = null;
     let aedGps = null;
     let aedNearbyReady = false;
@@ -2646,13 +2654,56 @@ function shareSpot(title, address, category, event) {
         const lat = e.latlng.lat, lng = e.latlng.lng;
         mapSingleTapTimer = setTimeout(() => {
             mapSingleTapTimer = null;
+            if (cameraPostDraft) {
+                const distance = map.distance(e.latlng, L.latLng(cameraPostDraft.origin.lat, cameraPostDraft.origin.lng));
+                if (distance > 50) {
+                    showToast(`現在地から50m以内を選んでください（約${Math.round(distance)}m）`);
+                    return;
+                }
+            }
             window.postLat = lat; window.postLng = lng;
             openPostModal();
-            document.getElementById('imagePreview').style.display = 'none';
-            document.getElementById('postImageInput').value = '';
+            if (!cameraPostDraft) {
+                document.getElementById('imagePreview').style.display = 'none';
+                document.getElementById('postImageInput').value = '';
+            } else {
+                uploadedImageFile = cameraPostDraft.file;
+                document.getElementById('postCategory').value = 'danger';
+                document.querySelector('#postCategory option[value="abandoned"]').disabled = true;
+                document.querySelector('#postCategory option[value="aed"]').disabled = true;
+                document.getElementById('imagePreview').src = cameraPostDraft.previewUrl;
+                document.getElementById('imagePreview').style.display = 'block';
+            }
             toggleImageUpload();
         }, 280);
     });
+
+    function activateMapView() {
+        document.querySelectorAll('.nav').forEach(x => x.classList.toggle('active', x.dataset.view === 'mapView'));
+        document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'mapView'));
+        setTimeout(() => refreshMapLayout(), 100);
+    }
+
+    function clearCameraPostDraft() {
+        if (cameraPostRadius) { map.removeLayer(cameraPostRadius); cameraPostRadius = null; }
+        if (cameraPostDraft?.previewUrl) URL.revokeObjectURL(cameraPostDraft.previewUrl);
+        cameraPostDraft = null;
+        const category = document.getElementById('postCategory');
+        category?.querySelectorAll('option').forEach(option => { option.disabled = false; });
+    }
+
+    window.startCameraPostDraft = async function(draft) {
+        if (!draft?.file || !navigator.geolocation) throw Error('location_unavailable');
+        const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, {enableHighAccuracy:true,timeout:12000,maximumAge:0}));
+        clearCameraPostDraft();
+        cameraPostDraft = {...draft, origin:{lat:position.coords.latitude,lng:position.coords.longitude,accuracy:position.coords.accuracy}, previewUrl:URL.createObjectURL(draft.file)};
+        stopAIPatrol(false);
+        activateMapView();
+        map.setView([cameraPostDraft.origin.lat,cameraPostDraft.origin.lng],Math.max(map.getZoom(),18));
+        cameraPostRadius = L.circle([cameraPostDraft.origin.lat,cameraPostDraft.origin.lng],{radius:50,color:'#2563eb',fillColor:'#60a5fa',fillOpacity:.12,weight:2}).addTo(map);
+        showToast(`青い円内（現在地から50m以内）をタップしてください${position.coords.accuracy>50?'・GPS精度±'+Math.round(position.coords.accuracy)+'m':''}`);
+        return true;
+    };
     map.on('dblclick', () => {
         clearTimeout(mapSingleTapTimer);
         mapSingleTapTimer = null;
@@ -2692,7 +2743,8 @@ function shareSpot(title, address, category, event) {
         const titleLabel = document.getElementById('postTitleLabel');
         const commentLabel = document.getElementById('postCommentLabel');
 
-        if(cat === 'abandoned' || cat === 'aed') {
+        const isCameraPost = !!cameraPostDraft && cat !== 'aed';
+        if(cat === 'abandoned' || cat === 'aed' || isCameraPost) {
             area.style.display = 'block';
         } else {
             area.style.display = 'none';
@@ -2700,6 +2752,8 @@ function shareSpot(title, address, category, event) {
             aedPhotoMeta = null;
             if(document.getElementById('imagePreview')) document.getElementById('imagePreview').style.display='none';
         }
+        document.getElementById('cameraPostImageNote').style.display = isCameraPost ? 'block' : 'none';
+        document.getElementById('postImageInput').style.display = isCameraPost ? 'none' : '';
 
         if(cat === 'patrol' || cat === 'aed') {
             reportArea.style.display = 'none';
@@ -2772,6 +2826,7 @@ function shareSpot(title, address, category, event) {
         document.getElementById('postForm').reset();
         document.getElementById('aiLoading').style.display = 'none';
         uploadedImageFile = null; aedPhotoMeta = null; aedGps = null;
+        clearCameraPostDraft();
         aedNearbyReady = false; aedGpsRequest++;
         aedNearbyCandidateIds = []; aedExistingSpotId = null;
         document.getElementById('aedNearbyCandidates').textContent = 'GPS取得後に表示します。';
@@ -2941,7 +2996,7 @@ function shareSpot(title, address, category, event) {
         } catch(err) { console.log("住所の取得に失敗しました"); }
 
         let finalImageUrl = null;
-        if (cat === 'abandoned' && uploadedImageFile) {
+        if (cat === 'abandoned' && uploadedImageFile && !cameraPostDraft) {
             document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">確認済みの写真をアップロード中...</div>';
             const fileName = `${authUser.id}/${crypto.randomUUID()}.jpg`;
             const { data: uploadData, error: uploadError } = await db.storage.from('spot-images').upload(fileName, uploadedImageFile);
@@ -2953,10 +3008,16 @@ function shareSpot(title, address, category, event) {
         const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress, created_by: authUser.id }]).select();
 
         if (!error && data && data.length > 0) {
+            let cameraImageSaved = true;
+            if (cameraPostDraft && uploadedImageFile) {
+                try {
+                    await window.MachimamoCameraEvidence.saveBlob(uploadedImageFile,cameraPostDraft.width,cameraPostDraft.height,data[0].id);
+                } catch (_) { cameraImageSaved = false; }
+            }
             actionLimits.postCount++;
             saveLimits();
             await loadAuthenticatedProfile();
-            showToast(`安全情報を共有しました！ (本日 ${actionLimits.postCount}/5 回・+10pt)`);
+            showToast(cameraImageSaved ? `安全情報を共有しました！ (本日 ${actionLimits.postCount}/5 回・+10pt)` : '投稿しましたが、非公開画像の送信に失敗しました');
             closePostModal();
         }
         else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); }
@@ -2982,15 +3043,19 @@ function shareSpot(title, address, category, event) {
         if (drive) drive.setAttribute('aria-pressed', String(cameraMode === 'drive'));
         const status = document.getElementById('cameraStatus');
         if (status && mediaStream) status.textContent = cameraMode === 'drive'
-            ? '車載モード・手動撮影（自動シャッター準備中）'
-            : '散歩モード・手動撮影';
+            ? '車載モード・自動シャッター準備中（低負荷設計）'
+            : '散歩モード・短時間自動撮影は準備中';
     }
     function setCameraMode(mode) {
         if (!['walk','drive'].includes(mode)) return;
         cameraMode = mode;
         localStorage.setItem('machimamo_camera_mode', mode);
         syncCameraModeUI();
-        showToast(mode === 'drive' ? '車載モードに切り替えました。自動シャッターは準備中です。運転中は操作しないでください。' : '散歩モードに切り替えました');
+        if (mediaStream) {
+            if (mode === 'drive') window.MachimamoDriveMvp?.start(document.getElementById('videoElement'));
+            else window.MachimamoDriveMvp?.stop();
+        }
+        showToast(mode === 'drive' ? '車載モードに切り替えました。走行中は操作しないでください。' : '散歩モードに切り替えました。自動撮影は準備中です。');
     }
     async function startAIPatrol() {
         const camView = document.getElementById('cameraView');
@@ -3016,6 +3081,7 @@ function shareSpot(title, address, category, event) {
             if (version !== cameraRequestVersion) return;
             syncCameraModeUI();
             window.MachimamoCameraCapture?.setReady(true);
+            if (cameraMode === 'drive') window.MachimamoDriveMvp?.start(video);
         } catch (error) {
             if (version !== cameraRequestVersion) return;
             stopAIPatrol(false);
@@ -3027,6 +3093,7 @@ function shareSpot(title, address, category, event) {
         const wasActive = camView.classList.contains('active');
         window.MachimamoCameraGuide?.close();
         window.MachimamoCameraCapture?.reset();
+        window.MachimamoDriveMvp?.stop();
         ++cameraRequestVersion;
         camView.classList.remove('active');
         if (mediaStream) { mediaStream.getTracks().forEach(track => track.stop()); mediaStream = null; }
@@ -4075,11 +4142,13 @@ function shareSpot(title, address, category, event) {
 })();
 </script>
 
-<script src="camera-guide.js?v=24-detection1"></script>
+<script src="camera-guide.js?v=25-sensor1"></script>
 <script src="road-parking-summary.js?v=24-connect2"></script>
 <script src="road-review.js?v=24-connect2"></script>
 <script src="camera-detection.js?v=24-detection1"></script>
-<script src="camera-evidence.js?v=24-evidence1"></script>
-<script src="camera-capture.js?v=24-evidence1"></script>
+<script src="camera-evidence.js?v=25-post1"></script>
+<script src="camera-capture.js?v=25-post1"></script>
+<script src="drive-test-log.js?v=25-test1"></script>
+<script src="camera-drive-mvp.js?v=25-mvp1"></script>
 </body>
 </html>

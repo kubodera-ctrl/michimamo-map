@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const context={console,setTimeout,clearTimeout,performance:{now:()=>0},Date,document:undefined};context.globalThis=context;
+vm.createContext(context);vm.runInContext(fs.readFileSync('camera-drive-mvp.js','utf8'),context);
+const Core=context.MachimamoDriveDetectorCore,core=new Core(),w=1000,h=600;
+const car=(x,y=300)=>({class:'car',score:.8,bbox:[x,y,180,160]});
+let result=core.process([car(20),car(410)],w,h,0,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,0,'first frame only establishes tracks');
+result=core.process([car(30),car(510)],w,h,1000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'only shoulder vehicle becomes a stable candidate');
+assert.equal(result.newCandidates[0].class,'car');
+assert.equal(result.newCandidates[0].classification,'roadside','flowing ego and central traffic raises roadside classification');
+result=core.process([car(35)],w,h,2000,{egoSpeedKmh:20});assert.equal(result.duplicates.length,1,'same short-lived track is a duplicate');
+core.process([car(40)],w,h,32000,{egoSpeedKmh:20});result=core.process([car(45)],w,h,33000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'candidate can recur after 30-second cooldown after a fresh stable pair');
+const moving=new Core();moving.process([car(20)],w,h,0);result=moving.process([car(300)],w,h,1000);assert.equal(result.newCandidates.length,0,'large relative movement is not a stopped candidate');
+const low=new Core();low.process([{...car(20),score:.2}],w,h,0);result=low.process([{...car(25),score:.2}],w,h,1000);assert.equal(result.newCandidates.length,0,'low confidence is rejected');
+const jam=new Core();jam.process([car(20),car(410)],w,h,0,{egoSpeedKmh:2});result=jam.process([car(25),car(415)],w,h,1000,{egoSpeedKmh:2});assert.equal(result.newCandidates[0].classification,'congestion');
+const signal=new Core(),light={class:'traffic light',score:.8,bbox:[480,40,30,70]};signal.process([car(20),car(410),light],w,h,0,{egoSpeedKmh:0});result=signal.process([car(25),car(415),light],w,h,1000,{egoSpeedKmh:0});assert.equal(result.newCandidates[0].classification,'signal_wait');
+console.log('PASS: vehicle/road-edge tracking, traffic context classification and 30-second duplicate cooldown.');

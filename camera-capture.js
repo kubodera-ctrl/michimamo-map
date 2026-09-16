@@ -36,10 +36,10 @@
           <p class="photo-note">画像上は範囲選択、その外側は上下スクロールです。</p>
           <p id="cameraPhotoStatus" role="status" class="photo-note"></p>
           <label class="photo-check"><input type="checkbox" id="cameraPhotoChecked"><span>画像全体を確認し、顔・ナンバーなどの隠し漏れがないことを確認しました</span></label>
-          <p class="photo-note">加工画像だけを端末へ保存します。サーバーへの送信・地図への投稿は行いません。閉じる・再読み込み・画面を離れると、未保存の写真と編集内容は破棄されます。</p>
+          <p class="photo-note">確認後は地図へ移動します。現在地から50m以内の投稿位置を選び、種類などを入力して投稿してください。加工画像は端末へ保存せず、投稿後も一般公開しません。</p>
           <details class="photo-evidence"><summary>元画像を非公開で10日保存する</summary><p class="photo-note">同じ車両の再発確認に備える機能です。元画像は公開されず、通常10日で削除されます。必要な場合だけ管理者が理由を記録して30日保全し、その後は7日以内に延長判断がなければ削除します。</p><label class="photo-check"><input type="checkbox" id="cameraEvidenceConsent"><span>元画像（顔・ナンバーを含む場合があります）の非公開保存と期限後の削除に同意します</span></label><button type="button" id="cameraEvidenceSave" disabled>元画像を非公開で10日保存</button></details>
         </div>
-        <footer><button type="button" id="cameraPhotoSave" disabled>加工画像を端末へ保存</button></footer>
+        <footer><button type="button" id="cameraPhotoSave" disabled>投稿へ進む</button></footer>
       </dialog>`);
     const $ = id => document.getElementById(id);
     const dialog=$('cameraPhotoDialog'), canvas=$('cameraPhotoCanvas'), checked=$('cameraPhotoChecked');
@@ -204,14 +204,12 @@
                 if(state!==snapshot)return;
                 snapshot.exporting=false;sync();
                 if(version!==state.version || !checked.checked || !state.rendered || !dialog.open)return;
-                if(!blob){status.textContent='保存用画像を作れませんでした。もう一度お試しください。';return;}
-                const url=URL.createObjectURL(blob),link=document.createElement('a');
-                link.href=url;link.download='machimamo-masked-'+snapshot.capturedAt.toISOString().replace(/[:.]/g,'-')+'.jpg';
-                document.body.append(link);link.click();link.remove();
-                setTimeout(()=>URL.revokeObjectURL(url),60000);
-                status.textContent='加工画像の保存をブラウザーへ渡しました。ダウンロード先を確認してください。';
+                if(!blob){status.textContent='投稿用画像を作れませんでした。もう一度お試しください。';return;}
+                Promise.resolve(root.startCameraPostDraft?.({file:blob,capturedAt:snapshot.capturedAt,width:canvas.width,height:canvas.height}))
+                  .then(started=>{if(state===snapshot&&started){dialog.close();}})
+                  .catch(()=>{if(state===snapshot){status.textContent='現在地を取得できませんでした。位置情報を許可して、もう一度お試しください。';}});
             },'image/jpeg',.9);
-        }catch(_){if(state===snapshot){state.exporting=false;status.textContent='保存できませんでした。もう一度お試しください。';sync();}}
+        }catch(_){if(state===snapshot){state.exporting=false;status.textContent='投稿用画像を作れませんでした。もう一度お試しください。';sync();}}
     };
     root.addEventListener('resize',fit);root.visualViewport?.addEventListener('resize',fit);root.visualViewport?.addEventListener('scroll',fit);
     new MutationObserver(fit).observe(document.documentElement,{attributes:true,attributeFilter:['style']});

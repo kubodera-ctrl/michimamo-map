@@ -10,16 +10,17 @@
     async function session(){const {data,error}=await dbClient().auth.getSession();if(error||!data.session)throw Error('login_required');return data.session;}
     async function sha256(blob){const digest=await crypto.subtle.digest('SHA-256',await blob.arrayBuffer());return [...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');}
     function jpeg(canvas){return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('encode_failed')),'image/jpeg',.9));}
-    async function saveOriginal(canvas){
+    async function saveBlob(blob,width,height,spotId=null){
         await session();
-        const blob=await jpeg(canvas); let evidence=null;
-        const prepared=await dbClient().rpc('prepare_camera_evidence',{p_spot_id:null});
+        if(!(blob instanceof Blob)||blob.type!=='image/jpeg'||!Number.isInteger(width)||!Number.isInteger(height))throw Error('invalid_image');
+        let evidence=null;
+        const prepared=await dbClient().rpc('prepare_camera_evidence',{p_spot_id:spotId});
         if(prepared.error||!prepared.data)throw prepared.error||Error('prepare_failed');
         evidence=Array.isArray(prepared.data)?prepared.data[0]:prepared.data;
         try{
             const upload=await dbClient().storage.from('camera-evidence').upload(evidence.object_path,blob,{contentType:'image/jpeg',upsert:false});
             if(upload.error)throw upload.error;
-            const finalized=await dbClient().rpc('finalize_camera_evidence',{p_id:evidence.id,p_sha256:await sha256(blob),p_width:canvas.width,p_height:canvas.height,p_privacy_confirmed:true});
+            const finalized=await dbClient().rpc('finalize_camera_evidence',{p_id:evidence.id,p_sha256:await sha256(blob),p_width:width,p_height:height,p_privacy_confirmed:true});
             if(finalized.error)throw finalized.error;
             loadMine(); return evidence.id;
         }catch(error){
@@ -27,6 +28,7 @@
             throw error;
         }
     }
+    async function saveOriginal(canvas){return saveBlob(await jpeg(canvas),canvas.width,canvas.height,null);}
     function evidenceCard(item,admin){
         const card=node('article',null,'camera-evidence-card');card.dataset.id=item.id;
         const head=node('div');head.append(node('strong',STATES[item.state]||item.state),node('span','期限 '+date(item.deadline||item.decision_due_at||item.preserve_until||item.normal_delete_at)));
@@ -81,6 +83,6 @@
         if(!result.error)localStorage.setItem(key,String(Date.now()));
     }
     function onSession(s){userId=s?.user?.id||null;++mineVersion;if(!userId){const area=el('myCameraEvidenceArea');area?.replaceChildren(node('p','LINEログイン後に確認できます。','muted'));return;}runRetention(s).catch(()=>{});loadMine();}
-    root.MachimamoCameraEvidence={saveOriginal,loadMine,loadAdmin,onSession};
+    root.MachimamoCameraEvidence={saveOriginal,saveBlob,loadMine,loadAdmin,onSession};
     setTimeout(()=>dbClient().auth.getSession().then(({data})=>onSession(data.session)).catch(()=>{}),0);
 })(typeof window!=='undefined'?window:globalThis);
