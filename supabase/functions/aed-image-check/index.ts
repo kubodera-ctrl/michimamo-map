@@ -1,6 +1,8 @@
 import { createClient } from 'npm:@supabase/supabase-js@2.57.4';
 import { analyzeImage, model } from './analyze.mjs';
 
+// Product decision: keep paid processing off regardless of environment settings.
+const PAID_IMAGE_AI_PAUSED = true;
 const origin = 'https://machimamo-map.vercel.app';
 Deno.serve(async (req: Request) => {
     const headers = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Vary': 'Origin' };
@@ -23,6 +25,9 @@ Deno.serve(async (req: Request) => {
         // Existing RPC validates both server admin role and the administrator password.
         const { data: rows, error: adminError } = await caller.rpc('admin_get_aed_submissions', { p_password: body.password });
         if (adminError || !Array.isArray(rows)) return reply({ error: 'admin_validation_failed' }, 403);
+        if (PAID_IMAGE_AI_PAUSED) return body.action === 'status'
+            ? reply({ paused: true, enabled: false, model })
+            : reply({ error: 'ai_paused' }, 503);
         const enabled = Deno.env.get('AED_AI_ENABLED') === 'true';
         const key = Deno.env.get('OPENAI_API_KEY');
         if (body.action === 'status') return reply({ enabled, configured: Boolean(key), model });
