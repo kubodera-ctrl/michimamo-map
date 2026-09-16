@@ -152,8 +152,10 @@
 
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; }
         .modal.open { opacity: 1; pointer-events: auto; }
-        .sheet { width: 100%; max-width: 620px; margin: auto; background: white; border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: 0.3s; max-height: 90vh; overflow-y: auto;}
+        .sheet { width: 100%; max-width: 620px; margin: auto; background: white; border-radius: 24px 24px 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: 0.3s; max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; }
         .modal.open .sheet { transform: translateY(0); }
+        body.post-modal-open .ad-banner { display: none !important; }
+        #postModal .sheet { scroll-behavior: smooth; }
         .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
 
@@ -2320,11 +2322,36 @@ function shareSpot(title, address, category, event) {
 
     map.on('click', (e) => {
         window.postLat = e.latlng.lat; window.postLng = e.latlng.lng;
-        document.getElementById('postModal').classList.add('open');
+        openPostModal();
         document.getElementById('imagePreview').style.display = 'none';
         document.getElementById('postImageInput').value = '';
         toggleImageUpload();
     });
+
+    function sizePostModal() {
+        const modal = document.getElementById('postModal');
+        const sheet = modal && modal.querySelector('.sheet');
+        if (!sheet || !modal.classList.contains('open')) return;
+        const zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+        const visibleHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        const layoutHeight = Math.max(280, Math.floor(visibleHeight / zoom));
+        sheet.style.height = layoutHeight + 'px';
+        sheet.style.maxHeight = layoutHeight + 'px';
+        sheet.style.overflowY = 'auto';
+        sheet.style.webkitOverflowScrolling = 'touch';
+        sheet.style.touchAction = 'pan-y';
+    }
+
+    function openPostModal() {
+        const modal = document.getElementById('postModal');
+        document.body.classList.add('post-modal-open');
+        modal.classList.add('open');
+        const sheet = modal.querySelector('.sheet');
+        if (sheet) sheet.scrollTop = 0;
+        sizePostModal();
+        requestAnimationFrame(sizePostModal);
+        setTimeout(sizePostModal, 180);
+    }
 
     function toggleImageUpload() {
         const cat = document.getElementById('postCategory').value;
@@ -2395,6 +2422,12 @@ function shareSpot(title, address, category, event) {
 
     function closePostModal() {
         document.getElementById('postModal').classList.remove('open');
+        document.body.classList.remove('post-modal-open');
+        const postSheet = document.querySelector('#postModal .sheet');
+        if (postSheet) {
+            postSheet.style.height = '';
+            postSheet.style.maxHeight = '';
+        }
         document.getElementById('postForm').reset();
         document.getElementById('aiLoading').style.display = 'none';
         uploadedImageFile = null; aedPhotoMeta = null; aedGps = null;
@@ -2403,6 +2436,12 @@ function shareSpot(title, address, category, event) {
         document.getElementById('aedNearbyCandidates').textContent = 'GPS取得後に表示します。';
         document.getElementById('aedGpsStatus').textContent = 'GPSを取得していません。';
         toggleImageUpload();
+    }
+
+    window.addEventListener('resize', () => setTimeout(sizePostModal, 30));
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', () => setTimeout(sizePostModal, 30));
+        window.visualViewport.addEventListener('scroll', () => setTimeout(sizePostModal, 30));
     }
 
     function selectExistingAed(id) {
