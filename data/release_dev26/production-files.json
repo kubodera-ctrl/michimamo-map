@@ -1,0 +1,38 @@
+[
+  {
+    "file": "index.html",
+    "url": "https://machimamo-map.vercel.app/",
+    "match": true,
+    "sha256": "be547ba824be8f01865f541f685069a27e0acf119f9073c8202b70807db4e63b"
+  },
+  {
+    "file": "post-outbox.js",
+    "url": "https://machimamo-map.vercel.app/post-outbox.js",
+    "match": true,
+    "sha256": "51dcef44dbada7b498a1e0e547fb8cde5c8777925b63ec49093733382a9a33ee"
+  },
+  {
+    "file": "camera-evidence.js",
+    "url": "https://machimamo-map.vercel.app/camera-evidence.js",
+    "match": true,
+    "sha256": "8efedd47b37a40423fc346bf41a988c4e5236cad8cac1a3184814ca630a750fc"
+  },
+  {
+    "file": "camera-capture.js",
+    "url": "https://machimamo-map.vercel.app/camera-capture.js",
+    "match": true,
+    "sha256": "d994babfb05c99af537ff920cd2a259f9a5f2b6c2093a7fa65e9c644d685eec0"
+  },
+  {
+    "file": "privacy.html",
+    "url": "https://machimamo-map.vercel.app/privacy",
+    "match": true,
+    "sha256": "666411e3a5caee0cdcd03e5489e905427ba212c3c9cb07f7518c58dc1be88493"
+  },
+  {
+    "file": "terms.html",
+    "url": "https://machimamo-map.vercel.app/terms",
+    "match": true,
+    "sha256": "07e0a1f41e8c24a77c05ea2c94b11e71db4427c2d232b99413e519ec8245d662"
+  }
+]
