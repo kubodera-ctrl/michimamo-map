@@ -1074,6 +1074,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="map-viewport.js"></script>
+<script src="aed-image-ai.js"></script>
 <script src="aed-review.js"></script>
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
@@ -1861,7 +1862,7 @@ function shareSpot(title, address, category, event) {
         if (!adminAedReview) {
             adminAedReview = MachimamoAedReview.create({
                 db, L, target: document.getElementById('adminAedSubmissionArea'),
-                review: reviewAedSubmission, formatDate: formatHistoryDate
+                review: reviewAedSubmission, formatDate: formatHistoryDate, getPassword: getAdminPassword
             });
         }
         adminAedReview.render(rows);
