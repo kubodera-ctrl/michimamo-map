@@ -1,0 +1,99 @@
+✔ removes Storage before DB and Auth, then marks completed (2.00681ms)
+✔ failed photo removal stops before DB/Auth deletion (0.70197ms)
+✔ failed Auth removal does not claim completion (0.301735ms)
+✔ can finalize after Auth was already removed (0.375186ms)
+✔ limits work per request and leaves remainder resumable (0.366313ms)
+✔ completed jobs make no calls (0.215796ms)
+PASS: provider contract, structured parsing, refusal/failure handling, image limit/signature, padded mask bounds. No live AI request made.
+✔ tests/aed_image_ai.test.mjs (80.033822ms)
+✔ submission waits for nearby lookup, even before an error exists (3.513514ms)
+✔ old lookup cannot overwrite new GPS candidates (3.308791ms)
+✔ failed refresh clears previous candidate and blocks submission (1.557471ms)
+browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+    at /workspace/scratch/24d1d1fb2675/michimamo-map/tests/aed_review.test.cjs:8:36
+    at Object.<anonymous> (/workspace/scratch/24d1d1fb2675/michimamo-map/tests/aed_review.test.cjs:61:3) {
+  log: [],
+  name: 'Error'
+}
+✖ tests/aed_review.test.cjs (435.455196ms)
+PASS: lazy loading, photo and checklist gates, candidate binding, failed search, failed photo, stale responses, map cleanup, invalid coordinates
+✔ tests/aed_review_logic.test.cjs (101.065487ms)
+PASS: capture readiness/double tap, resizing, review gate, protected overlap source, manual solid mask, stale draft denial, close cleanup, background guard, draw failure. Browser rendering/touch/map handoff require real-device verification.
+PASS: async face masks, review invalidation, stale edit/close results, unsupported/failed/empty detection fallback.
+✔ tests/camera_capture.test.cjs (95.488458ms)
+PASS: vehicle/road-edge tracking, traffic context classification and 30-second duplicate cooldown.
+✔ tests/camera_drive_mvp.test.cjs (85.919362ms)
+PASS: retention deletes only DB-issued paths, verifies absence, records retry codes, throttles, and stops on result failure.
+✔ tests/camera_evidence_retention_worker.test.mjs (83.791145ms)
+PASS: short walk burst, quality rejection, interruption resets, drive dedupe, thermal degradation, face bounds. Synthetic input only; no real detector claimed.
+✔ tests/camera_observation.test.cjs (79.853155ms)
+PASS: repeatable drive-test sessions, GPS distance, counters/categories, byte metrics, thermal maximum and local history.
+✔ tests/drive_test_log.test.cjs (78.387902ms)
+PASS: inline syntax, camera lifecycle/races/denied permission, paid API blocked despite enabled settings, auth retained. No live paid request.
+(node:81) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tests/free_camera_and_ai_pause.test.cjs (140.649771ms)
+✔ a parsed house number must not promote a town-centre coordinate to level 8 (0.955243ms)
+✔ missing point precision fails closed despite complete address parsing (0.224288ms)
+✔ address-level coordinates remain eligible (0.191269ms)
+PASS: desktop compensation survives keyboard zoom; regular phone stays unscaled; password input sizing
+✔ tests/ios_viewport_stability.test.cjs (88.558266ms)
+✔ map-center choice invalidates late GPS and labels the correct origin (7.466041ms)
+✔ stale category response cannot replace the newer category (3.539563ms)
+✔ closing ignores pending results; denial offers explicit map fallback (4.710972ms)
+✔ untrusted facility text is escaped and failed searches do not retain old candidates (2.883583ms)
+✔ newer photo wins even when old conversion finishes late (3.125398ms)
+✔ failed replacement clears the old photo and confirmation (1.137508ms)
+✔ closing or clearing invalidates in-flight conversion (1.078568ms)
+✖ successful post refreshes map and enables its category even if photo upload failed (15.327859ms)
+✔ lost successful post response retries the same request; awards once (2.710872ms)
+✔ image failure retains successful post; resume only image (0.989634ms)
+✔ AED lost insert response reconciles ID without deleting/uploading image again (2.883233ms)
+✔ account switch refuses before any mutation (0.670983ms)
+✔ durable checkpoint failure does not invent a new request (0.864495ms)
+✔ bounded timeout marks result unknown (7.973151ms)
+PASS: inline syntax, progression, failed-response retry, duplicate taps, late response, full 10-question result
+✔ tests/quiz_server_ui.test.cjs (94.815212ms)
+PASS: deduplicated events, unknown identity, scoped repetition, human obstruction review, expiry/review exclusions, conflict quarantine, interval boundaries, public field whitelist. Synthetic records only.
+✔ tests/road_parking_summary.test.cjs (85.589138ms)
+PASS: real shared aggregator in UI, safe text rendering, review gates, exclusion action, stale read/close and invalid-session guards. No browser rendering or real admin login claimed.
+✔ tests/road_review_ui.test.cjs (116.571876ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 37
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 459.166761
+
+✖ failing tests:
+
+test at tests/aed_review.test.cjs:1:1
+✖ tests/aed_review.test.cjs (435.455196ms)
+  'test failed'
+
+test at tests/post_map_refresh.test.cjs:6:1
+✖ successful post refreshes map and enables its category even if photo upload failed (15.327859ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(visible.has('danger'))
+  
+      at TestContext.<anonymous> (/workspace/scratch/24d1d1fb2675/michimamo-map/tests/post_map_refresh.test.cjs:16:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

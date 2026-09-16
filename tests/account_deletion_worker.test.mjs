@@ -46,3 +46,14 @@ test('completed jobs make no calls', async () => {
   assert.equal((await runDeletion(service, { status: 'completed' })).status, 'completed');
   assert.deepEqual(calls, []);
 });
+test('malformed photo batch must not proceed to DB or Auth', async()=>{
+ const {service,calls}=mock({batches:[{}]});await assert.rejects(runDeletion(service,job),/invalid_photo_batch/);assert(!calls.includes('deleteAuth'));
+});
+test('DB cleanup error stops Auth deletion and leaves job resumable',async()=>{
+ const {service,calls}=mock();const prior=service.rpc;service.rpc=async(name,args)=>name==='account_deletion_clean_data'?{error:{}}:prior(name,args);
+ await assert.rejects(runDeletion(service,job),/account_deletion_clean_data/);assert(!calls.includes('deleteAuth'));
+});
+test('lost completion acknowledgement is not reported as completed',async()=>{
+ const {service}=mock();const prior=service.rpc;service.rpc=async(name,args)=>name==='account_deletion_complete'?{error:{}}:prior(name,args);
+ await assert.rejects(runDeletion(service,job),/account_deletion_complete/);
+});

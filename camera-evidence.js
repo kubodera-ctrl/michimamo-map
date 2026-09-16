@@ -10,25 +10,29 @@
     async function session(){const {data,error}=await dbClient().auth.getSession();if(error||!data.session)throw Error('login_required');return data.session;}
     async function sha256(blob){const digest=await crypto.subtle.digest('SHA-256',await blob.arrayBuffer());return [...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');}
     function jpeg(canvas){return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('encode_failed')),'image/jpeg',.9));}
-    async function saveBlob(blob,width,height,spotId=null){
+    const originalRequests=new WeakMap();
+    async function saveBlob(blob,width,height,spotId=null,requestId=crypto.randomUUID()){
         await session();
         if(!(blob instanceof Blob)||blob.type!=='image/jpeg'||!Number.isInteger(width)||!Number.isInteger(height))throw Error('invalid_image');
-        let evidence=null;
-        const prepared=await dbClient().rpc('prepare_camera_evidence',{p_spot_id:spotId});
+        const prepared=await dbClient().rpc('prepare_camera_evidence_once',{p_spot_id:spotId,p_request_id:requestId});
         if(prepared.error||!prepared.data)throw prepared.error||Error('prepare_failed');
-        evidence=Array.isArray(prepared.data)?prepared.data[0]:prepared.data;
-        try{
+        const evidence=Array.isArray(prepared.data)?prepared.data[0]:prepared.data;
+        if(!['active','preserved','decision_due'].includes(evidence.state)){
             const upload=await dbClient().storage.from('camera-evidence').upload(evidence.object_path,blob,{contentType:'image/jpeg',upsert:false});
-            if(upload.error)throw upload.error;
-            const finalized=await dbClient().rpc('finalize_camera_evidence',{p_id:evidence.id,p_sha256:await sha256(blob),p_width:width,p_height:height,p_privacy_confirmed:true});
-            if(finalized.error)throw finalized.error;
-            loadMine(); return evidence.id;
-        }catch(error){
-            if(evidence?.id)await dbClient().rpc('request_my_camera_evidence_deletion',{p_id:evidence.id}).catch(()=>{});
-            throw error;
+            // Even a lost upload response may mean success. Finalize verifies stored metadata.
+            if(upload.error && evidence.state && evidence.state!=='upload_pending')throw upload.error;
         }
+        const finalized=await dbClient().rpc('finalize_camera_evidence',{p_id:evidence.id,p_sha256:await sha256(blob),p_width:width,p_height:height,p_privacy_confirmed:true});
+        if(finalized.error)throw finalized.error;
+        loadMine();return evidence.id;
     }
-    async function saveOriginal(canvas){return saveBlob(await jpeg(canvas),canvas.width,canvas.height,null);}
+    async function saveOriginal(canvas){
+        if(!originalRequests.has(canvas))originalRequests.set(canvas,crypto.randomUUID());
+        const s=await session(),id=originalRequests.get(canvas),outbox=root.MachimamoPostOutbox;
+        const pending=await outbox.pending();
+        if(pending){if(pending.id!==id)throw Error('pending_submission');return (await outbox.resume()).result.id;}
+        return (await outbox.send({id,userId:s.user.id,kind:'original',file:await jpeg(canvas),width:canvas.width,height:canvas.height,createdAt:Date.now()})).id;
+    }
     function evidenceCard(item,admin){
         const card=node('article',null,'camera-evidence-card');card.dataset.id=item.id;
         const head=node('div');head.append(node('strong',STATES[item.state]||item.state),node('span','期限 '+date(item.deadline||item.decision_due_at||item.preserve_until||item.normal_delete_at)));
@@ -52,7 +56,7 @@
         const area=el('myCameraEvidenceArea');if(!area)return;
         const version=++mineVersion;area.replaceChildren(node('p','保存状況を確認中…','muted'));
         try{
-            const s=await session();const result=await dbClient().from('camera_evidence').select('id,spot_id,state,created_at,finalized_at,normal_delete_at,preserve_until,decision_due_at,object_path,preserve_reason').neq('state','deleted').order('created_at',{ascending:false});
+            const s=await session();const result=await dbClient().from('camera_evidence').select('id,spot_id,state,created_at,finalized_at,normal_delete_at,preserve_until,decision_due_at,object_path,preserve_reason').eq('user_id',s.user.id).neq('state','deleted').order('created_at',{ascending:false});
             if(version!==mineVersion||s.user.id!==userId)return;if(result.error)throw result.error;
             area.replaceChildren();
             if(!result.data.length){area.append(node('p','保存中の非公開画像はありません。','muted'));return;}
@@ -80,7 +84,7 @@
         if(!s?.user?.id)return;const key='michimamo_camera_retention_'+s.user.id,last=Number(localStorage.getItem(key)||0);
         if(Date.now()-last<21600000)return;
         const result=await dbClient().functions.invoke('camera-evidence-retention',{body:{}});
-        if(!result.error)localStorage.setItem(key,String(Date.now()));
+        if(!result.error&&result.data?.status==='completed')localStorage.setItem(key,String(Date.now()));
     }
     function onSession(s){userId=s?.user?.id||null;++mineVersion;if(!userId){const area=el('myCameraEvidenceArea');area?.replaceChildren(node('p','LINEログイン後に確認できます。','muted'));return;}runRetention(s).catch(()=>{});loadMine();}
     root.MachimamoCameraEvidence={saveOriginal,saveBlob,loadMine,loadAdmin,onSession};

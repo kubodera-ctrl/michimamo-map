@@ -185,14 +185,17 @@
     evidenceConsent.onchange=sync;
     evidenceSave.onclick=async()=>{
         if(!state || !evidenceConsent.checked || state.evidenceSaving || state.evidenceSaved)return;
+        const evidenceSnapshot=state;
         state.evidenceSaving=true;sync();status.textContent='非公開の保存領域へ送信中です…';
         try{
             await root.MachimamoCameraEvidence.saveOriginal(state.original);
+            if(state!==evidenceSnapshot)return;
             state.evidenceSaved=true;evidenceConsent.checked=false;
             status.textContent='元画像を非公開で保存しました。通常10日後に削除されます。マイページから早期削除も申請できます。';
         }catch(error){
-            status.textContent=error?.message==='login_required'?'保存にはLINEログインが必要です。':'非公開保存を完了できませんでした。もう一度お試しください。';
-        }finally{if(state){state.evidenceSaving=false;sync();}}
+            if(state!==evidenceSnapshot)return;
+            status.textContent=error?.message==='login_required'?'保存にはLINEログインが必要です。':'非公開保存は未完了です。通信とログインを確認し、表示された「送信を再開」から続けられます。';
+        }finally{root.MachimamoPostOutbox?.refresh();if(state===evidenceSnapshot){state.evidenceSaving=false;sync();}}
     };
     save.onclick=()=>{
         if(!state || !state.rendered || !checked.checked || pointer || state.exporting || state.detecting)return;
@@ -205,7 +208,7 @@
                 snapshot.exporting=false;sync();
                 if(version!==state.version || !checked.checked || !state.rendered || !dialog.open)return;
                 if(!blob){status.textContent='投稿用画像を作れませんでした。もう一度お試しください。';return;}
-                Promise.resolve(root.startCameraPostDraft?.({file:blob,capturedAt:snapshot.capturedAt,width:canvas.width,height:canvas.height}))
+                Promise.resolve(root.startCameraPostDraft?.({file:blob,capturedAt:snapshot.capturedAt,width:canvas.width,height:canvas.height},()=>state===snapshot && dialog.open && state.version===version))
                   .then(started=>{if(state===snapshot&&started){dialog.close();}})
                   .catch(()=>{if(state===snapshot){status.textContent='現在地を取得できませんでした。位置情報を許可して、もう一度お試しください。';}});
             },'image/jpeg',.9);

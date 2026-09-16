@@ -2692,9 +2692,10 @@ function shareSpot(title, address, category, event) {
         category?.querySelectorAll('option').forEach(option => { option.disabled = false; });
     }
 
-    window.startCameraPostDraft = async function(draft) {
+    window.startCameraPostDraft = async function(draft, isCurrent = () => true) {
         if (!draft?.file || !navigator.geolocation) throw Error('location_unavailable');
         const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject, {enableHighAccuracy:true,timeout:12000,maximumAge:0}));
+        if (!isCurrent()) return false;
         clearCameraPostDraft();
         cameraPostDraft = {...draft, origin:{lat:position.coords.latitude,lng:position.coords.longitude,accuracy:position.coords.accuracy}, previewUrl:URL.createObjectURL(draft.file)};
         stopAIPatrol(false);
@@ -2908,11 +2909,6 @@ function shareSpot(title, address, category, event) {
 
         const submissionId = crypto.randomUUID();
         const objectPath = `${authUser.id}/${submissionId}.jpg`;
-        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold;color:#1f6feb;">EXIF削除済み写真を安全に送信中…</div>';
-        document.getElementById('aiLoading').style.display = 'flex';
-        const { error: uploadError } = await db.storage.from('aed-submission-images').upload(objectPath, uploadedImageFile, { contentType: 'image/jpeg', upsert: false });
-        if (uploadError) { document.getElementById('aiLoading').style.display = 'none'; alert('写真を送信できませんでした。'); return; }
-
         const payload = {
             id: submissionId, user_id: authUser.id,
             submission_kind: aedExistingSpotId ? 'existing_confirmation' : 'new',
@@ -2923,16 +2919,9 @@ function shareSpot(title, address, category, event) {
             nearby_candidate_ids: aedNearbyCandidateIds, matched_safety_spot_id: aedExistingSpotId,
             submitter_photo_license_accepted: true, privacy_confirmed: true, terms_version: 'aed-photo-v1-20260916'
         };
-        const { data, error } = await db.from('aed_submissions').insert(payload).select('id,status').single();
-        if (error) {
-            await db.storage.from('aed-submission-images').remove([objectPath]);
-            document.getElementById('aiLoading').style.display = 'none';
-            const limitMessage = String(error.message || '');
-            alert(limitMessage.includes('aed_weekly_limit') ? '今週のAED投稿上限（20件）に達しました。日本時間の月曜0時以降に投稿できます。' :
-                limitMessage.includes('aed_daily_limit') ? '今日のAED投稿上限（10件）に達しました。日本時間の翌日0時以降に投稿できます。' :
-                'AED投稿を保存できませんでした：' + error.message); return;
-        }
-        showToast(data.status === 'needs_review' ? 'AED投稿を受け付けました。不正・重複確認後に審査します。' : 'AED投稿を受け付けました。新規承認時に30ptを付与します。');
+        document.getElementById('aiLoading').style.display = 'flex';
+        await window.MachimamoPostOutbox.send({id:submissionId,userId:authUser.id,kind:'aed',path:objectPath,file:uploadedImageFile,payload,createdAt:Date.now()});
+        showToast('AED投稿を受け付けました。新規承認時に30pt、掲載済みの場合は0ptです。');
         closePostModal();
         loadMyAedHistory();
     }
@@ -2948,10 +2937,36 @@ function shareSpot(title, address, category, event) {
         });
     }
 
+    let postSubmitting = false;
     async function handlePostSubmit(e) {
         e.preventDefault();
+        if (postSubmitting) return;
+        postSubmitting = true;
+        document.getElementById('postSubmitButton').disabled = true;
+        try { await submitPostDraft(e); }
+        catch (_) {
+            try {
+                const pending=await window.MachimamoPostOutbox.pending();
+                if(pending?.result && pending.kind!=='aed') {
+                    visibleMapCategories.add(pending.payload.category);syncFilterChips();
+                    await Promise.allSettled([loadAuthenticatedProfile(),loadSpots()]);
+                }
+            } catch (_) {}
+            alert('送信を完了できませんでした。未完了の送信が表示された場合は「送信を再開」を押してください。同じ内容を新しく投稿しないでください。'); }
+        finally {
+            postSubmitting = false;
+            document.getElementById('postSubmitButton').disabled = false;
+            document.getElementById('aiLoading').style.display = 'none';
+            window.MachimamoPostOutbox?.refresh();
+        }
+    }
+    async function submitPostDraft(e) {
+        e.preventDefault();
+        const version = photoSelectionRequest;
         const authUser = await requireAuthenticatedUser();
-        if (!authUser) return;
+        if (!authUser || version !== photoSelectionRequest) return;
+        if (await window.MachimamoPostOutbox.pending()) { alert('未完了の送信があります。先に「送信を再開」で結果を確認してください。'); return; }
+        if (version !== photoSelectionRequest) return;
         checkLimitsReset();
 
         const cat = document.getElementById('postCategory').value;
@@ -2978,52 +2993,35 @@ function shareSpot(title, address, category, event) {
         if (cat === 'abandoned' && !uploadedImageFile) { alert('不法放置の報告には現地の写真（その場での撮影）が必要です。'); return; }
         if (cat === 'abandoned' && !document.getElementById('spotPhotoPrivacyConfirmed').checked) { alert('写真に顔・車両番号・個人情報が写っていないことを確認してください。'); return; }
 
-        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">投稿文を確認中...</div>'; document.getElementById('aiLoading').style.display = 'flex';
-
+        const file = uploadedImageFile, camera = cameraPostDraft;
+        const id = crypto.randomUUID(), path = `${authUser.id}/${id}.jpg`;
+        const payload = {lat:window.postLat,lng:window.postLng,category:cat,title,comment,address:'不明なエリア',source:camera?'camera':'map',image_url:null};
+        if (camera) {
+            payload.origin_lat=camera.origin.lat;payload.origin_lng=camera.origin.lng;
+        } else if (cat==='abandoned') {
+            payload.image_url=db.storage.from('spot-images').getPublicUrl(path).data.publicUrl;
+        }
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div>投稿文を確認中…</div>';
+        document.getElementById('aiLoading').style.display = 'flex';
         const aiResult = await checkWithAI(title, comment);
-        if (!aiResult.safe) { document.getElementById('aiLoading').style.display = 'none'; alert(`【投稿内容の確認】\n${aiResult.reason}`); return; }
-
-        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">エリアを特定中...</div>';
-        let spotAddress = "不明なエリア";
+        if (version !== photoSelectionRequest) return;
+        if (!aiResult.safe) { alert(aiResult.reason); return; }
+        // Reverse geocoding is optional and must never hold up a confirmed submission.
         try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${window.postLat}&lon=${window.postLng}`);
-            const addrData = await res.json();
-            if(addrData && addrData.address) {
-                const pref = addrData.address.province || addrData.address.state || "";
-                const city = addrData.address.city || addrData.address.town || addrData.address.village || addrData.address.suburb || "";
-                if(pref || city) spotAddress = `${pref} ${city}`.trim();
-            }
-        } catch(err) { console.log("住所の取得に失敗しました"); }
-
-        let finalImageUrl = null;
-        if (cat === 'abandoned' && uploadedImageFile && !cameraPostDraft) {
-            document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">確認済みの写真をアップロード中...</div>';
-            const fileName = `${authUser.id}/${crypto.randomUUID()}.jpg`;
-            const { data: uploadData, error: uploadError } = await db.storage.from('spot-images').upload(fileName, uploadedImageFile);
-            if (uploadError) { document.getElementById('aiLoading').style.display = 'none'; alert('画像のアップロードに失敗しました。'); return; }
-            const { data: publicUrlData } = db.storage.from('spot-images').getPublicUrl(fileName);
-            finalImageUrl = publicUrlData.publicUrl;
-        }
-
-        const { data, error } = await db.from('spots').insert([{ lat: window.postLat, lng: window.postLng, category: cat, title: title, comment: comment, confirm_count: 0, like_count: 0, report_count: 0, image_url: finalImageUrl, address: spotAddress, created_by: authUser.id }]).select();
-
-        if (!error && data && data.length > 0) {
-            let cameraImageSaved = true;
-            if (cameraPostDraft && uploadedImageFile) {
-                try {
-                    await window.MachimamoCameraEvidence.saveBlob(uploadedImageFile,cameraPostDraft.width,cameraPostDraft.height,data[0].id);
-                } catch (_) { cameraImageSaved = false; }
-            }
-            actionLimits.postCount++;
-            saveLimits();
-            await loadAuthenticatedProfile();
-            showToast(cameraImageSaved ? `安全情報を共有しました！ (本日 ${actionLimits.postCount}/5 回・+10pt)` : '投稿しましたが、非公開画像の送信に失敗しました');
-            closePostModal();
-            visibleMapCategories.add(cat);
-            syncFilterChips();
-            await loadSpots();
-        }
-        else { document.getElementById('aiLoading').style.display = 'none'; alert("エラー詳細: " + (error ? error.message : "データが返ってきませんでした")); }
+            const res=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${payload.lat}&lon=${payload.lng}`,{signal:AbortSignal.timeout(4000)});
+            const a=(await res.json()).address;
+            if(a)payload.address=[a.province||a.state,a.city||a.town||a.village||a.suburb].filter(Boolean).join(' ')||payload.address;
+        } catch (_) {}
+        if (version !== photoSelectionRequest) return;
+        document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div>送信中…再読み込み後も「送信を再開」で続けられます。</div>';
+        const result=await window.MachimamoPostOutbox.send({id,userId:authUser.id,kind:camera?'camera':'spot',path,file,
+            width:camera?.width,height:camera?.height,payload,createdAt:Date.now()});
+        // RPC returns the ledger result; do not invent +10 for a zero-point post.
+        if(result.awarded>0){actionLimits.postCount++;saveLimits();}
+        showToast(`安全情報を共有しました（付与 ${result.awarded}pt）`);
+        if(version===photoSelectionRequest)closePostModal();
+        visibleMapCategories.add(cat);syncFilterChips();
+        await Promise.allSettled([loadAuthenticatedProfile(),loadSpots()]);
     }
 
     let notifiedSpots = new Set();
@@ -3773,6 +3771,7 @@ function shareSpot(title, address, category, event) {
         if (session) {
             await loadAuthenticatedProfile();
             window.MachimamoCameraEvidence?.onSession(session);
+            window.MachimamoPostOutbox?.refresh();
         }
 
 
@@ -3814,6 +3813,7 @@ function shareSpot(title, address, category, event) {
                             window.MachimamoCameraEvidence?.onSession(currentSession);
                         }
                         if (!currentSession) window.MachimamoCameraEvidence?.onSession(null);
+                        window.MachimamoPostOutbox?.refresh();
 
                         updateAuthUI(
                             currentSession
@@ -4149,8 +4149,9 @@ function shareSpot(title, address, category, event) {
 <script src="road-parking-summary.js?v=24-connect2"></script>
 <script src="road-review.js?v=24-connect2"></script>
 <script src="camera-detection.js?v=24-detection1"></script>
-<script src="camera-evidence.js?v=25-post1"></script>
-<script src="camera-capture.js?v=25-post2"></script>
+<script src="camera-evidence.js?v=26-retry1"></script>
+<script src="post-outbox.js?v=26-retry1"></script>
+<script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
 <script src="camera-drive-mvp.js?v=25-mvp2"></script>
 </body>

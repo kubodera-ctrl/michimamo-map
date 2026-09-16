@@ -8,3 +8,7 @@ m=mock({batches:[{token:'t',items:[{id,path:'not/allowed'}]},{token:'x',items:[]
 m=mock({batches:[{token:'t',items:[],throttled:true}]});assert.equal((await runRetention(m.service)).throttled,true);
 await assert.rejects(()=>runRetention(mock({resultError:true}).service),/cleanup_result_failed/);
 console.log('PASS: retention deletes only DB-issued paths, verifies absence, records retry codes, throttles, and stops on result failure.');
+// Malformed success response is not proof that an object disappeared.
+m=mock();m.service.storage.from=()=>({remove:async()=>({error:null}),list:async()=>({data:null,error:null})});
+assert.equal((await runRetention(m.service)).failed,1);
+assert.equal(m.calls.find(x=>x[0]==='camera_evidence_cleanup_result')[1].p_success,false);

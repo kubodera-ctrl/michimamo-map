@@ -14,7 +14,7 @@ export async function runRetention(service,maxBatches=5){
     if(removeError)throw Error('remove_failed');
     const slash=item.path.lastIndexOf('/'),folder=item.path.slice(0,slash),filename=item.path.slice(slash+1);
     const {data:list,error:listError}=await service.storage.from('camera-evidence').list(folder,{limit:10,search:filename});
-    if(listError)throw Error('verify_failed');
+    if(listError||!Array.isArray(list))throw Error('verify_failed');
     if(Array.isArray(list)&&list.some(x=>x.name===filename)){errorCode='storage_object_remaining';throw Error('remaining');}
     ok=true;
    }catch(_){ok=false;}
@@ -26,5 +26,5 @@ export async function runRetention(service,maxBatches=5){
  }
  const {error:finishError}=await service.rpc('camera_evidence_cleanup_finished');
  if(finishError)throw Error('cleanup_finish_failed');
- return {status:failed?'retry_required':'completed',deleted,failed,throttled};
+ return {status:failed?'retry_required':throttled?'processing':'completed',deleted,failed,throttled};
 }
