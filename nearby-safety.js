@@ -73,9 +73,9 @@
             if (request === sequence && isOpen()) message('候補を取得できませんでした。通信環境を確認し、「現在地で更新」または「地図の中心から探す」で再試行してください。');
         } finally { clearTimeout(timer); }
     }
-    window.openNearbySafety = function () {
+    window.openNearbySafety = function (initialCategory = 'aed') {
         opener = document.activeElement;
-        category = 'aed'; origin = null; radius = 5000;
+        category = initialCategory === 'police' ? 'police' : 'aed'; origin = null; radius = 5000;
         selectTab(); modal.inert = false; modal.setAttribute('aria-hidden','false'); modal.classList.add('open');
         modal.querySelector('.close').focus();
         window.locateNearbySafety();

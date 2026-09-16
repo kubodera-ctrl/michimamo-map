@@ -1,0 +1,27 @@
+#mapMenuBtn { background:rgba(23,33,43,.94);border:1px solid rgba(255,255,255,.8);box-shadow:0 3px 12px #0002;min-width:112px;justify-content:center; }
+#mapMenuModal .map-menu-sheet { margin:0 auto;padding:12px 20px calc(24px + env(safe-area-inset-bottom));border-radius:24px 24px 0 0;max-height:85dvh;box-sizing:border-box; }
+.map-menu-handle { width:38px;height:4px;border-radius:4px;background:#cbd5e1;margin:0 auto 18px; }
+.map-menu-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px; }
+.map-menu-item { display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px 14px;min-height:110px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc;color:#17212b;font-family:inherit;font-size:16px;font-weight:700;text-align:left;cursor:pointer; }
+.map-menu-item i { font-size:24px; }
+.map-menu-item[data-map-action="wbgt"] { background:#fff7ed;color:#9a4a0d;border-color:#fed7aa; }
+.map-menu-item[data-map-action="aed"] { background:#fff1f2;color:#b91c1c;border-color:#fecdd3; }
+.map-menu-item[data-map-action="police"] { background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe; }
+.map-menu-item:focus-visible,#mapMenuBtn:focus-visible { outline:3px solid #2563eb;outline-offset:3px; }
+.filter-content .filter-chip { --chip-fill:226,232,240;--chip-ink:51,65,85;box-shadow:none;border-radius:14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:rgba(255,255,255,.72);color:#64748b;border:1px solid rgba(148,163,184,.3); }
+.filter-content .illegal { --chip-fill:254,226,226;--chip-ink:185,28,28; }
+.filter-content .danger { --chip-fill:219,234,254;--chip-ink:29,78,216; }
+.filter-content .patrol { --chip-fill:209,250,229;--chip-ink:4,120,87; }
+.filter-content .reckless { --chip-fill:254,243,199;--chip-ink:146,64,14; }
+.filter-content .abandoned { --chip-fill:243,232,255;--chip-ink:126,34,206; }
+.filter-content .official { --chip-fill:209,250,229;--chip-ink:6,95,70; }
+.filter-content .police-station { --chip-fill:219,234,254;--chip-ink:30,58,138; }
+.filter-content .koban { --chip-fill:204,251,241;--chip-ink:15,118,110; }
+.filter-content .chuzaisho { --chip-fill:224,231,255;--chip-ink:67,56,202; }
+.filter-content .aed { --chip-fill:254,226,226;--chip-ink:185,28,28; }
+.filter-content .filter-chip.active { background:rgba(var(--chip-fill),.82);color:rgb(var(--chip-ink));border-color:rgba(var(--chip-ink),.22); }
+@media(max-width:768px) {
+ .filter-content { width:min(140px,calc(100vw - 24px));gap:5px; }
+ .filter-content .filter-chip { padding:8px 10px;min-height:40px;font-size:13px;box-shadow:none;gap:6px; }
+}
+@media(prefers-reduced-motion:reduce) { #mapMenuModal,#mapMenuModal .sheet { transition:none; } }

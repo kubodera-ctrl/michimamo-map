@@ -357,6 +357,7 @@
         }
     </style>
     <link rel="stylesheet" href="nearby-safety.css">
+    <link rel="stylesheet" href="map-menu.css">
 </head>
 <body>
 
@@ -416,12 +417,9 @@
                     <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
                 </div>
 
-                <!-- AIパトロール起動ボタン -->
-                <button id="aiPatrolBtn" onclick="startAIPatrol()"><i class="fa-solid fa-camera"></i></button>
 
-                <button class="nearby-launch" type="button" onclick="openNearbySafety()"><i class="fa-solid fa-heart-pulse"></i>近くのAED</button>
                 <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
-                <button class="fab wbgt-fab" onclick="openWbgtModal()" aria-label="本日の暑さ指数予報を確認"><i class="fa-solid fa-sun"></i> 本日のWBGT予報</button>
+                <button id="mapMenuBtn" class="fab" type="button" onclick="openMapMenu()" aria-haspopup="dialog" aria-controls="mapMenuModal" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i> メニュー</button>
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
                 <div id="cameraView" class="camera-view">
@@ -2062,9 +2060,13 @@ function shareSpot(title, address, category, event) {
             top: Math.max(rect.top, viewport.top) + 10,
             bottom: Math.min(rect.bottom, viewport.bottom) - 10 };
         // Leave the search and top controls usable instead of putting the popup behind them.
-        document.querySelectorAll('.search-box, .filter-toggle-btn, #accidentAreaToggle, #aiPatrolBtn').forEach(el => {
+        document.querySelectorAll('.search-box, .filter-toggle-btn, #accidentAreaToggle').forEach(el => {
             const r = el.getBoundingClientRect();
             if (r.width && r.height) bounds.top = Math.max(bounds.top, r.bottom + 8);
+        });
+        document.querySelectorAll('#currentLocationBtn, #mapMenuBtn').forEach(el => {
+            const r = el.getBoundingClientRect();
+            if (r.width && r.height) bounds.bottom = Math.min(bounds.bottom, r.top - 8);
         });
         return { rect, viewport, bounds, scaleX: scaleX || 1, scaleY: scaleY || 1 };
     }
@@ -4118,6 +4120,7 @@ function shareSpot(title, address, category, event) {
 
 <script src="wbgt.js"></script>
 <script src="nearby-safety.js"></script>
+<script src="map-menu.js"></script>
 
 
 
