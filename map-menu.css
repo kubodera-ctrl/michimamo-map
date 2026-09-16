@@ -12,7 +12,7 @@
 .filter-content .filter-chip { --chip-fill:226,232,240;--chip-ink:51,65,85;box-shadow:none;border-radius:14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:rgba(255,255,255,.72);color:#64748b;border:1px solid rgba(148,163,184,.3); }
 .filter-content .illegal { --chip-fill:254,226,226;--chip-ink:185,28,28; }
 .filter-content .danger { --chip-fill:219,234,254;--chip-ink:29,78,216; }
-.filter-content .patrol { --chip-fill:209,250,229;--chip-ink:4,120,87; }
+.filter-content .patrol { --chip-fill:209,250,229;--chip-ink:4,120,14; }
 .filter-content .reckless { --chip-fill:254,243,199;--chip-ink:146,64,14; }
 .filter-content .abandoned { --chip-fill:243,232,255;--chip-ink:126,34,206; }
 .filter-content .official { --chip-fill:209,250,229;--chip-ink:6,95,70; }
@@ -22,7 +22,7 @@
 .filter-content .aed { --chip-fill:254,226,226;--chip-ink:185,28,28; }
 .filter-content .filter-chip.active { background:rgba(var(--chip-fill),.82);color:rgb(var(--chip-ink));border-color:rgba(var(--chip-ink),.22); }
 @media(max-width:768px) {
- .filter-content { width:min(140px,calc(100vw - 24px));gap:5px; }
+ .filter-content { width:min(116px,calc(100vw - 24px));gap:5px; }
  .filter-content .filter-chip { padding:8px 10px;min-height:40px;font-size:13px;box-shadow:none;gap:6px; }
 }
 @media(prefers-reduced-motion:reduce) { #mapMenuModal,#mapMenuModal .sheet { transition:none; } }
