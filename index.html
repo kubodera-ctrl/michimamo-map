@@ -724,6 +724,11 @@
                         </div>
 
                         <div class="card">
+                            <h2 style="font-size:1.05rem;">AED投稿・審査結果</h2>
+                            <button type="button" onclick="loadMyAedHistory()" style="padding:9px 12px;border:1px solid #cbd5e1;background:white;border-radius:8px;">審査結果を更新</button>
+                            <div id="myAedHistoryArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
+                        </div>
+                        <div class="card">
                             <h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2>
                             <div id="pointHistoryArea"><div class="muted">読み込み中...</div></div>
                         </div>
@@ -1216,6 +1221,7 @@
         notice.style.display = 'none';
         dashboard.style.display = 'block';
 
+        await loadMyAedHistory();
         const { data, error } = await db.rpc('get_my_dashboard');
         if (error || !data) {
             showToast('活動履歴の読み込みに失敗しました');
@@ -1229,7 +1235,8 @@
 
         const reasonLabels = {
             spot_post: '安全情報の投稿', spot_like: '「助かった！」評価', quiz: '交通安全クイズ',
-            gacha_cost: 'ガチャを回す', gacha_prize: 'ガチャ当選', admin: '運営による調整'
+            gacha_cost: 'ガチャを回す', gacha_prize: 'ガチャ当選', admin: '運営による調整',
+            aed_new_approval: 'AED投稿が承認され、30pt付与されました'
         };
         const points = Array.isArray(data.points) ? data.points : [];
         document.getElementById('pointHistoryArea').innerHTML = points.length ? points.map(item => {
@@ -1259,6 +1266,71 @@
         if (data.deletionStatus) {
             document.getElementById('deletionRequestArea').innerHTML = '<div style="padding:11px; border-radius:10px; background:#fee2e2; color:#991b1b; font-size:.82rem; font-weight:bold; text-align:center;">退会・データ削除申請を受付済みです</div>';
         }
+    }
+
+    let myAedHistoryRequest = 0;
+
+    function renderMyAedHistory(rows) {
+        const labels = {
+            pending: '審査待ちです（まだポイントは付与されていません）',
+            needs_review: '内容を確認中です（まだポイントは付与されていません）',
+            approved_new: '承認され、30pt付与されました。',
+            approved_existing: '掲載済みAEDの存在確認として受け付けました（0pt）。',
+            rejected: '否認されました（0pt）。内容を確認して情報を再送信できます。',
+            needs_changes: '情報の修正が必要です（0pt）。内容を修正して再送信してください。'
+        };
+        return rows.length ? rows.map(item => {
+            const retry = ['rejected', 'needs_changes'].includes(item.status)
+                && /^[0-9a-f-]{36}$/i.test(item.id);
+            return `<div style="padding:14px 0;border-bottom:1px solid #e2e8f0;line-height:1.6;">
+                <strong>${escapeHtml(item.facility_name)}</strong>
+                <div class="muted" style="font-size:.8rem;">${escapeHtml(item.address)}・${escapeHtml(item.installation_location)}</div>
+                <div style="margin-top:7px;font-weight:bold;color:${item.status === 'approved_new' ? '#15803d' : '#334155'};">${escapeHtml(labels[item.status] || '審査状況を確認しています。')}</div>
+                ${item.review_notes ? `<div style="margin-top:6px;">運営から：${escapeHtml(item.review_notes)}</div>` : ''}
+                <div class="muted" style="font-size:.75rem;">投稿：${formatHistoryDate(item.created_at)}${item.reviewed_at ? `／審査：${formatHistoryDate(item.reviewed_at)}` : ''}</div>
+                ${retry ? `<button type="button" onclick="resubmitMyAed('${item.id}')" style="margin-top:10px;padding:12px;border:1px solid #1f6feb;color:#1f6feb;background:white;border-radius:10px;font-weight:bold;">情報を再送信</button><div class="muted" style="font-size:.75rem;margin-top:5px;">施設情報を引き継ぎます。現地GPSとAED写真を取り直し、新しい投稿として審査へ送信します。</div>` : ''}
+            </div>`;
+        }).join('') : '<div class="muted" style="padding:12px 0;">AEDの投稿履歴はありません。</div>';
+    }
+
+    async function loadMyAedHistory() {
+        const request = ++myAedHistoryRequest;
+        const area = document.getElementById('myAedHistoryArea');
+        area.textContent = '審査結果を読み込み中…';
+        try {
+            const { data: auth } = await db.auth.getUser();
+            if (request !== myAedHistoryRequest) return;
+            if (!auth?.user) { area.textContent = 'LINEログインすると審査結果を確認できます。'; return; }
+            const { data, error } = await db.from('aed_submissions')
+                .select('id,facility_name,address,installation_location,status,review_notes,created_at,reviewed_at')
+                .eq('user_id', auth.user.id).order('created_at', { ascending: false }).limit(50);
+            if (request !== myAedHistoryRequest || currentAuthUserId !== auth.user.id) return;
+            if (error) throw error;
+            area.innerHTML = renderMyAedHistory(data || []);
+        } catch (_) {
+            if (request === myAedHistoryRequest) area.textContent = '審査結果を取得できませんでした。「審査結果を更新」で再試行してください。';
+        }
+    }
+
+    async function resubmitMyAed(id) {
+        const { data: auth } = await db.auth.getUser();
+        if (!auth?.user) { showToast('LINEログインしてください'); return; }
+        const { data: item, error } = await db.from('aed_submissions')
+            .select('facility_name,installation_location,address,prefecture,status')
+            .eq('id', id).eq('user_id', auth.user.id).maybeSingle();
+        if (error || !item || currentAuthUserId !== auth.user.id) { showToast('投稿情報を取得できませんでした'); return; }
+        if (!['rejected', 'needs_changes'].includes(item.status)) { showToast('この投稿は再送信の対象ではありません'); return; }
+        closePostModal();
+        document.getElementById('postCategory').value = 'aed';
+        document.getElementById('postTitle').value = item.facility_name;
+        document.getElementById('postComment').value = item.installation_location;
+        document.getElementById('aedPrefecture').value = item.prefecture;
+        document.getElementById('aedAddress').value = item.address;
+        document.getElementById('postImageInput').value = '';
+        document.getElementById('imagePreview').style.display = 'none';
+        openPostModal();
+        toggleImageUpload();
+        showToast('内容を修正し、現地GPSとAED写真を取り直してください');
     }
 
     async function requestAccountDeletion() {
@@ -1681,6 +1753,7 @@ function shareSpot(title, address, category, event) {
         if (error) { showToast('AED審査を確定できませんでした：' + error.message); return; }
         showToast(decision === 'approved_new' ? `新規AEDを公開し30pt付与しました（AED ID ${data.safetySpotId}）` : 'AED投稿の審査結果を保存しました');
         loadAdminDashboard();
+        loadMyAedHistory();
         if (decision === 'approved_new') loadSafetySpots();
     }
 
@@ -2535,6 +2608,7 @@ function shareSpot(title, address, category, event) {
         }
         showToast(data.status === 'needs_review' ? 'AED投稿を受け付けました。不正・重複確認後に審査します。' : 'AED投稿を受け付けました。新規承認時に30ptを付与します。');
         closePostModal();
+        loadMyAedHistory();
     }
 
     function checkWithAI(title, comment) {
