@@ -1382,7 +1382,7 @@
             <strong>${x.target_type === 'aed_submission' ? 'AED投稿' : '安全情報の投稿'}：${x.status === 'pending' ? '運営が確認中' : x.outcome === 'reconsider' ? '見直しを受け付けました' : '元の判断を維持'}</strong>
             <div style="white-space:pre-wrap;margin-top:6px;">${escapeHtml(x.reason)}</div>
             ${x.response ? `<div style="white-space:pre-wrap;margin-top:6px;">運営から：${escapeHtml(x.response)}</div>` : ''}
-            <div class="muted" style="font-size:.75rem;">${formatHistoryDate(x.created_at)}</div></div>`).join('') : '異議申立てはありません。';
+            <div class="muted" style="font-size:.75rem;">送信日時：${formatHistoryDate(x.created_at)}</div></div>`).join('') : '異議申立てはありません。';
     }
     function openModerationAppeal(type, id) {
         if (appealSending) return;
@@ -1426,6 +1426,7 @@
     function renderAdminAppeals(rows) {
         document.getElementById('adminAppealsArea').innerHTML = rows.length ? rows.map(x => `<div style="padding:12px;background:white;margin-bottom:8px;border:1px solid #cbd5e1;border-radius:8px;overflow-wrap:anywhere;">
             <strong>${escapeHtml(x.user_name || '名称未設定')}：${x.target_type === 'aed_submission' ? 'AED投稿' : '安全情報の投稿'}（${x.status === 'pending' ? '未対応' : '回答済み'}）</strong>
+            <div class="muted" style="font-size:.8rem;margin:6px 0;">送信日時：${formatHistoryDate(x.created_at)}</div>
             <div class="muted">対象ID：${escapeHtml(x.target_id)}／元の判断：${escapeHtml(x.original_decision)}</div>
             <div style="white-space:pre-wrap;">${escapeHtml(x.original_notes || '')}</div>
             <div style="white-space:pre-wrap;margin:6px 0;">${escapeHtml(x.reason)}</div>
@@ -1455,7 +1456,7 @@
                 if (!code && error?.context?.json) { try { code = (await error.context.json()).error; } catch (_) {} }
                 throw new Error(code || 'deletion_incomplete_resume_required');
             }
-            showToast(data?.status === 'completed' ? 'アカウントとデータの削除が完了しました' : '写真を削除中です。同じ申請の「削除を実行／再開」を押して続きを処理してください');
+            showToast(data?.status === 'completed' ? 'アカウントとデータの削除が完了しました' : '写真を削除中です。同じ申請の「削除を実行」を押して続きを処理してください');
         } catch (error) {
             showToast(error.message === 'admin_account_requires_manual_handover' ? '管理者アカウントは権限の引継ぎが必要です' : error.message === 'legacy_photo_ownership_review_required' ? '旧形式の写真があります。所有者の確認が必要です' : error.message === 'admin_validation_failed' ? '管理者権限とパスワードを確認してください' : '削除は完了していません。同じ申請の実行ボタンから再開できます');
         } finally { deletionExecutions.delete(id); await loadAdminDashboard(); }
@@ -1828,7 +1829,7 @@ function shareSpot(title, address, category, event) {
         renderAdminBreakdown('adminRegionStats', Array.isArray(statsData.regions) ? statsData.regions : [], x => x.region || '地域不明');
         renderAdminBreakdown('adminCategoryStats', Array.isArray(statsData.categories) ? statsData.categories : [], x => categoryLabels[x.category] || x.category || '未分類');
 
-        document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('削除を実行／再開', `executeAccountDeletion(${Number(x.id)})`, '#991b1b') : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
+        document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('削除を実行', `executeAccountDeletion(${Number(x.id)})`, '#991b1b') : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
         renderAdminAppeals(Array.isArray(appeals) ? appeals : []);
         await renderAdminAedSubmissions(Array.isArray(aedSubmissions) ? aedSubmissions : []);
 
