@@ -1,0 +1,21 @@
+{
+  "html": "unique IDs; 12 chapters; shortcut targets exist",
+  "anonymous_rpc": "PASS",
+  "pages": [
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    114
+  ],
+  "source_groups": 4614,
+  "prefectures": 47,
+  "facility_count": 61736,
+  "unique_groups": true,
+  "browser_visual_check": "NOT RUN"
+}

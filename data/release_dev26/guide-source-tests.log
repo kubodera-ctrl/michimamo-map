@@ -1,0 +1,15 @@
+PASS: inline syntax, camera lifecycle/races/denied permission, paid API blocked despite enabled settings, auth retained. No live paid request.
+(node:13) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tests/free_camera_and_ai_pause.test.cjs (114.553334ms)
+✔ stored prefecture disambiguates municipalities; multi-word/full-width search and unknown region (2.06081ms)
+✔ fetches beyond old 1000 limit, rejects partial/error/changed results (1.346633ms)
+✔ collapsed prefectures, 20-row progressive reveal, search opens matches, safe source links and clear (20.181283ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.256734

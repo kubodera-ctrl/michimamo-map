@@ -28,6 +28,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>まちまも MAP - 交通安全情報共有マップ</title>
     <link rel="stylesheet" href="camera-guide.css?v=23-qa2">
+    <link rel="stylesheet" href="mypage-guide.css?v=26-guide1">
     <link rel="stylesheet" href="camera-capture.css?v=24-evidence1">
     <link rel="stylesheet" href="road-review.css?v=24-connect2">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -524,6 +525,106 @@
 
                 <!-- 【タブ1：設定・ガイド】 -->
                 <div id="profileTab" class="tab-content active">
+                    <section id="usageGuide" class="card usage-guide" aria-labelledby="usageGuideTitle">
+                        <div class="guide-eyebrow">はじめてのまちまもMAP</div>
+                        <h2 id="usageGuideTitle" tabindex="-1">見る・見つける・<br>安全を共有する。</h2>
+                        <p class="guide-lead">近くのAEDや交番を探したり、街で気づいた情報を共有できる地図です。まずは地図を見るだけでも使えます。</p>
+                        <ol class="guide-start">
+                            <li><strong>まずは地図を見る</strong><span>「マップ」でピンをタップ。場所や情報を確認します。</span></li>
+                            <li><strong>参加するときはログイン</strong><span>このページの「LINEで続ける」から。公式LINEの友だち追加は任意です。</span></li>
+                            <li><strong>投稿したら履歴を確認</strong><span>「マイページ」→「活動履歴」で投稿・審査・ポイントを確認できます。</span></li>
+                        </ol>
+                        <div class="guide-note">投稿は警察・消防への通報にはなりません。緊急時は110番・119番へ。撮影や画面操作は安全な場所で行ってください。</div>
+                        <label for="usageGuideSearch">知りたいことを検索</label>
+                        <div class="guide-search-row"><input id="usageGuideSearch" type="search" placeholder="例：写真、ログイン、ポイント" autocomplete="off" aria-controls="usageGuideChapters"><button type="button" id="usageGuideClear">クリア</button></div>
+                        <p id="usageGuideSearchStatus" class="guide-meta" role="status" aria-live="polite">気になる見出しをタップすると説明が開きます。</p>
+                        <div class="guide-shortcuts" aria-label="使い方の目次">
+                            <button type="button" data-guide-jump="guide-map">地図・近くの施設</button><button type="button" data-guide-jump="guide-post">情報を投稿する</button>
+                            <button type="button" data-guide-jump="guide-camera">AIカメラを使う</button><button type="button" data-guide-jump="guide-trouble">困ったとき</button>
+                        </div>
+                        <div id="usageGuideChapters">
+                            <details id="guide-login"><summary><span>01　ログイン・プロフィール</span><small>LINE連携と友だち追加の違い</small></summary><div class="guide-body">
+                                <ol><li>このページの「アカウント連携」で<strong>LINEで続ける</strong>を押します。</li><li>LINE側の案内に従って認証し、開始したブラウザーへ戻ります。</li><li>「アカウント連携済み」の表示を確認します。</li></ol>
+                                <p>ニックネームは入力欄、アバターは丸いアイコンから変更できます。人の本名・電話番号などは入力しないでください。</p>
+                                <p><strong>LINEログインと公式LINEの友だち追加は別です。</strong>友だち追加や配信設定は任意。準備中の表示がある場合は、利用できるようになるまでお待ちください。</p>
+                                <p>同じLINEアカウントなら、別端末でもサーバーに保存されたポイントや投稿履歴を確認できます。ただし、送信待ちの写真・車載テストログ・地図の表示設定は、そのブラウザー内のデータです。</p>
+                            </div></details>
+                            <details id="guide-map"><summary><span>02　地図を見る・表示を絞る</span><small>現在地、検索、ピンの意味</small></summary><div class="guide-body">
+                                <ol><li>画面下の<strong>マップ</strong>を押します。</li><li>地図の現在地ボタンを押し、位置情報を許可します。施設名や住所は上部の検索欄からも探せます。</li><li>ピンをタップすると詳細が開きます。何もない場所を1回タップすると投稿画面、2回続けてタップすると拡大です。</li></ol>
+                                <p>指で地図を動かし、2本指で広げる・縮めると拡大縮小できます。詳細を閉じるときは×を押します。</p>
+                                <dl class="guide-legend"><div><dt>赤：違法駐車／青：危険停車</dt><dd>利用者からの状況報告。違反が確定した意味ではありません。</dd></div><div><dt>緑：巡回／黄：暴走・騒音／紫：不法放置</dt><dd>種類ごとに見分けられます。不法放置の投稿は写真が必要です。</dd></div><div><dt>警察情報・警察署・交番・駐在所・AED</dt><dd>公開情報などに基づく情報です。現在の利用状況は現地でも確認してください。</dd></div></dl>
+                                <p><strong>ピンが多い・見つからないとき：</strong>「表示選択」を開き、見たい種類をONにします。「すべて表示」はまとめてON／OFF。選択はこのブラウザーに保存されます。</p>
+                                <p>「事故多発エリア」は地図の表示切替、「駐車場予約」は外部予約サイトへの入口です。駐車場の空き・料金・予約成立は移動先で確認してください。</p>
+                            </div></details>
+                            <details id="guide-nearby"><summary><span>03　近くのAED・交番・暑さ情報</span><small>右下のメニューから探す</small></summary><div class="guide-body">
+                                <ol><li>「マップ」右下の<strong>メニュー</strong>を押します。</li><li><strong>近くのAED</strong>または<strong>近くの交番</strong>を選びます。</li><li>「現在地で更新」で探し、施設を確認してGoogleマップ／Appleマップのナビを選びます。</li></ol>
+                                <p>位置情報が使えないときは、地図を目的の地域へ動かして<strong>地図の中心から探す</strong>を使えます。候補が少ないときは「半径10kmまで広げる」も試してください。</p>
+                                <p>一覧は登録施設の<strong>直線距離</strong>が近い順です。道のりや所要時間はナビ側で確認します。AEDは建物の営業時間や設置階によって使えないこともあり、未掲載の施設もあります。</p>
+                                <p><strong>WBGT予報</strong>は暑さ指数の目安を確認する機能です。対象地域と時刻を見て利用してください。</p>
+                                <p>情報の出どころは、このページの<strong>データ出典・更新情報</strong>から、都道府県別または地域名検索で確認できます。</p>
+                            </div></details>
+                            <details id="guide-post"><summary><span>04　街の情報を投稿する</span><small>場所を選ぶ → 内容を入力 → 履歴を確認</small></summary><div class="guide-body">
+                                <ol><li>ログインし、安全な場所で、地図上の<strong>報告したい地点を1回タップ</strong>します。</li><li>種類を選び、タイトルと状況コメントを入力します。何が・どこで・どんな状況かを、確認した事実で書きます。</li><li>不法放置は現地の写真と個人情報の確認が必要です。「通報済み」は実際に関係機関へ通報した場合だけ選びます。</li><li>送信後、地図と「マイページ」→「活動履歴」→「自分の投稿」を確認します。</li></ol>
+                                <p>通常投稿は1回10pt、ポイント獲得は1日5回までです。実際に付与されたポイントは送信結果と「ポイント履歴」で確認できます。</p>
+                                <p>個人の顔・車両番号・表札・連絡先や、相手を攻撃する内容は公開しないでください。配送・荷下ろし・訪問作業などを妨げず、通行への影響や危険な状況を確認します。業務中という理由だけで駐停車が正当化されるわけではありません。</p>
+                                <p>掲載情報に問題がある場合は、投稿詳細の<strong>通報</strong>機能で運営へ知らせます。これは警察への緊急通報ではありません。</p>
+                            </div></details>
+                            <details id="guide-aed"><summary><span>05　AEDを見つけたら投稿する</span><small>現地写真・GPS・審査・30ptの条件</small></summary><div class="guide-body">
+                                <ol><li>AEDのある現地でログイン。地図をタップし、種類を<strong>AEDを現地から投稿</strong>にします。</li><li>GPSを取得し、周辺に同じAEDがないか確認します。同じものがあれば候補を選択します。</li><li>施設名、設置場所（例：1階受付横）、都道府県、番地までの住所と現地写真を入力します。</li><li>写真の利用許諾・個人情報の確認にチェックして審査へ送信します。</li><li>「活動履歴」→<strong>AED投稿・審査結果</strong>で確認。「審査結果を更新」で最新情報を読み込めます。</li></ol>
+                                <p>GPS精度が100mを超える場合や周辺確認が終わっていない場合は送信できません。安全に移動できる範囲で再取得してください。</p>
+                                <p><strong>送信だけでは掲載・ポイント付与は確定しません。</strong>新しいAEDとして最初に承認された投稿に30pt。掲載済み・重複・否認は0ptです。否認の理由を確認し、判断に疑問があれば履歴の「判断について異議申立て」から伝えられます。</p>
+                            </div></details>
+                            <details id="guide-camera"><summary><span>06　AIカメラで撮影・加工・投稿</span><small>無料版の使い方と写真の公開範囲</small></summary><div class="guide-body">
+                                <ol><li>「マップ」→「メニュー」→<strong>AIカメラ</strong>を開き、カメラの使用を許可します。</li><li>「散歩」を選び、安全な場所で<strong>手動撮影・加工（停車中のみ）</strong>を押します。歩きながらの操作も避けてください。</li><li>写真は最初に全体がモザイクになります。必要に応じてモザイク・黒塗りを調整します。</li><li>顔やナンバーなどの隠し漏れがないか画像全体を確認し、確認のチェックを入れて<strong>投稿へ進む</strong>を押します。</li><li>GPS取得後、青い円の中（現在地から50m以内）をタップし、種類と内容を入力して送信します。</li></ol>
+                                <p><strong>地図に出るのは投稿情報で、加工画像は一般公開しません。</strong>写真は非公開で保存され、「活動履歴」→「非公開のカメラ証拠」で確認できます。カメラ経由の投稿ではAED・不法放置を選べません。それらは通常の投稿画面から行います。</p>
+                                <p>顔検出は対応端末だけの試験機能です。未対応・検出0件でも、写り込みがないとは限りません。顔やナンバーを必ず自分の目で確認してください。</p>
+                                <p>上部の「無料版」は現在の提供状態です。有料AI・月額課金はまだ開始していません。撮っただけで自動投稿されたり、違反が確定したりする機能ではありません。</p>
+                            </div></details>
+                            <details id="guide-drive"><summary><span>07　車載モードを試す</span><small>試験機能／検出とログ保存は別</small></summary><div class="guide-body">
+                                <p>AIカメラ上部の<strong>車載</strong>へ切り替えると、車両などの候補を端末内で検出します。一般利用者も選べますが、正確性や長時間動作を検証中です。</p>
+                                <p><strong>「検出のみ／ログ保存なし」と出た場合は、記録されていません。</strong>現在、記録を始める操作は管理画面の「テスト開始」です。管理画面を使えない方は検出のお試しまで利用できます。</p>
+                                <p>記録した端末では「路上停車候補・渋滞候補・信号待ち候補・判別不能」に分けて確認します。どれも確定判定ではなく、自動投稿・自動通報・車載ポイント付与はありません。</p>
+                                <p>開始・切替・終了は停車中に行い、走行中は操作しないでください。画面を前面に表示する必要があり、別アプリへ移動したり画面を閉じたりすると継続しません。初回のモデル取得には通信が必要です。発熱や電池の消費が気になる場合は安全な場所で終了してください。</p>
+                            </div></details>
+                            <details id="guide-photo"><summary><span>08　写真は誰が見られる？ いつ消える？</span><small>加工画像・元画像・非公開保存</small></summary><div class="guide-body">
+                                <dl><dt>加工したカメラ画像</dt><dd>投稿と紐づけて非公開保存。地図上には写真を公開しません。</dd><dt>元画像（顔やナンバーを含む場合あり）</dt><dd>写真確認画面の説明を開き、保存・提供目的に同意して「元画像を非公開で10日保存」を押した場合だけ保存します。任意なので、同意しなくても加工画像からの投稿はできます。</dd><dt>AED写真・不法放置写真</dt><dd>AEDは審査前は非公開。不法放置は公開投稿用の写真です。カメラ画像と同じ公開範囲ではないため、入力画面の説明を確認してください。</dd></dl>
+                                <p>非公開カメラ画像は本人と権限のある管理者が確認できます。「活動履歴」→<strong>非公開のカメラ証拠</strong>で保存状態・期限を確認し、「画像を10分だけ表示」で開けます。</p>
+                                <p>通常は保存完了から10日が期限。管理者が理由を記録して30日保全し、満了後7日以内に延長判断がなければ削除対象になります。処理は順次実行され、期限ちょうどの消去を保証するものではありません。</p>
+                                <p>早く消したいときは<strong>早期削除を申請</strong>を押します。「削除待ち」「削除再試行待ち」は、まだ完了していない状態です。元画像が関係機関へ自動提出されることはありません。</p>
+                                <p><a href="/privacy" target="_blank" rel="noopener noreferrer">プライバシーポリシーを読む</a></p>
+                            </div></details>
+                            <details id="guide-retry"><summary><span>09　送信に失敗・写真だけ送れない</span><small>同じ投稿として再開できます</small></summary><div class="guide-body">
+                                <ol><li>同じ内容を新しく投稿せず、通信状況とLINEログインを確認します。</li><li>画面にある未完了の送信案内から<strong>送信を再開</strong>を押します。</li><li>「活動履歴」で投稿・写真・ポイントを確認します。投稿が受付済みなら、画像など残った処理だけを続けます。</li></ol>
+                                <p>送信ボタンを押した後のデータは、完了まで<strong>送信を始めたブラウザー</strong>に一時保存します。再読み込み後も同じブラウザー・同じアカウントで再開してください。別のスマホには送信待ちの写真は移りません。</p>
+                                <p><strong>再開したい間はサイトデータを消さないでください。</strong>消すと写真を取り戻せないことがあります。「端末の再送データを破棄」は再開を諦める操作で、受付済みの投稿を削除する操作ではありません。</p>
+                                <p>端末の保存領域を利用できない場合は送信を開始できません。空き容量やブラウザーの設定を確認してください。</p>
+                            </div></details>
+                            <details id="guide-points"><summary><span>10　クイズ・ポイント・ポイ活</span><small>獲得条件と実際の履歴を確認</small></summary><div class="guide-body">
+                                <dl><dt>通常投稿</dt><dd>1回10pt、1日5回までのポイント獲得。</dd><dt>新規AEDの承認</dt><dd>初回承認の投稿者に30pt。重複・掲載済みなどは0pt。</dd><dt>交通安全クイズ</dt><dd>下の「クイズ」から車・自転車・ミックスの10問に挑戦。正答に応じて最大10pt、ポイント獲得は1日1回です。同じ日の練習は追加付与されません。</dd><dt>ガチャ</dt><dd>下の「ポイ活」から1回100ptで利用します。消費と結果は活動履歴に残ります。</dd></dl>
+                                <p>ポイントが増えないときは<strong>活動履歴 → 今日の活動／ポイント履歴</strong>で確認します。AEDは審査前や重複の場合、通常投稿・クイズは当日の上限到達時に追加付与されません。</p>
+                                <p>広告・駐車場予約は外部サービスです。申込条件や料金は移動先で確認してください。広告の表示ポイントだけで付与が確定するわけではありません。<strong>ポイントの換金・交換を申し込む画面は現在ありません。</strong>ガチャや広告利用だけで現金を受け取れると思って申し込まないでください。</p>
+                                <p>ランキングの報告数は利用者の投稿状況によるもので、地域の実際の危険度や違反件数を確定するものではありません。</p>
+                            </div></details>
+                            <details id="guide-history"><summary><span>11　履歴・削除・審査への質問・退会</span><small>マイページの「活動履歴」にまとまっています</small></summary><div class="guide-body">
+                                <p>「マイページ」上部の<strong>活動履歴</strong>を開くと、今日の活動、AED審査結果、非公開画像、ポイント履歴、自分の投稿、ガチャ結果を確認できます。</p>
+                                <p><strong>自分の投稿を消す：</strong>「自分の投稿」から削除を選びます。非公開カメラ画像も削除したい場合は、画像の一覧から早期削除を申請してください。</p>
+                                <p><strong>運営の判断について伝える：</strong>対象の履歴に表示される「判断について異議申立て」から、見直してほしい理由を送ります。回答は「異議申立て・運営の回答」で確認できます。</p>
+                                <p><strong>退会：</strong>活動履歴の下部にある「退会・データ削除を申請」から申し込みます。申請だけで即時削除されず、運営が確認して処理します。処理開始後は取り消せず、アカウント・投稿・写真・ポイントは戻せません。</p>
+                                <p>確認済みAEDの施設情報は、投稿者との紐付けを外して残ります。端末内の車載ログや再送データは遠隔消去されないため、不要になったら使用したブラウザーのサイトデータも消去してください。ログアウトは退会ではありません。</p>
+                            </div></details>
+                            <details id="guide-trouble"><summary><span>12　困ったときの確認順</span><small>ログイン・位置情報・カメラ・表示</small></summary><div class="guide-body">
+                                <h3>ログインできない</h3><ol><li>通信を確認し、まちまもMAPを再読み込みします。</li><li>LINE認証後は、ログインを始めた元のブラウザーへ戻ります。</li><li>アプリ内のブラウザーでうまく戻れない場合は、Safari／Chromeから開いて認証を始め直します。</li></ol>
+                                <p>サイトデータの削除は最後の手段です。<strong>送信待ちの写真や車載テストログを失うため、保存したいデータが残っていないか先に確認してください。</strong></p>
+                                <h3>現在地がずれる・GPSが取れない</h3><p>端末とブラウザーの位置情報許可を確認し、安全な場所で現在地を再取得します。建物内などでは精度が落ちます。AED・交番を探すだけなら「地図の中心から探す」も利用できます。</p>
+                                <h3>カメラが開かない・止まった</h3><p>カメラの許可を確認し、ほかのカメラアプリを終了して開き直します。背景へ移動すると停止することがあります。端末が熱いときは利用を中断してください。</p>
+                                <h3>投稿・ピンが見つからない</h3><p>「表示選択」で対象の種類をONにし、地図を投稿した場所へ動かします。AEDは審査結果を確認。送信結果が不明な場合は新規投稿せず「送信を再開」を使ってください。</p>
+                                <h3>出典を地域名で探したい</h3><p>「データ出典・更新情報」を開き、都道府県名・市区町村名・出典名を検索します。掲載しているデータの出典を探す機能なので、検索結果なしでも現地にAEDがないとは限りません。</p>
+                            </div></details>
+                        </div>
+                        <p id="usageGuideEmpty" hidden>見つかりませんでした。「写真」「位置情報」など短い言葉で試してください。</p>
+                        <div class="guide-footer"><button type="button" id="usageGuideTop">▲ ガイドの先頭へ</button><a href="/terms" target="_blank" rel="noopener noreferrer">利用規約</a><a href="/privacy" target="_blank" rel="noopener noreferrer">プライバシー</a></div>
+                    </section>
+
                     <div class="card" style="background:#f8fafc;">
                         <div class="profile-edit">
                             <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
@@ -594,7 +695,7 @@
 
 
                     <div class="card" id="dataSourceCard" style="background:#fff; border:1px solid #dbeafe;">
-                        <button type="button" onclick="toggleDataSources()" style="width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;cursor:pointer;color:#17212b;">
+                        <button type="button" onclick="toggleDataSources()" aria-controls="dataSourceBody" aria-expanded="false" id="dataSourceToggle" style="width:100%;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;cursor:pointer;color:#17212b;">
                             <span>
                                 <span style="display:block;font-size:1rem;font-weight:900;"><i class="fa-solid fa-book-open" style="color:#2563eb;margin-right:7px;"></i>データ出典・更新情報</span>
                                 <span class="muted" style="display:block;font-size:.72rem;margin-top:4px;">AED・交番などの公開情報の出典とデータ基準日</span>
@@ -606,79 +707,6 @@
                                 まちまもMAPでは、自治体・警察等が公開する情報をもとに安全スポットを掲載しています。公開元の更新状況により、実際の設置・運用状況と異なる場合があります。緊急時は現地表示や各施設・公的機関の案内も確認してください。
                             </div>
                             <div id="dataSourceList" class="muted" style="font-size:.72rem;">読み込み中...</div>
-                        </div>
-                    </div>
-
-                    <!-- ガイド要素 -->
-                    <div class="card" style="margin-top:24px;">
-                        <h2 style="color:#1f6feb; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-person-chalkboard"></i> アプリの使い方・ガイド</h2>
-
-                        <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">1. マップで危険を共有（投稿）</h3>
-                        <p class="muted" style="font-size:0.8rem; margin-bottom:12px;">地図上の投稿したい場所を直接タップすると、危険が発生しやすい場所や状況を共有できます。まちまもMAPは、特定の車両や人を晒したり制裁したりするためのサービスではなく、地域の危険傾向を共有し、安全につなげることを目的としています。</p>
-
-                        <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">2. ピンの色と意味</h3>
-                        <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#ef4444;"><i class="fa-solid fa-ban"></i> 違法駐車 (赤)</div></div>
-                        <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#2563eb;"><i class="fa-solid fa-triangle-exclamation"></i> 危険停車 (青)</div></div>
-                        <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#10b981;"><i class="fa-solid fa-user-shield"></i> 巡回・取締り (緑)</div></div>
-                        <div style="margin-bottom: 8px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#9333ea;"><i class="fa-solid fa-car-burst"></i> 不法放置 (紫)</div></div>
-                        <div style="margin-bottom: 12px;"><div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:bold; color:#059669;"><i class="fa-solid fa-shield-halved"></i> 警察情報 (深緑)</div></div>
-
-                        <h3 style="font-size:0.9rem; margin-top:16px; color:#17212b;">3. 「表示選択」で地図を見やすくする</h3>
-                        <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.7; color:#1e3a8a;">
-                            <div style="font-weight:900; margin-bottom:5px;"><i class="fa-solid fa-filter"></i> 地図上部の「表示選択」をタップ</div>
-                            <div>・最初はすべての種類が表示されています。</div>
-                            <div>・違法駐車などの投稿、警察署、交番、駐在所、AEDをそれぞれタップして表示／非表示を切り替えられます。</div>
-                            <div>・複数の種類を同時にONにできます。色が付いている項目が表示中です。</div>
-                            <div>・「すべて表示」は投稿と警察署・交番・駐在所・AEDをまとめてON／OFFします。</div>
-                            <div>・選んだ状態は端末に保存され、次回も引き継がれます。</div>
-                        </div>
-
-                        <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">安全スポットまでの経路案内</h3>
-                        <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.7; color:#14532d;">
-                            <div>① 地図の交番・駐在所・警察署・AEDのピンをタップします。</div>
-                            <div>② 施設名と住所を確認し、Googleマップ／Appleマップのナビを選びます。</div>
-                            <div>③ Googleマップで、その地点までの経路が開きます。スマートフォンではアプリ、またはブラウザ版が開きます。</div>
-                            <div>・現在地はGoogleマップ側で使います。位置情報を利用できない場合は、出発地を入力してください。</div>
-                            <div>・徒歩・自転車・車などの移動方法はGoogleマップ側で選べます。</div>
-                            <div>・建物の入口やAEDの利用可能時間は現地でも確認してください。</div>
-                        </div>
-
-                        <h3 style="font-size:0.9rem; margin-top:10px; color:#17212b;">4. 警察への通報先の使い分け</h3>
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px; margin-bottom:12px; font-size:0.8rem; line-height:1.5;">
-                            <div style="color:#dc2626; font-weight:bold;"><i class="fa-solid fa-phone"></i> 緊急通報 (110番)</div>
-                            <div style="color:#475569; margin-bottom:8px;">暴走行為、事故発生など今まさに危険が迫っている時</div>
-                            <div style="color:#2563eb; font-weight:bold;"><i class="fa-solid fa-headset"></i> 警察相談専用窓口 (#9110)</div>
-                            <div style="color:#475569;">恒常的な違法駐車など緊急性の低い場合</div>
-                        </div>
-
-                        <h3 style="font-size:0.9rem; margin-top:14px; color:#17212b;">5. 地域で働く人への配慮</h3>
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.6; color:#475569;">
-                            <div style="font-weight:900; color:#17212b; margin-bottom:6px;"><i class="fa-solid fa-truck" style="color:#2563eb;"></i> まちまもMAPは、街で働く人を排除するためのサービスではありません。</div>
-                            配送・荷下ろし・訪問作業・建物管理など、地域の生活を支える業務への配慮を大切にします。投稿や通報の前に、歩行者・車いす・ベビーカー・緊急車両などの通行を妨げているか、周囲に継続的な危険が生じているかをご確認ください。<br><br>
-                            ただし、事故につながる危険な駐停車や緊急性のある状況では、安全を最優先してください。
-                        </div>
-
-                        <h3 style="font-size:0.9rem; margin-top:14px; color:#17212b;">6. 投稿する前に確認してください</h3>
-                        <div style="background:#fff7ed; border:1px solid #fed7aa; padding:12px; border-radius:10px; margin-bottom:12px; font-size:0.8rem; line-height:1.7; color:#7c2d12;">
-                            <div>・荷下ろし、配送、訪問作業などの業務中ではありませんか？</div>
-                            <div>・ハザードや作業表示など、作業中と分かる表示はありますか？</div>
-                            <div>・出入口、横断歩道、点字ブロックなどを塞いでいませんか？</div>
-                            <div>・一時的な停車ではなく、危険な状態が続いていますか？</div>
-                            <div>・ナンバーや作業員の顔など、個人を特定できる情報が写っていませんか？</div>
-                        </div>
-
-                        <p class="muted" style="font-size:0.75rem; margin-top:8px; margin-bottom:0;">
-                            ※道路交通法上の扱いをアプリ独自に変更するものではありません。業務中であることだけを理由に駐停車を正当化するものでもありません。
-                        </p>
-
-                        <h3 style="font-size:0.9rem; margin-top:18px; color:#17212b;">7. スマホでLINEログインに失敗する場合</h3>
-                        <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:12px; border-radius:10px; font-size:0.8rem; line-height:1.7; color:#166534;">
-                            <div style="font-weight:900; margin-bottom:6px;"><i class="fa-brands fa-line"></i> 古い認証情報を削除してやり直してください</div>
-                            <div>1. SafariまたはChromeの設定から、現在開いているまちまもMAPのCookie・Webサイトデータを削除します。</div>
-                            <div>2. 使用しているブラウザを完全に終了します。</div>
-                            <div>3. 同じブラウザでまちまもMAPを開き、「LINEで続ける」を押します。</div>
-                            <div>4. LINEで認証した後は、ログインを開始した元のブラウザへ戻ってください。</div>
-                            <div style="margin-top:7px; color:#15803d;">※PCでログイン中かどうかは、スマホのログインには影響しません。</div>
                         </div>
                     </div>
 
@@ -763,7 +791,7 @@
                         </div>
                         <div class="card" id="myCameraEvidenceCard">
                             <h2 style="font-size:1.05rem;"><i class="fa-solid fa-lock" style="color:#2563eb;"></i> 非公開のカメラ証拠</h2>
-                            <p class="muted" style="font-size:.75rem;line-height:1.55;">本人が明示して保存した元画像だけを表示します。通常は10日で削除され、必要な場合だけ管理者が理由を記録して30日保全します。</p>
+                            <p class="muted" style="font-size:.75rem;line-height:1.55;">保存した加工済み画像と、明示的に同意して保存した元画像を確認できます。通常の保存期限は10日です。管理者が理由付きで30日保全した場合は、満了後7日の判断待ち期間があります。期限後の削除は順次処理されます。</p>
                             <button type="button" onclick="MachimamoCameraEvidence.loadMine()" style="padding:9px 12px;border:1px solid #cbd5e1;background:white;border-radius:8px;">保存状況を更新</button>
                             <div id="myCameraEvidenceArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
                         </div>
@@ -2480,54 +2508,33 @@ function shareSpot(title, address, category, event) {
         if (!body) return;
         const opening = body.style.display === 'none' || !body.style.display;
         body.style.display = opening ? 'block' : 'none';
+        document.getElementById('dataSourceToggle').setAttribute('aria-expanded', String(opening));
         if (chevron) chevron.className = opening ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down';
         if (opening && !dataSourceLoaded) await loadDataSourceSummary();
     }
 
-    function formatSourceDate(value) {
-        if (!value) return '基準日不明';
-        return String(value).slice(0,10).replace(/-/g,'/');
-    }
-
+    let dataSourceLoading = false;
     async function loadDataSourceSummary() {
         const list = document.getElementById('dataSourceList');
-        if (!list) return;
-        list.innerHTML = '読み込み中...';
-        const { data, error } = await db.rpc('get_safety_source_summary');
-        if (error || !Array.isArray(data)) {
-            console.error('get_safety_source_summary failed', error);
-            list.innerHTML = '出典情報を読み込めませんでした。';
-            return;
+        if (!list || dataSourceLoading) return;
+        dataSourceLoading = true;
+        list.textContent = '出典情報を読み込み中...';
+        try {
+            const rows = await SourceBrowser.fetchAll(db);
+            SourceBrowser.mount(list, rows);
+            dataSourceLoaded = true;
+        } catch (error) {
+            list.textContent = '出典情報を読み込めませんでした。通信状況を確認して、もう一度お試しください。';
+            const retry = document.createElement('button');
+            retry.type = 'button';
+            retry.textContent = 'もう一度読み込む';
+            retry.className = 'source-load-more';
+            retry.addEventListener('click', loadDataSourceSummary);
+            list.className = 'source-browser';
+            list.append(retry);
+        } finally {
+            dataSourceLoading = false;
         }
-        dataSourceLoaded = true;
-        const aedRows = data.filter(row => row.facility_type === 'aed');
-        const policeRows = data.filter(row => row.facility_type !== 'aed');
-
-        function rowHtml(row) {
-            const count = Number(row.spot_count || 0).toLocaleString('ja-JP');
-            const label = [row.municipality, row.source_name].filter(Boolean).join('｜') || '公開情報';
-            const link = /^https:\/\//.test(row.source_url || '')
-                ? `<a href="${escapeHtml(row.source_url)}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;text-decoration:none;">${escapeHtml(label)}</a>`
-                : escapeHtml(label);
-            const license = row.source_license ? `｜${escapeHtml(row.source_license)}` : '';
-            return `<div style="padding:8px 0;border-bottom:1px solid #f1f5f9;line-height:1.55;">
-                <div style="font-weight:800;color:#334155;">${link}</div>
-                <div style="color:#64748b;">${formatSourceDate(row.source_date)}現在｜${count}件${license}</div>
-            </div>`;
-        }
-
-        let html = '';
-        if (aedRows.length) {
-            const total = aedRows.reduce((sum,row) => sum + Number(row.spot_count || 0), 0);
-            html += `<div style="font-weight:900;color:#dc2626;margin:4px 0 6px;"><i class="fa-solid fa-heart-pulse"></i> AED（${total.toLocaleString('ja-JP')}件）</div>`;
-            html += aedRows.map(rowHtml).join('');
-        }
-        if (policeRows.length) {
-            const total = policeRows.reduce((sum,row) => sum + Number(row.spot_count || 0), 0);
-            html += `<div style="font-weight:900;color:#1e3a8a;margin:14px 0 6px;"><i class="fa-solid fa-building-shield"></i> 警察署・交番・駐在所（${total.toLocaleString('ja-JP')}件）</div>`;
-            html += policeRows.map(rowHtml).join('');
-        }
-        list.innerHTML = html || '現在、表示できる出典情報はありません。';
     }
 
     function syncFilterChips() {
@@ -4151,6 +4158,8 @@ function shareSpot(title, address, category, event) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
+<script src="mypage-guide.js?v=26-guide1"></script>
+<script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
 <script src="camera-drive-mvp.js?v=25-mvp2"></script>
