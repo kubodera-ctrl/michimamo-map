@@ -1,0 +1,19 @@
+.aed-review-card { background:#fff; border:1px solid #fed7aa; border-radius:12px; padding:12px; margin:10px 0; font-size:.82rem; line-height:1.6; overflow-wrap:anywhere; }
+.aed-review-card summary { cursor:pointer; font-weight:700; color:#9a3412; min-height:32px; }
+.aed-review-card h4 { font-size:.9rem; margin:12px 0 6px; }
+.aed-review-note { color:#475569; font-size:.76rem; margin:6px 0; }
+.aed-review-warning { background:#fff7ed; color:#9a3412; padding:8px; border-radius:8px; }
+.aed-review-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.aed-review-grid section { min-width:0; }
+.aed-review-photo { display:block; width:100%; max-height:340px; object-fit:contain; background:#f1f5f9; border-radius:8px; }
+.aed-review-photo[hidden], .aed-review-card a[hidden] { display:none; }
+.aed-review-map { height:270px; width:100%; border-radius:8px; isolation:isolate; background:#f1f5f9; }
+.aed-review-actions { display:flex; gap:8px; flex-wrap:wrap; margin:10px 0; }
+.aed-review-button { border:1px solid #94a3b8; border-radius:8px; background:white; color:#1e3a5f; padding:10px 12px; min-height:44px; cursor:pointer; font-size:.8rem; font-weight:700; margin:4px 4px 4px 0; }
+.aed-review-button:disabled { opacity:.45; cursor:default; }
+.aed-review-candidates { max-height:330px; overflow:auto; }
+.aed-review-candidate { display:flex; align-items:flex-start; gap:8px; padding:10px 6px; border-bottom:1px solid #e2e8f0; cursor:pointer; font-size:.76rem; }
+.aed-review-card input[type=checkbox], .aed-review-card input[type=radio] { width:20px; height:20px; flex:0 0 20px; margin:3px 0; }
+.aed-review-checks { border:1px solid #cbd5e1; border-radius:8px; padding:10px; margin-top:12px; }
+.aed-review-checks label { display:flex; align-items:flex-start; gap:8px; margin:8px 0; cursor:pointer; }
+@media(max-width:640px) { .aed-review-grid { grid-template-columns:minmax(0,1fr); } .aed-review-map { height:240px; } }
