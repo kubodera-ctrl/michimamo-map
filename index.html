@@ -28,6 +28,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>まちまも MAP - 交通安全情報共有マップ</title>
     <link rel="stylesheet" href="camera-guide.css?v=23-qa2">
+    <link rel="stylesheet" href="camera-capture.css?v=23-capture1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
@@ -435,9 +436,9 @@
                         <div class="ai-status" id="cameraStatus" role="status">無料カメラ・映像確認</div>
                         <button class="btn-close-cam" aria-label="カメラを終了" onclick="stopAIPatrol()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
-                    <div style="position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                        安全な場所で、停車してから操作してください<br>
-                        <span style="font-size:0.85rem; color:#bfdbfe;">現在は映像確認のみ。録画・保存・送信は行いません。<br>AI検知・自動撮影・自動モザイクは準備中です。</span>
+                    <div class="camera-capture-controls">
+                        <button id="cameraShutter" type="button" disabled>撮影して加工する</button>
+                        <p>安全な場所で、停車してから操作してください。<br>手動撮影・手動加工・端末保存のみ。自動検知・自動撮影は準備中です。</p>
                     </div>
                 </div>
             </div>
@@ -2923,7 +2924,7 @@ function shareSpot(title, address, category, event) {
         });
     }
 
-    // Free camera foundation: local preview only; no inference, upload or paid API.
+    // Free camera: local preview and explicit manual capture; no upload or paid API.
     let mediaStream = null;
     let cameraRequestVersion = 0;
     async function startAIPatrol() {
@@ -2935,6 +2936,7 @@ function shareSpot(title, address, category, event) {
         }
         const video = document.getElementById('videoElement');
         const version = ++cameraRequestVersion;
+        window.MachimamoCameraCapture?.setReady(false);
         camView.classList.add('active');
         document.getElementById('cameraStatus').textContent = 'カメラの許可を確認中…';
         try {
@@ -2947,7 +2949,8 @@ function shareSpot(title, address, category, event) {
             video.srcObject = stream;
             await video.play();
             if (version !== cameraRequestVersion) return;
-            document.getElementById('cameraStatus').textContent = '無料カメラ・映像確認';
+            document.getElementById('cameraStatus').textContent = '無料カメラ・手動撮影';
+            window.MachimamoCameraCapture?.setReady(true);
         } catch (error) {
             if (version !== cameraRequestVersion) return;
             stopAIPatrol(false);
@@ -2958,6 +2961,7 @@ function shareSpot(title, address, category, event) {
         const camView = document.getElementById('cameraView');
         const wasActive = camView.classList.contains('active');
         window.MachimamoCameraGuide?.close();
+        window.MachimamoCameraCapture?.reset();
         ++cameraRequestVersion;
         camView.classList.remove('active');
         if (mediaStream) { mediaStream.getTracks().forEach(track => track.stop()); mediaStream = null; }
@@ -4002,6 +4006,7 @@ function shareSpot(title, address, category, event) {
 })();
 </script>
 
-<script src="camera-guide.js?v=23-modes1"></script>
+<script src="camera-guide.js?v=23-capture1"></script>
+<script src="camera-capture.js?v=23-capture1"></script>
 </body>
 </html>
