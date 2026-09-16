@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import {runRetention} from '../supabase/functions/camera-evidence-retention/worker.mjs';
+const uid='11111111-1111-4111-8111-111111111111',id='22222222-2222-4222-8222-222222222222',path=`${uid}/${id}/original.jpg`;
+function mock({remaining=false,removeError=false,resultError=false,batches}={}){const calls=[];let index=0;return {calls,service:{rpc:async(name,args)=>{calls.push([name,args]);if(name==='camera_evidence_cleanup_batch')return {data:(batches||[{token:'t',items:[{id,path}]},{token:'t2',items:[]}])[index++]};if(name==='camera_evidence_cleanup_result')return {error:resultError?{}:null};return {};},storage:{from:bucket=>({remove:async paths=>{calls.push(['remove',bucket,paths]);return {error:removeError?{}:null};},list:async(folder,options)=>{calls.push(['list',folder,options]);return {data:remaining?[{name:'original.jpg'}]:[],error:null};}})}}};}
+let m=mock();assert.deepEqual(await runRetention(m.service),{status:'completed',deleted:1,failed:0,throttled:false});assert.equal(m.calls.find(x=>x[0]==='camera_evidence_cleanup_result')[1].p_success,true);
+m=mock({removeError:true});assert.equal((await runRetention(m.service)).failed,1);assert.equal(m.calls.find(x=>x[0]==='camera_evidence_cleanup_result')[1].p_error_code,'storage_delete_failed');
+m=mock({remaining:true});await runRetention(m.service);assert.equal(m.calls.find(x=>x[0]==='camera_evidence_cleanup_result')[1].p_error_code,'storage_object_remaining');
+m=mock({batches:[{token:'t',items:[{id,path:'not/allowed'}]},{token:'x',items:[]}]});await runRetention(m.service);assert.equal(m.calls.some(x=>x[0]==='remove'),false);
+m=mock({batches:[{token:'t',items:[],throttled:true}]});assert.equal((await runRetention(m.service)).throttled,true);
+await assert.rejects(()=>runRetention(mock({resultError:true}).service),/cleanup_result_failed/);
+console.log('PASS: retention deletes only DB-issued paths, verifies absence, records retry codes, throttles, and stops on result failure.');

@@ -18,7 +18,7 @@ function setup(detection) {
         }
         return el;
     }
-    const ids=['cameraPhotoDetect','cameraPhotoDialog','cameraPhotoCanvas','cameraPhotoChecked','cameraPhotoSave','cameraShutter','cameraPhotoStatus','cameraPhotoUndo','cameraPhotoTime','cameraPhotoSelect','cameraPhotoAll','cameraPhotoMosaic','cameraPhotoSolid','videoElement'];
+    const ids=['cameraPhotoDetect','cameraPhotoDialog','cameraPhotoCanvas','cameraPhotoChecked','cameraPhotoSave','cameraEvidenceConsent','cameraEvidenceSave','cameraShutter','cameraPhotoStatus','cameraPhotoUndo','cameraPhotoTime','cameraPhotoSelect','cameraPhotoAll','cameraPhotoMosaic','cameraPhotoSolid','videoElement'];
     const els=Object.fromEntries(ids.map(id=>[id,element(id==='cameraPhotoCanvas'?'canvas':'div')]));
     const close=element('button'),body=element();
     els.cameraPhotoDialog.querySelector=s=>s==='.photo-close'?close:body;

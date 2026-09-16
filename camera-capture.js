@@ -37,13 +37,14 @@
           <p id="cameraPhotoStatus" role="status" class="photo-note"></p>
           <label class="photo-check"><input type="checkbox" id="cameraPhotoChecked"><span>画像全体を確認し、顔・ナンバーなどの隠し漏れがないことを確認しました</span></label>
           <p class="photo-note">加工画像だけを端末へ保存します。サーバーへの送信・地図への投稿は行いません。閉じる・再読み込み・画面を離れると、未保存の写真と編集内容は破棄されます。</p>
+          <details class="photo-evidence"><summary>元画像を非公開で10日保存する</summary><p class="photo-note">同じ車両の再発確認に備える機能です。元画像は公開されず、通常10日で削除されます。必要な場合だけ管理者が理由を記録して30日保全し、その後は7日以内に延長判断がなければ削除します。</p><label class="photo-check"><input type="checkbox" id="cameraEvidenceConsent"><span>元画像（顔・ナンバーを含む場合があります）の非公開保存と期限後の削除に同意します</span></label><button type="button" id="cameraEvidenceSave" disabled>元画像を非公開で10日保存</button></details>
         </div>
         <footer><button type="button" id="cameraPhotoSave" disabled>加工画像を端末へ保存</button></footer>
       </dialog>`);
     const $ = id => document.getElementById(id);
     const dialog=$('cameraPhotoDialog'), canvas=$('cameraPhotoCanvas'), checked=$('cameraPhotoChecked');
     const detect=$('cameraPhotoDetect');
-    const save=$('cameraPhotoSave'), shutter=$('cameraShutter'), status=$('cameraPhotoStatus');
+    const save=$('cameraPhotoSave'), shutter=$('cameraShutter'), status=$('cameraPhotoStatus'), evidenceConsent=$('cameraEvidenceConsent'), evidenceSave=$('cameraEvidenceSave');
     let state=null, ready=false, pointer=null, tool='mosaic';
     function sync() {
         shutter.disabled=!ready || dialog.open;
@@ -51,6 +52,7 @@
         detect.disabled=!state || state.failed || state.detecting || !root.MachimamoCameraDetection?.supported();
         detect.textContent=root.MachimamoCameraDetection?.supported() ? '顔を検出してモザイク（試験）' : 'この端末は顔検出未対応';
         $('cameraPhotoUndo').disabled=!state || !state.regions.length;
+        evidenceSave.disabled=!state || !evidenceConsent.checked || state.evidenceSaving || state.evidenceSaved;
     }
     function fit() {
         if (!dialog.open) return;
@@ -102,7 +104,7 @@
     function discard() {
         pointer=null;
         if (state) { clearTimeout(state.detectionTimer); if(state.detectionImage)state.detectionImage.width=state.detectionImage.height=1; state.original.width=state.original.height=1;state=null; }
-        canvas.width=canvas.height=1;checked.checked=false;
+        canvas.width=canvas.height=1;checked.checked=false;evidenceConsent.checked=false;
         sync();
     }
     function capture() {
@@ -118,7 +120,7 @@
             const capturedAt=new Date();
             state={original,capturedAt,regions:[{x:0,y:0,width:1,height:1,kind:'mosaic'}],version:0,rendered:false,exporting:false,detecting:false,initialMask:true};
             canvas.width=original.width;canvas.height=original.height;
-            checked.checked=false;pointer=null;
+            checked.checked=false;evidenceConsent.checked=false;pointer=null;
             $('cameraPhotoTime').textContent='撮影日時：'+capturedAt.toLocaleString('ja-JP');
             status.textContent='全体モザイクで表示中です。必要な範囲だけ隠す場合は「範囲を選び直す」を押してください。';
             dialog.showModal();fit();dialog.querySelector('.photo-body').scrollTop=0;paint();sync();
@@ -180,6 +182,18 @@
     function cancelPointer(event) {if(pointer && pointer.id===event.pointerId){pointer=null;paint();}}
     canvas.onpointercancel=cancelPointer;canvas.onlostpointercapture=cancelPointer;
     checked.onchange=sync;
+    evidenceConsent.onchange=sync;
+    evidenceSave.onclick=async()=>{
+        if(!state || !evidenceConsent.checked || state.evidenceSaving || state.evidenceSaved)return;
+        state.evidenceSaving=true;sync();status.textContent='非公開の保存領域へ送信中です…';
+        try{
+            await root.MachimamoCameraEvidence.saveOriginal(state.original);
+            state.evidenceSaved=true;evidenceConsent.checked=false;
+            status.textContent='元画像を非公開で保存しました。通常10日後に削除されます。マイページから早期削除も申請できます。';
+        }catch(error){
+            status.textContent=error?.message==='login_required'?'保存にはLINEログインが必要です。':'非公開保存を完了できませんでした。もう一度お試しください。';
+        }finally{if(state){state.evidenceSaving=false;sync();}}
+    };
     save.onclick=()=>{
         if(!state || !state.rendered || !checked.checked || pointer || state.exporting || state.detecting)return;
         const snapshot=state,version=state.version;
