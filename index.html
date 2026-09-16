@@ -169,11 +169,10 @@
 
         .gps-marker { width: 18px; height: 18px; background-color: #1f6feb; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.4); position: relative; }
         .safety-cluster { background: transparent; border: 0; }
-        .safety-cluster-badge { box-sizing: border-box; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 3px solid white; border-radius: 50%; color: white; background: #1d4ed8; box-shadow: 0 0 0 5px rgba(59,130,246,.25), 0 2px 7px rgba(0,0,0,.25); font-family: inherit; }
-        .safety-cluster--aed .safety-cluster-badge { background: #dc2626; box-shadow: 0 0 0 5px rgba(239,68,68,.25), 0 2px 7px rgba(0,0,0,.25); }
-        .safety-cluster--kodomo_110 .safety-cluster-badge { background: #047857; box-shadow: 0 0 0 5px rgba(16,185,129,.25), 0 2px 7px rgba(0,0,0,.25); }
-        .safety-cluster-label { font-size: 10px; font-weight: 800; line-height: 12px; white-space: nowrap; }
-        .safety-cluster-count { font-size: 16px; font-weight: 900; line-height: 19px; font-variant-numeric: tabular-nums; }
+        .safety-cluster-badge { box-sizing: border-box; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; color: #173b70; background: radial-gradient(circle closest-side, rgba(147,197,253,.78) 0%, rgba(147,197,253,.72) 58%, rgba(147,197,253,.26) 82%, rgba(147,197,253,0) 100%); font-family: inherit; }
+        .safety-cluster--aed .safety-cluster-badge { color: #7f1d1d; background: radial-gradient(circle closest-side, rgba(252,165,165,.78) 0%, rgba(252,165,165,.72) 58%, rgba(252,165,165,.26) 82%, rgba(252,165,165,0) 100%); }
+        .safety-cluster--kodomo_110 .safety-cluster-badge { color: #14532d; background: radial-gradient(circle closest-side, rgba(134,239,172,.78) 0%, rgba(134,239,172,.72) 58%, rgba(134,239,172,.26) 82%, rgba(134,239,172,0) 100%); }
+        .safety-cluster-count { font-size: 16px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
         .gps-marker::after { content: ""; position: absolute; top: -4px; left: -4px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #1f6feb; opacity: 0; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
 
@@ -1874,10 +1873,10 @@ function shareSpot(title, address, category, event) {
     function createSafetyClusterIcon(category, cluster) {
         const labels = { police_station: '警察署', koban: '交番', chuzaisho: '駐在所', aed: 'AED', kodomo_110: '110番' };
         const count = cluster.getChildCount();
-        const size = count >= 1000 ? 60 : count >= 100 ? 54 : 46;
+        const size = count >= 1000 ? 52 : count >= 100 ? 46 : 40;
         const label = labels[category];
         return L.divIcon({
-            html: `<div class="safety-cluster-badge" role="img" aria-label="${label} ${count}件"><span class="safety-cluster-label">${label}</span><span class="safety-cluster-count">${count}</span></div>`,
+            html: `<div class="safety-cluster-badge" role="img" aria-label="${label} ${count}件" title="${label} ${count}件"><span class="safety-cluster-count">${count}</span></div>`,
             className: `safety-cluster safety-cluster--${category}`,
             iconSize: L.point(size, size)
         });
