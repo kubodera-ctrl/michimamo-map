@@ -359,6 +359,7 @@
         }
     </style>
     <link rel="stylesheet" href="nearby-safety.css">
+    <link rel="stylesheet" href="aed-review.css">
     <link rel="stylesheet" href="map-menu.css">
 </head>
 <body>
@@ -1073,6 +1074,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="map-viewport.js"></script>
+<script src="aed-review.js"></script>
 <script>
     let myUserId = localStorage.getItem('michimamo_user_id') || null;
     let currentAuthUserId = null;
@@ -1801,14 +1803,18 @@ function shareSpot(title, address, category, event) {
         }).join('');
     }
 
+    let adminDashboardRequest = 0;
     async function loadAdminDashboard() {
         const password = getAdminPassword(); if (!password) return;
+        const request = ++adminDashboardRequest;
+        const authUser = currentAuthUserId;
         const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }] = await Promise.all([
             db.rpc('admin_get_dashboard', { p_password: password }),
             db.rpc('admin_get_statistics', { p_password: password }),
             db.rpc('admin_get_aed_submissions', { p_password: password }),
             db.rpc('admin_get_moderation_appeals', { p_password: password })
         ]);
+        if (request !== adminDashboardRequest || authUser !== currentAuthUserId) return;
         if (error || statsError || aedError || appealsError || !data || !statsData) {
             const message = error?.message || statsError?.message || aedError?.message || appealsError?.message || '';
             showToast(message.includes('invalid_password') ? 'パスワードが違います' : message.includes('admin_required') || message.includes('authentication_required') ? '管理者権限を確認できません' : '管理データの取得に失敗しました'); return;
@@ -1850,38 +1856,28 @@ function shareSpot(title, address, category, event) {
         document.getElementById('adminAuditArea').innerHTML = audit.length ? audit.map(x => `<div style="padding:7px 0;border-bottom:1px solid #dbe5df;font-size:.72rem;"><strong>${escapeHtml(labels[x.action] || x.action)}</strong>・${escapeHtml(x.target_type)} ${escapeHtml(x.target_id)}<div class="muted" style="font-size:.65rem;">${formatHistoryDate(x.created_at)}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">操作履歴はありません。</div>';
     }
 
+    let adminAedReview = null;
     async function renderAdminAedSubmissions(rows) {
-        const target = document.getElementById('adminAedSubmissionArea');
-        if (!rows.length) { target.innerHTML = '<div class="muted" style="font-size:.75rem;">審査待ちのAED投稿はありません。</div>'; return; }
-        const cards = await Promise.all(rows.map(async x => {
-            const { data: signed } = await db.storage.from('aed-submission-images').createSignedUrl(x.photo_object_path, 600);
-            const flags = Array.isArray(x.fraud_flags) && x.fraud_flags.length ? x.fraud_flags.join(' / ') : 'なし';
-            const nearby = Array.isArray(x.nearby_candidate_ids) && x.nearby_candidate_ids.length ? x.nearby_candidate_ids.join(', ') : 'なし';
-            return `<div style="background:white;border:1px solid #fed7aa;padding:10px;border-radius:9px;margin-bottom:8px;font-size:.73rem;line-height:1.5;">
-                <div><strong>${escapeHtml(x.facility_name)}</strong>　<span style="color:#9a3412;">${escapeHtml(x.status)}</span></div>
-                <div>${escapeHtml(x.address)}<br>設置場所：${escapeHtml(x.installation_location)}</div>
-                <div class="muted" style="font-size:.65rem;margin-top:4px;">GPS精度 ${Math.round(Number(x.gps_accuracy_m))}m・周辺候補ID ${escapeHtml(nearby)}・検知 ${escapeHtml(flags)}・${formatHistoryDate(x.created_at)}</div>
-                ${signed?.signedUrl ? `<a href="${escapeHtml(signed.signedUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:6px 0;color:#c2410c;font-weight:bold;">投稿写真を10分間表示</a>` : '<div style="color:#b91c1c;">写真URLを発行できません</div>'}
-                <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;">
-                    ${adminButton('新規承認 +30pt', `reviewAedSubmission('${x.id}','approved_new',null)`, '#15803d')}
-                    ${adminButton('掲載済み 0pt', `reviewAedSubmission('${x.id}','approved_existing',${x.matched_safety_spot_id ? Number(x.matched_safety_spot_id) : 'null'})`, '#1d4ed8')}
-                    ${adminButton('要修正', `reviewAedSubmission('${x.id}','needs_changes',null)`, '#92400e')}
-                    ${adminButton('却下', `reviewAedSubmission('${x.id}','rejected',null)`, '#b91c1c')}
-                </div></div>`;
-        }));
-        target.innerHTML = cards.join('');
+        if (!adminAedReview) {
+            adminAedReview = MachimamoAedReview.create({
+                db, L, target: document.getElementById('adminAedSubmissionArea'),
+                review: reviewAedSubmission, formatDate: formatHistoryDate
+            });
+        }
+        adminAedReview.render(rows);
     }
 
     async function reviewAedSubmission(submissionId, decision, existingSpotId) {
         const password = getAdminPassword(); if (!password) return;
         if (decision === 'approved_existing' && !existingSpotId) {
-            const input = prompt('対応する掲載済みAEDのIDを入力してください');
-            if (!input || !/^\d+$/.test(input)) return;
-            existingSpotId = Number(input);
+            showToast('候補一覧から対応する掲載済みAEDを選択してください');
+            return;
         }
         const labels = {approved_new:'新規AEDとして承認し、投稿者へ30ptを付与',approved_existing:'掲載済みAEDの確認記録として0ptで承認',needs_changes:'要修正として差し戻し',rejected:'却下'};
         if (!confirm(`${labels[decision]}しますか？この操作は審査履歴に保存されます。`)) return;
-        const notes = prompt('審査メモ（任意）') || null;
+        const notesInput = prompt('審査メモ（任意・キャンセルで審査を中止）');
+        if (notesInput === null) return;
+        const notes = notesInput.trim() || null;
         const { data, error } = await db.rpc('admin_review_aed_submission_secure', {
             p_password: password, p_submission_id: submissionId, p_decision: decision,
             p_existing_safety_spot_id: existingSpotId, p_review_notes: notes
@@ -3798,6 +3794,8 @@ function shareSpot(title, address, category, event) {
             if (adminCard) adminCard.style.display = 'none';
             if (adminArea) adminArea.style.display = 'none';
             if (adminPassword) adminPassword.value = '';
+            adminDashboardRequest++;
+            if (adminAedReview) adminAedReview.clear();
             loadLineOfficialSettings();
         }
     }
