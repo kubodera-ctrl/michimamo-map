@@ -3129,7 +3129,7 @@ function shareSpot(title, address, category, event) {
                 updateMyPage();
             }
             document.getElementById('resultEarnPt').innerText = quizReceipt.already_claimed
-                ? '本日のクイズポイントは獲得済みです（練習は何度でもできます）'
+                ? '本日のクイズポイントは獲得済みです。\nテストを振り返って、交通ルールをしっかり覚えよう！'
                 : `獲得した安全ポイント: +${Number(quizReceipt.awarded)}pt`;
         }
 
