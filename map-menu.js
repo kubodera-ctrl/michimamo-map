@@ -9,7 +9,7 @@
             <button class="map-menu-item" type="button" data-map-action="wbgt"><i class="fa-solid fa-sun" aria-hidden="true"></i><span>WBGT予報</span></button>
             <button class="map-menu-item" type="button" data-map-action="aed"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i><span>近くのAED</span></button>
             <button class="map-menu-item" type="button" data-map-action="police"><i class="fa-solid fa-house" aria-hidden="true"></i><span>近くの交番</span></button>
-            <button class="map-menu-item" type="button" data-map-action="camera"><i class="fa-solid fa-camera" aria-hidden="true"></i><span>無料カメラ（準備中）</span></button>
+            <button class="map-menu-item" type="button" data-map-action="camera"><i class="fa-solid fa-camera" aria-hidden="true"></i><span>AIカメラ</span></button>
           </div>
         </div>
       </div>`);

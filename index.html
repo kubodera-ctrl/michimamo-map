@@ -435,7 +435,8 @@
                     <button id="cameraHelpButton" class="camera-help-button" type="button" aria-haspopup="dialog" aria-controls="cameraGuideDialog" aria-expanded="false" onclick="MachimamoCameraGuide.open()">Q&amp;A</button>
                     <div class="camera-ui-top">
                         <div>
-                            <div class="ai-status" id="cameraStatus" role="status">無料カメラ・映像確認</div>
+                            <div id="cameraPlanLabel" style="display:inline-block;padding:2px 7px;margin-bottom:5px;border-radius:8px;background:#ffffffdc;color:#17385d;font-size:11px;font-weight:600;line-height:1.4;text-shadow:none;">無料版</div>
+                            <div class="ai-status" id="cameraStatus" role="status">映像確認</div>
                             <div class="camera-mode-switch" role="group" aria-label="撮影モード">
                                 <button id="cameraModeWalk" type="button" aria-pressed="true" onclick="setCameraMode('walk')"><i class="fa-solid fa-person-walking"></i> 散歩</button>
                                 <button id="cameraModeDrive" type="button" aria-pressed="false" onclick="setCameraMode('drive')"><i class="fa-solid fa-car"></i> 車載</button>
@@ -3966,7 +3967,7 @@ function shareSpot(title, address, category, event) {
 
 <script src="wbgt.js"></script>
 <script src="nearby-safety.js"></script>
-<script src="map-menu.js?v=23-free-camera"></script>
+<script src="map-menu.js?v=24-ai-camera"></script>
 
 
 
