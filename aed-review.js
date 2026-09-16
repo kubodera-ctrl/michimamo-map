@@ -6,7 +6,7 @@
         return lat !== null && lat !== '' && lng !== null && lng !== '' &&
             Number.isFinite(Number(lat)) && Number.isFinite(Number(lng)) && Math.abs(Number(lat)) <= 90 && Math.abs(Number(lng)) <= 180;
     }
-    function create({ db, L, target, review, formatDate }) {
+    function create({ db, L, target, review, formatDate, getPassword }) {
         let generation = 0;
         const maps = new Set();
         function node(tag, text, className) {
@@ -53,7 +53,7 @@
             content.append(node('p', `投稿者：${row.user_name || '名称未設定'} / ${formatDate(row.created_at)} / GPS精度：${accuracyText}`, 'aed-review-note'));
             const warnings = Array.isArray(row.fraud_flags) ? row.fraud_flags : [];
             content.append(node('p', warnings.length ? '自動チェックの注意：' + warnings.map(f => flags[f] || f).join('・') : '自動チェックの注意：なし（正確性を保証するものではありません）', 'aed-review-warning'));
-            content.append(node('p', '画像AI：未実施。AED本体・個人情報の写り込みは写真を目視で確認してください。', 'aed-review-note'));
+            content.append(node('p', '画像AIは確認補助です。AED本体・個人情報の写り込みは写真を目視で確認してください。', 'aed-review-note'));
             const grid = node('div', undefined, 'aed-review-grid'); content.append(grid);
             const photoBox = node('section'); grid.append(photoBox);
             photoBox.append(node('h4', '投稿写真（非公開）'));
@@ -63,6 +63,7 @@
             const photoLink = node('a', '写真を別画面で確認'); photoLink.target = '_blank'; photoLink.rel = 'noopener noreferrer'; photoLink.hidden = true;
             const refreshPhoto = button('写真を再取得', loadPhoto);
             photoBox.append(photo, photoStatus, photoLink, refreshPhoto);
+            if (root.MachimamoAedImageAI) root.MachimamoAedImageAI.mount({ db, getPassword, submissionId: row.id, image: photo, target: photoBox, alive });
             const locationBox = node('section'); grid.append(locationBox);
             locationBox.append(node('h4', '投稿位置と掲載済みAED'), node('p', '青：投稿位置・GPS精度の目安 / 赤：掲載済みAED', 'aed-review-note'));
             const mapBox = node('div', undefined, 'aed-review-map'); mapBox.setAttribute('aria-label', 'AED審査用の位置比較地図'); locationBox.append(mapBox);
