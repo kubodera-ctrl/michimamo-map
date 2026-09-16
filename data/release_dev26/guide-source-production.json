@@ -1,0 +1,30 @@
+{
+  "commit": "e8ed4e947666cc5ce2d3d59cd2ae1190d5106290",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "1ff6ac532f3b380c240f26dd8eb587433c0ffcdab1e6e692ebb4e632552d5f78",
+      "matches_local": true
+    },
+    {
+      "path": "mypage-guide.css",
+      "status": 200,
+      "sha256": "2c26c2ade7987cb741af371b44a4d5bfab5382fea3973b3813d362c135474936",
+      "matches_local": true
+    },
+    {
+      "path": "mypage-guide.js",
+      "status": 200,
+      "sha256": "238fe7b5fa061500a0c5db80233eb8c4d598d6810738d51f7972f5cc0836c0e1",
+      "matches_local": true
+    },
+    {
+      "path": "source-browser.js",
+      "status": 200,
+      "sha256": "f710410f3524b40e7725d55ad74d70671cc9b6deb927b35f0e1d64d9c28a8bd7",
+      "matches_local": true
+    }
+  ],
+  "note": "HTTP contents only; not browser or physical device validation"
+}
