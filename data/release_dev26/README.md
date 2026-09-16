@@ -178,3 +178,9 @@
 3. 写真の期限削除E2Eは専用テストデータで別途実施。確認のために実投稿の日時を変更しない。
 
 - 最終security advisors：内部deny-all表のINFO 22、既存WARNは公開RPC 3・認証RPC 29・漏洩パスワード保護 1で増加なし。警告ゼロとはしていない。
+
+### AED再審査の本番反映
+
+- GitHub main 機能コミット `9d3f461cf013a33b80c78b9444f5ad552214e7ee`。Vercel successを確認。
+- 本番HTMLとプライバシーのHTTP 200・SHA-256一致を確認（`aed-reconsideration-production.json`）。実機確認とは区別する。
+- 最終の一度限り認証でも定期起動関数からHTTP 200、claimed/deleted/failed=0を確認。DB試験・ワーカー試験の結果と合わせ、実データの試験削除なし。

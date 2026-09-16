@@ -1,0 +1,20 @@
+{
+  "commit": "9d3f461cf013a33b80c78b9444f5ad552214e7ee",
+  "files": [
+    {
+      "path": "index.html",
+      "http_status": 200,
+      "sha256": "d35e676f1efb54ee0420d82929ff5839728585394c08251a3db8138c4a6cf679",
+      "matches_local": true
+    },
+    {
+      "path": "privacy.html",
+      "http_status": 200,
+      "sha256": "00489223d6556ef334403130eeefb39784e64679d3c73fe8a05efd1171845a56",
+      "matches_local": true
+    }
+  ],
+  "edge": "aed-retention v2",
+  "scheduler": "17 * * * * active; same invocation function tested HTTP 200, deleted=0",
+  "note": "No smartphone browser or real-image deletion E2E performed"
+}
