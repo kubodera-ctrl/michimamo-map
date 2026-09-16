@@ -3,7 +3,7 @@ const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const path=require('node:path');
 const source=fs.readFileSync(path.join(__dirname,'../camera-capture.js'),'utf8');
-function setup() {
+function setup(detection) {
     const blobs=[],downloads=[],canvases=[],handlers={};
     function element(tag='div') {
         const el={tag,style:{},listeners:{},attrs:{},width:1,height:1,scrollTop:0,disabled:false,checked:false,open:false,
@@ -18,14 +18,14 @@ function setup() {
         }
         return el;
     }
-    const ids=['cameraPhotoDialog','cameraPhotoCanvas','cameraPhotoChecked','cameraPhotoSave','cameraShutter','cameraPhotoStatus','cameraPhotoUndo','cameraPhotoTime','cameraPhotoSelect','cameraPhotoAll','cameraPhotoMosaic','cameraPhotoSolid','videoElement'];
+    const ids=['cameraPhotoDetect','cameraPhotoDialog','cameraPhotoCanvas','cameraPhotoChecked','cameraPhotoSave','cameraShutter','cameraPhotoStatus','cameraPhotoUndo','cameraPhotoTime','cameraPhotoSelect','cameraPhotoAll','cameraPhotoMosaic','cameraPhotoSolid','videoElement'];
     const els=Object.fromEntries(ids.map(id=>[id,element(id==='cameraPhotoCanvas'?'canvas':'div')]));
     const close=element('button'),body=element();
     els.cameraPhotoDialog.querySelector=s=>s==='.photo-close'?close:body;
     Object.assign(els.videoElement,{readyState:2,videoWidth:1920,videoHeight:1080,srcObject:{}});
     const document={body:{insertAdjacentHTML(){},append(){}},documentElement:{},hidden:false,getElementById:id=>els[id],createElement:element};
-    const window={innerWidth:390,innerHeight:700,addEventListener:(n,f)=>handlers[n]=f};
-    const context={window,document,getComputedStyle:()=>({zoom:'1'}),MutationObserver:class{observe(){}},URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},setTimeout(){}};
+    const window={MachimamoCameraDetection:detection,innerWidth:390,innerHeight:700,addEventListener:(n,f)=>handlers[n]=f};
+    const context={window,document,getComputedStyle:()=>({zoom:'1'}),MutationObserver:class{observe(){}},URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},setTimeout(){},clearTimeout(){}};
     vm.runInNewContext(source,context);
     return {api:window.MachimamoCameraCapture,math:window.MachimamoCameraPrivacy,els,document,blobs,downloads,canvases,close};
 }
@@ -60,3 +60,30 @@ assert.equal(broken.els.cameraPhotoSave.disabled,true,'draw failure must not ena
 broken.els.cameraPhotoChecked.checked=true;broken.els.cameraPhotoChecked.onchange();assert.equal(broken.els.cameraPhotoSave.disabled,true);
 broken.els.cameraPhotoAll.onclick();broken.els.cameraPhotoSave.onclick();assert.equal(broken.blobs.length,0);
 console.log('PASS: capture readiness/double tap, resizing, review gate, protected overlap source, manual solid mask, stale export denial, close cleanup, background guard, draw failure. Browser rendering/touch/download require real-device verification.');
+
+(async()=>{
+    let resolve;
+    const s=setup({supported:()=>true,detectFaces:()=>new Promise(r=>resolve=r)}), e=s.els;
+    s.api.setReady(true);s.api.capture();
+    const pending=e.cameraPhotoDetect.onclick();
+    e.cameraPhotoChecked.checked=true;e.cameraPhotoChecked.onchange();
+    assert.equal(e.cameraPhotoSave.disabled,true,'no export during detection');
+    resolve([{x:.1,y:.1,width:.2,height:.2,kind:'mosaic'}]);await pending;
+    assert.equal(e.cameraPhotoChecked.checked,false,'candidate application requires fresh review');
+    assert.match(e.cameraPhotoStatus.textContent,/1件/);
+    const next=e.cameraPhotoDetect.onclick();e.cameraPhotoAll.onclick();
+    const message=e.cameraPhotoStatus.textContent;
+    resolve([{x:.4,y:.4,width:.1,height:.1,kind:'mosaic'}]);await next;
+    assert.equal(e.cameraPhotoStatus.textContent,message,'late result does not overwrite manual edits');
+    const closing=e.cameraPhotoDetect.onclick();s.api.reset();resolve([]);await closing;
+    assert.equal(e.cameraPhotoCanvas.width,1,'closing while detection is pending releases pixels');
+    const fail=setup({supported:()=>true,detectFaces:async()=>{throw Error('unavailable');}});
+    fail.api.setReady(true);fail.api.capture();await fail.els.cameraPhotoDetect.onclick();
+    assert.match(fail.els.cameraPhotoStatus.textContent,/現在の加工を残/);
+    assert.equal(fail.els.cameraPhotoSave.disabled,true);
+    const empty=setup({supported:()=>true,detectFaces:async()=>[]});
+    empty.api.setReady(true);empty.api.capture();await empty.els.cameraPhotoDetect.onclick();
+    assert.match(empty.els.cameraPhotoStatus.textContent,/見落とし/);
+    assert.ok(empty.els.cameraPhotoCanvas.ops.some(op=>op[0]==='draw' && op.at(-2)===1600 && op.at(-1)===900),'zero detections preserves full mask');
+    console.log('PASS: async face masks, review invalidation, stale edit/close results, unsupported/failed/empty detection fallback.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

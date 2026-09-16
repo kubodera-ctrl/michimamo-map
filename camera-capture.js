@@ -21,9 +21,10 @@
         <div class="photo-body">
           <p id="cameraPhotoTime" class="photo-note"></p>
           <p><strong>最初は画像全体にモザイクをかけています。</strong></p>
-          <p class="photo-note">自動の顔・ナンバー検出はまだありません。「範囲を選び直す」で元画像を表示し、隠す場所を指で囲んでください。確実に隠したい場所には「黒塗り」を使えます。</p>
+          <p class="photo-note">対応端末では「顔を検出してモザイク」を試せます。ナンバーは未対応です。「範囲を選び直す」で元画像を表示し、隠す場所を指で囲んでください。確実に隠したい場所には「黒塗り」を使えます。</p>
           <div class="photo-tools">
             <button type="button" id="cameraPhotoSelect">範囲を選び直す</button>
+            <button type="button" id="cameraPhotoDetect">顔を検出してモザイク（試験）</button>
             <button type="button" id="cameraPhotoAll">全体モザイク</button>
             <button type="button" id="cameraPhotoUndo">1つ戻す</button>
           </div>
@@ -41,11 +42,14 @@
       </dialog>`);
     const $ = id => document.getElementById(id);
     const dialog=$('cameraPhotoDialog'), canvas=$('cameraPhotoCanvas'), checked=$('cameraPhotoChecked');
+    const detect=$('cameraPhotoDetect');
     const save=$('cameraPhotoSave'), shutter=$('cameraShutter'), status=$('cameraPhotoStatus');
     let state=null, ready=false, pointer=null, tool='mosaic';
     function sync() {
         shutter.disabled=!ready || dialog.open;
-        save.disabled=!state || !state.rendered || !checked.checked || !!pointer || state.exporting;
+        save.disabled=!state || !state.rendered || !checked.checked || !!pointer || state.exporting || state.detecting;
+        detect.disabled=!state || state.failed || state.detecting || !root.MachimamoCameraDetection?.supported();
+        detect.textContent=root.MachimamoCameraDetection?.supported() ? '顔を検出してモザイク（試験）' : 'この端末は顔検出未対応';
         $('cameraPhotoUndo').disabled=!state || !state.regions.length;
     }
     function fit() {
@@ -97,7 +101,7 @@
     }
     function discard() {
         pointer=null;
-        if (state) { state.original.width=state.original.height=1;state=null; }
+        if (state) { clearTimeout(state.detectionTimer); if(state.detectionImage)state.detectionImage.width=state.detectionImage.height=1; state.original.width=state.original.height=1;state=null; }
         canvas.width=canvas.height=1;checked.checked=false;
         sync();
     }
@@ -112,7 +116,7 @@
             const ctx=original.getContext('2d'); if(!ctx)throw Error('canvas_unavailable');
             ctx.drawImage(video,0,0,original.width,original.height);
             const capturedAt=new Date();
-            state={original,capturedAt,regions:[{x:0,y:0,width:1,height:1,kind:'mosaic'}],version:0,rendered:false,exporting:false};
+            state={original,capturedAt,regions:[{x:0,y:0,width:1,height:1,kind:'mosaic'}],version:0,rendered:false,exporting:false,detecting:false,initialMask:true};
             canvas.width=original.width;canvas.height=original.height;
             checked.checked=false;pointer=null;
             $('cameraPhotoTime').textContent='撮影日時：'+capturedAt.toLocaleString('ja-JP');
@@ -125,9 +129,39 @@
     shutter.onclick=capture;
     dialog.querySelector('.photo-close').onclick=()=>dialog.close();
     dialog.addEventListener('close',discard);
-    $('cameraPhotoSelect').onclick=()=>{if(state){pointer=null;state.regions=[];edited();}};
+    $('cameraPhotoSelect').onclick=()=>{if(state){pointer=null;state.initialMask=false;state.regions=[];edited();}};
     $('cameraPhotoAll').onclick=()=>{if(state){pointer=null;state.regions.push({x:0,y:0,width:1,height:1,kind:'mosaic'});edited();}};
-    $('cameraPhotoUndo').onclick=()=>{if(state){pointer=null;state.regions.pop();edited();}};
+    $('cameraPhotoUndo').onclick=()=>{if(state){pointer=null;state.regions.pop();state.initialMask=false;edited();}};
+    detect.onclick=async()=>{
+        if(!state || state.failed || state.detecting || pointer || !root.MachimamoCameraDetection?.supported())return;
+        const snapshot=state,version=++state.version;
+        checked.checked=false;state.detecting=true;sync();
+        status.textContent='端末内で顔を確認中です。ナンバーは検出しません。';
+        let image;
+        try {
+            image=document.createElement('canvas');image.width=state.original.width;image.height=state.original.height;
+            state.detectionImage=image;
+            const ctx=image.getContext('2d');if(!ctx)throw Error('canvas_unavailable');
+            ctx.drawImage(state.original,0,0);
+            const result=await Promise.race([
+                root.MachimamoCameraDetection.detectFaces(image),
+                new Promise((_,reject)=>{snapshot.detectionTimer=setTimeout(()=>reject(Error('timeout')),8000);})
+            ]);
+            if(state!==snapshot || state.version!==version || !dialog.open || document.hidden)return;
+            if(!result.length){status.textContent='顔の候補は見つかりませんでした。見落としの可能性があるため、画像全体を確認して手動で隠してください。';return;}
+            // Explicit request may replace ONLY the initial full-frame mask; preserve all user masks.
+            if(state.initialMask){state.regions.shift();state.initialMask=false;}
+            state.regions.push(...result);edited();
+            status.textContent='顔の候補 '+result.length+'件にモザイクを追加しました。ナンバーや顔の見落としは手動で隠してください。';
+        }catch(_){
+            if(state===snapshot && state.version===version)status.textContent='この端末では顔検出を完了できませんでした。現在の加工を残しています。手動で範囲を指定してください。';
+        }finally{
+            clearTimeout(snapshot.detectionTimer);
+            if(image)image.width=image.height=1;
+            snapshot.detectionImage=null;snapshot.detecting=false;
+            if(state===snapshot)sync();
+        }
+    };
     function choose(next) {tool=next;$('cameraPhotoMosaic').setAttribute('aria-pressed',String(next==='mosaic'));$('cameraPhotoSolid').setAttribute('aria-pressed',String(next==='solid'));}
     $('cameraPhotoMosaic').onclick=()=>choose('mosaic');$('cameraPhotoSolid').onclick=()=>choose('solid');
     const point=event=>normalizedPoint(event.clientX,event.clientY,canvas.getBoundingClientRect());
@@ -147,7 +181,7 @@
     canvas.onpointercancel=cancelPointer;canvas.onlostpointercapture=cancelPointer;
     checked.onchange=sync;
     save.onclick=()=>{
-        if(!state || !state.rendered || !checked.checked || pointer || state.exporting)return;
+        if(!state || !state.rendered || !checked.checked || pointer || state.exporting || state.detecting)return;
         const snapshot=state,version=state.version;
         state.exporting=true;paint();
         if(!state.rendered){state.exporting=false;sync();return;}
