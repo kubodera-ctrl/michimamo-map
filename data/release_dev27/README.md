@@ -44,4 +44,5 @@
 ## 本番反映
 
 - DB migration: `20260917002422_quiz_stamps_dev27.sql`（本番履歴 `20260917002422 quiz_stamps_dev27`、適用・件数確認済み）
-- Git/Vercel: 反映後にコミットと本番URLの確認結果を追記する。
+- GitHub main: `1d4815082849c5c85330a0736122b37ac547cecb`。
+- Vercel: `https://machimamo-map.vercel.app/` HTTP 200。本番 `index.html` とローカルの SHA-256 は `c968ccc3ce880ee6a8388e6eb94665cf599d56d69ccc8ac6a3dcfba0a26815b2` で一致。週間クイズスタンプ、EXTRA、換金・交換未提供、新規AED累積スタンプの表示を確認。スマートフォン実機操作とは区別する。
