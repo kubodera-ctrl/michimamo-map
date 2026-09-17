@@ -7,11 +7,14 @@ let result=core.process([car(20),car(410)],w,h,0,{egoSpeedKmh:20});assert.equal(
 result=core.process([car(30),car(510)],w,h,1000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'only shoulder vehicle becomes a stable candidate');
 assert.equal(result.newCandidates[0].class,'car');
 assert.equal(result.newCandidates[0].classification,'roadside','flowing ego and central traffic raises roadside classification');
+assert.equal(result.visuals.length,2,'at most detected matched vehicles are exposed to the lightweight scope layer');
+assert.equal(result.visuals[0].state,'recorded','a newly recorded roadside candidate receives the orange scope state');
 result=core.process([car(35)],w,h,2000,{egoSpeedKmh:20});assert.equal(result.duplicates.length,1,'same short-lived track is a duplicate');
 core.process([car(40)],w,h,32000,{egoSpeedKmh:20});result=core.process([car(45)],w,h,33000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'candidate can recur after 30-second cooldown after a fresh stable pair');
 const moving=new Core();moving.process([car(20)],w,h,0);result=moving.process([car(300)],w,h,1000);assert.equal(result.newCandidates.length,0,'large relative movement is not a stopped candidate');
 const passing=new Core();passing.process([car(20)],w,h,0,{egoSpeedKmh:20});result=passing.process([car(300)],w,h,500,{egoSpeedKmh:20});assert.equal(result.newCandidates[0].classification,'roadside','fast edge transit while ego vehicle is moving remains a roadside candidate');
 const braking=new Core();braking.process([{...car(20),brakeLightsLikely:true}],w,h,0,{egoSpeedKmh:20});result=braking.process([{...car(30),brakeLightsLikely:true}],w,h,500,{egoSpeedKmh:20});assert.equal(result.newCandidates[0].classification,'indeterminate');assert.equal(result.newCandidates[0].reason,'paired_bright_brake_lights_suppressed');
+assert.equal(result.visuals[0].state,'traffic','brake-light suppression uses the blue traffic scope');
 const low=new Core();low.process([{...car(20),score:.2}],w,h,0);result=low.process([{...car(25),score:.2}],w,h,1000);assert.equal(result.newCandidates.length,0,'low confidence is rejected');
 const jam=new Core();jam.process([car(20),car(410)],w,h,0,{egoSpeedKmh:2});result=jam.process([car(25),car(415)],w,h,1000,{egoSpeedKmh:2});assert.equal(result.newCandidates[0].classification,'congestion');
 const signal=new Core(),light={class:'traffic light',score:.8,bbox:[480,40,30,70]};signal.process([car(20),car(410),light],w,h,0,{egoSpeedKmh:0});result=signal.process([car(25),car(415),light],w,h,1000,{egoSpeedKmh:0});assert.equal(result.newCandidates[0].classification,'signal_wait');
