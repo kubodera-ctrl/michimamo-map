@@ -16,6 +16,12 @@ legend.textContent='白:車両　黄:路肩　橙:記録　青:停車待ち';
 legend.hidden=true;
 view.insertBefore(layer,view.firstChild.nextSibling);
 view.insertBefore(legend,layer.nextSibling);
+const counter=document.createElement('div');
+counter.className='camera-detection-count';
+counter.setAttribute('role','status');
+counter.setAttribute('aria-live','polite');
+counter.innerHTML='<span aria-hidden="true"></span>検知台数 0台';
+view.appendChild(counter);
 
 const oldNote=controls.querySelector('p');
 const notice=document.createElement('div');
@@ -65,10 +71,14 @@ function renderScopes(items,sourceWidth,sourceHeight){
   legend.hidden=!shown.length||heat==='strong';
 }
 function clearScopes(){layer.replaceChildren();legend.hidden=true;}
+function setDetectionCount(value){
+  const count=Math.max(0,Number(value)||0);
+  counter.innerHTML=`<span aria-hidden="true"></span>検知台数 ${count}台`;
+}
 function setHeatMode(next){
   heat=['medium','strong'].includes(next)?next:'normal';
   document.body.classList.toggle('camera-heat-medium',heat==='medium');
   document.body.classList.toggle('camera-heat-strong',heat==='strong');
 }
-root.MachimamoCameraSafeUi={renderScopes,clearScopes,setHeatMode};
+root.MachimamoCameraSafeUi={renderScopes,clearScopes,setDetectionCount,setHeatMode};
 })(window);
