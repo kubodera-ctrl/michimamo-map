@@ -15,7 +15,7 @@
             for(const detection of detections){
                 let best=null,bestDistance=Infinity;
                 for(const track of this.tracks){if(used.has(track.id)||track.class!==detection.class)continue;const d=delta(track.point,detection.point,width,height);if(d<.34&&d<bestDistance){best=track;bestDistance=d;}}
-                if(!best){best={id:this.nextId++,class:detection.class,point:detection.point,lastAt:at,hits:1,stableHits:0,transitHits:0,emittedAt:null,side:detection.side};this.tracks.push(best);used.add(best.id);freshVisuals.push({bbox:detection.bbox,state:'vehicle',detection});continue;}
+                if(!best){best={id:this.nextId++,class:detection.class,point:detection.point,lastAt:at,hits:1,stableHits:0,transitHits:0,emittedAt:null,side:detection.side,counted:false};this.tracks.push(best);used.add(best.id);freshVisuals.push({bbox:detection.bbox,state:'vehicle',detection,track:best});continue;}
                 used.add(best.id);const gap=at-best.lastAt,scale=Math.max(Math.abs(detection.point.w-best.point.w)/Math.max(best.point.w,1),Math.abs(detection.point.h-best.point.h)/Math.max(best.point.h,1));
                 const stable=bestDistance<=.08&&scale<=.25&&gap<=2500;
                 const fastTransit=bestDistance>.035&&bestDistance<=.34&&scale<=.9&&gap<=1400&&best.side&&detection.side;
@@ -26,6 +26,13 @@
             const surrounding=matched.length,stopped=matched.filter(x=>x.stable).length,stoppedRate=surrounding?stopped/surrounding:null;
             const central=matched.filter(x=>!x.detection.side),centralMoving=central.filter(x=>!x.stable).length;
             const egoSpeed=Number.isFinite(telemetry.egoSpeedKmh)?telemetry.egoSpeedKmh:null;
+            for(const fresh of freshVisuals){
+                const detection=fresh.detection;
+                if(!detection.candidateEligible||!detection.side||detection.score<.72||detection.brakeLightsLikely||!(egoSpeed!==null&&egoSpeed>=8))continue;
+                const item={trackId:'drive-'+fresh.track.id,class:detection.class,score:detection.score,bbox:detection.bbox,at,classification:'roadside',reason:'moving_ego_edge_vehicle_single_frame',
+                    egoSpeedKmh:egoSpeed,surroundingVehicles:surrounding,stoppedRate,trafficLight,brakeLightsLikely:false,justRecorded:true};
+                fresh.track.emittedAt=at;fresh.track.counted=true;fresh.state='recorded';newCandidates.push(item);
+            }
             for(const match of matched){
                 if(!match.detection.candidateEligible||!match.detection.side||(!match.track.stableHits&&!match.track.transitHits))continue;
                 if(match.track.transitHits&&!match.track.stableHits&&!(egoSpeed!==null&&egoSpeed>=8))continue;
@@ -54,8 +61,10 @@
                 else if(item?.classification==='indeterminate')state='indeterminate';
                 return {bbox:match.detection.bbox,state,priority:item?.classification==='roadside'?3:2,detection:match.detection};
             })).filter(item=>item.detection?visualOk(item.detection):false).sort((a,b)=>b.priority-a.priority||((b.detection?.area||0)*(b.detection?.score||0))-((a.detection?.area||0)*(a.detection?.score||0))).map(({bbox,state})=>({bbox,state})).slice(0,3);
-            const newlyConfirmed=matched.filter(match=>match.newlyConfirmed&&visualOk(match.detection)).length;
-            return {roadsideDetections:detections.filter(x=>x.side).length,newlyConfirmed,newCandidates,duplicates,visuals,invalidExpired,trafficLight,surroundingVehicles:surrounding,stoppedRate};
+            const confirmedNow=matched.filter(match=>match.newlyConfirmed&&!match.track.counted&&visualOk(match.detection));
+            confirmedNow.forEach(match=>{match.track.counted=true;});
+            const newlyCounted=freshVisuals.filter(item=>item.track.counted).length+confirmedNow.length;
+            return {roadsideDetections:detections.filter(x=>x.side).length,newlyCounted,newCandidates,duplicates,visuals,invalidExpired,trafficLight,surroundingVehicles:surrounding,stoppedRate};
         }
     }
 
@@ -109,7 +118,7 @@
             predictions=predictions.map(item=>VEHICLES.has(item?.class)?{...item,brakeLightsLikely:brakeLightsLikely(input,item.bbox)}:item);
             const activeBefore=log()?.active(),location=activeBefore?.lastPosition||null;
             const result=core.process(predictions,input.width||video.videoWidth,input.height||video.videoHeight,Date.now(),{egoSpeedKmh:location?.speedKmh});
-            detectedCount+=result.newlyConfirmed||0;
+            detectedCount+=result.newlyCounted||0;
             root.MachimamoCameraSafeUi?.setDetectionCount(detectedCount);
             root.MachimamoCameraSafeUi?.renderScopes(result.visuals,input.width||video.videoWidth,input.height||video.videoHeight);
             const candidates=result.newCandidates.length+result.duplicates.length;
@@ -128,7 +137,7 @@
         }catch(error){log()?.increment('aiPaused');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
         const elapsed=performance.now()-began;if(elapsed>900)log()?.increment('fpsDrop');lastLoop=elapsed;
         const currentSession=log()?.active(),speed=currentSession?.lastPosition?.speedKmh,runMs=Date.now()-startedAt;
-        let target=runMs<10000?900:Number.isFinite(speed)&&speed<=5?2500:Number.isFinite(speed)&&speed>=8?650:1200;
+        let target=runMs<10000?700:Number.isFinite(speed)&&speed<=5?2500:Number.isFinite(speed)&&speed>=8?500:1200;
         if(runMs>=20*60000)target=Math.max(target,2000);
         else if(runMs>=12*60000)target=Math.max(target,1000);
         if(elapsed>1800)target=Math.max(target,3000);
