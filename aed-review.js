@@ -94,8 +94,8 @@
             content.append(checks);
             const actionStatus = node('p', '写真と周辺候補を読み込み、確認項目をチェックしてください。', 'aed-review-note'); actionStatus.setAttribute('role', 'status');
             const actions = node('div', undefined, 'aed-review-actions');
-            const approveNew = button('新規承認 +30pt', () => decide('approved_new'));
-            const approveExisting = button('掲載済み 0pt', () => decide('approved_existing'));
+            const approveNew = button('新規承認・AEDスタンプ1個', () => decide('approved_new'));
+            const approveExisting = button('掲載済み・スタンプ対象外', () => decide('approved_existing'));
             const needsChanges = button('要修正', () => decide('needs_changes'));
             const reject = button('却下', () => decide('rejected'));
             actions.append(approveNew, approveExisting, needsChanges, reject); content.append(actionStatus, actions);

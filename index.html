@@ -186,6 +186,14 @@
         .rank-silver { background: #94a3b8; color: white; }
         .rank-gold { background: #eab308; color: white; }
         .rank-legend { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; }
+        .activity-fold > summary { list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer; }
+        .activity-fold > summary::-webkit-details-marker { display:none; }
+        .activity-fold > summary h2 { margin:0 !important; }
+        .activity-fold > summary > i { color:#94a3b8;transition:transform .2s; }
+        .activity-fold[open] > summary > i { transform:rotate(180deg); }
+        .activity-fold-body { margin-top:14px;border-top:1px solid #e5e7eb;padding-top:12px; }
+        .machimamo-stamp { aspect-ratio:1;border-radius:50%;border:1px dashed #cbd5e1;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:17px;filter:grayscale(1);opacity:.35; }
+        .machimamo-stamp.earned { border:2px solid #7c3aed;background:#ede9fe;filter:none;opacity:1;box-shadow:0 2px 5px #7c3aed33; }
 
         #aiLoading { position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 10; display: none; flex-direction: column; align-items: center; justify-content: center; border-radius: 24px 24px 0 0; }
         .spinner { border: 4px solid #e5e7eb; border-top: 4px solid #1f6feb; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 12px; }
@@ -460,9 +468,15 @@
         <p class="muted" style="margin-bottom:16px;">ジャンルを選ぶと、問題プールから毎回10問をランダム出題します。</p>
 
         <div id="quizIntroArea">
+            <div class="card" id="quizStampCard" style="background:linear-gradient(135deg,#fff7ed,#ffffff);border:1px solid #fdba74;">
+                <h2 style="font-size:1rem;margin-bottom:8px;">今週のスタンプ</h2>
+                <div id="quizStampCount" style="font-size:1.55rem;font-weight:900;color:#c2410c;">確認中…</div>
+                <div id="quizLoginDays" class="muted" style="font-size:.78rem;margin-top:6px;">今週の利用日数 --/7日</div>
+                <div class="muted" style="font-size:.72rem;margin-top:8px;line-height:1.55;">10個で50pt。月曜〜日曜、翌週への繰り越しなし。獲得後も何度でも練習できます。</div>
+            </div>
             <div class="card">
                 <h2 style="font-size:1.05rem; margin-bottom:8px;">出題ジャンルを選択</h2>
-                <p class="muted" style="font-size:0.78rem; margin-bottom:14px;">正解1問につき1pt。ポイント対象は日本時間で1日最初に完了した10問（最大10pt・0点でも対象回として計算）。以降は練習できます。ミックスは車5問＋自転車5問です。</p>
+                <p class="muted" style="font-size:0.78rem; margin-bottom:14px;">10問中9問以上でスタンプ1個。車・自転車・ミックスを合わせて1日1個までです。ミックスは車5問＋自転車5問です。</p>
 
                 <button class="primary" onclick="startQuizSession('car')" style="margin-top:0; background:#2563eb;">
                     🚗 車・標識（10問）
@@ -475,12 +489,17 @@
                 <button class="primary" onclick="startQuizSession('mix')" style="background:#7c3aed;">
                     🎲 ミックス（車5問＋自転車5問）
                 </button>
+                <button class="primary" onclick="startQuizSession('extra')" style="background:#dc2626;">
+                    🔥 EXTRA（100問・1問5秒）
+                </button>
+                <p class="muted" style="font-size:.72rem;line-height:1.55;margin-top:8px;">EXTRAは98問以上正解で3スタンプ、週1回まで。通常クイズと同じ問題プールから出題します。</p>
             </div>
         </div>
 
         <div class="card" id="quizRunArea" style="display:none;">
             <div id="quizModeLabel" class="muted" style="font-weight:bold; color:#7c3aed; margin-bottom:4px;"></div>
             <div id="quizProgress" class="muted" style="font-weight:bold; color:#1f6feb; margin-bottom:8px;"></div>
+            <div id="quizTimer" style="display:none;font-size:1.15rem;font-weight:900;color:#dc2626;margin-bottom:8px;"></div>
             <div id="quizSignArea" style="display:none; text-align:center; margin:12px 0 16px;"></div>
             <h2 id="quizQuestion"></h2>
             <div id="quizOptions"></div>
@@ -565,14 +584,14 @@
                             </div></details>
                             <details id="guide-post"><summary><span>04　街の情報を投稿する</span><small>場所を選ぶ → 内容を入力 → 履歴を確認</small></summary><div class="guide-body">
                                 <ol><li>ログインし、安全な場所で、地図上の<strong>報告したい地点を1回タップ</strong>します。</li><li>種類を選び、タイトルと状況コメントを入力します。何が・どこで・どんな状況かを、確認した事実で書きます。</li><li>不法放置は現地の写真と個人情報の確認が必要です。「通報済み」は実際に関係機関へ通報した場合だけ選びます。</li><li>送信後、地図と「マイページ」→「活動履歴」→「自分の投稿」を確認します。</li></ol>
-                                <p>通常投稿は1回10pt、ポイント獲得は1日5回までです。実際に付与されたポイントは送信結果と「ポイント履歴」で確認できます。</p>
+                                <p>通常投稿は1件1pt、ポイント獲得は1日最大5ptです。実際に付与されたポイントは送信結果と「ポイント履歴」で確認できます。</p>
                                 <p>個人の顔・車両番号・表札・連絡先や、相手を攻撃する内容は公開しないでください。配送・荷下ろし・訪問作業などを妨げず、通行への影響や危険な状況を確認します。業務中という理由だけで駐停車が正当化されるわけではありません。</p>
                                 <p>掲載情報に問題がある場合は、投稿詳細の<strong>通報</strong>機能で運営へ知らせます。これは警察への緊急通報ではありません。</p>
                             </div></details>
-                            <details id="guide-aed"><summary><span>05　AEDを見つけたら投稿する</span><small>現地写真・GPS・審査・30ptの条件</small></summary><div class="guide-body">
+                            <details id="guide-aed"><summary><span>05　AEDを見つけたら投稿する</span><small>現地写真・GPS・審査・累積スタンプ</small></summary><div class="guide-body">
                                 <ol><li>AEDのある現地でログイン。地図をタップし、種類を<strong>AEDを現地から投稿</strong>にします。</li><li>GPSを取得し、周辺に同じAEDがないか確認します。同じものがあれば候補を選択します。</li><li>施設名、設置場所（例：1階受付横）、都道府県、番地までの住所と現地写真を入力します。</li><li>写真の利用許諾・個人情報の確認にチェックして審査へ送信します。</li><li>「活動履歴」→<strong>AED投稿・審査結果</strong>で確認。「審査結果を更新」で最新情報を読み込めます。</li></ol>
                                 <p>GPS精度が100mを超える場合や周辺確認が終わっていない場合は送信できません。安全に移動できる範囲で再取得してください。</p>
-                                <p><strong>送信だけでは掲載・ポイント付与は確定しません。</strong>新しいAEDとして最初に承認された投稿に30pt。掲載済み・重複・否認は0ptです。否認・要修正の返答から7日以内に、履歴の「再審査を申し込む」から理由や補足を送れます。申込中は削除を止め、再度の返答から7日以内に再申込できます。期限までに申込がなければ写真・投稿内容・その案件の申立て内容を順次削除します。承認済みや審査中の投稿は対象外です。</p>
+                                <p><strong>送信だけでは掲載・スタンプ付与は確定しません。</strong>新しいAEDとして最初に承認された投稿に累積スタンプ1個、10個ごとに50pt。掲載済み・重複・否認は対象外です。否認・要修正の返答から7日以内に、履歴の「再審査を申し込む」から理由や補足を送れます。申込中は削除を止め、再度の返答から7日以内に再申込できます。</p>
                             </div></details>
                             <details id="guide-camera"><summary><span>06　AIカメラで撮影・加工・投稿</span><small>無料版の使い方と写真の公開範囲</small></summary><div class="guide-body">
                                 <ol><li>「マップ」→「メニュー」→<strong>AIカメラ</strong>を開き、カメラの使用を許可します。</li><li>「散歩」を選び、安全な場所で<strong>手動撮影・加工（停車中のみ）</strong>を押します。歩きながらの操作も避けてください。</li><li>写真は最初に全体がモザイクになります。必要に応じてモザイク・黒塗りを調整します。</li><li>顔やナンバーなどの隠し漏れがないか画像全体を確認し、確認のチェックを入れて<strong>投稿へ進む</strong>を押します。</li><li>GPS取得後、青い円の中（現在地から50m以内）をタップし、種類と内容を入力して送信します。</li></ol>
@@ -600,7 +619,7 @@
                                 <p>端末の保存領域を利用できない場合は送信を開始できません。空き容量やブラウザーの設定を確認してください。</p>
                             </div></details>
                             <details id="guide-points"><summary><span>10　クイズ・ポイント・ポイ活</span><small>獲得条件と実際の履歴を確認</small></summary><div class="guide-body">
-                                <dl><dt>通常投稿</dt><dd>1回10pt、1日5回までのポイント獲得。</dd><dt>新規AEDの承認</dt><dd>初回承認の投稿者に30pt。重複・掲載済みなどは0pt。</dd><dt>交通安全クイズ</dt><dd>下の「クイズ」から車・自転車・ミックスの10問に挑戦。正答に応じて最大10pt、ポイント獲得は1日1回です。同じ日の練習は追加付与されません。</dd><dt>ガチャ</dt><dd>下の「ポイ活」から1回100ptで利用します。消費と結果は活動履歴に残ります。</dd></dl>
+                                <dl><dt>通常投稿</dt><dd>1件1pt、1日最大5pt。</dd><dt>「助かった！」</dt><dd>押した人に1回1pt、1日最大5pt。</dd><dt>新規AEDの承認</dt><dd>累積AEDスタンプを1個。10個ごとに50pt。重複・掲載済み・否認は対象外です。</dd><dt>交通安全クイズ</dt><dd>通常は10問中9問以上で週間スタンプ1個（全種類合計1日1個）。EXTRAは100問中98問以上で3個（週1回）。10個で週1回50ptです。</dd><dt>ガチャ</dt><dd>下の「ポイ活」から1回100ptで利用します。消費と結果は活動履歴に残ります。</dd></dl>
                                 <p>ポイントが増えないときは<strong>活動履歴 → 今日の活動／ポイント履歴</strong>で確認します。AEDは審査前や重複の場合、通常投稿・クイズは当日の上限到達時に追加付与されません。</p>
                                 <p>広告・駐車場予約は外部サービスです。申込条件や料金は移動先で確認してください。広告の表示ポイントだけで付与が確定するわけではありません。<strong>ポイントの換金・交換を申し込む画面は現在ありません。</strong>ガチャや広告利用だけで現金を受け取れると思って申し込まないでください。</p>
                                 <p>ランキングの報告数は利用者の投稿状況によるもので、地域の実際の危険度や違反件数を確定するものではありません。</p>
@@ -784,20 +803,26 @@
                             </div>
                         </div>
 
-                        <div class="card">
-                            <h2 style="font-size:1.05rem;">AED投稿・審査結果</h2>
+                        <div id="mypageStampCards" style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px;">
+                            <div class="card" style="margin:0;border:1px solid #c4b5fd;background:linear-gradient(135deg,#f5f3ff,#fff);"><strong>週間クイズスタンプ</strong><div id="mypageQuizStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageQuizStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
+                            <div class="card" style="margin:0;border:1px solid #86efac;background:linear-gradient(135deg,#f0fdf4,#fff);"><strong>LINE連携・今週の利用</strong><div id="mypageLoginStamps" style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px;"></div><div id="mypageLoginStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
+                            <div class="card" style="margin:0;border:1px solid #fda4af;background:linear-gradient(135deg,#fff1f2,#fff);"><strong>累積AEDスタンプ</strong><div id="mypageAedStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageAedStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
+                        </div>
+
+                        <details class="card activity-fold">
+                            <summary><h2 style="font-size:1.05rem;">AED投稿・審査結果</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body">
                             <button type="button" onclick="loadMyAedHistory()" style="padding:9px 12px;border:1px solid #cbd5e1;background:white;border-radius:8px;">審査結果を更新</button>
                             <p class="muted" style="font-size:.8rem;line-height:1.6;">否認・要修正の返答から7日以内に再審査を申し込めます。申込がなければ期限後に写真・投稿内容を順次削除します。承認済み・審査中・再審査申込中は対象外です。</p>
-                            <div id="myAedHistoryArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
-                        </div>
-                        <div class="card" id="myCameraEvidenceCard">
-                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-lock" style="color:#2563eb;"></i> 非公開のカメラ証拠</h2>
+                            <div id="myAedHistoryArea" aria-live="polite"><div class="muted">読み込み中...</div></div></div>
+                        </details>
+                        <details class="card activity-fold" id="myCameraEvidenceCard">
+                            <summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-lock" style="color:#2563eb;"></i> 非公開のカメラ証拠</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body">
                             <p class="muted" style="font-size:.75rem;line-height:1.55;">保存した加工済み画像と、明示的に同意して保存した元画像を確認できます。通常の保存期限は10日です。管理者が理由付きで30日保全した場合は、満了後7日の判断待ち期間があります。期限後の削除は順次処理されます。</p>
                             <button type="button" onclick="MachimamoCameraEvidence.loadMine()" style="padding:9px 12px;border:1px solid #cbd5e1;background:white;border-radius:8px;">保存状況を更新</button>
-                            <div id="myCameraEvidenceArea" aria-live="polite"><div class="muted">読み込み中...</div></div>
-                        </div>
-                        <div class="card">
-                            <h2 style="font-size:1.05rem;">異議申立て・運営の回答</h2>
+                            <div id="myCameraEvidenceArea" aria-live="polite"><div class="muted">読み込み中...</div></div></div>
+                        </details>
+                        <details class="card activity-fold">
+                            <summary><h2 style="font-size:1.05rem;">異議申立て・運営の回答</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body">
                             <div id="myAppealsArea" aria-live="polite">読み込み中…</div>
                             <form id="appealForm" hidden onsubmit="submitModerationAppeal(event)">
                                 <p id="appealTargetLabel" style="font-size:.85rem;"></p>
@@ -805,20 +830,11 @@
                                 <textarea id="appealReason" minlength="10" maxlength="1000" required rows="5" style="width:100%;box-sizing:border-box;margin:8px 0;" placeholder="事実関係や、判断と異なる点を具体的に記入してください。個人情報は記入しないでください。"></textarea>
                                 <button id="appealSubmitButton" type="submit" class="primary">異議申立てを送信</button>
                                 <button type="button" onclick="closeModerationAppeal()" style="margin-top:8px;padding:10px;">キャンセル</button>
-                            </form>
-                        </div>
-                        <div class="card">
-                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2>
-                            <div id="pointHistoryArea"><div class="muted">読み込み中...</div></div>
-                        </div>
-                        <div class="card">
-                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-map-location-dot" style="color:#ef4444;"></i> 自分の投稿</h2>
-                            <div id="myPostHistoryArea"><div class="muted">読み込み中...</div></div>
-                        </div>
-                        <div class="card">
-                            <h2 style="font-size:1.05rem;"><i class="fa-solid fa-gift" style="color:#9333ea;"></i> ガチャ結果</h2>
-                            <div id="gachaHistoryArea"><div class="muted">読み込み中...</div></div>
-                        </div>
+                            </form></div>
+                        </details>
+                        <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="pointHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
+                        <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-map-location-dot" style="color:#ef4444;"></i> 自分の投稿</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="myPostHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
+                        <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-gift" style="color:#9333ea;"></i> ガチャ履歴</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="gachaHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
                         <div class="card" style="border:1px solid #fecaca; background:#fffafa;">
                             <h2 style="font-size:1rem; color:#991b1b;"><i class="fa-solid fa-user-slash"></i> 退会・データ削除</h2>
                             <p class="muted" style="font-size:.78rem; line-height:1.6;">申請後、運営が内容を確認して処理します。申請だけでは即時削除されません。処理するとアカウント・投稿・写真・ポイントは削除され、元に戻せません。確認済みAEDの施設情報は投稿者との紐付けを外して残します。</p>
@@ -873,7 +889,7 @@
                 <div style="background:linear-gradient(135deg, #fbbf24, #f59e0b); padding:20px; border-radius:16px; text-align:center; color:#fff; margin-bottom:20px; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);">
                     <div style="font-size:0.9rem; margin-bottom:5px; font-weight: bold;">現在の保有ポイント</div>
                     <div style="font-size:2.5rem; font-weight:900;"><span id="gachaPointDisplay">0</span> pt</div>
-                    <div style="font-size:0.8rem; margin-top:5px; opacity:0.9; font-weight: bold;">換金まであと <span id="pointsToCash">300,000</span> pt (3,000円分〜)</div>
+                    <div style="font-size:0.8rem; margin-top:5px; opacity:0.95; font-weight: bold;">ポイントの換金・交換機能は現在未提供です</div>
                 </div>
 
                 <button onclick="playGacha()" style="width:100%; padding:16px; background:#ef4444; color:#fff; font-size:1.2rem; font-weight:bold; border-radius:50px; border:none; box-shadow:0 4px 10px rgba(239, 68, 68, 0.4); cursor:pointer; margin-bottom:30px;">
@@ -1025,14 +1041,14 @@
                 <option value="reckless">🟡 暴走・騒音車両</option>
                 <option value="abandoned">🟣 不法放置 (写真必須)</option>
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
-                <option value="aed">❤️ AEDを現地から投稿 (承認で30pt)</option>
+                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
             </select>
             <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
             <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
-                <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">現地でGPSと写真を確認し、運営が新規AEDとして承認した場合だけ30ptを付与します。掲載済み・重複は0ptで存在確認記録になります。</div>
-                <div style="font-size:.78rem;color:#9a3412;margin-top:8px;line-height:1.6;">AED投稿は1人1日10件・週20件まで（審査待ち・否認・再送信を含む）。日本時間の毎日0時／月曜0時にリセットします。承認が翌週でも、新規承認なら30ptを付与します。</div>
+                <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
+                <div style="font-size:.78rem;color:#9a3412;margin-top:8px;line-height:1.6;">AEDスタンプに週の獲得上限はなく持ち越されます。AED投稿は別に1人1日10件・週20件まで（審査待ち・否認・再送信を含む）です。</div>
                 <label>都道府県</label><input type="text" id="aedPrefecture" maxlength="8" placeholder="例：東京都">
                 <label>施設住所</label><input type="text" id="aedAddress" maxlength="300" placeholder="番地まで入力してください">
                 <div id="aedGpsStatus" style="font-size:.75rem; color:#64748b; margin-top:10px;">GPSを取得していません。</div>
@@ -1057,7 +1073,7 @@
                 <label id="spotPhotoPrivacyArea" style="display:none; align-items:flex-start; gap:8px; line-height:1.5;"><input type="checkbox" id="spotPhotoPrivacyConfirmed" style="width:18px;height:18px;flex:none;">公開する写真に顔・車両番号・個人情報が写っていないことを確認しました。自動モザイクは未対応です。</label>
             </div>
 
-            <button type="submit" id="postSubmitButton" class="primary" style="margin-top:20px;">情報を投稿 (+10pt)</button>
+            <button type="submit" id="postSubmitButton" class="primary" style="margin-top:20px;">情報を投稿（+1pt・1日最大5pt）</button>
         </form>
     </div>
 </div>
@@ -1308,6 +1324,7 @@
         dashboard.style.display = 'block';
 
         await loadMyAedHistory();
+        const stampStatus = await loadQuizStampStatus();
         const { data, error } = await db.rpc('get_my_dashboard');
         if (error || !data) {
             showToast('活動履歴の読み込みに失敗しました');
@@ -1318,12 +1335,12 @@
         const today = data.today || {};
         document.getElementById('todayEarned').textContent = `${Number(today.earned || 0).toLocaleString()}pt`;
         document.getElementById('todayPosts').textContent = `${Number(today.postCount || 0)}/5`;
-        document.getElementById('todayQuiz').textContent = today.quizClaimed ? `${Number(today.quizScore || 0)}/10` : '未挑戦';
+        document.getElementById('todayQuiz').textContent = stampStatus?.normalClaimedToday ? 'スタンプ獲得済' : '未獲得';
 
         const reasonLabels = {
             spot_post: '安全情報の投稿', spot_like: '「助かった！」評価', quiz: '交通安全クイズ',
             gacha_cost: 'ガチャを回す', gacha_prize: 'ガチャ当選', admin: '運営による調整',
-            aed_new_approval: 'AED投稿が承認され、30pt付与されました'
+            aed_new_approval: '旧制度のAED承認ポイント', weekly_quiz_stamp_reward:'週間スタンプ10個達成', aed_stamp_reward:'AEDスタンプ10個達成'
         };
         const points = Array.isArray(data.points) ? data.points : [];
         document.getElementById('pointHistoryArea').innerHTML = points.length ? points.map(item => {
@@ -1360,12 +1377,12 @@
 
     function renderMyAedHistory(rows) {
         const labels = {
-            pending: '審査待ちです（まだポイントは付与されていません）',
-            needs_review: '内容を確認中です（まだポイントは付与されていません）',
-            approved_new: '承認され、30pt付与されました。',
-            approved_existing: '掲載済みAEDの存在確認として受け付けました（0pt）。',
-            rejected: '否認されました（0pt）。',
-            needs_changes: '情報の修正が必要です（0pt）。'
+            pending: '審査待ちです（まだスタンプは付与されていません）',
+            needs_review: '内容を確認中です（まだスタンプは付与されていません）',
+            approved_new: '新規AEDとして承認され、累積スタンプが付与されました。',
+            approved_existing: '掲載済みAEDの存在確認として受け付けました（スタンプ対象外）。',
+            rejected: '否認されました（スタンプ対象外）。',
+            needs_changes: '情報の修正が必要です（スタンプ対象外）。'
         };
         return rows.length ? rows.map(item => {
             const retry = ['rejected', 'needs_changes'].includes(item.status)
@@ -1607,10 +1624,6 @@
 
         const gachaDisplay = document.getElementById('gachaPointDisplay');
         if(gachaDisplay) gachaDisplay.textContent = myPoint.toLocaleString();
-        const toCash = 300000 - myPoint;
-        const cashDisplay = document.getElementById('pointsToCash');
-        if(cashDisplay) cashDisplay.textContent = toCash > 0 ? toCash.toLocaleString() : "0";
-
         const badge = document.getElementById('myRankBadge');
         badge.className = 'rank-badge';
         let rankStr = "🔰 初心者マーク";
@@ -1915,7 +1928,7 @@ function shareSpot(title, address, category, event) {
         const ruleLabels = {balance_mismatch:'残高と台帳が不一致',post_daily_limit:'投稿ポイント上限超過',quiz_daily_limit:'クイズ上限超過',like_velocity:'いいね操作が急増',rapid_earning:'短時間にポイント急増'};
         document.getElementById('adminPointAlertArea').innerHTML = alerts.length ? alerts.map(x => `<div style="background:white;border:1px solid ${x.severity === 'critical' ? '#fca5a5' : '#fde68a'};padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#b91c1c;">${escapeHtml(ruleLabels[x.rule_code] || x.rule_code)}</span></div><div class="muted" style="margin:4px 0;">残高 ${Number(x.balance || 0).toLocaleString()}pt・検知 ${formatHistoryDate(x.detected_at)}</div><div class="muted" style="font-size:.66rem;margin:4px 0;">${escapeHtml(JSON.stringify(x.evidence || {}))}<br>ID: ${escapeHtml(x.user_id)}</div><div style="display:flex;gap:5px;flex-wrap:wrap;">${adminButton('ポイント修正', `preparePointAdjustment('${escapeHtml(x.user_id)}')`, '#92400e')}${adminButton('確認済み', `updatePointAlert(${Number(x.id)},'reviewed')`, '#166534')}${adminButton('誤検知', `updatePointAlert(${Number(x.id)},'dismissed')`, '#64748b')}${adminButton(x.user_status === 'suspended' ? '停止解除' : '利用停止', `setAdminSuspension('${escapeHtml(x.user_id)}',${x.user_status === 'suspended' ? 'false' : 'true'})`, x.user_status === 'suspended' ? '#166534' : '#b91c1c')}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">現在、未確認の不正アラートはありません。</div>';
 
-        const pointReasonLabels = {spot_post:'投稿',spot_like:'いいね',quiz:'クイズ',gacha_cost:'ガチャ消費',gacha_prize:'ガチャ当選',admin:'管理者修正',aed_new_approval:'新規AED承認'};
+        const pointReasonLabels = {spot_post:'投稿',spot_like:'「助かった！」',quiz:'旧クイズポイント',gacha_cost:'ガチャ消費',gacha_prize:'ガチャ当選',admin:'管理者修正',aed_new_approval:'旧AED承認ポイント',weekly_quiz_stamp_reward:'週間スタンプ10個達成',aed_stamp_reward:'AEDスタンプ10個達成'};
         document.getElementById('adminPointHistoryArea').innerHTML = pointTransactions.length ? pointTransactions.map(x => `<div style="padding:7px 0;border-bottom:1px solid #e2e8f0;font-size:.71rem;"><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:${Number(x.amount) >= 0 ? '#15803d' : '#b91c1c'};font-weight:bold;">${Number(x.amount) >= 0 ? '+' : ''}${Number(x.amount).toLocaleString()}pt</span><div class="muted" style="font-size:.64rem;">${escapeHtml(pointReasonLabels[x.reason] || x.reason)}・${formatHistoryDate(x.created_at)}・${escapeHtml(x.user_id)}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">ポイント履歴はありません。</div>';
 
         const labels = {hide:'投稿を非表示',restore:'投稿を復元',suspend:'利用停止',unsuspend:'停止解除',deletion_processing:'退会対応開始',deletion_cancelled:'退会申請却下',point_adjustment:'ポイント修正',point_alert_reviewed:'不正アラート確認済み',point_alert_dismissed:'不正アラート誤検知'};
@@ -1939,7 +1952,7 @@ function shareSpot(title, address, category, event) {
             showToast('候補一覧から対応する掲載済みAEDを選択してください');
             return;
         }
-        const labels = {approved_new:'新規AEDとして承認し、投稿者へ30ptを付与',approved_existing:'掲載済みAEDの確認記録として0ptで承認',needs_changes:'要修正として差し戻し',rejected:'却下'};
+        const labels = {approved_new:'新規AEDとして承認し、投稿者へ累積スタンプ1個を付与',approved_existing:'掲載済みAEDの確認記録として承認（スタンプ対象外）',needs_changes:'要修正として差し戻し',rejected:'却下'};
         if (!confirm(`${labels[decision]}しますか？この操作は審査履歴に保存されます。`)) return;
         const notesInput = prompt('審査メモ（任意・キャンセルで審査を中止）');
         if (notesInput === null) return;
@@ -1949,7 +1962,7 @@ function shareSpot(title, address, category, event) {
             p_existing_safety_spot_id: existingSpotId, p_review_notes: notes
         });
         if (error) { showToast('AED審査を確定できませんでした：' + error.message); return; }
-        showToast(decision === 'approved_new' ? `新規AEDを公開し30pt付与しました（AED ID ${data.safetySpotId}）` : 'AED投稿の審査結果を保存しました');
+        showToast(decision === 'approved_new' ? `新規AEDを公開し累積スタンプを付与しました（AED ID ${data.safetySpotId}）` : 'AED投稿の審査結果を保存しました');
         loadAdminDashboard();
         loadMyAedHistory();
         if (decision === 'approved_new') loadSafetySpots();
@@ -2764,7 +2777,7 @@ function shareSpot(title, address, category, event) {
         aedArea.style.display = isAed ? 'block' : 'none';
         titleLabel.textContent = isAed ? '施設名' : 'タイトル';
         commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : '状況コメント';
-        submitButton.textContent = isAed ? 'AEDを審査へ送信（新規承認で30pt）' : '情報を投稿 (+10pt)';
+        submitButton.textContent = isAed ? 'AEDを審査へ送信（新規承認で累積スタンプ）' : '情報を投稿（+1pt・1日最大5pt）';
         if (isAed && !aedGps) captureAedGps();
     }
 
@@ -2918,7 +2931,7 @@ function shareSpot(title, address, category, event) {
         };
         document.getElementById('aiLoading').style.display = 'flex';
         await window.MachimamoPostOutbox.send({id:submissionId,userId:authUser.id,kind:'aed',path:objectPath,file:uploadedImageFile,payload,createdAt:Date.now()});
-        showToast('AED投稿を受け付けました。新規承認時に30pt、掲載済みの場合は0ptです。');
+        showToast('AED投稿を受け付けました。新規承認時に累積スタンプ1個、掲載済み・重複の場合は対象外です。');
         closePostModal();
         loadMyAedHistory();
     }
@@ -3126,7 +3139,7 @@ function shareSpot(title, address, category, event) {
     }
 
     // ==========================================
-        // 交通安全クイズ：車120問 / 自転車110問（2026-09-10提供データ）
+        // 交通安全クイズ：共通430問・週間スタンプ（開発27）
         // ==========================================
 
         let qIdx = 0;
@@ -3137,6 +3150,29 @@ function shareSpot(title, address, category, event) {
         let quizPendingChoice = null;
         let quizBusy = false;
         let quizGeneration = 0;
+        let quizTotal = 10;
+        let quizMode = 'mix';
+        let quizTimerId = null;
+        let quizDeadline = 0;
+        function clearQuizTimer() { if (quizTimerId !== null && typeof clearInterval === 'function') clearInterval(quizTimerId); quizTimerId = null; }
+
+        async function loadQuizStampStatus() {
+            const { data, error } = await db.rpc('get_quiz_stamp_status');
+            if (error || !data) return null;
+            document.getElementById('quizStampCount').innerText = `${Number(data.stamps || 0)} / 11個`;
+            document.getElementById('quizLoginDays').innerText = `今週の利用日数 ${Number(data.loginDays || 0)}/7日`;
+            const iconSrc = typeof document.querySelector === 'function' ? (document.querySelector('.logo img')?.src || '') : '';
+            const stamps = (count,earned) => Array.from({length:count},(_,i)=>`<div class="machimamo-stamp ${i<earned?'earned':''}">${i<earned&&iconSrc?`<img src="${iconSrc}" alt="まちまもスタンプ" style="width:82%;height:82%;border-radius:50%;object-fit:cover;">`:'○'}</div>`).join('');
+            const quiz = Number(data.quizStamps || 0), days = Number(data.loginDays || 0), aed = Number(data.aedCurrentSheet || 0), aedTotal = Number(data.aedStamps || 0);
+            const quizBox=document.getElementById('mypageQuizStamps'), loginBox=document.getElementById('mypageLoginStamps'), aedBox=document.getElementById('mypageAedStamps');
+            if (quizBox) quizBox.innerHTML=stamps(10,quiz);
+            if (loginBox) loginBox.innerHTML=stamps(7,days);
+            if (aedBox) aedBox.innerHTML=stamps(10,aed);
+            if (document.getElementById('mypageQuizStampText')) document.getElementById('mypageQuizStampText').innerText=`今週 ${quiz}個／週間合計 ${Number(data.stamps||0)}個`;
+            if (document.getElementById('mypageLoginStampText')) document.getElementById('mypageLoginStampText').innerText=`今週の利用日数 ${days}/7日${data.loginStamp?'・1スタンプ獲得済み':''}`;
+            if (document.getElementById('mypageAedStampText')) document.getElementById('mypageAedStampText').innerText=`累積 ${aedTotal}個・現在のシート ${aed}/10個・50pt獲得 ${Number(data.aedRewards||0)}回`;
+            return data;
+        }
 
         function renderTrafficSign(type) {
             const wrap = 'width:112px;height:112px;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;';
@@ -3158,7 +3194,14 @@ function shareSpot(title, address, category, event) {
             if (type === 'oneway') {
                 return `<div style="${wrap}"><div style="width:110px;height:72px;background:#2563eb;border:5px solid white;box-shadow:0 0 0 2px #2563eb;display:flex;align-items:center;justify-content:center;color:white;font-size:54px;font-weight:900;">→</div></div>`;
             }
-            return '';
+            const name = escapeHtml(String(type || '道路標識'));
+            const warning = /注意|あり|減少|すべり|凹凸|勾配|落石|踏切|つづら|工事|横風|危険|子供/.test(type);
+            const info = /専用|横断歩道|安全地帯|通行帯|中央線|停止線|ナビ|区域内/.test(type);
+            const shape = warning ? 'polygon points="60,5 115,60 60,115 5,60" fill="#facc15" stroke="#111827" stroke-width="5"'
+                : info ? 'rect x="8" y="8" width="104" height="104" rx="10" fill="#2563eb" stroke="#fff" stroke-width="5"'
+                : 'circle cx="60" cy="60" r="52" fill="#fff" stroke="#dc2626" stroke-width="9"';
+            const color = info ? '#fff' : '#111827';
+            return `<div style="max-width:260px;margin:0 auto;"><svg role="img" aria-label="${name}" viewBox="0 0 120 120" style="width:120px;height:120px;filter:drop-shadow(0 2px 3px #0003)"><${shape}/><text x="60" y="54" text-anchor="middle" fill="${color}" font-size="12" font-weight="900"><tspan x="60" dy="0">${name.slice(0,8)}</tspan><tspan x="60" dy="16">${name.slice(8,16)}</tspan></text></svg><div style="font-size:.7rem;font-weight:800;color:#334155;margin-top:4px;">${name}</div></div>`;
         }
 
         async function startQuizSession(mode = 'mix') {
@@ -3176,11 +3219,13 @@ function shareSpot(title, address, category, event) {
                 quizPendingChoice = null;
                 qIdx = 0;
                 score = 0;
+                quizTotal = Number(data.total || 10);
+                quizMode = mode;
                 document.getElementById('quizIntroArea').style.display = 'none';
                 document.getElementById('quizResultArea').style.display = 'none';
                 document.getElementById('quizRunArea').style.display = 'block';
                 document.getElementById('quizModeLabel').innerText = mode === 'car'
-                    ? '🚗 車・標識モード' : mode === 'bike' ? '🚲 自転車モード' : '🎲 ミックスモード';
+                    ? '🚗 車・標識モード' : mode === 'bike' ? '🚲 自転車モード' : mode === 'extra' ? '🔥 EXTRAモード' : '🎲 ミックスモード';
                 renderQ();
             } catch (error) {
                 if (generation === quizGeneration) showToast('問題を取得できませんでした。通信を確認して再度お試しください');
@@ -3192,7 +3237,7 @@ function shareSpot(title, address, category, event) {
         function renderQ() {
             const item = quizQuestion;
             document.getElementById('explanationBox').style.display = 'none';
-            document.getElementById('quizProgress').innerText = `第 ${qIdx + 1} / 10 問`;
+            document.getElementById('quizProgress').innerText = `第 ${qIdx + 1} / ${quizTotal} 問`;
             document.getElementById('quizQuestion').innerText = item.q;
             const signArea = document.getElementById('quizSignArea');
             signArea.innerHTML = item.sign ? renderTrafficSign(item.sign) : '';
@@ -3206,12 +3251,20 @@ function shareSpot(title, address, category, event) {
                 b.onclick = () => ansQ(i);
                 box.appendChild(b);
             });
+            clearQuizTimer();
+            const timer = document.getElementById('quizTimer');
+            if (quizMode === 'extra') {
+                timer.style.display = 'block'; quizDeadline = Date.now() + 5000;
+                const tick = () => { const left = Math.max(0, quizDeadline-Date.now()); timer.innerText = `残り ${(left/1000).toFixed(1)}秒`; if (!left) { clearQuizTimer(); ansQ(-1); } };
+                tick(); if (typeof setInterval === 'function') quizTimerId = setInterval(tick,100);
+            } else timer.style.display = 'none';
         }
 
         async function ansQ(i) {
             if (quizBusy || quizReceipt || !quizSessionId) return;
             if (quizPendingChoice !== null && quizPendingChoice !== i) return;
             quizPendingChoice = i;
+            clearQuizTimer();
             quizBusy = true;
             const generation = quizGeneration;
             const opts = document.querySelectorAll('.quiz-opt');
@@ -3227,7 +3280,7 @@ function shareSpot(title, address, category, event) {
                 opts.forEach((b, j) => {
                     if (j === data.answer) b.classList.add('correct');
                 });
-                if (!data.correct) opts[i].classList.add('wrong');
+                if (!data.correct && i >= 0 && opts[i]) opts[i].classList.add('wrong');
                 document.getElementById('expTitle').innerText = data.correct
                     ? '🎉 正解！' : `❌ 不正解... (正解は${data.answer + 1})`;
                 document.getElementById('expTitle').style.color = data.correct ? '#15803d' : '#b91c1c';
@@ -3240,7 +3293,7 @@ function shareSpot(title, address, category, event) {
                     showToast('クイズを続けられません。ログイン状態を確認して最初からお試しください');
                 } else {
                     // Retry the identical choice if the server committed but its response was lost.
-                    opts[i].disabled = false;
+                    if (i >= 0 && opts[i]) opts[i].disabled = false;
                     showToast('回答を確認できませんでした。同じ選択肢をタップして再送してください');
                 }
             } finally {
@@ -3265,15 +3318,12 @@ function shareSpot(title, address, category, event) {
             if (!quizReceipt?.complete) return;
             document.getElementById('quizRunArea').style.display = 'none';
             document.getElementById('quizResultArea').style.display = 'block';
-            document.getElementById('resultScore').innerText = `${quizReceipt.score} / 10`;
-            if (quizReceipt.balance !== null && quizReceipt.balance !== undefined) {
-                myPoint = Number(quizReceipt.balance);
-                localStorage.setItem('michimamo_pt', String(myPoint));
-                updateMyPage();
-            }
-            document.getElementById('resultEarnPt').innerText = quizReceipt.already_claimed
-                ? '本日のクイズポイントは獲得済みです。\nテストを振り返って、交通ルールをしっかり覚えよう！'
-                : `獲得した安全ポイント: +${Number(quizReceipt.awarded)}pt`;
+            document.getElementById('resultScore').innerText = `${quizReceipt.score} / ${quizTotal}`;
+            const stamps = Number(quizReceipt.stamp_awarded || 0), points = Number(quizReceipt.point_reward || 0);
+            document.getElementById('resultEarnPt').innerText = stamps
+                ? `週間スタンプ +${stamps}個${points ? `\n10個達成！ +${points}pt` : ''}`
+                : '今回は新しいスタンプの獲得はありません。\nテストを振り返って、交通ルールをしっかり覚えよう！';
+            loadQuizStampStatus(); loadAuthenticatedProfile();
         }
 
         function backToQuizMenu() {
@@ -3282,9 +3332,11 @@ function shareSpot(title, address, category, event) {
             quizSessionId = null;
             quizReceipt = null;
             quizPendingChoice = null;
+            clearQuizTimer();
             document.getElementById('quizRunArea').style.display = 'none';
             document.getElementById('quizResultArea').style.display = 'none';
             document.getElementById('quizIntroArea').style.display = 'block';
+            loadQuizStampStatus();
         }
     async function playGacha() {
         if (!await requireAuthenticatedUser()) return;
@@ -3562,6 +3614,7 @@ function shareSpot(title, address, category, event) {
             localStorage.setItem('michimamo_avatar', myAvatar);
 
             updateMyPage();
+            loadQuizStampStatus();
             return true;
 
         } catch (e) {

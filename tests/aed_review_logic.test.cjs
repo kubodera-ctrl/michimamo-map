@@ -34,18 +34,18 @@ async function open() { const card = walk(target).find(x => x.tagName === 'detai
     assert.equal(MachimamoAedReview.coordinates(91, 139), false);
     view.render([row]); assert.equal(calls, 0);
     await open();
-    assert.equal(button('新規承認 +30pt').disabled, true);
+    assert.equal(button('新規承認・AEDスタンプ1個').disabled, true);
     const photo = walk(target).find(x => x.tagName === 'img'); photo.onload();
     for (const input of checks()) { input.checked = true; input.onchange(); }
-    assert.equal(button('新規承認 +30pt').disabled, false);
+    assert.equal(button('新規承認・AEDスタンプ1個').disabled, false);
     const radio = walk(target).find(x => x.type === 'radio'); radio.checked = true; radio.onchange();
-    assert.equal(button('新規承認 +30pt').disabled, true);
-    assert.equal(button('掲載済み 0pt').disabled, false);
-    await button('掲載済み 0pt').onclick();
+    assert.equal(button('新規承認・AEDスタンプ1個').disabled, true);
+    assert.equal(button('掲載済み・スタンプ対象外').disabled, false);
+    await button('掲載済み・スタンプ対象外').onclick();
     assert.deepEqual(decisions[0], ['fixture', 'approved_existing', 7]);
     nearbyFail = true; await button('2kmまで広げる').onclick();
-    assert.equal(button('掲載済み 0pt').disabled, true);
-    assert.equal(button('新規承認 +30pt').disabled, true);
+    assert.equal(button('掲載済み・スタンプ対象外').disabled, true);
+    assert.equal(button('新規承認・AEDスタンプ1個').disabled, true);
     assert.ok(walk(target).some(x => x.textContent?.includes('照合に失敗しました')));
     photoFail = true; await button('写真を再取得').onclick();
     assert.equal(photo.hidden, true); assert.equal(photo.src, undefined);
@@ -57,7 +57,7 @@ async function open() { const card = walk(target).find(x => x.tagName === 'detai
     view.render([{ ...row, latitude: null }]); await open();
     walk(target).find(x => x.tagName === 'img').onload();
     for (const input of checks()) { input.checked = true; input.onchange(); }
-    assert.equal(button('新規承認 +30pt').disabled, true, 'invalid coordinates never enable approval');
+    assert.equal(button('新規承認・AEDスタンプ1個').disabled, true, 'invalid coordinates never enable approval');
     await button('要修正').onclick(); assert.equal(decisions[1][1], 'needs_changes');
     view.clear();
     console.log('PASS: lazy loading, photo and checklist gates, candidate binding, failed search, failed photo, stale responses, map cleanup, invalid coordinates');
