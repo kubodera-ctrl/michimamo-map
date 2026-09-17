@@ -10,12 +10,7 @@ if(!view||!video||!controls)return;
 const layer=document.createElement('div');
 layer.className='camera-scope-layer';
 layer.setAttribute('aria-hidden','true');
-const legend=document.createElement('div');
-legend.className='camera-scope-legend';
-legend.textContent='白:車両　黄:路肩　橙:記録　青:停車待ち';
-legend.hidden=true;
 view.insertBefore(layer,view.firstChild.nextSibling);
-view.insertBefore(legend,layer.nextSibling);
 const counter=document.createElement('div');
 counter.className='camera-detection-count';
 counter.setAttribute('role','status');
@@ -68,9 +63,8 @@ function renderScopes(items,sourceWidth,sourceHeight){
     box.style.transform=`translate3d(${fit.left+x*fit.scale}px,${fit.top+y*fit.scale}px,0)`;
     box.style.width=Math.max(24,w*fit.scale)+'px';box.style.height=Math.max(24,h*fit.scale)+'px';
   });
-  legend.hidden=!shown.length||heat==='strong';
 }
-function clearScopes(){layer.replaceChildren();legend.hidden=true;}
+function clearScopes(){layer.replaceChildren();}
 function setDetectionCount(value){
   const count=Math.max(0,Number(value)||0);
   counter.innerHTML=`<span aria-hidden="true"></span>検知台数 ${count}台`;
