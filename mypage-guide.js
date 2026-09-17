@@ -83,8 +83,14 @@ document.head.appendChild(script);
 (function loadDriveMvpV2(){
 'use strict';
 const load=()=>{
+const style=document.createElement('link');
+style.rel='stylesheet';style.href='camera-safe-ui.css?v=29-safety1';document.head.appendChild(style);
+const ui=document.createElement('script');
+ui.src='camera-safe-ui.js?v=29-safety1';ui.async=false;
+ui.onerror=()=>console.error('Camera safety UI could not be loaded.');
+document.head.appendChild(ui);
 const script=document.createElement('script');
-script.src='camera-drive-mvp.js?v=28-mvp2';
+script.src='camera-drive-mvp.js?v=29-scope1';script.async=false;
 script.onerror=()=>console.error('Drive MVP v2 could not be loaded.');
 document.head.appendChild(script);
 };
