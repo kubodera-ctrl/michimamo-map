@@ -82,8 +82,12 @@ document.head.appendChild(script);
 
 (function loadDriveMvpV2(){
 'use strict';
+const load=()=>{
 const script=document.createElement('script');
 script.src='camera-drive-mvp.js?v=28-mvp2';
 script.onerror=()=>console.error('Drive MVP v2 could not be loaded.');
 document.head.appendChild(script);
+};
+if(document.readyState==='complete')setTimeout(load,0);
+else window.addEventListener('load',load,{once:true});
 })();
