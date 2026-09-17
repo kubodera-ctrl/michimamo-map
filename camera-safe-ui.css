@@ -1,0 +1,92 @@
+body.camera-running .ad-banner,
+body.camera-running #app > nav { display:none !important; }
+
+.camera-view.active { z-index:10000; }
+.camera-view .camera-ui-top { z-index:6; }
+.camera-view .camera-help-button { z-index:8; }
+
+.camera-view .ai-status {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+
+.camera-view .camera-capture-controls { z-index:7; bottom:calc(12px + env(safe-area-inset-bottom)); }
+.camera-view #cameraShutter {
+  min-height:38px;
+  padding:7px 14px;
+  border-width:2px;
+  font-size:12px;
+  border-radius:20px;
+}
+.camera-view .camera-start-notice {
+  position:relative;
+  width:min(86vw,360px);
+  padding:10px 42px 10px 12px;
+  border-radius:12px;
+  background:#000c;
+  color:#fff;
+  font-size:12px;
+  line-height:1.45;
+}
+.camera-view .camera-start-notice[hidden] { display:none; }
+.camera-view .camera-start-notice button {
+  position:absolute;
+  top:5px;
+  right:5px;
+  width:32px;
+  height:32px;
+  padding:0;
+  border:1px solid #fff9;
+  border-radius:50%;
+  background:#111b;
+  color:#fff;
+  font-size:18px;
+}
+
+.camera-scope-layer { position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden; }
+.camera-scope {
+  position:absolute;
+  min-width:24px;
+  min-height:24px;
+  border:0;
+  color:#fff;
+  background:
+    linear-gradient(currentColor,currentColor) left top/18px 3px no-repeat,
+    linear-gradient(currentColor,currentColor) left top/3px 18px no-repeat,
+    linear-gradient(currentColor,currentColor) right top/18px 3px no-repeat,
+    linear-gradient(currentColor,currentColor) right top/3px 18px no-repeat,
+    linear-gradient(currentColor,currentColor) left bottom/18px 3px no-repeat,
+    linear-gradient(currentColor,currentColor) left bottom/3px 18px no-repeat,
+    linear-gradient(currentColor,currentColor) right bottom/18px 3px no-repeat,
+    linear-gradient(currentColor,currentColor) right bottom/3px 18px no-repeat;
+  transition:transform .18s linear,width .18s linear,height .18s linear,opacity .18s linear;
+}
+.camera-scope[data-state="roadside"] { color:#facc15; }
+.camera-scope[data-state="recorded"] { color:#fb923c; }
+.camera-scope[data-state="traffic"] { color:#60a5fa; }
+.camera-scope[data-state="indeterminate"] { color:#a8a29e; }
+.camera-scope-legend {
+  position:absolute;
+  left:50%;
+  bottom:82px;
+  transform:translateX(-50%);
+  z-index:5;
+  padding:4px 8px;
+  border-radius:10px;
+  background:#0009;
+  color:#fff;
+  font-size:10px;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+body.camera-heat-medium .camera-scope:nth-child(n+3),
+body.camera-heat-strong .camera-scope:nth-child(n+2),
+body.camera-heat-strong .camera-scope-legend { display:none; }
