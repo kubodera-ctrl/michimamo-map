@@ -4,13 +4,15 @@ vm.createContext(context);vm.runInContext(fs.readFileSync('camera-drive-mvp.js',
 const Core=context.MachimamoDriveDetectorCore,core=new Core(),w=1000,h=600;
 const car=(x,y=300)=>({class:'car',score:.8,bbox:[x,y,180,160]});
 let result=core.process([car(20),car(410)],w,h,0,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,0,'first frame only establishes tracks');
-assert.equal(result.newTracks,2);assert.equal(result.visuals.length,2);assert.equal(result.visuals[0].state,'vehicle','first detection immediately exposes a white vehicle scope');
+assert.equal(result.newlyConfirmed,0);assert.equal(result.visuals.length,2);assert.equal(result.visuals[0].state,'vehicle','a credible first detection immediately exposes a white vehicle scope');
 result=core.process([car(30),car(510)],w,h,1000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'only shoulder vehicle becomes a stable candidate');
 assert.equal(result.newCandidates[0].class,'car');
 assert.equal(result.newCandidates[0].classification,'roadside','flowing ego and central traffic raises roadside classification');
+assert.equal(result.newlyConfirmed,2,'only vehicles seen in consecutive frames enter the displayed count');
 assert.equal(result.visuals.length,2,'at most detected matched vehicles are exposed to the lightweight scope layer');
 assert.equal(result.visuals[0].state,'recorded','a newly recorded roadside candidate receives the orange scope state');
 const close=new Core();result=close.process([{class:'car',score:.9,bbox:[100,100,800,500]}],w,h,0,{egoSpeedKmh:0});assert.equal(result.visuals.length,1,'a close vehicle may be scoped even when too large for roadside classification');result=close.process([{class:'car',score:.9,bbox:[100,100,800,500]}],w,h,900,{egoSpeedKmh:0});assert.equal(result.newCandidates.length,0,'oversized close vehicles do not become roadside candidates');
+const dashboard=new Core();result=dashboard.process([{class:'car',score:.91,bbox:[430,535,120,60]}],w,h,0,{egoSpeedKmh:0});assert.equal(result.visuals.length,0,'bottom-edge dashboard false positives are not rendered');
 result=core.process([car(35)],w,h,2000,{egoSpeedKmh:20});assert.equal(result.duplicates.length,1,'same short-lived track is a duplicate');
 core.process([car(40)],w,h,32000,{egoSpeedKmh:20});result=core.process([car(45)],w,h,33000,{egoSpeedKmh:20});assert.equal(result.newCandidates.length,1,'candidate can recur after 30-second cooldown after a fresh stable pair');
 const moving=new Core();moving.process([car(20)],w,h,0);result=moving.process([car(300)],w,h,1000);assert.equal(result.newCandidates.length,0,'large relative movement is not a stopped candidate');
