@@ -7,6 +7,7 @@
 - 問題生成: `scripts/build_quiz_dev27.mjs`。添付原本を読み、修正と30問追加を再現する。
 - DB: `supabase/migrations/20260917002422_quiz_stamps_dev27.sql`。
 - UI: `index.html`、規約 `terms.html`、AED審査部品 `aed-review.js`。
+- スタンプルールは `stampRuleContent` を正本として3カード共通モーダルに表示する。カード表示と説明文の条件を変更するときは同時に更新する。
 
 ## 次回変更時の注意
 

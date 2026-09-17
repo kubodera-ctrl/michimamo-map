@@ -194,6 +194,12 @@
         .activity-fold-body { margin-top:14px;border-top:1px solid #e5e7eb;padding-top:12px; }
         .machimamo-stamp { aspect-ratio:1;border-radius:50%;border:1px dashed #cbd5e1;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:17px;filter:grayscale(1);opacity:.35; }
         .machimamo-stamp.earned { border:2px solid #7c3aed;background:#ede9fe;filter:none;opacity:1;box-shadow:0 2px 5px #7c3aed33; }
+        .stamp-rule-card { width:100%;font:inherit;text-align:left;cursor:pointer;color:inherit;appearance:none;-webkit-appearance:none;position:relative; }
+        .stamp-rule-card:active { transform:scale(.99); }
+        .stamp-rule-card:focus-visible { outline:3px solid #2563eb;outline-offset:2px; }
+        .stamp-rule-card-title { display:flex;align-items:center;justify-content:space-between;gap:10px; }
+        .stamp-rule-card-title i { color:#64748b;font-size:.9rem; }
+        .stamp-rule-list { margin:8px 0 0;padding-left:1.25rem;color:#374151;font-size:.88rem;line-height:1.75; }
 
         #aiLoading { position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 10; display: none; flex-direction: column; align-items: center; justify-content: center; border-radius: 24px 24px 0 0; }
         .spinner { border: 4px solid #e5e7eb; border-top: 4px solid #1f6feb; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 12px; }
@@ -804,9 +810,9 @@
                         </div>
 
                         <div id="mypageStampCards" style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:16px;">
-                            <div class="card" style="margin:0;border:1px solid #c4b5fd;background:linear-gradient(135deg,#f5f3ff,#fff);"><strong>週間クイズスタンプ</strong><div id="mypageQuizStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageQuizStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
-                            <div class="card" style="margin:0;border:1px solid #86efac;background:linear-gradient(135deg,#f0fdf4,#fff);"><strong>LINE連携・今週の利用</strong><div id="mypageLoginStamps" style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px;"></div><div id="mypageLoginStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
-                            <div class="card" style="margin:0;border:1px solid #fda4af;background:linear-gradient(135deg,#fff1f2,#fff);"><strong>累積AEDスタンプ</strong><div id="mypageAedStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageAedStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></div>
+                            <button type="button" class="card stamp-rule-card" onclick="openStampRule('quiz')" aria-haspopup="dialog" aria-controls="stampRuleModal" style="margin:0;border:1px solid #c4b5fd;background:linear-gradient(135deg,#f5f3ff,#fff);"><span class="stamp-rule-card-title"><strong>週間クイズスタンプ</strong><i class="fa-solid fa-circle-info" aria-hidden="true"></i></span><div id="mypageQuizStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageQuizStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></button>
+                            <button type="button" class="card stamp-rule-card" onclick="openStampRule('line')" aria-haspopup="dialog" aria-controls="stampRuleModal" style="margin:0;border:1px solid #86efac;background:linear-gradient(135deg,#f0fdf4,#fff);"><span class="stamp-rule-card-title"><strong>LINE連携・今週の利用</strong><i class="fa-solid fa-circle-info" aria-hidden="true"></i></span><div id="mypageLoginStamps" style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px;"></div><div id="mypageLoginStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></button>
+                            <button type="button" class="card stamp-rule-card" onclick="openStampRule('aed')" aria-haspopup="dialog" aria-controls="stampRuleModal" style="margin:0;border:1px solid #fda4af;background:linear-gradient(135deg,#fff1f2,#fff);"><span class="stamp-rule-card-title"><strong>累積AEDスタンプ</strong><i class="fa-solid fa-circle-info" aria-hidden="true"></i></span><div id="mypageAedStamps" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:10px;"></div><div id="mypageAedStampText" class="muted" style="font-size:.72rem;margin-top:7px;"></div></button>
                         </div>
 
                         <details class="card activity-fold">
@@ -835,13 +841,13 @@
                         <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-coins" style="color:#f59e0b;"></i> ポイント履歴</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="pointHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
                         <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-map-location-dot" style="color:#ef4444;"></i> 自分の投稿</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="myPostHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
                         <details class="card activity-fold"><summary><h2 style="font-size:1.05rem;"><i class="fa-solid fa-gift" style="color:#9333ea;"></i> ガチャ履歴</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body"><div id="gachaHistoryArea"><div class="muted">読み込み中...</div></div></div></details>
-                        <div class="card" style="border:1px solid #fecaca; background:#fffafa;">
-                            <h2 style="font-size:1rem; color:#991b1b;"><i class="fa-solid fa-user-slash"></i> 退会・データ削除</h2>
+                        <details class="card activity-fold" style="border:1px solid #fecaca;background:#fffafa;">
+                            <summary><h2 style="font-size:1rem;color:#991b1b;"><i class="fa-solid fa-user-slash"></i> 退会・データ削除</h2><i class="fa-solid fa-chevron-down"></i></summary><div class="activity-fold-body">
                             <p class="muted" style="font-size:.78rem; line-height:1.6;">申請後、運営が内容を確認して処理します。申請だけでは即時削除されません。処理するとアカウント・投稿・写真・ポイントは削除され、元に戻せません。確認済みAEDの施設情報は投稿者との紐付けを外して残します。</p>
                             <div id="deletionRequestArea">
                                 <button onclick="requestAccountDeletion()" style="width:100%; padding:11px; border:1px solid #fca5a5; color:#b91c1c; background:white; border-radius:10px; font-weight:bold; cursor:pointer;">退会・データ削除を申請</button>
-                            </div>
-                        </div>
+                            </div></div>
+                        </details>
                     </div>
                 </div>
 
@@ -983,6 +989,18 @@
 <!-- 各種モーダル -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
+
+<!-- スタンプルール説明モーダル -->
+<div id="stampRuleModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="stampRuleTitle" onclick="if(event.target===this) closeStampRule()">
+    <div class="sheet">
+        <div class="row">
+            <div id="stampRuleTitle" style="font-size:19px;font-weight:900;">スタンプのルール</div>
+            <button type="button" class="close" onclick="closeStampRule()" aria-label="ルール説明を閉じる"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="stampRuleBody"></div>
+        <button type="button" class="primary" onclick="closeStampRule()">閉じる</button>
+    </div>
+</div>
 
 <!-- アバター選択モーダル -->
 <div id="avatarModal" class="modal">
@@ -1635,6 +1653,33 @@
         window.myCurrentRankStr = rankStr;
 
         loadRanking();
+    }
+
+    const stampRuleContent = {
+        quiz: {
+            title: '週間クイズスタンプのルール',
+            html: '<ul class="stamp-rule-list"><li>通常クイズは、車・自転車・ミックスのどれでも<strong>10問中9問以上</strong>で1個です。</li><li>通常クイズの獲得は全種類を合わせて<strong>1日1個まで</strong>です。</li><li>EXTRAは100問中98問以上で3個。獲得は週1回までです。</li><li>報酬獲得後もクイズには何度でも挑戦できます。</li><li>週間スタンプはLINE利用分と合わせて最大11個。10個で50ptを週1回獲得します。</li><li>日本時間の月曜〜日曜で集計し、翌週へは繰り越しません。</li></ul>'
+        },
+        line: {
+            title: 'LINE連携・今週の利用ルール',
+            html: '<ul class="stamp-rule-list"><li>LINE連携アカウントで、ログイン状態のままアプリを開くとその日の利用を数えます。</li><li>利用日数は日本時間で1日1回だけ加算します。</li><li>月曜〜日曜の7日すべて利用すると、週間スタンプを1個獲得します。</li><li>ログインが維持されていれば、再認証や友だち追加は必要ありません。</li><li>利用日数とスタンプは翌週へ繰り越しません。</li></ul>'
+        },
+        aed: {
+            title: '累積AEDスタンプのルール',
+            html: '<ul class="stamp-rule-list"><li>投稿したAEDが、運営に<strong>報酬対象の新規AED</strong>として承認されると1個獲得します。</li><li>既に掲載済み、重複、否認、要修正はスタンプ対象外です。</li><li>週の獲得上限はなく、翌週以降へ持ち越します。</li><li>10個貯まるごとに50ptを獲得します。</li><li>AEDスタンプの上限と、1日・1週間の投稿受付件数制限は別のルールです。</li></ul>'
+        }
+    };
+    function openStampRule(kind) {
+        const rule = stampRuleContent[kind];
+        if (!rule) return;
+        document.getElementById('stampRuleTitle').textContent = rule.title;
+        document.getElementById('stampRuleBody').innerHTML = rule.html;
+        const modal = document.getElementById('stampRuleModal');
+        modal.classList.add('open');
+        modal.querySelector('.close')?.focus();
+    }
+    function closeStampRule() {
+        document.getElementById('stampRuleModal')?.classList.remove('open');
     }
 
     async function loadRanking() {

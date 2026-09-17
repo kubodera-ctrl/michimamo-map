@@ -28,7 +28,11 @@ assert.equal(bank.questions.filter(q => q.id >= 'BIKE-201' && q.id <= 'BIKE-215'
 assert.match(html, /id="mypageQuizStamps"/);
 assert.match(html, /id="mypageLoginStamps"/);
 assert.match(html, /id="mypageAedStamps"/);
-assert.equal((html.match(/<details[^>]*class="card activity-fold"/g) || []).length, 6);
+assert.equal((html.match(/<details[^>]*class="card activity-fold"/g) || []).length, 7);
+assert.match(html, /onclick="openStampRule\('quiz'\)"/);
+assert.match(html, /onclick="openStampRule\('line'\)"/);
+assert.match(html, /onclick="openStampRule\('aed'\)"/);
+assert.match(html, /id="stampRuleModal"/);
 assert.match(html, /今週の利用日数 \$\{days\}\/7日/);
 assert.match(html, /startQuizSession\('extra'\)/);
 
