@@ -110,3 +110,16 @@ document.head.appendChild(script);
 if(document.readyState==='complete')setTimeout(load,0);
 else window.addEventListener('load',load,{once:true});
 })();
+
+(function loadPagedSpotLoader(){
+'use strict';
+const load=()=>{
+const script=document.createElement('script');
+script.src='spot-loader.js?v=28-spots1';
+script.async=false;
+script.onerror=()=>console.error('Paged spot loader could not be loaded.');
+document.head.appendChild(script);
+};
+if(document.readyState==='complete')setTimeout(load,0);
+else window.addEventListener('load',load,{once:true});
+})();
