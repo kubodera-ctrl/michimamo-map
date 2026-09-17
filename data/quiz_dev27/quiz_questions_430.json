@@ -3840,7 +3840,7 @@
       "category": "標識",
       "topicKey": "sign_51",
       "type": "single_select",
-      "question": "画像の道路標識「通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -3874,7 +3874,7 @@
         "kind": "road_sign",
         "signName": "通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -3883,7 +3883,7 @@
       "category": "標識",
       "topicKey": "sign_52",
       "type": "single_select",
-      "question": "画像の道路標識「車両通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -3917,7 +3917,7 @@
         "kind": "road_sign",
         "signName": "車両通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -3926,7 +3926,7 @@
       "category": "標識",
       "topicKey": "sign_53",
       "type": "single_select",
-      "question": "画像の道路標識「二輪の自動車以外の自動車通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -3960,7 +3960,7 @@
         "kind": "road_sign",
         "signName": "二輪の自動車以外の自動車通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -3969,7 +3969,7 @@
       "category": "標識",
       "topicKey": "sign_54",
       "type": "single_select",
-      "question": "画像の道路標識「大型貨物自動車等通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4003,7 +4003,7 @@
         "kind": "road_sign",
         "signName": "大型貨物自動車等通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4012,7 +4012,7 @@
       "category": "標識",
       "topicKey": "sign_55",
       "type": "single_select",
-      "question": "画像の道路標識「大型乗用自動車等通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4046,7 +4046,7 @@
         "kind": "road_sign",
         "signName": "大型乗用自動車等通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4055,7 +4055,7 @@
       "category": "標識",
       "topicKey": "sign_56",
       "type": "single_select",
-      "question": "画像の道路標識「二輪の自動車・一般原動機付自転車通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4089,7 +4089,7 @@
         "kind": "road_sign",
         "signName": "二輪の自動車・一般原動機付自転車通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4098,7 +4098,7 @@
       "category": "標識",
       "topicKey": "sign_57",
       "type": "single_select",
-      "question": "画像の道路標識「自転車以外の軽車両通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4132,7 +4132,7 @@
         "kind": "road_sign",
         "signName": "自転車以外の軽車両通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4141,7 +4141,7 @@
       "category": "標識",
       "topicKey": "sign_58",
       "type": "single_select",
-      "question": "画像の道路標識「特定小型原動機付自転車・自転車通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4175,7 +4175,7 @@
         "kind": "road_sign",
         "signName": "特定小型原動機付自転車・自転車通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4184,7 +4184,7 @@
       "category": "標識",
       "topicKey": "sign_59",
       "type": "single_select",
-      "question": "画像の道路標識「車両横断禁止」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4218,7 +4218,7 @@
         "kind": "road_sign",
         "signName": "車両横断禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4227,7 +4227,7 @@
       "category": "標識",
       "topicKey": "sign_60",
       "type": "single_select",
-      "question": "画像の道路標識「追越し禁止」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4261,7 +4261,7 @@
         "kind": "road_sign",
         "signName": "追越し禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4270,7 +4270,7 @@
       "category": "標識",
       "topicKey": "sign_61",
       "type": "single_select",
-      "question": "画像の道路標識「危険物積載車両通行止め」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4304,7 +4304,7 @@
         "kind": "road_sign",
         "signName": "危険物積載車両通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4313,7 +4313,7 @@
       "category": "標識",
       "topicKey": "sign_62",
       "type": "single_select",
-      "question": "画像の道路標識「重量制限」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4347,7 +4347,7 @@
         "kind": "road_sign",
         "signName": "重量制限",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4356,7 +4356,7 @@
       "category": "標識",
       "topicKey": "sign_63",
       "type": "single_select",
-      "question": "画像の道路標識「高さ制限」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4390,7 +4390,7 @@
         "kind": "road_sign",
         "signName": "高さ制限",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4399,7 +4399,7 @@
       "category": "標識",
       "topicKey": "sign_64",
       "type": "single_select",
-      "question": "画像の道路標識「最大幅」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4433,7 +4433,7 @@
         "kind": "road_sign",
         "signName": "最大幅",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4442,7 +4442,7 @@
       "category": "標識",
       "topicKey": "sign_65",
       "type": "single_select",
-      "question": "画像の道路標識「最低速度」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4476,7 +4476,7 @@
         "kind": "road_sign",
         "signName": "最低速度",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4485,7 +4485,7 @@
       "category": "標識",
       "topicKey": "sign_66",
       "type": "single_select",
-      "question": "画像の道路標識「自動車専用」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4519,7 +4519,7 @@
         "kind": "road_sign",
         "signName": "自動車専用",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4528,7 +4528,7 @@
       "category": "標識",
       "topicKey": "sign_67",
       "type": "single_select",
-      "question": "画像の道路標識「普通自転車等及び歩行者等専用」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4562,7 +4562,7 @@
         "kind": "road_sign",
         "signName": "普通自転車等及び歩行者等専用",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4571,7 +4571,7 @@
       "category": "標識",
       "topicKey": "sign_68",
       "type": "single_select",
-      "question": "画像の道路標識「歩行者等専用」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4605,7 +4605,7 @@
         "kind": "road_sign",
         "signName": "歩行者等専用",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4614,7 +4614,7 @@
       "category": "標識",
       "topicKey": "sign_69",
       "type": "single_select",
-      "question": "画像の道路標識「車両通行区分」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4648,7 +4648,7 @@
         "kind": "road_sign",
         "signName": "車両通行区分",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4657,7 +4657,7 @@
       "category": "標識",
       "topicKey": "sign_70",
       "type": "single_select",
-      "question": "画像の道路標識「特定の種類の車両の通行区分」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4691,7 +4691,7 @@
         "kind": "road_sign",
         "signName": "特定の種類の車両の通行区分",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4700,7 +4700,7 @@
       "category": "標識",
       "topicKey": "sign_71",
       "type": "single_select",
-      "question": "画像の道路標識「専用通行帯」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4734,7 +4734,7 @@
         "kind": "road_sign",
         "signName": "専用通行帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4743,7 +4743,7 @@
       "category": "標識",
       "topicKey": "sign_72",
       "type": "single_select",
-      "question": "画像の道路標識「路線バス等優先通行帯」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4777,7 +4777,7 @@
         "kind": "road_sign",
         "signName": "路線バス等優先通行帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4786,7 +4786,7 @@
       "category": "標識",
       "topicKey": "sign_73",
       "type": "single_select",
-      "question": "画像の道路標識「牽引自動車の自動車専用道路第一通行帯通行指定区間」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4820,7 +4820,7 @@
         "kind": "road_sign",
         "signName": "牽引自動車の自動車専用道路第一通行帯通行指定区間",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4829,7 +4829,7 @@
       "category": "標識",
       "topicKey": "sign_74",
       "type": "single_select",
-      "question": "画像の道路標識「軌道敷内通行可」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4863,7 +4863,7 @@
         "kind": "road_sign",
         "signName": "軌道敷内通行可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4872,7 +4872,7 @@
       "category": "標識",
       "topicKey": "sign_75",
       "type": "single_select",
-      "question": "画像の道路標識「駐車可」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4906,7 +4906,7 @@
         "kind": "road_sign",
         "signName": "駐車可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4915,7 +4915,7 @@
       "category": "標識",
       "topicKey": "sign_76",
       "type": "single_select",
-      "question": "画像の道路標識「停車可」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4949,7 +4949,7 @@
         "kind": "road_sign",
         "signName": "停車可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -4958,7 +4958,7 @@
       "category": "標識",
       "topicKey": "sign_77",
       "type": "single_select",
-      "question": "画像の道路標識「優先道路」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -4992,7 +4992,7 @@
         "kind": "road_sign",
         "signName": "優先道路",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5001,7 +5001,7 @@
       "category": "標識",
       "topicKey": "sign_78",
       "type": "single_select",
-      "question": "画像の道路標識「中央線」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5035,7 +5035,7 @@
         "kind": "road_sign",
         "signName": "中央線",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5044,7 +5044,7 @@
       "category": "標識",
       "topicKey": "sign_79",
       "type": "single_select",
-      "question": "画像の道路標識「停止線」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5078,7 +5078,7 @@
         "kind": "road_sign",
         "signName": "停止線",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5087,7 +5087,7 @@
       "category": "標識",
       "topicKey": "sign_80",
       "type": "single_select",
-      "question": "画像の道路標識「横断歩道」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5121,7 +5121,7 @@
         "kind": "road_sign",
         "signName": "横断歩道",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5130,7 +5130,7 @@
       "category": "標識",
       "topicKey": "sign_81",
       "type": "single_select",
-      "question": "画像の道路標識「自転車横断帯」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5164,7 +5164,7 @@
         "kind": "road_sign",
         "signName": "自転車横断帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5173,7 +5173,7 @@
       "category": "標識",
       "topicKey": "sign_82",
       "type": "single_select",
-      "question": "画像の道路標識「横断歩道・自転車横断帯」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5207,7 +5207,7 @@
         "kind": "road_sign",
         "signName": "横断歩道・自転車横断帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5216,7 +5216,7 @@
       "category": "標識",
       "topicKey": "sign_83",
       "type": "single_select",
-      "question": "画像の道路標識「安全地帯」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5250,7 +5250,7 @@
         "kind": "road_sign",
         "signName": "安全地帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5259,7 +5259,7 @@
       "category": "標識",
       "topicKey": "sign_84",
       "type": "single_select",
-      "question": "画像の道路標識「規制予告」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5293,7 +5293,7 @@
         "kind": "road_sign",
         "signName": "規制予告",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5302,7 +5302,7 @@
       "category": "標識",
       "topicKey": "sign_85",
       "type": "single_select",
-      "question": "画像の道路標識「並進可」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5336,7 +5336,7 @@
         "kind": "road_sign",
         "signName": "並進可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5345,7 +5345,7 @@
       "category": "標識",
       "topicKey": "sign_86",
       "type": "single_select",
-      "question": "画像の道路標識「徐行」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5379,7 +5379,7 @@
         "kind": "road_sign",
         "signName": "徐行",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5388,7 +5388,7 @@
       "category": "標識",
       "topicKey": "sign_87",
       "type": "single_select",
-      "question": "画像の道路標識「警笛鳴らせ」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5422,7 +5422,7 @@
         "kind": "road_sign",
         "signName": "警笛鳴らせ",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5431,7 +5431,7 @@
       "category": "標識",
       "topicKey": "sign_88",
       "type": "single_select",
-      "question": "画像の道路標識「＋形道路交差点あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5465,7 +5465,7 @@
         "kind": "road_sign",
         "signName": "＋形道路交差点あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5474,7 +5474,7 @@
       "category": "標識",
       "topicKey": "sign_89",
       "type": "single_select",
-      "question": "画像の道路標識「Ｔ形道路交差点あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5508,7 +5508,7 @@
         "kind": "road_sign",
         "signName": "Ｔ形道路交差点あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5517,7 +5517,7 @@
       "category": "標識",
       "topicKey": "sign_90",
       "type": "single_select",
-      "question": "画像の道路標識「Ｙ形道路交差点あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5551,7 +5551,7 @@
         "kind": "road_sign",
         "signName": "Ｙ形道路交差点あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5560,7 +5560,7 @@
       "category": "標識",
       "topicKey": "sign_91",
       "type": "single_select",
-      "question": "画像の道路標識「ロータリーあり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5594,7 +5594,7 @@
         "kind": "road_sign",
         "signName": "ロータリーあり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5603,7 +5603,7 @@
       "category": "標識",
       "topicKey": "sign_92",
       "type": "single_select",
-      "question": "画像の道路標識「右方屈曲あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5637,7 +5637,7 @@
         "kind": "road_sign",
         "signName": "右方屈曲あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5646,7 +5646,7 @@
       "category": "標識",
       "topicKey": "sign_93",
       "type": "single_select",
-      "question": "画像の道路標識「左方屈曲あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5680,7 +5680,7 @@
         "kind": "road_sign",
         "signName": "左方屈曲あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5689,7 +5689,7 @@
       "category": "標識",
       "topicKey": "sign_94",
       "type": "single_select",
-      "question": "画像の道路標識「右方屈折あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5723,7 +5723,7 @@
         "kind": "road_sign",
         "signName": "右方屈折あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5732,7 +5732,7 @@
       "category": "標識",
       "topicKey": "sign_95",
       "type": "single_select",
-      "question": "画像の道路標識「左方屈折あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5766,7 +5766,7 @@
         "kind": "road_sign",
         "signName": "左方屈折あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5775,7 +5775,7 @@
       "category": "標識",
       "topicKey": "sign_96",
       "type": "single_select",
-      "question": "画像の道路標識「右方つづら折りあり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5809,7 +5809,7 @@
         "kind": "road_sign",
         "signName": "右方つづら折りあり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5818,7 +5818,7 @@
       "category": "標識",
       "topicKey": "sign_97",
       "type": "single_select",
-      "question": "画像の道路標識「学校、幼稚園、保育所等あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5852,7 +5852,7 @@
         "kind": "road_sign",
         "signName": "学校、幼稚園、保育所等あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5861,7 +5861,7 @@
       "category": "標識",
       "topicKey": "sign_98",
       "type": "single_select",
-      "question": "画像の道路標識「信号機あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5895,7 +5895,7 @@
         "kind": "road_sign",
         "signName": "信号機あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5904,7 +5904,7 @@
       "category": "標識",
       "topicKey": "sign_99",
       "type": "single_select",
-      "question": "画像の道路標識「すべりやすい」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5938,7 +5938,7 @@
         "kind": "road_sign",
         "signName": "すべりやすい",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5947,7 +5947,7 @@
       "category": "標識",
       "topicKey": "sign_100",
       "type": "single_select",
-      "question": "画像の道路標識「路面凹凸あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -5981,7 +5981,7 @@
         "kind": "road_sign",
         "signName": "路面凹凸あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -5990,7 +5990,7 @@
       "category": "標識",
       "topicKey": "sign_101",
       "type": "single_select",
-      "question": "画像の道路標識「合流交通あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6024,7 +6024,7 @@
         "kind": "road_sign",
         "signName": "合流交通あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6033,7 +6033,7 @@
       "category": "標識",
       "topicKey": "sign_102",
       "type": "single_select",
-      "question": "画像の道路標識「車線数減少」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6067,7 +6067,7 @@
         "kind": "road_sign",
         "signName": "車線数減少",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6076,7 +6076,7 @@
       "category": "標識",
       "topicKey": "sign_103",
       "type": "single_select",
-      "question": "画像の道路標識「幅員減少」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6110,7 +6110,7 @@
         "kind": "road_sign",
         "signName": "幅員減少",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6119,7 +6119,7 @@
       "category": "標識",
       "topicKey": "sign_104",
       "type": "single_select",
-      "question": "画像の道路標識「二方向交通」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6153,7 +6153,7 @@
         "kind": "road_sign",
         "signName": "二方向交通",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6162,7 +6162,7 @@
       "category": "標識",
       "topicKey": "sign_105",
       "type": "single_select",
-      "question": "画像の道路標識「上り急勾配あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6196,7 +6196,7 @@
         "kind": "road_sign",
         "signName": "上り急勾配あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6205,7 +6205,7 @@
       "category": "標識",
       "topicKey": "sign_106",
       "type": "single_select",
-      "question": "画像の道路標識「下り急勾配あり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6239,7 +6239,7 @@
         "kind": "road_sign",
         "signName": "下り急勾配あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6248,7 +6248,7 @@
       "category": "標識",
       "topicKey": "sign_107",
       "type": "single_select",
-      "question": "画像の道路標識「道路工事中」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6282,7 +6282,7 @@
         "kind": "road_sign",
         "signName": "道路工事中",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6291,7 +6291,7 @@
       "category": "標識",
       "topicKey": "sign_108",
       "type": "single_select",
-      "question": "画像の道路標識「横風注意」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6325,7 +6325,7 @@
         "kind": "road_sign",
         "signName": "横風注意",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6334,7 +6334,7 @@
       "category": "標識",
       "topicKey": "sign_109",
       "type": "single_select",
-      "question": "画像の道路標識「動物が飛び出すおそれあり」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6368,7 +6368,7 @@
         "kind": "road_sign",
         "signName": "動物が飛び出すおそれあり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -6377,7 +6377,7 @@
       "category": "標識",
       "topicKey": "sign_110",
       "type": "single_select",
-      "question": "画像の道路標識「その他の危険」が示す意味として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -6411,7 +6411,7 @@
         "kind": "road_sign",
         "signName": "その他の危険",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9750,7 +9750,7 @@
       "category": "標識",
       "topicKey": "bike_sign_51",
       "type": "single_select",
-      "question": "画像の標識「特定小型原動機付自転車・自転車通行止め」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -9785,7 +9785,7 @@
         "kind": "road_sign",
         "signName": "特定小型原動機付自転車・自転車通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9794,7 +9794,7 @@
       "category": "標識",
       "topicKey": "bike_sign_52",
       "type": "single_select",
-      "question": "画像の標識「自転車以外の軽車両通行止め」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -9829,7 +9829,7 @@
         "kind": "road_sign",
         "signName": "自転車以外の軽車両通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9838,7 +9838,7 @@
       "category": "標識",
       "topicKey": "bike_sign_53",
       "type": "single_select",
-      "question": "画像の標識「普通自転車等及び歩行者等専用」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -9873,7 +9873,7 @@
         "kind": "road_sign",
         "signName": "普通自転車等及び歩行者等専用",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9882,7 +9882,7 @@
       "category": "標識",
       "topicKey": "bike_sign_54",
       "type": "single_select",
-      "question": "画像の標識「自転車横断帯」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -9917,7 +9917,7 @@
         "kind": "road_sign",
         "signName": "自転車横断帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9926,7 +9926,7 @@
       "category": "標識",
       "topicKey": "bike_sign_55",
       "type": "single_select",
-      "question": "画像の標識「横断歩道・自転車横断帯」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -9961,7 +9961,7 @@
         "kind": "road_sign",
         "signName": "横断歩道・自転車横断帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -9970,7 +9970,7 @@
       "category": "標識",
       "topicKey": "bike_sign_56",
       "type": "single_select",
-      "question": "画像の標識「並進可」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10005,7 +10005,7 @@
         "kind": "road_sign",
         "signName": "並進可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10014,7 +10014,7 @@
       "category": "標識",
       "topicKey": "bike_sign_57",
       "type": "single_select",
-      "question": "画像の標識「徐行」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10049,7 +10049,7 @@
         "kind": "road_sign",
         "signName": "徐行",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10058,7 +10058,7 @@
       "category": "標識",
       "topicKey": "bike_sign_58",
       "type": "single_select",
-      "question": "画像の標識「一時停止」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10093,7 +10093,7 @@
         "kind": "road_sign",
         "signName": "一時停止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10102,7 +10102,7 @@
       "category": "標識",
       "topicKey": "bike_sign_59",
       "type": "single_select",
-      "question": "画像の標識「警笛鳴らせ」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10137,7 +10137,7 @@
         "kind": "road_sign",
         "signName": "警笛鳴らせ",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10146,7 +10146,7 @@
       "category": "標識",
       "topicKey": "bike_sign_60",
       "type": "single_select",
-      "question": "画像の標識「車両進入禁止」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10181,7 +10181,7 @@
         "kind": "road_sign",
         "signName": "車両進入禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10190,7 +10190,7 @@
       "category": "標識",
       "topicKey": "bike_sign_61",
       "type": "single_select",
-      "question": "画像の標識「一方通行」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10225,7 +10225,7 @@
         "kind": "road_sign",
         "signName": "一方通行",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10234,7 +10234,7 @@
       "category": "標識",
       "topicKey": "bike_sign_62",
       "type": "single_select",
-      "question": "画像の標識「歩行者等専用」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10269,7 +10269,7 @@
         "kind": "road_sign",
         "signName": "歩行者等専用",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10278,7 +10278,7 @@
       "category": "標識",
       "topicKey": "bike_sign_63",
       "type": "single_select",
-      "question": "画像の標識「車両通行止め」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10313,7 +10313,7 @@
         "kind": "road_sign",
         "signName": "車両通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10322,7 +10322,7 @@
       "category": "標識",
       "topicKey": "bike_sign_64",
       "type": "single_select",
-      "question": "画像の標識「通行止め」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10357,7 +10357,7 @@
         "kind": "road_sign",
         "signName": "通行止め",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10366,7 +10366,7 @@
       "category": "標識",
       "topicKey": "bike_sign_65",
       "type": "single_select",
-      "question": "画像の標識「停止線」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10401,7 +10401,7 @@
         "kind": "road_sign",
         "signName": "停止線",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10410,7 +10410,7 @@
       "category": "標識",
       "topicKey": "bike_sign_66",
       "type": "single_select",
-      "question": "画像の標識「優先道路」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10445,7 +10445,7 @@
         "kind": "road_sign",
         "signName": "優先道路",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10454,7 +10454,7 @@
       "category": "標識",
       "topicKey": "bike_sign_67",
       "type": "single_select",
-      "question": "画像の標識「横断歩道」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10489,7 +10489,7 @@
         "kind": "road_sign",
         "signName": "横断歩道",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10498,7 +10498,7 @@
       "category": "標識",
       "topicKey": "bike_sign_68",
       "type": "single_select",
-      "question": "画像の標識「駐停車禁止」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10533,7 +10533,7 @@
         "kind": "road_sign",
         "signName": "駐停車禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10542,7 +10542,7 @@
       "category": "標識",
       "topicKey": "bike_sign_69",
       "type": "single_select",
-      "question": "画像の標識「駐車禁止」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10577,7 +10577,7 @@
         "kind": "road_sign",
         "signName": "駐車禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -10586,7 +10586,7 @@
       "category": "標識",
       "topicKey": "bike_sign_70",
       "type": "single_select",
-      "question": "画像の標識「規制予告」について、自転車利用者の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -10621,7 +10621,7 @@
         "kind": "road_sign",
         "signName": "規制予告",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15553,7 +15553,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_201",
       "type": "single_select",
-      "question": "画像の標識「左方つづら折りあり」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15569,7 +15569,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「左方つづら折りあり」は、前方に左から始まる連続した急カーブがある標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「左方つづら折りあり」です。前方に左から始まる連続した急カーブがあるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15589,7 +15589,7 @@
         "kind": "road_sign",
         "signName": "左方つづら折りあり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15598,7 +15598,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_202",
       "type": "single_select",
-      "question": "画像の標識「踏切あり（電車）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15614,7 +15614,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「踏切あり（電車）」は、前方に踏切がある標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「踏切あり（電車）」です。前方に踏切があるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15634,7 +15634,7 @@
         "kind": "road_sign",
         "signName": "踏切あり（電車）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15643,7 +15643,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_203",
       "type": "single_select",
-      "question": "画像の標識「踏切あり（機関車）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15659,7 +15659,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「踏切あり（機関車）」は、前方に踏切がある標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「踏切あり（機関車）」です。前方に踏切があるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15679,7 +15679,7 @@
         "kind": "road_sign",
         "signName": "踏切あり（機関車）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15688,23 +15688,23 @@
       "category": "画像標識",
       "topicKey": "dev27_car_204",
       "type": "single_select",
-      "question": "画像の標識「子供の飛び出し注意」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
-          "label": "学校等の近くで子供の通行に注意する"
+          "label": "前方に右から始まる屈折が連続している"
         },
         {
           "value": "B",
-          "label": "子供だけ通行できる"
+          "label": "右折しなければならない"
         },
         {
           "value": "C",
-          "label": "横断歩道を示す"
+          "label": "右側だけ通行できる"
         }
       ],
       "correctValue": "A",
-      "explanation": "「子供の飛び出し注意」は、学校等の近くで子供の通行に注意する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「右方背向屈折あり」です。前方に右から始まる屈折が連続しているものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15722,9 +15722,9 @@
       "sourceCheckedAt": "2026-09-17",
       "visualRef": {
         "kind": "road_sign",
-        "signName": "子供の飛び出し注意",
+        "signName": "右方背向屈折あり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15733,7 +15733,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_205",
       "type": "single_select",
-      "question": "画像の標識「落石のおそれあり」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15749,7 +15749,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「落石のおそれあり」は、落石や路上の石に注意する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「落石のおそれあり」です。落石や路上の石に注意するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15769,7 +15769,7 @@
         "kind": "road_sign",
         "signName": "落石のおそれあり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15778,7 +15778,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_206",
       "type": "single_select",
-      "question": "画像の標識「環状交差点」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15794,7 +15794,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「環状交差点」は、前方に環状交差点がある標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「環状交差点」です。前方に環状交差点があるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15814,7 +15814,7 @@
         "kind": "road_sign",
         "signName": "環状交差点",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15823,7 +15823,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_207",
       "type": "single_select",
-      "question": "画像の標識「転回禁止」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15839,7 +15839,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「転回禁止」は、車両の転回を禁止する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「転回禁止」です。車両の転回を禁止するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15859,7 +15859,7 @@
         "kind": "road_sign",
         "signName": "転回禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15868,7 +15868,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_208",
       "type": "single_select",
-      "question": "画像の標識「追越しのための右側部分はみ出し通行禁止」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15884,7 +15884,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「追越しのための右側部分はみ出し通行禁止」は、追越しのため道路右側へはみ出すことを禁止する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「追越しのための右側部分はみ出し通行禁止」です。追越しのため道路右側へはみ出すことを禁止するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15904,7 +15904,7 @@
         "kind": "road_sign",
         "signName": "追越しのための右側部分はみ出し通行禁止",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15913,7 +15913,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_209",
       "type": "single_select",
-      "question": "画像の標識「指定方向外進行禁止（直進）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15929,7 +15929,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「指定方向外進行禁止（直進）」は、直進方向以外へ進めない標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「指定方向外進行禁止（直進）」です。直進方向以外へ進めないものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15949,7 +15949,7 @@
         "kind": "road_sign",
         "signName": "指定方向外進行禁止（直進）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -15958,7 +15958,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_210",
       "type": "single_select",
-      "question": "画像の標識「指定方向外進行禁止（左折）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -15974,7 +15974,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「指定方向外進行禁止（左折）」は、左折方向以外へ進めない標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「指定方向外進行禁止（左折）」です。左折方向以外へ進めないものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -15994,7 +15994,7 @@
         "kind": "road_sign",
         "signName": "指定方向外進行禁止（左折）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16003,7 +16003,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_211",
       "type": "single_select",
-      "question": "画像の標識「指定方向外進行禁止（右折）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16019,7 +16019,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「指定方向外進行禁止（右折）」は、右折方向以外へ進めない標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「指定方向外進行禁止（右折）」です。右折方向以外へ進めないものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16039,7 +16039,7 @@
         "kind": "road_sign",
         "signName": "指定方向外進行禁止（右折）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16048,7 +16048,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_212",
       "type": "single_select",
-      "question": "画像の標識「指定方向外進行禁止（直進・左折）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16064,7 +16064,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「指定方向外進行禁止（直進・左折）」は、直進または左折だけ進める標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「指定方向外進行禁止（直進・左折）」です。直進または左折だけ進めるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16084,7 +16084,7 @@
         "kind": "road_sign",
         "signName": "指定方向外進行禁止（直進・左折）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16093,7 +16093,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_213",
       "type": "single_select",
-      "question": "画像の標識「指定方向外進行禁止（直進・右折）」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16109,7 +16109,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「指定方向外進行禁止（直進・右折）」は、直進または右折だけ進める標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「指定方向外進行禁止（直進・右折）」です。直進または右折だけ進めるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16129,7 +16129,7 @@
         "kind": "road_sign",
         "signName": "指定方向外進行禁止（直進・右折）",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16138,7 +16138,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_214",
       "type": "single_select",
-      "question": "画像の標識「規制の始まり」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16154,7 +16154,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「規制の始まり」は、ここから本標識の規制が始まる標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「規制の始まり」です。ここから本標識の規制が始まるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16174,7 +16174,7 @@
         "kind": "road_sign",
         "signName": "規制の始まり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16183,7 +16183,7 @@
       "category": "画像標識",
       "topicKey": "dev27_car_215",
       "type": "single_select",
-      "question": "画像の標識「規制の終わり」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16199,7 +16199,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「規制の終わり」は、ここで本標識の規制が終わる標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「規制の終わり」です。ここで本標識の規制が終わるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16219,7 +16219,7 @@
         "kind": "road_sign",
         "signName": "規制の終わり",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16228,7 +16228,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_201",
       "type": "single_select",
-      "question": "画像の標識「普通自転車歩道通行可」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16244,7 +16244,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「普通自転車歩道通行可」は、普通自転車が歩道を通行できることを示す標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「普通自転車歩道通行可」です。普通自転車が歩道を通行できることを示すものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16264,7 +16264,7 @@
         "kind": "road_sign",
         "signName": "普通自転車歩道通行可",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16273,7 +16273,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_202",
       "type": "single_select",
-      "question": "画像の標識「普通自転車専用通行帯」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16289,7 +16289,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「普通自転車専用通行帯」は、普通自転車の専用通行帯を示す標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「普通自転車専用通行帯」です。普通自転車の専用通行帯を示すものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16309,7 +16309,7 @@
         "kind": "road_sign",
         "signName": "普通自転車専用通行帯",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16318,7 +16318,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_203",
       "type": "single_select",
-      "question": "画像の標識「自転車ナビマーク」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16334,7 +16334,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「自転車ナビマーク」は、自転車の通行位置と方向を分かりやすく示す法定外表示標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「自転車ナビマーク」です。自転車の通行位置と方向を分かりやすく示す法定外表示ものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16354,7 +16354,7 @@
         "kind": "road_sign",
         "signName": "自転車ナビマーク",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16363,7 +16363,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_204",
       "type": "single_select",
-      "question": "画像の標識「自転車ナビライン」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16379,7 +16379,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「自転車ナビライン」は、自転車の通行位置と方向を分かりやすく示す法定外表示標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「自転車ナビライン」です。自転車の通行位置と方向を分かりやすく示す法定外表示ものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16399,7 +16399,7 @@
         "kind": "road_sign",
         "signName": "自転車ナビライン",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16408,7 +16408,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_205",
       "type": "single_select",
-      "question": "画像の標識「時間指定「8-20」」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16424,7 +16424,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「時間指定「8-20」」は、本標識の規制が8時から20時に適用される標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「時間指定「8-20」」です。本標識の規制が8時から20時に適用されるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16444,7 +16444,7 @@
         "kind": "road_sign",
         "signName": "時間指定「8-20」",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16453,7 +16453,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_206",
       "type": "single_select",
-      "question": "画像の標識「車種指定「自転車を除く」」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16469,7 +16469,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「車種指定「自転車を除く」」は、自転車は本標識の規制対象から除かれる標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「車種指定「自転車を除く」」です。自転車は本標識の規制対象から除かれるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16489,7 +16489,7 @@
         "kind": "road_sign",
         "signName": "車種指定「自転車を除く」",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16498,7 +16498,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_207",
       "type": "single_select",
-      "question": "画像の標識「区域内」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16514,7 +16514,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「区域内」は、本標識の規制区域内である標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「区域内」です。本標識の規制区域内であるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16534,7 +16534,7 @@
         "kind": "road_sign",
         "signName": "区域内",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16543,7 +16543,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_208",
       "type": "single_select",
-      "question": "画像の標識「日曜・休日を除く」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16559,7 +16559,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「日曜・休日を除く」は、日曜・休日は本標識の規制対象外となる標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「日曜・休日を除く」です。日曜・休日は本標識の規制対象外となるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16579,7 +16579,7 @@
         "kind": "road_sign",
         "signName": "日曜・休日を除く",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16588,7 +16588,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_209",
       "type": "single_select",
-      "question": "画像の標識「一方通行「自転車を除く」」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16604,7 +16604,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「一方通行「自転車を除く」」は、自転車は補助標識により一方通行規制から除外される標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「一方通行「自転車を除く」」です。自転車は補助標識により一方通行規制から除外されるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16624,7 +16624,7 @@
         "kind": "road_sign",
         "signName": "一方通行「自転車を除く」",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16633,7 +16633,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_210",
       "type": "single_select",
-      "question": "画像の標識「車両進入禁止「自転車を除く」」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16649,7 +16649,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「車両進入禁止「自転車を除く」」は、自転車は補助標識により進入禁止の対象外となる標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「車両進入禁止「自転車を除く」」です。自転車は補助標識により進入禁止の対象外となるものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16669,7 +16669,7 @@
         "kind": "road_sign",
         "signName": "車両進入禁止「自転車を除く」",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16678,7 +16678,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_211",
       "type": "single_select",
-      "question": "画像の標識「横断歩道と自転車横断帯の見分け」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16694,7 +16694,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「横断歩道と自転車横断帯の見分け」は、自転車横断帯を含む標識か図柄を確認する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「横断歩道と自転車横断帯の見分け」です。自転車横断帯を含む標識か図柄を確認するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16714,7 +16714,7 @@
         "kind": "road_sign",
         "signName": "横断歩道と自転車横断帯の見分け",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16723,7 +16723,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_212",
       "type": "single_select",
-      "question": "画像の標識「最高速度と最低速度の見分け」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16739,7 +16739,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「最高速度と最低速度の見分け」は、数字の下の青い横線など標識の意匠を確認する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「最高速度と最低速度の見分け」です。数字の下の青い横線など標識の意匠を確認するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16759,7 +16759,7 @@
         "kind": "road_sign",
         "signName": "最高速度と最低速度の見分け",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16768,7 +16768,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_213",
       "type": "single_select",
-      "question": "画像の標識「駐車禁止と駐停車禁止の見分け」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16784,7 +16784,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「駐車禁止と駐停車禁止の見分け」は、赤い斜線1本と赤い×印の違いを確認する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「駐車禁止と駐停車禁止の見分け」です。赤い斜線1本と赤い×印の違いを確認するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16804,7 +16804,7 @@
         "kind": "road_sign",
         "signName": "駐車禁止と駐停車禁止の見分け",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16813,7 +16813,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_214",
       "type": "single_select",
-      "question": "画像の標識「通行止めと車両通行止めの見分け」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16829,7 +16829,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「通行止めと車両通行止めの見分け」は、対象が全交通か車両かを標識の図柄で確認する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「通行止めと車両通行止めの見分け」です。対象が全交通か車両かを標識の図柄で確認するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16849,7 +16849,7 @@
         "kind": "road_sign",
         "signName": "通行止めと車両通行止めの見分け",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     },
     {
@@ -16858,7 +16858,7 @@
       "category": "画像標識",
       "topicKey": "dev27_bike_215",
       "type": "single_select",
-      "question": "画像の標識「車両進入禁止と一方通行の組合せ」の理解として正しいものは？",
+      "question": "画像の標識・表示について、正しい説明はどれ？",
       "choices": [
         {
           "value": "A",
@@ -16874,7 +16874,7 @@
         }
       ],
       "correctValue": "A",
-      "explanation": "「車両進入禁止と一方通行の組合せ」は、出口側の進入禁止と進行方向を併せて確認する標識・表示です。補助標識がある場合は組み合わせて判断します。",
+      "explanation": "画像は「車両進入禁止と一方通行の組合せ」です。出口側の進入禁止と進行方向を併せて確認するものです。補助標識がある場合は、本標識と組み合わせて判断します。",
       "violationName": null,
       "penaltyType": null,
       "fineAmountYen": null,
@@ -16894,7 +16894,7 @@
         "kind": "road_sign",
         "signName": "車両進入禁止と一方通行の組合せ",
         "assetNeeded": false,
-        "renderer": "inline_svg_v1"
+        "renderer": "official_asset_v1"
       }
     }
   ]

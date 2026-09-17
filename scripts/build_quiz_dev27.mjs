@@ -40,7 +40,7 @@ const signs = [
   ['CAR-201','car','左方つづら折りあり','前方に左から始まる連続した急カーブがある','前方が一方通行である','左折しなければならない'],
   ['CAR-202','car','踏切あり（電車）','前方に踏切がある','路面電車専用道路である','駅への案内である'],
   ['CAR-203','car','踏切あり（機関車）','前方に踏切がある','蒸気機関車だけ通行できる','鉄道車両の駐車場である'],
-  ['CAR-204','car','子供の飛び出し注意','学校等の近くで子供の通行に注意する','子供だけ通行できる','横断歩道を示す'],
+  ['CAR-204','car','右方背向屈折あり','前方に右から始まる屈折が連続している','右折しなければならない','右側だけ通行できる'],
   ['CAR-205','car','落石のおそれあり','落石や路上の石に注意する','石を積んだ車は通行できない','砂利道の終わりを示す'],
   ['CAR-206','car','環状交差点','前方に環状交差点がある','その場で転回しなければならない','ロータリー内は一時停止禁止である'],
   ['CAR-207','car','転回禁止','車両の転回を禁止する','右折だけを禁止する','追越しを禁止する'],
@@ -70,13 +70,16 @@ const signs = [
 ];
 
 for (const [id,vehicleType,signName,correct,wrong1,wrong2] of signs) {
-  data.questions.push({id,vehicleType,category:'画像標識',topicKey:`dev27_${id.toLowerCase().replace('-','_')}`,type:'single_select',question:`画像の標識「${signName}」の理解として正しいものは？`,choices:[{value:'A',label:correct},{value:'B',label:wrong1},{value:'C',label:wrong2}],correctValue:'A',explanation:`「${signName}」は、${correct}標識・表示です。補助標識がある場合は組み合わせて判断します。`,violationName:null,penaltyType:null,fineAmountYen:null,points:null,applicableAge:null,effectiveFrom:null,penaltyNote:null,difficulty:'normal',tags:['画像標識'],sourceKeys:['MLIT_SIGN_LIST'],sourceCheckedAt:'2026-09-17',visualRef:{kind:'road_sign',signName,assetNeeded:false}});
+  data.questions.push({id,vehicleType,category:'画像標識',topicKey:`dev27_${id.toLowerCase().replace('-','_')}`,type:'single_select',question:'画像の標識・表示について、正しい説明はどれ？',choices:[{value:'A',label:correct},{value:'B',label:wrong1},{value:'C',label:wrong2}],correctValue:'A',explanation:`画像は「${signName}」です。${correct}ものです。補助標識がある場合は、本標識と組み合わせて判断します。`,violationName:null,penaltyType:null,fineAmountYen:null,points:null,applicableAge:null,effectiveFrom:null,penaltyNote:null,difficulty:'normal',tags:['画像標識'],sourceKeys:['MLIT_SIGN_LIST'],sourceCheckedAt:'2026-09-17',visualRef:{kind:'road_sign',signName,assetNeeded:false}});
 }
 
-// Every visual question is rendered by the client as an inline SVG, so the
-// integrated bank never references a missing external bitmap.
+// Do not reveal the answer in the prompt. Every visual question is backed by
+// a vetted local image extracted from an official source.
 for (const q of data.questions) {
-  if (q.visualRef) q.visualRef = {...q.visualRef, assetNeeded:false, renderer:'inline_svg_v1'};
+  if (q.visualRef) {
+    q.question = '画像の標識・表示について、正しい説明はどれ？';
+    q.visualRef = {...q.visualRef, assetNeeded:false, renderer:'official_asset_v1'};
+  }
 }
 
 fs.mkdirSync(outDir, {recursive:true});
