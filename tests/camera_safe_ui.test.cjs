@@ -7,5 +7,5 @@ assert.match(js,/slice\(0,heat==='strong'\?1:heat==='medium'\?2:3\)/,'scope coun
 assert.match(css,/body\.camera-running \.ad-banner/,'the PR strip is hidden while the camera is running');
 assert.match(css,/body\.camera-running #app > nav/,'bottom navigation is hidden while the camera is running');
 assert.match(css,/\.camera-view \.ai-status[\s\S]*clip-path:inset\(50%\)/,'verbose live status remains accessible but is visually hidden');
-assert.match(loader,/camera-safe-ui\.js\?v=29-safety2/,'the camera safety layer is loaded by the deployed compatibility entrypoint');
+assert.match(loader,/camera-safe-ui\.js\?v=29-safety3/,'the camera safety layer is loaded by the deployed compatibility entrypoint');
 console.log('PASS: distraction-reduced camera UI, Q&A wiring, startup notice, and scope overlay loader.');
