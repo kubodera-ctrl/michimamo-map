@@ -90,7 +90,7 @@ ui.src='camera-safe-ui.js?v=29-safety3';ui.async=false;
 ui.onerror=()=>console.error('Camera safety UI could not be loaded.');
 document.head.appendChild(ui);
 const script=document.createElement('script');
-script.src='camera-drive-mvp.js?v=29-scope3';script.async=false;
+script.src='camera-drive-mvp.js?v=29-scope4';script.async=false;
 script.onerror=()=>console.error('Drive MVP v2 could not be loaded.');
 document.head.appendChild(script);
 };
