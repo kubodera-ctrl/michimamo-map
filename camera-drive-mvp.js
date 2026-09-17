@@ -11,6 +11,9 @@
             const detections=all.filter(p=>VEHICLES.has(p?.class)&&Number.isFinite(p.score)&&p.score>=.5&&Array.isArray(p.bbox)&&p.bbox.length===4)
                 .map(p=>{const point=center(p.bbox),area=point.w*point.h/(width*height);return {...p,point,side:point.x/width<.4||point.x/width>.6,area,candidateEligible:area<=.65};})
                 .filter(p=>(p.point.y+p.point.h/2)/height>.38&&p.area>=.006&&p.area<=.82);
+            const visualOk=detection=>detection.score>=.65&&detection.area>=.012&&detection.point.y/height>=.34&&detection.point.y/height<=.82;
+            let invalidExpired=0;
+            this.tracks=this.tracks.filter(track=>{const keep=at-track.lastAt<=4000;if(!keep&&track.emittedAt===null)invalidExpired++;return keep;});
             const used=new Set(),matched=[],freshVisuals=[],newCandidates=[],duplicates=[];
             for(const detection of detections){
                 let best=null,bestDistance=Infinity;
@@ -19,41 +22,46 @@
                 used.add(best.id);const gap=at-best.lastAt,scale=Math.max(Math.abs(detection.point.w-best.point.w)/Math.max(best.point.w,1),Math.abs(detection.point.h-best.point.h)/Math.max(best.point.h,1));
                 const stable=bestDistance<=.08&&scale<=.25&&gap<=2500;
                 const fastTransit=bestDistance>.035&&bestDistance<=.34&&scale<=.9&&gap<=1400&&best.side&&detection.side;
-                const newlyConfirmed=best.hits===1;
                 best.hits++;best.stableHits=stable?best.stableHits+1:0;best.transitHits=fastTransit?best.transitHits+1:0;best.point=detection.point;best.lastAt=at;best.side=detection.side;
-                matched.push({track:best,detection,movement:bestDistance,scale,stable,fastTransit,newlyConfirmed});
+                matched.push({track:best,detection,movement:bestDistance,scale,stable,fastTransit});
             }
             const surrounding=matched.length,stopped=matched.filter(x=>x.stable).length,stoppedRate=surrounding?stopped/surrounding:null;
             const central=matched.filter(x=>!x.detection.side),centralMoving=central.filter(x=>!x.stable).length;
             const egoSpeed=Number.isFinite(telemetry.egoSpeedKmh)?telemetry.egoSpeedKmh:null;
             for(const fresh of freshVisuals){
                 const detection=fresh.detection;
-                if(!detection.candidateEligible||!detection.side||detection.score<.72||detection.brakeLightsLikely||!(egoSpeed!==null&&egoSpeed>=8))continue;
-                const item={trackId:'drive-'+fresh.track.id,class:detection.class,score:detection.score,bbox:detection.bbox,at,classification:'roadside',reason:'moving_ego_edge_vehicle_single_frame',
-                    egoSpeedKmh:egoSpeed,surroundingVehicles:surrounding,stoppedRate,trafficLight,brakeLightsLikely:false,justRecorded:true};
-                fresh.track.emittedAt=at;fresh.track.counted=true;fresh.state='recorded';newCandidates.push(item);
+                if(!detection.candidateEligible||!detection.side||detection.score<.72)continue;
+                let classification='roadside',reason='edge_vehicle_single_frame';
+                if(detection.brakeLightsLikely){classification='indeterminate';reason='paired_bright_brake_lights_single_frame';}
+                else if(egoSpeed!==null&&egoSpeed<=5&&trafficLight){classification='signal_wait';reason='low_ego_edge_vehicle_with_signal_single_frame';}
+                else if(egoSpeed!==null&&egoSpeed<=5&&detections.length>=2){classification='congestion';reason='low_ego_multi_vehicle_single_frame';}
+                else if(egoSpeed===null){classification='indeterminate';reason='edge_vehicle_single_frame_no_speed';}
+                const item={trackId:'drive-'+fresh.track.id,class:detection.class,score:detection.score,bbox:detection.bbox,at,classification,reason,
+                    egoSpeedKmh:egoSpeed,surroundingVehicles:detections.length,stoppedRate,trafficLight,brakeLightsLikely:!!detection.brakeLightsLikely,justRecorded:true};
+                fresh.track.emittedAt=at;
+                fresh.state=classification==='roadside'?'recorded':classification==='signal_wait'||classification==='congestion'||detection.brakeLightsLikely?'traffic':'indeterminate';
+                newCandidates.push(item);
             }
             for(const match of matched){
                 if(!match.detection.candidateEligible||!match.detection.side||(!match.track.stableHits&&!match.track.transitHits))continue;
-                if(match.track.transitHits&&!match.track.stableHits&&!(egoSpeed!==null&&egoSpeed>=8))continue;
                 let classification='indeterminate',reason='insufficient_flow_evidence';
-                if(egoSpeed!==null&&egoSpeed<=5&&surrounding>=2&&stoppedRate>=.6){
-                    classification=trafficLight?'signal_wait':'congestion';reason=trafficLight?'low_ego_group_stop_with_signal':'low_ego_group_stop';
+                if(egoSpeed!==null&&egoSpeed<=5&&trafficLight){
+                    classification='signal_wait';reason='low_ego_group_stop_with_signal';
+                }else if(egoSpeed!==null&&egoSpeed<=5&&surrounding>=2&&stoppedRate>=.6){
+                    classification='congestion';reason='low_ego_group_stop';
                 }else if(match.detection.brakeLightsLikely){
                     reason='paired_bright_brake_lights_suppressed';
-                }else if(egoSpeed!==null&&egoSpeed>=8){
+                }else if(egoSpeed!==null){
                     const roadsideScore=25+20+(match.fastTransit?20:0)+15+(central.length&&centralMoving/central.length>=.5?15:0);
-                    if(roadsideScore>=60){classification='roadside';reason=match.fastTransit?'moving_ego_edge_vehicle_fast_transit':'moving_ego_edge_vehicle_repeated';}
+                    if(roadsideScore>=60){classification='roadside';reason=match.fastTransit?'moving_ego_edge_vehicle_fast_transit':'edge_vehicle_repeated_context';}
                 }
                 const item={trackId:'drive-'+match.track.id,class:match.track.class,score:match.detection.score,bbox:match.detection.bbox,at,classification,reason,
                     egoSpeedKmh:egoSpeed,surroundingVehicles:surrounding,stoppedRate,trafficLight,brakeLightsLikely:!!match.detection.brakeLightsLikely};
                 match.visual=item;
                 if(match.track.emittedAt===null||at-match.track.emittedAt>=30000){match.track.emittedAt=at;item.justRecorded=true;newCandidates.push(item);}else duplicates.push(item);
             }
-            let invalidExpired=0;
             this.tracks=this.tracks.filter(track=>{const keep=used.has(track.id)||at-track.lastAt<=4000;if(!keep&&track.emittedAt===null)invalidExpired++;return keep;});
-            const visualOk=detection=>detection.score>=.65&&detection.area>=.012&&detection.point.y/height>=.34&&detection.point.y/height<=.82;
-            const visuals=freshVisuals.map(item=>({...item,priority:0})).concat(matched.map(match=>{
+            const visuals=freshVisuals.map(item=>({...item,priority:item.state==='recorded'?3:item.state==='vehicle'?0:2})).concat(matched.map(match=>{
                 const item=match.visual;
                 let state='vehicle';
                 if(item?.classification==='roadside')state=item.justRecorded?'recorded':'roadside';
@@ -61,9 +69,11 @@
                 else if(item?.classification==='indeterminate')state='indeterminate';
                 return {bbox:match.detection.bbox,state,priority:item?.classification==='roadside'?3:2,detection:match.detection};
             })).filter(item=>item.detection?visualOk(item.detection):false).sort((a,b)=>b.priority-a.priority||((b.detection?.area||0)*(b.detection?.score||0))-((a.detection?.area||0)*(a.detection?.score||0))).map(({bbox,state})=>({bbox,state})).slice(0,3);
-            const confirmedNow=matched.filter(match=>match.newlyConfirmed&&!match.track.counted&&visualOk(match.detection));
-            confirmedNow.forEach(match=>{match.track.counted=true;});
-            const newlyCounted=freshVisuals.filter(item=>item.track.counted).length+confirmedNow.length;
+            const countedFresh=freshVisuals.filter(item=>!item.track.counted&&visualOk(item.detection));
+            countedFresh.forEach(item=>{item.track.counted=true;});
+            const countedMatched=matched.filter(match=>!match.track.counted&&visualOk(match.detection));
+            countedMatched.forEach(match=>{match.track.counted=true;});
+            const newlyCounted=countedFresh.length+countedMatched.length;
             return {roadsideDetections:detections.filter(x=>x.side).length,newlyCounted,newCandidates,duplicates,visuals,invalidExpired,trafficLight,surroundingVehicles:surrounding,stoppedRate};
         }
     }
@@ -98,7 +108,7 @@
     const makeBlob=source=>new Promise(resolve=>{try{source.toBlob(blob=>resolve(blob||null),'image/jpeg',.55);}catch(_){resolve(null);}});
     const loadScript=(id,src,ready)=>new Promise((resolve,reject)=>{
         if(ready())return resolve();const existing=document.getElementById(id);if(existing){existing.addEventListener('load',resolve,{once:true});existing.addEventListener('error',reject,{once:true});return;}
-        const script=document.createElement('script');script.id=id;script.src=src;script.crossOrigin='anonymous';script.onload=resolve;script.onerror=()=>reject(Error('detector_library_unavailable'));document.head.append(script);
+        const script=document.createElement('script');script.id=id;script.src=src;script.crossOrigin='anonymous';script.onload=resolve;script.onerror=()=>reject(Error('detector_library_unavailable'));document.head.appendChild(script);
     });
     async function ensureModel(){
         if(model)return model;
@@ -131,15 +141,16 @@
             if(result.newCandidates.length){const thumb=await makeBlob(input);if(!thumb)log()?.increment('imageFailure');for(const item of result.newCandidates)await log()?.recordEvent({...item,duplicate:false,lat:location?.lat,lng:location?.lng},thumb);}
             if(result.invalidExpired)log()?.increment('invalid',result.invalidExpired);
             const active=log()?.active(),runMinutes=(Date.now()-startedAt)/60000,heatMode=runMinutes>=20?'strong':runMinutes>=12?'medium':'normal',heatLabel=runMinutes>=20?'・発熱抑制 強':runMinutes>=12?'・発熱抑制 中':'';
+            const cadenceLabel=heatMode==='strong'?'2秒':heatMode==='medium'?'1秒':'0.5秒';
             root.MachimamoCameraSafeUi?.setHeatMode(heatMode);setStatus(active
-                ? `車載・自動候補記録中 ${active.counters.candidates}件（重複含む）${heatLabel}／手動撮影は不要`
-                : '車載・検出のみ／ログ保存なし。停車中に管理画面で「テスト開始」してください');
+                ? `車載・${cadenceLabel}検知中 ${active.counters.candidates}件（重複含む）${heatLabel}／手動撮影は不要`
+                : `車載・${cadenceLabel}検知中／ログ保存なし${heatLabel}。停車中に管理画面で「テスト開始」してください`);
         }catch(error){log()?.increment('aiPaused');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
         const elapsed=performance.now()-began;if(elapsed>900)log()?.increment('fpsDrop');lastLoop=elapsed;
-        const currentSession=log()?.active(),speed=currentSession?.lastPosition?.speedKmh,runMs=Date.now()-startedAt;
-        let target=runMs<10000?700:Number.isFinite(speed)&&speed<=5?2500:Number.isFinite(speed)&&speed>=8?500:1200;
-        if(runMs>=20*60000)target=Math.max(target,2000);
-        else if(runMs>=12*60000)target=Math.max(target,1000);
+        const runMs=Date.now()-startedAt;
+        let target=500;
+        if(runMs>=20*60000)target=2000;
+        else if(runMs>=12*60000)target=1000;
         if(elapsed>1800)target=Math.max(target,3000);
         schedule(Math.max(100,target-elapsed));
     }
