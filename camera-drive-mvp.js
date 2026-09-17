@@ -39,11 +39,20 @@
                 }
                 const item={trackId:'drive-'+match.track.id,class:match.track.class,score:match.detection.score,bbox:match.detection.bbox,at,classification,reason,
                     egoSpeedKmh:egoSpeed,surroundingVehicles:surrounding,stoppedRate,trafficLight,brakeLightsLikely:!!match.detection.brakeLightsLikely};
-                if(match.track.emittedAt===null||at-match.track.emittedAt>=30000){match.track.emittedAt=at;newCandidates.push(item);}else duplicates.push(item);
+                match.visual=item;
+                if(match.track.emittedAt===null||at-match.track.emittedAt>=30000){match.track.emittedAt=at;item.justRecorded=true;newCandidates.push(item);}else duplicates.push(item);
             }
             let invalidExpired=0;
             this.tracks=this.tracks.filter(track=>{const keep=used.has(track.id)||at-track.lastAt<=4000;if(!keep&&track.emittedAt===null)invalidExpired++;return keep;});
-            return {roadsideDetections:detections.filter(x=>x.side).length,newCandidates,duplicates,invalidExpired,trafficLight,surroundingVehicles:surrounding,stoppedRate};
+            const visuals=matched.map(match=>{
+                const item=match.visual;
+                let state='vehicle';
+                if(item?.classification==='roadside')state=item.justRecorded?'recorded':'roadside';
+                else if(item?.classification==='signal_wait'||item?.classification==='congestion'||item?.brakeLightsLikely)state='traffic';
+                else if(item?.classification==='indeterminate')state='indeterminate';
+                return {bbox:match.detection.bbox,state};
+            }).slice(0,3);
+            return {roadsideDetections:detections.filter(x=>x.side).length,newCandidates,duplicates,visuals,invalidExpired,trafficLight,surroundingVehicles:surrounding,stoppedRate};
         }
     }
 
@@ -97,6 +106,7 @@
             predictions=predictions.map(item=>VEHICLES.has(item?.class)?{...item,brakeLightsLikely:brakeLightsLikely(input,item.bbox)}:item);
             const activeBefore=log()?.active(),location=activeBefore?.lastPosition||null;
             const result=core.process(predictions,input.width||video.videoWidth,input.height||video.videoHeight,Date.now(),{egoSpeedKmh:location?.speedKmh});
+            root.MachimamoCameraSafeUi?.renderScopes(result.visuals,input.width||video.videoWidth,input.height||video.videoHeight);
             const candidates=result.newCandidates.length+result.duplicates.length;
             if(candidates)log()?.increment('candidates',candidates);
             if(result.newCandidates.length){
@@ -106,7 +116,8 @@
             if(result.duplicates.length)log()?.increment('duplicate',result.duplicates.length);
             if(result.newCandidates.length){const thumb=await makeBlob(input);if(!thumb)log()?.increment('imageFailure');for(const item of result.newCandidates)await log()?.recordEvent({...item,duplicate:false,lat:location?.lat,lng:location?.lng},thumb);}
             if(result.invalidExpired)log()?.increment('invalid',result.invalidExpired);
-            const active=log()?.active(),runMinutes=(Date.now()-startedAt)/60000,heatLabel=runMinutes>=20?'・発熱抑制 強':runMinutes>=12?'・発熱抑制 中':'';setStatus(active
+            const active=log()?.active(),runMinutes=(Date.now()-startedAt)/60000,heatMode=runMinutes>=20?'strong':runMinutes>=12?'medium':'normal',heatLabel=runMinutes>=20?'・発熱抑制 強':runMinutes>=12?'・発熱抑制 中':'';
+            root.MachimamoCameraSafeUi?.setHeatMode(heatMode);setStatus(active
                 ? `車載・自動候補記録中 ${active.counters.candidates}件（重複含む）${heatLabel}／手動撮影は不要`
                 : '車載・検出のみ／ログ保存なし。停車中に管理画面で「テスト開始」してください');
         }catch(error){log()?.increment('aiPaused');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
@@ -119,7 +130,7 @@
         schedule(Math.max(100,target-elapsed));
     }
     async function start(video){if(running)return true;if(!video)return false;running=true;startedAt=Date.now();core.reset();setStatus('車載MVP第2版を準備中…');schedule(0);return true;}
-    function stop(){running=false;clearTimeout(timer);timer=null;core.reset();if(canvas){canvas.width=canvas.height=1;}}
+    function stop(){running=false;clearTimeout(timer);timer=null;core.reset();root.MachimamoCameraSafeUi?.clearScopes();root.MachimamoCameraSafeUi?.setHeatMode('normal');if(canvas){canvas.width=canvas.height=1;}}
     root.MachimamoDriveDetectorCore=DriveDetectorCore;
     root.MachimamoBrakeLightHeuristic=brakeLightsLikely;
     root.MachimamoDriveMvp={start,stop,isRunning:()=>running,lastInferenceMs:()=>lastLoop};
