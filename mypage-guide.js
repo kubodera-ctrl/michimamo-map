@@ -71,11 +71,19 @@ document.head.appendChild(script);
 (function loadOfficialAccidentHotspots(){
 'use strict';
 const script=document.createElement('script');
-script.src='accident-hotspots.js?v=28-npa1';
+script.src='accident-hotspots.js?v=28-npa2';
 script.onerror=()=>{
 const button=document.getElementById('accidentAreaToggle');
 if(button){button.style.display='none';button.removeAttribute('onclick');}
 console.error('Official accident hotspot layer could not be loaded.');
 };
+document.head.appendChild(script);
+})();
+
+(function loadDriveMvpV2(){
+'use strict';
+const script=document.createElement('script');
+script.src='camera-drive-mvp.js?v=28-mvp2';
+script.onerror=()=>console.error('Drive MVP v2 could not be loaded.');
 document.head.appendChild(script);
 })();
