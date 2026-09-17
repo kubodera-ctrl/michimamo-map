@@ -1,0 +1,24 @@
+{
+  "name": "まちまも MAP",
+  "short_name": "まちまも",
+  "description": "地域参加型の安全情報共有MAP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "assets/machimamo-icon-192.jpg?v=30-onboarding1",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/machimamo-icon-512.jpg?v=30-onboarding1",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

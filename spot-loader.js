@@ -84,3 +84,12 @@ root.MachimamoSpotLoader={reload:pagedLoadSpots,state:()=>root.MachimamoSpotLoad
 // posts appear without requiring the user to reload the page again.
 if(document.readyState==='complete')setTimeout(pagedLoadSpots,0);
 })(window);
+
+(function loadPwaOnboarding(){
+'use strict';
+const script=document.createElement('script');
+script.src='pwa-onboarding.js?v=30-onboarding1';
+script.async=false;
+script.onerror=()=>console.error('PWA onboarding could not be loaded.');
+document.head.appendChild(script);
+})();
