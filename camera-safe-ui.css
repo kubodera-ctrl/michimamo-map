@@ -72,20 +72,6 @@ body.camera-running #app > nav { display:none !important; }
 .camera-scope[data-state="recorded"] { color:#fb923c; }
 .camera-scope[data-state="traffic"] { color:#60a5fa; }
 .camera-scope[data-state="indeterminate"] { color:#a8a29e; }
-.camera-scope-legend {
-  position:absolute;
-  left:50%;
-  bottom:82px;
-  transform:translateX(-50%);
-  z-index:5;
-  padding:4px 8px;
-  border-radius:10px;
-  background:#0009;
-  color:#fff;
-  font-size:10px;
-  white-space:nowrap;
-  pointer-events:none;
-}
 .camera-detection-count {
   position:absolute;
   z-index:8;
@@ -113,5 +99,4 @@ body.camera-running #app > nav { display:none !important; }
 }
 
 body.camera-heat-medium .camera-scope:nth-child(n+3),
-body.camera-heat-strong .camera-scope:nth-child(n+2),
-body.camera-heat-strong .camera-scope-legend { display:none; }
+body.camera-heat-strong .camera-scope:nth-child(n+2) { display:none; }
