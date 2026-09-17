@@ -97,3 +97,16 @@ document.head.appendChild(script);
 if(document.readyState==='complete')setTimeout(load,0);
 else window.addEventListener('load',load,{once:true});
 })();
+
+(function loadBetaUsageAnalytics(){
+'use strict';
+const load=()=>{
+const script=document.createElement('script');
+script.src='beta-usage-analytics.js?v=28-beta1';
+script.async=true;
+script.onerror=()=>console.error('Beta usage analytics could not be loaded.');
+document.head.appendChild(script);
+};
+if(document.readyState==='complete')setTimeout(load,0);
+else window.addEventListener('load',load,{once:true});
+})();
