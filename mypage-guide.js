@@ -11,6 +11,37 @@ guide.querySelectorAll('[data-guide-jump]').forEach(button=>button.addEventListe
 document.getElementById('usageGuideTop').addEventListener('click',()=>{guide.scrollIntoView({block:'start'});document.getElementById('usageGuideTitle').focus({preventScroll:true});});
 })();
 
+// Compatibility patch for the currently deployed quiz engine. EXTRA questions
+// get ten real seconds and the visible countdown uses the same duration.
+(function useTenSecondExtraTimer(){
+'use strict';
+const nativeNow=Date.now.bind(Date);
+const nativeSetInterval=window.setInterval.bind(window);
+let extraSession=false;
+document.addEventListener('click',event=>{
+const trigger=event.target.closest?.('[onclick*="startQuizSession"]');
+if(!trigger)return;
+extraSession=/startQuizSession\(['"]extra['"]\)/.test(trigger.getAttribute('onclick')||'');
+},true);
+const intro=document.getElementById('quizIntroArea');
+if(intro){
+const walker=document.createTreeWalker(intro,NodeFilter.SHOW_TEXT);let node;
+while((node=walker.nextNode()))node.nodeValue=node.nodeValue.replace('100問・1問5秒','100問・1問10秒');
+}
+const result=document.getElementById('quizResultArea');
+if(result)new MutationObserver(()=>{if(result.style.display&&result.style.display!=='none')extraSession=false;}).observe(result,{attributes:true,attributeFilter:['style']});
+window.setInterval=function(callback,delay,...args){
+const timer=document.getElementById('quizTimer');
+if(!extraSession||delay!==100||!timer||timer.style.display==='none'||typeof callback!=='function')return nativeSetInterval(callback,delay,...args);
+const realStart=nativeNow();
+return nativeSetInterval(function(...callbackArgs){
+const originalNow=Date.now,realNow=nativeNow();Date.now=()=>realStart+(realNow-realStart)/2;
+try{callback.apply(this,callbackArgs);}finally{Date.now=originalNow;}
+if(timer.style.display!=='none')timer.textContent=timer.textContent.replace(/残り\s*([\d.]+)秒/,(_,seconds)=>`残り ${(Number(seconds)*2).toFixed(1)}秒`);
+},delay,...args);
+};
+})();
+
 // Quiz road signs are loaded separately so a large index.html update is not
 // required when official assets change.
 (function loadOfficialQuizSigns(){
