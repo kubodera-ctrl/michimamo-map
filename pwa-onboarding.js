@@ -37,11 +37,15 @@ const isSafari=/Safari/i.test(ua)&&!/(CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|GSA)/i
 const isStandalone=()=>window.matchMedia?.('(display-mode: standalone)').matches||navigator.standalone===true;
 
 function standaloneViewportHeight(){
-  const values=[window.innerHeight,document.documentElement?.clientHeight,window.visualViewport?.height]
-    .map(Number).filter(value=>Number.isFinite(value)&&value>0);
-  // Use only the drawable browser viewport. screen.height includes areas that
-  // standalone Safari cannot actually render into and can push bottom UI off-screen.
-  return Math.round(Math.max(...values,0));
+  // On iOS standalone, visualViewport.height is the closest value to the
+  // actually drawable app area. Do not choose the largest reported height:
+  // innerHeight/clientHeight can temporarily include non-drawable chrome/safe areas.
+  const visual=Number(window.visualViewport?.height);
+  if(Number.isFinite(visual)&&visual>0)return Math.round(visual);
+  const inner=Number(window.innerHeight);
+  if(Number.isFinite(inner)&&inner>0)return Math.round(inner);
+  const client=Number(document.documentElement?.clientHeight);
+  return Number.isFinite(client)&&client>0?Math.round(client):0;
 }
 let viewportSyncTimer=null;
 function syncStandaloneViewport(){
