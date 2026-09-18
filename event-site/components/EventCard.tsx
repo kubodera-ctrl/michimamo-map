@@ -12,7 +12,7 @@ export function EventCard({ event }: { event: EventSummary }) {
           <div className="event-card-image" style={{ backgroundImage: `url("${event.image_url}")` }} />
         ) : (
           <div className="event-card-image event-card-fallback">
-            <span>まちまも</span>
+            <span>まちイベ</span>
             <strong>EVENT</strong>
           </div>
         )}
