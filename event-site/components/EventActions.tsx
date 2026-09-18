@@ -23,6 +23,7 @@ type Props = {
     pageUrl: string;
     dateText: string;
     placeText: string;
+    sharePrefix?: string;
   };
 };
 
@@ -109,7 +110,8 @@ export function EventActions({ event }: Props) {
     title:event.title,
     pageUrl:event.pageUrl,
     dateText:event.dateText,
-    placeText:event.placeText
+    placeText:event.placeText,
+    prefix:event.sharePrefix
   });
 
   const toggleSaved = () => {
