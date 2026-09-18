@@ -147,7 +147,7 @@
 
     function openAvatarEditor() {
       showBody('アイコンを編集',
-        '<label class="profile-v2-photo"><input id="profileV2Photo" type="file" accept="image/jpeg,image/webp,image/png">写真から選ぶ</label>' +
+        '<label class="profile-v2-photo"><input id="profileV2Photo" type="file" accept="image/*">写真から選ぶ</label>' +
         '<div class="profile-v2-divider">または</div><div id="profileV2EmojiGrid" class="emoji-grid"></div>');
       const grid = doc.getElementById('profileV2EmojiGrid');
       EMOJIS.forEach(function (emoji) {
@@ -229,18 +229,67 @@
       if (state.authId()) await apply(); else confirmGuestSave(apply);
     }
 
+    function loadImageElement(file) {
+      return new Promise(function (resolve, reject) {
+        const url = URL.createObjectURL(file);
+        const image = new Image();
+        image.onload = function () {
+          URL.revokeObjectURL(url);
+          resolve(image);
+        };
+        image.onerror = function () {
+          URL.revokeObjectURL(url);
+          reject(new Error('image_decode_failed'));
+        };
+        image.src = url;
+      });
+    }
+
+    function canvasToBlob(canvas, type, quality) {
+      return new Promise(function (resolve) {
+        canvas.toBlob(resolve, type, quality);
+      });
+    }
+
     async function compressImage(file) {
-      const bitmap = await createImageBitmap(file);
-      const size = Math.min(bitmap.width, bitmap.height);
+      let source;
+      let release = function () {};
+      try {
+        if (typeof win.createImageBitmap === 'function') {
+          source = await win.createImageBitmap(file);
+          release = function () { source.close?.(); };
+        } else {
+          source = await loadImageElement(file);
+        }
+      } catch (bitmapError) {
+        source = await loadImageElement(file);
+      }
+
+      const width = source.naturalWidth || source.width;
+      const height = source.naturalHeight || source.height;
+      if (!width || !height) {
+        release();
+        throw new Error('image_size_invalid');
+      }
+      const size = Math.min(width, height);
       const canvas = doc.createElement('canvas');
       canvas.width = 256;
       canvas.height = 256;
       const ctx = canvas.getContext('2d', { alpha: false });
-      ctx.drawImage(bitmap, (bitmap.width - size) / 2, (bitmap.height - size) / 2, size, size, 0, 0, 256, 256);
-      if (bitmap.close) bitmap.close();
-      for (const quality of [0.76,0.64,0.52,0.42]) {
-        const blob = await new Promise(function (resolve) { canvas.toBlob(resolve, 'image/webp', quality); });
-        if (blob && (blob.size <= 51200 || quality === 0.42)) return blob;
+      if (!ctx) {
+        release();
+        throw new Error('canvas_unavailable');
+      }
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, 256, 256);
+      ctx.drawImage(source, (width - size) / 2, (height - size) / 2, size, size, 0, 0, 256, 256);
+      release();
+
+      for (const quality of [0.82,0.72,0.62,0.52,0.42]) {
+        const blob = await canvasToBlob(canvas, 'image/jpeg', quality);
+        if (blob && (blob.size <= 51200 || quality === 0.42)) {
+          return { blob: blob, extension: 'jpg', contentType: 'image/jpeg' };
+        }
       }
       throw new Error('image_compression_failed');
     }
@@ -254,12 +303,15 @@
       });
     }
 
-    async function uploadAvatar(blob) {
+    async function uploadAvatar(image) {
       const uid = state.authId();
       if (!uid) return null;
-      const path = uid + '/avatar.webp';
+      const blob = image.blob || image;
+      const extension = image.extension || 'jpg';
+      const contentType = image.contentType || blob.type || 'image/jpeg';
+      const path = uid + '/avatar.' + extension;
       const result = await win.db.storage.from('profile-avatars').upload(path, blob, {
-        contentType: 'image/webp',
+        contentType: contentType,
         cacheControl: '3600',
         upsert: true
       });
@@ -271,17 +323,17 @@
     async function choosePhoto(event) {
       const file = event.target.files?.[0];
       if (!file) return;
-      if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return win.showToast('JPEG・PNG・WebPを選んでください');
+      if (file.type && !file.type.startsWith('image/')) return win.showToast('写真ファイルを選んでください');
       try {
-        const blob = await compressImage(file);
-        if (blob.size > 262144) throw new Error('image_too_large');
+        const image = await compressImage(file);
+        if (image.blob.size > 262144) throw new Error('image_too_large');
         if (state.authId()) {
-          await uploadAvatar(blob);
+          await uploadAvatar(image);
           refresh();
           closeModal();
           win.showToast('アイコンを保存しました');
         } else {
-          const dataUrl = await blobToDataUrl(blob);
+          const dataUrl = await blobToDataUrl(image.blob);
           confirmGuestSave(async function () {
             state.apply({ avatar: dataUrl });
             refresh();
@@ -309,7 +361,7 @@
       state.apply({ id: profile.id, name: profile.name, point: Number(profile.point || 0), avatar: profile.avatar });
       if (current.avatar?.startsWith('data:image/')) {
         const blob = await (await fetch(current.avatar)).blob();
-        await uploadAvatar(blob);
+        await uploadAvatar({ blob: blob, extension: 'jpg', contentType: blob.type || 'image/jpeg' });
       }
       refresh();
       return true;
