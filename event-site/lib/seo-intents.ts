@@ -1,0 +1,73 @@
+import { addDays, japanToday, searchEvents } from './events';
+import type { EventSummary } from './types';
+
+export const REGION_PREFECTURES = {
+  kanto: ['東京都','神奈川県','千葉県','埼玉県','茨城県','栃木県','群馬県']
+} as const;
+
+export const SEO_INTENTS = {
+  'today-kanto-family': {
+    title: '今日の関東イベント｜子連れ・親子で楽しめるおでかけ',
+    heading: '今日、関東で子連れで楽しめるイベント',
+    description: '今日開催される関東の子連れ・親子向けイベントを探せます。東京・神奈川・千葉・埼玉・茨城・栃木・群馬を対象に、短期開催を見つけやすく表示します。',
+    day: 'today',
+    region: 'kanto',
+    indoorOnly: false
+  },
+  'tomorrow-kanto-family': {
+    title: '明日の関東イベント｜子連れ・親子で楽しめるおでかけ',
+    heading: '明日、関東で子連れで楽しめるイベント',
+    description: '明日開催される関東の子連れ・親子向けイベントを探せます。東京・神奈川・千葉・埼玉・茨城・栃木・群馬のおでかけ候補をまとめます。',
+    day: 'tomorrow',
+    region: 'kanto',
+    indoorOnly: false
+  },
+  'today-indoor-family': {
+    title: '今日の室内イベント｜子連れで楽しめる全国のおでかけ',
+    heading: '今日、子連れで楽しめる室内イベント',
+    description: '今日開催される全国の室内・屋内イベントを子連れ・親子向け中心に探せます。雨の日や暑い日のおでかけ候補にも。',
+    day: 'today',
+    region: null,
+    indoorOnly: true
+  },
+  'tomorrow-indoor-family': {
+    title: '明日の室内イベント｜子連れで楽しめる全国のおでかけ',
+    heading: '明日、子連れで楽しめる室内イベント',
+    description: '明日開催される全国の室内・屋内イベントを子連れ・親子向け中心に探せます。天候に左右されにくいおでかけ候補を探せます。',
+    day: 'tomorrow',
+    region: null,
+    indoorOnly: true
+  }
+} as const;
+
+export type SeoIntentKey = keyof typeof SEO_INTENTS;
+
+function targetDate(day: 'today' | 'tomorrow') {
+  const today = japanToday();
+  return day === 'tomorrow' ? addDays(today, 1) : today;
+}
+
+export async function searchSeoIntentEvents(intentKey: SeoIntentKey): Promise<EventSummary[]> {
+  const intent = SEO_INTENTS[intentKey];
+  const date = targetDate(intent.day);
+  const common = {
+    startDate: date,
+    endDate: date,
+    ageGroups: ['family'],
+    indoorOnly: intent.indoorOnly,
+    sort: 'recommended' as const,
+    limit: 60
+  };
+
+  if (intent.region) {
+    const prefectures = REGION_PREFECTURES[intent.region];
+    const chunks = await Promise.all(prefectures.map((prefecture) => searchEvents({ ...common, prefecture })));
+    const byId = new Map<number, EventSummary>();
+    for (const event of chunks.flat()) byId.set(event.id, event);
+    return [...byId.values()]
+      .sort((a,b) => a.duration_days - b.duration_days || a.start_date.localeCompare(b.start_date) || a.title.localeCompare(b.title))
+      .slice(0,60);
+  }
+
+  return searchEvents(common);
+}
