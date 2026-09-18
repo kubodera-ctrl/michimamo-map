@@ -117,7 +117,7 @@ select public.service_record_machiibe_metric('search',null,'花火');
 select public.service_record_machiibe_metric('event_view','ci-free-today',null);
 select public.service_record_machiibe_metric('event_view','ci-free-today',null);
 
-do $
+do $smoke$
 declare
   payload jsonb;
   n integer;
@@ -142,7 +142,7 @@ begin
     raise exception 'public pickup RPC expected 1 event';
   end if;
 end;
-$;
+$smoke$;
 
 insert into public.dining_family_profiles(
   identity_key,name,prefecture,municipality,address,latitude,longitude,
