@@ -33,6 +33,12 @@ export function SeoBrowseLinks() {
           <Link href="/oshi/hayao-miyazaki">宮崎駿</Link>
           <Link href="/oshi/ghibli">ジブリ</Link>
           <Link href="/oshi/pixar">ピクサー</Link>
+          <Link href="/oshi/shinako">しなこ</Link>
+          <Link href="/oshi/takeshita-paradise">竹下☆ぱらだいす</Link>
+          <Link href="/oshi/colorful-peach">カラフルピーチ</Link>
+          <Link href="/oshi/tiropino">ちろぴの</Link>
+          <Link href="/oshi/bom-bom-tv">ボンボンTV</Link>
+          <Link href="/oshi/rocomacoaco">ろこまこあこ</Link>
         </div>
       </div>
 
