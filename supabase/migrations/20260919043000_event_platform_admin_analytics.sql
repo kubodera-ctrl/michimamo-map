@@ -141,9 +141,16 @@ detected as (
     e.venue_name,
     e.publication_status,
     e.verification_status,
-    e.event_status
+    e.event_status,
+    coalesce(xstats.compose_count,0)::bigint as x_compose_count,
+    xstats.last_opened_at as x_last_opened_at
   from public.event_source_records esr
   left join public.events e on e.id=esr.event_id
+  left join lateral (
+    select sum(m.count)::bigint as compose_count,max(m.updated_at) as last_opened_at
+    from public.event_site_metrics_daily m
+    where m.metric='admin_x_compose' and m.event_slug=e.slug
+  ) xstats on true
   order by esr.fetched_at desc
   limit 40
 ),
