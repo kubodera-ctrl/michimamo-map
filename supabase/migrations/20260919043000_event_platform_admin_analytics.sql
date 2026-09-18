@@ -116,7 +116,7 @@ event_rank as (
   from metric_rows m
   join public.events e on e.slug=m.event_slug
   join public.regional_sources rs on rs.id=e.source_id
-  where m.metric in ('event_open','event_view')
+  where m.metric='event_view'
     and e.publication_status='published'
     and e.verification_status='verified'
     and rs.is_active and rs.event_use_allowed
@@ -164,7 +164,7 @@ select jsonb_build_object(
     'calendarAdds',coalesce((select sum(count) from metric_rows where metric in ('calendar_google','calendar_ics')),0),
     'machimamoClicks',coalesce((select sum(count) from metric_rows where metric='machimamo_map'),0),
     'xShares',coalesce((select sum(count) from metric_rows where metric='x_share'),0),
-    'eventOpens',coalesce((select sum(count) from metric_rows where metric in ('event_open','event_view')),0)
+    'eventOpens',coalesce((select sum(count) from metric_rows where metric='event_view'),0)
   ),
   'searchTerms',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.term) from search_rank x),'[]'::jsonb),
   'popularEvents',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.start_date,x.title) from event_rank x),'[]'::jsonb),
@@ -202,13 +202,17 @@ begin
     from public.event_site_metrics_daily m
     join public.events e on e.slug=m.event_slug
     join public.regional_sources rs on rs.id=e.source_id
-    where m.metric in ('event_open','event_view')
+    where m.metric='event_view'
       and m.metric_date >= ((now() at time zone 'Asia/Tokyo')::date-6)
       and e.publication_status='published'
       and e.verification_status='verified'
       and e.event_status not in ('cancelled','postponed')
       and e.end_date >= (now() at time zone 'Asia/Tokyo')::date
       and rs.is_active and rs.event_use_allowed
+      and not exists(
+        select 1 from public.event_pickups existing
+        where existing.event_id=e.id and existing.reason='manual' and existing.is_active
+      )
     group by e.id,e.start_date,e.title
     order by score desc,e.start_date,e.title
     limit v_limit
