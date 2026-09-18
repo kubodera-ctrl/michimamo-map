@@ -9,6 +9,7 @@ export function PageViewTracker(){
   const search=useSearchParams();
   const last=useRef('');
   useEffect(()=>{
+    if(pathname.startsWith('/admin')) return;
     const key=pathname+'?'+search.toString();
     if(last.current===key) return;
     last.current=key;
