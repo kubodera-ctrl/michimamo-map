@@ -44,25 +44,25 @@ export const SEO_INTENTS: Record<string, IntentConfig> = {
   'today-couple': {
     title: '今日のカップル向けイベント｜デート・おでかけ',
     heading: '今日、カップルで楽しみやすいイベント',
-    description: '今日開催されるイベントの中から、カップルや夫婦で楽しみやすいと確認できたおでかけ候補を探せます。',
+    description: '今日開催されるイベントの中から、カップル・夫婦・二人で楽しみやすいと確認できたおでかけ候補を探せます。',
     day: 'today', region: null, indoorOnly: false, party: 'couple'
   },
   'tomorrow-couple': {
     title: '明日のカップル向けイベント｜デート・おでかけ',
     heading: '明日、カップルで楽しみやすいイベント',
-    description: '明日開催されるイベントの中から、カップルや夫婦で楽しみやすいと確認できたおでかけ候補を探せます。',
+    description: '明日開催されるイベントの中から、カップル・夫婦・二人で楽しみやすいと確認できたおでかけ候補を探せます。',
     day: 'tomorrow', region: null, indoorOnly: false, party: 'couple'
   },
   'today-solo': {
-    title: '今日のひとりイベント｜1人・おひとりさまで楽しめるおでかけ',
+    title: '今日のひとりイベント｜1人・おひとりさま・男性一人・女性一人のおでかけ',
     heading: '今日、1人で参加しやすいイベント',
-    description: '今日開催されるイベントから、1人・ひとり・おひとりさまで参加しやすいと確認できた候補を探せます。',
+    description: '今日開催されるイベントから、1人・ひとり・おひとりさま、男性一人・女性一人でも参加しやすいと確認できた候補を探せます。',
     day: 'today', region: null, indoorOnly: false, party: 'solo'
   },
   'tomorrow-solo': {
-    title: '明日のひとりイベント｜1人・おひとりさまで楽しめるおでかけ',
+    title: '明日のひとりイベント｜1人・おひとりさま・男性一人・女性一人のおでかけ',
     heading: '明日、1人で参加しやすいイベント',
-    description: '明日開催されるイベントから、1人・ひとり・おひとりさまで参加しやすいと確認できた候補を探せます。',
+    description: '明日開催されるイベントから、1人・ひとり・おひとりさま、男性一人・女性一人でも参加しやすいと確認できた候補を探せます。',
     day: 'tomorrow', region: null, indoorOnly: false, party: 'solo'
   },
   'today-senior': {
