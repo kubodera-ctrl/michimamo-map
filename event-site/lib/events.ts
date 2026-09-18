@@ -22,6 +22,45 @@ export const AGE_OPTIONS = [
   ['family','親子']
 ] as const;
 
+export const DURATION_OPTIONS = [
+  ['single','1日'],
+  ['2_4','2〜4日'],
+  ['5_10','5〜10日'],
+  ['11_30','11〜30日'],
+  ['31_plus','31日以上']
+] as const;
+
+export const ACCESSIBILITY_OPTIONS = [
+  ['wheelchair','車いす対応'],
+  ['accessible_toilet','バリアフリートイレ'],
+  ['accessible_parking','優先・障害者用駐車場'],
+  ['companion_support','介助者・同伴者対応'],
+  ['sign_language','手話対応'],
+  ['captions','字幕・文字情報'],
+  ['audio_description','音声案内・音声解説'],
+  ['sensory_friendly','感覚過敏への配慮'],
+  ['assistance_dog','補助犬対応'],
+  ['disability_discount','障害者手帳等の割引']
+] as const;
+
+export const ACCESSIBILITY_LABELS = Object.fromEntries(ACCESSIBILITY_OPTIONS) as Record<string,string>;
+
+export const SORT_OPTIONS = [
+  ['recommended','おすすめ（短期・新規開催を優先）'],
+  ['start_date','開催日が近い順'],
+  ['short_first','開催期間が短い順'],
+  ['newest','新着順']
+] as const;
+
+export function parseExcludeTerms(value: string): string[] {
+  return [...new Set(
+    value
+      .split(/[、,\n]+/)
+      .map((item) => item.trim())
+      .filter(Boolean)
+  )].slice(0, 20);
+}
+
 export async function searchEvents(input: EventSearchInput): Promise<EventSummary[]> {
   const db = getPublicSupabase();
   if (!db) return [];
@@ -31,10 +70,17 @@ export async function searchEvents(input: EventSearchInput): Promise<EventSummar
     p_end_date: input.endDate,
     p_prefecture: input.prefecture || null,
     p_keyword: input.keyword || null,
+    p_exclude_terms: input.excludeTerms?.length ? input.excludeTerms : null,
     p_categories: input.categories?.length ? input.categories : null,
     p_age_groups: input.ageGroups?.length ? input.ageGroups : null,
+    p_duration_buckets: input.durationBuckets?.length ? input.durationBuckets : null,
+    p_accessibility_only: input.accessibilityOnly || false,
+    p_accessibility_keys: input.accessibilityKeys?.length ? input.accessibilityKeys : null,
+    p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
+    p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_free_only: input.freeOnly || false,
     p_indoor_only: input.indoorOnly || false,
+    p_sort: input.sort || 'recommended',
     p_limit: input.limit ?? 60,
     p_offset: input.offset ?? 0
   });
@@ -114,4 +160,9 @@ export function formatEventDate(start: string, end: string): string {
     return `${y}年${m}月${d}日`;
   };
   return start === end ? fmt(start) : `${fmt(start)} 〜 ${fmt(end)}`;
+}
+
+export function formatDuration(days: number): string {
+  if (days <= 1) return '1日開催';
+  return `${days}日間`;
 }
