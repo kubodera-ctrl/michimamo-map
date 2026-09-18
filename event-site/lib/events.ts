@@ -58,12 +58,23 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
     ]
   },
   {
+    label: 'ジャンプ・少年漫画',
+    items: [
+      ['one-piece','ONE PIECE'],['demon-slayer','鬼滅の刃'],['spy-family','SPY×FAMILY'],
+      ['my-hero-academia','僕のヒーローアカデミア'],['haikyu','ハイキュー!!'],
+      ['jujutsu-kaisen','呪術廻戦'],['hunter-x-hunter','HUNTER×HUNTER'],
+      ['naruto','NARUTO'],['bleach','BLEACH'],['gintama','銀魂'],
+      ['prince-of-tennis','テニスの王子様'],['kuroko-basketball','黒子のバスケ'],
+      ['world-trigger','ワールドトリガー'],['blue-exorcist','青の祓魔師'],
+      ['chainsaw-man','チェンソーマン'],['sakamoto-days','SAKAMOTO DAYS']
+    ]
+  },
+  {
     label: 'ゲーム・アニメ・ヒーロー',
     items: [
       ['detective-conan','名探偵コナン'],['aipri','アイプリ'],['precure','プリキュア'],
       ['kamen-rider','仮面ライダー'],['super-sentai','スーパー戦隊'],['ultraman','ウルトラマン'],
-      ['super-mario','スーパーマリオ'],['kirby','星のカービィ'],['animal-crossing','どうぶつの森'],
-      ['one-piece','ONE PIECE'],['demon-slayer','鬼滅の刃'],['spy-family','SPY×FAMILY']
+      ['super-mario','スーパーマリオ'],['kirby','星のカービィ'],['animal-crossing','どうぶつの森']
     ]
   },
   {
