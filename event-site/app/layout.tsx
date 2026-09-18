@@ -42,6 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <nav className="header-actions" aria-label="ユーザーメニュー">
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>
+              <Link className="header-mini-link" href="/plan">📅 予定</Link>
               <a className="map-link" href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'}>まちまもMAP</a>
             </nav>
           </div>
