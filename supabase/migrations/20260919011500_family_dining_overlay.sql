@@ -146,14 +146,14 @@ as $$
       from public.dining_child_price_rules r
       where r.profile_id = p.id
         and r.verification_status = 'verified'
-        and (r.valid_from is null or r.valid_from <= current_date)
-        and (r.valid_until is null or r.valid_until >= current_date)
+        and (r.valid_from is null or r.valid_from <= ((now() at time zone 'Asia/Tokyo')::date))
+        and (r.valid_until is null or r.valid_until >= ((now() at time zone 'Asia/Tokyo')::date))
     ), '[]'::jsonb) as child_price_rules,
     p.source_url,
     p.last_verified_at
   from public.dining_family_profiles p
   where p.verification_status = 'verified'
-    and (p.valid_until is null or p.valid_until >= current_date)
+    and (p.valid_until is null or p.valid_until >= ((now() at time zone 'Asia/Tokyo')::date))
     and (p_place_keys is null or cardinality(p_place_keys) = 0 or p.identity_key = any(p_place_keys))
     and (
       p_preschool_price is null
@@ -167,8 +167,8 @@ as $$
             or (p_preschool_price = 'half' and (r.rule_type = 'half' or (r.rule_type = 'percent_discount' and coalesce(r.percent_off,0) >= 50)))
             or (p_preschool_price = 'child_price' and r.rule_type in ('fixed_price','child_price','half','percent_discount','free'))
           )
-          and (r.valid_from is null or r.valid_from <= current_date)
-          and (r.valid_until is null or r.valid_until >= current_date)
+          and (r.valid_from is null or r.valid_from <= ((now() at time zone 'Asia/Tokyo')::date))
+          and (r.valid_until is null or r.valid_until >= ((now() at time zone 'Asia/Tokyo')::date))
       )
     )
     and (
@@ -183,8 +183,8 @@ as $$
             or (p_elementary_price = 'half' and (r.rule_type = 'half' or (r.rule_type = 'percent_discount' and coalesce(r.percent_off,0) >= 50)))
             or (p_elementary_price = 'child_price' and r.rule_type in ('fixed_price','child_price','half','percent_discount','free'))
           )
-          and (r.valid_from is null or r.valid_from <= current_date)
-          and (r.valid_until is null or r.valid_until >= current_date)
+          and (r.valid_from is null or r.valid_from <= ((now() at time zone 'Asia/Tokyo')::date))
+          and (r.valid_until is null or r.valid_until >= ((now() at time zone 'Asia/Tokyo')::date))
       )
     )
     and (
