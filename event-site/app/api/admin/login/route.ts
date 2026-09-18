@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ADMIN_COOKIE, adminConfigReady, adminSessionToken, validateAdminPassword } from '@/lib/admin-auth';
+import { ADMIN_COOKIE, ADMIN_SESSION_MAX_AGE, adminConfigReady, createAdminSessionToken, validateAdminPassword } from '@/lib/admin-auth';
 
 export const runtime='nodejs';
 
@@ -18,12 +18,12 @@ export async function POST(request:Request){
   }
 
   const response=NextResponse.redirect(new URL('/admin',request.url),303);
-  response.cookies.set(ADMIN_COOKIE,adminSessionToken(),{
+  response.cookies.set(ADMIN_COOKIE,createAdminSessionToken(),{
     httpOnly:true,
     secure:process.env.NODE_ENV==='production',
     sameSite:'lax',
     path:'/',
-    maxAge:60*60*12
+    maxAge:ADMIN_SESSION_MAX_AGE
   });
   return response;
 }
