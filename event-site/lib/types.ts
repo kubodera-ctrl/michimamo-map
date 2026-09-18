@@ -9,6 +9,14 @@ export type EventStatus =
 export type PriceType = 'free' | 'partly_free' | 'paid' | 'unknown';
 export type LocationPrecision = 'exact_venue' | 'exact_address' | 'street' | 'approximate' | 'unknown';
 
+export type EventOccurrence = {
+  date:string;
+  start_time:string|null;
+  end_time:string|null;
+  status:'scheduled'|'cancelled'|'sold_out'|'registration_closed';
+  source_note:string|null;
+};
+
 export type EventSummary = {
   id: number;
   slug: string;
@@ -56,6 +64,7 @@ export type EventDetail = EventSummary & {
   timezone: string;
   postal_code: string | null;
   status_updated_at: string | null;
+  occurrences: EventOccurrence[];
   place_external_id: string | null;
   reservation_text: string | null;
   ticket_url: string | null;
