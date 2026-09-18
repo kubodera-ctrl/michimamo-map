@@ -20,6 +20,7 @@ export default async function AdminLoginPage({searchParams}:{searchParams:Search
         <p>管理者用パスワードを入力してください。</p>
         {error==='1' && <div className="admin-error">パスワードが違います。</div>}
         {error==='config' && <div className="admin-error">管理者用環境変数が未設定です。</div>}
+        {error==='rate' && <div className="admin-error">試行回数が多いため、一時的にログインを制限しています。</div>}
         <form action="/api/admin/login" method="post">
           <label>管理者パスワード
             <input type="password" name="password" autoComplete="current-password" required />
