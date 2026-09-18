@@ -150,7 +150,15 @@ export default async function EventPage({ params }: { params: Params }) {
             pageUrl:eventPageUrl,
             dateText:formatEventDate(event.start_date,event.end_date),
             placeText:[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' '),
-            sharePrefix:event.event_status==='cancelled'?'【中止】':event.event_status==='postponed'?'【延期】':event.event_status==='sold_out'?'【完売】':event.event_status==='registration_closed'?'【受付終了】':undefined
+            sharePrefix:event.event_status==='cancelled'?'【中止】':event.event_status==='postponed'?'【延期】':event.event_status==='sold_out'?'【完売】':event.event_status==='registration_closed'?'【受付終了】':undefined,
+            shareConditionText:[
+              event.audience_intent==='child_centered'?'子どもが主役':event.audience_intent==='family_friendly'?'ファミリー向け':'',
+              event.indoor===true?'屋内':'',
+              PRICE_LABELS[event.price_type],
+              ...event.category_keys.slice(0,2).map((key)=>categoryLabels[key]||'')
+            ].filter(Boolean).slice(0,4).join('・'),
+            shareSummary:event.summary||undefined,
+            shareTimeText:event.start_time ? (event.end_time?`${event.start_time.slice(0,5)}〜${event.end_time.slice(0,5)}`:event.start_time.slice(0,5)) : '時間未定'
           }} />
 
           <dl className="event-facts">
