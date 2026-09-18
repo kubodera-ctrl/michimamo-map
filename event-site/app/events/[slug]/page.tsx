@@ -1,8 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ACCESSIBILITY_LABELS, formatEventDate, formatDuration, getEvent } from '@/lib/events';
+import {
+  ACCESSIBILITY_LABELS,
+  CATEGORY_OPTIONS,
+  formatEventDate,
+  formatDuration,
+  getEvent
+} from '@/lib/events';
 
 type Params = Promise<{slug:string}>;
+const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
@@ -59,10 +66,10 @@ export default async function EventPage({ params }: { params: Params }) {
         {event.image_url ? <img className="detail-image" src={event.image_url} alt="" /> : <div className="detail-image detail-fallback">MACHIMAMO EVENT</div>}
         <div className="detail-body">
           <div className="tag-row">
-            <span className={`tag ${event.duration_days >= 31 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
+            <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
             {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
-            {event.category_keys.map((key) => <span className="tag" key={key}>{key}</span>)}
+            {event.category_keys.map((key) => <span className="tag" key={key}>{categoryLabels[key] || key}</span>)}
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
           </div>
