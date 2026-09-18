@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CATEGORY_OPTIONS, formatEventDate } from '@/lib/events';
+import { CATEGORY_OPTIONS, formatDuration } from '@/lib/events';
 import type { EventSummary } from '@/lib/types';
 
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
@@ -17,13 +17,15 @@ export function EventCard({ event }: { event: EventSummary }) {
           </div>
         )}
         <div className="event-card-body">
-          <div className="event-date">{formatEventDate(event.start_date, event.end_date)}</div>
+          <div className="event-date">{event.start_date === event.end_date ? event.start_date : `${event.start_date} 〜 ${event.end_date}`}</div>
           <h2>{event.title}</h2>
           <p className="event-place">{[event.prefecture, event.municipality, event.venue_name].filter(Boolean).join(' · ')}</p>
           <div className="tag-row">
+            <span className={`tag ${event.duration_days >= 31 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
-            {event.age_group_keys.includes('family') && <span className="tag">親子</span>}
+            {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
+            {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
             {event.category_keys.slice(0,2).map((key) => (
               <span className="tag" key={key}>{categoryLabels[key] || key}</span>
             ))}
