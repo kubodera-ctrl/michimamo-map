@@ -2363,15 +2363,22 @@ function shareSpot(title, address, category, event) {
     // パラメータが無い通常アクセスでは従来のGPS初期中心化をそのまま使う。
     try {
         const sharedParams = new URLSearchParams(window.location.search);
-        const machiibeEventLat = Number(sharedParams.get('lat'));
-        const machiibeEventLng = Number(sharedParams.get('lng'));
+        const rawEventLat = sharedParams.get('lat');
+        const rawEventLng = sharedParams.get('lng');
+        const hasEventCoordinates = rawEventLat !== null && rawEventLng !== null
+            && rawEventLat.trim() !== '' && rawEventLng.trim() !== '';
+        const machiibeEventLat = hasEventCoordinates ? Number(rawEventLat) : NaN;
+        const machiibeEventLng = hasEventCoordinates ? Number(rawEventLng) : NaN;
         if (
+            hasEventCoordinates &&
             Number.isFinite(machiibeEventLat) &&
             Number.isFinite(machiibeEventLng) &&
             Math.abs(machiibeEventLat) <= 90 &&
             Math.abs(machiibeEventLng) <= 180
         ) {
             initialGpsCentering = false;
+            // GPSマーカー取得は継続するが、初回GPSで共有会場から現在地へ戻さない。
+            isFirstLocationSet = true;
             map.setView([machiibeEventLat, machiibeEventLng], 16, { animate: false });
         }
     } catch (error) {
