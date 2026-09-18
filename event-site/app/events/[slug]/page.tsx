@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { formatEventDate, getEvent } from '@/lib/events';
+import { ACCESSIBILITY_LABELS, formatEventDate, formatDuration, getEvent } from '@/lib/events';
 
 type Params = Promise<{slug:string}>;
 
@@ -59,6 +59,9 @@ export default async function EventPage({ params }: { params: Params }) {
         {event.image_url ? <img className="detail-image" src={event.image_url} alt="" /> : <div className="detail-image detail-fallback">MACHIMAMO EVENT</div>}
         <div className="detail-body">
           <div className="tag-row">
+            <span className={`tag ${event.duration_days >= 31 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
+            {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
+            {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
             {event.category_keys.map((key) => <span className="tag" key={key}>{key}</span>)}
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
@@ -67,13 +70,22 @@ export default async function EventPage({ params }: { params: Params }) {
           {event.summary && <p className="detail-summary">{event.summary}</p>}
 
           <dl className="event-facts">
-            <div><dt>開催日</dt><dd>{formatEventDate(event.start_date,event.end_date)}</dd></div>
+            <div><dt>開催日</dt><dd>{formatEventDate(event.start_date,event.end_date)}（{formatDuration(event.duration_days)}）</dd></div>
             {event.start_time && <div><dt>時間</dt><dd>{event.start_time.slice(0,5)}{event.end_time ? ` 〜 ${event.end_time.slice(0,5)}` : ''}</dd></div>}
             <div><dt>会場</dt><dd>{event.venue_name || '公式情報をご確認ください'}</dd></div>
             <div><dt>場所</dt><dd>{[event.prefecture,event.municipality,event.address].filter(Boolean).join(' ')}</dd></div>
             {event.price_text && <div><dt>料金</dt><dd>{event.price_text}</dd></div>}
             {event.reservation_text && <div><dt>予約</dt><dd>{event.reservation_text}</dd></div>}
             {event.organizer_name && <div><dt>主催</dt><dd>{event.organizer_name}</dd></div>}
+            {event.accessibility_keys.length > 0 && (
+              <div>
+                <dt>配慮情報</dt>
+                <dd>
+                  {event.accessibility_keys.map((key) => ACCESSIBILITY_LABELS[key] || key).join('・')}
+                  {event.accessibility_notes ? <><br />{event.accessibility_notes}</> : null}
+                </dd>
+              </div>
+            )}
           </dl>
 
           <div className="detail-actions">
@@ -85,7 +97,7 @@ export default async function EventPage({ params }: { params: Params }) {
             <strong>情報について</strong>
             <p>出典：<a href={event.source_url} target="_blank" rel="noreferrer">{event.source_name}</a></p>
             <p>最終確認：{event.last_verified_at ? new Date(event.last_verified_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}) : '確認日時未登録'}</p>
-            <p>開催内容・料金・申込条件などは変更される場合があります。来場前に必ず公式情報をご確認ください。</p>
+            <p>障害者向け・バリアフリー情報を含め、開催内容・料金・申込条件は変更される場合があります。来場前に必ず公式情報をご確認ください。</p>
           </aside>
         </div>
       </article>
