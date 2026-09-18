@@ -1,3 +1,14 @@
+export type EventStatus =
+  | 'scheduled'
+  | 'changed'
+  | 'postponed'
+  | 'cancelled'
+  | 'sold_out'
+  | 'registration_closed';
+
+export type PriceType = 'free' | 'partly_free' | 'paid' | 'unknown';
+export type LocationPrecision = 'exact_venue' | 'exact_address' | 'street' | 'approximate' | 'unknown';
+
 export type EventSummary = {
   id: number;
   slug: string;
@@ -10,13 +21,18 @@ export type EventSummary = {
   end_time: string | null;
   all_day: boolean;
   schedule_type: 'single' | 'continuous' | 'recurring' | 'irregular';
+  event_status: EventStatus;
+  status_note: string | null;
   venue_name: string | null;
   prefecture: string;
   municipality: string | null;
   address: string | null;
   latitude: number | null;
   longitude: number | null;
+  location_precision: LocationPrecision;
+  location_verified: boolean;
   price_text: string | null;
+  price_type: PriceType;
   is_free: boolean | null;
   reservation_required: boolean | null;
   organizer_name: string | null;
@@ -39,6 +55,8 @@ export type EventSummary = {
 export type EventDetail = EventSummary & {
   timezone: string;
   postal_code: string | null;
+  status_updated_at: string | null;
+  place_external_id: string | null;
   reservation_text: string | null;
   ticket_url: string | null;
   image_source_url: string | null;
@@ -59,10 +77,25 @@ export type EventSearchInput = {
   accessibilityKeys?: string[];
   audienceIntents?: string[];
   fandomSlugs?: string[];
-  excludeAdultOriented?: boolean;
+  priceTypes?: PriceType[];
   freeOnly?: boolean;
+  excludeAdultOriented?: boolean;
   indoorOnly?: boolean;
   sort?: 'recommended' | 'start_date' | 'short_first' | 'newest';
   limit?: number;
   offset?: number;
+};
+
+export type EventSearchError = 'unconfigured' | 'request_failed' | null;
+
+export type EventSearchResult = {
+  events: EventSummary[];
+  error: EventSearchError;
+};
+
+export type EventPageResult = EventSearchResult & {
+  page: number;
+  pageSize: number;
+  hasPrevious: boolean;
+  hasNext: boolean;
 };
