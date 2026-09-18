@@ -1,3 +1,4 @@
+import 'server-only';
 import { getAdminSupabase } from './supabase-admin';
 
 export type AdminDashboard={
@@ -18,21 +19,13 @@ export async function getMachiibeAdminDashboard(days=30):Promise<AdminDashboard|
   const db=getAdminSupabase();
   if(!db) return null;
 
-  const [{data,error},profilesResult,authResult]=await Promise.all([
-    db.rpc('service_get_machiibe_admin_dashboard',{p_days:days}),
-    db.from('profiles').select('auth_id',{count:'exact',head:true}).not('auth_id','is',null),
-    db.auth.admin.listUsers({page:1,perPage:1})
-  ]);
+  const {data,error}=await db.rpc('service_get_machiibe_admin_dashboard',{p_days:days});
   if(error){
     console.error('admin dashboard rpc failed',error.message);
     return null;
   }
 
-  const authData=authResult.data as unknown as {total?:number;users?:unknown[]};
-  const linkedProfiles=profilesResult.count || 0;
-  const lineAuthUsers=typeof authData?.total==='number' ? authData.total : linkedProfiles;
   const base=(data||{}) as Omit<AdminDashboard,'summary'> & {summary?:Partial<AdminDashboard['summary']>};
-
   return {
     summary:{
       pv:Number(base.summary?.pv||0),
@@ -41,8 +34,8 @@ export async function getMachiibeAdminDashboard(days=30):Promise<AdminDashboard|
       machimamoClicks:Number(base.summary?.machimamoClicks||0),
       xShares:Number(base.summary?.xShares||0),
       eventOpens:Number(base.summary?.eventOpens||0),
-      lineAuthUsers,
-      linkedProfiles
+      lineAuthUsers:Number(base.summary?.lineAuthUsers||0),
+      linkedProfiles:Number(base.summary?.linkedProfiles||0)
     },
     searchTerms:Array.isArray(base.searchTerms)?base.searchTerms:[],
     popularEvents:Array.isArray(base.popularEvents)?base.popularEvents:[],
