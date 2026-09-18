@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CATEGORY_OPTIONS, formatDuration } from '@/lib/events';
+import { CATEGORY_OPTIONS, formatDuration, formatEventDate } from '@/lib/events';
 import type { EventSummary } from '@/lib/types';
 
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
@@ -17,11 +17,11 @@ export function EventCard({ event }: { event: EventSummary }) {
           </div>
         )}
         <div className="event-card-body">
-          <div className="event-date">{event.start_date === event.end_date ? event.start_date : `${event.start_date} 〜 ${event.end_date}`}</div>
+          <div className="event-date">{formatEventDate(event.start_date, event.end_date)}</div>
           <h2>{event.title}</h2>
           <p className="event-place">{[event.prefecture, event.municipality, event.venue_name].filter(Boolean).join(' · ')}</p>
           <div className="tag-row">
-            <span className={`tag ${event.duration_days >= 31 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
+            <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
