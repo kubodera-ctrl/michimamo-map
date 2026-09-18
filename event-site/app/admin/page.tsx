@@ -126,7 +126,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
                       </td>
                       <td>{item.normalization_status}</td>
                       <td>{item.publication_status||'未紐付け'} / {item.verification_status||'-'}</td>
-                      <td>{canPost ? <a className="admin-x-button" href={`/api/admin/x?slug=${encodeURIComponent(item.slug!)}`} target="_blank">𝕏 投稿画面</a> : <span className="admin-muted">公開後</span>}</td>
+                      <td>{canPost ? <div className="admin-x-cell"><a className="admin-x-button" href={`/api/admin/x?slug=${encodeURIComponent(item.slug!)}`} target="_blank">𝕏 投稿画面</a>{item.x_last_opened_at && <small>前回作成画面：{new Date(item.x_last_opened_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})}（{item.x_compose_count}回）</small>}</div> : <span className="admin-muted">公開後</span>}</td>
                     </tr>
                   );
                 })}</tbody>
