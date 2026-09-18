@@ -6,6 +6,14 @@ import { FANDOM_LABELS, FANDOM_OPTIONS, addDays, japanToday, searchEvents } from
 import { breadcrumbJsonLd } from '@/lib/seo';
 
 const aliases: Record<string,string> = {
+  'pokemon':'ポケモン・Pokémon・Pokemon',
+  'sanrio':'サンリオ・Sanrio',
+  'hello-kitty':'ハローキティ・キティ',
+  'cinnamoroll':'シナモロール・シナモン',
+  'super-mario':'スーパーマリオ・マリオ',
+  'kirby':'星のカービィ・カービィ',
+  'animal-crossing':'どうぶつの森・あつ森',
+  'shinako':'しなこ・しなこちゃん',
   'detective-conan':'コナン・名探偵コナン',
   'sumikkogurashi':'すみっこぐらし・すみっコぐらし',
   'ghibli':'ジブリ・スタジオジブリ',
@@ -64,6 +72,7 @@ export default async function OshiPage({ params }: { params: Promise<{slug:strin
       <p className="area-copy">
         {aliases[slug] || label}に関連する、出典確認済みのイベントを表示します。公式・公認等の関係性は確認できた情報だけを扱います。
       </p>
+      <p className="seo-note">まちイベは各権利者・出演者の公式サイトではありません。名称はイベント検索・識別のために使用し、画像・ロゴは利用条件を確認できた場合のみ表示します。</p>
       {events.length ? (
         <div className="event-grid">{events.map((event)=><EventCard key={event.id} event={event} />)}</div>
       ) : (
