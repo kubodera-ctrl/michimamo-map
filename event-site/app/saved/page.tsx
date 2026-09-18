@@ -16,6 +16,7 @@ export default function SavedPage() {
       <p className="eyebrow">SAVED</p>
       <h1>保存したイベント</h1>
       <p className="area-copy">この端末に保存しています。来場前は必ず公式情報をご確認ください。</p>
+      <div className="result-tools"><Link href="/plan">📅 おでかけプラン</Link><Link href="/saved/map">🗺 行きたいを地図で見る</Link></div>
       <section className="saved-section"><h2>♡ 行きたい</h2><SavedEventsClient mode="saved" /></section>
       <section className="saved-section"><h2>✓ 行った</h2><SavedEventsClient mode="attended" /></section>
     </main>
