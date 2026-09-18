@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from '@/lib/seo';
 import { PageViewTracker } from '@/components/PageViewTracker';
+import { TrackedLink } from '@/components/TrackedLink';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
@@ -47,14 +48,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>
               <Link className="header-mini-link" href="/plan">📅 予定</Link>
-              <a className="map-link" href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'}>まちまもMAP</a>
+              <TrackedLink className="map-link" href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'} metric="machimamo_map">まちまもMAP</TrackedLink>
             </nav>
           </div>
         </header>
         <div id="main-content" tabIndex={-1}>{children}</div>
         <footer className="site-footer">
           <div><strong>まちイベ</strong><p>掲載内容は変更される場合があります。来場前に必ず主催者・公式サイトの最新情報をご確認ください。</p></div>
-          <div className="footer-links"><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><a href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'}>周辺の安全情報を見る</a></div>
+          <div className="footer-links"><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><TrackedLink href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
         </footer>
       </body>
     </html>
