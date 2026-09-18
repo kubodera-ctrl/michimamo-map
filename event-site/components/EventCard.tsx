@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { formatEventDate } from '@/lib/events';
+import { CATEGORY_OPTIONS, formatEventDate } from '@/lib/events';
 import type { EventSummary } from '@/lib/types';
+
+const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 
 export function EventCard({ event }: { event: EventSummary }) {
   return (
@@ -22,7 +24,9 @@ export function EventCard({ event }: { event: EventSummary }) {
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
             {event.age_group_keys.includes('family') && <span className="tag">親子</span>}
-            {event.category_keys.slice(0,2).map((key) => <span className="tag" key={key}>{key}</span>)}
+            {event.category_keys.slice(0,2).map((key) => (
+              <span className="tag" key={key}>{categoryLabels[key] || key}</span>
+            ))}
           </div>
         </div>
       </Link>
