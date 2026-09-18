@@ -313,8 +313,23 @@ as $$
   where e.publication_status='published'
     and e.verification_status='verified'
     and s.is_active and s.event_use_allowed
-    and e.end_date>=coalesce(p_start_date,current_date)
-    and e.start_date<=coalesce(p_end_date,current_date+30)
+    and (
+      (
+        e.schedule_type in ('single','continuous')
+        and e.end_date>=coalesce(p_start_date,current_date)
+        and e.start_date<=coalesce(p_end_date,current_date+30)
+      )
+      or (
+        e.schedule_type in ('recurring','irregular')
+        and exists (
+          select 1
+          from public.event_occurrences eo
+          where eo.event_id=e.id
+            and eo.occurrence_date between coalesce(p_start_date,current_date) and coalesce(p_end_date,current_date+30)
+            and eo.status <> 'cancelled'
+        )
+      )
+    )
     and (p_prefecture is null or btrim(p_prefecture)='' or e.prefecture=btrim(p_prefecture))
     and (
       p_keyword is null or btrim(p_keyword)=''
@@ -392,6 +407,21 @@ as $$
       (e.end_date-e.start_date+1)::integer as duration_days,
       e.start_time,e.end_time,e.timezone,e.all_day,e.schedule_type,
       e.event_status,e.status_note,e.status_updated_at,
+      coalesce((
+        select jsonb_agg(
+          jsonb_build_object(
+            'date',eo.occurrence_date,
+            'start_time',eo.start_time,
+            'end_time',eo.end_time,
+            'status',eo.status,
+            'source_note',eo.source_note
+          )
+          order by eo.occurrence_date,eo.start_time nulls first
+        )
+        from public.event_occurrences eo
+        where eo.event_id=e.id
+          and eo.occurrence_date >= current_date-7
+      ),'[]'::jsonb) as occurrences,
       e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
       e.location_precision,e.location_verified,e.place_external_id,
       e.price_text,e.price_type,e.is_free,e.reservation_required,e.reservation_text,e.organizer_name,
