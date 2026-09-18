@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EventActions } from '@/components/EventActions';
 import {
@@ -8,6 +9,8 @@ import {
   formatDuration,
   getEvent
 } from '@/lib/events';
+import { breadcrumbJsonLd, siteUrl } from '@/lib/seo';
+import { slugByPrefecture } from '@/lib/prefectures';
 
 type Params = Promise<{slug:string}>;
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
@@ -16,10 +19,25 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params;
   const event = await getEvent(slug);
   if (!event) return {};
+  const title = event.title;
+  const description = event.summary || `${formatEventDate(event.start_date,event.end_date)}・${event.prefecture}${event.municipality || ''}で開催予定。`;
   return {
-    title: event.title,
-    description: event.summary || `${formatEventDate(event.start_date,event.end_date)}・${event.prefecture}${event.municipality || ''}で開催予定。`,
-    alternates: { canonical: `/events/${event.slug}` }
+    title,
+    description,
+    alternates: { canonical: `/events/${event.slug}` },
+    openGraph: {
+      type: 'website',
+      title,
+      description,
+      url: `/events/${event.slug}`,
+      images: event.image_url ? [{ url: event.image_url }] : undefined
+    },
+    twitter: {
+      card: event.image_url ? 'summary_large_image' : 'summary',
+      title,
+      description,
+      images: event.image_url ? [event.image_url] : undefined
+    }
   };
 }
 
@@ -41,6 +59,7 @@ export default async function EventPage({ params }: { params: Params }) {
     mapUrl.searchParams.set('event', event.title);
   }
 
+  const eventPageUrl = siteUrl(`/events/${event.slug}`);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -52,20 +71,43 @@ export default async function EventPage({ params }: { params: Params }) {
     location: {
       '@type': 'Place',
       name: event.venue_name || undefined,
-      address: [event.prefecture,event.municipality,event.address].filter(Boolean).join('')
+      address: {
+        '@type': 'PostalAddress',
+        postalCode: event.postal_code || undefined,
+        addressRegion: event.prefecture,
+        addressLocality: event.municipality || undefined,
+        streetAddress: event.address || undefined,
+        addressCountry: 'JP'
+      }
     },
     description: event.summary || undefined,
     image: event.image_url ? [event.image_url] : undefined,
     organizer: event.organizer_name ? { '@type': 'Organization', name: event.organizer_name } : undefined,
-    url: event.official_url,
+    url: eventPageUrl,
+    sameAs: event.official_url,
     isAccessibleForFree: event.is_free ?? undefined
   };
+
+  const prefSlug = slugByPrefecture[event.prefecture];
+  const breadcrumbItems = [
+    { name: 'まちイベ', path: '/' },
+    ...(prefSlug ? [{ name: event.prefecture, path: `/area/${prefSlug}` }] : []),
+    { name: event.title, path: `/events/${event.slug}` }
+  ];
+  const breadcrumb = breadcrumbJsonLd(breadcrumbItems);
 
   return (
     <main className="detail-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <nav className="breadcrumb" aria-label="パンくず">
+        <Link href="/">まちイベ</Link>
+        {prefSlug && <><span>›</span><Link href={`/area/${prefSlug}`}>{event.prefecture}</Link></>}
+        <span>›</span><span>{event.title}</span>
+      </nav>
+
       <article className="detail-card">
-        {event.image_url ? <img className="detail-image" src={event.image_url} alt="" /> : <div className="detail-image detail-fallback">MACHI IBE</div>}
+        {event.image_url ? <img className="detail-image" src={event.image_url} alt={`${event.title}のイベント画像`} /> : <div className="detail-image detail-fallback">MACHI IBE</div>}
         <div className="detail-body">
           <div className="tag-row">
             <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
