@@ -1,37 +1,52 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { DataUnavailable } from '@/components/DataUnavailable';
 import { EventCard } from '@/components/EventCard';
+import { Pagination } from '@/components/Pagination';
+import { parsePage } from '@/lib/events';
 import { SEO_INTENTS, searchSeoIntentEvents, type SeoIntentKey } from '@/lib/seo-intents';
 import { breadcrumbJsonLd } from '@/lib/seo';
+
+type SearchParams=Promise<Record<string,string|string[]|undefined>>;
 
 export function generateStaticParams() {
   return Object.keys(SEO_INTENTS).map((intent) => ({ intent }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{intent:string}> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,searchParams
+}: {
+  params: Promise<{intent:string}>;
+  searchParams:SearchParams;
+}): Promise<Metadata> {
   const { intent } = await params;
+  const query=await searchParams;
+  const page=parsePage(query.page);
   const config = SEO_INTENTS[intent as SeoIntentKey];
   if (!config) return {};
+  const sample=await searchSeoIntentEvents(intent,1,3);
   return {
-    title: config.title,
-    description: config.description,
+    title: config.title,description: config.description,
     alternates: { canonical: `/guide/${intent}` },
-    openGraph: {
-      type: 'website',
-      title: config.title,
-      description: config.description,
-      url: `/guide/${intent}`
-    }
+    robots: page===1 && sample.events.length>=3 ? {index:true,follow:true} : {index:false,follow:true},
+    openGraph: { type: 'website',title: config.title,description: config.description,url: `/guide/${intent}` }
   };
 }
 
-export default async function IntentGuidePage({ params }: { params: Promise<{intent:string}> }) {
+export default async function IntentGuidePage({
+  params,searchParams
+}: {
+  params: Promise<{intent:string}>;
+  searchParams:SearchParams;
+}) {
   const { intent } = await params;
+  const query=await searchParams;
+  const page=parsePage(query.page);
   const config = SEO_INTENTS[intent as SeoIntentKey];
   if (!config) notFound();
 
-  const events = await searchSeoIntentEvents(intent as SeoIntentKey);
+  const result = await searchSeoIntentEvents(intent,page,24);
   const breadcrumb = breadcrumbJsonLd([
     { name: 'まちイベ', path: '/' },
     { name: config.heading, path: `/guide/${intent}` }
@@ -47,8 +62,11 @@ export default async function IntentGuidePage({ params }: { params: Promise<{int
       <h1>{config.heading}</h1>
       <p className="area-copy">{config.description}</p>
 
-      {events.length ? (
-        <div className="event-grid">{events.map((event) => <EventCard key={event.id} event={event} />)}</div>
+      {result.error ? <DataUnavailable /> : result.events.length ? (
+        <>
+          <div className="event-grid">{result.events.map((event) => <EventCard key={event.id} event={event} />)}</div>
+          <Pagination basePath={`/guide/${intent}`} page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} />
+        </>
       ) : (
         <div className="empty-state">
           <h2>現在表示できるイベントはありません</h2>
