@@ -1,5 +1,6 @@
 -- まちイベ E0 foundation.
 -- Shared Supabase backend, isolated public RPC surface.
+-- Not applied to production yet: review in staging first.
 begin;
 
 create table if not exists public.regional_sources (
@@ -17,6 +18,11 @@ create table if not exists public.regional_sources (
   event_use_allowed boolean not null default false,
   image_policy text not null default 'not_used'
     check (image_policy in ('not_used','link_only','reuse_allowed','permission_required')),
+  fetch_status text not null default 'unknown'
+    check (fetch_status in ('unknown','healthy','degraded','disabled')),
+  last_success_at timestamptz,
+  last_failure_at timestamptz,
+  consecutive_failures integer not null default 0 check (consecutive_failures >= 0),
   notes text,
   is_active boolean not null default true,
   last_reviewed_at timestamptz,
@@ -38,6 +44,11 @@ create table if not exists public.events (
   schedule_type text not null default 'continuous'
     check (schedule_type in ('single','continuous','recurring','irregular')),
 
+  event_status text not null default 'scheduled'
+    check (event_status in ('scheduled','changed','postponed','cancelled','sold_out','registration_closed')),
+  status_note text,
+  status_updated_at timestamptz,
+
   venue_name text,
   postal_code text,
   prefecture text not null,
@@ -45,8 +56,14 @@ create table if not exists public.events (
   address text,
   latitude double precision check (latitude is null or latitude between -90 and 90),
   longitude double precision check (longitude is null or longitude between -180 and 180),
+  location_precision text not null default 'unknown'
+    check (location_precision in ('exact_venue','exact_address','street','approximate','unknown')),
+  location_verified boolean not null default false,
+  place_external_id text,
 
   price_text text,
+  price_type text not null default 'unknown'
+    check (price_type in ('free','partly_free','paid','unknown')),
   is_free boolean,
   reservation_required boolean,
   reservation_text text,
@@ -100,7 +117,7 @@ create table if not exists public.event_occurrences (
   start_time time,
   end_time time,
   status text not null default 'scheduled'
-    check (status in ('scheduled','cancelled','sold_out')),
+    check (status in ('scheduled','cancelled','sold_out','registration_closed')),
   source_note text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -213,7 +230,8 @@ create index if not exists events_categories_gin_idx on public.events using gin(
 create index if not exists events_age_groups_gin_idx on public.events using gin(age_group_keys);
 create index if not exists events_accessibility_gin_idx on public.events using gin(accessibility_keys);
 create index if not exists events_audience_idx on public.events(audience_intent,audience_intent_verified);
-create index if not exists events_dedupe_key_idx on public.events(dedupe_key) where dedupe_key is not null;
+create unique index if not exists events_dedupe_key_unique_idx
+  on public.events(dedupe_key) where dedupe_key is not null;
 create unique index if not exists events_source_key_unique_idx
   on public.events(source_id,source_event_key) where source_event_key is not null;
 create index if not exists fandom_entities_aliases_gin_idx on public.fandom_entities using gin(aliases);
@@ -247,8 +265,8 @@ create or replace function public.search_public_events(
   p_accessibility_keys text[] default null,
   p_audience_intents text[] default null,
   p_fandom_slugs text[] default null,
+  p_price_types text[] default null,
   p_exclude_adult_oriented boolean default false,
-  p_free_only boolean default false,
   p_indoor_only boolean default false,
   p_sort text default 'recommended',
   p_limit integer default 60,
@@ -257,9 +275,12 @@ create or replace function public.search_public_events(
 returns table(
   id bigint, slug text, title text, summary text, start_date date, end_date date,
   duration_days integer, start_time time, end_time time, all_day boolean, schedule_type text,
+  event_status text, status_note text,
   venue_name text, prefecture text, municipality text, address text,
-  latitude double precision, longitude double precision, price_text text,
-  is_free boolean, reservation_required boolean, organizer_name text, official_url text,
+  latitude double precision, longitude double precision,
+  location_precision text, location_verified boolean,
+  price_text text, price_type text, is_free boolean,
+  reservation_required boolean, organizer_name text, official_url text,
   category_keys text[], age_group_keys text[], indoor boolean, audience_intent text,
   fandom_slugs text[], accessibility_keys text[], accessibility_notes text, image_url text,
   source_name text, source_url text, source_updated_at timestamptz,
@@ -270,9 +291,11 @@ as $$
   select
     e.id,e.slug,e.title,e.summary,e.start_date,e.end_date,
     (e.end_date-e.start_date+1)::integer,e.start_time,e.end_time,e.all_day,e.schedule_type,
-    e.venue_name,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,e.price_text,
-    e.is_free,e.reservation_required,e.organizer_name,e.official_url,e.category_keys,e.age_group_keys,
-    e.indoor,
+    e.event_status,e.status_note,
+    e.venue_name,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
+    e.location_precision,e.location_verified,
+    e.price_text,e.price_type,e.is_free,e.reservation_required,e.organizer_name,e.official_url,
+    e.category_keys,e.age_group_keys,e.indoor,
     case when e.audience_intent_verified then e.audience_intent else 'general' end,
     coalesce((
       select array_agg(fe.slug order by fe.display_name)
@@ -330,12 +353,16 @@ as $$
           and fe.is_active and fe.slug=any(p_fandom_slugs)
       )
     )
+    and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types))
     and (not coalesce(p_exclude_adult_oriented,false)
       or not (e.audience_intent_verified and e.audience_intent='adult_oriented'))
-    and (not coalesce(p_free_only,false) or e.is_free is true)
     and (not coalesce(p_indoor_only,false) or e.indoor is true)
     and (e.expires_at is null or e.expires_at>now())
   order by
+    case e.event_status
+      when 'scheduled' then 0 when 'changed' then 1 when 'registration_closed' then 2
+      when 'sold_out' then 3 when 'postponed' then 4 when 'cancelled' then 5 else 6
+    end,
     case when coalesce(p_sort,'recommended')='newest' then e.created_at end desc nulls last,
     case when coalesce(p_sort,'recommended')='short_first' then (e.end_date-e.start_date+1) end asc nulls last,
     case when coalesce(p_sort,'recommended')='recommended'
@@ -347,9 +374,9 @@ as $$
   offset greatest(coalesce(p_offset,0),0);
 $$;
 
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
+revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text[],boolean,boolean,text,integer,integer)
   from public,anon,authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
+grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text[],boolean,boolean,text,integer,integer)
   to anon,authenticated;
 
 create or replace function public.get_public_event(p_slug text)
@@ -362,8 +389,10 @@ as $$
       e.id,e.slug,e.title,e.summary,e.start_date,e.end_date,
       (e.end_date-e.start_date+1)::integer as duration_days,
       e.start_time,e.end_time,e.timezone,e.all_day,e.schedule_type,
+      e.event_status,e.status_note,e.status_updated_at,
       e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
-      e.price_text,e.is_free,e.reservation_required,e.reservation_text,e.organizer_name,
+      e.location_precision,e.location_verified,e.place_external_id,
+      e.price_text,e.price_type,e.is_free,e.reservation_required,e.reservation_text,e.organizer_name,
       e.official_url,e.ticket_url,e.category_keys,e.age_group_keys,e.indoor,
       case when e.audience_intent_verified then e.audience_intent else 'general' end as audience_intent,
       coalesce((
@@ -417,6 +446,7 @@ as $$
   join public.regional_sources s on s.id=e.source_id
   where fe.is_active and efl.verification_status='verified'
     and e.publication_status='published' and e.verification_status='verified'
+    and e.event_status not in ('cancelled','postponed')
     and s.is_active and s.event_use_allowed
     and e.end_date>=current_date-7
     and (e.expires_at is null or e.expires_at>now())
@@ -428,7 +458,44 @@ $$;
 revoke all on function public.get_public_fandom_sitemap(integer) from public,anon,authenticated;
 grant execute on function public.get_public_fandom_sitemap(integer) to anon,authenticated;
 
-comment on table public.regional_sources is '地域情報エンジンの情報源台帳。';
+create or replace function public.get_public_facet_sitemap(p_min_events integer default 3)
+returns table(kind text,key text,updated_at timestamptz,event_count bigint)
+language sql security definer stable set search_path=public,pg_temp
+as $$
+  with public_events as (
+    select e.*
+    from public.events e
+    join public.regional_sources s on s.id=e.source_id
+    where e.publication_status='published'
+      and e.verification_status='verified'
+      and e.event_status not in ('cancelled','postponed')
+      and s.is_active and s.event_use_allowed
+      and e.end_date>=current_date-7
+      and (e.expires_at is null or e.expires_at>now())
+  ),
+  prefectures as (
+    select 'prefecture'::text as kind,e.prefecture as key,max(e.updated_at) as updated_at,count(*)::bigint as event_count
+    from public_events e
+    group by e.prefecture
+    having count(*)>=greatest(coalesce(p_min_events,3),1)
+  ),
+  categories as (
+    select 'category'::text as kind,c.key,max(e.updated_at) as updated_at,count(distinct e.id)::bigint as event_count
+    from public_events e
+    cross join lateral unnest(e.category_keys) c(key)
+    group by c.key
+    having count(distinct e.id)>=greatest(coalesce(p_min_events,3),1)
+  )
+  select * from prefectures
+  union all
+  select * from categories
+  order by kind,key;
+$$;
+
+revoke all on function public.get_public_facet_sitemap(integer) from public,anon,authenticated;
+grant execute on function public.get_public_facet_sitemap(integer) to anon,authenticated;
+
+comment on table public.regional_sources is '地域情報エンジンの情報源台帳。取得健全性も保持する。';
 comment on table public.events is 'まちイベの正規化済みcanonical event。事実項目を推測で埋めない。';
 comment on table public.event_occurrences is '継続・不定期イベントの実開催日。';
 comment on table public.fandom_entities is '推し活検索用の正規化辞書。名称は識別用で画像・ロゴ利用権を意味しない。';
