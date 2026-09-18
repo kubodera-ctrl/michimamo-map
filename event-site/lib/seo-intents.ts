@@ -1,4 +1,4 @@
-import { addDays, expandPartyFilter, japanToday, searchEvents } from './events';
+import { addDays, japanToday, searchEvents } from './events';
 import type { EventSummary } from './types';
 
 export const REGION_PREFECTURES = {
@@ -13,7 +13,6 @@ type IntentConfig = {
   region: keyof typeof REGION_PREFECTURES | null;
   indoorOnly: boolean;
   familyOnly?: boolean;
-  party?: string;
 };
 
 export const SEO_INTENTS: Record<string, IntentConfig> = {
@@ -41,36 +40,18 @@ export const SEO_INTENTS: Record<string, IntentConfig> = {
     description: '明日開催される全国の室内・屋内イベントを子連れ・親子向け中心に探せます。天候に左右されにくいおでかけ候補を探せます。',
     day: 'tomorrow', region: null, indoorOnly: true, familyOnly: true
   },
-  'today-couple': {
-    title: '今日のカップル向けイベント｜デート・おでかけ',
-    heading: '今日、カップルで楽しみやすいイベント',
-    description: '今日開催されるイベントの中から、カップル・夫婦・二人で楽しみやすいと確認できたおでかけ候補を探せます。',
-    day: 'today', region: null, indoorOnly: false, party: 'couple'
-  },
-  'tomorrow-couple': {
+'tomorrow-couple': {
     title: '明日のカップル向けイベント｜デート・おでかけ',
     heading: '明日、カップルで楽しみやすいイベント',
     description: '明日開催されるイベントの中から、カップル・夫婦・二人で楽しみやすいと確認できたおでかけ候補を探せます。',
-    day: 'tomorrow', region: null, indoorOnly: false, party: 'couple'
+    day: 'tomorrow', region: null, indoorOnly: false
   },
-  'today-solo': {
-    title: '今日のひとりイベント｜1人・おひとりさま・男性一人・女性一人のおでかけ',
-    heading: '今日、1人で参加しやすいイベント',
-    description: '今日開催されるイベントから、1人・ひとり・おひとりさま、男性一人・女性一人でも参加しやすいと確認できた候補を探せます。',
-    day: 'today', region: null, indoorOnly: false, party: 'solo'
-  },
-  'tomorrow-solo': {
+'tomorrow-solo': {
     title: '明日のひとりイベント｜1人・おひとりさま・男性一人・女性一人のおでかけ',
     heading: '明日、1人で参加しやすいイベント',
     description: '明日開催されるイベントから、1人・ひとり・おひとりさま、男性一人・女性一人でも参加しやすいと確認できた候補を探せます。',
-    day: 'tomorrow', region: null, indoorOnly: false, party: 'solo'
+    day: 'tomorrow', region: null, indoorOnly: false
   },
-  'today-senior': {
-    title: '今日のシニア向けイベント｜年配・夫婦のおでかけ',
-    heading: '今日、シニア・年配の方が楽しみやすいイベント',
-    description: '今日開催されるイベントから、シニア・年配の方が楽しみやすいと確認できたおでかけ候補を探せます。',
-    day: 'today', region: null, indoorOnly: false, party: 'senior'
-  }
 };
 
 export type SeoIntentKey = keyof typeof SEO_INTENTS;
@@ -87,7 +68,6 @@ export async function searchSeoIntentEvents(intentKey: SeoIntentKey): Promise<Ev
     startDate: date,
     endDate: date,
     ageGroups: intent.familyOnly ? ['family'] : undefined,
-    partyKeys: expandPartyFilter(intent.party),
     indoorOnly: intent.indoorOnly,
     sort: 'recommended' as const,
     limit: 60
