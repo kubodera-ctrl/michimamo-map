@@ -115,7 +115,7 @@ else window.addEventListener('load',load,{once:true});
 'use strict';
 const load=()=>{
 const script=document.createElement('script');
-script.src='spot-loader.js?v=34-spots4';
+script.src='spot-loader.js?v=35-spots5';
 script.async=false;
 script.onerror=()=>console.error('Paged spot loader could not be loaded.');
 document.head.appendChild(script);
