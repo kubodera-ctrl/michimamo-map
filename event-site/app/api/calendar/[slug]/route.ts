@@ -18,15 +18,25 @@ function addDays(date: string, days: number) {
   return new Date(Date.UTC(y,m-1,d+days)).toISOString().slice(0,10);
 }
 
-export async function GET(_: Request, { params }: { params: Promise<{slug:string}> }) {
+export async function GET(request: Request, { params }: { params: Promise<{slug:string}> }) {
   const { slug } = await params;
   const event = await getEvent(slug);
   if (!event) return new Response('Not found', { status: 404 });
 
-  const timed = Boolean(event.start_time || event.end_time);
-  const dtStart = compact(event.start_date, event.start_time);
-  const allDayEnd = addDays(event.end_date, 1);
-  const dtEnd = compact(timed ? event.end_date : allDayEnd, event.end_time);
+  const requestedDate=new URL(request.url).searchParams.get('date');
+  const occurrence=requestedDate
+    ? (event.occurrences || []).find((item)=>item.date===requestedDate && item.status!=='cancelled')
+    : null;
+  if(requestedDate && !occurrence) return new Response('Invalid occurrence date',{status:400});
+
+  const startDate=occurrence?.date || event.start_date;
+  const endDate=occurrence?.date || event.end_date;
+  const startTime=occurrence?.start_time ?? event.start_time;
+  const endTime=occurrence?.end_time ?? event.end_time;
+  const timed = Boolean(startTime || endTime);
+  const dtStart = compact(startDate, startTime);
+  const allDayEnd = addDays(endDate, 1);
+  const dtEnd = compact(timed ? endDate : allDayEnd, endTime);
   const location = [event.venue_name,event.prefecture,event.municipality,event.address].filter(Boolean).join(' ');
   const now = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
 
@@ -41,7 +51,7 @@ export async function GET(_: Request, { params }: { params: Promise<{slug:string
     `DTSTAMP:${now}`,
     timed ? `DTSTART;TZID=Asia/Tokyo:${dtStart}` : `DTSTART;VALUE=DATE:${dtStart}`,
     timed
-      ? (event.end_time ? `DTEND;TZID=Asia/Tokyo:${dtEnd}` : null)
+      ? (endTime ? `DTEND;TZID=Asia/Tokyo:${dtEnd}` : null)
       : `DTEND;VALUE=DATE:${dtEnd}`,
     `SUMMARY:${escapeIcs(event.title)}`,
     `LOCATION:${escapeIcs(location)}`,
