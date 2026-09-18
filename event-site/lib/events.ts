@@ -45,7 +45,7 @@ export const ACCESSIBILITY_OPTIONS = [
 
 export const ACCESSIBILITY_LABELS = Object.fromEntries(ACCESSIBILITY_OPTIONS) as Record<string,string>;
 
-export const FANDOM_GROUPS = [
+export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<readonly [string,string]> }> = [
   {
     label: 'キャラクター・ファミリー',
     items: [
@@ -86,7 +86,7 @@ export const FANDOM_GROUPS = [
   }
 ] as const;
 
-export const FANDOM_OPTIONS = FANDOM_GROUPS.flatMap((group) => group.items);
+export const FANDOM_OPTIONS: ReadonlyArray<readonly [string,string]> = FANDOM_GROUPS.flatMap((group) => group.items);
 export const FANDOM_LABELS = Object.fromEntries(FANDOM_OPTIONS) as Record<string,string>;
 
 export const SORT_OPTIONS = [
