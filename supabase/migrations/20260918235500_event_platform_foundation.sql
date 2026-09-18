@@ -201,15 +201,6 @@ set display_name=excluded.display_name,
     entity_type=excluded.entity_type,
     updated_at=now();
 
-create table if not exists public.event_site_metrics_daily (
-  metric_date date not null default current_date,
-  metric text not null,
-  event_slug text not null default '',
-  count bigint not null default 0 check (count >= 0),
-  updated_at timestamptz not null default now(),
-  primary key(metric_date,metric,event_slug)
-);
-
 create table if not exists public.event_source_records (
   id bigint generated always as identity primary key,
   source_id bigint not null references public.regional_sources(id) on delete cascade,
@@ -252,7 +243,6 @@ alter table public.events enable row level security;
 alter table public.event_occurrences enable row level security;
 alter table public.fandom_entities enable row level security;
 alter table public.event_fandom_links enable row level security;
-alter table public.event_site_metrics_daily enable row level security;
 alter table public.event_source_records enable row level security;
 
 revoke all on table public.regional_sources from anon,authenticated;
@@ -260,7 +250,6 @@ revoke all on table public.events from anon,authenticated;
 revoke all on table public.event_occurrences from anon,authenticated;
 revoke all on table public.fandom_entities from anon,authenticated;
 revoke all on table public.event_fandom_links from anon,authenticated;
-revoke all on table public.event_site_metrics_daily from anon,authenticated;
 revoke all on table public.event_source_records from anon,authenticated;
 
 create or replace function public.search_public_events(
@@ -447,32 +436,6 @@ $$;
 revoke all on function public.get_public_events_by_slugs(text[]) from public,anon,authenticated;
 grant execute on function public.get_public_events_by_slugs(text[]) to anon,authenticated;
 
-create or replace function public.record_public_metric(
-  p_metric text,
-  p_event_slug text default null
-)
-returns void
-language plpgsql security definer volatile set search_path=public,pg_temp
-as $$
-begin
-  if p_metric not in (
-    'search_results_view','event_view','event_open','save_event','unsave_event',
-    'calendar_google','calendar_ics','map_google','map_apple',
-    'parking_search','dining_open','machimamo_map','correction_open'
-  ) then
-    raise exception 'unsupported metric';
-  end if;
-
-  insert into public.event_site_metrics_daily(metric_date,metric,event_slug,count,updated_at)
-  values(current_date,p_metric,coalesce(left(p_event_slug,160),''),1,now())
-  on conflict(metric_date,metric,event_slug)
-  do update set count=public.event_site_metrics_daily.count+1,updated_at=now();
-end;
-$$;
-
-revoke all on function public.record_public_metric(text,text) from public,anon,authenticated;
-grant execute on function public.record_public_metric(text,text) to anon,authenticated;
-
 create or replace function public.get_public_event_sitemap(p_limit integer default 50000)
 returns table(slug text,updated_at timestamptz)
 language sql security definer stable set search_path=public,pg_temp
@@ -555,7 +518,6 @@ comment on table public.events is 'まちイベの正規化済みcanonical event
 comment on table public.event_occurrences is '継続・不定期イベントの実開催日。';
 comment on table public.fandom_entities is '推し活検索用の正規化辞書。名称は識別用で画像・ロゴ利用権を意味しない。';
 comment on table public.event_fandom_links is 'イベントと推し活対象の確認済み関連。relation_typeと出典を保持。';
-comment on table public.event_site_metrics_daily is '個人識別子を持たない、まちイベ主要導線の匿名日次集計。';
 comment on table public.event_source_records is '取得元ごとのイベント記録とcanonical eventの紐付け。';
 
 commit;
