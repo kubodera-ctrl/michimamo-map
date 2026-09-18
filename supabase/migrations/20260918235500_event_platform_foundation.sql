@@ -64,6 +64,11 @@ create table if not exists public.events (
     check (audience_intent in ('child_centered','family_friendly','general','adult_oriented')),
   audience_intent_verified boolean not null default false,
 
+  -- Party suitability is a reviewed search aid. Never infer gender suitability from stereotypes.
+  party_keys text[] not null default '{}'
+    check (party_keys <@ array['solo','solo_male','solo_female','couple','married_couple','friends','senior','adults_only']::text[]),
+  party_keys_verified boolean not null default false,
+
   -- Accessibility facts must come from a source or organizer confirmation.
   accessibility_keys text[] not null default '{}',
   accessibility_notes text,
@@ -150,6 +155,8 @@ create index if not exists events_accessibility_gin_idx
   on public.events using gin(accessibility_keys);
 create index if not exists events_audience_idx
   on public.events(audience_intent, audience_intent_verified);
+create index if not exists events_party_keys_gin_idx
+  on public.events using gin(party_keys);
 create index if not exists events_dedupe_key_idx
   on public.events(dedupe_key) where dedupe_key is not null;
 create unique index if not exists events_source_key_unique_idx
@@ -178,6 +185,7 @@ create or replace function public.search_public_events(
   p_accessibility_only boolean default false,
   p_accessibility_keys text[] default null,
   p_audience_intents text[] default null,
+  p_party_keys text[] default null,
   p_exclude_adult_oriented boolean default false,
   p_free_only boolean default false,
   p_indoor_only boolean default false,
@@ -212,6 +220,7 @@ returns table(
   age_group_keys text[],
   indoor boolean,
   audience_intent text,
+  party_keys text[],
   accessibility_keys text[],
   accessibility_notes text,
   image_url text,
@@ -253,6 +262,7 @@ as $$
     e.age_group_keys,
     e.indoor,
     case when e.audience_intent_verified then e.audience_intent else 'general' end,
+    case when e.party_keys_verified then e.party_keys else '{}'::text[] end,
     e.accessibility_keys,
     e.accessibility_notes,
     case when e.image_usage_status = 'allowed' then e.image_url else null end,
@@ -314,6 +324,10 @@ as $$
       or (e.audience_intent_verified and e.audience_intent = any(p_audience_intents))
     )
     and (
+      p_party_keys is null or cardinality(p_party_keys) = 0
+      or (e.party_keys_verified and e.party_keys && p_party_keys)
+    )
+    and (
       not coalesce(p_exclude_adult_oriented,false)
       or not (e.audience_intent_verified and e.audience_intent = 'adult_oriented')
     )
@@ -336,9 +350,9 @@ as $$
   offset greatest(coalesce(p_offset,0),0);
 $$;
 
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],boolean,boolean,boolean,text,integer,integer)
+revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
   from public, anon, authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],boolean,boolean,boolean,text,integer,integer)
+grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
   to anon, authenticated;
 
 create or replace function public.get_public_event(p_slug text)
@@ -381,6 +395,7 @@ as $$
       e.age_group_keys,
       e.indoor,
       case when e.audience_intent_verified then e.audience_intent else 'general' end as audience_intent,
+      case when e.party_keys_verified then e.party_keys else '{}'::text[] end as party_keys,
       e.accessibility_keys,
       e.accessibility_notes,
       case when e.image_usage_status = 'allowed' then e.image_url else null end as image_url,
