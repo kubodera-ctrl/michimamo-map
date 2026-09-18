@@ -62,7 +62,7 @@ export function EventActions({ event }: Props) {
   const parkingQuery = ['駐車場', event.venueName, event.address].filter(Boolean).join(' ');
   const parkingUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(parkingQuery)}`;
 
-  const diningParams = new URLSearchParams({ event: event.title });
+  const diningParams = new URLSearchParams({ event: event.title, location: event.address });
   if (event.latitude != null && event.longitude != null) {
     diningParams.set('lat', String(event.latitude));
     diningParams.set('lng', String(event.longitude));
