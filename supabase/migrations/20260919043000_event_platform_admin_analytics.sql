@@ -215,7 +215,7 @@ begin
       and m.metric_date >= ((now() at time zone 'Asia/Tokyo')::date-6)
       and e.publication_status='published'
       and e.verification_status='verified'
-      and e.event_status not in ('cancelled','postponed')
+      and e.event_status not in ('cancelled','postponed','sold_out','registration_closed')
       and e.end_date >= (now() at time zone 'Asia/Tokyo')::date
       and rs.is_active and rs.event_use_allowed
       and not exists(
@@ -259,7 +259,7 @@ begin
       where e.id=p_event_id
         and e.publication_status='published'
         and e.verification_status='verified'
-        and e.event_status not in ('cancelled','postponed')
+        and e.event_status not in ('cancelled','postponed','sold_out','registration_closed')
         and rs.is_active and rs.event_use_allowed
     ) then
       raise exception 'event_not_public' using errcode='22023';
@@ -299,7 +299,7 @@ as $$
     where p.is_active
       and e.publication_status='published'
       and e.verification_status='verified'
-      and e.event_status not in ('cancelled','postponed')
+      and e.event_status not in ('cancelled','postponed','sold_out','registration_closed')
       and e.end_date >= (now() at time zone 'Asia/Tokyo')::date
       and rs.is_active and rs.event_use_allowed
     order by p.rank,e.start_date,e.title
