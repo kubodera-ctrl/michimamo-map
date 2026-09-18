@@ -112,6 +112,12 @@ begin
 end;
 $$;
 
+insert into auth.users(id) values
+  ('00000000-0000-0000-0000-000000000001'),
+  ('00000000-0000-0000-0000-000000000002');
+insert into public.profiles(auth_id) values
+  ('00000000-0000-0000-0000-000000000001');
+
 select public.service_record_machiibe_metric('page_view',null,null);
 select public.service_record_machiibe_metric('search',null,'花火');
 select public.service_record_machiibe_metric('event_view','ci-free-today',null);
@@ -128,6 +134,12 @@ begin
   end if;
   if coalesce((payload->'summary'->>'searches')::integer,0) <> 1 then
     raise exception 'admin dashboard search aggregate failed';
+  end if;
+  if coalesce((payload->'summary'->>'lineAuthUsers')::integer,0) <> 2 then
+    raise exception 'LINE auth count expected 2';
+  end if;
+  if coalesce((payload->'summary'->>'linkedProfiles')::integer,0) <> 1 then
+    raise exception 'linked profile count expected 1';
   end if;
   if jsonb_array_length(payload->'searchTerms') <> 1 then
     raise exception 'search term ranking missing';
