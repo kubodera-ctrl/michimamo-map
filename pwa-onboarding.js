@@ -36,32 +36,15 @@ const isIOS=/iPad|iPhone|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navi
 const isSafari=/Safari/i.test(ua)&&!/(CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|GSA)/i.test(ua);
 const isStandalone=()=>window.matchMedia?.('(display-mode: standalone)').matches||navigator.standalone===true;
 
-function standaloneViewportHeight(){
-  // On iOS standalone, visualViewport.height is the closest value to the
-  // actually drawable app area. Do not choose the largest reported height:
-  // innerHeight/clientHeight can temporarily include non-drawable chrome/safe areas.
-  const visual=Number(window.visualViewport?.height);
-  if(Number.isFinite(visual)&&visual>0)return Math.round(visual);
-  const inner=Number(window.innerHeight);
-  if(Number.isFinite(inner)&&inner>0)return Math.round(inner);
-  const client=Number(document.documentElement?.clientHeight);
-  return Number.isFinite(client)&&client>0?Math.round(client):0;
-}
-let viewportSyncTimer=null;
 function syncStandaloneViewport(){
   const standalone=isStandalone();
   document.documentElement.classList.toggle('mm-standalone',standalone);
-  if(!standalone){
-    document.documentElement.style.removeProperty('--mm-app-height');
-    return;
-  }
-  const height=standaloneViewportHeight();
-  if(height>0)document.documentElement.style.setProperty('--mm-app-height',height+'px');
   clearTimeout(viewportSyncTimer);
   viewportSyncTimer=setTimeout(()=>{
     try{window.map?.invalidateSize?.({pan:false,animate:false});}catch(_){}
-  },60);
+  },80);
 }
+let viewportSyncTimer=null;
 
 const slides=[
   {emoji:'🛡️',title:'まちまもMAPへようこそ',body:'AED・交番など、街の安全情報をひとつの地図で確認できる地域参加型の安全MAPです。',note:'まずは地図を動かして、身近な場所の情報を見てみましょう。'},
@@ -85,17 +68,16 @@ function injectStyles(){
   .mm-ob-actions{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-top:22px}.mm-ob-btn{border:0;border-radius:14px;padding:14px 12px;font:inherit;font-weight:900;cursor:pointer}.mm-ob-back{background:#eef2f7;color:#334155}.mm-ob-next{background:#2563eb;color:#fff;box-shadow:0 7px 18px rgba(37,99,235,.22)}.mm-ob-back[disabled]{opacity:.35;cursor:default}
   .mm-install-title{font-size:23px;font-weight:950;line-height:1.35;margin:14px 0 10px}.mm-install-copy{color:#334155;line-height:1.75;font-size:15px;margin:0}.mm-install-steps{display:grid;gap:9px;margin:18px 0}.mm-install-step{display:flex;align-items:center;gap:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:15px;padding:12px 13px;font-size:14px;font-weight:800}.mm-install-num{width:28px;height:28px;display:grid;place-items:center;background:#2563eb;color:#fff;border-radius:50%;font-size:13px;flex:none}.mm-install-later{width:100%;border:0;border-radius:14px;padding:14px;background:#eef2f7;color:#475569;font-weight:900;font-size:14px;cursor:pointer}
   .mm-guide-replay{margin:10px 0 16px}.mm-guide-replay button{width:100%;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:14px;padding:13px 14px;font:inherit;font-weight:900;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px}.mm-guide-replay small{display:block;color:#64748b;font-weight:600;margin-top:3px}
-  html.mm-standalone,html.mm-standalone body{height:var(--mm-app-height,100%)!important;min-height:var(--mm-app-height,100%)!important;max-height:var(--mm-app-height,100%)!important;overflow:hidden!important;background:#f4f6f8!important}
-  html.mm-standalone body{width:100%!important;max-width:none!important;margin:0!important}
-  html.mm-standalone #app{height:var(--mm-app-height,100%)!important;min-height:var(--mm-app-height,100%)!important;max-height:var(--mm-app-height,100%)!important;width:100%!important;max-width:none!important;overflow:hidden!important}
-  html.mm-standalone main{min-height:0!important;overflow:hidden!important}
-  html.mm-standalone nav,html.mm-standalone .ad-banner{flex-shrink:0!important}
+  html.mm-standalone,html.mm-standalone body{width:100%!important;height:100%!important;min-height:100%!important;max-height:100%!important;margin:0!important;overflow:hidden!important;background:#f4f6f8!important}
+  html.mm-standalone #app{position:fixed!important;inset:0!important;width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+  html.mm-standalone main{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important}
+  html.mm-standalone nav,html.mm-standalone .ad-banner,html.mm-standalone header{flex:0 0 auto!important}
   @media (min-width:600px){.mm-ob-overlay{align-items:center;padding:24px}.mm-ob-sheet{border-radius:26px;max-height:88vh;padding-bottom:22px}}
   `;
   document.head.appendChild(style);
 }
 
-function removeOverlay(){document.getElementById('machimamo-onboarding-overlay')?.remove();}
+function removeOverlay(){document.getElementById('machimamo-onboarding-overlay')?.remove();setTimeout(syncStandaloneViewport,30);}
 function makeOverlay(){
   removeOverlay();
   const overlay=document.createElement('div');
