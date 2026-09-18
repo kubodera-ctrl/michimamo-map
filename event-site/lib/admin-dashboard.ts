@@ -12,6 +12,11 @@ export type AdminDashboard={
     publication_status:string|null;verification_status:string|null;event_status:string|null;
     x_compose_count:number;x_last_opened_at:string|null;
   }>;
+  sources:Array<{
+    id:number;name:string;source_kind:string;prefecture:string|null;municipality:string|null;
+    fetch_status:'unknown'|'healthy'|'degraded'|'disabled';last_success_at:string|null;last_failure_at:string|null;
+    consecutive_failures:number;is_active:boolean;last_reviewed_at:string|null;event_count:number;published_count:number;
+  }>;
   pickups:Array<{event_id:number;rank:number;reason:string;updated_at:string;slug:string;title:string;start_date:string;end_date:string;prefecture:string;municipality:string|null;venue_name:string|null}>;
 };
 
@@ -40,6 +45,7 @@ export async function getMachiibeAdminDashboard(days=30):Promise<AdminDashboard|
     searchTerms:Array.isArray(base.searchTerms)?base.searchTerms:[],
     popularEvents:Array.isArray(base.popularEvents)?base.popularEvents:[],
     newDetected:Array.isArray(base.newDetected)?base.newDetected:[],
+    sources:Array.isArray(base.sources)?base.sources:[],
     pickups:Array.isArray(base.pickups)?base.pickups:[]
   };
 }
