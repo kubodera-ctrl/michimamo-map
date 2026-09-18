@@ -5,13 +5,13 @@ on:
     paths:
       - 'event-site/**'
       - 'index.html'
-      - 'index.html'
       - 'supabase/migrations/*event_platform*'
       - 'supabase/migrations/*dining*'
       - '.github/workflows/event-site-check.yml'
   pull_request:
     paths:
       - 'event-site/**'
+      - 'index.html'
       - 'supabase/migrations/*event_platform*'
       - 'supabase/migrations/*dining*'
       - '.github/workflows/event-site-check.yml'
@@ -55,9 +55,10 @@ jobs:
         env:
           PGPASSWORD: postgres
         run: |
-          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE ROLE anon; CREATE ROLE authenticated;"
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE ROLE anon; CREATE ROLE authenticated; CREATE ROLE service_role;"
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260918235500_event_platform_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919011500_family_dining_overlay.sql
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919043000_event_platform_admin_analytics.sql
       - name: SQL behavior smoke tests
         working-directory: .
         env:
