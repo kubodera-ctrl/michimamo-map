@@ -88,7 +88,7 @@ if(document.readyState==='complete')setTimeout(pagedLoadSpots,0);
 (function loadPwaOnboarding(){
 'use strict';
 const script=document.createElement('script');
-script.src='pwa-onboarding.js?v=33-viewport2';
+script.src='pwa-onboarding.js?v=34-viewport3';
 script.async=false;
 script.onerror=()=>console.error('PWA onboarding could not be loaded.');
 document.head.appendChild(script);
