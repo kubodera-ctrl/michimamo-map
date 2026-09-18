@@ -141,7 +141,8 @@ export default async function EventPage({ params }: { params: Params }) {
 
           <EventActions event={{
             slug:event.slug,title:event.title,startDate:event.start_date,endDate:event.end_date,
-            startTime:event.start_time,endTime:event.end_time,venueName:event.venue_name,address,
+            startTime:event.start_time,endTime:event.end_time,scheduleType:event.schedule_type,
+            occurrences:event.occurrences || [],venueName:event.venue_name,address,
             latitude:trustedLocation ? event.latitude : null,
             longitude:trustedLocation ? event.longitude : null,
             officialUrl:event.official_url
@@ -150,6 +151,21 @@ export default async function EventPage({ params }: { params: Params }) {
           <dl className="event-facts">
             <div><dt>開催状況</dt><dd>{EVENT_STATUS_LABELS[event.event_status]}{event.status_note ? ` — ${event.status_note}` : ''}</dd></div>
             <div><dt>開催日</dt><dd>{formatEventDate(event.start_date,event.end_date)}（{formatDuration(event.duration_days)}）</dd></div>
+            {(event.schedule_type==='recurring'||event.schedule_type==='irregular') && (
+              <div>
+                <dt>実開催日</dt>
+                <dd className="occurrence-list">
+                  {(event.occurrences || []).length
+                    ? event.occurrences.map((item)=>(
+                        <span key={`${item.date}-${item.start_time||''}`} className={item.status==='cancelled'?'occurrence-cancelled':''}>
+                          {item.date}{item.start_time?` ${item.start_time.slice(0,5)}`:''}
+                          {item.status==='cancelled'?'（中止）':item.status==='sold_out'?'（完売）':item.status==='registration_closed'?'（受付終了）':''}
+                        </span>
+                      ))
+                    : '公式情報で実開催日をご確認ください'}
+                </dd>
+              </div>
+            )}
             {event.start_time && <div><dt>時間</dt><dd>{event.start_time.slice(0,5)}{event.end_time ? ` 〜 ${event.end_time.slice(0,5)}` : ''}</dd></div>}
             <div><dt>会場</dt><dd>{event.venue_name || '公式情報をご確認ください'}</dd></div>
             <div><dt>場所</dt><dd>{address}<br /><small>{LOCATION_PRECISION_LABELS[event.location_precision]}</small></dd></div>
