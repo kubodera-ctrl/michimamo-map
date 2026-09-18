@@ -1,22 +1,28 @@
 import type { Metadata } from 'next';
+import { DataUnavailable } from '@/components/DataUnavailable';
 import { EventCard } from '@/components/EventCard';
 import { EventFilters } from '@/components/EventFilters';
+import { Pagination } from '@/components/Pagination';
 import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
-import { parseExcludeTerms, resolveDateRange, searchEvents } from '@/lib/events';
+import { parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
+import type { PriceType } from '@/lib/types';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
+const priceValues:PriceType[]=['free','partly_free','paid','unknown'];
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
   const params = await searchParams;
-  const hasFilters = Object.values(params).some((value) => {
+  const hasFilters = Object.entries(params).some(([key,value]) => {
+    if (key === 'page') return false;
     if (Array.isArray(value)) return value.some(Boolean);
     return Boolean(value);
   });
+  const page=parsePage(params.page);
 
   return {
     alternates: { canonical: '/' },
-    robots: hasFilters
+    robots: hasFilters || page > 1
       ? { index: false, follow: true }
       : { index: true, follow: true }
   };
@@ -32,16 +38,19 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const age = one(params.age);
   const duration = one(params.duration);
   const fandom = one(params.oshi);
+  const legacyFree = one(params.free) === '1';
+  const priceRaw = one(params.price) || (legacyFree ? 'free' : '');
+  const price = priceValues.includes(priceRaw as PriceType) ? priceRaw as PriceType : '';
   const accessibilityOnly = one(params.accessibility) === '1';
   const accessibilityFeature = one(params.accessibilityFeature);
   const childFocusOnly = one(params.childFocus) === '1';
   const excludeAdultOriented = one(params.excludeAdult) === '1';
-  const freeOnly = one(params.free) === '1';
   const indoorOnly = one(params.indoor) === '1';
   const sort = one(params.sort) || 'recommended';
+  const page=parsePage(params.page);
   const range = resolveDateRange(dateMode);
 
-  const events = await searchEvents({
+  const result = await searchEventsPage({
     startDate: range.startDate,
     endDate: range.endDate,
     prefecture,
@@ -51,19 +60,36 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     ageGroups: age ? [age] : undefined,
     durationBuckets: duration ? [duration] : undefined,
     fandomSlugs: fandom ? [fandom] : undefined,
+    priceTypes: price ? [price] : undefined,
     accessibilityOnly: accessibilityOnly || Boolean(accessibilityFeature),
     accessibilityKeys: accessibilityFeature ? [accessibilityFeature] : undefined,
     audienceIntents: childFocusOnly ? ['child_centered'] : undefined,
     excludeAdultOriented,
-    freeOnly,
     indoorOnly,
-    sort: sort === 'start_date' || sort === 'short_first' || sort === 'newest' ? sort : 'recommended',
-    limit: 60
-  });
+    sort: sort === 'start_date' || sort === 'short_first' || sort === 'newest' ? sort : 'recommended'
+  },page,24);
 
   const groupLongRunning = sort === 'recommended' && !duration;
-  const regularEvents = groupLongRunning ? events.filter((event) => event.duration_days <= 10) : events;
-  const longRunningEvents = groupLongRunning ? events.filter((event) => event.duration_days >= 11) : [];
+  const regularEvents = groupLongRunning ? result.events.filter((event) => event.duration_days <= 10) : result.events;
+  const longRunningEvents = groupLongRunning ? result.events.filter((event) => event.duration_days >= 11) : [];
+
+  const paginationQuery:Record<string,string|undefined>={
+    when:dateMode !== 'today' ? dateMode : undefined,
+    prefecture:prefecture || undefined,
+    q:keyword || undefined,
+    exclude:excludeWords || undefined,
+    category:category || undefined,
+    age:age || undefined,
+    duration:duration || undefined,
+    oshi:fandom || undefined,
+    price:price || undefined,
+    accessibility:accessibilityOnly ? '1' : undefined,
+    accessibilityFeature:accessibilityFeature || undefined,
+    childFocus:childFocusOnly ? '1' : undefined,
+    excludeAdult:excludeAdultOriented ? '1' : undefined,
+    indoor:indoorOnly ? '1' : undefined,
+    sort:sort !== 'recommended' ? sort : undefined
+  };
 
   return (
     <main>
@@ -73,21 +99,9 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
           <EventFilters values={{
-            dateMode,
-            prefecture,
-            keyword,
-            excludeWords,
-            category,
-            age,
-            duration,
-            fandom,
-            accessibilityOnly,
-            accessibilityFeature,
-            childFocusOnly,
-            excludeAdultOriented,
-            freeOnly,
-            indoorOnly,
-            sort
+            dateMode,prefecture,keyword,excludeWords,category,age,duration,fandom,
+            price,accessibilityOnly,accessibilityFeature,childFocusOnly,
+            excludeAdultOriented,indoorOnly,sort
           }} />
         </div>
       </section>
@@ -98,10 +112,10 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
             <span className="result-kicker">{range.label}</span>
             <h2>{prefecture || '全国'}のイベント</h2>
           </div>
-          <span className="result-count">{events.length}件表示</span>
+          <span className="result-count" aria-live="polite">{result.events.length}件表示・{result.page}ページ目</span>
         </div>
 
-        {events.length ? (
+        {result.error ? <DataUnavailable /> : result.events.length ? (
           <>
             {regularEvents.length > 0 && (
               <div className="event-grid">
@@ -123,12 +137,13 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                 </div>
               </details>
             )}
+            <Pagination basePath="/" page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} />
           </>
         ) : (
           <div className="empty-state">
             <div className="empty-icon">◎</div>
             <h2>条件に合う公開イベントはまだありません</h2>
-            <p>条件を少し緩めるか、除外ワード・開催期間を見直してください。E0では出典と利用条件を確認できたイベントだけを順次公開します。</p>
+            <p>条件を少し緩めるか、除外ワード・開催期間を見直してください。出典と利用条件を確認できたイベントだけを順次公開します。</p>
           </div>
         )}
 
