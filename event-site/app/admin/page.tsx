@@ -112,6 +112,25 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           </section>
 
           <section className="admin-panel">
+            <div className="admin-panel-head"><div><h2>情報源の健康状態</h2><p>取得失敗が続く情報源を先に確認できます。</p></div></div>
+            {dashboard.sources.length ? (
+              <div className="admin-table-wrap"><table className="admin-table">
+                <thead><tr><th>情報源</th><th>地域</th><th>状態</th><th>失敗</th><th>最終成功</th><th>公開件数</th></tr></thead>
+                <tbody>{dashboard.sources.map((source)=>(
+                  <tr key={source.id}>
+                    <td>{source.name}<small className="admin-source">{source.source_kind}</small></td>
+                    <td>{[source.prefecture,source.municipality].filter(Boolean).join(' ')||'全国'}</td>
+                    <td><span className={`source-status source-${source.fetch_status}`}>{source.fetch_status}</span></td>
+                    <td>{source.consecutive_failures}</td>
+                    <td>{source.last_success_at ? new Date(source.last_success_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}) : '-'}</td>
+                    <td>{n(source.published_count)}</td>
+                  </tr>
+                ))}</tbody>
+              </table></div>
+            ) : <p className="admin-empty">情報源データはまだありません。</p>}
+          </section>
+
+          <section className="admin-panel">
             <div className="admin-panel-head"><div><h2>新しく検出されたイベント</h2><p>取得元の新着順。X投稿は「公開済み・確認済み」のイベントだけ有効。</p></div></div>
             {dashboard.newDetected.length ? (
               <div className="admin-table-wrap"><table className="admin-table">
