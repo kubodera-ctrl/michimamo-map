@@ -91,19 +91,19 @@ stable
 set search_path = public, pg_temp
 as $$
 with
-window as (
+period_cfg as (
   select greatest(1,least(coalesce(p_days,30),365))::integer as days
 ),
 metric_rows as (
   select m.*
-  from public.event_site_metrics_daily m, window w
+  from public.event_site_metrics_daily m, period_cfg w
   where m.metric_date >= ((now() at time zone 'Asia/Tokyo')::date - (w.days-1))
 ),
 search_rank as (
   select
     min(s.display_term) as term,
     sum(s.count)::bigint as count
-  from public.event_search_terms_daily s, window w
+  from public.event_search_terms_daily s, period_cfg w
   where s.metric_date >= ((now() at time zone 'Asia/Tokyo')::date - (w.days-1))
   group by s.term_key
   order by count desc, term
