@@ -278,3 +278,12 @@ a{color:inherit}
 .dining-links{display:flex;gap:8px;flex-wrap:wrap}
 .dining-links a{font-size:11px;font-weight:900;text-decoration:none;border:1px solid #d7dee7;border-radius:999px;padding:7px 10px}
 @media(max-width:760px){.dining-general-search{align-items:flex-start;flex-direction:column}.dining-result-grid{grid-template-columns:1fr}}
+
+.event-action-button.is-attended{border-color:#b9dfd3;background:#eefbf7;color:#08765c}
+.saved-section{margin-top:30px}
+.saved-section>h2{font-size:20px;margin:0 0 14px}
+.history-note{margin:0 0 12px;background:#fff8eb;border:1px solid #f1d6a0;border-radius:12px;padding:10px 12px;font-size:11px;color:#79551c}
+.policy-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;line-height:1.85}
+.policy-card h2{font-size:17px;margin:22px 0 5px}
+.policy-card h2:first-child{margin-top:0}
+.policy-card p{color:#475569;margin:0}
