@@ -34,7 +34,7 @@ export async function POST(request:Request){
   if(fetchSite && fetchSite!=='same-origin' && fetchSite!=='same-site'){
     return NextResponse.json({ok:false},{status:403});
   }
-  const rate=allowRequest(requestClientKey(request,'analytics'),180,60_000);
+  const rate=allowRequest(requestClientKey(request,'analytics'),60,60_000);
   if(!rate.allowed){
     return NextResponse.json({ok:false,reason:'rate_limited'},{status:429,headers:{'Retry-After':String(rate.retryAfter)}});
   }
