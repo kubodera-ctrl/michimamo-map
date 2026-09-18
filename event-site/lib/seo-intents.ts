@@ -1,5 +1,5 @@
-import { addDays, japanToday, searchEvents } from './events';
-import type { EventSummary } from './types';
+import { addDays, japanToday, searchEventsPage, searchEventsWithStatus } from './events';
+import type { EventPageResult, EventSummary } from './types';
 
 export const REGION_PREFECTURES = {
   kanto: ['東京都','神奈川県','千葉県','埼玉県','茨城県','栃木県','群馬県']
@@ -39,19 +39,7 @@ export const SEO_INTENTS: Record<string, IntentConfig> = {
     heading: '明日、子連れで楽しめる室内イベント',
     description: '明日開催される全国の室内・屋内イベントを子連れ・親子向け中心に探せます。天候に左右されにくいおでかけ候補を探せます。',
     day: 'tomorrow', region: null, indoorOnly: true, familyOnly: true
-  },
-'tomorrow-couple': {
-    title: '明日のカップル向けイベント｜デート・おでかけ',
-    heading: '明日、カップルで楽しみやすいイベント',
-    description: '明日開催されるイベントの中から、カップル・夫婦・二人で楽しみやすいと確認できたおでかけ候補を探せます。',
-    day: 'tomorrow', region: null, indoorOnly: false
-  },
-'tomorrow-solo': {
-    title: '明日のひとりイベント｜1人・おひとりさま・男性一人・女性一人のおでかけ',
-    heading: '明日、1人で参加しやすいイベント',
-    description: '明日開催されるイベントから、1人・ひとり・おひとりさま、男性一人・女性一人でも参加しやすいと確認できた候補を探せます。',
-    day: 'tomorrow', region: null, indoorOnly: false
-  },
+  }
 };
 
 export type SeoIntentKey = keyof typeof SEO_INTENTS;
@@ -61,27 +49,57 @@ function targetDate(day: 'today' | 'tomorrow') {
   return day === 'tomorrow' ? addDays(today, 1) : today;
 }
 
-export async function searchSeoIntentEvents(intentKey: SeoIntentKey): Promise<EventSummary[]> {
+function sortCombined(events:EventSummary[]) {
+  return events.sort((a,b) =>
+    (a.event_status === 'scheduled' ? 0 : 1) - (b.event_status === 'scheduled' ? 0 : 1)
+    || a.duration_days - b.duration_days
+    || a.start_date.localeCompare(b.start_date)
+    || a.title.localeCompare(b.title)
+  );
+}
+
+export async function searchSeoIntentEvents(
+  intentKey: SeoIntentKey | string,
+  page = 1,
+  pageSize = 24
+): Promise<EventPageResult> {
   const intent = SEO_INTENTS[intentKey];
+  if (!intent) return {events:[],error:null,page:1,pageSize,hasPrevious:false,hasNext:false};
+
   const date = targetDate(intent.day);
   const common = {
     startDate: date,
     endDate: date,
     ageGroups: intent.familyOnly ? ['family'] : undefined,
     indoorOnly: intent.indoorOnly,
-    sort: 'recommended' as const,
-    limit: 60
+    sort: 'recommended' as const
   };
 
-  if (intent.region) {
-    const prefectures = REGION_PREFECTURES[intent.region];
-    const chunks = await Promise.all(prefectures.map((prefecture) => searchEvents({ ...common, prefecture })));
-    const byId = new Map<number, EventSummary>();
-    for (const event of chunks.flat()) byId.set(event.id, event);
-    return [...byId.values()]
-      .sort((a,b) => a.duration_days - b.duration_days || a.start_date.localeCompare(b.start_date) || a.title.localeCompare(b.title))
-      .slice(0,60);
+  if (!intent.region) {
+    return searchEventsPage(common,page,pageSize);
   }
 
-  return searchEvents(common);
+  const prefectures = REGION_PREFECTURES[intent.region];
+  const chunks = await Promise.all(prefectures.map((prefecture) =>
+    searchEventsWithStatus({ ...common, prefecture, limit:100, offset:0 })
+  ));
+  const anyData=chunks.some((chunk)=>chunk.events.length>0);
+  const allFailed=chunks.every((chunk)=>Boolean(chunk.error));
+  if (allFailed && !anyData) {
+    return {events:[],error:'request_failed',page,pageSize,hasPrevious:page>1,hasNext:false};
+  }
+
+  const byId = new Map<number, EventSummary>();
+  for (const event of chunks.flatMap((chunk)=>chunk.events)) byId.set(event.id,event);
+  const sorted=sortCombined([...byId.values()]);
+  const start=(Math.max(page,1)-1)*pageSize;
+  const slice=sorted.slice(start,start+pageSize+1);
+  return {
+    events:slice.slice(0,pageSize),
+    error:null,
+    page:Math.max(page,1),
+    pageSize,
+    hasPrevious:page>1,
+    hasNext:slice.length>pageSize
+  };
 }
