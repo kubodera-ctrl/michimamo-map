@@ -260,3 +260,21 @@ a{color:inherit}
   .pagination>a{grid-row:2}
   .loading-grid{grid-template-columns:1fr}
 }
+
+.dining-general-search{margin:20px 0 30px;background:#102c4a;color:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.dining-general-search strong{font-size:16px}
+.dining-general-search p{margin:5px 0 0;color:#bdd0df;font-size:12px;line-height:1.7}
+.dining-general-search a{flex-shrink:0;background:#fff;color:#123052;text-decoration:none;border-radius:999px;padding:11px 14px;font-size:12px;font-weight:950}
+.dining-results{margin:32px 0}
+.dining-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dining-result-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.dining-card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.dining-card-head h3{margin:0;font-size:17px}
+.dining-card-head>span{font-size:10px;font-weight:900;color:#1f6feb;background:#eef6ff;border-radius:999px;padding:5px 8px}
+.dining-result-card>p{font-size:12px;color:#64748b;line-height:1.6}
+.child-price-box{margin:12px 0;background:#fff8eb;border:1px solid #f1d6a0;border-radius:12px;padding:10px}
+.child-price-box p{margin:4px 0;font-size:11px;color:#6b4b17}
+.verified-at{font-size:10px!important}
+.dining-links{display:flex;gap:8px;flex-wrap:wrap}
+.dining-links a{font-size:11px;font-weight:900;text-decoration:none;border:1px solid #d7dee7;border-radius:999px;padding:7px 10px}
+@media(max-width:760px){.dining-general-search{align-items:flex-start;flex-direction:column}.dining-result-grid{grid-template-columns:1fr}}
