@@ -94,6 +94,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <NewSinceLastVisitLink active={Boolean(since)} />
           <Link href="/saved">♡ 行きたい一覧</Link>
           <Link href="/saved-searches">☆ 保存した検索</Link>
+          <Link href="/plan">📅 おでかけプラン</Link>
         </div>
         <div className="section-heading">
           <div><span className="result-kicker">{since?'前回訪問後の新着':range.label}</span><h2>{prefecture || '全国'}のイベント</h2></div>
