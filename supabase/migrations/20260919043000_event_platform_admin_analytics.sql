@@ -171,7 +171,9 @@ select jsonb_build_object(
     'calendarAdds',coalesce((select sum(count) from metric_rows where metric in ('calendar_google','calendar_ics')),0),
     'machimamoClicks',coalesce((select sum(count) from metric_rows where metric='machimamo_map'),0),
     'xShares',coalesce((select sum(count) from metric_rows where metric='x_share'),0),
-    'eventOpens',coalesce((select sum(count) from metric_rows where metric='event_view'),0)
+    'eventOpens',coalesce((select sum(count) from metric_rows where metric='event_view'),0),
+    'lineAuthUsers',(select count(*) from auth.users),
+    'linkedProfiles',(select count(*) from public.profiles where auth_id is not null)
   ),
   'searchTerms',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.term) from search_rank x),'[]'::jsonb),
   'popularEvents',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.start_date,x.title) from event_rank x),'[]'::jsonb),
