@@ -18,9 +18,21 @@ export function SeoBrowseLinks() {
           <Link href="/guide/tomorrow-kanto-family">明日・関東・子連れ</Link>
           <Link href="/guide/today-indoor-family">今日・室内・子連れ</Link>
           <Link href="/guide/tomorrow-indoor-family">明日・室内・子連れ</Link>
-          <Link href="/guide/today-couple">今日・カップル</Link>
-          <Link href="/guide/today-solo">今日・ひとり</Link>
-          <Link href="/guide/today-senior">今日・シニア</Link>
+        </div>
+      </div>
+
+      <div className="seo-browse-block">
+        <h3>推し活から探す</h3>
+        <div className="seo-link-grid">
+          <Link href="/oshi/chiikawa">ちいかわ</Link>
+          <Link href="/oshi/detective-conan">名探偵コナン</Link>
+          <Link href="/oshi/sumikkogurashi">すみっコぐらし</Link>
+          <Link href="/oshi/aipri">アイプリ</Link>
+          <Link href="/oshi/precure">プリキュア</Link>
+          <Link href="/oshi/kamen-rider">仮面ライダー</Link>
+          <Link href="/oshi/hayao-miyazaki">宮崎駿</Link>
+          <Link href="/oshi/ghibli">ジブリ</Link>
+          <Link href="/oshi/pixar">ピクサー</Link>
         </div>
       </div>
 
