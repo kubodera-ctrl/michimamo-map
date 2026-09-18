@@ -131,3 +131,12 @@ a{color:inherit}
   .exclude-field{grid-column:auto}
   .advanced-title{align-items:flex-start;flex-direction:column;gap:3px}
 }
+
+.long-running-group{margin-top:26px;border:1px solid #eadcc8;background:#fffaf3;border-radius:20px;padding:0 16px}
+.long-running-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 2px}
+.long-running-group>summary::-webkit-details-marker{display:none}
+.long-running-group>summary span{display:flex;flex-direction:column;gap:3px}
+.long-running-group>summary strong{font-size:14px;color:#7c4a15}
+.long-running-group>summary small{font-size:11px;line-height:1.55;color:#8a6a46}
+.long-running-group>summary b{font-size:12px;color:#9a5a11;background:#fff0d9;border-radius:999px;padding:6px 9px;white-space:nowrap}
+.long-running-grid{padding:4px 0 18px}
