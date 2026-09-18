@@ -9,6 +9,7 @@ export type AdminDashboard={
     event_id:number|null;slug:string|null;title:string|null;start_date:string|null;end_date:string|null;
     prefecture:string|null;municipality:string|null;venue_name:string|null;
     publication_status:string|null;verification_status:string|null;event_status:string|null;
+    x_compose_count:number;x_last_opened_at:string|null;
   }>;
   pickups:Array<{event_id:number;rank:number;reason:string;updated_at:string;slug:string;title:string;start_date:string;end_date:string;prefecture:string;municipality:string|null;venue_name:string|null}>;
 };
