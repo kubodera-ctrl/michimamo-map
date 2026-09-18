@@ -45,6 +45,26 @@ export const ACCESSIBILITY_OPTIONS = [
 
 export const ACCESSIBILITY_LABELS = Object.fromEntries(ACCESSIBILITY_OPTIONS) as Record<string,string>;
 
+export const PARTY_OPTIONS = [
+  ['solo','1人で'],
+  ['solo_male','1人（男性）'],
+  ['solo_female','1人（女性）'],
+  ['couple','カップル'],
+  ['married_couple','夫婦'],
+  ['friends','友人と'],
+  ['senior','シニア・年配'],
+  ['adults_only','大人だけ']
+] as const;
+
+export function expandPartyFilter(value?: string): string[] | undefined {
+  if (!value) return undefined;
+  if (value === 'solo_male') return ['solo','solo_male'];
+  if (value === 'solo_female') return ['solo','solo_female'];
+  if (value === 'couple') return ['couple','married_couple'];
+  if (value === 'married_couple') return ['married_couple','couple'];
+  return [value];
+}
+
 export const SORT_OPTIONS = [
   ['recommended','おすすめ（短期・新規開催を優先）'],
   ['start_date','開催日が近い順'],
@@ -77,6 +97,7 @@ export async function searchEvents(input: EventSearchInput): Promise<EventSummar
     p_accessibility_only: input.accessibilityOnly || false,
     p_accessibility_keys: input.accessibilityKeys?.length ? input.accessibilityKeys : null,
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
+    p_party_keys: input.partyKeys?.length ? input.partyKeys : null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_free_only: input.freeOnly || false,
     p_indoor_only: input.indoorOnly || false,
