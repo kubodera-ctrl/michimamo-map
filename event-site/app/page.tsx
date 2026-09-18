@@ -9,12 +9,14 @@ import { Pagination } from '@/components/Pagination';
 import { PickupEvents } from '@/components/PickupEvents';
 import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { VisitTracker } from '@/components/VisitTracker';
-import { parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
+import { AGE_OPTIONS, CATEGORY_OPTIONS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType } from '@/lib/types';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
 const priceValues:PriceType[]=['free','partly_free','paid','unknown'];
+const categoryLabels=Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
+const ageLabels=Object.fromEntries(AGE_OPTIONS) as Record<string,string>;
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
   const params = await searchParams;
@@ -51,6 +53,17 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const sinceRaw=one(params.since);
   const since=sinceRaw && Number.isFinite(Date.parse(sinceRaw)) ? new Date(sinceRaw).toISOString() : '';
   const range = resolveDateRange(dateMode);
+  const searchAnalyticsTerm=keyword || [
+    range.label,
+    prefecture,
+    category ? categoryLabels[category] : '',
+    age ? ageLabels[age] : '',
+    fandom ? FANDOM_LABELS[fandom] : '',
+    price ? PRICE_LABELS[price] : '',
+    indoorOnly ? '室内' : '',
+    childFocusOnly ? '子どもが主役' : '',
+    accessibilityOnly || accessibilityFeature ? '配慮情報' : ''
+  ].filter(Boolean).join(' ');
 
   const result = await searchEventsPage({
     startDate: range.startDate,endDate: range.endDate,prefecture,keyword,
@@ -81,7 +94,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   return (
     <main>
       <VisitTracker />
-      {page===1 && hasExplicitSearch && <MetricPing metric="search" searchTerm={keyword||undefined} />}
+      {page===1 && hasExplicitSearch && <MetricPing metric="search" searchTerm={searchAnalyticsTerm||undefined} />}
       <section className="hero">
         <div className="hero-inner">
           <p className="eyebrow">MACHI IBE</p>
