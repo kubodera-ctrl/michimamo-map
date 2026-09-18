@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   title:{default:'まちイベ｜全国の今日・週末イベント検索',template:'%s｜まちイベ'},
   description:SITE_DESCRIPTION,
+  icons:{icon:'/machiibe-icon.svg',shortcut:'/machiibe-icon.svg',apple:'/machiibe-icon.svg'},
+  manifest:'/manifest.webmanifest',
   metadataBase:new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://events.example.jp'),
   alternates:{canonical:'/'},
   openGraph:{type:'website',siteName:SITE_NAME,title:'まちイベ｜全国の今日・週末イベント検索',description:SITE_DESCRIPTION,url:'/'},
@@ -43,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteJsonLd)}} />
         <header className="site-header">
           <div className="header-inner">
-            <Link href="/" className="brand"><span className="brand-mark">ま</span><span><strong>まちイベ</strong><small>by まちまも｜全国のおでかけを、もっと見つけやすく。</small></span></Link>
+            <Link href="/" className="brand"><span className="brand-mark brand-icon-wrap"><img className="brand-icon-image" src="/machiibe-icon.svg" alt="" /></span><span><strong>まちイベ</strong><small>by まちまも｜全国のおでかけを、もっと見つけやすく。</small></span></Link>
             <nav className="header-actions" aria-label="ユーザーメニュー">
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>
