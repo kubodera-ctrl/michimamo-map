@@ -46,7 +46,7 @@ export function SavedEventsMapClient() {
         attribution:'&copy; OpenStreetMap contributors'
       }).addTo(map);
 
-      const bounds:L.LatLngExpression[]=[];
+      const bounds:Array<[number,number]>=[];
       for(const event of points){
         const lat=event.latitude as number;
         const lng=event.longitude as number;
