@@ -50,6 +50,23 @@ jobs:
         run: npm run typecheck
       - name: Build
         run: npm run build
+      - name: Route smoke
+        env:
+          NEXT_PUBLIC_ALLOW_INDEXING: 'false'
+        run: |
+          npm run start -- -p 3100 > /tmp/machiibe-next.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3100/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:3100/ | grep -q "まちイベ"
+          curl -fsS http://127.0.0.1:3100/admin/login | grep -q "まちイベ運営画面"
+          curl -fsS http://127.0.0.1:3100/privacy | grep -q "プライバシー"
+          curl -fsS http://127.0.0.1:3100/robots.txt | grep -q "Disallow: /"
+          curl -fsS http://127.0.0.1:3100/manifest.webmanifest | grep -q "まちイベ"
+          curl -fsSI http://127.0.0.1:3100/ | tr -d '\r' | grep -qi "^x-robots-tag: noindex, nofollow, noarchive$"
       - name: SQL migration check
         working-directory: .
         env:
