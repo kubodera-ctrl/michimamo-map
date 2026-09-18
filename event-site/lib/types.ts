@@ -78,6 +78,7 @@ export type EventSearchInput = {
   audienceIntents?: string[];
   fandomSlugs?: string[];
   priceTypes?: PriceType[];
+  updatedAfter?: string;
   freeOnly?: boolean;
   excludeAdultOriented?: boolean;
   indoorOnly?: boolean;
