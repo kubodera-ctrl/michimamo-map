@@ -30,6 +30,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           <p className="eyebrow">MACHI IBE ADMIN</p>
           <h1>まちイベ運営ダッシュボード</h1>
           <p>直近30日を中心に集計。PVはページ表示回数で、ユニークユーザー数ではありません。</p>
+          <p><a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="noreferrer">運営X @machiibe01 を開く ↗</a></p>
         </div>
         <form action="/api/admin/logout" method="post"><button type="submit">ログアウト</button></form>
       </div>
@@ -136,7 +137,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
 
           <div className="admin-bottom-note">
             <strong>運用上の注意</strong>
-            <p>検索ワード・PVは運営改善用の集計値です。個人識別子は保存しません。Xボタンは投稿文を入れた作成画面を開くだけで、自動投稿やXの認証情報保存は行いません。</p>
+            <p>検索ワード・PVは運営改善用の集計値です。個人識別子は保存しません。Xボタンは投稿文を入れた作成画面を開くだけで、自動投稿やXの認証情報保存は行いません。ブラウザで @machiibe01 にログインしていれば、その運営アカウントから確認して投稿できます。</p>
           </div>
         </>
       )}
