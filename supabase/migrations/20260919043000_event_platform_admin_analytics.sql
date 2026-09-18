@@ -3,7 +3,7 @@
 begin;
 
 create table if not exists public.event_site_metrics_daily (
-  metric_date date not null default current_date,
+  metric_date date not null default ((now() at time zone 'Asia/Tokyo')::date),
   metric text not null,
   event_slug text not null default '',
   count bigint not null default 0 check (count >= 0),
@@ -12,7 +12,7 @@ create table if not exists public.event_site_metrics_daily (
 );
 
 create table if not exists public.event_search_terms_daily (
-  metric_date date not null default current_date,
+  metric_date date not null default ((now() at time zone 'Asia/Tokyo')::date),
   term_key text not null,
   display_term text not null,
   count bigint not null default 0 check (count >= 0),
