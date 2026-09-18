@@ -8,6 +8,8 @@ import { parsePage } from '@/lib/events';
 import { SEO_INTENTS, searchSeoIntentEvents, type SeoIntentKey } from '@/lib/seo-intents';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
+export const revalidate = 3600;
+
 type SearchParams=Promise<Record<string,string|string[]|undefined>>;
 
 export function generateStaticParams() {
