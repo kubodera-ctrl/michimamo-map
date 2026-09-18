@@ -245,6 +245,17 @@ export async function getEventsBySlugs(slugs:string[]): Promise<EventDetail[]> {
   return (Array.isArray(data) ? data : []) as EventDetail[];
 }
 
+export async function getPickupEvents(limit=6): Promise<EventDetail[]> {
+  const db=getPublicSupabase();
+  if(!db) return [];
+  const {data,error}=await db.rpc('get_public_machiibe_pickups',{p_limit:Math.min(Math.max(limit,1),12)});
+  if(error){
+    console.error('get_public_machiibe_pickups failed',error.message);
+    return [];
+  }
+  return (Array.isArray(data)?data:[]) as EventDetail[];
+}
+
 export async function getPublicFacetSitemap(): Promise<Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>> {
   const db = getPublicSupabase();
   if (!db) return [];
