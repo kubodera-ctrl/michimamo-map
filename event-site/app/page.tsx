@@ -42,6 +42,10 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     limit: 60
   });
 
+  const groupLongRunning = sort === 'recommended' && !duration;
+  const regularEvents = groupLongRunning ? events.filter((event) => event.duration_days <= 10) : events;
+  const longRunningEvents = groupLongRunning ? events.filter((event) => event.duration_days >= 11) : [];
+
   return (
     <main>
       <section className="hero">
@@ -78,9 +82,28 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         </div>
 
         {events.length ? (
-          <div className="event-grid">
-            {events.map((event) => <EventCard key={event.id} event={event} />)}
-          </div>
+          <>
+            {regularEvents.length > 0 && (
+              <div className="event-grid">
+                {regularEvents.map((event) => <EventCard key={event.id} event={event} />)}
+              </div>
+            )}
+
+            {longRunningEvents.length > 0 && (
+              <details className="long-running-group">
+                <summary>
+                  <span>
+                    <strong>長期開催のイベント</strong>
+                    <small>11日以上のイベントは、繰り返し検索の邪魔になりにくいよう分けて表示します。</small>
+                  </span>
+                  <b>{longRunningEvents.length}件</b>
+                </summary>
+                <div className="event-grid long-running-grid">
+                  {longRunningEvents.map((event) => <EventCard key={event.id} event={event} />)}
+                </div>
+              </details>
+            )}
+          </>
         ) : (
           <div className="empty-state">
             <div className="empty-icon">◎</div>
