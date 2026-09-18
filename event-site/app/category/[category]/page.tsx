@@ -7,6 +7,8 @@ import { Pagination } from '@/components/Pagination';
 import { CATEGORY_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
+export const revalidate = 3600;
+
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 type SearchParams=Promise<Record<string,string|string[]|undefined>>;
 
