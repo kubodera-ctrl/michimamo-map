@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { PREF_KEYS, getPlannedDate, readStringArray, setPlannedDate, toggleInArray } from '@/lib/client-prefs';
 import { recordMetric } from './MetricPing';
+import { buildXShareUrl } from '@/lib/share';
 
 type Props = {
   event: {
@@ -19,6 +20,9 @@ type Props = {
     latitude: number | null;
     longitude: number | null;
     officialUrl: string;
+    pageUrl: string;
+    dateText: string;
+    placeText: string;
   };
 };
 
@@ -101,6 +105,12 @@ export function EventActions({ event }: Props) {
   }
   const diningUrl = `/dining?${diningParams.toString()}`;
   const parkingReservationUrl = process.env.NEXT_PUBLIC_PARKING_RESERVATION_URL || '';
+  const xShareUrl=buildXShareUrl({
+    title:event.title,
+    pageUrl:event.pageUrl,
+    dateText:event.dateText,
+    placeText:event.placeText
+  });
 
   const toggleSaved = () => {
     const next=toggleInArray(PREF_KEYS.savedEvents,event.slug);
@@ -168,6 +178,7 @@ export function EventActions({ event }: Props) {
           </a>
         )}
         <a className="event-action-button dining-action" href={diningUrl} onClick={metric('dining_open')}><span>🍽</span><b>遊んだ後のごはん</b></a>
+        <a className="event-action-button x-share-action" href={xShareUrl} target="_blank" rel="noreferrer" onClick={metric('x_share')}><span>𝕏</span><b>Xで共有</b></a>
       </div>
     </section>
   );
