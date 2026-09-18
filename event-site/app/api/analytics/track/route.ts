@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAdminSupabase } from '@/lib/supabase-admin';
+import { allowRequest, requestClientKey } from '@/lib/server-rate-limit';
 
 export const runtime='nodejs';
 
@@ -29,6 +30,14 @@ function sanitizeSearchTerm(value:unknown){
 
 export async function POST(request:Request){
   if(!sameOrigin(request)) return NextResponse.json({ok:false},{status:403});
+  const fetchSite=request.headers.get('sec-fetch-site');
+  if(fetchSite && fetchSite!=='same-origin' && fetchSite!=='same-site'){
+    return NextResponse.json({ok:false},{status:403});
+  }
+  const rate=allowRequest(requestClientKey(request,'analytics'),180,60_000);
+  if(!rate.allowed){
+    return NextResponse.json({ok:false,reason:'rate_limited'},{status:429,headers:{'Retry-After':String(rate.retryAfter)}});
+  }
   const length=Number(request.headers.get('content-length')||0);
   if(length>4096) return NextResponse.json({ok:false},{status:413});
 
