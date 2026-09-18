@@ -1,5 +1,5 @@
 import { getPublicSupabase } from './supabase';
-import type { EventDetail, EventSearchInput, EventSummary } from './types';
+import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, LocationPrecision, PriceType } from './types';
 
 export const CATEGORY_OPTIONS = [
   ['family','親子・子ども'],
@@ -89,6 +89,39 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
 export const FANDOM_OPTIONS: ReadonlyArray<readonly [string,string]> = FANDOM_GROUPS.flatMap((group) => group.items);
 export const FANDOM_LABELS = Object.fromEntries(FANDOM_OPTIONS) as Record<string,string>;
 
+export const PRICE_OPTIONS: ReadonlyArray<readonly [PriceType,string]> = [
+  ['free','完全無料'],
+  ['partly_free','一部無料'],
+  ['paid','有料'],
+  ['unknown','料金不明']
+];
+
+export const PRICE_LABELS = Object.fromEntries(PRICE_OPTIONS) as Record<PriceType,string>;
+
+export const EVENT_STATUS_LABELS: Record<EventStatus,string> = {
+  scheduled:'開催予定',
+  changed:'内容変更あり',
+  postponed:'延期',
+  cancelled:'中止',
+  sold_out:'完売',
+  registration_closed:'受付終了'
+};
+
+export const LOCATION_PRECISION_LABELS: Record<LocationPrecision,string> = {
+  exact_venue:'会場位置確認済み',
+  exact_address:'住所位置確認済み',
+  street:'道路・街区付近',
+  approximate:'おおよその位置',
+  unknown:'位置精度未確認'
+};
+
+export function isTrustedLocation(event: Pick<EventSummary,'latitude'|'longitude'|'location_precision'|'location_verified'>) {
+  return event.location_verified
+    && event.latitude != null
+    && event.longitude != null
+    && (event.location_precision === 'exact_venue' || event.location_precision === 'exact_address');
+}
+
 export const SORT_OPTIONS = [
   ['recommended','おすすめ（短期・新規開催を優先）'],
   ['start_date','開催日が近い順'],
@@ -105,9 +138,15 @@ export function parseExcludeTerms(value: string): string[] {
   )].slice(0, 20);
 }
 
-export async function searchEvents(input: EventSearchInput): Promise<EventSummary[]> {
+export async function searchEventsWithStatus(input: EventSearchInput): Promise<EventSearchResult> {
   const db = getPublicSupabase();
-  if (!db) return [];
+  if (!db) return { events: [], error: 'unconfigured' };
+
+  const priceTypes = input.priceTypes?.length
+    ? input.priceTypes
+    : input.freeOnly
+      ? ['free' as PriceType]
+      : null;
 
   const { data, error } = await db.rpc('search_public_events', {
     p_start_date: input.startDate,
@@ -122,8 +161,8 @@ export async function searchEvents(input: EventSearchInput): Promise<EventSummar
     p_accessibility_keys: input.accessibilityKeys?.length ? input.accessibilityKeys : null,
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
     p_fandom_slugs: input.fandomSlugs?.length ? input.fandomSlugs : null,
+    p_price_types: priceTypes,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
-    p_free_only: input.freeOnly || false,
     p_indoor_only: input.indoorOnly || false,
     p_sort: input.sort || 'recommended',
     p_limit: input.limit ?? 60,
@@ -132,10 +171,42 @@ export async function searchEvents(input: EventSearchInput): Promise<EventSummar
 
   if (error) {
     console.error('search_public_events failed', error.message);
-    return [];
+    return { events: [], error: 'request_failed' };
   }
 
-  return (data ?? []) as EventSummary[];
+  return { events: (data ?? []) as EventSummary[], error: null };
+}
+
+export async function searchEvents(input: EventSearchInput): Promise<EventSummary[]> {
+  return (await searchEventsWithStatus(input)).events;
+}
+
+export function parsePage(value: string | string[] | undefined): number {
+  const raw = Array.isArray(value) ? value[0] : value;
+  const page = Number.parseInt(raw || '1', 10);
+  return Number.isFinite(page) && page > 0 ? Math.min(page, 1000) : 1;
+}
+
+export async function searchEventsPage(
+  input: EventSearchInput,
+  page: number,
+  pageSize = 24
+): Promise<EventPageResult> {
+  const safePage = Math.max(1, page);
+  const safeSize = Math.min(Math.max(pageSize, 6), 48);
+  const result = await searchEventsWithStatus({
+    ...input,
+    limit: safeSize + 1,
+    offset: (safePage - 1) * safeSize
+  });
+  return {
+    events: result.events.slice(0, safeSize),
+    error: result.error,
+    page: safePage,
+    pageSize: safeSize,
+    hasPrevious: safePage > 1,
+    hasNext: result.events.length > safeSize
+  };
 }
 
 export async function getEvent(slug: string): Promise<EventDetail | null> {
@@ -148,6 +219,17 @@ export async function getEvent(slug: string): Promise<EventDetail | null> {
     return null;
   }
   return (data || null) as EventDetail | null;
+}
+
+export async function getPublicFacetSitemap(): Promise<Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>> {
+  const db = getPublicSupabase();
+  if (!db) return [];
+  const { data, error } = await db.rpc('get_public_facet_sitemap', { p_min_events: 3 });
+  if (error) {
+    console.error('get_public_facet_sitemap failed', error.message);
+    return [];
+  }
+  return (data ?? []) as Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>;
 }
 
 export async function getPublicFandomSitemap(): Promise<Array<{slug:string;updated_at:string;event_count:number}>> {
