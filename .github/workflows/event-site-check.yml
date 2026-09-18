@@ -5,11 +5,13 @@ on:
     paths:
       - 'event-site/**'
       - 'supabase/migrations/*event_platform*'
+      - 'supabase/migrations/*dining*'
       - '.github/workflows/event-site-check.yml'
   pull_request:
     paths:
       - 'event-site/**'
       - 'supabase/migrations/*event_platform*'
+      - 'supabase/migrations/*dining*'
       - '.github/workflows/event-site-check.yml'
 
 permissions:
@@ -18,6 +20,18 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     defaults:
       run:
         working-directory: event-site
@@ -34,3 +48,11 @@ jobs:
         run: npm run typecheck
       - name: Build
         run: npm run build
+      - name: SQL migration check
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE ROLE anon; CREATE ROLE authenticated;"
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260918235500_event_platform_foundation.sql
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919011500_family_dining_overlay.sql
