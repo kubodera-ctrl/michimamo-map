@@ -1,9 +1,26 @@
+import type { Metadata } from 'next';
 import { EventCard } from '@/components/EventCard';
 import { EventFilters } from '@/components/EventFilters';
+import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { parseExcludeTerms, resolveDateRange, searchEvents } from '@/lib/events';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
+
+export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+  const params = await searchParams;
+  const hasFilters = Object.values(params).some((value) => {
+    if (Array.isArray(value)) return value.some(Boolean);
+    return Boolean(value);
+  });
+
+  return {
+    alternates: { canonical: '/' },
+    robots: hasFilters
+      ? { index: false, follow: true }
+      : { index: true, follow: true }
+  };
+}
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
@@ -111,6 +128,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
             <p>条件を少し緩めるか、除外ワード・開催期間を見直してください。E0では出典と利用条件を確認できたイベントだけを順次公開します。</p>
           </div>
         )}
+
+        <SeoBrowseLinks />
       </section>
     </main>
   );
