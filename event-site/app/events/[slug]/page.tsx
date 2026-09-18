@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { EventActions } from '@/components/EventActions';
 import {
   ACCESSIBILITY_LABELS,
   CATEGORY_OPTIONS,
@@ -31,6 +32,7 @@ export default async function EventPage({ params }: { params: Params }) {
   const event = await getEvent(slug);
   if (!event) notFound();
 
+  const address = [event.prefecture,event.municipality,event.address].filter(Boolean).join(' ');
   const mapBase = process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app';
   const mapUrl = new URL(mapBase);
   if (event.latitude != null && event.longitude != null) {
@@ -76,11 +78,25 @@ export default async function EventPage({ params }: { params: Params }) {
           <h1>{event.title}</h1>
           {event.summary && <p className="detail-summary">{event.summary}</p>}
 
+          <EventActions event={{
+            slug:event.slug,
+            title:event.title,
+            startDate:event.start_date,
+            endDate:event.end_date,
+            startTime:event.start_time,
+            endTime:event.end_time,
+            venueName:event.venue_name,
+            address,
+            latitude:event.latitude,
+            longitude:event.longitude,
+            officialUrl:event.official_url
+          }} />
+
           <dl className="event-facts">
             <div><dt>開催日</dt><dd>{formatEventDate(event.start_date,event.end_date)}（{formatDuration(event.duration_days)}）</dd></div>
             {event.start_time && <div><dt>時間</dt><dd>{event.start_time.slice(0,5)}{event.end_time ? ` 〜 ${event.end_time.slice(0,5)}` : ''}</dd></div>}
             <div><dt>会場</dt><dd>{event.venue_name || '公式情報をご確認ください'}</dd></div>
-            <div><dt>場所</dt><dd>{[event.prefecture,event.municipality,event.address].filter(Boolean).join(' ')}</dd></div>
+            <div><dt>場所</dt><dd>{address}</dd></div>
             {event.price_text && <div><dt>料金</dt><dd>{event.price_text}</dd></div>}
             {event.reservation_text && <div><dt>予約</dt><dd>{event.reservation_text}</dd></div>}
             {event.organizer_name && <div><dt>主催</dt><dd>{event.organizer_name}</dd></div>}
@@ -94,6 +110,15 @@ export default async function EventPage({ params }: { params: Params }) {
               </div>
             )}
           </dl>
+
+          <section className="machimamo-day-support">
+            <div>
+              <span>当日の安心</span>
+              <h2>会場周辺は、まちまもで確認</h2>
+              <p>WBGT、AED、交番、周辺道路の安全情報などをイベント地点から確認できる導線を段階接続します。</p>
+            </div>
+            <a href={mapUrl.toString()}>まちまもMAPで周辺を見る</a>
+          </section>
 
           <div className="detail-actions">
             <a className="primary-action" href={event.official_url} target="_blank" rel="noreferrer">公式情報を見る</a>
