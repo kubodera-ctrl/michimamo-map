@@ -30,6 +30,11 @@ function readSaved(): string[] {
   }
 }
 
+function addDays(date: string, days: number) {
+  const [y,m,d] = date.split('-').map(Number);
+  return new Date(Date.UTC(y,m-1,d+days)).toISOString().slice(0,10);
+}
+
 export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
 
@@ -42,10 +47,17 @@ export function EventActions({ event }: Props) {
       if (!time) return date.replaceAll('-', '');
       return `${date.replaceAll('-', '')}T${time.replaceAll(':','').slice(0,6)}`;
     };
+
+    const timed = Boolean(event.startTime || event.endTime);
+    const googleEndDate = timed ? event.endDate : addDays(event.endDate, 1);
+
     const url = new URL('https://calendar.google.com/calendar/render');
     url.searchParams.set('action', 'TEMPLATE');
     url.searchParams.set('text', event.title);
-    url.searchParams.set('dates', `${compact(event.startDate,event.startTime)}/${compact(event.endDate,event.endTime)}`);
+    url.searchParams.set(
+      'dates',
+      `${compact(event.startDate,event.startTime)}/${compact(googleEndDate,event.endTime)}`
+    );
     url.searchParams.set('location', [event.venueName,event.address].filter(Boolean).join(' '));
     url.searchParams.set('details', event.officialUrl);
     return url.toString();
@@ -59,16 +71,15 @@ export function EventActions({ event }: Props) {
     ? `https://maps.apple.com/?daddr=${event.latitude},${event.longitude}`
     : `https://maps.apple.com/?q=${encodeURIComponent(event.address)}`;
 
-  const parkingUrl = event.latitude != null && event.longitude != null
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('駐車場')}&query_place_id=&center=${event.latitude},${event.longitude}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address + ' 駐車場')}`;
+  const parkingQuery = ['駐車場', event.venueName, event.address].filter(Boolean).join(' ');
+  const parkingUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(parkingQuery)}`;
 
-  const diningUrl = new URL('/dining', window.location.origin);
-  diningUrl.searchParams.set('event', event.title);
+  const diningParams = new URLSearchParams({ event: event.title });
   if (event.latitude != null && event.longitude != null) {
-    diningUrl.searchParams.set('lat', String(event.latitude));
-    diningUrl.searchParams.set('lng', String(event.longitude));
+    diningParams.set('lat', String(event.latitude));
+    diningParams.set('lng', String(event.longitude));
   }
+  const diningUrl = `/dining?${diningParams.toString()}`;
 
   const toggleSaved = () => {
     const current = new Set(readSaved());
@@ -93,7 +104,7 @@ export function EventActions({ event }: Props) {
         <a className="event-action-button" href={googleMapsUrl} target="_blank" rel="noreferrer"><span>📍</span><b>Google Maps</b></a>
         <a className="event-action-button" href={appleMapsUrl} target="_blank" rel="noreferrer"><span></span><b>Apple Maps</b></a>
         <a className="event-action-button" href={parkingUrl} target="_blank" rel="noreferrer"><span>🅿</span><b>駐車場を探す</b></a>
-        <a className="event-action-button dining-action" href={diningUrl.toString()}><span>🍽</span><b>遊んだ後のごはん</b></a>
+        <a className="event-action-button dining-action" href={diningUrl}><span>🍽</span><b>遊んだ後のごはん</b></a>
       </div>
     </section>
   );
