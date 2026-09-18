@@ -5,6 +5,7 @@ import { EventActions } from '@/components/EventActions';
 import {
   ACCESSIBILITY_LABELS,
   CATEGORY_OPTIONS,
+  FANDOM_LABELS,
   formatEventDate,
   formatDuration,
   getEvent
@@ -113,6 +114,7 @@ export default async function EventPage({ params }: { params: Params }) {
             <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
             {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
+            {event.fandom_slugs.map((slug) => <span className="tag tag-oshi" key={slug}>推し活：{FANDOM_LABELS[slug] || slug}</span>)}
             {event.category_keys.map((key) => <span className="tag" key={key}>{categoryLabels[key] || key}</span>)}
             {event.is_free === true && <span className="tag tag-free">無料</span>}
             {event.indoor === true && <span className="tag">屋内</span>}
