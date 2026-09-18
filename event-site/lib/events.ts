@@ -45,25 +45,19 @@ export const ACCESSIBILITY_OPTIONS = [
 
 export const ACCESSIBILITY_LABELS = Object.fromEntries(ACCESSIBILITY_OPTIONS) as Record<string,string>;
 
-export const PARTY_OPTIONS = [
-  ['solo','1人で'],
-  ['solo_male','1人（男性）'],
-  ['solo_female','1人（女性）'],
-  ['couple','カップル'],
-  ['married_couple','夫婦'],
-  ['friends','友人と'],
-  ['senior','シニア・年配'],
-  ['adults_only','大人だけ']
+export const FANDOM_OPTIONS = [
+  ['chiikawa','ちいかわ'],
+  ['detective-conan','名探偵コナン'],
+  ['sumikkogurashi','すみっコぐらし'],
+  ['aipri','アイプリ'],
+  ['precure','プリキュア'],
+  ['kamen-rider','仮面ライダー'],
+  ['hayao-miyazaki','宮崎駿'],
+  ['ghibli','ジブリ'],
+  ['pixar','ピクサー']
 ] as const;
 
-export function expandPartyFilter(value?: string): string[] | undefined {
-  if (!value) return undefined;
-  if (value === 'solo_male') return ['solo','solo_male'];
-  if (value === 'solo_female') return ['solo','solo_female'];
-  if (value === 'couple') return ['couple','married_couple'];
-  if (value === 'married_couple') return ['married_couple','couple'];
-  return [value];
-}
+export const FANDOM_LABELS = Object.fromEntries(FANDOM_OPTIONS) as Record<string,string>;
 
 export const SORT_OPTIONS = [
   ['recommended','おすすめ（短期・新規開催を優先）'],
@@ -97,7 +91,7 @@ export async function searchEvents(input: EventSearchInput): Promise<EventSummar
     p_accessibility_only: input.accessibilityOnly || false,
     p_accessibility_keys: input.accessibilityKeys?.length ? input.accessibilityKeys : null,
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
-    p_party_keys: input.partyKeys?.length ? input.partyKeys : null,
+    p_fandom_slugs: input.fandomSlugs?.length ? input.fandomSlugs : null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_free_only: input.freeOnly || false,
     p_indoor_only: input.indoorOnly || false,
@@ -124,6 +118,17 @@ export async function getEvent(slug: string): Promise<EventDetail | null> {
     return null;
   }
   return (data || null) as EventDetail | null;
+}
+
+export async function getPublicFandomSitemap(): Promise<Array<{slug:string;updated_at:string;event_count:number}>> {
+  const db = getPublicSupabase();
+  if (!db) return [];
+  const { data, error } = await db.rpc('get_public_fandom_sitemap', { p_min_events: 3 });
+  if (error) {
+    console.error('get_public_fandom_sitemap failed', error.message);
+    return [];
+  }
+  return (data ?? []) as Array<{slug:string;updated_at:string;event_count:number}>;
 }
 
 export async function getEventSitemap(): Promise<Array<{slug:string;updated_at:string}>> {
