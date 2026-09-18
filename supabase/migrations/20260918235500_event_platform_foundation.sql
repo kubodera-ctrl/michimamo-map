@@ -172,7 +172,12 @@ values
   ('one-piece','ONE PIECE',array['ONE PIECE','ワンピース'],'franchise'),
   ('demon-slayer','鬼滅の刃',array['鬼滅の刃','鬼滅'],'franchise'),
   ('spy-family','SPY×FAMILY',array['SPY×FAMILY','SPY FAMILY','スパイファミリー'],'franchise'),
-  ('shinako','しなこ',array['しなこ','しなこちゃん'],'influencer')
+  ('shinako','しなこ',array['しなこ','しなこちゃん'],'influencer'),
+  ('takeshita-paradise','竹下☆ぱらだいす',array['竹下☆ぱらだいす','竹下ぱらだいす','竹ぱら'],'influencer'),
+  ('colorful-peach','カラフルピーチ',array['カラフルピーチ','からぴち'],'influencer'),
+  ('tiropino','ちろぴの',array['ちろぴの','チロピノ'],'influencer'),
+  ('bom-bom-tv','ボンボンTV',array['ボンボンTV','ボンボンティービー'],'influencer'),
+  ('rocomacoaco','ろこまこあこ',array['ろこまこあこ','RMA'],'influencer')
 on conflict(slug) do update
 set display_name=excluded.display_name,
     aliases=excluded.aliases,
