@@ -114,8 +114,8 @@ $$;
 
 select public.service_record_machiibe_metric('page_view',null,null);
 select public.service_record_machiibe_metric('search',null,'花火');
-select public.service_record_machiibe_metric('event_open','ci-free-today',null);
-select public.service_record_machiibe_metric('event_open','ci-free-today',null);
+select public.service_record_machiibe_metric('event_view','ci-free-today',null);
+select public.service_record_machiibe_metric('event_view','ci-free-today',null);
 
 do $
 declare
