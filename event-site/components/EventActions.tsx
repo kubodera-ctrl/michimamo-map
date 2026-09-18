@@ -24,6 +24,9 @@ type Props = {
     dateText: string;
     placeText: string;
     sharePrefix?: string;
+    shareConditionText?: string;
+    shareSummary?: string;
+    shareTimeText?: string;
   };
 };
 
@@ -111,7 +114,10 @@ export function EventActions({ event }: Props) {
     pageUrl:event.pageUrl,
     dateText:event.dateText,
     placeText:event.placeText,
-    prefix:event.sharePrefix
+    prefix:event.sharePrefix,
+    conditionText:event.shareConditionText,
+    summary:event.shareSummary,
+    timeText:event.shareTimeText
   });
 
   const toggleSaved = () => {
