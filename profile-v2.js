@@ -168,7 +168,7 @@
     }
 
     async function confirmGuestSave(afterSave) {
-      if (win.currentAuthUserId) return afterSave();
+      if (state.authId()) return afterSave();
       showBody('この端末に保存します',
         '<p>LINE未認証のため、プロフィールはこの端末に保存されます。</p>' +
         '<ul class="profile-v2-benefits"><li>別端末でもプロフィールを共有</li><li>ポイントを貯める</li><li>ポイント交換</li></ul>' +
@@ -179,7 +179,7 @@
     }
 
     async function saveAuthenticated(patch) {
-      const result = await win.persistAuthenticatedProfile(patch);
+      const result = await state.persist(patch);
       state.apply({
         id: result.id,
         name: result.name,
@@ -202,7 +202,7 @@
       const apply = async function () {
         state.apply({ name: value });
         refresh();
-        if (win.currentAuthUserId) {
+        if (state.authId()) {
           try { await saveAuthenticated({ name: value }); win.showToast('プロフィールを保存しました'); }
           catch (error) { console.error(error); state.apply(previous); refresh(); win.showToast('保存に失敗しました'); }
         } else {
@@ -210,7 +210,7 @@
         }
         closeModal();
       };
-      if (win.currentAuthUserId) await apply(); else confirmGuestSave(apply);
+      if (state.authId()) await apply(); else confirmGuestSave(apply);
     }
 
     async function commitAvatar(value) {
@@ -218,7 +218,7 @@
       const apply = async function () {
         state.apply({ avatar: value });
         refresh();
-        if (win.currentAuthUserId) {
+        if (state.authId()) {
           try { await saveAuthenticated({ avatar: value }); win.showToast('アイコンを保存しました'); }
           catch (error) { console.error(error); state.apply(previous); refresh(); win.showToast('保存に失敗しました'); }
         } else {
@@ -226,7 +226,7 @@
         }
         closeModal();
       };
-      if (win.currentAuthUserId) await apply(); else confirmGuestSave(apply);
+      if (state.authId()) await apply(); else confirmGuestSave(apply);
     }
 
     async function compressImage(file) {
@@ -255,7 +255,7 @@
     }
 
     async function uploadAvatar(blob) {
-      const uid = win.currentAuthUserId;
+      const uid = state.authId();
       if (!uid) return null;
       const path = uid + '/avatar.webp';
       const result = await win.db.storage.from('profile-avatars').upload(path, blob, {
@@ -275,7 +275,7 @@
       try {
         const blob = await compressImage(file);
         if (blob.size > 262144) throw new Error('image_too_large');
-        if (win.currentAuthUserId) {
+        if (state.authId()) {
           await uploadAvatar(blob);
           refresh();
           closeModal();
