@@ -14,3 +14,5 @@
 .profile-v2-line{margin-top:9px;background:#06c755;color:white;border:0}
 .profile-v2-benefits{list-style:none;padding:0;margin:12px 0 18px;color:#166534;font-weight:800;line-height:1.8}
 .profile-v2-benefits li:before{content:'✓ ';color:#16a34a}
+
+#myPageProfileTabBtn{white-space:nowrap;font-size:.80rem;letter-spacing:-.04em;padding-left:2px;padding-right:2px}
