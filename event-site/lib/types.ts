@@ -25,7 +25,7 @@ export type EventSummary = {
   age_group_keys: string[];
   indoor: boolean | null;
   audience_intent: 'child_centered' | 'family_friendly' | 'general' | 'adult_oriented';
-  party_keys: string[];
+  fandom_slugs: string[];
   accessibility_keys: string[];
   accessibility_notes: string | null;
   image_url: string | null;
@@ -58,7 +58,7 @@ export type EventSearchInput = {
   accessibilityOnly?: boolean;
   accessibilityKeys?: string[];
   audienceIntents?: string[];
-  partyKeys?: string[];
+  fandomSlugs?: string[];
   excludeAdultOriented?: boolean;
   freeOnly?: boolean;
   indoorOnly?: boolean;
