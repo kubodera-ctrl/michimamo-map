@@ -75,7 +75,14 @@ export const FANDOM_GROUPS = [
   },
   {
     label: 'インフルエンサー・クリエイター',
-    items: [['shinako','しなこ']]
+    items: [
+      ['shinako','しなこ'],
+      ['takeshita-paradise','竹下☆ぱらだいす'],
+      ['colorful-peach','カラフルピーチ'],
+      ['tiropino','ちろぴの'],
+      ['bom-bom-tv','ボンボンTV'],
+      ['rocomacoaco','ろこまこあこ']
+    ]
   }
 ] as const;
 
