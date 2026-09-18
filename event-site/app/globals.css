@@ -167,3 +167,21 @@ a{color:inherit}
   .event-action-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .machimamo-day-support{align-items:flex-start;flex-direction:column}
 }
+
+.breadcrumb{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:0 0 18px;color:#64748b;font-size:11px}
+.breadcrumb a{color:#365f8b;text-decoration:none;font-weight:800}
+.seo-browse{margin-top:48px;padding-top:30px;border-top:1px solid var(--line)}
+.seo-browse-heading h2{margin:4px 0 8px;font-size:24px}
+.seo-browse-heading>p:last-child{margin:0 0 20px;color:#64748b;font-size:13px;line-height:1.7}
+.seo-browse-block{margin-top:18px}
+.seo-browse-block h3,.seo-area-details>summary{font-size:14px;font-weight:950;color:#334155;margin:0 0 10px;cursor:pointer}
+.seo-link-grid{display:flex;flex-wrap:wrap;gap:8px}
+.seo-link-grid a{background:#fff;border:1px solid #dbe2e9;border-radius:999px;padding:8px 11px;text-decoration:none;font-size:11px;font-weight:800;color:#36506b}
+.seo-link-grid a:hover{border-color:#9ec1e8;background:#f8fbff}
+.seo-area-details{margin-top:18px}
+.seo-area-details>summary{list-style:none}
+.seo-area-details>summary::-webkit-details-marker{display:none}
+.seo-area-links{padding-top:4px}
+.area-category-links{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.area-category-links h2{font-size:18px;margin:0 0 12px}
+.seo-note{font-size:10px;color:#7b8794;margin-top:10px;line-height:1.6}
