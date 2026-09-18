@@ -149,7 +149,8 @@ export default async function EventPage({ params }: { params: Params }) {
             officialUrl:event.official_url,
             pageUrl:eventPageUrl,
             dateText:formatEventDate(event.start_date,event.end_date),
-            placeText:[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' ')
+            placeText:[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' '),
+            sharePrefix:event.event_status==='cancelled'?'【中止】':event.event_status==='postponed'?'【延期】':event.event_status==='sold_out'?'【完売】':event.event_status==='registration_closed'?'【受付終了】':undefined
           }} />
 
           <dl className="event-facts">
