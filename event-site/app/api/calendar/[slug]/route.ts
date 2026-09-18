@@ -27,10 +27,18 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const occurrence=requestedDate
     ? (event.occurrences || []).find((item)=>item.date===requestedDate && item.status!=='cancelled')
     : null;
-  if(requestedDate && !occurrence) return new Response('Invalid occurrence date',{status:400});
+  const continuousDateValid=Boolean(
+    requestedDate
+    && event.schedule_type==='continuous'
+    && requestedDate>=event.start_date
+    && requestedDate<=event.end_date
+  );
+  if(requestedDate && !occurrence && !continuousDateValid) {
+    return new Response('Invalid occurrence date',{status:400});
+  }
 
-  const startDate=occurrence?.date || event.start_date;
-  const endDate=occurrence?.date || event.end_date;
+  const startDate=occurrence?.date || (continuousDateValid ? requestedDate! : event.start_date);
+  const endDate=occurrence?.date || (continuousDateValid ? requestedDate! : event.end_date);
   const startTime=occurrence?.start_time ?? event.start_time;
   const endTime=occurrence?.end_time ?? event.end_time;
   const timed = Boolean(startTime || endTime);
