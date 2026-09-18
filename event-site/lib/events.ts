@@ -1,5 +1,5 @@
 import { getPublicSupabase } from './supabase';
-import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, LocationPrecision, PriceType } from './types';
+import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, EventSummary, LocationPrecision, PriceType } from './types';
 
 export const CATEGORY_OPTIONS = [
   ['family','親子・子ども'],
