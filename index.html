@@ -381,7 +381,7 @@
     <link rel="stylesheet" href="nearby-safety.css">
     <link rel="stylesheet" href="aed-review.css">
     <link rel="stylesheet" href="map-menu.css">
-    <link rel="stylesheet" href="profile-v2.css?v=29-profile2">
+    <link rel="stylesheet" href="profile-v2.css?v=29-profile3">
 </head>
 <body>
 
@@ -1792,6 +1792,16 @@
         document.getElementById('stampRuleModal')?.classList.remove('open');
     }
 
+    function rankingAvatarHtml(value) {
+        const avatar = String(value || '👤');
+        if (avatar.startsWith('image:')) {
+            const path = avatar.slice(6);
+            const publicUrl = db.storage.from('profile-avatars').getPublicUrl(path).data.publicUrl;
+            return `<span class="ranking-avatar"><img src="${escapeHtml(publicUrl)}" alt="" loading="lazy" decoding="async"></span>`;
+        }
+        return `<span class="ranking-avatar" aria-hidden="true">${escapeHtml(avatar)}</span>`;
+    }
+
     async function loadRanking() {
         let allUsers = [
             { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 12500 },
@@ -1825,7 +1835,8 @@
             else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
 
             const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal} <span>${u.avatar} ${u.name}</span></div><div style="font-weight:bold; color:#1f6feb;">${u.point} pt</div></div>`;
+            const point = Number(u.point || 0);
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold; color:#1f6feb;">${point.toLocaleString()} pt</div></div>`;
         });
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
         loadAreaRanking();
@@ -4340,7 +4351,7 @@ function shareSpot(title, address, category, event) {
 
 <script src="camera-guide.js?v=25-sensor1"></script>
 <script src="road-parking-summary.js?v=24-connect2"></script>
-<script src="road-review.js?v=24-connect2"></script>
+<script src="road-review.js?v=29-review1"></script>
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
@@ -4349,6 +4360,6 @@ function shareSpot(title, address, category, event) {
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
 <script src="camera-drive-mvp.js?v=25-mvp2"></script>
-<script src="profile-v2.js?v=29-profile2"></script>
+<script src="profile-v2.js?v=29-profile3"></script>
 </body>
 </html>
