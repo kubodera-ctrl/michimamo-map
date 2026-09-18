@@ -13,6 +13,7 @@ export async function POST(request:Request){
     return NextResponse.redirect(target,303);
   }
   if(!validateAdminPassword(password)){
+    await new Promise((resolve)=>setTimeout(resolve,600));
     target.searchParams.set('error','1');
     return NextResponse.redirect(target,303);
   }
