@@ -8,21 +8,33 @@ declare global {
   }
 }
 
-export function recordMetric(metric:string,eventSlug?:string) {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string) {
+  if (typeof window === 'undefined') return;
+
   try {
-    window.gtag('event',metric,{
-      event_slug:eventSlug || undefined,
-      send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
+    void fetch('/api/analytics/track',{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({metric,eventSlug,searchTerm}),
+      keepalive:true,
+      credentials:'same-origin'
     });
-  } catch {
-    // Analytics must never break user actions.
+  } catch {}
+
+  if(typeof window.gtag==='function'){
+    try{
+      window.gtag('event',metric,{
+        event_slug:eventSlug || undefined,
+        search_term:searchTerm || undefined,
+        send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
+      });
+    }catch{}
   }
 }
 
-export function MetricPing({metric,eventSlug}:{metric:string;eventSlug?:string}) {
+export function MetricPing({metric,eventSlug,searchTerm}:{metric:string;eventSlug?:string;searchTerm?:string}) {
   useEffect(() => {
-    recordMetric(metric,eventSlug);
-  },[metric,eventSlug]);
+    recordMetric(metric,eventSlug,searchTerm);
+  },[metric,eventSlug,searchTerm]);
   return null;
 }
