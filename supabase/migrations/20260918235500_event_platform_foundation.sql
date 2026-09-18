@@ -36,6 +36,8 @@ create table if not exists public.events (
   end_time time,
   timezone text not null default 'Asia/Tokyo',
   all_day boolean not null default true,
+  schedule_type text not null default 'continuous'
+    check (schedule_type in ('single','continuous','recurring','irregular')),
 
   venue_name text,
   postal_code text,
@@ -56,6 +58,15 @@ create table if not exists public.events (
   category_keys text[] not null default '{}',
   age_group_keys text[] not null default '{}',
   indoor boolean,
+
+  -- Audience intent is a reviewed classification, not a guessed fact.
+  audience_intent text not null default 'general'
+    check (audience_intent in ('child_centered','family_friendly','general','adult_oriented')),
+  audience_intent_verified boolean not null default false,
+
+  -- Accessibility facts must come from a source or organizer confirmation.
+  accessibility_keys text[] not null default '{}',
+  accessibility_notes text,
 
   image_url text,
   image_source_url text,
@@ -84,6 +95,27 @@ create table if not exists public.events (
   check (end_date >= start_date),
   check ((latitude is null and longitude is null) or (latitude is not null and longitude is not null))
 );
+
+-- Exact dates for recurring / irregular events.
+-- Search duration still uses the visible span (start_date..end_date) so long-running events can be suppressed,
+-- while this table lets calendar/detail views show the actual active dates later.
+create table if not exists public.event_occurrences (
+  id bigint generated always as identity primary key,
+  event_id bigint not null references public.events(id) on delete cascade,
+  occurrence_date date not null,
+  start_time time,
+  end_time time,
+  status text not null default 'scheduled'
+    check (status in ('scheduled','cancelled','sold_out')),
+  source_note text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create unique index if not exists event_occurrences_unique_idx
+  on public.event_occurrences(event_id, occurrence_date, coalesce(start_time, time '00:00'));
+create index if not exists event_occurrences_date_idx
+  on public.event_occurrences(occurrence_date, event_id);
 
 create table if not exists public.event_source_records (
   id bigint generated always as identity primary key,
@@ -114,6 +146,10 @@ create index if not exists events_categories_gin_idx
   on public.events using gin(category_keys);
 create index if not exists events_age_groups_gin_idx
   on public.events using gin(age_group_keys);
+create index if not exists events_accessibility_gin_idx
+  on public.events using gin(accessibility_keys);
+create index if not exists events_audience_idx
+  on public.events(audience_intent, audience_intent_verified);
 create index if not exists events_dedupe_key_idx
   on public.events(dedupe_key) where dedupe_key is not null;
 create unique index if not exists events_source_key_unique_idx
@@ -122,10 +158,12 @@ create unique index if not exists events_source_key_unique_idx
 
 alter table public.regional_sources enable row level security;
 alter table public.events enable row level security;
+alter table public.event_occurrences enable row level security;
 alter table public.event_source_records enable row level security;
 
 revoke all on table public.regional_sources from anon, authenticated;
 revoke all on table public.events from anon, authenticated;
+revoke all on table public.event_occurrences from anon, authenticated;
 revoke all on table public.event_source_records from anon, authenticated;
 
 create or replace function public.search_public_events(
@@ -133,10 +171,17 @@ create or replace function public.search_public_events(
   p_end_date date default (current_date + 30),
   p_prefecture text default null,
   p_keyword text default null,
+  p_exclude_terms text[] default null,
   p_categories text[] default null,
   p_age_groups text[] default null,
+  p_duration_buckets text[] default null,
+  p_accessibility_only boolean default false,
+  p_accessibility_keys text[] default null,
+  p_audience_intents text[] default null,
+  p_exclude_adult_oriented boolean default false,
   p_free_only boolean default false,
   p_indoor_only boolean default false,
+  p_sort text default 'recommended',
   p_limit integer default 60,
   p_offset integer default 0
 )
@@ -147,9 +192,11 @@ returns table(
   summary text,
   start_date date,
   end_date date,
+  duration_days integer,
   start_time time,
   end_time time,
   all_day boolean,
+  schedule_type text,
   venue_name text,
   prefecture text,
   municipality text,
@@ -164,6 +211,9 @@ returns table(
   category_keys text[],
   age_group_keys text[],
   indoor boolean,
+  audience_intent text,
+  accessibility_keys text[],
+  accessibility_notes text,
   image_url text,
   source_name text,
   source_url text,
@@ -183,9 +233,11 @@ as $$
     e.summary,
     e.start_date,
     e.end_date,
+    (e.end_date - e.start_date + 1)::integer as duration_days,
     e.start_time,
     e.end_time,
     e.all_day,
+    e.schedule_type,
     e.venue_name,
     e.prefecture,
     e.municipality,
@@ -200,6 +252,9 @@ as $$
     e.category_keys,
     e.age_group_keys,
     e.indoor,
+    case when e.audience_intent_verified then e.audience_intent else 'general' end,
+    e.accessibility_keys,
+    e.accessibility_notes,
     case when e.image_usage_status = 'allowed' then e.image_url else null end,
     s.name,
     coalesce(e.source_page_url, s.data_url, s.homepage_url),
@@ -218,23 +273,72 @@ as $$
     and (
       p_keyword is null or btrim(p_keyword) = ''
       or e.title ilike '%' || btrim(p_keyword) || '%'
+      or coalesce(e.summary,'') ilike '%' || btrim(p_keyword) || '%'
       or coalesce(e.venue_name,'') ilike '%' || btrim(p_keyword) || '%'
       or coalesce(e.municipality,'') ilike '%' || btrim(p_keyword) || '%'
       or coalesce(e.organizer_name,'') ilike '%' || btrim(p_keyword) || '%'
     )
+    and not exists (
+      select 1
+      from unnest(coalesce(p_exclude_terms, '{}'::text[])) as excluded(term)
+      where btrim(excluded.term) <> ''
+        and strpos(
+          lower(concat_ws(' ',
+            e.title,
+            coalesce(e.summary,''),
+            coalesce(e.venue_name,''),
+            coalesce(e.municipality,''),
+            coalesce(e.organizer_name,''),
+            coalesce(e.price_text,'')
+          )),
+          lower(btrim(excluded.term))
+        ) > 0
+    )
     and (p_categories is null or cardinality(p_categories) = 0 or e.category_keys && p_categories)
     and (p_age_groups is null or cardinality(p_age_groups) = 0 or e.age_group_keys && p_age_groups)
+    and (
+      p_duration_buckets is null or cardinality(p_duration_buckets) = 0
+      or ('single' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) = 1)
+      or ('2_4' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 2 and 4)
+      or ('5_10' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 5 and 10)
+      or ('11_30' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 11 and 30)
+      or ('31_plus' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) >= 31)
+    )
+    and (not coalesce(p_accessibility_only,false) or cardinality(e.accessibility_keys) > 0)
+    and (
+      p_accessibility_keys is null or cardinality(p_accessibility_keys) = 0
+      or e.accessibility_keys @> p_accessibility_keys
+    )
+    and (
+      p_audience_intents is null or cardinality(p_audience_intents) = 0
+      or (e.audience_intent_verified and e.audience_intent = any(p_audience_intents))
+    )
+    and (
+      not coalesce(p_exclude_adult_oriented,false)
+      or not (e.audience_intent_verified and e.audience_intent = 'adult_oriented')
+    )
     and (not coalesce(p_free_only,false) or e.is_free is true)
     and (not coalesce(p_indoor_only,false) or e.indoor is true)
     and (e.expires_at is null or e.expires_at > now())
-  order by e.start_date, e.start_time nulls first, e.title
+  order by
+    case when coalesce(p_sort,'recommended') = 'newest' then e.created_at end desc nulls last,
+    case when coalesce(p_sort,'recommended') = 'short_first' then (e.end_date - e.start_date + 1) end asc nulls last,
+    case when coalesce(p_sort,'recommended') = 'recommended'
+      then greatest(e.start_date - coalesce(p_start_date,current_date), 0) / 7 end asc nulls last,
+    case when coalesce(p_sort,'recommended') = 'recommended'
+      then case when e.start_date < coalesce(p_start_date,current_date) then 1 else 0 end end asc nulls last,
+    case when coalesce(p_sort,'recommended') = 'recommended'
+      then (e.end_date - e.start_date + 1) end asc nulls last,
+    e.start_date,
+    e.start_time nulls first,
+    e.title
   limit least(greatest(coalesce(p_limit,60),1),100)
   offset greatest(coalesce(p_offset,0),0);
 $$;
 
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],boolean,boolean,integer,integer)
+revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],boolean,boolean,boolean,text,integer,integer)
   from public, anon, authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],boolean,boolean,integer,integer)
+grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],boolean,boolean,boolean,text,integer,integer)
   to anon, authenticated;
 
 create or replace function public.get_public_event(p_slug text)
@@ -253,10 +357,12 @@ as $$
       e.summary,
       e.start_date,
       e.end_date,
+      (e.end_date - e.start_date + 1)::integer as duration_days,
       e.start_time,
       e.end_time,
       e.timezone,
       e.all_day,
+      e.schedule_type,
       e.venue_name,
       e.postal_code,
       e.prefecture,
@@ -274,6 +380,9 @@ as $$
       e.category_keys,
       e.age_group_keys,
       e.indoor,
+      case when e.audience_intent_verified then e.audience_intent else 'general' end as audience_intent,
+      e.accessibility_keys,
+      e.accessibility_notes,
       case when e.image_usage_status = 'allowed' then e.image_url else null end as image_url,
       case when e.image_usage_status = 'allowed' then e.image_source_url else null end as image_source_url,
       case when e.image_usage_status = 'allowed' then e.image_license else null end as image_license,
@@ -325,6 +434,8 @@ comment on table public.regional_sources is
   '共通地域情報エンジンの情報源台帳。利用条件と画像条件を確認してからevent_use_allowedをtrueにする。';
 comment on table public.events is
   'まちまもイベントの正規化済みcanonical event。公開と確認を分離し、事実項目を推測で埋めない。';
+comment on table public.event_occurrences is
+  '継続・不定期イベントの実開催日。期間検索用のstart/endとは分離し、カレンダー表示や休催日の精度向上に使う。';
 comment on table public.event_source_records is
   '取得元ごとのイベント記録とcanonical eventの紐付け。重複・更新追跡用。';
 
