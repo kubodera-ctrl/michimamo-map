@@ -1,5 +1,6 @@
 export const PREF_KEYS = {
   savedEvents:'machiibe_saved_events_v1',
+  attendedEvents:'machiibe_attended_events_v1',
   hiddenEvents:'machiibe_hidden_events_v1',
   viewedEvents:'machiibe_viewed_events_v1',
   savedSearches:'machiibe_saved_searches_v1',
