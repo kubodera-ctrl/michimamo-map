@@ -536,20 +536,20 @@
     </div>
 </section>
 
-        <!-- 3. マイページ（設定・ガイド / ランキング） -->
+        <!-- 3. マイページ（活動履歴 / ランキング / 設定・ガイド） -->
         <section id="aboutView" class="view">
             <div class="page">
                 <h1 onclick="adminTap()" style="cursor:pointer; user-select:none;">👤 マイページ</h1>
 
                 <!-- タブメニュー -->
                 <div class="tab-menu">
-                    <button class="tab-btn active" onclick="switchTab('profileTab', this)">設定・ガイド</button>
-                    <button class="tab-btn" onclick="switchTab('activityTab', this)">📋 活動履歴</button>
-                    <button class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 ランキング</button>
+                    <button id="myPageActivityTabBtn" class="tab-btn active" onclick="switchTab('activityTab', this)">📋 活動履歴</button>
+                    <button id="myPageRankingTabBtn" class="tab-btn" onclick="switchTab('rankingTab', this)">🏆 ランキング</button>
+                    <button id="myPageProfileTabBtn" class="tab-btn" onclick="switchTab('profileTab', this)">⚙️ 設定・ガイド</button>
                 </div>
 
-                <!-- 【タブ1：設定・ガイド】 -->
-                <div id="profileTab" class="tab-content active">
+                <!-- 【タブ3：設定・ガイド】 -->
+                <div id="profileTab" class="tab-content">
                     <section id="usageGuide" class="card usage-guide" aria-labelledby="usageGuideTitle">
                         <div class="guide-eyebrow">はじめてのまちまもMAP</div>
                         <h2 id="usageGuideTitle" tabindex="-1">見る・見つける・<br>安全を共有する。</h2>
@@ -649,21 +649,6 @@
                         <p id="usageGuideEmpty" hidden>見つかりませんでした。「写真」「位置情報」など短い言葉で試してください。</p>
                         <div class="guide-footer"><button type="button" id="usageGuideTop">▲ ガイドの先頭へ</button><a href="/terms" target="_blank" rel="noopener noreferrer">利用規約</a><a href="/privacy" target="_blank" rel="noopener noreferrer">プライバシー</a></div>
                     </section>
-
-                    <div class="card" style="background:#f8fafc;">
-                        <div class="profile-edit">
-                            <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
-                            <div style="flex:1;">
-                                <label style="margin-top:0;">ニックネーム (タップで変更)</label>
-                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;" maxlength="15">
-                            </div>
-                        </div>
-                        <div style="text-align:center;">
-                            <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のランク</div>
-                            <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
-                            <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
-                        </div>
-                    </div>
 
                     <!-- アカウント連携カード -->
                     <div class="card" id="authStatusCard" style="background:#f8fafc; border:1px solid #e2e8f0; margin-top:20px;">
@@ -794,8 +779,23 @@
                     </div>
                 </div>
 
-                <!-- 【タブ2：活動履歴】 -->
-                <div id="activityTab" class="tab-content">
+                <!-- 【タブ1：活動履歴】 -->
+                <div id="activityTab" class="tab-content active">
+                    <div class="card" style="background:#f8fafc;">
+                        <div class="profile-edit">
+                            <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
+                            <div style="flex:1;">
+                                <label style="margin-top:0;">ニックネーム (タップで変更)</label>
+                                <input type="text" id="myNameInput" placeholder="名無しドライバー" onblur="saveProfile()" style="background:white; border-color:#d9dee4;" maxlength="15">
+                            </div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のランク</div>
+                            <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
+                            <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
+                        </div>
+                    </div>
+
                     <div id="activityLoginNotice" class="card" style="text-align:center; color:#64748b;">
                         LINEログインすると、ポイントや投稿の履歴を確認できます。
                     </div>
@@ -851,7 +851,7 @@
                     </div>
                 </div>
 
-                <!-- 【タブ3：ランキング】 -->
+                <!-- 【タブ2：ランキング】 -->
                 <div id="rankingTab" class="tab-content">
                     <div class="card">
                         <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
@@ -1296,6 +1296,11 @@
             document.querySelectorAll(".view").forEach(v => v.classList.remove("active")); document.getElementById(b.dataset.view).classList.add("active");
             if (b.dataset.view !== "mapView") stopAIPatrol(false);
             if (b.dataset.view === "mapView") setTimeout(() => refreshMapLayout(), 100);
+            if (b.dataset.view === "aboutView") {
+                updateMyPage();
+                const activityTabButton = document.getElementById('myPageActivityTabBtn');
+                if (activityTabButton) switchTab('activityTab', activityTabButton);
+            }
         };
     });
 
