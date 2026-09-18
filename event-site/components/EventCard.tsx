@@ -80,6 +80,7 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
           <p className="event-place">{[event.prefecture, event.municipality, event.venue_name].filter(Boolean).join(' · ')}</p>
           <div className="tag-row">
             <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
+            {(event.schedule_type==='recurring'||event.schedule_type==='irregular') && <span className="tag tag-recurring">開催日指定あり</span>}
             <span className={`tag tag-price tag-price-${event.price_type}`}>{PRICE_LABELS[event.price_type]}</span>
             {event.indoor === true && <span className="tag">屋内</span>}
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
