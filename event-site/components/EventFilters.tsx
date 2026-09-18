@@ -3,7 +3,7 @@ import {
   AGE_OPTIONS,
   CATEGORY_OPTIONS,
   DURATION_OPTIONS,
-  PARTY_OPTIONS,
+  FANDOM_OPTIONS,
   SORT_OPTIONS
 } from '@/lib/events';
 import { PREFECTURES } from '@/lib/prefectures';
@@ -17,7 +17,7 @@ type Props = {
     category: string;
     age: string;
     duration: string;
-    party: string;
+    fandom: string;
     accessibilityOnly: boolean;
     accessibilityFeature: string;
     childFocusOnly: boolean;
@@ -101,10 +101,10 @@ export function EventFilters({ values }: Props) {
         </label>
 
         <label>
-          <span>誰と行く？</span>
-          <select name="party" defaultValue={values.party}>
+          <span>推し活・作品/キャラ</span>
+          <select name="oshi" defaultValue={values.fandom}>
             <option value="">指定なし</option>
-            {PARTY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
+            {FANDOM_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
           </select>
         </label>
 
