@@ -1,3 +1,4 @@
+import 'server-only';
 import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 
 export const ADMIN_COOKIE='machiibe_admin_session';
