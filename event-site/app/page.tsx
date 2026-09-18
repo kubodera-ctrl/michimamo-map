@@ -50,7 +50,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     <main>
       <section className="hero">
         <div className="hero-inner">
-          <p className="eyebrow">MACHIMAMO EVENTS</p>
+          <p className="eyebrow">MACHI IBE</p>
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
           <EventFilters values={{
