@@ -6,6 +6,7 @@ import { EventFilters } from '@/components/EventFilters';
 import { MetricPing } from '@/components/MetricPing';
 import { NewSinceLastVisitLink } from '@/components/NewSinceLastVisitLink';
 import { Pagination } from '@/components/Pagination';
+import { PickupEvents } from '@/components/PickupEvents';
 import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { VisitTracker } from '@/components/VisitTracker';
 import { parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
@@ -23,6 +24,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
     return Boolean(value);
   });
   const page=parsePage(params.page);
+  const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   return { alternates:{canonical:'/'}, robots:hasFilters||page>1?{index:false,follow:true}:{index:true,follow:true} };
 }
 
@@ -79,6 +81,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   return (
     <main>
       <VisitTracker />
+      {page===1 && hasExplicitSearch && <MetricPing metric="search" searchTerm={keyword||undefined} />}
       <MetricPing metric="search_results_view" />
       <section className="hero">
         <div className="hero-inner">
@@ -90,6 +93,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
       </section>
 
       <section className="content-wrap">
+        <PickupEvents />
         <div className="result-tools">
           <NewSinceLastVisitLink active={Boolean(since)} />
           <Link href="/saved">♡ 行きたい一覧</Link>
