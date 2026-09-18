@@ -39,13 +39,8 @@ const isStandalone=()=>window.matchMedia?.('(display-mode: standalone)').matches
 function standaloneViewportHeight(){
   const values=[window.innerHeight,document.documentElement?.clientHeight,window.visualViewport?.height]
     .map(Number).filter(value=>Number.isFinite(value)&&value>0);
-  if(isIOS&&window.screen){
-    const sw=Number(screen.width)||0,sh=Number(screen.height)||0;
-    if(sw>0&&sh>0){
-      const landscape=window.matchMedia?.('(orientation: landscape)').matches;
-      values.push(landscape?Math.min(sw,sh):Math.max(sw,sh));
-    }
-  }
+  // Use only the drawable browser viewport. screen.height includes areas that
+  // standalone Safari cannot actually render into and can push bottom UI off-screen.
   return Math.round(Math.max(...values,0));
 }
 let viewportSyncTimer=null;
@@ -89,6 +84,8 @@ function injectStyles(){
   html.mm-standalone,html.mm-standalone body{height:var(--mm-app-height,100%)!important;min-height:var(--mm-app-height,100%)!important;max-height:var(--mm-app-height,100%)!important;overflow:hidden!important;background:#f4f6f8!important}
   html.mm-standalone body{width:100%!important;max-width:none!important;margin:0!important}
   html.mm-standalone #app{height:var(--mm-app-height,100%)!important;min-height:var(--mm-app-height,100%)!important;max-height:var(--mm-app-height,100%)!important;width:100%!important;max-width:none!important;overflow:hidden!important}
+  html.mm-standalone main{min-height:0!important;overflow:hidden!important}
+  html.mm-standalone nav,html.mm-standalone .ad-banner{flex-shrink:0!important}
   @media (min-width:600px){.mm-ob-overlay{align-items:center;padding:24px}.mm-ob-sheet{border-radius:26px;max-height:88vh;padding-bottom:22px}}
   `;
   document.head.appendChild(style);
