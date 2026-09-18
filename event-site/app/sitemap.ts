@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { CATEGORY_OPTIONS } from '@/lib/events';
 import { getEventSitemap } from '@/lib/events';
 import { PREFECTURES } from '@/lib/prefectures';
 
@@ -9,6 +10,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: base, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
     ...PREFECTURES.map(([slug]) => ({
       url: `${base}/area/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8
+    })),
+    ...CATEGORY_OPTIONS.map(([key]) => ({
+      url: `${base}/category/${key}`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.8
