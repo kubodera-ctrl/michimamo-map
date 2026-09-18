@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CATEGORY_OPTIONS, formatDuration, formatEventDate } from '@/lib/events';
+import { CATEGORY_OPTIONS, FANDOM_LABELS, formatDuration, formatEventDate } from '@/lib/events';
 import type { EventSummary } from '@/lib/types';
 
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
@@ -26,6 +26,7 @@ export function EventCard({ event }: { event: EventSummary }) {
             {event.indoor === true && <span className="tag">屋内</span>}
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
             {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
+            {event.fandom_slugs.slice(0,2).map((slug) => <span className="tag tag-oshi" key={slug}>推し活：{FANDOM_LABELS[slug] || slug}</span>)}
             {event.category_keys.slice(0,2).map((key) => (
               <span className="tag" key={key}>{categoryLabels[key] || key}</span>
             ))}
