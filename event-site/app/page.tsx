@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { EventCard } from '@/components/EventCard';
 import { EventFilters } from '@/components/EventFilters';
 import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
-import { expandPartyFilter, parseExcludeTerms, resolveDateRange, searchEvents } from '@/lib/events';
+import { parseExcludeTerms, resolveDateRange, searchEvents } from '@/lib/events';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
@@ -31,7 +31,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const category = one(params.category);
   const age = one(params.age);
   const duration = one(params.duration);
-  const party = one(params.party);
+  const fandom = one(params.oshi);
   const accessibilityOnly = one(params.accessibility) === '1';
   const accessibilityFeature = one(params.accessibilityFeature);
   const childFocusOnly = one(params.childFocus) === '1';
@@ -50,7 +50,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     categories: category ? [category] : undefined,
     ageGroups: age ? [age] : undefined,
     durationBuckets: duration ? [duration] : undefined,
-    partyKeys: expandPartyFilter(party),
+    fandomSlugs: fandom ? [fandom] : undefined,
     accessibilityOnly: accessibilityOnly || Boolean(accessibilityFeature),
     accessibilityKeys: accessibilityFeature ? [accessibilityFeature] : undefined,
     audienceIntents: childFocusOnly ? ['child_centered'] : undefined,
@@ -80,7 +80,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
             category,
             age,
             duration,
-            party,
+            fandom,
             accessibilityOnly,
             accessibilityFeature,
             childFocusOnly,
