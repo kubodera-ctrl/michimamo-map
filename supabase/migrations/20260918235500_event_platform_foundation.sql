@@ -1,4 +1,4 @@
--- Machimamo Events E0 foundation.
+-- まちイベ E0 foundation.
 -- Shared Supabase backend, isolated public RPC surface.
 begin;
 
@@ -26,8 +26,7 @@ create table if not exists public.regional_sources (
 
 create table if not exists public.events (
   id bigint generated always as identity primary key,
-  slug text not null unique
-    check (slug ~ '^[a-z0-9][a-z0-9-]{2,159}$'),
+  slug text not null unique check (slug ~ '^[a-z0-9][a-z0-9-]{2,159}$'),
   title text not null check (char_length(title) between 1 and 300),
   summary text,
   start_date date not null,
@@ -59,12 +58,10 @@ create table if not exists public.events (
   age_group_keys text[] not null default '{}',
   indoor boolean,
 
-  -- Audience intent is a reviewed classification, not a guessed fact.
   audience_intent text not null default 'general'
     check (audience_intent in ('child_centered','family_friendly','general','adult_oriented')),
   audience_intent_verified boolean not null default false,
 
-  -- Accessibility facts must come from a source or organizer confirmation.
   accessibility_keys text[] not null default '{}',
   accessibility_notes text,
 
@@ -96,9 +93,6 @@ create table if not exists public.events (
   check ((latitude is null and longitude is null) or (latitude is not null and longitude is not null))
 );
 
--- Exact dates for recurring / irregular events.
--- Search duration still uses the visible span (start_date..end_date) so long-running events can be suppressed,
--- while this table lets calendar/detail views show the actual active dates later.
 create table if not exists public.event_occurrences (
   id bigint generated always as identity primary key,
   event_id bigint not null references public.events(id) on delete cascade,
@@ -119,403 +113,11 @@ create index if not exists event_occurrences_date_idx
 
 create table if not exists public.fandom_entities (
   id bigint generated always as identity primary key,
-  slug text not null unique check (slug ~ '^[a-z0-9][a-z0-9-]{1,79}
-  id bigint generated always as identity primary key,
-  source_id bigint not null references public.regional_sources(id) on delete cascade,
-  source_event_key text not null,
-  event_id bigint references public.events(id) on delete set null,
-  source_title text,
-  source_start_date date,
-  source_end_date date,
-  source_venue_name text,
-  source_url text not null,
-  content_hash text,
-  normalization_status text not null default 'pending'
-    check (normalization_status in ('pending','normalized','needs_review','ignored')),
-  fetched_at timestamptz not null default now(),
-  source_updated_at timestamptz,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  unique(source_id, source_event_key)
-);
-
-create index if not exists events_public_date_idx
-  on public.events(publication_status, verification_status, start_date, end_date);
-create index if not exists events_prefecture_date_idx
-  on public.events(prefecture, start_date, end_date)
-  where publication_status = 'published' and verification_status = 'verified';
-create index if not exists events_categories_gin_idx
-  on public.events using gin(category_keys);
-create index if not exists events_age_groups_gin_idx
-  on public.events using gin(age_group_keys);
-create index if not exists events_accessibility_gin_idx
-  on public.events using gin(accessibility_keys);
-create index if not exists events_audience_idx
-  on public.events(audience_intent, audience_intent_verified);
-create index if not exists events_dedupe_key_idx
-  on public.events(dedupe_key) where dedupe_key is not null;
-create unique index if not exists events_source_key_unique_idx
-  on public.events(source_id, source_event_key)
-  where source_event_key is not null;
-
-alter table public.regional_sources enable row level security;
-alter table public.events enable row level security;
-alter table public.event_occurrences enable row level security;
-alter table public.fandom_entities enable row level security;
-alter table public.event_fandom_links enable row level security;
-alter table public.event_source_records enable row level security;
-
-revoke all on table public.regional_sources from anon, authenticated;
-revoke all on table public.events from anon, authenticated;
-revoke all on table public.event_occurrences from anon, authenticated;
-revoke all on table public.fandom_entities from anon, authenticated;
-revoke all on table public.event_fandom_links from anon, authenticated;
-revoke all on table public.event_source_records from anon, authenticated;
-
-create or replace function public.search_public_events(
-  p_start_date date default current_date,
-  p_end_date date default (current_date + 30),
-  p_prefecture text default null,
-  p_keyword text default null,
-  p_exclude_terms text[] default null,
-  p_categories text[] default null,
-  p_age_groups text[] default null,
-  p_duration_buckets text[] default null,
-  p_accessibility_only boolean default false,
-  p_accessibility_keys text[] default null,
-  p_audience_intents text[] default null,
-  p_fandom_slugs text[] default null,
-  p_exclude_adult_oriented boolean default false,
-  p_free_only boolean default false,
-  p_indoor_only boolean default false,
-  p_sort text default 'recommended',
-  p_limit integer default 60,
-  p_offset integer default 0
-)
-returns table(
-  id bigint,
-  slug text,
-  title text,
-  summary text,
-  start_date date,
-  end_date date,
-  duration_days integer,
-  start_time time,
-  end_time time,
-  all_day boolean,
-  schedule_type text,
-  venue_name text,
-  prefecture text,
-  municipality text,
-  address text,
-  latitude double precision,
-  longitude double precision,
-  price_text text,
-  is_free boolean,
-  reservation_required boolean,
-  organizer_name text,
-  official_url text,
-  category_keys text[],
-  age_group_keys text[],
-  indoor boolean,
-  audience_intent text,
-  fandom_slugs text[],
-  accessibility_keys text[],
-  accessibility_notes text,
-  image_url text,
-  source_name text,
-  source_url text,
-  source_updated_at timestamptz,
-  last_verified_at timestamptz,
-  updated_at timestamptz
-)
-language sql
-security definer
-stable
-set search_path = public, pg_temp
-as $$
-  select
-    e.id,
-    e.slug,
-    e.title,
-    e.summary,
-    e.start_date,
-    e.end_date,
-    (e.end_date - e.start_date + 1)::integer as duration_days,
-    e.start_time,
-    e.end_time,
-    e.all_day,
-    e.schedule_type,
-    e.venue_name,
-    e.prefecture,
-    e.municipality,
-    e.address,
-    e.latitude,
-    e.longitude,
-    e.price_text,
-    e.is_free,
-    e.reservation_required,
-    e.organizer_name,
-    e.official_url,
-    e.category_keys,
-    e.age_group_keys,
-    e.indoor,
-    case when e.audience_intent_verified then e.audience_intent else 'general' end,
-    coalesce((
-      select array_agg(fe.slug order by fe.display_name)
-      from public.event_fandom_links efl
-      join public.fandom_entities fe on fe.id = efl.fandom_id
-      where efl.event_id = e.id
-        and efl.verification_status = 'verified'
-        and fe.is_active = true
-    ), '{}'::text[]),
-    e.accessibility_keys,
-    e.accessibility_notes,
-    case when e.image_usage_status = 'allowed' then e.image_url else null end,
-    s.name,
-    coalesce(e.source_page_url, s.data_url, s.homepage_url),
-    e.source_updated_at,
-    e.last_verified_at,
-    e.updated_at
-  from public.events e
-  join public.regional_sources s on s.id = e.source_id
-  where e.publication_status = 'published'
-    and e.verification_status = 'verified'
-    and s.is_active = true
-    and s.event_use_allowed = true
-    and e.end_date >= coalesce(p_start_date, current_date)
-    and e.start_date <= coalesce(p_end_date, current_date + 30)
-    and (p_prefecture is null or btrim(p_prefecture) = '' or e.prefecture = btrim(p_prefecture))
-    and (
-      p_keyword is null or btrim(p_keyword) = ''
-      or e.title ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.summary,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.venue_name,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.municipality,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.organizer_name,'') ilike '%' || btrim(p_keyword) || '%'
-    )
-    and not exists (
-      select 1
-      from unnest(coalesce(p_exclude_terms, '{}'::text[])) as excluded(term)
-      where btrim(excluded.term) <> ''
-        and strpos(
-          lower(concat_ws(' ',
-            e.title,
-            coalesce(e.summary,''),
-            coalesce(e.venue_name,''),
-            coalesce(e.municipality,''),
-            coalesce(e.organizer_name,''),
-            coalesce(e.price_text,'')
-          )),
-          lower(btrim(excluded.term))
-        ) > 0
-    )
-    and (p_categories is null or cardinality(p_categories) = 0 or e.category_keys && p_categories)
-    and (p_age_groups is null or cardinality(p_age_groups) = 0 or e.age_group_keys && p_age_groups)
-    and (
-      p_duration_buckets is null or cardinality(p_duration_buckets) = 0
-      or ('single' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) = 1)
-      or ('2_4' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 2 and 4)
-      or ('5_10' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 5 and 10)
-      or ('11_30' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 11 and 30)
-      or ('31_plus' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) >= 31)
-    )
-    and (not coalesce(p_accessibility_only,false) or cardinality(e.accessibility_keys) > 0)
-    and (
-      p_accessibility_keys is null or cardinality(p_accessibility_keys) = 0
-      or e.accessibility_keys @> p_accessibility_keys
-    )
-    and (
-      p_audience_intents is null or cardinality(p_audience_intents) = 0
-      or (e.audience_intent_verified and e.audience_intent = any(p_audience_intents))
-    )
-    and (
-      p_fandom_slugs is null or cardinality(p_fandom_slugs) = 0
-      or exists (
-        select 1
-        from public.event_fandom_links efl
-        join public.fandom_entities fe on fe.id = efl.fandom_id
-        where efl.event_id = e.id
-          and efl.verification_status = 'verified'
-          and fe.is_active = true
-          and fe.slug = any(p_fandom_slugs)
-      )
-    )
-    and (
-      not coalesce(p_exclude_adult_oriented,false)
-      or not (e.audience_intent_verified and e.audience_intent = 'adult_oriented')
-    )
-    and (not coalesce(p_free_only,false) or e.is_free is true)
-    and (not coalesce(p_indoor_only,false) or e.indoor is true)
-    and (e.expires_at is null or e.expires_at > now())
-  order by
-    case when coalesce(p_sort,'recommended') = 'newest' then e.created_at end desc nulls last,
-    case when coalesce(p_sort,'recommended') = 'short_first' then (e.end_date - e.start_date + 1) end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then greatest(e.start_date - coalesce(p_start_date,current_date), 0) / 7 end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then case when e.start_date < coalesce(p_start_date,current_date) then 1 else 0 end end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then (e.end_date - e.start_date + 1) end asc nulls last,
-    e.start_date,
-    e.start_time nulls first,
-    e.title
-  limit least(greatest(coalesce(p_limit,60),1),100)
-  offset greatest(coalesce(p_offset,0),0);
-$$;
-
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
-  from public, anon, authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
-  to anon, authenticated;
-
-create or replace function public.get_public_event(p_slug text)
-returns jsonb
-language sql
-security definer
-stable
-set search_path = public, pg_temp
-as $$
-  select to_jsonb(x)
-  from (
-    select
-      e.id,
-      e.slug,
-      e.title,
-      e.summary,
-      e.start_date,
-      e.end_date,
-      (e.end_date - e.start_date + 1)::integer as duration_days,
-      e.start_time,
-      e.end_time,
-      e.timezone,
-      e.all_day,
-      e.schedule_type,
-      e.venue_name,
-      e.postal_code,
-      e.prefecture,
-      e.municipality,
-      e.address,
-      e.latitude,
-      e.longitude,
-      e.price_text,
-      e.is_free,
-      e.reservation_required,
-      e.reservation_text,
-      e.organizer_name,
-      e.official_url,
-      e.ticket_url,
-      e.category_keys,
-      e.age_group_keys,
-      e.indoor,
-      case when e.audience_intent_verified then e.audience_intent else 'general' end as audience_intent,
-      coalesce((
-        select array_agg(fe.slug order by fe.display_name)
-        from public.event_fandom_links efl
-        join public.fandom_entities fe on fe.id = efl.fandom_id
-        where efl.event_id = e.id
-          and efl.verification_status = 'verified'
-          and fe.is_active = true
-      ), '{}'::text[]) as fandom_slugs,
-      e.accessibility_keys,
-      e.accessibility_notes,
-      case when e.image_usage_status = 'allowed' then e.image_url else null end as image_url,
-      case when e.image_usage_status = 'allowed' then e.image_source_url else null end as image_source_url,
-      case when e.image_usage_status = 'allowed' then e.image_license else null end as image_license,
-      s.name as source_name,
-      coalesce(e.source_page_url, s.data_url, s.homepage_url) as source_url,
-      e.source_updated_at,
-      e.fetched_at,
-      e.last_verified_at,
-      e.updated_at
-    from public.events e
-    join public.regional_sources s on s.id = e.source_id
-    where e.slug = p_slug
-      and e.publication_status = 'published'
-      and e.verification_status = 'verified'
-      and s.is_active = true
-      and s.event_use_allowed = true
-      and (e.expires_at is null or e.expires_at > now())
-    limit 1
-  ) x;
-$$;
-
-revoke all on function public.get_public_event(text) from public, anon, authenticated;
-grant execute on function public.get_public_event(text) to anon, authenticated;
-
-create or replace function public.get_public_event_sitemap(p_limit integer default 50000)
-returns table(slug text, updated_at timestamptz)
-language sql
-security definer
-stable
-set search_path = public, pg_temp
-as $$
-  select e.slug, e.updated_at
-  from public.events e
-  join public.regional_sources s on s.id = e.source_id
-  where e.publication_status = 'published'
-    and e.verification_status = 'verified'
-    and s.is_active = true
-    and s.event_use_allowed = true
-    and e.end_date >= current_date - 7
-    and (e.expires_at is null or e.expires_at > now())
-  order by e.updated_at desc
-  limit least(greatest(coalesce(p_limit,50000),1),50000);
-$$;
-
-revoke all on function public.get_public_event_sitemap(integer) from public, anon, authenticated;
-grant execute on function public.get_public_event_sitemap(integer) to anon, authenticated;
-
-comment on table public.regional_sources is
-  '共通地域情報エンジンの情報源台帳。利用条件と画像条件を確認してからevent_use_allowedをtrueにする。';
-comment on table public.events is
-  'まちまもイベントの正規化済みcanonical event。公開と確認を分離し、事実項目を推測で埋めない。';
-comment on table public.event_occurrences is
-  '継続・不定期イベントの実開催日。期間検索用のstart/endとは分離し、カレンダー表示や休催日の精度向上に使う。';
-create or replace function public.get_public_fandom_sitemap(p_min_events integer default 3)
-returns table(slug text, updated_at timestamptz, event_count bigint)
-language sql
-security definer
-stable
-set search_path = public, pg_temp
-as $
-  select
-    fe.slug,
-    max(greatest(e.updated_at, efl.updated_at, fe.updated_at)) as updated_at,
-    count(distinct e.id)::bigint as event_count
-  from public.fandom_entities fe
-  join public.event_fandom_links efl on efl.fandom_id = fe.id
-  join public.events e on e.id = efl.event_id
-  join public.regional_sources s on s.id = e.source_id
-  where fe.is_active = true
-    and efl.verification_status = 'verified'
-    and e.publication_status = 'published'
-    and e.verification_status = 'verified'
-    and s.is_active = true
-    and s.event_use_allowed = true
-    and e.end_date >= current_date - 7
-    and (e.expires_at is null or e.expires_at > now())
-  group by fe.slug
-  having count(distinct e.id) >= greatest(coalesce(p_min_events,3),1)
-  order by fe.slug;
-$;
-
-revoke all on function public.get_public_fandom_sitemap(integer) from public, anon, authenticated;
-grant execute on function public.get_public_fandom_sitemap(integer) to anon, authenticated;
-
-comment on table public.fandom_entities is
-  '推し活検索用の作品・キャラクター・クリエイター等の正規化辞書。名称は識別用で、画像・ロゴ利用権を意味しない。';
-comment on table public.event_fandom_links is
-  'イベントと推し活対象の確認済み関連付け。公式・公認・ファンイベント等のrelation_typeと出典を保持する。';
-comment on table public.event_source_records is
-  '取得元ごとのイベント記録とcanonical eventの紐付け。重複・更新追跡用。';
-
-commit;
-),
+  slug text not null unique check (slug ~ '^[a-z0-9][a-z0-9-]{1,79}$'),
   display_name text not null,
   aliases text[] not null default '{}',
   entity_type text not null default 'franchise'
-    check (entity_type in ('character','franchise','creator','studio','brand','series','other')),
+    check (entity_type in ('character','franchise','creator','studio','brand','series','influencer','artist','other')),
   official_url text,
   is_active boolean not null default true,
   created_at timestamptz not null default now(),
@@ -536,28 +138,46 @@ create table if not exists public.event_fandom_links (
   primary key(event_id, fandom_id)
 );
 
-create index if not exists fandom_entities_aliases_gin_idx
-  on public.fandom_entities using gin(aliases);
-create index if not exists event_fandom_links_verified_idx
-  on public.event_fandom_links(fandom_id, event_id)
-  where verification_status = 'verified';
-
-insert into public.fandom_entities(slug, display_name, aliases, entity_type)
+insert into public.fandom_entities(slug,display_name,aliases,entity_type)
 values
   ('chiikawa','ちいかわ',array['ちいかわ'],'franchise'),
-  ('detective-conan','名探偵コナン',array['コナン','名探偵コナン'],'franchise'),
-  ('sumikkogurashi','すみっコぐらし',array['すみっこぐらし','すみっコぐらし'],'franchise'),
+  ('pokemon','ポケモン',array['ポケモン','Pokémon','Pokemon'],'franchise'),
+  ('sanrio','サンリオ',array['サンリオ','Sanrio'],'brand'),
+  ('hello-kitty','ハローキティ',array['ハローキティ','キティ'],'character'),
+  ('kuromi','クロミ',array['クロミ'],'character'),
+  ('cinnamoroll','シナモロール',array['シナモロール','シナモン'],'character'),
+  ('detective-conan','名探偵コナン',array['名探偵コナン','コナン'],'franchise'),
+  ('sumikkogurashi','すみっコぐらし',array['すみっコぐらし','すみっこぐらし'],'franchise'),
   ('aipri','アイプリ',array['アイプリ'],'franchise'),
   ('precure','プリキュア',array['プリキュア'],'franchise'),
   ('kamen-rider','仮面ライダー',array['仮面ライダー'],'franchise'),
-  ('hayao-miyazaki','宮崎駿',array['宮崎駿'],'creator'),
+  ('super-sentai','スーパー戦隊',array['スーパー戦隊','戦隊'],'franchise'),
+  ('ultraman','ウルトラマン',array['ウルトラマン'],'franchise'),
+  ('doraemon','ドラえもん',array['ドラえもん'],'franchise'),
+  ('anpanman','アンパンマン',array['アンパンマン'],'franchise'),
+  ('crayon-shinchan','クレヨンしんちゃん',array['クレヨンしんちゃん','しんちゃん'],'franchise'),
+  ('super-mario','スーパーマリオ',array['スーパーマリオ','マリオ'],'franchise'),
+  ('kirby','星のカービィ',array['星のカービィ','カービィ'],'franchise'),
+  ('animal-crossing','どうぶつの森',array['どうぶつの森','あつ森'],'franchise'),
+  ('tamagotchi','たまごっち',array['たまごっち'],'brand'),
+  ('sylvanian-families','シルバニアファミリー',array['シルバニアファミリー','シルバニア'],'brand'),
+  ('miffy','ミッフィー',array['ミッフィー','miffy'],'character'),
+  ('paw-patrol','パウ・パトロール',array['パウ・パトロール','パウパト'],'franchise'),
+  ('thomas','きかんしゃトーマス',array['きかんしゃトーマス','トーマス'],'franchise'),
+  ('disney','ディズニー',array['ディズニー','Disney'],'brand'),
+  ('pixar','ピクサー',array['ピクサー','Pixar','PIXAR'],'studio'),
+  ('minions','ミニオン',array['ミニオン','Minions'],'franchise'),
   ('ghibli','ジブリ',array['ジブリ','スタジオジブリ'],'studio'),
-  ('pixar','ピクサー',array['ピクサー','PIXAR','Pixar'],'studio')
+  ('hayao-miyazaki','宮崎駿',array['宮崎駿'],'creator'),
+  ('one-piece','ONE PIECE',array['ONE PIECE','ワンピース'],'franchise'),
+  ('demon-slayer','鬼滅の刃',array['鬼滅の刃','鬼滅'],'franchise'),
+  ('spy-family','SPY×FAMILY',array['SPY×FAMILY','SPY FAMILY','スパイファミリー'],'franchise'),
+  ('shinako','しなこ',array['しなこ','しなこちゃん'],'influencer')
 on conflict(slug) do update
-set display_name = excluded.display_name,
-    aliases = excluded.aliases,
-    entity_type = excluded.entity_type,
-    updated_at = now();
+set display_name=excluded.display_name,
+    aliases=excluded.aliases,
+    entity_type=excluded.entity_type,
+    updated_at=now();
 
 create table if not exists public.event_source_records (
   id bigint generated always as identity primary key,
@@ -583,34 +203,35 @@ create index if not exists events_public_date_idx
   on public.events(publication_status, verification_status, start_date, end_date);
 create index if not exists events_prefecture_date_idx
   on public.events(prefecture, start_date, end_date)
-  where publication_status = 'published' and verification_status = 'verified';
-create index if not exists events_categories_gin_idx
-  on public.events using gin(category_keys);
-create index if not exists events_age_groups_gin_idx
-  on public.events using gin(age_group_keys);
-create index if not exists events_accessibility_gin_idx
-  on public.events using gin(accessibility_keys);
-create index if not exists events_audience_idx
-  on public.events(audience_intent, audience_intent_verified);
-create index if not exists events_dedupe_key_idx
-  on public.events(dedupe_key) where dedupe_key is not null;
+  where publication_status='published' and verification_status='verified';
+create index if not exists events_categories_gin_idx on public.events using gin(category_keys);
+create index if not exists events_age_groups_gin_idx on public.events using gin(age_group_keys);
+create index if not exists events_accessibility_gin_idx on public.events using gin(accessibility_keys);
+create index if not exists events_audience_idx on public.events(audience_intent,audience_intent_verified);
+create index if not exists events_dedupe_key_idx on public.events(dedupe_key) where dedupe_key is not null;
 create unique index if not exists events_source_key_unique_idx
-  on public.events(source_id, source_event_key)
-  where source_event_key is not null;
+  on public.events(source_id,source_event_key) where source_event_key is not null;
+create index if not exists fandom_entities_aliases_gin_idx on public.fandom_entities using gin(aliases);
+create index if not exists event_fandom_links_verified_idx
+  on public.event_fandom_links(fandom_id,event_id) where verification_status='verified';
 
 alter table public.regional_sources enable row level security;
 alter table public.events enable row level security;
 alter table public.event_occurrences enable row level security;
+alter table public.fandom_entities enable row level security;
+alter table public.event_fandom_links enable row level security;
 alter table public.event_source_records enable row level security;
 
-revoke all on table public.regional_sources from anon, authenticated;
-revoke all on table public.events from anon, authenticated;
-revoke all on table public.event_occurrences from anon, authenticated;
-revoke all on table public.event_source_records from anon, authenticated;
+revoke all on table public.regional_sources from anon,authenticated;
+revoke all on table public.events from anon,authenticated;
+revoke all on table public.event_occurrences from anon,authenticated;
+revoke all on table public.fandom_entities from anon,authenticated;
+revoke all on table public.event_fandom_links from anon,authenticated;
+revoke all on table public.event_source_records from anon,authenticated;
 
 create or replace function public.search_public_events(
   p_start_date date default current_date,
-  p_end_date date default (current_date + 30),
+  p_end_date date default (current_date+30),
   p_prefecture text default null,
   p_keyword text default null,
   p_exclude_terms text[] default null,
@@ -620,7 +241,7 @@ create or replace function public.search_public_events(
   p_accessibility_only boolean default false,
   p_accessibility_keys text[] default null,
   p_audience_intents text[] default null,
-  p_party_keys text[] default null,
+  p_fandom_slugs text[] default null,
   p_exclude_adult_oriented boolean default false,
   p_free_only boolean default false,
   p_indoor_only boolean default false,
@@ -629,264 +250,184 @@ create or replace function public.search_public_events(
   p_offset integer default 0
 )
 returns table(
-  id bigint,
-  slug text,
-  title text,
-  summary text,
-  start_date date,
-  end_date date,
-  duration_days integer,
-  start_time time,
-  end_time time,
-  all_day boolean,
-  schedule_type text,
-  venue_name text,
-  prefecture text,
-  municipality text,
-  address text,
-  latitude double precision,
-  longitude double precision,
-  price_text text,
-  is_free boolean,
-  reservation_required boolean,
-  organizer_name text,
-  official_url text,
-  category_keys text[],
-  age_group_keys text[],
-  indoor boolean,
-  audience_intent text,
-  party_keys text[],
-  accessibility_keys text[],
-  accessibility_notes text,
-  image_url text,
-  source_name text,
-  source_url text,
-  source_updated_at timestamptz,
-  last_verified_at timestamptz,
-  updated_at timestamptz
+  id bigint, slug text, title text, summary text, start_date date, end_date date,
+  duration_days integer, start_time time, end_time time, all_day boolean, schedule_type text,
+  venue_name text, prefecture text, municipality text, address text,
+  latitude double precision, longitude double precision, price_text text,
+  is_free boolean, reservation_required boolean, organizer_name text, official_url text,
+  category_keys text[], age_group_keys text[], indoor boolean, audience_intent text,
+  fandom_slugs text[], accessibility_keys text[], accessibility_notes text, image_url text,
+  source_name text, source_url text, source_updated_at timestamptz,
+  last_verified_at timestamptz, updated_at timestamptz
 )
-language sql
-security definer
-stable
-set search_path = public, pg_temp
+language sql security definer stable set search_path=public,pg_temp
 as $$
   select
-    e.id,
-    e.slug,
-    e.title,
-    e.summary,
-    e.start_date,
-    e.end_date,
-    (e.end_date - e.start_date + 1)::integer as duration_days,
-    e.start_time,
-    e.end_time,
-    e.all_day,
-    e.schedule_type,
-    e.venue_name,
-    e.prefecture,
-    e.municipality,
-    e.address,
-    e.latitude,
-    e.longitude,
-    e.price_text,
-    e.is_free,
-    e.reservation_required,
-    e.organizer_name,
-    e.official_url,
-    e.category_keys,
-    e.age_group_keys,
+    e.id,e.slug,e.title,e.summary,e.start_date,e.end_date,
+    (e.end_date-e.start_date+1)::integer,e.start_time,e.end_time,e.all_day,e.schedule_type,
+    e.venue_name,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,e.price_text,
+    e.is_free,e.reservation_required,e.organizer_name,e.official_url,e.category_keys,e.age_group_keys,
     e.indoor,
     case when e.audience_intent_verified then e.audience_intent else 'general' end,
-    case when e.party_keys_verified then e.party_keys else '{}'::text[] end,
-    e.accessibility_keys,
-    e.accessibility_notes,
-    case when e.image_usage_status = 'allowed' then e.image_url else null end,
-    s.name,
-    coalesce(e.source_page_url, s.data_url, s.homepage_url),
-    e.source_updated_at,
-    e.last_verified_at,
-    e.updated_at
+    coalesce((
+      select array_agg(fe.slug order by fe.display_name)
+      from public.event_fandom_links efl
+      join public.fandom_entities fe on fe.id=efl.fandom_id
+      where efl.event_id=e.id and efl.verification_status='verified' and fe.is_active
+    ),'{}'::text[]),
+    e.accessibility_keys,e.accessibility_notes,
+    case when e.image_usage_status='allowed' then e.image_url else null end,
+    s.name,coalesce(e.source_page_url,s.data_url,s.homepage_url),
+    e.source_updated_at,e.last_verified_at,e.updated_at
   from public.events e
-  join public.regional_sources s on s.id = e.source_id
-  where e.publication_status = 'published'
-    and e.verification_status = 'verified'
-    and s.is_active = true
-    and s.event_use_allowed = true
-    and e.end_date >= coalesce(p_start_date, current_date)
-    and e.start_date <= coalesce(p_end_date, current_date + 30)
-    and (p_prefecture is null or btrim(p_prefecture) = '' or e.prefecture = btrim(p_prefecture))
+  join public.regional_sources s on s.id=e.source_id
+  where e.publication_status='published'
+    and e.verification_status='verified'
+    and s.is_active and s.event_use_allowed
+    and e.end_date>=coalesce(p_start_date,current_date)
+    and e.start_date<=coalesce(p_end_date,current_date+30)
+    and (p_prefecture is null or btrim(p_prefecture)='' or e.prefecture=btrim(p_prefecture))
     and (
-      p_keyword is null or btrim(p_keyword) = ''
-      or e.title ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.summary,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.venue_name,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.municipality,'') ilike '%' || btrim(p_keyword) || '%'
-      or coalesce(e.organizer_name,'') ilike '%' || btrim(p_keyword) || '%'
+      p_keyword is null or btrim(p_keyword)=''
+      or e.title ilike '%'||btrim(p_keyword)||'%'
+      or coalesce(e.summary,'') ilike '%'||btrim(p_keyword)||'%'
+      or coalesce(e.venue_name,'') ilike '%'||btrim(p_keyword)||'%'
+      or coalesce(e.municipality,'') ilike '%'||btrim(p_keyword)||'%'
+      or coalesce(e.organizer_name,'') ilike '%'||btrim(p_keyword)||'%'
     )
     and not exists (
-      select 1
-      from unnest(coalesce(p_exclude_terms, '{}'::text[])) as excluded(term)
-      where btrim(excluded.term) <> ''
-        and strpos(
-          lower(concat_ws(' ',
-            e.title,
-            coalesce(e.summary,''),
-            coalesce(e.venue_name,''),
-            coalesce(e.municipality,''),
-            coalesce(e.organizer_name,''),
-            coalesce(e.price_text,'')
-          )),
-          lower(btrim(excluded.term))
-        ) > 0
+      select 1 from unnest(coalesce(p_exclude_terms,'{}'::text[])) excluded(term)
+      where btrim(excluded.term)<>''
+        and strpos(lower(concat_ws(' ',e.title,coalesce(e.summary,''),coalesce(e.venue_name,''),
+          coalesce(e.municipality,''),coalesce(e.organizer_name,''),coalesce(e.price_text,''))),
+          lower(btrim(excluded.term)))>0
     )
-    and (p_categories is null or cardinality(p_categories) = 0 or e.category_keys && p_categories)
-    and (p_age_groups is null or cardinality(p_age_groups) = 0 or e.age_group_keys && p_age_groups)
+    and (p_categories is null or cardinality(p_categories)=0 or e.category_keys&&p_categories)
+    and (p_age_groups is null or cardinality(p_age_groups)=0 or e.age_group_keys&&p_age_groups)
     and (
-      p_duration_buckets is null or cardinality(p_duration_buckets) = 0
-      or ('single' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) = 1)
-      or ('2_4' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 2 and 4)
-      or ('5_10' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 5 and 10)
-      or ('11_30' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) between 11 and 30)
-      or ('31_plus' = any(p_duration_buckets) and (e.end_date - e.start_date + 1) >= 31)
+      p_duration_buckets is null or cardinality(p_duration_buckets)=0
+      or ('single'=any(p_duration_buckets) and (e.end_date-e.start_date+1)=1)
+      or ('2_4'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 2 and 4)
+      or ('5_10'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 5 and 10)
+      or ('11_30'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 11 and 30)
+      or ('31_plus'=any(p_duration_buckets) and (e.end_date-e.start_date+1)>=31)
     )
-    and (not coalesce(p_accessibility_only,false) or cardinality(e.accessibility_keys) > 0)
+    and (not coalesce(p_accessibility_only,false) or cardinality(e.accessibility_keys)>0)
+    and (p_accessibility_keys is null or cardinality(p_accessibility_keys)=0 or e.accessibility_keys@>p_accessibility_keys)
+    and (p_audience_intents is null or cardinality(p_audience_intents)=0
+      or (e.audience_intent_verified and e.audience_intent=any(p_audience_intents)))
     and (
-      p_accessibility_keys is null or cardinality(p_accessibility_keys) = 0
-      or e.accessibility_keys @> p_accessibility_keys
+      p_fandom_slugs is null or cardinality(p_fandom_slugs)=0
+      or exists (
+        select 1 from public.event_fandom_links efl
+        join public.fandom_entities fe on fe.id=efl.fandom_id
+        where efl.event_id=e.id and efl.verification_status='verified'
+          and fe.is_active and fe.slug=any(p_fandom_slugs)
+      )
     )
-    and (
-      p_audience_intents is null or cardinality(p_audience_intents) = 0
-      or (e.audience_intent_verified and e.audience_intent = any(p_audience_intents))
-    )
-    and (
-      p_party_keys is null or cardinality(p_party_keys) = 0
-      or (e.party_keys_verified and e.party_keys && p_party_keys)
-    )
-    and (
-      not coalesce(p_exclude_adult_oriented,false)
-      or not (e.audience_intent_verified and e.audience_intent = 'adult_oriented')
-    )
+    and (not coalesce(p_exclude_adult_oriented,false)
+      or not (e.audience_intent_verified and e.audience_intent='adult_oriented'))
     and (not coalesce(p_free_only,false) or e.is_free is true)
     and (not coalesce(p_indoor_only,false) or e.indoor is true)
-    and (e.expires_at is null or e.expires_at > now())
+    and (e.expires_at is null or e.expires_at>now())
   order by
-    case when coalesce(p_sort,'recommended') = 'newest' then e.created_at end desc nulls last,
-    case when coalesce(p_sort,'recommended') = 'short_first' then (e.end_date - e.start_date + 1) end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then greatest(e.start_date - coalesce(p_start_date,current_date), 0) / 7 end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then case when e.start_date < coalesce(p_start_date,current_date) then 1 else 0 end end asc nulls last,
-    case when coalesce(p_sort,'recommended') = 'recommended'
-      then (e.end_date - e.start_date + 1) end asc nulls last,
-    e.start_date,
-    e.start_time nulls first,
-    e.title
+    case when coalesce(p_sort,'recommended')='newest' then e.created_at end desc nulls last,
+    case when coalesce(p_sort,'recommended')='short_first' then (e.end_date-e.start_date+1) end asc nulls last,
+    case when coalesce(p_sort,'recommended')='recommended'
+      then case when e.start_date<coalesce(p_start_date,current_date) then 1 else 0 end end asc nulls last,
+    case when coalesce(p_sort,'recommended')='recommended'
+      then (e.end_date-e.start_date+1) end asc nulls last,
+    e.start_date,e.start_time nulls first,e.title
   limit least(greatest(coalesce(p_limit,60),1),100)
   offset greatest(coalesce(p_offset,0),0);
 $$;
 
 revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
-  from public, anon, authenticated;
+  from public,anon,authenticated;
 grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],boolean,boolean,boolean,text,integer,integer)
-  to anon, authenticated;
+  to anon,authenticated;
 
 create or replace function public.get_public_event(p_slug text)
 returns jsonb
-language sql
-security definer
-stable
-set search_path = public, pg_temp
+language sql security definer stable set search_path=public,pg_temp
 as $$
   select to_jsonb(x)
   from (
     select
-      e.id,
-      e.slug,
-      e.title,
-      e.summary,
-      e.start_date,
-      e.end_date,
-      (e.end_date - e.start_date + 1)::integer as duration_days,
-      e.start_time,
-      e.end_time,
-      e.timezone,
-      e.all_day,
-      e.schedule_type,
-      e.venue_name,
-      e.postal_code,
-      e.prefecture,
-      e.municipality,
-      e.address,
-      e.latitude,
-      e.longitude,
-      e.price_text,
-      e.is_free,
-      e.reservation_required,
-      e.reservation_text,
-      e.organizer_name,
-      e.official_url,
-      e.ticket_url,
-      e.category_keys,
-      e.age_group_keys,
-      e.indoor,
+      e.id,e.slug,e.title,e.summary,e.start_date,e.end_date,
+      (e.end_date-e.start_date+1)::integer as duration_days,
+      e.start_time,e.end_time,e.timezone,e.all_day,e.schedule_type,
+      e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
+      e.price_text,e.is_free,e.reservation_required,e.reservation_text,e.organizer_name,
+      e.official_url,e.ticket_url,e.category_keys,e.age_group_keys,e.indoor,
       case when e.audience_intent_verified then e.audience_intent else 'general' end as audience_intent,
-      case when e.party_keys_verified then e.party_keys else '{}'::text[] end as party_keys,
-      e.accessibility_keys,
-      e.accessibility_notes,
-      case when e.image_usage_status = 'allowed' then e.image_url else null end as image_url,
-      case when e.image_usage_status = 'allowed' then e.image_source_url else null end as image_source_url,
-      case when e.image_usage_status = 'allowed' then e.image_license else null end as image_license,
-      s.name as source_name,
-      coalesce(e.source_page_url, s.data_url, s.homepage_url) as source_url,
-      e.source_updated_at,
-      e.fetched_at,
-      e.last_verified_at,
-      e.updated_at
+      coalesce((
+        select array_agg(fe.slug order by fe.display_name)
+        from public.event_fandom_links efl
+        join public.fandom_entities fe on fe.id=efl.fandom_id
+        where efl.event_id=e.id and efl.verification_status='verified' and fe.is_active
+      ),'{}'::text[]) as fandom_slugs,
+      e.accessibility_keys,e.accessibility_notes,
+      case when e.image_usage_status='allowed' then e.image_url else null end as image_url,
+      case when e.image_usage_status='allowed' then e.image_source_url else null end as image_source_url,
+      case when e.image_usage_status='allowed' then e.image_license else null end as image_license,
+      s.name as source_name,coalesce(e.source_page_url,s.data_url,s.homepage_url) as source_url,
+      e.source_updated_at,e.fetched_at,e.last_verified_at,e.updated_at
     from public.events e
-    join public.regional_sources s on s.id = e.source_id
-    where e.slug = p_slug
-      and e.publication_status = 'published'
-      and e.verification_status = 'verified'
-      and s.is_active = true
-      and s.event_use_allowed = true
-      and (e.expires_at is null or e.expires_at > now())
+    join public.regional_sources s on s.id=e.source_id
+    where e.slug=p_slug and e.publication_status='published' and e.verification_status='verified'
+      and s.is_active and s.event_use_allowed and (e.expires_at is null or e.expires_at>now())
     limit 1
   ) x;
 $$;
 
-revoke all on function public.get_public_event(text) from public, anon, authenticated;
-grant execute on function public.get_public_event(text) to anon, authenticated;
+revoke all on function public.get_public_event(text) from public,anon,authenticated;
+grant execute on function public.get_public_event(text) to anon,authenticated;
 
 create or replace function public.get_public_event_sitemap(p_limit integer default 50000)
-returns table(slug text, updated_at timestamptz)
-language sql
-security definer
-stable
-set search_path = public, pg_temp
+returns table(slug text,updated_at timestamptz)
+language sql security definer stable set search_path=public,pg_temp
 as $$
-  select e.slug, e.updated_at
-  from public.events e
-  join public.regional_sources s on s.id = e.source_id
-  where e.publication_status = 'published'
-    and e.verification_status = 'verified'
-    and s.is_active = true
-    and s.event_use_allowed = true
-    and e.end_date >= current_date - 7
-    and (e.expires_at is null or e.expires_at > now())
+  select e.slug,e.updated_at
+  from public.events e join public.regional_sources s on s.id=e.source_id
+  where e.publication_status='published' and e.verification_status='verified'
+    and s.is_active and s.event_use_allowed
+    and e.end_date>=current_date-7
+    and (e.expires_at is null or e.expires_at>now())
   order by e.updated_at desc
   limit least(greatest(coalesce(p_limit,50000),1),50000);
 $$;
 
-revoke all on function public.get_public_event_sitemap(integer) from public, anon, authenticated;
-grant execute on function public.get_public_event_sitemap(integer) to anon, authenticated;
+revoke all on function public.get_public_event_sitemap(integer) from public,anon,authenticated;
+grant execute on function public.get_public_event_sitemap(integer) to anon,authenticated;
 
-comment on table public.regional_sources is
-  '共通地域情報エンジンの情報源台帳。利用条件と画像条件を確認してからevent_use_allowedをtrueにする。';
-comment on table public.events is
-  'まちまもイベントの正規化済みcanonical event。公開と確認を分離し、事実項目を推測で埋めない。';
-comment on table public.event_occurrences is
-  '継続・不定期イベントの実開催日。期間検索用のstart/endとは分離し、カレンダー表示や休催日の精度向上に使う。';
-comment on table public.event_source_records is
-  '取得元ごとのイベント記録とcanonical eventの紐付け。重複・更新追跡用。';
+create or replace function public.get_public_fandom_sitemap(p_min_events integer default 3)
+returns table(slug text,updated_at timestamptz,event_count bigint)
+language sql security definer stable set search_path=public,pg_temp
+as $$
+  select fe.slug,max(greatest(e.updated_at,efl.updated_at,fe.updated_at)),count(distinct e.id)::bigint
+  from public.fandom_entities fe
+  join public.event_fandom_links efl on efl.fandom_id=fe.id
+  join public.events e on e.id=efl.event_id
+  join public.regional_sources s on s.id=e.source_id
+  where fe.is_active and efl.verification_status='verified'
+    and e.publication_status='published' and e.verification_status='verified'
+    and s.is_active and s.event_use_allowed
+    and e.end_date>=current_date-7
+    and (e.expires_at is null or e.expires_at>now())
+  group by fe.slug
+  having count(distinct e.id)>=greatest(coalesce(p_min_events,3),1)
+  order by fe.slug;
+$$;
+
+revoke all on function public.get_public_fandom_sitemap(integer) from public,anon,authenticated;
+grant execute on function public.get_public_fandom_sitemap(integer) to anon,authenticated;
+
+comment on table public.regional_sources is '地域情報エンジンの情報源台帳。';
+comment on table public.events is 'まちイベの正規化済みcanonical event。事実項目を推測で埋めない。';
+comment on table public.event_occurrences is '継続・不定期イベントの実開催日。';
+comment on table public.fandom_entities is '推し活検索用の正規化辞書。名称は識別用で画像・ロゴ利用権を意味しない。';
+comment on table public.event_fandom_links is 'イベントと推し活対象の確認済み関連。relation_typeと出典を保持。';
+comment on table public.event_source_records is '取得元ごとのイベント記録とcanonical eventの紐付け。';
 
 commit;
