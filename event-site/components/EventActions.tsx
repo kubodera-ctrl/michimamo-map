@@ -12,6 +12,8 @@ type Props = {
     endDate: string;
     startTime: string | null;
     endTime: string | null;
+    scheduleType: 'single' | 'continuous' | 'recurring' | 'irregular';
+    occurrences: Array<{date:string;start_time:string|null;end_time:string|null;status:string}>;
     venueName: string | null;
     address: string;
     latitude: number | null;
@@ -28,6 +30,8 @@ function addDays(date: string, days: number) {
 export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
   const [attended,setAttended]=useState(false);
+  const availableOccurrences=event.occurrences.filter((item)=>item.status!=='cancelled');
+  const [selectedOccurrence,setSelectedOccurrence]=useState(availableOccurrences[0]?.date || '');
 
   useEffect(() => {
     const sync=()=>{
@@ -39,21 +43,34 @@ export function EventActions({ event }: Props) {
     return ()=>window.removeEventListener('machiibe:prefs',sync);
   }, [event.slug]);
 
+  const calendarSelection=useMemo(()=>{
+    if((event.scheduleType==='recurring'||event.scheduleType==='irregular') && selectedOccurrence){
+      const occurrence=availableOccurrences.find((item)=>item.date===selectedOccurrence);
+      if(occurrence) return {
+        startDate:occurrence.date,
+        endDate:occurrence.date,
+        startTime:occurrence.start_time,
+        endTime:occurrence.end_time
+      };
+    }
+    return {startDate:event.startDate,endDate:event.endDate,startTime:event.startTime,endTime:event.endTime};
+  },[availableOccurrences,event.endDate,event.endTime,event.scheduleType,event.startDate,event.startTime,selectedOccurrence]);
+
   const googleCalendarUrl = useMemo(() => {
     const compact = (date: string, time: string | null) => {
       if (!time) return date.replaceAll('-', '');
       return `${date.replaceAll('-', '')}T${time.replaceAll(':','').slice(0,6)}`;
     };
-    const timed = Boolean(event.startTime || event.endTime);
-    const googleEndDate = timed ? event.endDate : addDays(event.endDate, 1);
+    const timed = Boolean(calendarSelection.startTime || calendarSelection.endTime);
+    const googleEndDate = timed ? calendarSelection.endDate : addDays(calendarSelection.endDate, 1);
     const url = new URL('https://calendar.google.com/calendar/render');
     url.searchParams.set('action', 'TEMPLATE');
     url.searchParams.set('text', event.title);
-    url.searchParams.set('dates', `${compact(event.startDate,event.startTime)}/${compact(googleEndDate,event.endTime)}`);
+    url.searchParams.set('dates', `${compact(calendarSelection.startDate,calendarSelection.startTime)}/${compact(googleEndDate,calendarSelection.endTime)}`);
     url.searchParams.set('location', [event.venueName,event.address].filter(Boolean).join(' '));
     url.searchParams.set('details', event.officialUrl);
     return url.toString();
-  }, [event]);
+  }, [calendarSelection,event.address,event.title,event.venueName,event.officialUrl]);
 
   const googleMapsUrl = event.latitude != null && event.longitude != null
     ? `https://www.google.com/maps/dir/?api=1&destination=${event.latitude},${event.longitude}`
@@ -94,6 +111,16 @@ export function EventActions({ event }: Props) {
         <span>行くと決めたら</span>
         <strong>当日までここから準備</strong>
       </div>
+      {(event.scheduleType==='recurring'||event.scheduleType==='irregular') && (
+        <label className="occurrence-picker">
+          <span>カレンダーに入れる開催日</span>
+          <select value={selectedOccurrence} onChange={(e)=>setSelectedOccurrence(e.target.value)}>
+            {availableOccurrences.length ? availableOccurrences.map((item)=>(
+              <option key={item.date} value={item.date}>{item.date}{item.status==='sold_out'?'（完売）':item.status==='registration_closed'?'（受付終了）':''}</option>
+            )) : <option value="">開催日を公式情報で確認</option>}
+          </select>
+        </label>
+      )}
       <div className="event-action-grid">
         <button type="button" className={`event-action-button ${saved ? 'is-saved' : ''}`} onClick={toggleSaved}>
           <span>♡</span><b>{saved ? '行きたい保存済み' : '行きたい'}</b>
@@ -101,8 +128,14 @@ export function EventActions({ event }: Props) {
         <button type="button" className={`event-action-button ${attended ? 'is-attended' : ''}`} onClick={toggleAttended}>
           <span>✓</span><b>{attended ? '行った・保存済み' : '行った'}</b>
         </button>
-        <a className="event-action-button" href={googleCalendarUrl} target="_blank" rel="noreferrer" onClick={metric('calendar_google')}><span>📅</span><b>Googleカレンダー</b></a>
-        <a className="event-action-button" href={`/api/calendar/${event.slug}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
+        {availableOccurrences.length || (event.scheduleType!=='recurring'&&event.scheduleType!=='irregular') ? (
+          <>
+            <a className="event-action-button" href={googleCalendarUrl} target="_blank" rel="noreferrer" onClick={metric('calendar_google')}><span>📅</span><b>Googleカレンダー</b></a>
+            <a className="event-action-button" href={`/api/calendar/${event.slug}${selectedOccurrence?`?date=${encodeURIComponent(selectedOccurrence)}`:''}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
+          </>
+        ) : (
+          <a className="event-action-button" href={event.officialUrl} target="_blank" rel="noreferrer"><span>📅</span><b>開催日を公式で確認</b></a>
+        )}
         <a className="event-action-button" href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_google')}><span>📍</span><b>Google Maps</b></a>
         <a className="event-action-button" href={appleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_apple')}><span></span><b>Apple Maps</b></a>
         <a className="event-action-button" href={parkingUrl} target="_blank" rel="noreferrer" onClick={metric('parking_search')}><span>🅿</span><b>駐車場を探す</b></a>
