@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EventActions } from '@/components/EventActions';
+import { TrackedLink } from '@/components/TrackedLink';
 import { MetricPing } from '@/components/MetricPing';
 import {
   ACCESSIBILITY_LABELS,
@@ -145,7 +146,10 @@ export default async function EventPage({ params }: { params: Params }) {
             occurrences:event.occurrences || [],venueName:event.venue_name,address,
             latitude:trustedLocation ? event.latitude : null,
             longitude:trustedLocation ? event.longitude : null,
-            officialUrl:event.official_url
+            officialUrl:event.official_url,
+            pageUrl:eventPageUrl,
+            dateText:formatEventDate(event.start_date,event.end_date),
+            placeText:[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' ')
           }} />
 
           <dl className="event-facts">
@@ -190,12 +194,12 @@ export default async function EventPage({ params }: { params: Params }) {
               <h2>会場周辺は、まちまもで確認</h2>
               <p>{trustedLocation ? '確認済みの会場位置を基準に、' : ''}WBGT、AED、交番、周辺道路の安全情報などを確認できる導線を段階接続します。</p>
             </div>
-            <a href={mapUrl.toString()}>まちまもMAPで周辺を見る</a>
+            <TrackedLink href={mapUrl.toString()} metric="machimamo_map" eventSlug={event.slug}>まちまもMAPで周辺を見る</TrackedLink>
           </section>
 
           <div className="detail-actions">
             <a className="primary-action" href={event.official_url} target="_blank" rel="noreferrer">公式情報を見る</a>
-            <a className="secondary-action" href={mapUrl.toString()}>まちまもMAPで周辺を見る</a>
+            <TrackedLink className="secondary-action" href={mapUrl.toString()} metric="machimamo_map" eventSlug={event.slug}>まちまもMAPで周辺を見る</TrackedLink>
           </div>
 
           <aside className="source-box">
