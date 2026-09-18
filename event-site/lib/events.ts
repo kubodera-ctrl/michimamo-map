@@ -162,6 +162,7 @@ export async function searchEventsWithStatus(input: EventSearchInput): Promise<E
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
     p_fandom_slugs: input.fandomSlugs?.length ? input.fandomSlugs : null,
     p_price_types: priceTypes,
+    p_updated_after: input.updatedAfter || null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_indoor_only: input.indoorOnly || false,
     p_sort: input.sort || 'recommended',
@@ -219,6 +220,18 @@ export async function getEvent(slug: string): Promise<EventDetail | null> {
     return null;
   }
   return (data || null) as EventDetail | null;
+}
+
+export async function getEventsBySlugs(slugs:string[]): Promise<EventSummary[]> {
+  const db=getPublicSupabase();
+  if (!db || !slugs.length) return [];
+  const unique=[...new Set(slugs)].slice(0,100);
+  const {data,error}=await db.rpc('get_public_events_by_slugs',{p_slugs:unique});
+  if (error) {
+    console.error('get_public_events_by_slugs failed',error.message);
+    return [];
+  }
+  return (Array.isArray(data) ? data : []) as EventSummary[];
 }
 
 export async function getPublicFacetSitemap(): Promise<Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>> {
