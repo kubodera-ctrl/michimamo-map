@@ -24,7 +24,6 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
     return Boolean(value);
   });
   const page=parsePage(params.page);
-  const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   return { alternates:{canonical:'/'}, robots:hasFilters||page>1?{index:false,follow:true}:{index:true,follow:true} };
 }
 
@@ -48,6 +47,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const indoorOnly = one(params.indoor) === '1';
   const sort = one(params.sort) || 'recommended';
   const page=parsePage(params.page);
+  const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   const sinceRaw=one(params.since);
   const since=sinceRaw && Number.isFinite(Date.parse(sinceRaw)) ? new Date(sinceRaw).toISOString() : '';
   const range = resolveDateRange(dateMode);
@@ -82,7 +82,6 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     <main>
       <VisitTracker />
       {page===1 && hasExplicitSearch && <MetricPing metric="search" searchTerm={keyword||undefined} />}
-      <MetricPing metric="search_results_view" />
       <section className="hero">
         <div className="hero-inner">
           <p className="eyebrow">MACHI IBE</p>
