@@ -222,7 +222,7 @@ export async function getEvent(slug: string): Promise<EventDetail | null> {
   return (data || null) as EventDetail | null;
 }
 
-export async function getEventsBySlugs(slugs:string[]): Promise<EventSummary[]> {
+export async function getEventsBySlugs(slugs:string[]): Promise<EventDetail[]> {
   const db=getPublicSupabase();
   if (!db || !slugs.length) return [];
   const unique=[...new Set(slugs)].slice(0,100);
@@ -231,7 +231,7 @@ export async function getEventsBySlugs(slugs:string[]): Promise<EventSummary[]> 
     console.error('get_public_events_by_slugs failed',error.message);
     return [];
   }
-  return (Array.isArray(data) ? data : []) as EventSummary[];
+  return (Array.isArray(data) ? data : []) as EventDetail[];
 }
 
 export async function getPublicFacetSitemap(): Promise<Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>> {
