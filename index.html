@@ -1178,6 +1178,7 @@
     let myName = localStorage.getItem('michimamo_name') || "";
     let myAvatar = localStorage.getItem('michimamo_avatar') || "👤";
     let currentCategoryRank = 'illegal';
+    let profileWriteInFlight = Promise.resolve();
 
     let actionLimits = JSON.parse(localStorage.getItem('michimamo_limits')) || {
         postDate: '', postCount: 0,
@@ -1616,22 +1617,101 @@
         document.getElementById('avatarModal').classList.add('open');
     }
     function closeAvatarModal() { document.getElementById('avatarModal').classList.remove('open'); }
-    function selectAvatar(emoji) {
+    function queueProfileWrite(task) {
+        profileWriteInFlight = profileWriteInFlight
+            .catch(() => {})
+            .then(task);
+        return profileWriteInFlight;
+    }
+
+    async function persistAuthenticatedProfile(patch) {
+        if (!currentAuthUserId) return null;
+        return queueProfileWrite(async () => {
+            const { data, error } = await db.rpc('update_my_profile', {
+                p_name: Object.prototype.hasOwnProperty.call(patch, 'name') ? patch.name : null,
+                p_avatar: Object.prototype.hasOwnProperty.call(patch, 'avatar') ? patch.avatar : null
+            });
+            if (error) throw error;
+            if (!Array.isArray(data) || data.length === 0) throw new Error('profile_not_found');
+            return data[0];
+        });
+    }
+
+    async function selectAvatar(emoji) {
+        const previousAvatar = myAvatar;
         myAvatar = emoji;
         localStorage.setItem('michimamo_avatar', myAvatar);
-        if (myUserId) db.from('profiles').update({ avatar: myAvatar }).eq('id', myUserId);
-        updateMyPage(); closeAvatarModal(); showToast("アバターを変更しました");
+        updateMyPage();
+        closeAvatarModal();
+
+        if (!currentAuthUserId) {
+            showToast("アバターを変更しました");
+            return;
+        }
+
+        try {
+            const profile = await persistAuthenticatedProfile({ avatar: myAvatar });
+            myUserId = profile.id || myUserId;
+            myAvatar = profile.avatar || myAvatar;
+            localStorage.setItem('michimamo_user_id', myUserId || '');
+            localStorage.setItem('michimamo_avatar', myAvatar);
+            updateMyPage();
+            showToast("アバターを変更しました");
+        } catch (error) {
+            console.error('Profile avatar save failed', error);
+            myAvatar = previousAvatar;
+            localStorage.setItem('michimamo_avatar', myAvatar);
+            updateMyPage();
+            showToast("アバターの保存に失敗しました");
+        }
     }
-    function saveProfile() {
-        let inputName = document.getElementById('myNameInput').value.trim();
+
+    async function saveProfile() {
+        const input = document.getElementById('myNameInput');
+        let inputName = input.value.trim();
         const ngWords = ["ちんちん", "うんこ", "バカ", "アホ", "死ね", "クソ", "殺す", "うざい", "カス", "マンコ"];
         let isNG = false;
         for (let word of ngWords) { if (inputName.includes(word)) { isNG = true; break; } }
-        if (isNG) { alert("不適切な単語が含まれているため、使用できません。"); document.getElementById('myNameInput').value = myName === "名無しドライバー" ? "" : myName; return; }
-        myName = inputName || "名無しドライバー";
+        if (isNG) {
+            alert("不適切な単語が含まれているため、使用できません。");
+            input.value = myName === "名無しドライバー" ? "" : myName;
+            return;
+        }
+
+        const previousName = myName;
+        const nextName = inputName || "名無しドライバー";
+        if (nextName === previousName) return;
+
+        myName = nextName;
         localStorage.setItem('michimamo_name', myName);
-        if (myUserId) db.from('profiles').update({ name: myName }).eq('id', myUserId);
-        showToast("プロフィールを保存しました"); updateMyPage();
+        updateMyPage();
+
+        if (!currentAuthUserId) {
+            showToast("プロフィールを保存しました");
+            return;
+        }
+
+        try {
+            const profile = await persistAuthenticatedProfile({ name: myName });
+            myUserId = profile.id || myUserId;
+            myName = profile.name || "名無しドライバー";
+            myPoint = Number(profile.point ?? myPoint ?? 0);
+            myAvatar = profile.avatar || myAvatar || "👤";
+
+            if (myUserId) localStorage.setItem('michimamo_user_id', myUserId);
+            localStorage.setItem('michimamo_name', myName);
+            localStorage.setItem('michimamo_pt', String(myPoint));
+            localStorage.setItem('michimamo_avatar', myAvatar);
+
+            updateMyPage();
+            showToast("プロフィールを保存しました");
+        } catch (error) {
+            console.error('Profile name save failed', error);
+            myName = previousName;
+            localStorage.setItem('michimamo_name', myName);
+            updateMyPage();
+            showToast("プロフィールの保存に失敗しました");
+        }
     }
 
     function updateMyPage() {
@@ -3619,6 +3699,7 @@ function shareSpot(title, address, category, event) {
 
     async function loadAuthenticatedProfile() {
         try {
+            await profileWriteInFlight.catch(() => {});
             const { data, error } = await db.rpc('get_my_profile');
 
             if (error) {
