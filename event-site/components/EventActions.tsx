@@ -27,9 +27,13 @@ function addDays(date: string, days: number) {
 
 export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
+  const [attended,setAttended]=useState(false);
 
   useEffect(() => {
-    const sync=()=>setSaved(readStringArray(PREF_KEYS.savedEvents).includes(event.slug));
+    const sync=()=>{
+      setSaved(readStringArray(PREF_KEYS.savedEvents).includes(event.slug));
+      setAttended(readStringArray(PREF_KEYS.attendedEvents).includes(event.slug));
+    };
     sync();
     window.addEventListener('machiibe:prefs',sync);
     return ()=>window.removeEventListener('machiibe:prefs',sync);
@@ -76,7 +80,13 @@ export function EventActions({ event }: Props) {
     void recordMetric(next ? 'save_event' : 'unsave_event',event.slug);
   };
 
-  const metric=(name:string)=>()=>{ void recordMetric(name,event.slug); };
+  const toggleAttended=()=>{
+    const next=toggleInArray(PREF_KEYS.attendedEvents,event.slug);
+    setAttended(next);
+    recordMetric(next?'attended_event':'unattended_event',event.slug);
+  };
+
+  const metric=(name:string)=>()=>{ recordMetric(name,event.slug); };
 
   return (
     <section className="event-action-hub">
@@ -87,6 +97,9 @@ export function EventActions({ event }: Props) {
       <div className="event-action-grid">
         <button type="button" className={`event-action-button ${saved ? 'is-saved' : ''}`} onClick={toggleSaved}>
           <span>♡</span><b>{saved ? '行きたい保存済み' : '行きたい'}</b>
+        </button>
+        <button type="button" className={`event-action-button ${attended ? 'is-attended' : ''}`} onClick={toggleAttended}>
+          <span>✓</span><b>{attended ? '行った・保存済み' : '行った'}</b>
         </button>
         <a className="event-action-button" href={googleCalendarUrl} target="_blank" rel="noreferrer" onClick={metric('calendar_google')}><span>📅</span><b>Googleカレンダー</b></a>
         <a className="event-action-button" href={`/api/calendar/${event.slug}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
