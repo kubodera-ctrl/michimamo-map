@@ -13,7 +13,7 @@ export function buildXShareUrl(input:{
     '#まちイベ'
   ].filter(Boolean);
   const text=parts.join('\n').slice(0,220);
-  const url=new URL('https://x.com/intent/post');
+  const url=new URL('https://twitter.com/intent/tweet');
   url.searchParams.set('text',text);
   url.searchParams.set('url',input.pageUrl);
   return url.toString();
