@@ -65,7 +65,7 @@ export default async function EventPage({ params }: { params: Params }) {
     <main className="detail-wrap">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <article className="detail-card">
-        {event.image_url ? <img className="detail-image" src={event.image_url} alt="" /> : <div className="detail-image detail-fallback">MACHIMAMO EVENT</div>}
+        {event.image_url ? <img className="detail-image" src={event.image_url} alt="" /> : <div className="detail-image detail-fallback">MACHI IBE</div>}
         <div className="detail-body">
           <div className="tag-row">
             <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
