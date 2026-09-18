@@ -3,6 +3,8 @@ import { CATEGORY_OPTIONS, getEventSitemap, getPublicFacetSitemap, getPublicFand
 import { slugByPrefecture } from '@/lib/prefectures';
 import { SEO_INTENTS, searchSeoIntentEvents } from '@/lib/seo-intents';
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://events.example.jp';
   const [eventRows, fandomRows, facetRows, guideRows] = await Promise.all([
