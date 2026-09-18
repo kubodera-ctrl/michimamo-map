@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from '@/lib/seo';
+import { PageViewTracker } from '@/components/PageViewTracker';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
@@ -35,6 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `}</Script>
           </>
         )}
+        <Suspense fallback={null}><PageViewTracker /></Suspense>
         <a className="skip-link" href="#main-content">本文へ移動</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteJsonLd)}} />
         <header className="site-header">
