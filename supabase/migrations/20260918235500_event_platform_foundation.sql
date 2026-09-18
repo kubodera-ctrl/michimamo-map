@@ -266,8 +266,8 @@ revoke all on table public.event_fandom_links from anon,authenticated;
 revoke all on table public.event_source_records from anon,authenticated;
 
 create or replace function public.search_public_events(
-  p_start_date date default current_date,
-  p_end_date date default (current_date+30),
+  p_start_date date default ((now() at time zone 'Asia/Tokyo')::date),
+  p_end_date date default (((now() at time zone 'Asia/Tokyo')::date)+30),
   p_prefecture text default null,
   p_keyword text default null,
   p_exclude_terms text[] default null,
@@ -329,8 +329,8 @@ as $$
     and (
       (
         e.schedule_type in ('single','continuous')
-        and e.end_date>=coalesce(p_start_date,current_date)
-        and e.start_date<=coalesce(p_end_date,current_date+30)
+        and e.end_date>=coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date))
+        and e.start_date<=coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+30)
       )
       or (
         e.schedule_type in ('recurring','irregular')
@@ -338,7 +338,7 @@ as $$
           select 1
           from public.event_occurrences eo
           where eo.event_id=e.id
-            and eo.occurrence_date between coalesce(p_start_date,current_date) and coalesce(p_end_date,current_date+30)
+            and eo.occurrence_date between coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date)) and coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+30)
             and eo.status <> 'cancelled'
         )
       )
@@ -396,7 +396,7 @@ as $$
     case when coalesce(p_sort,'recommended')='newest' then e.created_at end desc nulls last,
     case when coalesce(p_sort,'recommended')='short_first' then (e.end_date-e.start_date+1) end asc nulls last,
     case when coalesce(p_sort,'recommended')='recommended'
-      then case when e.start_date<coalesce(p_start_date,current_date) then 1 else 0 end end asc nulls last,
+      then case when e.start_date<coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date)) then 1 else 0 end end asc nulls last,
     case when coalesce(p_sort,'recommended')='recommended'
       then (e.end_date-e.start_date+1) end asc nulls last,
     e.start_date,e.start_time nulls first,e.title
@@ -433,7 +433,7 @@ as $$
         )
         from public.event_occurrences eo
         where eo.event_id=e.id
-          and eo.occurrence_date >= current_date-7
+          and eo.occurrence_date >= ((now() at time zone 'Asia/Tokyo')::date)-7
       ),'[]'::jsonb) as occurrences,
       e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
       e.location_precision,e.location_verified,e.place_external_id,
@@ -487,7 +487,7 @@ as $$
   from public.events e join public.regional_sources s on s.id=e.source_id
   where e.publication_status='published' and e.verification_status='verified'
     and s.is_active and s.event_use_allowed
-    and e.end_date>=current_date-7
+    and e.end_date>=((now() at time zone 'Asia/Tokyo')::date)-7
     and (e.expires_at is null or e.expires_at>now())
   order by e.updated_at desc
   limit least(greatest(coalesce(p_limit,50000),1),50000);
@@ -509,7 +509,7 @@ as $$
     and e.publication_status='published' and e.verification_status='verified'
     and e.event_status not in ('cancelled','postponed')
     and s.is_active and s.event_use_allowed
-    and e.end_date>=current_date-7
+    and e.end_date>=((now() at time zone 'Asia/Tokyo')::date)-7
     and (e.expires_at is null or e.expires_at>now())
   group by fe.slug
   having count(distinct e.id)>=greatest(coalesce(p_min_events,3),1)
@@ -531,7 +531,7 @@ as $$
       and e.verification_status='verified'
       and e.event_status not in ('cancelled','postponed')
       and s.is_active and s.event_use_allowed
-      and e.end_date>=current_date-7
+      and e.end_date>=((now() at time zone 'Asia/Tokyo')::date)-7
       and (e.expires_at is null or e.expires_at>now())
   ),
   prefectures as (
