@@ -434,7 +434,7 @@ grant execute on function public.get_public_event(text) to anon,authenticated;
 create or replace function public.get_public_events_by_slugs(p_slugs text[])
 returns jsonb
 language sql security definer stable set search_path=public,pg_temp
-as $
+as $$
   select coalesce(
     jsonb_agg(public.get_public_event(x.slug) order by x.ord)
       filter (where public.get_public_event(x.slug) is not null),
@@ -442,7 +442,7 @@ as $
   )
   from unnest(coalesce(p_slugs,'{}'::text[])) with ordinality as x(slug,ord)
   where x.ord <= 100;
-$;
+$$;
 
 revoke all on function public.get_public_events_by_slugs(text[]) from public,anon,authenticated;
 grant execute on function public.get_public_events_by_slugs(text[]) to anon,authenticated;
@@ -453,7 +453,7 @@ create or replace function public.record_public_metric(
 )
 returns void
 language plpgsql security definer volatile set search_path=public,pg_temp
-as $
+as $$
 begin
   if p_metric not in (
     'search_results_view','event_view','event_open','save_event','unsave_event',
@@ -468,7 +468,7 @@ begin
   on conflict(metric_date,metric,event_slug)
   do update set count=public.event_site_metrics_daily.count+1,updated_at=now();
 end;
-$;
+$$;
 
 revoke all on function public.record_public_metric(text,text) from public,anon,authenticated;
 grant execute on function public.record_public_metric(text,text) to anon,authenticated;
