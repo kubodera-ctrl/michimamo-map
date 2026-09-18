@@ -381,6 +381,7 @@
     <link rel="stylesheet" href="nearby-safety.css">
     <link rel="stylesheet" href="aed-review.css">
     <link rel="stylesheet" href="map-menu.css">
+    <link rel="stylesheet" href="profile-v2.css?v=29-profile1">
 </head>
 <body>
 
@@ -1180,6 +1181,28 @@
     let currentCategoryRank = 'illegal';
     let profileWriteInFlight = Promise.resolve();
 
+    window.MachimamoProfileState = {
+        snapshot: () => ({
+            id: myUserId,
+            authId: currentAuthUserId,
+            point: myPoint,
+            name: myName,
+            avatar: myAvatar
+        }),
+        authId: () => currentAuthUserId,
+        apply: (patch = {}) => {
+            if (Object.prototype.hasOwnProperty.call(patch, 'id')) myUserId = patch.id || null;
+            if (Object.prototype.hasOwnProperty.call(patch, 'point')) myPoint = Number(patch.point || 0);
+            if (Object.prototype.hasOwnProperty.call(patch, 'name')) myName = patch.name || '';
+            if (Object.prototype.hasOwnProperty.call(patch, 'avatar')) myAvatar = patch.avatar || '🐾';
+            if (myUserId) localStorage.setItem('michimamo_user_id', myUserId);
+            localStorage.setItem('michimamo_pt', String(myPoint));
+            localStorage.setItem('michimamo_name', myName);
+            localStorage.setItem('michimamo_avatar', myAvatar);
+        },
+        persist: (patch) => persistAuthenticatedProfile(patch)
+    };
+
     let actionLimits = JSON.parse(localStorage.getItem('michimamo_limits')) || {
         postDate: '', postCount: 0,
         likeDate: '', likeCount: 0,
@@ -1199,6 +1222,7 @@
     const SUPABASE_URL = 'https://ckftozjhdszlwqnylmxv.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    window.db = db;
 
     async function requireAuthenticatedUser() {
         const { data, error } = await db.auth.getUser();
@@ -4325,5 +4349,6 @@ function shareSpot(title, address, category, event) {
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
 <script src="camera-drive-mvp.js?v=25-mvp2"></script>
+<script src="profile-v2.js?v=29-profile1"></script>
 </body>
 </html>
