@@ -12,6 +12,16 @@ export function SeoBrowseLinks() {
       </div>
 
       <div className="seo-browse-block">
+        <h3>よく探される条件</h3>
+        <div className="seo-link-grid">
+          <Link href="/guide/today-kanto-family">今日・関東・子連れ</Link>
+          <Link href="/guide/tomorrow-kanto-family">明日・関東・子連れ</Link>
+          <Link href="/guide/today-indoor-family">今日・室内・子連れ</Link>
+          <Link href="/guide/tomorrow-indoor-family">明日・室内・子連れ</Link>
+        </div>
+      </div>
+
+      <div className="seo-browse-block">
         <h3>カテゴリ</h3>
         <div className="seo-link-grid seo-category-links">
           {CATEGORY_OPTIONS.map(([key,label]) => (
