@@ -45,18 +45,41 @@ export const ACCESSIBILITY_OPTIONS = [
 
 export const ACCESSIBILITY_LABELS = Object.fromEntries(ACCESSIBILITY_OPTIONS) as Record<string,string>;
 
-export const FANDOM_OPTIONS = [
-  ['chiikawa','ちいかわ'],
-  ['detective-conan','名探偵コナン'],
-  ['sumikkogurashi','すみっコぐらし'],
-  ['aipri','アイプリ'],
-  ['precure','プリキュア'],
-  ['kamen-rider','仮面ライダー'],
-  ['hayao-miyazaki','宮崎駿'],
-  ['ghibli','ジブリ'],
-  ['pixar','ピクサー']
+export const FANDOM_GROUPS = [
+  {
+    label: 'キャラクター・ファミリー',
+    items: [
+      ['chiikawa','ちいかわ'],['pokemon','ポケモン'],['sanrio','サンリオ'],
+      ['hello-kitty','ハローキティ'],['kuromi','クロミ'],['cinnamoroll','シナモロール'],
+      ['sumikkogurashi','すみっコぐらし'],['doraemon','ドラえもん'],['anpanman','アンパンマン'],
+      ['crayon-shinchan','クレヨンしんちゃん'],['miffy','ミッフィー'],
+      ['paw-patrol','パウ・パトロール'],['thomas','きかんしゃトーマス'],
+      ['sylvanian-families','シルバニアファミリー'],['tamagotchi','たまごっち']
+    ]
+  },
+  {
+    label: 'ゲーム・アニメ・ヒーロー',
+    items: [
+      ['detective-conan','名探偵コナン'],['aipri','アイプリ'],['precure','プリキュア'],
+      ['kamen-rider','仮面ライダー'],['super-sentai','スーパー戦隊'],['ultraman','ウルトラマン'],
+      ['super-mario','スーパーマリオ'],['kirby','星のカービィ'],['animal-crossing','どうぶつの森'],
+      ['one-piece','ONE PIECE'],['demon-slayer','鬼滅の刃'],['spy-family','SPY×FAMILY']
+    ]
+  },
+  {
+    label: '映画・スタジオ',
+    items: [
+      ['disney','ディズニー'],['pixar','ピクサー'],['minions','ミニオン'],
+      ['ghibli','ジブリ'],['hayao-miyazaki','宮崎駿']
+    ]
+  },
+  {
+    label: 'インフルエンサー・クリエイター',
+    items: [['shinako','しなこ']]
+  }
 ] as const;
 
+export const FANDOM_OPTIONS = FANDOM_GROUPS.flatMap((group) => group.items);
 export const FANDOM_LABELS = Object.fromEntries(FANDOM_OPTIONS) as Record<string,string>;
 
 export const SORT_OPTIONS = [
