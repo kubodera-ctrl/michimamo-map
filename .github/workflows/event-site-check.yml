@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'event-site/**'
+      - 'index.html'
+      - 'index.html'
       - 'supabase/migrations/*event_platform*'
       - 'supabase/migrations/*dining*'
       - '.github/workflows/event-site-check.yml'
@@ -61,3 +63,9 @@ jobs:
         env:
           PGPASSWORD: postgres
         run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/event_platform_smoke.sql
+      - name: MAP event deep-link smoke
+        working-directory: .
+        run: |
+          grep -q "rawEventLat" index.html
+          grep -q "rawEventLng" index.html
+          grep -q "isFirstLocationSet = true" index.html
