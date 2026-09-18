@@ -13,26 +13,26 @@ insert into public.events(
   location_precision,location_verified,dedupe_key
 ) values
 (
-  'ci-free-today','CI Free Today',current_date,current_date,'single','東京都','https://example.test/free',
+  'ci-free-today','CI Free Today',((now() at time zone 'Asia/Tokyo')::date),((now() at time zone 'Asia/Tokyo')::date),'single','東京都','https://example.test/free',
   'free',true,(select id from public.regional_sources where source_key='ci-official'),'https://example.test/free',
   'verified','published','https://example.test/image.jpg','not_used',
   'exact_address',true,'ci-free-today'
 ),
 (
-  'ci-recurring','CI Recurring',current_date,current_date+30,'recurring','東京都','https://example.test/recurring',
+  'ci-recurring','CI Recurring',((now() at time zone 'Asia/Tokyo')::date),((now() at time zone 'Asia/Tokyo')::date)+30,'recurring','東京都','https://example.test/recurring',
   'paid',false,(select id from public.regional_sources where source_key='ci-official'),'https://example.test/recurring',
   'verified','published',null,'not_used',
   'unknown',false,'ci-recurring'
 ),
 (
-  'ci-unverified','CI Unverified',current_date,current_date,'single','東京都','https://example.test/unverified',
+  'ci-unverified','CI Unverified',((now() at time zone 'Asia/Tokyo')::date),((now() at time zone 'Asia/Tokyo')::date),'single','東京都','https://example.test/unverified',
   'free',true,(select id from public.regional_sources where source_key='ci-official'),'https://example.test/unverified',
   'unverified','published',null,'not_used',
   'unknown',false,'ci-unverified'
 );
 
 insert into public.event_occurrences(event_id,occurrence_date,status)
-select id,current_date+2,'scheduled' from public.events where slug='ci-recurring';
+select id,((now() at time zone 'Asia/Tokyo')::date)+2,'scheduled' from public.events where slug='ci-recurring';
 
 insert into public.fandom_entities(slug,display_name,aliases,entity_type)
 values('ci-oshi','CI Oshi',array['CI推し'],'other');
@@ -53,8 +53,8 @@ begin
 
   select count(*) into n
   from public.search_public_events(
-    p_start_date=>current_date,
-    p_end_date=>current_date,
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
     p_price_types=>array['free']
   );
   if n <> 1 then
@@ -63,8 +63,8 @@ begin
 
   select count(*) into n
   from public.search_public_events(
-    p_start_date=>current_date,
-    p_end_date=>current_date,
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
     p_keyword=>'CI Recurring'
   );
   if n <> 0 then
@@ -73,8 +73,8 @@ begin
 
   select count(*) into n
   from public.search_public_events(
-    p_start_date=>current_date+2,
-    p_end_date=>current_date+2,
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date)+2,
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date)+2,
     p_keyword=>'CI Recurring'
   );
   if n <> 1 then
@@ -83,8 +83,8 @@ begin
 
   select count(*) into n
   from public.search_public_events(
-    p_start_date=>current_date,
-    p_end_date=>current_date,
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
     p_fandom_slugs=>array['ci-oshi']
   );
   if n <> 1 then
@@ -163,7 +163,7 @@ insert into public.dining_family_profiles(
 ) values (
   'ci-dining','CI Family Dining','東京都','港区','テスト住所',35.63,139.77,
   'https://example.test/dining','official',true,true,true,true,
-  'verified',now(),current_date+30
+  'verified',now(),((now() at time zone 'Asia/Tokyo')::date)+30
 );
 
 insert into public.dining_child_price_rules(
