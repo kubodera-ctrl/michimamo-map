@@ -68,6 +68,7 @@ export function EventActions({ event }: Props) {
     diningParams.set('lng', String(event.longitude));
   }
   const diningUrl = `/dining?${diningParams.toString()}`;
+  const parkingReservationUrl = process.env.NEXT_PUBLIC_PARKING_RESERVATION_URL || '';
 
   const toggleSaved = () => {
     const next=toggleInArray(PREF_KEYS.savedEvents,event.slug);
@@ -92,6 +93,11 @@ export function EventActions({ event }: Props) {
         <a className="event-action-button" href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_google')}><span>📍</span><b>Google Maps</b></a>
         <a className="event-action-button" href={appleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_apple')}><span></span><b>Apple Maps</b></a>
         <a className="event-action-button" href={parkingUrl} target="_blank" rel="noreferrer" onClick={metric('parking_search')}><span>🅿</span><b>駐車場を探す</b></a>
+        {parkingReservationUrl && (
+          <a className="event-action-button pr-action" href={parkingReservationUrl} target="_blank" rel="sponsored noreferrer" onClick={metric('parking_search')}>
+            <span>🅿</span><b>予約できる駐車場</b><small>PR</small>
+          </a>
+        )}
         <a className="event-action-button dining-action" href={diningUrl} onClick={metric('dining_open')}><span>🍽</span><b>遊んだ後のごはん</b></a>
       </div>
     </section>
