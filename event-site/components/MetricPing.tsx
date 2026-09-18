@@ -1,24 +1,28 @@
 'use client';
 
 import { useEffect } from 'react';
-import { getPublicSupabase } from '@/lib/supabase';
 
-export async function recordMetric(metric:string,eventSlug?:string) {
-  const db=getPublicSupabase();
-  if (!db) return;
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+export function recordMetric(metric:string,eventSlug?:string) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
   try {
-    await db.rpc('record_public_metric',{
-      p_metric:metric,
-      p_event_slug:eventSlug || null
+    window.gtag('event',metric,{
+      event_slug:eventSlug || undefined,
+      send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
     });
   } catch {
-    // Metrics must never break user actions.
+    // Analytics must never break user actions.
   }
 }
 
 export function MetricPing({metric,eventSlug}:{metric:string;eventSlug?:string}) {
   useEffect(() => {
-    void recordMetric(metric,eventSlug);
+    recordMetric(metric,eventSlug);
   },[metric,eventSlug]);
   return null;
 }
