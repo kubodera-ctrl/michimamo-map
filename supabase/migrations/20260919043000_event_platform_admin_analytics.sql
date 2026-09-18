@@ -154,6 +154,22 @@ detected as (
   order by esr.fetched_at desc
   limit 40
 ),
+source_health as (
+  select
+    s.id,s.name,s.source_kind,s.prefecture,s.municipality,
+    s.fetch_status,s.last_success_at,s.last_failure_at,s.consecutive_failures,
+    s.is_active,s.last_reviewed_at,
+    count(e.id)::bigint as event_count,
+    count(e.id) filter(where e.publication_status='published' and e.verification_status='verified')::bigint as published_count
+  from public.regional_sources s
+  left join public.events e on e.source_id=s.id
+  group by s.id,s.name,s.source_kind,s.prefecture,s.municipality,
+    s.fetch_status,s.last_success_at,s.last_failure_at,s.consecutive_failures,
+    s.is_active,s.last_reviewed_at
+  order by
+    case s.fetch_status when 'degraded' then 0 when 'unknown' then 1 when 'healthy' then 2 when 'disabled' then 3 else 4 end,
+    s.consecutive_failures desc,s.name
+),
 pickup_rows as (
   select
     p.event_id,p.rank,p.reason,p.updated_at,
@@ -178,6 +194,7 @@ select jsonb_build_object(
   'searchTerms',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.term) from search_rank x),'[]'::jsonb),
   'popularEvents',coalesce((select jsonb_agg(to_jsonb(x) order by x.count desc,x.start_date,x.title) from event_rank x),'[]'::jsonb),
   'newDetected',coalesce((select jsonb_agg(to_jsonb(x) order by x.fetched_at desc) from detected x),'[]'::jsonb),
+  'sources',coalesce((select jsonb_agg(to_jsonb(x)) from source_health x),'[]'::jsonb),
   'pickups',coalesce((select jsonb_agg(to_jsonb(x) order by x.rank,x.start_date,x.title) from pickup_rows x),'[]'::jsonb)
 );
 $$;
