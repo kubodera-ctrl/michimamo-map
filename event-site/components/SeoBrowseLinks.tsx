@@ -18,6 +18,9 @@ export function SeoBrowseLinks() {
           <Link href="/guide/tomorrow-kanto-family">明日・関東・子連れ</Link>
           <Link href="/guide/today-indoor-family">今日・室内・子連れ</Link>
           <Link href="/guide/tomorrow-indoor-family">明日・室内・子連れ</Link>
+          <Link href="/guide/today-couple">今日・カップル</Link>
+          <Link href="/guide/today-solo">今日・ひとり</Link>
+          <Link href="/guide/today-senior">今日・シニア</Link>
         </div>
       </div>
 
