@@ -7,6 +7,8 @@ import { Pagination } from '@/components/Pagination';
 import { FANDOM_LABELS, FANDOM_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
+export const revalidate = 3600;
+
 const aliases: Record<string,string> = {
   'pokemon':'ポケモン・Pokémon・Pokemon','sanrio':'サンリオ・Sanrio',
   'hello-kitty':'ハローキティ・キティ','cinnamoroll':'シナモロール・シナモン',
