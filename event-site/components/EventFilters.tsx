@@ -3,7 +3,7 @@ import {
   AGE_OPTIONS,
   CATEGORY_OPTIONS,
   DURATION_OPTIONS,
-  FANDOM_OPTIONS,
+  FANDOM_GROUPS,
   SORT_OPTIONS
 } from '@/lib/events';
 import { PREFECTURES } from '@/lib/prefectures';
@@ -104,7 +104,11 @@ export function EventFilters({ values }: Props) {
           <span>推し活・作品/キャラ</span>
           <select name="oshi" defaultValue={values.fandom}>
             <option value="">指定なし</option>
-            {FANDOM_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
+            {FANDOM_GROUPS.map((group) => (
+              <optgroup key={group.label} label={group.label}>
+                {group.items.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
+              </optgroup>
+            ))}
           </select>
         </label>
 
