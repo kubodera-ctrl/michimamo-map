@@ -116,7 +116,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
               <div className="admin-table-wrap"><table className="admin-table">
                 <thead><tr><th>検出</th><th>イベント</th><th>正規化</th><th>公開状態</th><th>X</th></tr></thead>
                 <tbody>{dashboard.newDetected.map((item)=> {
-                  const canPost=Boolean(item.slug && item.publication_status==='published' && item.verification_status==='verified' && !['cancelled','postponed'].includes(item.event_status||''));
+                  const canPost=Boolean(item.slug && item.publication_status==='published' && item.verification_status==='verified' && !['cancelled','postponed','sold_out','registration_closed'].includes(item.event_status||''));
                   return (
                     <tr key={item.id}>
                       <td>{new Date(item.fetched_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})}</td>
