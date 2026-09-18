@@ -8,6 +8,8 @@ import { CATEGORY_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchE
 import { PREFECTURES, prefectureBySlug } from '@/lib/prefectures';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
+export const revalidate = 3600;
+
 type SearchParams=Promise<Record<string,string|string[]|undefined>>;
 
 export function generateStaticParams() {
