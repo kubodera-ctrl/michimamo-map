@@ -112,6 +112,38 @@ begin
 end;
 $$;
 
+select public.service_record_machiibe_metric('page_view',null,null);
+select public.service_record_machiibe_metric('search',null,'花火');
+select public.service_record_machiibe_metric('event_open','ci-free-today',null);
+select public.service_record_machiibe_metric('event_open','ci-free-today',null);
+
+do $
+declare
+  payload jsonb;
+  n integer;
+begin
+  select public.service_get_machiibe_admin_dashboard(30) into payload;
+  if coalesce((payload->'summary'->>'pv')::integer,0) <> 1 then
+    raise exception 'admin dashboard PV aggregate failed';
+  end if;
+  if coalesce((payload->'summary'->>'searches')::integer,0) <> 1 then
+    raise exception 'admin dashboard search aggregate failed';
+  end if;
+  if jsonb_array_length(payload->'searchTerms') <> 1 then
+    raise exception 'search term ranking missing';
+  end if;
+
+  select public.service_refresh_machiibe_pickups(6) into n;
+  if n <> 1 then
+    raise exception 'popular pickup refresh expected 1, got %',n;
+  end if;
+
+  if jsonb_array_length(public.get_public_machiibe_pickups(6)) <> 1 then
+    raise exception 'public pickup RPC expected 1 event';
+  end if;
+end;
+$;
+
 insert into public.dining_family_profiles(
   identity_key,name,prefecture,municipality,address,latitude,longitude,
   source_url,source_kind,child_friendly,kids_menu,high_chair,stroller_ok,
