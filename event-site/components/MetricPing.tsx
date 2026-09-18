@@ -11,6 +11,14 @@ declare global {
 export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string) {
   if (typeof window === 'undefined') return;
 
+  if(metric==='event_view' && eventSlug){
+    const key=`machiibe_metric_event_view_${eventSlug}`;
+    try{
+      if(sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key,'1');
+    }catch{}
+  }
+
   try {
     void fetch('/api/analytics/track',{
       method:'POST',
