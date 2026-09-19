@@ -173,7 +173,7 @@ export async function searchEventsWithStatus(input: EventSearchInput): Promise<E
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
     p_fandom_slugs: input.fandomSlugs?.length ? input.fandomSlugs : null,
     p_price_types: priceTypes,
-    p_updated_after: input.updatedAfter || null,
+    p_created_after: input.createdAfter || null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_indoor_only: input.indoorOnly || false,
     p_sort: input.sort || 'recommended',
@@ -322,7 +322,7 @@ export function resolveDateRange(mode: string | undefined): {startDate:string;en
     return { startDate: start, endDate: end, label: '今週末' };
   }
   if (mode === '30days') {
-    return { startDate: today, endDate: addDays(today, 30), label: '30日以内' };
+    return { startDate: today, endDate: addDays(today, 29), label: '30日以内' };
   }
   return { startDate: today, endDate: today, label: '今日' };
 }

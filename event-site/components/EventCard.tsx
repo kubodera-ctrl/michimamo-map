@@ -27,8 +27,8 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
     setHidden(respectHidden && readStringArray(PREF_KEYS.hiddenEvents).includes(event.slug));
     setViewedState(wasViewed(event.slug));
     const previous=getPreviousVisit();
-    setIsNew(Boolean(previous && Date.parse(event.updated_at)>Date.parse(previous)));
-  },[event.slug,event.updated_at,respectHidden]);
+    setIsNew(Boolean(previous && Date.parse(event.created_at)>Date.parse(previous)));
+  },[event.slug,event.created_at,respectHidden]);
 
   const openEvent=()=>{
     setViewed(event.slug);
@@ -84,6 +84,7 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
             <span className={`tag tag-price tag-price-${event.price_type}`}>{PRICE_LABELS[event.price_type]}</span>
             {event.indoor === true && <span className="tag">屋内</span>}
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
+            {event.audience_intent === 'family_friendly' && <span className="tag tag-family">ファミリー向け</span>}
             {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
             {event.fandom_slugs.slice(0,2).map((slug) => <span className="tag tag-oshi" key={slug}>推し活：{FANDOM_LABELS[slug] || slug}</span>)}
             {event.category_keys.slice(0,2).map((key) => <span className="tag" key={key}>{categoryLabels[key] || key}</span>)}

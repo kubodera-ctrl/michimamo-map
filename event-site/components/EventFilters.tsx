@@ -15,7 +15,7 @@ type Props = {
     dateMode: string; prefecture: string; keyword: string; excludeWords: string;
     category: string; age: string; duration: string; fandom: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
-    excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
+    familyFriendlyOnly: boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
   };
 };
 
@@ -80,6 +80,7 @@ export function EventFilters({ values }: Props) {
         <label className="check-chip"><input type="checkbox" name="indoor" value="1" defaultChecked={values.indoorOnly} />屋内だけ</label>
         <label className="check-chip check-chip-accessibility"><input type="checkbox" name="accessibility" value="1" defaultChecked={values.accessibilityOnly} />障害者向け・配慮情報あり</label>
         <label className="check-chip"><input type="checkbox" name="childFocus" value="1" defaultChecked={values.childFocusOnly} />子どもが主役</label>
+        <label className="check-chip"><input type="checkbox" name="family" value="1" defaultChecked={values.familyFriendlyOnly} />ファミリー向け</label>
         <label className="check-chip"><input type="checkbox" name="excludeAdult" value="1" defaultChecked={values.excludeAdultOriented} />大人向けを除く</label>
         <button className="search-button" type="submit">この条件で探す</button>
       </div>

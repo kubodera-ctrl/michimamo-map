@@ -57,6 +57,7 @@ export type EventSummary = {
   source_url: string;
   source_updated_at: string | null;
   last_verified_at: string | null;
+  created_at: string;
   updated_at: string;
 };
 
@@ -87,7 +88,7 @@ export type EventSearchInput = {
   audienceIntents?: string[];
   fandomSlugs?: string[];
   priceTypes?: PriceType[];
-  updatedAfter?: string;
+  createdAfter?: string;
   freeOnly?: boolean;
   excludeAdultOriented?: boolean;
   indoorOnly?: boolean;
