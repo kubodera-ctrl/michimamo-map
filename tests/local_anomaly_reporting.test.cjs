@@ -8,6 +8,10 @@ assert.match(html,/<option value="local_anomaly">/,'post form includes local ano
 assert.match(html,/id="localAnomalyType"/,'local anomaly subtype selector exists');
 assert.match(html,/id="localAnomalyFactOnly"/,'fact-only / no-tracking acknowledgement exists');
 assert.match(html,/人物・車両を犯人や所有者と断定せず/,'UI explicitly prohibits identification and accusation');
+assert.match(html,/見つけた異変（事実のみ）/,'local anomaly title prompt asks for facts only');
+assert.match(html,/人物の特徴・氏名・顔・ナンバーなどは書かず/,'local anomaly comment prompt rejects identifiers');
+assert.match(html,/緊急の事故・犯罪・災害は110・119へ/,'local anomaly popup uses contextual emergency guidance');
+assert.match(html,/cat === 'local_anomaly'\) \{[\s\S]*reportArea\.style\.display = 'none'/,'police-reported checkbox is hidden for general local anomalies');
 assert.match(html,/localAnomalyLabels\s*=\s*\{/,'subtype labels are defined');
 assert.match(html,/category:cat,anomaly_type:anomalyType/,'submission payload carries anomaly subtype');
 assert.match(html,/\['aed', 'abandoned', 'local_anomaly'\]/,'local anomaly photos are normalized before upload');
