@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev30-camera-audit
+      - dev30-local-anomaly
   pull_request:
     branches:
       - main
@@ -28,3 +29,5 @@ jobs:
         run: node tests/camera_drive_loader.test.cjs
       - name: Drive proximity UI
         run: node tests/camera_drive_proximity_ui.test.cjs
+      - name: Local anomaly reporting
+        run: node tests/local_anomaly_reporting.test.cjs
