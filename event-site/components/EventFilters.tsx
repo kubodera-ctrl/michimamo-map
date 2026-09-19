@@ -37,7 +37,7 @@ export function EventFilters({ values }: Props) {
         <label><span>エリア</span><select name="prefecture" defaultValue={values.prefecture}>
           <option value="">全国</option>{PREFECTURES.map(([slug,name]) => <option key={slug} value={name}>{name}</option>)}
         </select></label>
-        <label className="keyword-field"><span>キーワード</span><input name="q" defaultValue={values.keyword} placeholder="花火、マルシェ、科学館…" /></label>
+        <label className="keyword-field"><span>キーワード</span><input name="q" defaultValue={values.keyword} maxLength={100} placeholder="花火、マルシェ、科学館…" /></label>
         <label><span>カテゴリ</span><select name="category" defaultValue={values.category}>
           <option value="">すべて</option>{CATEGORY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
         </select></label>
@@ -53,7 +53,7 @@ export function EventFilters({ values }: Props) {
 
       <div className="advanced-grid">
         <label className="exclude-field"><span>除外ワード</span>
-          <input name="exclude" defaultValue={values.excludeWords} placeholder="例：アフタヌーンティー、ビュッフェ、ディナー" />
+          <input name="exclude" defaultValue={values.excludeWords} maxLength={500} placeholder="例：アフタヌーンティー、ビュッフェ、ディナー" />
           <small>「、」またはカンマ区切り。タイトル・説明・会場・主催者・料金文などを対象に除外します。</small>
         </label>
         <label><span>開催期間</span><select name="duration" defaultValue={values.duration}>
@@ -69,7 +69,7 @@ export function EventFilters({ values }: Props) {
           </optgroup>)}
         </select></label>
         <label className="oshi-keyword-field"><span>推し活キーワード（任意）</span>
-          <input name="oshiKeyword" defaultValue={values.fandomKeyword} placeholder="例：コナン、ちいかわ、ヒロアカ、しなこ" />
+          <input name="oshiKeyword" defaultValue={values.fandomKeyword} maxLength={80} placeholder="例：コナン、ちいかわ、ヒロアカ、しなこ" />
           <small>一覧にない作品名・キャラ名・出演者名など。確認済み関連情報または掲載本文の文字一致で探します。</small>
         </label>
         <label><span>障害者向け・配慮内容</span><select name="accessibilityFeature" defaultValue={values.accessibilityFeature}>

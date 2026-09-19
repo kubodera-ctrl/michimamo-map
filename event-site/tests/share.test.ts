@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildXShareText, buildXShareUrl } from '../lib/share';
+import { buildXShareText, buildXShareUrl, xWeightedLength } from '../lib/share';
 
 test('operator X copy keeps the required event fields in readable order',()=>{
   const text=buildXShareText({
@@ -48,6 +48,24 @@ test('X copy normalizes whitespace and truncates long summaries',()=>{
   });
   assert.match(text,/テスト イベント/);
   const summaryLine=text.split('\n').find((line)=>line.startsWith('あ'))||'';
-  assert.ok(summaryLine.length<=88);
+  assert.ok(xWeightedLength(summaryLine)<=34);
   assert.ok(summaryLine.endsWith('…'));
+});
+
+test('operator X copy stays within a conservative weighted text budget',()=>{
+  const text=buildXShareText({
+    prefix:'【新着イベント】',
+    placeText:'東京都港区お台場周辺のとても長い地域表記',
+    title:'とても長いイベントタイトル'.repeat(8),
+    conditionText:'ファミリー向け・屋内・完全無料・親子向け・体験型',
+    dateText:'2026-09-20〜2026-09-21',
+    timeText:'10:00〜17:00',
+    summary:'親子で楽しめるイベント概要です。'.repeat(12),
+    pageUrl:'https://example.jp/events/test',
+    hashtags:['イベント情報']
+  });
+  assert.ok(xWeightedLength(text)<=245);
+  assert.match(text,/#イベント情報 #まちイベ$/);
+  assert.match(text,/開催日：/);
+  assert.match(text,/時間：/);
 });

@@ -144,7 +144,7 @@ export function parseExcludeTerms(value: string): string[] {
   return [...new Set(
     value
       .split(/[、,\n]+/)
-      .map((item) => item.trim())
+      .map((item) => item.trim().slice(0,80))
       .filter(Boolean)
   )].slice(0, 20);
 }

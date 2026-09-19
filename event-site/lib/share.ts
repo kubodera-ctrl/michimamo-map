@@ -10,35 +10,58 @@ export type XShareInput={
   hashtags?:string[];
 };
 
-function clean(value:string|undefined,max:number){
-  return (value||'').replace(/\s+/g,' ').trim().slice(0,max);
+function clean(value:string|undefined){
+  return (value||'').replace(/\s+/g,' ').trim();
 }
 
-function compactSummary(value:string|undefined,max=88){
-  const text=clean(value,max+20);
-  if(text.length<=max) return text;
-  return text.slice(0,max-1).trimEnd()+'…';
+function xCharWeight(char:string){
+  const cp=char.codePointAt(0) || 0;
+  return cp <= 0x10ff ? 1 : 2;
+}
+
+export function xWeightedLength(value:string){
+  return Array.from(value).reduce((total,char)=>total+xCharWeight(char),0);
+}
+
+function truncateWeighted(value:string|undefined,maxWeight:number){
+  const text=clean(value);
+  if(!text || maxWeight<=0) return '';
+  if(xWeightedLength(text)<=maxWeight) return text;
+
+  const ellipsis='…';
+  const reserve=xCharWeight(ellipsis);
+  let out='';
+  let used=0;
+  for(const char of Array.from(text)){
+    const weight=xCharWeight(char);
+    if(used+weight+reserve>maxWeight) break;
+    out+=char;
+    used+=weight;
+  }
+  return out.trimEnd()+ellipsis;
 }
 
 export function buildXShareText(input:XShareInput){
   const tags=[...(input.hashtags||[]),'まちイベ']
-    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\s+/g,''),24))
+    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\s+/g,'')))
     .filter(Boolean)
     .filter((tag,index,array)=>array.indexOf(tag)===index)
     .slice(0,3)
     .map((tag)=>`#${tag}`)
     .join(' ');
 
-  return [
-    clean(input.prefix,30),
-    clean(input.placeText,70),
-    clean(input.title,100),
-    clean(input.conditionText,70),
-    input.dateText ? `開催日：${clean(input.dateText,70)}` : '',
-    input.timeText ? `時間：${clean(input.timeText,40)}` : '',
-    compactSummary(input.summary),
-    tags
-  ].filter(Boolean).join('\n');
+  const lines=[
+    truncateWeighted(input.prefix,14),
+    truncateWeighted(input.placeText,24),
+    truncateWeighted(input.title,58),
+    truncateWeighted(input.conditionText,22),
+    input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,34) : '',
+    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,26) : '',
+    truncateWeighted(input.summary,34),
+    truncateWeighted(tags,24)
+  ].filter(Boolean);
+
+  return lines.join('\n');
 }
 
 export function buildXShareUrl(input:XShareInput) {

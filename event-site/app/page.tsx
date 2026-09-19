@@ -34,13 +34,13 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const params = await searchParams;
   const dateMode = one(params.when) || 'today';
   const prefecture = one(params.prefecture);
-  const keyword = one(params.q);
-  const excludeWords = one(params.exclude);
+  const keyword = one(params.q).trim().slice(0,100);
+  const excludeWords = one(params.exclude).slice(0,500);
   const category = one(params.category);
   const age = one(params.age);
   const duration = one(params.duration);
   const fandom = one(params.oshi);
-  const fandomKeyword = one(params.oshiKeyword);
+  const fandomKeyword = one(params.oshiKeyword).trim().slice(0,80);
   const legacyFree = one(params.free) === '1';
   const priceRaw = one(params.price) || (legacyFree ? 'free' : '');
   const price = priceValues.includes(priceRaw as PriceType) ? priceRaw as PriceType : '';
