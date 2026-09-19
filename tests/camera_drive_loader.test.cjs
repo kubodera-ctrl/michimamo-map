@@ -1,10 +1,16 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const loader=fs.readFileSync('mypage-guide.js','utf8');
+const html=fs.readFileSync('index.html','utf8');
 
 assert.match(
   loader,
   /script\.src='camera-drive-mvp\.js\?v=30-drive-loader1'/,
   'the hardened drive detector bundle is loaded'
+);
+assert.match(
+  html,
+  /mypage-guide\.js\?v=30-camera-audit1/,
+  'the page cache-busts the hardened camera loader'
 );
 assert.match(
   loader,
