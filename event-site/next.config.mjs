@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true';
+const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true'
+  && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
 
 const nextConfig = {
   poweredByHeader: false,

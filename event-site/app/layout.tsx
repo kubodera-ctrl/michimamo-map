@@ -8,7 +8,7 @@ import { TrackedLink } from '@/components/TrackedLink';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
-const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true';
+const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
 
 export const metadata: Metadata = {
   applicationName: SITE_NAME,

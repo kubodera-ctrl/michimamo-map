@@ -29,12 +29,13 @@ export async function generateMetadata({
   if (!name) return {};
   const today=japanToday();
   const sample=await searchEvents({startDate:today,endDate:addDays(today,29),prefecture:name,limit:3});
+  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
   const title = `${name}のイベント｜今日・今週末・子ども向けのおでかけ`;
   const description = `${name}の今日・今週末・30日以内のイベントを検索。子ども向け、無料、屋内、障害者向け配慮などの条件にも対応。`;
   return {
     title,description,
     alternates: { canonical: `/area/${prefecture}` },
-    robots: page===1 && sample.length>=3 ? {index:true,follow:true} : {index:false,follow:true},
+    robots: allowIndexing && page===1 && sample.length>=3 ? {index:true,follow:true} : {index:false,follow:allowIndexing},
     openGraph: { title, description, url: `/area/${prefecture}`, type: 'website' }
   };
 }

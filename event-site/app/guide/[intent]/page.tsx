@@ -28,10 +28,11 @@ export async function generateMetadata({
   const config = SEO_INTENTS[intent as SeoIntentKey];
   if (!config) return {};
   const sample=await searchSeoIntentEvents(intent,1,3);
+  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
   return {
     title: config.title,description: config.description,
     alternates: { canonical: `/guide/${intent}` },
-    robots: page===1 && sample.events.length>=3 ? {index:true,follow:true} : {index:false,follow:true},
+    robots: allowIndexing && page===1 && sample.events.length>=3 ? {index:true,follow:true} : {index:false,follow:allowIndexing},
     openGraph: { type: 'website',title: config.title,description: config.description,url: `/guide/${intent}` }
   };
 }

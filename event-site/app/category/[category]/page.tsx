@@ -32,12 +32,13 @@ export async function generateMetadata({
   const hasQuery = Object.entries(query).some(([key,value]) => key!=='page' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   const today=japanToday();
   const sample=await searchEvents({startDate:today,endDate:addDays(today,29),prefecture,categories:[category],limit:3});
+  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
   const title = `${label}のイベント｜全国の今日・今週末のおでかけ`;
   const description = `全国の${label}イベントを今日から30日以内で検索。開催日、地域、子ども向け、無料、屋内などの条件から探せます。`;
   return {
     title,description,
     alternates: { canonical: `/category/${category}` },
-    robots: !hasQuery && page===1 && sample.length>=3 ? { index: true, follow: true } : { index: false, follow: true },
+    robots: allowIndexing && !hasQuery && page===1 && sample.length>=3 ? { index: true, follow: true } : { index: false, follow: allowIndexing },
     openGraph: { title, description, url: `/category/${category}`, type: 'website' }
   };
 }

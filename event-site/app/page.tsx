@@ -26,7 +26,8 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
     return Boolean(value);
   });
   const page=parsePage(params.page);
-  return { alternates:{canonical:'/'}, robots:hasFilters||page>1?{index:false,follow:true}:{index:true,follow:true} };
+  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  return { alternates:{canonical:'/'}, robots:allowIndexing && !hasFilters && page===1?{index:true,follow:true}:{index:false,follow:allowIndexing} };
 }
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {

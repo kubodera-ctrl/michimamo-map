@@ -56,11 +56,12 @@ export async function generateMetadata({
   if (!label) return {};
   const range=oshiRange();
   const sample=await searchEvents({...range,fandomSlugs:[slug],limit:3});
+  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
   const title=`${label}のイベント｜コラボ・ポップアップ・おでかけ情報`;
   const description=`${aliases[slug] || label}に関連する公開・確認済みイベントを探せます。開催日、地域、会場、公式情報を確認できます。`;
   return {
     title,description,alternates:{canonical:`/oshi/${slug}`},
-    robots: page===1 && sample.length>=3 ? {index:true,follow:true} : {index:false,follow:true},
+    robots: allowIndexing && page===1 && sample.length>=3 ? {index:true,follow:true} : {index:false,follow:allowIndexing},
     openGraph:{type:'website',title,description,url:`/oshi/${slug}`}
   };
 }
