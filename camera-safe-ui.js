@@ -17,6 +17,7 @@ const counter=document.createElement('div');
 counter.className='camera-detection-count';
 counter.setAttribute('role','status');
 counter.setAttribute('aria-live','polite');
+counter.dataset.state='idle';
 counter.innerHTML='<span aria-hidden="true"></span>検知台数 0台';
 view.appendChild(counter);
 
@@ -72,10 +73,14 @@ function setDetectionCount(value){
   const count=Math.max(0,Number(value)||0);
   counter.innerHTML=`<span aria-hidden="true"></span>検知台数 ${count}台`;
 }
+function setDetectorState(next){
+  const state=['loading','running','error'].includes(next)?next:'idle';
+  counter.dataset.state=state;
+}
 function setHeatMode(next){
   heat=['medium','strong'].includes(next)?next:'normal';
   document.body.classList.toggle('camera-heat-medium',heat==='medium');
   document.body.classList.toggle('camera-heat-strong',heat==='strong');
 }
-root.MachimamoCameraSafeUi={renderScopes,clearScopes,setDetectionCount,setHeatMode};
+root.MachimamoCameraSafeUi={renderScopes,clearScopes,setDetectionCount,setDetectorState,setHeatMode};
 })(window);
