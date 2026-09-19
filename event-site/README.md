@@ -8,7 +8,7 @@
 - 既存のまちまも Supabase を共用
 - DBテーブルの一般直接公開なし
 - 公開検索・詳細・sitemap は public RPC 経由
-- Vercel はこの `event-site/` を Root Directory に指定して、MAPとは別Projectとしてデプロイ
+- 本番はMAPと分離してデプロイし、現在のv1確認は Cloudflare Workers の `machiibe-preview` を使用
 
 ## 初回セットアップ
 
@@ -25,7 +25,7 @@
 - `verification_status=verified` と `publication_status=published` の両方を満たすイベントだけ一般公開
 - 画像は `image_usage_status=allowed` の場合だけ公開RPCから返す
 - 全国一括収集より先に限定地域で、重複・更新・期限・訂正・削除を検証する
-- MAP側の `?lat=&lng=&event=` ディープリンク受取は次フェーズで実装する
+- MAP側は `?lat=&lng=&event=` を安全に受け取り、確認済み会場座標がある場合だけイベント位置へ初期表示する
 
 ## 次の開発
 

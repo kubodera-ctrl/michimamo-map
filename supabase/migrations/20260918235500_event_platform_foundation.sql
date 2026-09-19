@@ -267,7 +267,7 @@ revoke all on table public.event_source_records from anon,authenticated;
 
 create or replace function public.search_public_events(
   p_start_date date default ((now() at time zone 'Asia/Tokyo')::date),
-  p_end_date date default (((now() at time zone 'Asia/Tokyo')::date)+30),
+  p_end_date date default (((now() at time zone 'Asia/Tokyo')::date)+29),
   p_prefecture text default null,
   p_keyword text default null,
   p_exclude_terms text[] default null,
@@ -330,7 +330,7 @@ as $$
       (
         e.schedule_type in ('single','continuous')
         and e.end_date>=coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date))
-        and e.start_date<=coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+30)
+        and e.start_date<=coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+29)
       )
       or (
         e.schedule_type in ('recurring','irregular')
@@ -338,7 +338,7 @@ as $$
           select 1
           from public.event_occurrences eo
           where eo.event_id=e.id
-            and eo.occurrence_date between coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date)) and coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+30)
+            and eo.occurrence_date between coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date)) and coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+29)
             and eo.status <> 'cancelled'
         )
       )

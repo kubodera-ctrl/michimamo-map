@@ -27,6 +27,11 @@ export function allowRequest(key:string,limit:number,windowMs:number){
     for(const [bucketKey,bucket] of buckets){
       if(bucket.resetAt<=now) buckets.delete(bucketKey);
     }
+    while(buckets.size>5000){
+      const oldest=buckets.keys().next().value as string | undefined;
+      if(!oldest) break;
+      buckets.delete(oldest);
+    }
   }
   return {allowed:true,retryAfter:0};
 }
