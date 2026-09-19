@@ -398,8 +398,9 @@ as $$
           and (
             fe.display_name ilike '%'||btrim(p_fandom_keyword)||'%'
             or exists (
-              select 1 from unnest(fe.aliases) alias_name
-              where alias_name ilike '%'||btrim(p_fandom_keyword)||'%'
+              select 1
+              from unnest(fe.aliases) as fandom_alias(value)
+              where fandom_alias.value ilike '%'||btrim(p_fandom_keyword)||'%'
             )
           )
       )
