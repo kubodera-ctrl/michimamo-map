@@ -677,3 +677,28 @@ body::before{
   .featured-story-visual span{font-size:27px}
   .featured-story-copy{padding:14px 15px}
 }
+
+
+/* TikTok admin asset generator */
+.admin-social-cell{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.admin-social-cell small{font-size:8px;color:#64748b;line-height:1.4}
+.admin-social-actions{display:flex;gap:6px;flex-wrap:wrap}
+.admin-tiktok-button{display:inline-flex;align-items:center;background:#fff;color:#111827!important;border:1px solid #cfd6df;border-radius:999px;padding:7px 9px;text-decoration:none!important;white-space:nowrap;font-size:10px;font-weight:950;box-shadow:inset 3px 0 0 #25f4ee,inset -3px 0 0 #fe2c55}
+.admin-back-link{display:inline-flex;text-decoration:none;border:1px solid #d7dee7;background:#fff;border-radius:999px;padding:9px 13px;font-size:11px;font-weight:900;color:#36506b;white-space:nowrap}
+.tiktok-admin-shell{max-width:1180px}
+.tiktok-generator{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.65fr);gap:18px;margin-top:20px;align-items:start}
+.tiktok-preview-card,.tiktok-caption-card{background:rgba(255,255,255,.88);border:1px solid rgba(211,222,230,.8);border-radius:24px;padding:18px;box-shadow:0 18px 50px rgba(25,64,92,.08);backdrop-filter:blur(14px)}
+.tiktok-preview-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.tiktok-preview-head>div{display:flex;flex-direction:column;gap:3px}
+.tiktok-preview-head span{font-size:9px;font-weight:950;letter-spacing:.1em;color:#29a8ef}
+.tiktok-preview-head strong{font-size:16px}
+.tiktok-preview-head button{border:0;background:#123052;color:#fff;border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer;white-space:nowrap}
+.tiktok-canvas-wrap{width:min(100%,390px);margin:auto;border-radius:24px;overflow:hidden;background:#e7f7ff;box-shadow:0 18px 50px rgba(18,57,85,.16);aspect-ratio:9/16}
+.tiktok-canvas-wrap canvas{display:block;width:100%;height:100%}
+.tiktok-brand-note,.tiktok-caption-card>p{font-size:10px;line-height:1.65;color:#718091;margin:12px 0 0}
+.tiktok-caption-card textarea{width:100%;resize:vertical;min-height:360px;border:1px solid #d8e0e7;background:#fbfdff;border-radius:15px;padding:14px;font:500 13px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;color:#24364b;outline:none}
+.tiktok-caption-card textarea:focus{border-color:#70a7e5;box-shadow:0 0 0 3px #dbeafe}
+@media(max-width:820px){
+  .tiktok-generator{grid-template-columns:1fr}
+  .tiktok-caption-card textarea{min-height:260px}
+}

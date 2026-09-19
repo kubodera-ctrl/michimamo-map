@@ -134,10 +134,10 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           </section>
 
           <section className="admin-panel" id="new-events">
-            <div className="admin-panel-head"><div><h2>新しく検出されたイベント</h2><p>取得元の新着順。X投稿は「公開済み・確認済み」のイベントだけ有効。</p></div></div>
+            <div className="admin-panel-head"><div><h2>新しく検出されたイベント</h2><p>取得元の新着順。X投稿・TikTok素材生成は「公開済み・確認済み」のイベントだけ有効。</p></div></div>
             {dashboard.newDetected.length ? (
               <div className="admin-table-wrap"><table className="admin-table">
-                <thead><tr><th>検出</th><th>イベント</th><th>正規化</th><th>公開状態</th><th>X</th></tr></thead>
+                <thead><tr><th>検出</th><th>イベント</th><th>正規化</th><th>公開状態</th><th>SNS素材</th></tr></thead>
                 <tbody>{dashboard.newDetected.map((item)=> {
                   const canPost=Boolean(item.slug && item.publication_status==='published' && item.verification_status==='verified' && !['cancelled','postponed','sold_out','registration_closed'].includes(item.event_status||''));
                   return (
@@ -149,7 +149,13 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
                       </td>
                       <td>{item.normalization_status}</td>
                       <td>{item.publication_status||'未紐付け'} / {item.verification_status||'-'}</td>
-                      <td>{canPost ? <div className="admin-x-cell"><a className="admin-x-button" href={`/api/admin/x?slug=${encodeURIComponent(item.slug!)}`} target="_blank">𝕏 投稿画面</a>{item.x_last_opened_at && <small>前回作成画面：{new Date(item.x_last_opened_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})}（{item.x_compose_count}回）</small>}</div> : <span className="admin-muted">公開後</span>}</td>
+                      <td>{canPost ? <div className="admin-social-cell">
+                        <div className="admin-social-actions">
+                          <a className="admin-x-button" href={`/api/admin/x?slug=${encodeURIComponent(item.slug!)}`} target="_blank">𝕏 投稿画面</a>
+                          <Link className="admin-tiktok-button" href={`/admin/tiktok/${encodeURIComponent(item.slug!)}`}>♪ TikTok画像</Link>
+                        </div>
+                        {item.x_last_opened_at && <small>前回X作成画面：{new Date(item.x_last_opened_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})}（{item.x_compose_count}回）</small>}
+                      </div> : <span className="admin-muted">公開後</span>}</td>
                     </tr>
                   );
                 })}</tbody>
