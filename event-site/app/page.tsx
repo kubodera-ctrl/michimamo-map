@@ -40,6 +40,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const age = one(params.age);
   const duration = one(params.duration);
   const fandom = one(params.oshi);
+  const fandomKeyword = one(params.oshiKeyword);
   const legacyFree = one(params.free) === '1';
   const priceRaw = one(params.price) || (legacyFree ? 'free' : '');
   const price = priceValues.includes(priceRaw as PriceType) ? priceRaw as PriceType : '';
@@ -61,6 +62,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     category ? categoryLabels[category] : '',
     age ? ageLabels[age] : '',
     fandom ? FANDOM_LABELS[fandom] : '',
+    fandomKeyword,
     price ? PRICE_LABELS[price] : '',
     indoorOnly ? '室内' : '',
     childFocusOnly ? '子どもが主役' : familyFriendlyOnly ? 'ファミリー向け' : '',
@@ -71,7 +73,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     startDate: range.startDate,endDate: range.endDate,prefecture,keyword,
     excludeTerms: parseExcludeTerms(excludeWords),categories: category ? [category] : undefined,
     ageGroups: age ? [age] : undefined,durationBuckets: duration ? [duration] : undefined,
-    fandomSlugs: fandom ? [fandom] : undefined,priceTypes: price ? [price] : undefined,
+    fandomSlugs: fandom ? [fandom] : undefined,fandomKeyword:fandomKeyword||undefined,priceTypes: price ? [price] : undefined,
     createdAfter: since || undefined,
     accessibilityOnly: accessibilityOnly || Boolean(accessibilityFeature),
     accessibilityKeys: accessibilityFeature ? [accessibilityFeature] : undefined,
@@ -87,7 +89,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const paginationQuery:Record<string,string|undefined>={
     when:dateMode !== 'today' ? dateMode : undefined,prefecture:prefecture||undefined,q:keyword||undefined,
     exclude:excludeWords||undefined,category:category||undefined,age:age||undefined,duration:duration||undefined,
-    oshi:fandom||undefined,price:price||undefined,accessibility:accessibilityOnly?'1':undefined,
+    oshi:fandom||undefined,oshiKeyword:fandomKeyword||undefined,price:price||undefined,accessibility:accessibilityOnly?'1':undefined,
     accessibilityFeature:accessibilityFeature||undefined,childFocus:childFocusOnly?'1':undefined,
     family:familyFriendlyOnly?'1':undefined,excludeAdult:excludeAdultOriented?'1':undefined,indoor:indoorOnly?'1':undefined,
     sort:sort!=='recommended'?sort:undefined,since:since||undefined
@@ -102,7 +104,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <p className="eyebrow">MACHI IBE</p>
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
-          <EventFilters values={{dateMode,prefecture,keyword,excludeWords,category,age,duration,fandom,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,excludeAdultOriented,indoorOnly,sort}} />
+          <EventFilters values={{dateMode,prefecture,keyword,excludeWords,category,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,excludeAdultOriented,indoorOnly,sort}} />
         </div>
       </section>
 

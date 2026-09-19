@@ -278,6 +278,7 @@ create or replace function public.search_public_events(
   p_accessibility_keys text[] default null,
   p_audience_intents text[] default null,
   p_fandom_slugs text[] default null,
+  p_fandom_keyword text default null,
   p_price_types text[] default null,
   p_created_after timestamptz default null,
   p_exclude_adult_oriented boolean default false,
@@ -382,6 +383,27 @@ as $$
           and fe.is_active and fe.slug=any(p_fandom_slugs)
       )
     )
+    and (
+      p_fandom_keyword is null or btrim(p_fandom_keyword)=''
+      or e.title ilike '%'||btrim(p_fandom_keyword)||'%'
+      or coalesce(e.summary,'') ilike '%'||btrim(p_fandom_keyword)||'%'
+      or coalesce(e.organizer_name,'') ilike '%'||btrim(p_fandom_keyword)||'%'
+      or exists (
+        select 1
+        from public.event_fandom_links efl
+        join public.fandom_entities fe on fe.id=efl.fandom_id
+        where efl.event_id=e.id
+          and efl.verification_status='verified'
+          and fe.is_active
+          and (
+            fe.display_name ilike '%'||btrim(p_fandom_keyword)||'%'
+            or exists (
+              select 1 from unnest(fe.aliases) alias_name
+              where alias_name ilike '%'||btrim(p_fandom_keyword)||'%'
+            )
+          )
+      )
+    )
     and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types))
     and (p_created_after is null or e.created_at > p_created_after)
     and (not coalesce(p_exclude_adult_oriented,false)
@@ -404,9 +426,9 @@ as $$
   offset greatest(coalesce(p_offset,0),0);
 $$;
 
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text[],timestamptz,boolean,boolean,text,integer,integer)
+revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text,integer,integer)
   from public,anon,authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text[],timestamptz,boolean,boolean,text,integer,integer)
+grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text,integer,integer)
   to anon,authenticated;
 
 create or replace function public.get_public_event(p_slug text)

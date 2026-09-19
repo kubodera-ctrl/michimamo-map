@@ -115,6 +115,26 @@ begin
     raise exception 'verified fandom filter expected 1, got %',n;
   end if;
 
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_fandom_keyword=>'CI推し'
+  );
+  if n <> 1 then
+    raise exception 'fandom alias keyword expected 1, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_fandom_keyword=>'Free Today'
+  );
+  if n <> 1 then
+    raise exception 'fandom text keyword expected 1, got %',n;
+  end if;
+
   select public.get_public_event('ci-free-today') into payload;
   if payload is null then
     raise exception 'public event lookup returned null';

@@ -172,6 +172,7 @@ export async function searchEventsWithStatus(input: EventSearchInput): Promise<E
     p_accessibility_keys: input.accessibilityKeys?.length ? input.accessibilityKeys : null,
     p_audience_intents: input.audienceIntents?.length ? input.audienceIntents : null,
     p_fandom_slugs: input.fandomSlugs?.length ? input.fandomSlugs : null,
+    p_fandom_keyword: input.fandomKeyword || null,
     p_price_types: priceTypes,
     p_created_after: input.createdAfter || null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,

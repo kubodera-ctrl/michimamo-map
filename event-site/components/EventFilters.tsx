@@ -13,7 +13,7 @@ import { SaveSearchButton } from './SaveSearchButton';
 type Props = {
   values: {
     dateMode: string; prefecture: string; keyword: string; excludeWords: string;
-    category: string; age: string; duration: string; fandom: string; price: string;
+    category: string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
     familyFriendlyOnly: boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
   };
@@ -68,6 +68,10 @@ export function EventFilters({ values }: Props) {
             {group.items.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
           </optgroup>)}
         </select></label>
+        <label className="oshi-keyword-field"><span>推し活キーワード（任意）</span>
+          <input name="oshiKeyword" defaultValue={values.fandomKeyword} placeholder="例：コナン、ちいかわ、ヒロアカ、しなこ" />
+          <small>一覧にない作品名・キャラ名・出演者名など。確認済み関連情報または掲載本文の文字一致で探します。</small>
+        </label>
         <label><span>障害者向け・配慮内容</span><select name="accessibilityFeature" defaultValue={values.accessibilityFeature}>
           <option value="">指定なし</option>{ACCESSIBILITY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
         </select></label>

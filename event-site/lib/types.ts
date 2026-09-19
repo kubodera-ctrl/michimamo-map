@@ -87,6 +87,7 @@ export type EventSearchInput = {
   accessibilityKeys?: string[];
   audienceIntents?: string[];
   fandomSlugs?: string[];
+  fandomKeyword?: string;
   priceTypes?: PriceType[];
   createdAfter?: string;
   freeOnly?: boolean;
