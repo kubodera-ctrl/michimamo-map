@@ -1138,7 +1138,7 @@
             </div>
             <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:14px;align-items:start;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;">
             <div>
                 <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
                 <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
@@ -1150,7 +1150,7 @@
                 <label for="adminSocialCaption" style="font-size:.75rem;font-weight:900;color:#334155;">投稿文</label>
                 <textarea id="adminSocialCaption" rows="14" style="width:100%;box-sizing:border-box;margin-top:6px;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:.78rem;line-height:1.65;"></textarea>
                 <button type="button" onclick="copyAdminSocialCaption()" style="width:100%;margin-top:8px;padding:10px;border:1px solid #0891b2;border-radius:9px;background:white;color:#0e7490;font-weight:900;">投稿文をコピー</button>
-                <button type="button" onclick="openAdminXPostFromModal()" style="width:100%;margin-top:8px;padding:10px;border:0;border-radius:9px;background:#111827;color:white;font-weight:900;">𝕏 投稿画面を開く</button>
+                <button type="button" onclick="openAdminXPostFromModal()" style="width:100%;margin-top:8px;padding:10px;border:0;border-radius:9px;background:#111827;color:white;font-weight:900;">𝕏用文面で投稿画面を開く</button>
                 <p class="muted" style="font-size:.68rem;line-height:1.55;margin-top:9px;">画像・文面は安全情報のカテゴリと地域を中心に生成し、投稿者名・顔・ナンバー・車両識別情報はSNS素材に含めません。</p>
             </div>
         </div>
@@ -2139,6 +2139,20 @@ function shareSpot(title, address, category, event) {
         ].filter((line,index,array)=>line!=='' || (index>0 && array[index-1]!=='' && index<array.length-1)).join('\n').trim();
     }
 
+    function buildMachimamoXCaption(spot) {
+        const label=adminSocialCategoryLabel(spot);
+        const area=adminSocialArea(spot).slice(0,24);
+        const tags=spot?.category==='local_anomaly'
+            ? '#まちまもMAP #地域情報'
+            : '#まちまもMAP #地域安全';
+        return [
+            `【${label}】`,
+            area,
+            'まちまもMAPに地域安全情報が共有されています。',
+            tags
+        ].filter(Boolean).join('\n');
+    }
+
     function renderAdminSocialPosts(rows) {
         const target=document.getElementById('adminSocialPostArea');
         adminSocialSpots.clear();
@@ -2171,7 +2185,7 @@ function shareSpot(title, address, category, event) {
         const spot=adminSocialSpots.get(String(id));
         if (!spot) { showToast('投稿情報を読み直してください'); return; }
         const url=new URL('https://twitter.com/intent/tweet');
-        url.searchParams.set('text',buildMachimamoSocialCaption(spot));
+        url.searchParams.set('text',buildMachimamoXCaption(spot));
         url.searchParams.set('url',window.location.origin);
         window.open(url.toString(),'_blank','noopener,noreferrer');
     }
@@ -2288,9 +2302,10 @@ function shareSpot(title, address, category, event) {
 
     function openAdminXPostFromModal() {
         if (!adminSocialAssetSpotId) return;
-        const text=document.getElementById('adminSocialCaption').value;
+        const spot=adminSocialSpots.get(String(adminSocialAssetSpotId));
+        if (!spot) return;
         const url=new URL('https://twitter.com/intent/tweet');
-        url.searchParams.set('text',text);
+        url.searchParams.set('text',buildMachimamoXCaption(spot));
         url.searchParams.set('url',window.location.origin);
         window.open(url.toString(),'_blank','noopener,noreferrer');
     }
