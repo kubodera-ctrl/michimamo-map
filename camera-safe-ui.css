@@ -114,3 +114,4 @@ body.camera-running #app > nav { display:none !important; }
 
 body.camera-heat-medium .camera-scope:nth-child(n+3),
 body.camera-heat-strong .camera-scope:nth-child(n+2) { display:none; }
+/* build: drive-camera-ui-v29-safety4 */
