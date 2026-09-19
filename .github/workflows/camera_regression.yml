@@ -31,3 +31,5 @@ jobs:
         run: node tests/camera_drive_proximity_ui.test.cjs
       - name: Local anomaly reporting
         run: node tests/local_anomaly_reporting.test.cjs
+      - name: Admin social assets
+        run: node tests/admin_social_assets.test.cjs
