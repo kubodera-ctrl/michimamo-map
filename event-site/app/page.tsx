@@ -9,6 +9,8 @@ import { Pagination } from '@/components/Pagination';
 import { PickupEvents } from '@/components/PickupEvents';
 import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { VisitTracker } from '@/components/VisitTracker';
+import { HomePrSlot } from '@/components/HomePrSlot';
+import { FeaturedStories } from '@/components/FeaturedStories';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType } from '@/lib/types';
 
@@ -109,6 +111,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
       </section>
 
       <section className="content-wrap">
+        <HomePrSlot />
+        <FeaturedStories />
         <PickupEvents />
         <div className="result-tools">
           <NewSinceLastVisitLink active={Boolean(since)} />

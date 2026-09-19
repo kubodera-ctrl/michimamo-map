@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from '@/lib/seo';
 import { PageViewTracker } from '@/components/PageViewTracker';
 import { TrackedLink } from '@/components/TrackedLink';
+import { BrandNav } from '@/components/BrandNav';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
@@ -47,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteJsonLd)}} />
         <header className="site-header">
           <div className="header-inner">
-            <Link href="/" className="brand"><span className="brand-mark brand-icon-wrap"><img className="brand-icon-image" src="/machiibe-icon.svg" alt="" /></span><span><strong>まちイベ</strong><small>by まちまも｜全国のおでかけを、もっと見つけやすく。</small></span></Link>
+            <BrandNav />
             <nav className="header-actions" aria-label="ユーザーメニュー">
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>

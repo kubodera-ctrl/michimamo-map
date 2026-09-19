@@ -30,7 +30,10 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           <p className="eyebrow">MACHI IBE ADMIN</p>
           <h1>まちイベ運営ダッシュボード</h1>
           <p>直近30日を中心に集計。PVはページ表示回数で、ユニークユーザー数ではありません。</p>
-          <p><a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="noreferrer">運営X @machiibe01 を開く ↗</a></p>
+          <div className="admin-quick-links">
+            <a href="#new-events">新着イベント → X投稿候補へ</a>
+            <a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="noreferrer">運営X @machiibe01 ↗</a>
+          </div>
         </div>
         <form action="/api/admin/logout" method="post"><button type="submit">ログアウト</button></form>
       </div>
@@ -130,7 +133,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
             ) : <p className="admin-empty">情報源データはまだありません。</p>}
           </section>
 
-          <section className="admin-panel">
+          <section className="admin-panel" id="new-events">
             <div className="admin-panel-head"><div><h2>新しく検出されたイベント</h2><p>取得元の新着順。X投稿は「公開済み・確認済み」のイベントだけ有効。</p></div></div>
             {dashboard.newDetected.length ? (
               <div className="admin-table-wrap"><table className="admin-table">
