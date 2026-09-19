@@ -84,6 +84,7 @@
         .filter-chip.patrol.active { background: #10b981; color: white; border-color: #10b981; }
         .filter-chip.abandoned.active { background: #9333ea; color: white; border-color: #9333ea; }
         .filter-chip.reckless.active { background: #f59e0b; color: white; border-color: #f59e0b; }
+        .filter-chip.local-anomaly.active { background: #0891b2; color: white; border-color: #0891b2; }
         .filter-chip.official.active { background: #059669; color: white; border-color: #059669; }
         .filter-chip.police-station.active { background: #1e3a8a; color: white; border-color: #1e3a8a; }
         .filter-chip.koban.active { background: #0f766e; color: white; border-color: #0f766e; }
@@ -419,6 +420,7 @@
                         <button class="filter-chip patrol active" data-filter="patrol" onclick="filterMarkers('patrol')"><i class="fa-solid fa-user-shield"></i> 巡回</button>
                         <button class="filter-chip reckless active" data-filter="reckless" onclick="filterMarkers('reckless')"><i class="fa-solid fa-motorcycle"></i> 暴走・騒音</button>
                         <button class="filter-chip abandoned active" data-filter="abandoned" onclick="filterMarkers('abandoned')"><i class="fa-solid fa-car-burst"></i> 不法放置</button>
+                        <button class="filter-chip local-anomaly active" data-filter="local_anomaly" onclick="filterMarkers('local_anomaly')"><i class="fa-solid fa-eye"></i> 地域の異変</button>
                         <button class="filter-chip official active" data-filter="official" onclick="filterMarkers('official')"><i class="fa-solid fa-shield-halved"></i> 警察情報</button>
                         <button class="filter-chip police-station active" data-filter="police_station" onclick="filterMarkers('police_station')"><i class="fa-solid fa-building-shield"></i> 警察署</button>
                         <button class="filter-chip koban active" data-filter="koban" onclick="filterMarkers('koban')"><i class="fa-solid fa-house-shield"></i> 交番</button>
@@ -430,7 +432,7 @@
 
                 <div id="filterTutorial" class="filter-tutorial" role="dialog" aria-modal="false" aria-labelledby="filterTutorialTitle">
                     <div id="filterTutorialTitle" class="filter-tutorial-title"><i class="fa-solid fa-sliders" style="color:#1f6feb;"></i> 地図を見やすくできます</div>
-                    <p>上部の「表示選択」から、投稿・警察署・交番・駐在所・AEDを種類ごとにON／OFFできます。複数の種類を同時に選べて、選んだ状態はこの端末に保存されます。</p>
+                    <p>上部の「表示選択」から、交通情報・地域の異変・警察署・交番・駐在所・AEDを種類ごとにON／OFFできます。複数の種類を同時に選べて、選んだ状態はこの端末に保存されます。</p>
                     <div class="filter-tutorial-actions">
                         <button onclick="dismissFilterTutorial()" style="background:#1f6feb;color:#fff;min-height:44px;">確認しました</button>
                     </div>
@@ -754,6 +756,9 @@
                                     <div id="adminCategoryStats"></div>
                                 </div>
                             </div>
+                            <h3 style="font-size:.92rem; color:#0f4c81; margin:16px 0 5px;">SNS投稿素材（直近の公開投稿）</h3>
+                            <p class="muted" style="font-size:.7rem;line-height:1.55;margin:0 0 8px;">Xは投稿文入りの作成画面を開き、TikTokは9:16画像と投稿文を生成します。自動投稿はせず、必ず内容を確認してから投稿します。</p>
+                            <div id="adminSocialPostArea"><div class="muted" style="font-size:.72rem;">管理画面を読み込むと表示します。</div></div>
                             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:14px; text-align:center;">
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminDeletionCount">0</strong><div class="muted" style="font-size:.65rem;">退会申請</div></div>
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminReportCount">0</strong><div class="muted" style="font-size:.65rem;">通報投稿</div></div>
@@ -1049,7 +1054,7 @@
             <div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">投稿文を確認中...</div>
         </div>
         <div class="row">
-            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有</div>
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 地域の安全情報を共有</div>
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
@@ -1059,11 +1064,37 @@
                 <option value="danger">🔵 危険な路上停車</option>
                 <option value="reckless">🟡 暴走・騒音車両</option>
                 <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
                 <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
             </select>
             <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
             <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
+
+            <div id="localAnomalyArea" style="display:none; margin-top:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
+                <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
+                <label>異変の種類</label>
+                <select id="localAnomalyType">
+                    <option value="">選択してください</option>
+                    <option value="illegal_dumping">不法投棄・ごみ</option>
+                    <option value="abandoned_object_vehicle">放置物・放置車両</option>
+                    <option value="suspicious_approach">声かけ・不審な接触</option>
+                    <option value="road_damage">道路の破損・陥没</option>
+                    <option value="fallen_tree">倒木・枝の落下</option>
+                    <option value="rockfall">落石・土砂</option>
+                    <option value="flooding">冠水・増水</option>
+                    <option value="street_fixture">街灯・標識・ガードレール異常</option>
+                    <option value="wildlife">熊・猪など害獣</option>
+                    <option value="theft_warning">盗難・荒らし注意</option>
+                    <option value="snow_ice_disaster">積雪・凍結・災害影響</option>
+                    <option value="other">その他</option>
+                </select>
+                <label style="display:flex; gap:8px; align-items:flex-start; margin-top:12px; line-height:1.5;">
+                    <input type="checkbox" id="localAnomalyFactOnly" style="width:18px;height:18px;flex:none;">
+                    <span>人物・車両を犯人や所有者と断定せず、顔・ナンバー・氏名・住所など個人を特定する情報や追跡目的の情報を投稿しません。</span>
+                </label>
+                <div style="font-size:.72rem;color:#0e7490;margin-top:8px;line-height:1.5;">写真は任意です。緊急の事故・犯罪・災害は、この投稿より110・119や自治体への連絡を優先してください。</div>
+            </div>
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
@@ -1097,6 +1128,35 @@
     </div>
 </div>
 
+<!-- 管理者SNS投稿素材モーダル -->
+<div class="modal" id="adminSocialAssetModal">
+    <div class="sheet" style="position:relative;max-width:760px;">
+        <div class="row">
+            <div>
+                <div style="font-size:18px;font-weight:900;"><i class="fa-solid fa-photo-film" style="color:#0891b2;"></i> まちまもSNS投稿素材</div>
+                <div id="adminSocialAssetSubtitle" class="muted" style="font-size:.72rem;margin-top:4px;"></div>
+            </div>
+            <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;">
+            <div>
+                <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
+                <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
+                    <canvas id="adminSocialCanvas" width="1080" height="1920" aria-label="まちまもTikTok投稿画像" style="display:block;width:100%;height:100%;"></canvas>
+                </div>
+                <button type="button" onclick="downloadAdminSocialPng()" style="width:100%;margin-top:9px;padding:10px;border:0;border-radius:9px;background:#0f4c81;color:white;font-weight:900;"><i class="fa-solid fa-download"></i> PNGを保存</button>
+            </div>
+            <div>
+                <label for="adminSocialCaption" style="font-size:.75rem;font-weight:900;color:#334155;">投稿文</label>
+                <textarea id="adminSocialCaption" rows="14" style="width:100%;box-sizing:border-box;margin-top:6px;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:.78rem;line-height:1.65;"></textarea>
+                <button type="button" onclick="copyAdminSocialCaption()" style="width:100%;margin-top:8px;padding:10px;border:1px solid #0891b2;border-radius:9px;background:white;color:#0e7490;font-weight:900;">投稿文をコピー</button>
+                <button type="button" onclick="openAdminXPostFromModal()" style="width:100%;margin-top:8px;padding:10px;border:0;border-radius:9px;background:#111827;color:white;font-weight:900;">𝕏用文面で投稿画面を開く</button>
+                <p class="muted" style="font-size:.68rem;line-height:1.55;margin-top:9px;">画像・文面は安全情報のカテゴリと地域を中心に生成し、投稿者名・顔・ナンバー・車両識別情報はSNS素材に含めません。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- 利用規約モーダル -->
 <div class="modal" id="termsModal">
     <div class="sheet" style="padding-top: 30px;">
@@ -1106,7 +1166,7 @@
         </div>
         <ul style="font-size:0.85rem; color:#4b5563; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>運転中の操作禁止：</strong> 投稿や閲覧は安全な場所に停車後に行ってください。</li>
-            <li style="margin-bottom:8px;"><strong>個人情報の投稿禁止：</strong> 故意にナンバーや顔など個人を特定できる情報を投稿する行為は禁止です（プライバシー保護機能の強化も進めています）。</li>
+            <li style="margin-bottom:8px;"><strong>個人情報・追跡目的の投稿禁止：</strong> ナンバーや顔など個人を特定できる情報、人物や車両を犯人・所有者と断定する投稿、追跡目的の情報は禁止です。</li>
             <li style="margin-bottom:8px;"><strong>不正行為の禁止：</strong> 虚偽の投稿や複数アカウントによるポイント不正取得はアカウント停止の対象となります。</li>
         </ul>
         <div style="text-align:center; margin-bottom:20px;">
@@ -1128,7 +1188,7 @@
         </div>
         <ul style="font-size:0.85rem; color:#17212b; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>ナンバー・顔等の保護：</strong> 個人情報保護のため、画像処理機能（モザイク処理等）の導入・検証を進めています。</li>
-            <li style="margin-bottom:8px;"><strong>EXIF等のメタデータ：</strong> 投稿写真は端末内で再生成し、EXIFを削除します。AED写真は非公開で審査し、不法放置の写真は投稿時に公開されます。AEDのGPSは現地確認用に別途取得します。</li>
+            <li style="margin-bottom:8px;"><strong>EXIF等のメタデータ：</strong> 投稿写真は端末内で再生成し、EXIFを削除します。AED写真は非公開で審査し、不法放置・地域の異変の写真は投稿時に公開されます。AEDのGPSは現地確認用に別途取得します。</li>
             <li style="margin-bottom:8px;"><strong>不適切コンテンツへの対応：</strong> 誹謗中傷や個人情報は、運営の判断または通報機能により非表示化される場合があります。</li>
         </ul>
         <div style="text-align:center; margin-bottom:20px;">
@@ -1401,7 +1461,7 @@
             </div>`;
         }).join('') : '<div class="muted" style="padding:10px 0;">まだポイント履歴はありません。</div>';
 
-        const categoryLabels = { illegal:'違法駐車', danger:'危険停車', patrol:'巡回・取締り', abandoned:'不法放置', police:'警察情報' };
+        const categoryLabels = { illegal:'違法駐車', danger:'危険停車', patrol:'巡回・取締り', abandoned:'不法放置', local_anomaly:'地域の異変', reckless:'暴走・騒音', police:'警察情報' };
         const posts = Array.isArray(data.posts) ? data.posts : [];
         document.getElementById('myPostHistoryArea').innerHTML = posts.length ? posts.map(item => `
             <div style="padding:11px 0; border-bottom:1px solid #eef1f4;">
@@ -1966,6 +2026,7 @@ function shareSpot(title, address, category, event) {
         else if (category === 'reckless') catStr = "🟡暴走・騒音";
         else if (category === 'patrol') catStr = "🟢巡回情報";
         else if (category === 'abandoned') catStr = "🟣不法放置";
+        else if (category === 'local_anomaly') catStr = "🟦地域の異変";
 
         const text = `📍【まちまもMAP安全情報】\n${address} 近辺で「${catStr}: ${title}」の報告があります。\n地域の安全のために確認しよう！`;
         const url = window.location.href;
@@ -2037,17 +2098,236 @@ function shareSpot(title, address, category, event) {
         }).join('');
     }
 
+    const adminSocialSpots = new Map();
+    let adminSocialAssetSpotId = null;
+    const adminSocialCategoryLabels = {
+        illegal:'違法駐車',
+        danger:'危険な路上停車',
+        patrol:'巡回・取り締まり情報',
+        abandoned:'不法放置',
+        reckless:'暴走・騒音',
+        local_anomaly:'地域の異変',
+        official:'公的機関・警察情報'
+    };
+
+    function adminSocialCategoryLabel(spot) {
+        const base=adminSocialCategoryLabels[spot?.category] || '地域安全情報';
+        if (spot?.category==='local_anomaly') {
+            const detail=localAnomalyLabels[spot.anomaly_type] || 'その他';
+            return `${base}（${detail}）`;
+        }
+        return base;
+    }
+
+    function adminSocialArea(spot) {
+        const value=String(spot?.address || '').replace(/\s+/g,' ').trim();
+        if (!value || value==='不明なエリア') return '地域情報';
+        const broad=value.split(' ').filter(Boolean).slice(0,2).join(' ');
+        return (broad || value).slice(0,32);
+    }
+
+    function buildMachimamoSocialCaption(spot) {
+        const label=adminSocialCategoryLabel(spot);
+        const area=adminSocialArea(spot);
+        const date=spot?.created_at ? new Date(spot.created_at).toLocaleDateString('ja-JP') : '';
+        const tags=spot?.category==='local_anomaly'
+            ? '#まちまもMAP #地域安全 #地域情報'
+            : '#まちまもMAP #地域安全 #安全情報';
+        return [
+            `【${area}】`,
+            `${label}の情報が共有されています。`,
+            date ? `投稿日：${date}` : '',
+            '',
+            'まちまもMAPで地域の安全情報を確認できます。',
+            '※緊急時はアプリ投稿より110・119や公的機関への連絡を優先してください。',
+            '',
+            tags
+        ].filter((line,index,array)=>line!=='' || (index>0 && array[index-1]!=='' && index<array.length-1)).join('\n').trim();
+    }
+
+    function buildMachimamoXCaption(spot) {
+        const label=adminSocialCategoryLabel(spot);
+        const area=adminSocialArea(spot).slice(0,24);
+        const tags=spot?.category==='local_anomaly'
+            ? '#まちまもMAP #地域情報'
+            : '#まちまもMAP #地域安全';
+        return [
+            `【${label}】`,
+            area,
+            'まちまもMAPに地域安全情報が共有されています。',
+            tags
+        ].filter(Boolean).join('\n');
+    }
+
+    function renderAdminSocialPosts(rows) {
+        const target=document.getElementById('adminSocialPostArea');
+        adminSocialSpots.clear();
+        const safeRows=(Array.isArray(rows)?rows:[])
+            .filter(row=>!row.is_hidden && Number(row.report_count || 0)<3)
+            .slice(0,12);
+        safeRows.forEach(row=>adminSocialSpots.set(String(row.id),row));
+        if (!safeRows.length) {
+            target.innerHTML='<div class="muted" style="font-size:.72rem;">SNS素材に使える公開投稿はまだありません。</div>';
+            return;
+        }
+        target.innerHTML=safeRows.map(row=>{
+            const label=adminSocialCategoryLabel(row);
+            const date=row.created_at ? new Date(row.created_at).toLocaleString('ja-JP') : '';
+            return `<article style="background:white;border:1px solid #bae6fd;border-radius:10px;padding:9px;margin-bottom:7px;font-size:.74rem;">
+                <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;">
+                    <div><strong style="color:#0f4c81;">${escapeHtml(label)}</strong><div class="muted" style="font-size:.66rem;margin-top:3px;">${escapeHtml(adminSocialArea(row))}・${escapeHtml(date)}</div></div>
+                    <span style="font-size:.62rem;color:#64748b;">#${Number(row.id)}</span>
+                </div>
+                <div style="margin-top:6px;font-weight:800;">${escapeHtml(row.title || '名称なし')}</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
+                    <button type="button" onclick="openAdminXPost(${Number(row.id)})" style="border:0;border-radius:999px;padding:7px 10px;background:#111827;color:#fff;font-size:.69rem;font-weight:900;">𝕏 投稿画面</button>
+                    <button type="button" onclick="openAdminTikTokAsset(${Number(row.id)})" style="border:1px solid #cbd5e1;border-radius:999px;padding:7px 10px;background:#fff;color:#111827;font-size:.69rem;font-weight:900;box-shadow:inset 3px 0 0 #25f4ee,inset -3px 0 0 #fe2c55;">♪ TikTok画像</button>
+                </div>
+            </article>`;
+        }).join('');
+    }
+
+    function openAdminXPost(id) {
+        const spot=adminSocialSpots.get(String(id));
+        if (!spot) { showToast('投稿情報を読み直してください'); return; }
+        const url=new URL('https://twitter.com/intent/tweet');
+        url.searchParams.set('text',buildMachimamoXCaption(spot));
+        url.searchParams.set('url',window.location.origin);
+        window.open(url.toString(),'_blank','noopener,noreferrer');
+    }
+
+    function adminCanvasRoundRect(ctx,x,y,w,h,r) {
+        const radius=Math.min(r,w/2,h/2);
+        ctx.beginPath();ctx.moveTo(x+radius,y);
+        ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);
+        ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath();
+    }
+
+    function adminCanvasFit(ctx,text,maxWidth) {
+        let value=String(text || '');
+        if (ctx.measureText(value).width<=maxWidth) return value;
+        while(value && ctx.measureText(value+'…').width>maxWidth) value=value.slice(0,-1);
+        return value ? value+'…' : '…';
+    }
+
+    function drawAdminSocialCanvas(spot) {
+        const canvas=document.getElementById('adminSocialCanvas');
+        const ctx=canvas?.getContext('2d');
+        if (!ctx) return;
+        const w=1080,h=1920,SAFE_LEFT=92,SAFE_RIGHT=820,SAFE_BOTTOM=1580;
+        ctx.clearRect(0,0,w,h);
+        const bg=ctx.createLinearGradient(0,0,w,h);
+        bg.addColorStop(0,'#e0f2fe');bg.addColorStop(.55,'#f8fafc');bg.addColorStop(1,'#dcfce7');
+        ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+        const glow=ctx.createRadialGradient(170,210,20,170,210,520);
+        glow.addColorStop(0,'rgba(37,99,235,.24)');glow.addColorStop(1,'rgba(37,99,235,0)');
+        ctx.fillStyle=glow;ctx.fillRect(0,0,w,800);
+
+        adminCanvasRoundRect(ctx,56,56,968,1808,56);
+        ctx.fillStyle='rgba(255,255,255,.78)';ctx.fill();
+        ctx.strokeStyle='rgba(255,255,255,.95)';ctx.lineWidth=2;ctx.stroke();
+
+        const draw=(icon)=>{
+            if(icon){
+                adminCanvasRoundRect(ctx,86,86,132,132,34);ctx.save();ctx.clip();ctx.drawImage(icon,86,86,132,132);ctx.restore();
+            }else{
+                adminCanvasRoundRect(ctx,86,86,132,132,34);ctx.fillStyle='#2563eb';ctx.fill();
+            }
+            ctx.fillStyle='#17212b';ctx.font='950 50px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('まちまもMAP',246,145);
+            ctx.fillStyle='#64748b';ctx.font='800 22px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('LOCAL SAFETY UPDATE',248,184);
+
+            const label=adminSocialCategoryLabel(spot);
+            ctx.font='900 30px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            const labelText=adminCanvasFit(ctx,label,SAFE_RIGHT-SAFE_LEFT-50);
+            const pillW=Math.min(SAFE_RIGHT-SAFE_LEFT,Math.max(300,Math.ceil(ctx.measureText(labelText).width)+70));
+            adminCanvasRoundRect(ctx,SAFE_LEFT,285,pillW,70,35);ctx.fillStyle='#0f4c81';ctx.fill();
+            ctx.fillStyle='#fff';ctx.fillText(labelText,SAFE_LEFT+34,331);
+
+            ctx.fillStyle='#17212b';ctx.font='950 78px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText('地域の安全情報',SAFE_LEFT,510);
+            ctx.fillStyle='#0f4c81';ctx.font='900 46px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText(adminCanvasFit(ctx,adminSocialArea(spot),SAFE_RIGHT-SAFE_LEFT),SAFE_LEFT,600);
+
+            adminCanvasRoundRect(ctx,SAFE_LEFT,700,SAFE_RIGHT-SAFE_LEFT,390,38);
+            ctx.fillStyle='rgba(255,255,255,.9)';ctx.fill();ctx.strokeStyle='rgba(15,76,129,.12)';ctx.stroke();
+            ctx.fillStyle='#0891b2';ctx.font='900 25px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('CATEGORY',130,775);ctx.fillText('POSTED',130,910);
+            ctx.fillStyle='#17212b';ctx.font='950 42px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText(adminCanvasFit(ctx,label,SAFE_RIGHT-320),300,778);
+            const date=spot.created_at ? new Date(spot.created_at).toLocaleDateString('ja-JP') : '日時未取得';
+            ctx.fillText(adminCanvasFit(ctx,date,SAFE_RIGHT-320),300,913);
+
+            ctx.fillStyle='#2563eb';ctx.font='950 42px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('詳細は「まちまもMAP」で',SAFE_LEFT,1280);
+            ctx.fillStyle='#17212b';ctx.font='950 62px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('地域の今をチェック',SAFE_LEFT,1362);
+            ctx.fillStyle='#64748b';ctx.font='700 25px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText('緊急時は110・119や公的機関への連絡を優先してください。',SAFE_LEFT,1432);
+
+            const fade=ctx.createLinearGradient(0,SAFE_BOTTOM,0,h);
+            fade.addColorStop(0,'rgba(14,165,233,.04)');fade.addColorStop(1,'rgba(34,197,94,.12)');
+            ctx.fillStyle=fade;ctx.fillRect(56,SAFE_BOTTOM,968,h-SAFE_BOTTOM-56);
+            ctx.save();ctx.globalAlpha=.09;ctx.fillStyle='#17212b';ctx.font='950 86px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('MACHIMAMO',SAFE_LEFT,1775);ctx.restore();
+        };
+
+        const icon=new Image();
+        icon.onload=()=>draw(icon);
+        icon.onerror=()=>draw(null);
+        icon.src='assets/machimamo-icon-512.jpg';
+    }
+
+    function openAdminTikTokAsset(id) {
+        const spot=adminSocialSpots.get(String(id));
+        if (!spot) { showToast('投稿情報を読み直してください'); return; }
+        adminSocialAssetSpotId=Number(id);
+        document.getElementById('adminSocialAssetSubtitle').textContent=`${adminSocialCategoryLabel(spot)}・${adminSocialArea(spot)}`;
+        document.getElementById('adminSocialCaption').value=buildMachimamoSocialCaption(spot);
+        document.getElementById('adminSocialAssetModal').classList.add('open');
+        drawAdminSocialCanvas(spot);
+    }
+
+    function closeAdminSocialAsset() {
+        document.getElementById('adminSocialAssetModal').classList.remove('open');
+        adminSocialAssetSpotId=null;
+    }
+
+    function downloadAdminSocialPng() {
+        const canvas=document.getElementById('adminSocialCanvas');
+        if (!canvas || !adminSocialAssetSpotId) return;
+        canvas.toBlob(blob=>{
+            if (!blob) return;
+            const url=URL.createObjectURL(blob),a=document.createElement('a');
+            a.href=url;a.download=`machimamo-safety-${adminSocialAssetSpotId}.png`;a.click();
+            setTimeout(()=>URL.revokeObjectURL(url),30000);
+        },'image/png');
+    }
+
+    async function copyAdminSocialCaption() {
+        const text=document.getElementById('adminSocialCaption').value;
+        try { await navigator.clipboard.writeText(text); showToast('投稿文をコピーしました'); }
+        catch (_) { showToast('コピーできませんでした。投稿文を選択してコピーしてください'); }
+    }
+
+    function openAdminXPostFromModal() {
+        if (!adminSocialAssetSpotId) return;
+        const spot=adminSocialSpots.get(String(adminSocialAssetSpotId));
+        if (!spot) return;
+        const url=new URL('https://twitter.com/intent/tweet');
+        url.searchParams.set('text',buildMachimamoXCaption(spot));
+        url.searchParams.set('url',window.location.origin);
+        window.open(url.toString(),'_blank','noopener,noreferrer');
+    }
+
     let adminDashboardRequest = 0;
     async function loadAdminDashboard() {
         window.MachimamoRoadReview?.reset();
         const password = getAdminPassword(); if (!password) return;
         const request = ++adminDashboardRequest;
         const authUser = currentAuthUserId;
-        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }] = await Promise.all([
+        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }, { data: socialSpots, error: socialError }] = await Promise.all([
             db.rpc('admin_get_dashboard', { p_password: password }),
             db.rpc('admin_get_statistics', { p_password: password }),
             db.rpc('admin_get_aed_submissions', { p_password: password }),
-            db.rpc('admin_get_moderation_appeals', { p_password: password })
+            db.rpc('admin_get_moderation_appeals', { p_password: password }),
+            db.from('spots').select('id,created_at,category,anomaly_type,title,address,report_count,is_hidden').order('created_at',{ascending:false}).limit(30)
         ]);
         if (request !== adminDashboardRequest || authUser !== currentAuthUserId) return;
         if (error || statsError || aedError || appealsError || !data || !statsData) {
@@ -2085,9 +2365,15 @@ function shareSpot(title, address, category, event) {
         ];
         document.getElementById('adminStatsCards').innerHTML = statCards.map(([label, value]) => `<div style="background:white;padding:9px 3px;border-radius:8px;border:1px solid #dcfce7;"><strong style="display:block;font-size:1rem;color:#166534;">${Number(value || 0).toLocaleString()}</strong><div class="muted" style="font-size:.62rem;">${label}</div></div>`).join('');
         document.getElementById('adminStatsSubline').textContent = `今日の投稿 ${Number(summary.postsToday || 0).toLocaleString()}件・直近7日 ${Number(summary.posts7d || 0).toLocaleString()}件・新規ユーザー ${Number(summary.newUsers7d || 0).toLocaleString()}人・非公開 ${Number(summary.hiddenPosts || 0).toLocaleString()}件（現行の登録導線はLINEのみ）`;
-        const categoryLabels = {illegal:'違法駐車',danger:'危険停車',patrol:'巡回',abandoned:'不法放置',accident:'事故情報',official:'公式情報'};
+        const categoryLabels = {illegal:'違法駐車',danger:'危険停車',patrol:'巡回',abandoned:'不法放置',reckless:'暴走・騒音',local_anomaly:'地域の異変',accident:'事故情報',official:'公式情報'};
         renderAdminBreakdown('adminRegionStats', Array.isArray(statsData.regions) ? statsData.regions : [], x => x.region || '地域不明');
         renderAdminBreakdown('adminCategoryStats', Array.isArray(statsData.categories) ? statsData.categories : [], x => categoryLabels[x.category] || x.category || '未分類');
+        if (socialError) {
+            console.error('admin social spots failed',socialError);
+            renderAdminSocialPosts([]);
+        } else {
+            renderAdminSocialPosts(Array.isArray(socialSpots) ? socialSpots : []);
+        }
 
         document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('削除を実行', `executeAccountDeletion(${Number(x.id)})`, '#991b1b') : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
         renderAdminAppeals(Array.isArray(appeals) ? appeals : []);
@@ -2269,7 +2555,21 @@ function shareSpot(title, address, category, event) {
                 ? L.markerClusterGroup({ ...safetyClusterOptions, iconCreateFunction: cluster => createSafetyClusterIcon(category, cluster) })
                 : L.layerGroup()])
     );
-    const reportCategories = ['illegal', 'danger', 'patrol', 'reckless', 'abandoned', 'official'];
+    const reportCategories = ['illegal', 'danger', 'patrol', 'reckless', 'abandoned', 'local_anomaly', 'official'];
+    const localAnomalyLabels = {
+        illegal_dumping:'不法投棄・ごみ',
+        abandoned_object_vehicle:'放置物・放置車両',
+        suspicious_approach:'声かけ・不審な接触',
+        road_damage:'道路の破損・陥没',
+        fallen_tree:'倒木・枝の落下',
+        rockfall:'落石・土砂',
+        flooding:'冠水・増水',
+        street_fixture:'街灯・標識・ガードレール異常',
+        wildlife:'熊・猪など害獣',
+        theft_warning:'盗難・荒らし注意',
+        snow_ice_disaster:'積雪・凍結・災害影響',
+        other:'その他'
+    };
     const defaultVisibleCategories = [...reportCategories, 'police_station', 'koban', 'chuzaisho', 'aed'];
     let visibleMapCategories = new Set(defaultVisibleCategories);
     let safetyLoadTimer = null;
@@ -2277,7 +2577,13 @@ function shareSpot(title, address, category, event) {
     let popupFocusPanUntil = 0;
     try {
         const savedFilters = JSON.parse(localStorage.getItem('machimamo_visible_categories') || 'null');
-        if (Array.isArray(savedFilters)) visibleMapCategories = new Set(savedFilters);
+        if (Array.isArray(savedFilters)) {
+            visibleMapCategories = new Set(savedFilters);
+            if (!localStorage.getItem('machimamo_local_anomaly_filter_v1')) {
+                visibleMapCategories.add('local_anomaly');
+                localStorage.setItem('machimamo_local_anomaly_filter_v1','1');
+            }
+        }
     } catch (e) {}
 
     function isCategoryVisible(category) {
@@ -2504,6 +2810,7 @@ function shareSpot(title, address, category, event) {
                     if (s.category === 'danger') { hcColor = '#2563eb'; hcFill = '#60a5fa'; }
                     if (s.category === 'patrol') { hcColor = '#10b981'; hcFill = '#34d399'; }
                     if (s.category === 'abandoned') { hcColor = '#9333ea'; hcFill = '#c084fc'; }
+                    if (s.category === 'local_anomaly') { hcColor = '#0891b2'; hcFill = '#67e8f9'; }
 
                     const hc = L.circle([s.lat, s.lng], { color:hcColor, fillColor:hcFill, fillOpacity:0.35, radius:80, stroke:false }).addTo(map);
                     heatCircles.push(hc); createSpotPin(s, hc);
@@ -2519,6 +2826,7 @@ function shareSpot(title, address, category, event) {
         if (spot.category === 'patrol') { color = '#10b981'; iconC = 'fa-user-shield'; }
         if (spot.category === 'abandoned') { color = '#9333ea'; iconC = 'fa-car-burst'; }
         if (spot.category === 'reckless') { color = '#f59e0b'; iconC = 'fa-motorcycle'; }
+        if (spot.category === 'local_anomaly') { color = '#0891b2'; iconC = 'fa-eye'; }
         if (spot.category === 'official') { color = '#059669'; iconC = 'fa-shield-halved'; }
 
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
@@ -2526,6 +2834,17 @@ function shareSpot(title, address, category, event) {
         const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
+        const anomalyBadge = spot.category === 'local_anomaly'
+            ? `<div style="display:inline-flex;align-items:center;gap:5px;margin:5px 0 7px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0e7490;font-size:.72rem;font-weight:900;"><i class="fa-solid fa-eye"></i>${escapeHtml(localAnomalyLabels[spot.anomaly_type] || 'その他')}</div>`
+            : '';
+        const contactActions = spot.category === 'local_anomaly'
+            ? `<div style="padding:8px 10px;margin-bottom:10px;border-radius:9px;background:#ecfeff;color:#155e75;font-size:.72rem;line-height:1.5;">緊急の事故・犯罪・災害は110・119へ。道路設備や生活環境の異常は自治体・道路管理者への連絡も検討してください。</div>
+               <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="width:100%;margin:0 0 10px;padding:8px;background:#17212b;color:white;border:none;"><i class="fa-solid fa-share-nodes"></i> 地域へ共有</button>`
+            : `<div style="display:flex; gap:6px; margin-bottom:10px;">
+                 <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
+                 <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
+                 <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
+               </div>`;
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin });
         if (isCategoryVisible(spot.category)) m.addTo(map);
@@ -2545,6 +2864,7 @@ function shareSpot(title, address, category, event) {
             popupContent = `
                 <div style="min-width:210px;">
                     <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
+                    ${anomalyBadge}
                     <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
                     <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
                     ${imgTag}
@@ -2552,11 +2872,7 @@ function shareSpot(title, address, category, event) {
                         <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.created_by || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
                         <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
                     </div>
-                    <div style="display:flex; gap:6px; margin-bottom:10px;">
-                        <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
-                        <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
-                        <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
-                    </div>
+                    ${contactActions}
                     <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
                         <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                         <div style="display:flex; gap:8px;">
@@ -2850,6 +3166,7 @@ function shareSpot(title, address, category, event) {
                 uploadedImageFile = cameraPostDraft.file;
                 document.getElementById('postCategory').value = 'danger';
                 document.querySelector('#postCategory option[value="abandoned"]').disabled = true;
+                document.querySelector('#postCategory option[value="local_anomaly"]').disabled = true;
                 document.querySelector('#postCategory option[value="aed"]').disabled = true;
                 document.getElementById('imagePreview').src = cameraPostDraft.previewUrl;
                 document.getElementById('imagePreview').style.display = 'block';
@@ -2920,12 +3237,13 @@ function shareSpot(title, address, category, event) {
         const area = document.getElementById('imageUploadArea');
         const reportArea = document.getElementById('reportCheckArea');
         const aedArea = document.getElementById('aedSubmissionArea');
+        const anomalyArea = document.getElementById('localAnomalyArea');
         const submitButton = document.getElementById('postSubmitButton');
         const titleLabel = document.getElementById('postTitleLabel');
         const commentLabel = document.getElementById('postCommentLabel');
 
         const isCameraPost = !!cameraPostDraft && cat !== 'aed';
-        if(cat === 'abandoned' || cat === 'aed' || isCameraPost) {
+        if(cat === 'abandoned' || cat === 'local_anomaly' || cat === 'aed' || isCameraPost) {
             area.style.display = 'block';
         } else {
             area.style.display = 'none';
@@ -2936,18 +3254,28 @@ function shareSpot(title, address, category, event) {
         document.getElementById('cameraPostImageNote').style.display = isCameraPost ? 'block' : 'none';
         document.getElementById('postImageInput').style.display = isCameraPost ? 'none' : '';
 
-        if(cat === 'patrol' || cat === 'aed') {
+        if(cat === 'patrol' || cat === 'aed' || cat === 'local_anomaly') {
             reportArea.style.display = 'none';
             document.getElementById('postIsReported').checked = false;
         } else {
             reportArea.style.display = 'flex';
         }
         const isAed = cat === 'aed';
-        document.getElementById('spotPhotoPrivacyArea').style.display = cat === 'abandoned' ? 'flex' : 'none';
+        const isLocalAnomaly = cat === 'local_anomaly';
+        document.getElementById('spotPhotoPrivacyArea').style.display = (cat === 'abandoned' || isLocalAnomaly) ? 'flex' : 'none';
+        anomalyArea.style.display = isLocalAnomaly ? 'block' : 'none';
+        document.getElementById('localAnomalyType').required = isLocalAnomaly;
+        document.getElementById('localAnomalyFactOnly').required = isLocalAnomaly;
         aedArea.style.display = isAed ? 'block' : 'none';
-        titleLabel.textContent = isAed ? '施設名' : 'タイトル';
-        commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : '状況コメント';
-        submitButton.textContent = isAed ? 'AEDを審査へ送信（新規承認で累積スタンプ）' : '情報を投稿（+1pt・1日最大5pt）';
+        titleLabel.textContent = isAed ? '施設名' : isLocalAnomaly ? '見つけた異変（事実のみ）' : 'タイトル';
+        commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : isLocalAnomaly ? '状況（見たこと・場所・時間帯）' : '状況コメント';
+        document.getElementById('postTitle').placeholder = isLocalAnomaly ? '例：県道沿いに倒木で片側が通りにくい' : '';
+        document.getElementById('postComment').placeholder = isLocalAnomaly ? '人物の特徴・氏名・顔・ナンバーなどは書かず、確認できた状況だけ記載してください。' : '';
+        submitButton.textContent = isAed
+            ? 'AEDを審査へ送信（新規承認で累積スタンプ）'
+            : isLocalAnomaly
+                ? '地域の異変を共有（+1pt・1日最大5pt）'
+                : '情報を投稿（+1pt・1日最大5pt）';
         if (isAed && !aedGps) captureAedGps();
     }
 
@@ -2978,7 +3306,7 @@ function shareSpot(title, address, category, event) {
         try {
             const normalized = await normalizeAedPhoto(file);
             if (request !== photoSelectionRequest) return;
-            if (!['aed', 'abandoned'].includes(document.getElementById('postCategory').value)) return;
+            if (!['aed', 'abandoned', 'local_anomaly'].includes(document.getElementById('postCategory').value)) return;
             aedPhotoMeta = normalized;
             uploadedImageFile = normalized.file;
         } catch (_) {
@@ -3166,19 +3494,26 @@ function shareSpot(title, address, category, event) {
             return;
         }
 
+        const anomalyType = cat === 'local_anomaly' ? document.getElementById('localAnomalyType').value : null;
+        if (cat === 'local_anomaly') {
+            if (!localAnomalyLabels[anomalyType]) { alert('地域の異変の種類を選択してください。'); return; }
+            if (!document.getElementById('localAnomalyFactOnly').checked) { alert('見た事実だけを投稿し、個人を特定・追跡しないことを確認してください。'); return; }
+        }
+
         if (isReported) {
             title = "【通報済】" + title;
         }
 
         if (cat === 'abandoned' && !uploadedImageFile) { alert('不法放置の報告には現地の写真（その場での撮影）が必要です。'); return; }
         if (cat === 'abandoned' && !document.getElementById('spotPhotoPrivacyConfirmed').checked) { alert('写真に顔・車両番号・個人情報が写っていないことを確認してください。'); return; }
+        if (cat === 'local_anomaly' && uploadedImageFile && !document.getElementById('spotPhotoPrivacyConfirmed').checked) { alert('写真に顔・車両番号・個人情報が写っていないことを確認してください。'); return; }
 
         const file = uploadedImageFile, camera = cameraPostDraft;
         const id = crypto.randomUUID(), path = `${authUser.id}/${id}.jpg`;
-        const payload = {lat:window.postLat,lng:window.postLng,category:cat,title,comment,address:'不明なエリア',source:camera?'camera':'map',image_url:null};
+        const payload = {lat:window.postLat,lng:window.postLng,category:cat,anomaly_type:anomalyType,title,comment,address:'不明なエリア',source:camera?'camera':'map',image_url:null};
         if (camera) {
             payload.origin_lat=camera.origin.lat;payload.origin_lng=camera.origin.lng;
-        } else if (cat==='abandoned') {
+        } else if (cat==='abandoned' || (cat==='local_anomaly' && file)) {
             payload.image_url=db.storage.from('spot-images').getPublicUrl(path).data.publicUrl;
         }
         document.getElementById('aiLoading').innerHTML = '<div class="spinner"></div><div>投稿文を確認中…</div>';
@@ -4367,7 +4702,7 @@ function shareSpot(title, address, category, event) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
-<script src="mypage-guide.js?v=29-camera-safety4"></script>
+<script src="mypage-guide.js?v=30-camera-audit1"></script>
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>

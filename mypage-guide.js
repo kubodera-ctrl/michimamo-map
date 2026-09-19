@@ -84,13 +84,22 @@ document.head.appendChild(script);
 'use strict';
 const load=()=>{
 const style=document.createElement('link');
-style.rel='stylesheet';style.href='camera-safe-ui.css?v=29-safety4';document.head.appendChild(style);
+style.rel='stylesheet';style.href='camera-safe-ui.css?v=30-safety1';document.head.appendChild(style);
 const ui=document.createElement('script');
-ui.src='camera-safe-ui.js?v=29-safety4';ui.async=false;
+ui.src='camera-safe-ui.js?v=30-safety1';ui.async=false;
 ui.onerror=()=>console.error('Camera safety UI could not be loaded.');
 document.head.appendChild(ui);
 const script=document.createElement('script');
-script.src='camera-drive-mvp.js?v=29-drive1';script.async=false;
+script.src='camera-drive-mvp.js?v=30-drive-loader1';script.async=false;
+script.onload=()=>{
+const view=document.getElementById('cameraView');
+const video=document.getElementById('videoElement');
+const drive=document.getElementById('cameraModeDrive');
+const driveSelected=drive?.getAttribute('aria-pressed')==='true'||localStorage.getItem('machimamo_camera_mode')==='drive';
+if(view?.classList.contains('active')&&driveSelected&&video?.srcObject){
+window.MachimamoDriveMvp?.start(video);
+}
+};
 script.onerror=()=>console.error('Drive MVP v2 could not be loaded.');
 document.head.appendChild(script);
 };

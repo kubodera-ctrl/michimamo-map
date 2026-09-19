@@ -109,8 +109,11 @@ body.camera-running #app > nav { display:none !important; }
   width:7px;
   height:7px;
   border-radius:50%;
-  background:#22c55e;
+  background:#94a3b8;
 }
+.camera-detection-count[data-state="loading"] > span { background:#facc15; }
+.camera-detection-count[data-state="running"] > span { background:#22c55e; }
+.camera-detection-count[data-state="error"] > span { background:#ef4444; }
 
 body.camera-heat-medium .camera-scope:nth-child(n+3),
 body.camera-heat-strong .camera-scope:nth-child(n+2) { display:none; }
