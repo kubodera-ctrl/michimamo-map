@@ -2004,6 +2004,10 @@ function shareSpot(title, address, category, event) {
                 if (!currentAuthUserId) { showToast('管理者はLINEログインが必要です'); adminTapCount = 0; return; }
                 const { data, error } = await db.rpc('is_current_user_admin');
                 if (error || data !== true) { showToast('このアカウントには管理者権限がありません'); adminTapCount = 0; return; }
+                const profileTab = document.getElementById('profileTab');
+                const profileTabButton = document.getElementById('myPageProfileTabBtn');
+                if (profileTab && csvCard.parentElement === profileTab) profileTab.prepend(csvCard);
+                if (profileTabButton) switchTab('profileTab', profileTabButton);
                 csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました");
                 requestAnimationFrame(() => csvCard.scrollIntoView({ block: 'start', behavior: 'smooth' }));
             }
