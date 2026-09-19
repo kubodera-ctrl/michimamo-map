@@ -2,6 +2,8 @@ name: Event Site Check
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'event-site/**'
       - 'index.html'
