@@ -51,13 +51,13 @@ export function buildXShareText(input:XShareInput){
     .join(' ');
 
   const lines=[
-    truncateWeighted(input.prefix,14),
+    truncateWeighted(input.prefix,16),
     truncateWeighted(input.placeText,24),
-    truncateWeighted(input.title,58),
-    truncateWeighted(input.conditionText,22),
+    truncateWeighted(input.title,50),
+    truncateWeighted(input.conditionText,30),
     input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,34) : '',
-    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,26) : '',
-    truncateWeighted(input.summary,34),
+    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,24) : '',
+    truncateWeighted(input.summary,32),
     truncateWeighted(tags,24)
   ].filter(Boolean);
 
