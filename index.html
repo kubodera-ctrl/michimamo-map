@@ -2065,6 +2065,10 @@ function shareSpot(title, address, category, event) {
                 if (!currentAuthUserId) { showToast('管理者はLINEログインが必要です'); adminTapCount = 0; return; }
                 const { data, error } = await db.rpc('is_current_user_admin');
                 if (error || data !== true) { showToast('このアカウントには管理者権限がありません'); adminTapCount = 0; return; }
+                const profileTab = document.getElementById('profileTab');
+                const profileTabButton = document.getElementById('myPageProfileTabBtn');
+                if (profileTab && csvCard.parentElement === profileTab) profileTab.prepend(csvCard);
+                if (profileTabButton) switchTab('profileTab', profileTabButton);
                 csvCard.style.display = 'block'; showToast("🔓 管理者モードが解放されました");
                 requestAnimationFrame(() => csvCard.scrollIntoView({ block: 'start', behavior: 'smooth' }));
             }
@@ -2829,6 +2833,7 @@ function shareSpot(title, address, category, event) {
 
         const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
+        const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
         const anomalyBadge = spot.category === 'local_anomaly'
             ? `<div style="display:inline-flex;align-items:center;gap:5px;margin:5px 0 7px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0e7490;font-size:.72rem;font-weight:900;"><i class="fa-solid fa-eye"></i>${escapeHtml(localAnomalyLabels[spot.anomaly_type] || 'その他')}</div>`
             : '';
@@ -2840,7 +2845,6 @@ function shareSpot(title, address, category, event) {
                  <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
                  <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
                </div>`;
-        const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin });
         if (isCategoryVisible(spot.category)) m.addTo(map);
