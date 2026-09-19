@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { buildTikTokCaption } from '../lib/tiktok';
 
 test('TikTok caption uses confirmed event fields and brand hashtags',()=>{
@@ -34,4 +35,15 @@ test('TikTok caption adds oshi hashtag only for confirmed fandom links',()=>{
   });
   assert.match(text,/#推し活/);
   assert.match(text,/#大阪イベント/);
+});
+
+
+test('TikTok generator reserves overlay-safe space and wraps before drawing pills',()=>{
+  const source=fs.readFileSync(new URL('../components/TikTokAssetGenerator.tsx',import.meta.url),'utf8');
+  assert.match(source,/const SAFE_RIGHT=840;/);
+  assert.match(source,/const SAFE_BOTTOM=1580;/);
+  assert.match(source,/if\(tagX\+measured\.width>SAFE_RIGHT\)\{tagX=SAFE_LEFT;tagY\+=72;\}/);
+  assert.match(source,/drawPill\(ctx,measured\.text,tagX,tagY,measured\.width\)/);
+  assert.match(source,/イベント案内はこちら！/);
+  assert.match(source,/右側の操作ボタン・下部キャプションに重要情報が重ならない9:16安全配置/);
 });
