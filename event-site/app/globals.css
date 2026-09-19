@@ -119,7 +119,7 @@ a{color:inherit}
 .advanced-grid label>span{font-size:11px;font-weight:900;color:#475569}
 .advanced-grid select,.advanced-grid input{width:100%;min-height:48px;border:1px solid #d9e0e7;border-radius:13px;background:#f9fafb;padding:0 13px;font:inherit;color:var(--ink);outline:none}
 .advanced-grid select:focus,.advanced-grid input:focus{border-color:#70a7e5;box-shadow:0 0 0 3px #dbeafe}
-.exclude-field small{font-size:10px;color:#64748b;line-height:1.55}
+.exclude-field small,.oshi-keyword-field small{font-size:10px;color:#64748b;line-height:1.55}
 .check-chip-accessibility{background:#f4f0ff;border-color:#d8ccff;color:#5b3aa6}
 .tag-long{background:#fff7ed;color:#9a4b06}
 .tag-family{background:#fff1f2;color:#be123c}

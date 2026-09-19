@@ -32,6 +32,8 @@ export function SaveSearchButton() {
       selectedText(form,'oshi')
     ].filter((v)=>v && !['全国','すべて','指定なし'].includes(v));
     const q=String(data.get('q')||'').trim();
+    const oshiKeyword=String(data.get('oshiKeyword')||'').trim();
+    if(oshiKeyword) pieces.unshift(oshiKeyword);
     if(q) pieces.unshift(q);
     const when=String(data.get('when')||'today');
     pieces.unshift(when==='tomorrow'?'明日':when==='weekend'?'今週末':when==='30days'?'30日以内':'今日');
