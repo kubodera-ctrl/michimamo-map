@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { buildXShareText, buildXShareUrl, xWeightedLength } from '../lib/share';
 
 test('operator X copy keeps the required event fields in readable order',()=>{
@@ -68,4 +69,18 @@ test('operator X copy stays within a conservative weighted text budget',()=>{
   assert.match(text,/#イベント情報 #まちイベ$/);
   assert.match(text,/開催日：/);
   assert.match(text,/時間：/);
+});
+
+
+test('admin new-event rows expose both X compose and TikTok asset actions only for publishable events',()=>{
+  const admin=fs.readFileSync(new URL('../app/admin/page.tsx',import.meta.url),'utf8');
+  const xRoute=fs.readFileSync(new URL('../app/api/admin/x/route.ts',import.meta.url),'utf8');
+  assert.match(admin,/publication_status==='published'/);
+  assert.match(admin,/verification_status==='verified'/);
+  assert.match(admin,/\/api\/admin\/x\?slug=/);
+  assert.match(admin,/\/admin\/tiktok\//);
+  assert.match(admin,/𝕏 投稿画面/);
+  assert.match(admin,/TikTok画像/);
+  assert.match(xRoute,/p_metric:'admin_x_compose'/);
+  assert.match(xRoute,/NextResponse\.redirect\(buildXShareUrl/);
 });
