@@ -1481,11 +1481,13 @@
         updatePointExchangePreview();
         togglePointExchangeMethod();
         toggleGuardianFields();
-        document.getElementById('pointExchangeModal').classList.add('show');
+        const modal = document.getElementById('pointExchangeModal');
+        modal.classList.add('open');
+        modal.querySelector('.close')?.focus();
     }
 
     function closePointExchange() {
-        document.getElementById('pointExchangeModal').classList.remove('show');
+        document.getElementById('pointExchangeModal').classList.remove('open');
     }
 
     function updatePointExchangePreview() {
