@@ -6,9 +6,10 @@ const buckets=globalBuckets.__machiibeRateBuckets ?? new Map<string,Bucket>();
 globalBuckets.__machiibeRateBuckets=buckets;
 
 export function requestClientKey(request:Request,prefix:string){
+  const cloudflare=request.headers.get('cf-connecting-ip')?.trim();
   const forwarded=request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
   const real=request.headers.get('x-real-ip')?.trim();
-  return `${prefix}:${forwarded||real||'unknown'}`;
+  return `${prefix}:${cloudflare||forwarded||real||'unknown'}`;
 }
 
 export function allowRequest(key:string,limit:number,windowMs:number){

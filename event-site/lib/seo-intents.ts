@@ -70,7 +70,8 @@ export async function searchSeoIntentEvents(
   const common = {
     startDate: date,
     endDate: date,
-    ageGroups: intent.familyOnly ? ['family'] : undefined,
+    audienceIntents: intent.familyOnly ? ['child_centered','family_friendly'] : undefined,
+    excludeAdultOriented: Boolean(intent.familyOnly),
     indoorOnly: intent.indoorOnly,
     sort: 'recommended' as const
   };

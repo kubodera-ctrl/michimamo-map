@@ -31,7 +31,7 @@ a{color:inherit}
 .date-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 .date-chip{position:relative;border:1px solid #d7dee7;background:#fff;border-radius:999px;padding:9px 15px;font-size:13px;font-weight:900;white-space:nowrap;cursor:pointer}
 .date-chip input{position:absolute;opacity:0;pointer-events:none}
-.date-chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.date-chip.active,.date-chip:has(input:checked){background:var(--navy);border-color:var(--navy);color:#fff}
 .search-grid{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:10px}
 .search-grid label{display:flex;flex-direction:column;gap:6px}
 .search-grid label span{font-size:11px;font-weight:900;color:#475569}
@@ -104,7 +104,7 @@ a{color:inherit}
   .keyword-field{grid-column:auto}
   .search-button{width:100%;margin-left:0}
   .event-grid{grid-template-columns:1fr}
-  .section-heading{align-items:flex-start}
+  .section-heading{align-items:flex-start;flex-direction:column;gap:6px}
   .detail-body{padding:20px}
   .event-facts div{grid-template-columns:82px 1fr}
   .detail-actions{grid-template-columns:1fr}

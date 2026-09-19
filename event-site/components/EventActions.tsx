@@ -84,6 +84,7 @@ export function EventActions({ event }: Props) {
     const googleEndDate = timed ? calendarSelection.endDate : addDays(calendarSelection.endDate, 1);
     const url = new URL('https://calendar.google.com/calendar/render');
     url.searchParams.set('action', 'TEMPLATE');
+    url.searchParams.set('ctz', 'Asia/Tokyo');
     url.searchParams.set('text', event.title);
     url.searchParams.set('dates', `${compact(calendarSelection.startDate,calendarSelection.startTime)}/${compact(googleEndDate,calendarSelection.endTime)}`);
     url.searchParams.set('location', [event.venueName,event.address].filter(Boolean).join(' '));

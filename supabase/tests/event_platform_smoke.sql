@@ -31,6 +31,10 @@ insert into public.events(
   'unknown',false,'ci-unverified'
 );
 
+update public.events
+set audience_intent='family_friendly',audience_intent_verified=true,created_at=now()-interval '1 day'
+where slug='ci-free-today';
+
 insert into public.event_occurrences(event_id,occurrence_date,status)
 select id,((now() at time zone 'Asia/Tokyo')::date)+2,'scheduled' from public.events where slug='ci-recurring';
 
@@ -59,6 +63,26 @@ begin
   );
   if n <> 1 then
     raise exception 'free public search expected 1, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_audience_intents=>array['family_friendly']
+  );
+  if n <> 1 then
+    raise exception 'verified family-friendly search expected 1, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_created_after=>now()
+  );
+  if n <> 0 then
+    raise exception 'created-after filter should exclude older events, got %',n;
   end if;
 
   select count(*) into n

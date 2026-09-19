@@ -279,7 +279,7 @@ create or replace function public.search_public_events(
   p_audience_intents text[] default null,
   p_fandom_slugs text[] default null,
   p_price_types text[] default null,
-  p_updated_after timestamptz default null,
+  p_created_after timestamptz default null,
   p_exclude_adult_oriented boolean default false,
   p_indoor_only boolean default false,
   p_sort text default 'recommended',
@@ -298,7 +298,7 @@ returns table(
   category_keys text[], age_group_keys text[], indoor boolean, audience_intent text,
   fandom_slugs text[], accessibility_keys text[], accessibility_notes text, image_url text,
   source_name text, source_url text, source_updated_at timestamptz,
-  last_verified_at timestamptz, updated_at timestamptz
+  last_verified_at timestamptz, created_at timestamptz, updated_at timestamptz
 )
 language sql security definer stable set search_path=public,pg_temp
 as $$
@@ -320,7 +320,7 @@ as $$
     e.accessibility_keys,e.accessibility_notes,
     case when e.image_usage_status='allowed' then e.image_url else null end,
     s.name,coalesce(e.source_page_url,s.data_url,s.homepage_url),
-    e.source_updated_at,e.last_verified_at,e.updated_at
+    e.source_updated_at,e.last_verified_at,e.created_at,e.updated_at
   from public.events e
   join public.regional_sources s on s.id=e.source_id
   where e.publication_status='published'
@@ -383,7 +383,7 @@ as $$
       )
     )
     and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types))
-    and (p_updated_after is null or e.updated_at > p_updated_after)
+    and (p_created_after is null or e.created_at > p_created_after)
     and (not coalesce(p_exclude_adult_oriented,false)
       or not (e.audience_intent_verified and e.audience_intent='adult_oriented'))
     and (not coalesce(p_indoor_only,false) or e.indoor is true)
@@ -451,7 +451,7 @@ as $$
       case when e.image_usage_status='allowed' then e.image_source_url else null end as image_source_url,
       case when e.image_usage_status='allowed' then e.image_license else null end as image_license,
       s.name as source_name,coalesce(e.source_page_url,s.data_url,s.homepage_url) as source_url,
-      e.source_updated_at,e.fetched_at,e.last_verified_at,e.updated_at
+      e.source_updated_at,e.fetched_at,e.last_verified_at,e.created_at,e.updated_at
     from public.events e
     join public.regional_sources s on s.id=e.source_id
     where e.slug=p_slug and e.publication_status='published' and e.verification_status='verified'
