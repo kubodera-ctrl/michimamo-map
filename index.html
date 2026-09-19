@@ -756,6 +756,9 @@
                                     <div id="adminCategoryStats"></div>
                                 </div>
                             </div>
+                            <h3 style="font-size:.92rem; color:#0f4c81; margin:16px 0 5px;">SNS投稿素材（直近の公開投稿）</h3>
+                            <p class="muted" style="font-size:.7rem;line-height:1.55;margin:0 0 8px;">Xは投稿文入りの作成画面を開き、TikTokは9:16画像と投稿文を生成します。自動投稿はせず、必ず内容を確認してから投稿します。</p>
+                            <div id="adminSocialPostArea"><div class="muted" style="font-size:.72rem;">管理画面を読み込むと表示します。</div></div>
                             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:14px; text-align:center;">
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminDeletionCount">0</strong><div class="muted" style="font-size:.65rem;">退会申請</div></div>
                                 <div style="background:white; padding:9px 3px; border-radius:8px;"><strong id="adminReportCount">0</strong><div class="muted" style="font-size:.65rem;">通報投稿</div></div>
@@ -1122,6 +1125,35 @@
 
             <button type="submit" id="postSubmitButton" class="primary" style="margin-top:20px;">情報を投稿（+1pt・1日最大5pt）</button>
         </form>
+    </div>
+</div>
+
+<!-- 管理者SNS投稿素材モーダル -->
+<div class="modal" id="adminSocialAssetModal">
+    <div class="sheet" style="position:relative;max-width:760px;">
+        <div class="row">
+            <div>
+                <div style="font-size:18px;font-weight:900;"><i class="fa-solid fa-photo-film" style="color:#0891b2;"></i> まちまもSNS投稿素材</div>
+                <div id="adminSocialAssetSubtitle" class="muted" style="font-size:.72rem;margin-top:4px;"></div>
+            </div>
+            <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:14px;align-items:start;">
+            <div>
+                <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
+                <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
+                    <canvas id="adminSocialCanvas" width="1080" height="1920" aria-label="まちまもTikTok投稿画像" style="display:block;width:100%;height:100%;"></canvas>
+                </div>
+                <button type="button" onclick="downloadAdminSocialPng()" style="width:100%;margin-top:9px;padding:10px;border:0;border-radius:9px;background:#0f4c81;color:white;font-weight:900;"><i class="fa-solid fa-download"></i> PNGを保存</button>
+            </div>
+            <div>
+                <label for="adminSocialCaption" style="font-size:.75rem;font-weight:900;color:#334155;">投稿文</label>
+                <textarea id="adminSocialCaption" rows="14" style="width:100%;box-sizing:border-box;margin-top:6px;border:1px solid #cbd5e1;border-radius:10px;padding:10px;font-size:.78rem;line-height:1.65;"></textarea>
+                <button type="button" onclick="copyAdminSocialCaption()" style="width:100%;margin-top:8px;padding:10px;border:1px solid #0891b2;border-radius:9px;background:white;color:#0e7490;font-weight:900;">投稿文をコピー</button>
+                <button type="button" onclick="openAdminXPostFromModal()" style="width:100%;margin-top:8px;padding:10px;border:0;border-radius:9px;background:#111827;color:white;font-weight:900;">𝕏 投稿画面を開く</button>
+                <p class="muted" style="font-size:.68rem;line-height:1.55;margin-top:9px;">画像・文面は安全情報のカテゴリと地域を中心に生成し、投稿者名・顔・ナンバー・車両識別情報はSNS素材に含めません。</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -2062,17 +2094,219 @@ function shareSpot(title, address, category, event) {
         }).join('');
     }
 
+    const adminSocialSpots = new Map();
+    let adminSocialAssetSpotId = null;
+    const adminSocialCategoryLabels = {
+        illegal:'違法駐車',
+        danger:'危険な路上停車',
+        patrol:'巡回・取り締まり情報',
+        abandoned:'不法放置',
+        reckless:'暴走・騒音',
+        local_anomaly:'地域の異変',
+        official:'公的機関・警察情報'
+    };
+
+    function adminSocialCategoryLabel(spot) {
+        const base=adminSocialCategoryLabels[spot?.category] || '地域安全情報';
+        if (spot?.category==='local_anomaly') {
+            const detail=localAnomalyLabels[spot.anomaly_type] || 'その他';
+            return `${base}（${detail}）`;
+        }
+        return base;
+    }
+
+    function adminSocialArea(spot) {
+        const value=String(spot?.address || '').replace(/\s+/g,' ').trim();
+        return value && value!=='不明なエリア' ? value.slice(0,48) : '地域情報';
+    }
+
+    function buildMachimamoSocialCaption(spot) {
+        const label=adminSocialCategoryLabel(spot);
+        const area=adminSocialArea(spot);
+        const date=spot?.created_at ? new Date(spot.created_at).toLocaleDateString('ja-JP') : '';
+        const tags=spot?.category==='local_anomaly'
+            ? '#まちまもMAP #地域安全 #地域情報'
+            : '#まちまもMAP #地域安全 #安全情報';
+        return [
+            `【${area}】`,
+            `${label}の情報が共有されています。`,
+            date ? `投稿日：${date}` : '',
+            '',
+            'まちまもMAPで地域の安全情報を確認できます。',
+            '※緊急時はアプリ投稿より110・119や公的機関への連絡を優先してください。',
+            '',
+            tags
+        ].filter((line,index,array)=>line!=='' || (index>0 && array[index-1]!=='' && index<array.length-1)).join('\n').trim();
+    }
+
+    function renderAdminSocialPosts(rows) {
+        const target=document.getElementById('adminSocialPostArea');
+        adminSocialSpots.clear();
+        const safeRows=(Array.isArray(rows)?rows:[])
+            .filter(row=>!row.is_hidden && Number(row.report_count || 0)<3)
+            .slice(0,12);
+        safeRows.forEach(row=>adminSocialSpots.set(String(row.id),row));
+        if (!safeRows.length) {
+            target.innerHTML='<div class="muted" style="font-size:.72rem;">SNS素材に使える公開投稿はまだありません。</div>';
+            return;
+        }
+        target.innerHTML=safeRows.map(row=>{
+            const label=adminSocialCategoryLabel(row);
+            const date=row.created_at ? new Date(row.created_at).toLocaleString('ja-JP') : '';
+            return `<article style="background:white;border:1px solid #bae6fd;border-radius:10px;padding:9px;margin-bottom:7px;font-size:.74rem;">
+                <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;">
+                    <div><strong style="color:#0f4c81;">${escapeHtml(label)}</strong><div class="muted" style="font-size:.66rem;margin-top:3px;">${escapeHtml(adminSocialArea(row))}・${escapeHtml(date)}</div></div>
+                    <span style="font-size:.62rem;color:#64748b;">#${Number(row.id)}</span>
+                </div>
+                <div style="margin-top:6px;font-weight:800;">${escapeHtml(row.title || '名称なし')}</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
+                    <button type="button" onclick="openAdminXPost(${Number(row.id)})" style="border:0;border-radius:999px;padding:7px 10px;background:#111827;color:#fff;font-size:.69rem;font-weight:900;">𝕏 投稿画面</button>
+                    <button type="button" onclick="openAdminTikTokAsset(${Number(row.id)})" style="border:1px solid #cbd5e1;border-radius:999px;padding:7px 10px;background:#fff;color:#111827;font-size:.69rem;font-weight:900;box-shadow:inset 3px 0 0 #25f4ee,inset -3px 0 0 #fe2c55;">♪ TikTok画像</button>
+                </div>
+            </article>`;
+        }).join('');
+    }
+
+    function openAdminXPost(id) {
+        const spot=adminSocialSpots.get(String(id));
+        if (!spot) { showToast('投稿情報を読み直してください'); return; }
+        const url=new URL('https://twitter.com/intent/tweet');
+        url.searchParams.set('text',buildMachimamoSocialCaption(spot));
+        url.searchParams.set('url',window.location.origin);
+        window.open(url.toString(),'_blank','noopener,noreferrer');
+    }
+
+    function adminCanvasRoundRect(ctx,x,y,w,h,r) {
+        const radius=Math.min(r,w/2,h/2);
+        ctx.beginPath();ctx.moveTo(x+radius,y);
+        ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);
+        ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath();
+    }
+
+    function adminCanvasFit(ctx,text,maxWidth) {
+        let value=String(text || '');
+        if (ctx.measureText(value).width<=maxWidth) return value;
+        while(value && ctx.measureText(value+'…').width>maxWidth) value=value.slice(0,-1);
+        return value ? value+'…' : '…';
+    }
+
+    function drawAdminSocialCanvas(spot) {
+        const canvas=document.getElementById('adminSocialCanvas');
+        const ctx=canvas?.getContext('2d');
+        if (!ctx) return;
+        const w=1080,h=1920,SAFE_LEFT=92,SAFE_RIGHT=820,SAFE_BOTTOM=1580;
+        ctx.clearRect(0,0,w,h);
+        const bg=ctx.createLinearGradient(0,0,w,h);
+        bg.addColorStop(0,'#e0f2fe');bg.addColorStop(.55,'#f8fafc');bg.addColorStop(1,'#dcfce7');
+        ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+        const glow=ctx.createRadialGradient(170,210,20,170,210,520);
+        glow.addColorStop(0,'rgba(37,99,235,.24)');glow.addColorStop(1,'rgba(37,99,235,0)');
+        ctx.fillStyle=glow;ctx.fillRect(0,0,w,800);
+
+        adminCanvasRoundRect(ctx,56,56,968,1808,56);
+        ctx.fillStyle='rgba(255,255,255,.78)';ctx.fill();
+        ctx.strokeStyle='rgba(255,255,255,.95)';ctx.lineWidth=2;ctx.stroke();
+
+        const draw=(icon)=>{
+            if(icon){
+                adminCanvasRoundRect(ctx,86,86,132,132,34);ctx.save();ctx.clip();ctx.drawImage(icon,86,86,132,132);ctx.restore();
+            }else{
+                adminCanvasRoundRect(ctx,86,86,132,132,34);ctx.fillStyle='#2563eb';ctx.fill();
+            }
+            ctx.fillStyle='#17212b';ctx.font='950 50px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('まちまもMAP',246,145);
+            ctx.fillStyle='#64748b';ctx.font='800 22px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('LOCAL SAFETY UPDATE',248,184);
+
+            const label=adminSocialCategoryLabel(spot);
+            ctx.font='900 30px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            const labelText=adminCanvasFit(ctx,label,SAFE_RIGHT-SAFE_LEFT-50);
+            const pillW=Math.min(SAFE_RIGHT-SAFE_LEFT,Math.max(300,Math.ceil(ctx.measureText(labelText).width)+70));
+            adminCanvasRoundRect(ctx,SAFE_LEFT,285,pillW,70,35);ctx.fillStyle='#0f4c81';ctx.fill();
+            ctx.fillStyle='#fff';ctx.fillText(labelText,SAFE_LEFT+34,331);
+
+            ctx.fillStyle='#17212b';ctx.font='950 78px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText('地域の安全情報',SAFE_LEFT,510);
+            ctx.fillStyle='#0f4c81';ctx.font='900 46px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText(adminCanvasFit(ctx,adminSocialArea(spot),SAFE_RIGHT-SAFE_LEFT),SAFE_LEFT,600);
+
+            adminCanvasRoundRect(ctx,SAFE_LEFT,700,SAFE_RIGHT-SAFE_LEFT,390,38);
+            ctx.fillStyle='rgba(255,255,255,.9)';ctx.fill();ctx.strokeStyle='rgba(15,76,129,.12)';ctx.stroke();
+            ctx.fillStyle='#0891b2';ctx.font='900 25px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('CATEGORY',130,775);ctx.fillText('POSTED',130,910);
+            ctx.fillStyle='#17212b';ctx.font='950 42px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText(adminCanvasFit(ctx,label,SAFE_RIGHT-320),300,778);
+            const date=spot.created_at ? new Date(spot.created_at).toLocaleDateString('ja-JP') : '日時未取得';
+            ctx.fillText(adminCanvasFit(ctx,date,SAFE_RIGHT-320),300,913);
+
+            ctx.fillStyle='#2563eb';ctx.font='950 42px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('詳細は「まちまもMAP」で',SAFE_LEFT,1280);
+            ctx.fillStyle='#17212b';ctx.font='950 62px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('地域の今をチェック',SAFE_LEFT,1362);
+            ctx.fillStyle='#64748b';ctx.font='700 25px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+            ctx.fillText('緊急時は110・119や公的機関への連絡を優先してください。',SAFE_LEFT,1432);
+
+            const fade=ctx.createLinearGradient(0,SAFE_BOTTOM,0,h);
+            fade.addColorStop(0,'rgba(14,165,233,.04)');fade.addColorStop(1,'rgba(34,197,94,.12)');
+            ctx.fillStyle=fade;ctx.fillRect(56,SAFE_BOTTOM,968,h-SAFE_BOTTOM-56);
+            ctx.save();ctx.globalAlpha=.09;ctx.fillStyle='#17212b';ctx.font='950 86px system-ui, -apple-system, "Noto Sans JP", sans-serif';ctx.fillText('MACHIMAMO',SAFE_LEFT,1775);ctx.restore();
+        };
+
+        const icon=new Image();
+        icon.onload=()=>draw(icon);
+        icon.onerror=()=>draw(null);
+        icon.src='assets/machimamo-icon-512.jpg';
+    }
+
+    function openAdminTikTokAsset(id) {
+        const spot=adminSocialSpots.get(String(id));
+        if (!spot) { showToast('投稿情報を読み直してください'); return; }
+        adminSocialAssetSpotId=Number(id);
+        document.getElementById('adminSocialAssetSubtitle').textContent=`${adminSocialCategoryLabel(spot)}・${adminSocialArea(spot)}`;
+        document.getElementById('adminSocialCaption').value=buildMachimamoSocialCaption(spot);
+        document.getElementById('adminSocialAssetModal').classList.add('open');
+        drawAdminSocialCanvas(spot);
+    }
+
+    function closeAdminSocialAsset() {
+        document.getElementById('adminSocialAssetModal').classList.remove('open');
+        adminSocialAssetSpotId=null;
+    }
+
+    function downloadAdminSocialPng() {
+        const canvas=document.getElementById('adminSocialCanvas');
+        if (!canvas || !adminSocialAssetSpotId) return;
+        canvas.toBlob(blob=>{
+            if (!blob) return;
+            const url=URL.createObjectURL(blob),a=document.createElement('a');
+            a.href=url;a.download=`machimamo-safety-${adminSocialAssetSpotId}.png`;a.click();
+            setTimeout(()=>URL.revokeObjectURL(url),30000);
+        },'image/png');
+    }
+
+    async function copyAdminSocialCaption() {
+        const text=document.getElementById('adminSocialCaption').value;
+        try { await navigator.clipboard.writeText(text); showToast('投稿文をコピーしました'); }
+        catch (_) { showToast('コピーできませんでした。投稿文を選択してコピーしてください'); }
+    }
+
+    function openAdminXPostFromModal() {
+        if (!adminSocialAssetSpotId) return;
+        const text=document.getElementById('adminSocialCaption').value;
+        const url=new URL('https://twitter.com/intent/tweet');
+        url.searchParams.set('text',text);
+        url.searchParams.set('url',window.location.origin);
+        window.open(url.toString(),'_blank','noopener,noreferrer');
+    }
+
     let adminDashboardRequest = 0;
     async function loadAdminDashboard() {
         window.MachimamoRoadReview?.reset();
         const password = getAdminPassword(); if (!password) return;
         const request = ++adminDashboardRequest;
         const authUser = currentAuthUserId;
-        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }] = await Promise.all([
+        const [{ data, error }, { data: statsData, error: statsError }, { data: aedSubmissions, error: aedError }, { data: appeals, error: appealsError }, { data: socialSpots, error: socialError }] = await Promise.all([
             db.rpc('admin_get_dashboard', { p_password: password }),
             db.rpc('admin_get_statistics', { p_password: password }),
             db.rpc('admin_get_aed_submissions', { p_password: password }),
-            db.rpc('admin_get_moderation_appeals', { p_password: password })
+            db.rpc('admin_get_moderation_appeals', { p_password: password }),
+            db.from('spots').select('id,created_at,category,anomaly_type,title,address,report_count,is_hidden').order('created_at',{ascending:false}).limit(30)
         ]);
         if (request !== adminDashboardRequest || authUser !== currentAuthUserId) return;
         if (error || statsError || aedError || appealsError || !data || !statsData) {
@@ -2110,9 +2344,15 @@ function shareSpot(title, address, category, event) {
         ];
         document.getElementById('adminStatsCards').innerHTML = statCards.map(([label, value]) => `<div style="background:white;padding:9px 3px;border-radius:8px;border:1px solid #dcfce7;"><strong style="display:block;font-size:1rem;color:#166534;">${Number(value || 0).toLocaleString()}</strong><div class="muted" style="font-size:.62rem;">${label}</div></div>`).join('');
         document.getElementById('adminStatsSubline').textContent = `今日の投稿 ${Number(summary.postsToday || 0).toLocaleString()}件・直近7日 ${Number(summary.posts7d || 0).toLocaleString()}件・新規ユーザー ${Number(summary.newUsers7d || 0).toLocaleString()}人・非公開 ${Number(summary.hiddenPosts || 0).toLocaleString()}件（現行の登録導線はLINEのみ）`;
-        const categoryLabels = {illegal:'違法駐車',danger:'危険停車',patrol:'巡回',abandoned:'不法放置',accident:'事故情報',official:'公式情報'};
+        const categoryLabels = {illegal:'違法駐車',danger:'危険停車',patrol:'巡回',abandoned:'不法放置',reckless:'暴走・騒音',local_anomaly:'地域の異変',accident:'事故情報',official:'公式情報'};
         renderAdminBreakdown('adminRegionStats', Array.isArray(statsData.regions) ? statsData.regions : [], x => x.region || '地域不明');
         renderAdminBreakdown('adminCategoryStats', Array.isArray(statsData.categories) ? statsData.categories : [], x => categoryLabels[x.category] || x.category || '未分類');
+        if (socialError) {
+            console.error('admin social spots failed',socialError);
+            renderAdminSocialPosts([]);
+        } else {
+            renderAdminSocialPosts(Array.isArray(socialSpots) ? socialSpots : []);
+        }
 
         document.getElementById('adminDeletionArea').innerHTML = deletions.length ? deletions.map(x => `<div style="background:white;border:1px solid #fecaca;padding:9px;border-radius:8px;margin-bottom:6px;font-size:.75rem;"><div><strong>${escapeHtml(x.name || '名称未設定')}</strong>　<span style="color:#991b1b;">${escapeHtml(x.status)}</span></div><div class="muted" style="margin:4px 0;">${escapeHtml(x.reason || '理由なし')}・${formatHistoryDate(x.requested_at)}</div><div style="display:flex;gap:5px;">${x.status === 'pending' ? adminButton('対応開始', `updateDeletionRequest(${Number(x.id)},'processing')`) : ''}${['pending','processing'].includes(x.status) ? adminButton('削除を実行', `executeAccountDeletion(${Number(x.id)})`, '#991b1b') : ''}${['pending','processing'].includes(x.status) ? adminButton('申請を却下', `updateDeletionRequest(${Number(x.id)},'cancelled')`, '#b91c1c') : ''}</div></div>`).join('') : '<div class="muted" style="font-size:.75rem;">申請はありません。</div>';
         renderAdminAppeals(Array.isArray(appeals) ? appeals : []);
