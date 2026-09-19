@@ -1,0 +1,28 @@
+name: Camera Regression
+
+on:
+  push:
+    branches:
+      - dev30-camera-audit
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  camera-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Drive detector core
+        run: node tests/camera_drive_mvp.test.cjs
+      - name: Camera safe UI
+        run: node tests/camera_safe_ui.test.cjs
+      - name: Drive proximity UI
+        run: node tests/camera_drive_proximity_ui.test.cjs
