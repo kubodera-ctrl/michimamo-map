@@ -28,7 +28,7 @@ export async function generateMetadata({
   const name = prefectureBySlug[prefecture];
   if (!name) return {};
   const today=japanToday();
-  const sample=await searchEvents({startDate:today,endDate:addDays(today,30),prefecture:name,limit:3});
+  const sample=await searchEvents({startDate:today,endDate:addDays(today,29),prefecture:name,limit:3});
   const title = `${name}のイベント｜今日・今週末・子ども向けのおでかけ`;
   const description = `${name}の今日・今週末・30日以内のイベントを検索。子ども向け、無料、屋内、障害者向け配慮などの条件にも対応。`;
   return {
@@ -52,7 +52,7 @@ export default async function PrefecturePage({
   if (!name) notFound();
 
   const today = japanToday();
-  const result = await searchEventsPage({ startDate: today, endDate: addDays(today,30), prefecture: name },page,24);
+  const result = await searchEventsPage({ startDate: today, endDate: addDays(today,29), prefecture: name },page,24);
   const breadcrumb = breadcrumbJsonLd([
     { name: 'まちイベ', path: '/' },
     { name: name, path: `/area/${prefecture}` }

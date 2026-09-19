@@ -14,7 +14,8 @@ import {
   formatEventDate,
   formatDuration,
   getEvent,
-  isTrustedLocation
+  isTrustedLocation,
+  japanToday
 } from '@/lib/events';
 import { breadcrumbJsonLd, siteUrl } from '@/lib/seo';
 import { slugByPrefecture } from '@/lib/prefectures';
@@ -71,12 +72,20 @@ export default async function EventPage({ params }: { params: Params }) {
   }
 
   const eventPageUrl = siteUrl(`/events/${event.slug}`);
+  const today=japanToday();
+  const schemaOccurrence=(event.schedule_type==='recurring'||event.schedule_type==='irregular')
+    ? (event.occurrences || []).find((item)=>item.date>=today && item.status!=='cancelled')
+    : undefined;
+  const schemaStartDate=schemaOccurrence?.date || event.start_date;
+  const schemaEndDate=schemaOccurrence?.date || event.end_date;
+  const schemaStartTime=schemaOccurrence?.start_time ?? event.start_time;
+  const schemaEndTime=schemaOccurrence?.end_time ?? event.end_time;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: event.title,
-    startDate: isoDateTime(event.start_date, event.start_time),
-    endDate: isoDateTime(event.end_date, event.end_time),
+    startDate: isoDateTime(schemaStartDate, schemaStartTime),
+    endDate: isoDateTime(schemaEndDate, schemaEndTime),
     eventStatus: schemaEventStatus(event.event_status),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -132,6 +141,7 @@ export default async function EventPage({ params }: { params: Params }) {
             <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
             <span className={`tag tag-price tag-price-${event.price_type}`}>{PRICE_LABELS[event.price_type]}</span>
             {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
+            {event.audience_intent === 'family_friendly' && <span className="tag tag-family">ファミリー向け</span>}
             {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
             {event.fandom_slugs.map((slug) => <span className="tag tag-oshi" key={slug}>推し活：{FANDOM_LABELS[slug] || slug}</span>)}
             {event.category_keys.map((key) => <span className="tag" key={key}>{categoryLabels[key] || key}</span>)}

@@ -8,6 +8,8 @@ import { TrackedLink } from '@/components/TrackedLink';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
+const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true';
+
 export const metadata: Metadata = {
   applicationName: SITE_NAME,
   title:{default:'まちイベ｜全国の今日・週末イベント検索',template:'%s｜まちイベ'},
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
   alternates:{canonical:'/'},
   openGraph:{type:'website',siteName:SITE_NAME,title:'まちイベ｜全国の今日・週末イベント検索',description:SITE_DESCRIPTION,url:'/'},
   twitter:{card:'summary_large_image',title:'まちイベ｜全国の今日・週末イベント検索',description:SITE_DESCRIPTION,site:'@machiibe01',creator:'@machiibe01'},
-  robots:{index:true,follow:true},
+  robots:allowIndexing?{index:true,follow:true}:{index:false,follow:false},
   verification:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?{google:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}:undefined
 };
 

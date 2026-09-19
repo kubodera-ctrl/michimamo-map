@@ -31,7 +31,7 @@ export async function generateMetadata({
   const page=parsePage(query.page);
   const hasQuery = Object.entries(query).some(([key,value]) => key!=='page' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   const today=japanToday();
-  const sample=await searchEvents({startDate:today,endDate:addDays(today,30),prefecture,categories:[category],limit:3});
+  const sample=await searchEvents({startDate:today,endDate:addDays(today,29),prefecture,categories:[category],limit:3});
   const title = `${label}のイベント｜全国の今日・今週末のおでかけ`;
   const description = `全国の${label}イベントを今日から30日以内で検索。開催日、地域、子ども向け、無料、屋内などの条件から探せます。`;
   return {
@@ -58,7 +58,7 @@ export default async function CategoryPage({
   const page=parsePage(query.page);
   const today = japanToday();
   const result = await searchEventsPage({
-    startDate: today,endDate: addDays(today,30),prefecture,categories: [category]
+    startDate: today,endDate: addDays(today,29),prefecture,categories: [category]
   },page,24);
 
   const breadcrumb = breadcrumbJsonLd([
