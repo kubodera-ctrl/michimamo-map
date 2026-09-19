@@ -128,6 +128,7 @@
             predictions=predictions.map(item=>VEHICLES.has(item?.class)?{...item,brakeLightsLikely:brakeLightsLikely(input,item.bbox)}:item);
             const activeBefore=log()?.active(),location=activeBefore?.lastPosition||null;
             const result=core.process(predictions,input.width||video.videoWidth,input.height||video.videoHeight,Date.now(),{egoSpeedKmh:location?.speedKmh});
+            root.MachimamoCameraSafeUi?.setDetectorState('running');
             detectedCount+=result.newlyCounted||0;
             root.MachimamoCameraSafeUi?.setDetectionCount(detectedCount);
             root.MachimamoCameraSafeUi?.renderScopes(result.visuals,input.width||video.videoWidth,input.height||video.videoHeight);
@@ -145,7 +146,7 @@
             root.MachimamoCameraSafeUi?.setHeatMode(heatMode);setStatus(active
                 ? `車載・${cadenceLabel}検知中 ${active.counters.candidates}件（重複含む）${heatLabel}／手動撮影は不要`
                 : `車載・${cadenceLabel}検知中／ログ保存なし${heatLabel}。停車中に管理画面で「テスト開始」してください`);
-        }catch(error){log()?.increment('aiPaused');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
+        }catch(error){log()?.increment('aiPaused');root.MachimamoCameraSafeUi?.setDetectorState('error');setStatus('車載MVP検出器を開始できません。通信と端末性能を確認してください。');running=false;return;}
         const elapsed=performance.now()-began;if(elapsed>900)log()?.increment('fpsDrop');lastLoop=elapsed;
         const runMs=Date.now()-startedAt;
         let target=500;
@@ -154,8 +155,8 @@
         if(elapsed>1800)target=Math.max(target,3000);
         schedule(Math.max(100,target-elapsed));
     }
-    async function start(video){if(running)return true;if(!video)return false;running=true;startedAt=Date.now();detectedCount=0;core.reset();root.MachimamoCameraSafeUi?.setDetectionCount(0);setStatus('車載MVP第2版を準備中…');schedule(0);return true;}
-    function stop(){running=false;clearTimeout(timer);timer=null;core.reset();detectedCount=0;root.MachimamoCameraSafeUi?.clearScopes();root.MachimamoCameraSafeUi?.setDetectionCount(0);root.MachimamoCameraSafeUi?.setHeatMode('normal');if(canvas){canvas.width=canvas.height=1;}}
+    async function start(video){if(running)return true;if(!video)return false;running=true;startedAt=Date.now();detectedCount=0;core.reset();root.MachimamoCameraSafeUi?.setDetectionCount(0);root.MachimamoCameraSafeUi?.setDetectorState('loading');setStatus('車載MVP第2版を準備中…');schedule(0);return true;}
+    function stop(){running=false;clearTimeout(timer);timer=null;core.reset();detectedCount=0;root.MachimamoCameraSafeUi?.clearScopes();root.MachimamoCameraSafeUi?.setDetectionCount(0);root.MachimamoCameraSafeUi?.setDetectorState('idle');root.MachimamoCameraSafeUi?.setHeatMode('normal');if(canvas){canvas.width=canvas.height=1;}}
     root.MachimamoDriveDetectorCore=DriveDetectorCore;
     root.MachimamoBrakeLightHeuristic=brakeLightsLikely;
     root.MachimamoDriveMvp={start,stop,isRunning:()=>running,lastInferenceMs:()=>lastLoop};
