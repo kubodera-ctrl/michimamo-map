@@ -54,9 +54,9 @@ const SAFE_BOTTOM=1580;
 
 function fitText(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){
   if(ctx.measureText(text).width<=maxWidth) return text;
-  let out=text;
-  while(out.length && ctx.measureText(out+'…').width>maxWidth) out=out.slice(0,-1);
-  return out ? out+'…' : '…';
+  const chars=Array.from(text);
+  while(chars.length && ctx.measureText(chars.join('')+'…').width>maxWidth) chars.pop();
+  return chars.length ? chars.join('')+'…' : '…';
 }
 
 function pillText(ctx:CanvasRenderingContext2D,text:string){
@@ -156,9 +156,9 @@ export function TikTokAssetGenerator(props:Props){
       ctx.fillStyle='#fff';
       ctx.fillText(locationText,120,315);
 
-      let titleSize=86;
-      if(props.title.length>32) titleSize=74;
-      if(props.title.length>52) titleSize=64;
+      let titleSize=80;
+      if(Array.from(props.title).length>24) titleSize=70;
+      if(Array.from(props.title).length>40) titleSize=62;
       ctx.font=`950 ${titleSize}px system-ui, -apple-system, "Noto Sans JP", sans-serif`;
       ctx.fillStyle='#163d5b';
       const titleLines=wrapLines(ctx,props.title,SAFE_RIGHT-SAFE_LEFT,4);
