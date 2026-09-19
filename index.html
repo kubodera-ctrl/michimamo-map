@@ -2575,6 +2575,14 @@ function shareSpot(title, address, category, event) {
         const anomalyBadge = spot.category === 'local_anomaly'
             ? `<div style="display:inline-flex;align-items:center;gap:5px;margin:5px 0 7px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0e7490;font-size:.72rem;font-weight:900;"><i class="fa-solid fa-eye"></i>${escapeHtml(localAnomalyLabels[spot.anomaly_type] || 'その他')}</div>`
             : '';
+        const contactActions = spot.category === 'local_anomaly'
+            ? `<div style="padding:8px 10px;margin-bottom:10px;border-radius:9px;background:#ecfeff;color:#155e75;font-size:.72rem;line-height:1.5;">緊急の事故・犯罪・災害は110・119へ。道路設備や生活環境の異常は自治体・道路管理者への連絡も検討してください。</div>
+               <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="width:100%;margin:0 0 10px;padding:8px;background:#17212b;color:white;border:none;"><i class="fa-solid fa-share-nodes"></i> 地域へ共有</button>`
+            : `<div style="display:flex; gap:6px; margin-bottom:10px;">
+                 <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
+                 <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
+                 <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
+               </div>`;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin });
@@ -2603,11 +2611,7 @@ function shareSpot(title, address, category, event) {
                         <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.created_by || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
                         <button onclick="reportSpot(${spot.id}, ${reportCount})" class="popup-action-btn btn-report-flag" style="flex:1; margin:0; padding:6px;"><i class="fa-solid fa-flag"></i> 非表示通報</button>
                     </div>
-                    <div style="display:flex; gap:6px; margin-bottom:10px;">
-                        <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
-                        <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
-                        <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#17212b; color:white; border:none;"><i class="fa-solid fa-share-nodes"></i> 共有</button>
-                    </div>
+                    ${contactActions}
                     <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:10px; border-radius:10px; margin-bottom:8px;">
                         <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                         <div style="display:flex; gap:8px;">
@@ -2989,7 +2993,7 @@ function shareSpot(title, address, category, event) {
         document.getElementById('cameraPostImageNote').style.display = isCameraPost ? 'block' : 'none';
         document.getElementById('postImageInput').style.display = isCameraPost ? 'none' : '';
 
-        if(cat === 'patrol' || cat === 'aed') {
+        if(cat === 'patrol' || cat === 'aed' || cat === 'local_anomaly') {
             reportArea.style.display = 'none';
             document.getElementById('postIsReported').checked = false;
         } else {
@@ -3002,9 +3006,15 @@ function shareSpot(title, address, category, event) {
         document.getElementById('localAnomalyType').required = isLocalAnomaly;
         document.getElementById('localAnomalyFactOnly').required = isLocalAnomaly;
         aedArea.style.display = isAed ? 'block' : 'none';
-        titleLabel.textContent = isAed ? '施設名' : 'タイトル';
-        commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : '状況コメント';
-        submitButton.textContent = isAed ? 'AEDを審査へ送信（新規承認で累積スタンプ）' : '情報を投稿（+1pt・1日最大5pt）';
+        titleLabel.textContent = isAed ? '施設名' : isLocalAnomaly ? '見つけた異変（事実のみ）' : 'タイトル';
+        commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : isLocalAnomaly ? '状況（見たこと・場所・時間帯）' : '状況コメント';
+        document.getElementById('postTitle').placeholder = isLocalAnomaly ? '例：県道沿いに倒木で片側が通りにくい' : '';
+        document.getElementById('postComment').placeholder = isLocalAnomaly ? '人物の特徴・氏名・顔・ナンバーなどは書かず、確認できた状況だけ記載してください。' : '';
+        submitButton.textContent = isAed
+            ? 'AEDを審査へ送信（新規承認で累積スタンプ）'
+            : isLocalAnomaly
+                ? '地域の異変を共有（+1pt・1日最大5pt）'
+                : '情報を投稿（+1pt・1日最大5pt）';
         if (isAed && !aedGps) captureAedGps();
     }
 
