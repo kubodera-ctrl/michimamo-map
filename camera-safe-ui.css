@@ -1,7 +1,15 @@
+body.camera-running #app > header,
 body.camera-running .ad-banner,
 body.camera-running #app > nav { display:none !important; }
 
-.camera-view.active { z-index:10000; }
+.camera-view.active {
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
+  z-index:10000;
+}
 .camera-view .camera-ui-top { z-index:6; }
 .camera-view .camera-help-button { z-index:8; }
 
@@ -17,7 +25,13 @@ body.camera-running #app > nav { display:none !important; }
   white-space:nowrap;
 }
 
-.camera-view .camera-capture-controls { z-index:7; bottom:calc(12px + env(safe-area-inset-bottom)); }
+.camera-view .camera-ui-top {
+  top:calc(8px + env(safe-area-inset-top));
+}
+.camera-view .camera-help-button {
+  top:calc(68px + env(safe-area-inset-top));
+}
+.camera-view .camera-capture-controls { z-index:7; bottom:calc(8px + env(safe-area-inset-bottom)); }
 .camera-view #cameraShutter {
   min-height:38px;
   padding:7px 14px;
@@ -50,7 +64,7 @@ body.camera-running #app > nav { display:none !important; }
   font-size:18px;
 }
 
-.camera-scope-layer { position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden; }
+.camera-scope-layer { position:absolute; inset:0; z-index:5; pointer-events:none; overflow:hidden; }
 .camera-scope {
   position:absolute;
   min-width:24px;
@@ -75,7 +89,7 @@ body.camera-running #app > nav { display:none !important; }
 .camera-detection-count {
   position:absolute;
   z-index:8;
-  top:calc(18px + env(safe-area-inset-top));
+  top:calc(8px + env(safe-area-inset-top));
   left:50%;
   transform:translateX(-50%);
   display:flex;

@@ -3202,6 +3202,9 @@ function shareSpot(title, address, category, event) {
 
     let notifiedSpots = new Set();
     function checkProximity(lat, lng) {
+        // Driving mode must remain operation-free. Do not cover the camera with
+        // a proximity prompt while the vehicle detector is running.
+        if (cameraMode === 'drive' && document.getElementById('cameraView')?.classList.contains('active')) return;
         activeMarkers.forEach(m => {
             if (m.category !== 'abandoned') return;
             const d = (6371 * 2 * Math.atan2(Math.sqrt(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2), Math.sqrt(1-(Math.sin((m.instance.getLatLng().lat - lat)*Math.PI/180/2)**2 + Math.cos(lat*Math.PI/180)*Math.cos(m.instance.getLatLng().lat*Math.PI/180)*Math.sin((m.instance.getLatLng().lng - lng)*Math.PI/180/2)**2))));
@@ -3231,6 +3234,11 @@ function shareSpot(title, address, category, event) {
         if (mediaStream) {
             if (mode === 'drive') window.MachimamoDriveMvp?.start(document.getElementById('videoElement'));
             else window.MachimamoDriveMvp?.stop();
+        }
+        if (mode === 'drive') {
+            const proximityToast = document.getElementById('alertToast');
+            proximityToast?.classList.remove('show');
+            if (proximityToast) proximityToast.onclick = null;
         }
         showToast(mode === 'drive' ? '車載モードに切り替えました。走行中は操作しないでください。' : '散歩モードに切り替えました。自動撮影は準備中です。');
     }
@@ -4355,11 +4363,10 @@ function shareSpot(title, address, category, event) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
-<script src="mypage-guide.js?v=29-camera-safety2"></script>
+<script src="mypage-guide.js?v=29-camera-safety3"></script>
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
-<script src="camera-drive-mvp.js?v=25-mvp2"></script>
 <script src="profile-v2.js?v=29-profile3"></script>
 </body>
 </html>
