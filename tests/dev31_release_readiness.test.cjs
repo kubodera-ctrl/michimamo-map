@@ -6,7 +6,12 @@ const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 const roadmap = fs.readFileSync(path.join(__dirname, '..', 'ROADMAP.md'), 'utf8');
 
 assert.match(html, /id="releaseVersionBadge"[^>]*data-release="dev31-20260920"/);
-assert.match(html, /β版・開発31｜更新 2026年9月20日/);
+assert.match(html, /管理画面バージョン：開発31｜更新 2026年9月20日/);
+const adminCardStart = html.indexOf('id="adminCsvCard"');
+const adminCardEnd = html.indexOf('</div>', adminCardStart);
+const badgePosition = html.indexOf('id="releaseVersionBadge"');
+assert.ok(adminCardStart >= 0 && badgePosition > adminCardStart && badgePosition < adminCardEnd, 'version badge must stay inside hidden admin card');
+assert.doesNotMatch(html.slice(html.indexOf('id="profileTab"'), adminCardStart), /id="releaseVersionBadge"/, 'version badge must not be public in settings');
 assert.match(html, /profileTab\.prepend\(csvCard\)/);
 assert.match(html, /switchTab\('profileTab', profileTabButton\)/);
 assert.match(html, /data-filter="local_anomaly"/);
