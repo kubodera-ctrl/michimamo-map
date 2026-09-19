@@ -432,7 +432,7 @@
 
                 <div id="filterTutorial" class="filter-tutorial" role="dialog" aria-modal="false" aria-labelledby="filterTutorialTitle">
                     <div id="filterTutorialTitle" class="filter-tutorial-title"><i class="fa-solid fa-sliders" style="color:#1f6feb;"></i> 地図を見やすくできます</div>
-                    <p>上部の「表示選択」から、投稿・警察署・交番・駐在所・AEDを種類ごとにON／OFFできます。複数の種類を同時に選べて、選んだ状態はこの端末に保存されます。</p>
+                    <p>上部の「表示選択」から、交通情報・地域の異変・警察署・交番・駐在所・AEDを種類ごとにON／OFFできます。複数の種類を同時に選べて、選んだ状態はこの端末に保存されます。</p>
                     <div class="filter-tutorial-actions">
                         <button onclick="dismissFilterTutorial()" style="background:#1f6feb;color:#fff;min-height:44px;">確認しました</button>
                     </div>
@@ -1051,7 +1051,7 @@
             <div class="spinner"></div><div style="font-weight:bold; color:#1f6feb;">投稿文を確認中...</div>
         </div>
         <div class="row">
-            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 危険情報を共有</div>
+            <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 地域の安全情報を共有</div>
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
@@ -2316,7 +2316,13 @@ function shareSpot(title, address, category, event) {
     let popupFocusPanUntil = 0;
     try {
         const savedFilters = JSON.parse(localStorage.getItem('machimamo_visible_categories') || 'null');
-        if (Array.isArray(savedFilters)) visibleMapCategories = new Set(savedFilters);
+        if (Array.isArray(savedFilters)) {
+            visibleMapCategories = new Set(savedFilters);
+            if (!localStorage.getItem('machimamo_local_anomaly_filter_v1')) {
+                visibleMapCategories.add('local_anomaly');
+                localStorage.setItem('machimamo_local_anomaly_filter_v1','1');
+            }
+        }
     } catch (e) {}
 
     function isCategoryVisible(category) {
