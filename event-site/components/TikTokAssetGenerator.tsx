@@ -48,9 +48,24 @@ function wrapLines(ctx:CanvasRenderingContext2D,text:string,maxWidth:number,maxL
   return lines;
 }
 
-function drawPill(ctx:CanvasRenderingContext2D,text:string,x:number,y:number){
+const SAFE_LEFT=92;
+const SAFE_RIGHT=840;
+const SAFE_BOTTOM=1580;
+
+function fitText(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){
+  if(ctx.measureText(text).width<=maxWidth) return text;
+  let out=text;
+  while(out.length && ctx.measureText(out+'…').width>maxWidth) out=out.slice(0,-1);
+  return out ? out+'…' : '…';
+}
+
+function pillText(ctx:CanvasRenderingContext2D,text:string){
   ctx.font='800 28px system-ui, -apple-system, "Noto Sans JP", sans-serif';
-  const width=Math.ceil(ctx.measureText(text).width)+44;
+  const fitted=fitText(ctx,text,SAFE_RIGHT-SAFE_LEFT-44);
+  return {text:fitted,width:Math.ceil(ctx.measureText(fitted).width)+44};
+}
+
+function drawPill(ctx:CanvasRenderingContext2D,text:string,x:number,y:number,width:number){
   roundRect(ctx,x,y,width,54,27);
   ctx.fillStyle='rgba(255,255,255,.82)';
   ctx.fill();
@@ -58,8 +73,8 @@ function drawPill(ctx:CanvasRenderingContext2D,text:string,x:number,y:number){
   ctx.lineWidth=1;
   ctx.stroke();
   ctx.fillStyle='#31546d';
+  ctx.font='800 28px system-ui, -apple-system, "Noto Sans JP", sans-serif';
   ctx.fillText(text,x+22,y+36);
-  return width;
 }
 
 export function TikTokAssetGenerator(props:Props){
@@ -132,25 +147,27 @@ export function TikTokAssetGenerator(props:Props){
       ctx.fillStyle='#698095';
       ctx.fillText('EVENT GUIDE',246,184);
 
-      roundRect(ctx,86,270,Math.min(760,Math.max(260,ctx.measureText(props.location).width+80)),68,34);
+      ctx.font='900 30px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+      const locationText=fitText(ctx,props.location || '全国',SAFE_RIGHT-120-30);
+      const locationWidth=Math.min(SAFE_RIGHT-86,Math.max(260,Math.ceil(ctx.measureText(locationText).width)+80));
+      roundRect(ctx,86,270,locationWidth,68,34);
       ctx.fillStyle='rgba(23,79,120,.92)';
       ctx.fill();
       ctx.fillStyle='#fff';
-      ctx.font='900 30px system-ui, -apple-system, "Noto Sans JP", sans-serif';
-      ctx.fillText(props.location || '全国',120,315);
+      ctx.fillText(locationText,120,315);
 
       let titleSize=86;
       if(props.title.length>32) titleSize=74;
       if(props.title.length>52) titleSize=64;
       ctx.font=`950 ${titleSize}px system-ui, -apple-system, "Noto Sans JP", sans-serif`;
       ctx.fillStyle='#163d5b';
-      const titleLines=wrapLines(ctx,props.title,860,5);
-      let titleY=440;
+      const titleLines=wrapLines(ctx,props.title,SAFE_RIGHT-SAFE_LEFT,4);
+      let titleY=430;
       const lineHeight=titleSize*1.25;
       for(const line of titleLines){ctx.fillText(line,92,titleY);titleY+=lineHeight;}
 
-      const infoY=Math.max(850,titleY+70);
-      roundRect(ctx,86,infoY,908,390,38);
+      const infoY=Math.max(810,titleY+45);
+      roundRect(ctx,86,infoY,SAFE_RIGHT-86,370,38);
       ctx.fillStyle='rgba(255,255,255,.86)';
       ctx.fill();
       ctx.strokeStyle='rgba(41,168,239,.13)';
@@ -164,34 +181,49 @@ export function TikTokAssetGenerator(props:Props){
 
       ctx.font='900 37px system-ui, -apple-system, "Noto Sans JP", sans-serif';
       ctx.fillStyle='#173f61';
-      const dateLines=wrapLines(ctx,props.dateText,690,2);
+      const detailWidth=SAFE_RIGHT-260-28;
+      const dateLines=wrapLines(ctx,props.dateText,detailWidth,2);
       dateLines.forEach((line,i)=>ctx.fillText(line,260,infoY+65+i*46));
-      ctx.fillText(props.timeText || '時間未定',260,infoY+167);
-      const venueLines=wrapLines(ctx,props.venueName || '会場は公式情報をご確認ください',690,2);
+      ctx.fillText(fitText(ctx,props.timeText || '時間未定',detailWidth),260,infoY+167);
+      const venueLines=wrapLines(ctx,props.venueName || '会場は公式情報をご確認ください',detailWidth,2);
       venueLines.forEach((line,i)=>ctx.fillText(line,260,infoY+269+i*46));
 
-      let tagX=92,tagY=infoY+445;
+      let tagX=SAFE_LEFT,tagY=infoY+425;
       for(const tag of props.tags.slice(0,5)){
-        const width=drawPill(ctx,tag,tagX,tagY);
-        if(tagX+width>950){tagX=92;tagY+=72;}
-        else tagX+=width+14;
+        const measured=pillText(ctx,tag);
+        if(tagX+measured.width>SAFE_RIGHT){tagX=SAFE_LEFT;tagY+=72;}
+        if(tagY+54>SAFE_BOTTOM-145) break;
+        drawPill(ctx,measured.text,tagX,tagY,measured.width);
+        tagX+=measured.width+14;
       }
 
-      const footerY=1680;
+      const ctaY=1450;
       ctx.fillStyle='#087fc5';
-      ctx.font='950 44px system-ui, -apple-system, "Noto Sans JP", sans-serif';
-      ctx.fillText('イベント詳細は',92,footerY);
-      ctx.font='950 62px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+      ctx.font='950 40px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+      ctx.fillText('イベント案内はこちら！',SAFE_LEFT,ctaY);
+      ctx.font='950 58px system-ui, -apple-system, "Noto Sans JP", sans-serif';
       ctx.fillStyle='#173f61';
-      ctx.fillText('「まちイベ」でチェック',92,footerY+78);
-      ctx.font='700 24px system-ui, -apple-system, "Noto Sans JP", sans-serif';
-      ctx.fillStyle='#7a8997';
-      ctx.fillText('掲載内容は変更される場合があります。来場前に公式情報をご確認ください。',92,footerY+137);
+      ctx.fillText('「まちイベ」でチェック',SAFE_LEFT,ctaY+74);
+
+      // TikTok's right-side actions and lower caption/navigation cover part of a
+      // 9:16 post. Keep everything below SAFE_BOTTOM decorative only.
+      const safeFade=ctx.createLinearGradient(0,SAFE_BOTTOM,0,h);
+      safeFade.addColorStop(0,'rgba(41,168,239,.04)');
+      safeFade.addColorStop(1,'rgba(255,138,0,.11)');
+      ctx.fillStyle=safeFade;
+      ctx.fillRect(56,SAFE_BOTTOM,968,h-SAFE_BOTTOM-56);
+
+      ctx.save();
+      ctx.globalAlpha=.1;
+      ctx.fillStyle='#173f61';
+      ctx.font='950 86px system-ui, -apple-system, "Noto Sans JP", sans-serif';
+      ctx.fillText('MACHI IBE',SAFE_LEFT,1770);
+      ctx.restore();
 
       ctx.fillStyle='#ff8a00';
-      ctx.beginPath();ctx.arc(950,1740,22,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(760,1715,22,0,Math.PI*2);ctx.fill();
       ctx.fillStyle='#ffc928';
-      ctx.beginPath();ctx.arc(986,1712,13,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(800,1680,13,0,Math.PI*2);ctx.fill();
     };
 
     const icon=new Image();
@@ -234,7 +266,7 @@ export function TikTokAssetGenerator(props:Props){
         <div className="tiktok-canvas-wrap">
           <canvas ref={canvasRef} width={1080} height={1920} aria-label="TikTok投稿画像プレビュー" />
         </div>
-        <p className="tiktok-brand-note">正式まちイベアイコンは全テンプレートに必ず入ります。イベント写真は使用していません。</p>
+        <p className="tiktok-brand-note">正式まちイベアイコンは全テンプレートに必ず入ります。右側の操作ボタン・下部キャプションに重要情報が重ならない9:16安全配置です。イベント写真は使用していません。</p>
       </section>
 
       <section className="tiktok-caption-card">
