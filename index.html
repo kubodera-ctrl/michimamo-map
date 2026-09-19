@@ -2117,7 +2117,9 @@ function shareSpot(title, address, category, event) {
 
     function adminSocialArea(spot) {
         const value=String(spot?.address || '').replace(/\s+/g,' ').trim();
-        return value && value!=='不明なエリア' ? value.slice(0,48) : '地域情報';
+        if (!value || value==='不明なエリア') return '地域情報';
+        const broad=value.split(' ').filter(Boolean).slice(0,2).join(' ');
+        return (broad || value).slice(0,32);
     }
 
     function buildMachimamoSocialCaption(spot) {
