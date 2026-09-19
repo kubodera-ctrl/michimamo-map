@@ -800,6 +800,8 @@
                             <div style="font-size:0.9rem; color:#6b7280; font-weight:bold; margin-bottom:4px;">現在のランク</div>
                             <div id="myRankBadge" class="rank-badge">🔰 初心者マーク</div>
                             <div style="font-size:2rem; font-weight:900; color:#17212b; margin-top:8px;"><span id="myPointDisp">0</span> <span style="font-size:1rem;">pt</span></div>
+                            <button type="button" onclick="openPointExchange()" style="margin-top:12px;width:100%;min-height:44px;border:0;border-radius:10px;background:#0f4c81;color:white;font-size:.9rem;font-weight:900;cursor:pointer;"><i class="fa-solid fa-money-bill-transfer"></i> ポイント交換</button>
+                            <div style="margin-top:7px;font-size:.72rem;line-height:1.55;color:#64748b;">1,000pt＝100円相当。交換機能は現在準備中です。</div>
                         </div>
                     </div>
 
@@ -996,6 +998,101 @@
 <!-- 各種モーダル -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
 <div class="toast" id="toast"></div>
+
+<!-- ポイント交換モーダル（β版・入力内容は保存しない） -->
+<div id="pointExchangeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="pointExchangeTitle" onclick="if(event.target===this) closePointExchange()">
+    <div class="sheet" style="max-height:92dvh;overflow-y:auto;">
+        <div class="row">
+            <div>
+                <div id="pointExchangeTitle" style="font-size:19px;font-weight:900;color:#0f4c81;">ポイント交換</div>
+                <div style="font-size:.75rem;color:#64748b;margin-top:3px;">現在のポイント：<strong id="pointExchangeBalance">0pt</strong></div>
+            </div>
+            <button type="button" class="close" onclick="closePointExchange()" aria-label="ポイント交換を閉じる"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div style="background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:11px;margin:12px 0;font-size:.8rem;line-height:1.65;color:#9a3412;">
+            現在はベータ版のため、交換申請を受け付けていません。入力内容は保存・送信されません。
+        </div>
+
+        <form id="pointExchangeForm" onsubmit="submitPointExchangeBeta(event)">
+            <fieldset style="border:0;padding:0;margin:0 0 16px;">
+                <legend style="font-size:.9rem;font-weight:900;margin-bottom:8px;">交換額</legend>
+                <label style="display:flex;align-items:center;gap:9px;padding:10px;border:1px solid #cbd5e1;border-radius:9px;margin-bottom:7px;font-size:.88rem;">
+                    <input type="radio" name="exchangeAmount" value="30000" checked onchange="updatePointExchangePreview()"> 30,000pt → 3,000円相当
+                </label>
+                <label style="display:flex;align-items:center;gap:9px;padding:10px;border:1px solid #cbd5e1;border-radius:9px;font-size:.88rem;">
+                    <input type="radio" name="exchangeAmount" value="50000" onchange="updatePointExchangePreview()"> 50,000pt → 5,000円相当
+                </label>
+                <div id="pointExchangeEligibility" style="font-size:.75rem;font-weight:700;color:#64748b;margin-top:8px;"></div>
+            </fieldset>
+
+            <fieldset style="border:0;padding:0;margin:0 0 16px;">
+                <legend style="font-size:.9rem;font-weight:900;margin-bottom:8px;">交換方法</legend>
+                <label style="display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid #cbd5e1;border-radius:9px;margin-bottom:7px;font-size:.88rem;">
+                    <input type="radio" name="exchangeMethod" value="paypay" checked onchange="togglePointExchangeMethod()">
+                    <span><strong>PayPayポイント</strong><br><span style="font-size:.72rem;color:#64748b;">正式提供時はPayPayの認証画面で連携します。電話番号やPayPay IDは入力しません。</span></span>
+                </label>
+                <label style="display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid #cbd5e1;border-radius:9px;font-size:.88rem;">
+                    <input type="radio" name="exchangeMethod" value="bank" onchange="togglePointExchangeMethod()">
+                    <span><strong>銀行振込</strong><br><span style="font-size:.72rem;color:#64748b;">本人または同意した保護者名義の口座を指定します。</span></span>
+                </label>
+            </fieldset>
+
+            <label for="exchangeEmail" style="font-size:.82rem;font-weight:800;">連絡用メールアドレス</label>
+            <input id="exchangeEmail" type="email" autocomplete="email" placeholder="example@email.jp" style="margin-top:6px;margin-bottom:12px;background:white;">
+
+            <label for="exchangeName" style="font-size:.82rem;font-weight:800;">利用者の氏名</label>
+            <input id="exchangeName" type="text" autocomplete="name" maxlength="60" placeholder="例：まちまも 太郎" style="margin-top:6px;margin-bottom:12px;background:white;">
+
+            <label for="exchangeBirthDate" style="font-size:.82rem;font-weight:800;">生年月日</label>
+            <input id="exchangeBirthDate" type="date" autocomplete="bday" onchange="toggleGuardianFields()" style="margin-top:6px;margin-bottom:12px;background:white;">
+
+            <div id="guardianFields" style="display:none;background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;padding:12px;margin-bottom:14px;">
+                <div style="font-size:.9rem;font-weight:900;margin-bottom:9px;">未成年者の保護者同意</div>
+                <label for="guardianName" style="font-size:.8rem;font-weight:800;">保護者氏名</label>
+                <input id="guardianName" type="text" maxlength="60" autocomplete="name" placeholder="例：まちまも 花子" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label for="guardianRelation" style="font-size:.8rem;font-weight:800;">続柄</label>
+                <select id="guardianRelation" style="margin-top:5px;margin-bottom:10px;background:white;">
+                    <option value="">選択してください</option><option value="parent">父・母</option><option value="guardian">未成年後見人</option><option value="other">その他</option>
+                </select>
+                <label for="guardianEmail" style="font-size:.8rem;font-weight:800;">保護者のメールアドレス</label>
+                <input id="guardianEmail" type="email" autocomplete="email" placeholder="guardian@email.jp" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:.78rem;line-height:1.55;margin:4px 0 10px;">
+                    <input id="guardianConsent" type="checkbox" style="margin-top:3px;"> 保護者としてポイント交換条件と個人情報の取扱いを確認し、交換申請に同意します。
+                </label>
+                <label for="guardianSignature" style="font-size:.8rem;font-weight:800;">保護者署名（氏名を入力）</label>
+                <input id="guardianSignature" type="text" maxlength="60" placeholder="保護者氏名と同じ表記" style="margin-top:5px;background:white;">
+            </div>
+
+            <div id="paypayExchangeFields" style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:11px;margin-bottom:14px;font-size:.77rem;line-height:1.65;color:#166534;">
+                正式提供時はPayPayアカウント認証へ進みます。現在は連携・付与を行いません。
+            </div>
+
+            <div id="bankExchangeFields" style="display:none;background:#eff6ff;border:1px solid #93c5fd;border-radius:10px;padding:12px;margin-bottom:14px;">
+                <label for="bankInstitution" style="font-size:.8rem;font-weight:800;">金融機関名</label>
+                <input id="bankInstitution" type="text" maxlength="80" autocomplete="off" placeholder="例：○○銀行" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label for="bankBranch" style="font-size:.8rem;font-weight:800;">支店名</label>
+                <input id="bankBranch" type="text" maxlength="80" autocomplete="off" placeholder="例：本店営業部" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label for="bankAccountType" style="font-size:.8rem;font-weight:800;">口座種別</label>
+                <select id="bankAccountType" style="margin-top:5px;margin-bottom:10px;background:white;"><option value="ordinary">普通</option><option value="current">当座</option><option value="savings">貯蓄</option></select>
+                <label for="bankAccountNumber" style="font-size:.8rem;font-weight:800;">口座番号</label>
+                <input id="bankAccountNumber" type="text" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="数字のみ" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label for="bankAccountHolder" style="font-size:.8rem;font-weight:800;">口座名義（カナ）</label>
+                <input id="bankAccountHolder" type="text" maxlength="60" autocomplete="off" placeholder="例：マチマモ タロウ" style="margin-top:5px;margin-bottom:10px;background:white;">
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:.78rem;line-height:1.55;">
+                    <input id="bankHolderConfirmation" type="checkbox" style="margin-top:3px;"> 本人名義、または上記で同意した保護者名義の口座であることを確認しました。
+                </label>
+            </div>
+
+            <label style="display:flex;align-items:flex-start;gap:8px;font-size:.78rem;line-height:1.55;margin:10px 0;">
+                <input id="exchangeTermsConsent" type="checkbox" style="margin-top:3px;"> 交換レート、審査、不正取得分の取消し、交換完了後の取消し不可について確認しました。
+            </label>
+
+            <button type="submit" class="primary" style="min-height:48px;background:#0f4c81;"><i class="fa-solid fa-paper-plane"></i> 交換を申請する</button>
+            <p style="font-size:.7rem;line-height:1.55;color:#64748b;margin:9px 0 0;">β版では、このボタンを押しても個人情報や口座情報は保存・送信されません。</p>
+        </form>
+    </div>
+</div>
 
 <!-- スタンプルール説明モーダル -->
 <div id="stampRuleModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="stampRuleTitle" onclick="if(event.target===this) closeStampRule()">
@@ -1367,6 +1464,69 @@
 
     function setDynamicAd(triggerCategory = null) {
         // 現在は固定広告にしているため、将来拡張用として残します。
+    }
+
+    function getPointExchangeBalance() {
+        const value = Number.parseInt(document.getElementById('myPointDisp')?.textContent || '0', 10);
+        return Number.isFinite(value) ? Math.max(0, value) : 0;
+    }
+
+    function openPointExchange() {
+        if (!currentAuthUserId) {
+            showToast('ポイント交換にはLINEログインが必要です');
+            return;
+        }
+        const balance = getPointExchangeBalance();
+        document.getElementById('pointExchangeBalance').textContent = balance.toLocaleString('ja-JP') + 'pt';
+        updatePointExchangePreview();
+        togglePointExchangeMethod();
+        toggleGuardianFields();
+        const modal = document.getElementById('pointExchangeModal');
+        modal.classList.add('open');
+        modal.querySelector('.close')?.focus();
+    }
+
+    function closePointExchange() {
+        document.getElementById('pointExchangeModal').classList.remove('open');
+    }
+
+    function updatePointExchangePreview() {
+        const amount = Number(document.querySelector('input[name="exchangeAmount"]:checked')?.value || 30000);
+        const balance = getPointExchangeBalance();
+        const target = document.getElementById('pointExchangeEligibility');
+        if (!target) return;
+        if (balance >= amount) {
+            target.textContent = '交換可能残高です。正式提供開始後に申請できます。';
+            target.style.color = '#166534';
+        } else {
+            target.textContent = '交換まであと ' + (amount - balance).toLocaleString('ja-JP') + 'pt';
+            target.style.color = '#b45309';
+        }
+    }
+
+    function togglePointExchangeMethod() {
+        const method = document.querySelector('input[name="exchangeMethod"]:checked')?.value || 'paypay';
+        document.getElementById('paypayExchangeFields').style.display = method === 'paypay' ? 'block' : 'none';
+        document.getElementById('bankExchangeFields').style.display = method === 'bank' ? 'block' : 'none';
+    }
+
+    function toggleGuardianFields() {
+        const value = document.getElementById('exchangeBirthDate')?.value;
+        let isMinor = false;
+        if (value) {
+            const birth = new Date(value + 'T00:00:00');
+            const today = new Date();
+            let age = today.getFullYear() - birth.getFullYear();
+            const beforeBirthday = today.getMonth() < birth.getMonth() || (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate());
+            if (beforeBirthday) age -= 1;
+            isMinor = Number.isFinite(age) && age < 18;
+        }
+        document.getElementById('guardianFields').style.display = isMinor ? 'block' : 'none';
+    }
+
+    function submitPointExchangeBeta(event) {
+        event.preventDefault();
+        alert('現在はベータ版のため、ポイント交換申請は受け付けていません。正式提供開始までお待ちください。\n\n入力内容は保存・送信されていません。');
     }
 
     function showToast(msg) {
