@@ -24,5 +24,7 @@ jobs:
         run: node tests/camera_drive_mvp.test.cjs
       - name: Camera safe UI
         run: node tests/camera_safe_ui.test.cjs
+      - name: Delayed drive loader
+        run: node tests/camera_drive_loader.test.cjs
       - name: Drive proximity UI
         run: node tests/camera_drive_proximity_ui.test.cjs
