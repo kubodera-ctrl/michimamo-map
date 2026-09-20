@@ -50,7 +50,7 @@ a{color:inherit}
 .event-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 7px 24px rgba(15,23,42,.05);transition:.18s transform,.18s box-shadow}
 .event-card:hover{transform:translateY(-3px);box-shadow:0 13px 34px rgba(15,23,42,.1)}
 .event-card-link{text-decoration:none;display:block;height:100%}
-.event-card-image{aspect-ratio:16/9;background-size:cover;background-position:center}
+.event-card-image{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background-size:cover;background-position:center}
 .event-card-fallback{background:linear-gradient(145deg,#dff4ff,#fff7cf 58%,#fff0dc);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#123052}
 .event-card-fallback span{font-weight:900}
 .event-card-fallback strong{font-size:22px;letter-spacing:.14em}
