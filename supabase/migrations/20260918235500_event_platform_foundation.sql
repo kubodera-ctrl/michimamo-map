@@ -176,6 +176,7 @@ values
   ('super-mario','スーパーマリオ',array['スーパーマリオ','マリオ'],'franchise'),
   ('kirby','星のカービィ',array['星のカービィ','カービィ'],'franchise'),
   ('animal-crossing','どうぶつの森',array['どうぶつの森','あつ森'],'franchise'),
+  ('idolmaster-sidem','アイドルマスター SideM',array['アイドルマスター SideM','SideM','サイドエム'],'franchise'),
   ('tamagotchi','たまごっち',array['たまごっち'],'brand'),
   ('sylvanian-families','シルバニアファミリー',array['シルバニアファミリー','シルバニア'],'brand'),
   ('miffy','ミッフィー',array['ミッフィー','miffy'],'character'),
@@ -207,7 +208,8 @@ values
   ('colorful-peach','カラフルピーチ',array['カラフルピーチ','からぴち'],'influencer'),
   ('tiropino','ちろぴの',array['ちろぴの','チロピノ'],'influencer'),
   ('bom-bom-tv','ボンボンTV',array['ボンボンTV','ボンボンティービー'],'influencer'),
-  ('rocomacoaco','ろこまこあこ',array['ろこまこあこ','RMA'],'influencer')
+  ('rocomacoaco','ろこまこあこ',array['ろこまこあこ','RMA'],'influencer'),
+  ('quizknock','QuizKnock',array['QuizKnock','クイズノック'],'creator')
 on conflict(slug) do update
 set display_name=excluded.display_name,
     aliases=excluded.aliases,
