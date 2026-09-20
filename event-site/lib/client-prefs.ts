@@ -2,6 +2,7 @@ export const PREF_KEYS = {
   savedEvents:'machiibe_saved_events_v1',
   attendedEvents:'machiibe_attended_events_v1',
   plannedDates:'machiibe_planned_dates_v1',
+  plannedOccurrences:'machiibe_planned_occurrences_v1',
   hiddenEvents:'machiibe_hidden_events_v1',
   viewedEvents:'machiibe_viewed_events_v1',
   savedSearches:'machiibe_saved_searches_v1',
@@ -119,5 +120,29 @@ export function setPlannedDate(slug:string,date:string) {
   const current=readPlannedDates();
   if(date) current[slug]=date; else delete current[slug];
   localStorage.setItem(PREF_KEYS.plannedDates,JSON.stringify(current));
+  window.dispatchEvent(new CustomEvent('machiibe:prefs'));
+}
+
+
+export function readPlannedOccurrences():Record<string,string> {
+  if(!canUseStorage()) return {};
+  try {
+    const parsed=JSON.parse(localStorage.getItem(PREF_KEYS.plannedOccurrences)||'{}');
+    if(!parsed || typeof parsed!=='object' || Array.isArray(parsed)) return {};
+    return Object.fromEntries(
+      Object.entries(parsed).filter(([key,value])=>typeof key==='string' && typeof value==='string')
+    ) as Record<string,string>;
+  } catch { return {}; }
+}
+
+export function getPlannedOccurrence(slug:string):string {
+  return readPlannedOccurrences()[slug] || '';
+}
+
+export function setPlannedOccurrence(slug:string,key:string) {
+  if(!canUseStorage()) return;
+  const current=readPlannedOccurrences();
+  if(key) current[slug]=key; else delete current[slug];
+  localStorage.setItem(PREF_KEYS.plannedOccurrences,JSON.stringify(current));
   window.dispatchEvent(new CustomEvent('machiibe:prefs'));
 }
