@@ -64,3 +64,11 @@ test('TikTok admin page blocks unavailable event statuses even on direct URLs',(
   assert.match(source,/registration_closed/);
   assert.match(source,/redirect\('\/admin\?error=tiktok-unavailable'\)/);
 });
+
+
+test('TikTok generator truncates by Unicode code points',()=>{
+  const source=fs.readFileSync(new URL('../components/TikTokAssetGenerator.tsx',import.meta.url),'utf8');
+  assert.match(source,/const chars=Array\.from\(text\);/);
+  assert.match(source,/const lastChars=Array\.from\(lines\[lastIndex\]\);/);
+  assert.match(source,/lastChars\.pop\(\)/);
+});
