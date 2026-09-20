@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { isSameOriginRequest } from '@/lib/request-security';
 import { cookies } from 'next/headers';
 import { ADMIN_COOKIE, validateAdminSession } from '@/lib/admin-auth';
 import { getAdminSupabase } from '@/lib/supabase-admin';
@@ -6,6 +7,7 @@ import { getAdminSupabase } from '@/lib/supabase-admin';
 export const runtime='nodejs';
 
 export async function POST(request:Request){
+  if(!isSameOriginRequest(request)) return new Response('Forbidden',{status:403});
   const jar=await cookies();
   if(!validateAdminSession(jar.get(ADMIN_COOKIE)?.value)) return NextResponse.redirect(new URL('/admin/login',request.url),303);
   const data=await request.formData();
