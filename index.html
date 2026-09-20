@@ -1084,23 +1084,11 @@
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
-           <label>種類</label>
-           <select id="postCategory" required onchange="toggleImageUpload()">
-                <option value="illegal">🔴 違法駐車</option>
-                <option value="danger">🔵 危険な路上停車</option>
-                <option value="reckless">🟡 暴走・騒音車両</option>
-                <option value="abandoned">🟣 不法放置 (写真必須)</option>
-                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
-                <option value="patrol">🟢 巡回・取り締まり情報</option>
-                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
-            </select>
-            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
-            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
 
             <div id="localAnomalyArea" style="display:none; margin-top:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
-                <select id="localAnomalyType">
+                <select id="localAnomalyType" onchange="syncLocalAnomalyFields()">
                     <option value="">選択してください</option>
                     <option value="illegal_dumping">不法投棄・ごみ</option>
                     <option value="abandoned_object_vehicle">放置物・放置車両</option>
@@ -1121,6 +1109,22 @@
                 </label>
                 <div style="font-size:.72rem;color:#0e7490;margin-top:8px;line-height:1.5;">写真は任意です。緊急の事故・犯罪・災害は、この投稿より110・119や自治体への連絡を優先してください。</div>
             </div>
+
+           <label>種類</label>
+           <select id="postCategory" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
+                <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
+            </select>
+            <div id="postTitleBlock">
+                <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
+            </div>
+            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
+
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
@@ -3324,6 +3328,27 @@ function shareSpot(title, address, category, event) {
         setTimeout(sizePostModal, 180);
     }
 
+    function syncLocalAnomalyFields() {
+        const cat = document.getElementById('postCategory').value;
+        const anomalyType = document.getElementById('localAnomalyType').value;
+        const isLocalAnomaly = cat === 'local_anomaly';
+        const isOther = isLocalAnomaly && anomalyType === 'other';
+        const titleBlock = document.getElementById('postTitleBlock');
+        const titleLabel = document.getElementById('postTitleLabel');
+        const titleInput = document.getElementById('postTitle');
+        if (isLocalAnomaly) {
+            titleBlock.style.display = isOther ? 'block' : 'none';
+            titleLabel.textContent = 'その他の内容';
+            titleInput.required = isOther;
+            titleInput.placeholder = isOther ? '例：選択肢にない異変の内容を短く入力' : '';
+        } else {
+            titleBlock.style.display = 'block';
+            titleLabel.textContent = cat === 'aed' ? '施設名' : 'タイトル';
+            titleInput.required = true;
+            titleInput.placeholder = '';
+        }
+    }
+
     function toggleImageUpload() {
         const cat = document.getElementById('postCategory').value;
         const area = document.getElementById('imageUploadArea');
@@ -3331,7 +3356,6 @@ function shareSpot(title, address, category, event) {
         const aedArea = document.getElementById('aedSubmissionArea');
         const anomalyArea = document.getElementById('localAnomalyArea');
         const submitButton = document.getElementById('postSubmitButton');
-        const titleLabel = document.getElementById('postTitleLabel');
         const commentLabel = document.getElementById('postCommentLabel');
 
         const isCameraPost = !!cameraPostDraft && cat !== 'aed';
@@ -3359,9 +3383,8 @@ function shareSpot(title, address, category, event) {
         document.getElementById('localAnomalyType').required = isLocalAnomaly;
         document.getElementById('localAnomalyFactOnly').required = isLocalAnomaly;
         aedArea.style.display = isAed ? 'block' : 'none';
-        titleLabel.textContent = isAed ? '施設名' : isLocalAnomaly ? '見つけた異変（事実のみ）' : 'タイトル';
+        syncLocalAnomalyFields();
         commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : isLocalAnomaly ? '状況（見たこと・場所・時間帯）' : '状況コメント';
-        document.getElementById('postTitle').placeholder = isLocalAnomaly ? '例：県道沿いに倒木で片側が通りにくい' : '';
         document.getElementById('postComment').placeholder = isLocalAnomaly ? '人物の特徴・氏名・顔・ナンバーなどは書かず、確認できた状況だけ記載してください。' : '';
         submitButton.textContent = isAed
             ? 'AEDを審査へ送信（新規承認で累積スタンプ）'
@@ -3583,7 +3606,13 @@ function shareSpot(title, address, category, event) {
 
         const anomalyType = cat === 'local_anomaly' ? document.getElementById('localAnomalyType').value : null;
         if (cat === 'local_anomaly') {
-            if (!localAnomalyLabels[anomalyType]) { alert('地域の異変の種類を選択してください。'); return; }
+            const anomalyLabel = localAnomalyLabels[anomalyType];
+            if (!anomalyLabel) { alert('地域の異変の種類を選択してください。'); return; }
+            if (anomalyType === 'other') {
+                if (!title.trim()) { alert('「その他」の内容を入力してください。'); return; }
+            } else {
+                title = anomalyLabel;
+            }
             if (!document.getElementById('localAnomalyFactOnly').checked) { alert('見た事実だけを投稿し、個人を特定・追跡しないことを確認してください。'); return; }
         }
 
