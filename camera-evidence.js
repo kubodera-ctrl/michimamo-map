@@ -69,8 +69,12 @@
         if(version!==adminVersion||!isCurrent())return;
         area.replaceChildren(node('h3','非公開カメラ証拠・保存期限'));
         if(result.error){area.append(node('p','保存期限データを取得できませんでした。','muted'));return;}
-        const payload=result.data||{},items=Array.isArray(payload.items)?payload.items:[];
+        const payload=result.data||{},items=Array.isArray(payload.items)?payload.items:[],retention=payload.retention||{};
         area.append(node('p',`保存中 ${items.length}件・7日回答待ち ${Number(payload.due_count||0)}件`,'muted'));
+        const storageMb=(Number(retention.storageBytes||0)/1048576).toFixed(1);
+        const health=node('p',`${retention.warning?'⚠ 自動削除 要確認':'自動削除 正常'}・最終 ${date(retention.lastFinishedAt)}・削除待ち ${Number(retention.pendingDelete||0)}件・失敗 ${Number(retention.failedDelete||0)}件・Storage ${storageMb}MB`,'muted');
+        if(retention.warning){health.setAttribute('role','alert');health.style.color='#b45309';health.style.fontWeight='800';}
+        area.append(health);
         if(!items.length){area.append(node('p','対象はありません。','muted'));return;}
         for(const item of items){const card=evidenceCard(item,true);card.onclick=async event=>{
             const action=event.target?.dataset?.action;if(!action)return;if(action==='preview'){await preview(item,card);return;}
