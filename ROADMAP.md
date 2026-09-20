@@ -961,3 +961,10 @@ AI検知と別に手動写真投稿を提供。GPS、撮影日時、危険種別
 - `accident-hotspots.js` と本番RPCは再集計後の再公開用に残すが、β公開中はボタンを非表示にして読み込まない。
 - 管理画面の版表示を `開発32｜更新 2026年9月20日` へ更新し、GitHub→Vercelの再デプロイを明確に判別できるようにした。
 - ROADMAP冒頭に残っていた旧PayPay/銀行振込UI案とEXTRA10秒表記を、現在のデジタルギフト方式・5秒仕様へ訂正した。
+
+
+## 開発32追記：Vercel本番再デプロイ監査（2026-09-20）
+
+- Vercel接続を再確認し、チーム `miti`（slug `miti4` / `team_wWqadeDRcT3j51rJzQCeuUBP`）、プロジェクト `machimamo-map`（`prj_ztySCERSaeL9B4F6pUarKwZenmeX`）をAPIから直接確認できた。
+- 監査時点のProductionは `main` の `30cfae46add1d7677d5e3a934c6c0a09b96ba1de` でREADYだが、GitHub main `544966cd65f5d091e24b0931adb1db5c8a973d03` より55コミット古い。
+- Git連携の再起動確認のため、この記録更新をmainへ統合し、新しいProduction Deploymentが生成されるか監視する。新Deployment生成・READY・production alias切替の3点を確認するまで本番反映済み扱いにしない。
