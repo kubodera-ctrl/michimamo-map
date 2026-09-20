@@ -65,3 +65,12 @@ E5: PR・スポンサー・収益化
 5. 問題なければ地域単位から全国へ拡大する
 
 本番Supabase migrationは、上記プレビュー確認が終わるまで適用しない。
+
+
+## 本番公開前の運用ゲート
+
+- `MACHIIBE_ADMIN_PASSWORD` は十分に長いランダム値、`MACHIIBE_ADMIN_SESSION_SECRET` は32バイト以上のランダム値を使用する
+- Cloudflare側でも `/api/admin/login` にレート制限を設定する。アプリ内レート制限はWorkerインスタンス内の補助防御であり、分散環境全体の防御としては扱わない
+- `event-site/package-lock.json` を本番公開前に生成・コミットし、CIは最終的に `npm ci` へ切り替える
+- `NEXT_PUBLIC_ALLOW_INDEXING=true` は独自ドメイン・canonical・Search Console確認後にだけ有効化する
+- 本番Supabase migration適用前に、CIのSQL migration / smoke / real fixture smokeをすべて通す
