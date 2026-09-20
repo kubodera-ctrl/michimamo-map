@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  activeOccurrencesForDate,
   findOccurrenceByKey,
   findOccurrenceForRequest,
   occurrenceKey,
@@ -26,4 +27,11 @@ test('calendar request can select an exact same-day session',()=>{
 
 test('outing plan keeps unique active dates only',()=>{
   assert.deepEqual(uniqueOccurrenceDates(occurrences),['2026-09-23']);
+});
+
+
+test('planned date exposes both active sessions',()=>{
+  const sessions=activeOccurrencesForDate(occurrences,'2026-09-23');
+  assert.equal(sessions.length,2);
+  assert.deepEqual(sessions.map((item)=>item.start_time),['11:00:00','13:30:00']);
 });
