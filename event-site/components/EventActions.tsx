@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { PREF_KEYS, getPlannedDate, readStringArray, setPlannedDate, toggleInArray } from '@/lib/client-prefs';
 import { recordMetric } from './MetricPing';
 import { buildXShareUrl } from '@/lib/share';
+import { findOccurrenceByKey, occurrenceKey } from '@/lib/calendar-selection';
 
 type Props = {
   event: {
@@ -50,8 +51,8 @@ export function EventActions({ event }: Props) {
     sync();
     const planned=getPlannedDate(event.slug);
     if(event.scheduleType==='recurring'||event.scheduleType==='irregular'){
-      const valid=availableOccurrences.some((item)=>item.date===planned);
-      setSelectedOccurrence(valid ? planned : (availableOccurrences[0]?.date || ''));
+      const plannedOccurrence=availableOccurrences.find((item)=>item.date===planned);
+      setSelectedOccurrence(plannedOccurrence ? occurrenceKey(plannedOccurrence) : (availableOccurrences[0] ? occurrenceKey(availableOccurrences[0]) : ''));
     } else if(event.scheduleType==='continuous' && event.startDate!==event.endDate) {
       setContinuousVisitDate(planned && planned>=event.startDate && planned<=event.endDate ? planned : '');
     }
@@ -61,7 +62,7 @@ export function EventActions({ event }: Props) {
 
   const calendarSelection=useMemo(()=>{
     if((event.scheduleType==='recurring'||event.scheduleType==='irregular') && selectedOccurrence){
-      const occurrence=availableOccurrences.find((item)=>item.date===selectedOccurrence);
+      const occurrence=findOccurrenceByKey(availableOccurrences,selectedOccurrence);
       if(occurrence) return {
         startDate:occurrence.date,
         endDate:occurrence.date,
@@ -133,6 +134,13 @@ export function EventActions({ event }: Props) {
     recordMetric(next?'attended_event':'unattended_event',event.slug);
   };
 
+  const selectedOccurrenceRow=findOccurrenceByKey(availableOccurrences,selectedOccurrence);
+  const calendarAppQuery=selectedOccurrenceRow
+    ? `?date=${encodeURIComponent(selectedOccurrenceRow.date)}${selectedOccurrenceRow.start_time?`&time=${encodeURIComponent(selectedOccurrenceRow.start_time)}`:''}`
+    : continuousVisitDate
+      ? `?date=${encodeURIComponent(continuousVisitDate)}`
+      : '';
+
   const metric=(name:string)=>()=>{ recordMetric(name,event.slug); };
 
   return (
@@ -144,9 +152,16 @@ export function EventActions({ event }: Props) {
       {(event.scheduleType==='recurring'||event.scheduleType==='irregular') && (
         <label className="occurrence-picker">
           <span>カレンダーに入れる開催日</span>
-          <select value={selectedOccurrence} onChange={(e)=>{setSelectedOccurrence(e.target.value);setPlannedDate(event.slug,e.target.value);}}>
+          <select value={selectedOccurrence} onChange={(e)=>{
+            const key=e.target.value;
+            setSelectedOccurrence(key);
+            const occurrence=findOccurrenceByKey(availableOccurrences,key);
+            setPlannedDate(event.slug,occurrence?.date||'');
+          }}>
             {availableOccurrences.length ? availableOccurrences.map((item)=>(
-              <option key={item.date} value={item.date}>{item.date}{item.status==='sold_out'?'（完売）':item.status==='registration_closed'?'（受付終了）':''}</option>
+              <option key={occurrenceKey(item)} value={occurrenceKey(item)}>
+                {item.date}{item.start_time?` ${item.start_time.slice(0,5)}`:''}{item.status==='sold_out'?'（完売）':item.status==='registration_closed'?'（受付終了）':''}
+              </option>
             )) : <option value="">開催日を公式情報で確認</option>}
           </select>
         </label>
@@ -173,7 +188,7 @@ export function EventActions({ event }: Props) {
         {availableOccurrences.length || (event.scheduleType!=='recurring'&&event.scheduleType!=='irregular') ? (
           <>
             <a className="event-action-button" href={googleCalendarUrl} target="_blank" rel="noreferrer" onClick={metric('calendar_google')}><span>📅</span><b>Googleカレンダー</b></a>
-            <a className="event-action-button" href={`/api/calendar/${event.slug}${selectedOccurrence?`?date=${encodeURIComponent(selectedOccurrence)}`:continuousVisitDate?`?date=${encodeURIComponent(continuousVisitDate)}`:''}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
+            <a className="event-action-button" href={`/api/calendar/${event.slug}${calendarAppQuery}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
           </>
         ) : (
           <a className="event-action-button" href={event.officialUrl} target="_blank" rel="noreferrer"><span>📅</span><b>開催日を公式で確認</b></a>
