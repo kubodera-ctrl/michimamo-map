@@ -15,7 +15,7 @@
   "vars": {
     "NEXT_PUBLIC_ALLOW_INDEXING": "false",
     "NEXT_PUBLIC_SITE_URL": "https://machiibe-preview.kubodera.workers.dev",
-    "BUILD_TRIGGER": "2026-09-19-cloudflare-preview-2",
+    "BUILD_TRIGGER": "2026-09-21-machiibe-dev3-ui-polish",
     "NEXT_PUBLIC_X_HANDLE": "@machiibe01",
     "NEXT_PUBLIC_X_ACCOUNT_URL": "https://x.com/machiibe01",
     "NEXT_PUBLIC_MACHIMAMO_MAP_URL": "https://machimamo-map.vercel.app"
