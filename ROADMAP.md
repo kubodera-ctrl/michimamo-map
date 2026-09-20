@@ -931,3 +931,13 @@ AI検知と別に手動写真投稿を提供。GPS、撮影日時、危険種別
 - 選択肢、正解、解説、98点以上、週1回のエクストラスタンプ条件など他のクイズ仕様は変更していない。
 - 本番マイグレーション `20260920035946_quiz_extra_five_second_enforcement_dev32` を適用済み。
 - `tests/quiz_extra_timing_db_contract.sql` を追加し、5秒判定が7秒へ戻った場合に検出できるようにした。
+
+
+## 開発32追記：カメラ画像保存期限ワーカーの本番運用
+
+- `camera-evidence-retention` は既存の削除確認・再試行ロジックを維持し、毎時37分の `pg_cron` から自動起動する構成へ移行した。
+- AED retentionと同様、DBが2分だけ有効なワンタイムトークンを生成し、Edge Functionがサービスロール限定RPCで1回だけ消費して認証する。一般ユーザー／匿名ユーザーはこの認証RPCを実行できない。
+- Edge Functionは従来どおりログインユーザーJWTからの手動実行も受け付け、Cron停止時の再実行経路を残す。
+- 管理画面のカメラ証拠欄へ、最終削除実行時刻・削除待ち件数・削除失敗件数・camera-evidence Storage使用量を表示する。
+- β期間の軽量警告基準は、削除待ち20件以上／削除失敗3件以上／3回以上失敗が1件以上／Storage 500MB以上／最終完了から2時間超。外部有料監視は導入しない。
+- 本番でCron経路を手動スモークし、HTTP 200 / completed / deleted=0 / failed=0、および `last_started_at` / `last_finished_at` 更新を確認済み。
