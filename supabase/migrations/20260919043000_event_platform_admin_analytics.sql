@@ -57,7 +57,7 @@ begin
     'page_view','search','event_view','event_open','save_event','unsave_event',
     'attended_event','unattended_event','calendar_google','calendar_ics',
     'map_google','map_apple','parking_search','dining_open',
-    'machimamo_map','x_share','admin_x_compose'
+    'machimamo_map','x_share','correction_open','admin_x_compose'
   ) then
     raise exception 'unsupported_metric' using errcode='22023';
   end if;
