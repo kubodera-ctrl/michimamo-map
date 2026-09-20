@@ -440,8 +440,8 @@
                 </div>
 
                 <!-- 事故多発エリア -->
-                <div id="accidentAreaToggle" class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
+                <div id="accidentAreaToggle" class="filter-chip" hidden aria-hidden="true" style="display:none;position:absolute;top:110px;left:10px;z-index:999;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア（再集計中）
                 </div>
 
 
@@ -583,7 +583,7 @@
                                 <p>指で地図を動かし、2本指で広げる・縮めると拡大縮小できます。詳細を閉じるときは×を押します。</p>
                                 <dl class="guide-legend"><div><dt>赤：違法駐車／青：危険停車</dt><dd>利用者からの状況報告。違反が確定した意味ではありません。</dd></div><div><dt>緑：巡回／黄：暴走・騒音／紫：不法放置</dt><dd>種類ごとに見分けられます。不法放置の投稿は写真が必要です。</dd></div><div><dt>警察情報・警察署・交番・駐在所・AED</dt><dd>公開情報などに基づく情報です。現在の利用状況は現地でも確認してください。</dd></div></dl>
                                 <p><strong>ピンが多い・見つからないとき：</strong>「表示選択」を開き、見たい種類をONにします。「すべて表示」はまとめてON／OFF。選択はこのブラウザーに保存されます。</p>
-                                <p>「事故多発エリア」は警察庁の2022〜2024年公開データを約250m区画で集計した表示です。将来の事故を予測・保証するものではありません。「駐車場予約」は外部予約サイトへの入口です。</p>
+                                <p>「事故多発エリア」は元データの再集計中のため、β版では一時非表示です。再公開時は警察庁の年別公開データを再検証してから戻します。「駐車場予約」は外部予約サイトへの入口です。</p>
                             </div></details>
                             <details id="guide-nearby"><summary><span>03　近くのAED・交番・暑さ情報</span><small>右下のメニューから探す</small></summary><div class="guide-body">
                                 <ol><li>「マップ」右下の<strong>メニュー</strong>を押します。</li><li><strong>近くのAED</strong>または<strong>近くの交番</strong>を選びます。</li><li>「現在地で更新」で探し、施設を確認してGoogleマップ／Appleマップのナビを選びます。</li></ol>
@@ -726,7 +726,7 @@
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
                         <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】運営管理</h2>
-                        <div id="releaseVersionBadge" data-release="dev31-20260920" aria-label="管理画面のバージョン" style="font-size:.68rem;color:#64748b;text-align:right;margin:-6px 0 10px;">管理画面バージョン：開発31｜更新 2026年9月20日</div>
+                        <div id="releaseVersionBadge" data-release="dev32-20260920" aria-label="管理画面のバージョン" style="font-size:.68rem;color:#64748b;text-align:right;margin:-6px 0 10px;">管理画面バージョン：開発32｜更新 2026年9月20日</div>
                         <p class="muted" style="margin-bottom:12px; font-size:0.82rem;">LINEログイン済みの管理者だけが、退会申請、通報投稿、ポイント異常、利用停止を管理できます。</p>
                         <label for="adminExportPassword" style="font-size:0.8rem; color:#166534; font-weight:bold;">管理者パスワード</label>
                         <input type="password" id="adminExportPassword" autocomplete="off" placeholder="管理者パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') loadAdminDashboard()">
@@ -2621,6 +2621,8 @@ function shareSpot(title, address, category, event) {
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
+    // Accident hotspot UI is intentionally disabled for beta while the official-year aggregate is rebuilt.
+
     let activeMarkers = [], heatCircles = [], safetyMarkers = [];
     function createSafetyClusterIcon(category, cluster) {
         const labels = { police_station: '警察署', koban: '交番', chuzaisho: '駐在所', aed: 'AED', kodomo_110: '110番' };
@@ -3719,28 +3721,7 @@ function shareSpot(title, address, category, event) {
     document.addEventListener('visibilitychange', () => { if (document.hidden) stopAIPatrol(false); });
     window.addEventListener('pagehide', () => stopAIPatrol(false));
 
-    let accidentCircles = [];
-    let isAccidentDataVisible = false;
-    function toggleAccidentData(btn) {
-        isAccidentDataVisible = !isAccidentDataVisible;
-        if (isAccidentDataVisible) {
-            btn.style.background = "#ef4444"; btn.style.color = "white";
-            const bounds = map.getBounds(); const latMin = bounds.getSouth(); const latMax = bounds.getNorth(); const lngMin = bounds.getWest(); const lngMax = bounds.getEast();
-            const accidentCount = Math.floor(Math.random() * 4) + 3;
-            for (let i = 0; i < accidentCount; i++) {
-                const pos = [latMin + (Math.random() * (latMax - latMin)), lngMin + (Math.random() * (lngMax - lngMin))];
-                const circle = L.circle(pos, { color: 'transparent', fillColor: '#000000', fillOpacity: 0.5, radius: 120 + Math.random() * 80 }).addTo(map);
-                const warningIcon = L.divIcon({ className: 'custom-warning', html: '<div style="font-size:24px; color:#ef4444; filter:drop-shadow(0 0 5px rgba(0,0,0,0.8)); text-align:center;">⚠️<br><span style="font-size:10px; font-weight:bold; color:white; background:black; padding:2px 4px; border-radius:4px;">事故多発</span></div>', iconSize: [60, 40], iconAnchor: [30, 20] });
-                const marker = L.marker(pos, { icon: warningIcon }).addTo(map);
-                accidentCircles.push({ circle, marker });
-            }
-            showToast("警察庁の事故データを重ねて表示しました");
-        } else {
-            btn.style.background = "rgba(255,255,255,0.9)"; btn.style.color = "#ef4444";
-            accidentCircles.forEach(item => { map.removeLayer(item.circle); map.removeLayer(item.marker); });
-            accidentCircles = [];
-        }
-    }
+    // Accident hotspot behavior is provided by accident-hotspots.js after the Leaflet map is initialized.
 
     // ==========================================
         // 交通安全クイズ：共通430問・週間スタンプ（開発27）
