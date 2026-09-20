@@ -20,17 +20,17 @@ export function findOccurrenceForRequest<T extends CalendarOccurrenceLike>(
 ):T|undefined{
   if(!date) return undefined;
   return items.find((item)=>
-    item.status!=='cancelled'
+    item.status==='scheduled'
     && item.date===date
     && (!time || item.start_time===time)
   );
 }
 
 export function uniqueOccurrenceDates(items:CalendarOccurrenceLike[]){
-  return [...new Set(items.filter((item)=>item.status!=='cancelled').map((item)=>item.date))];
+  return [...new Set(items.filter((item)=>item.status==='scheduled').map((item)=>item.date))];
 }
 
 
 export function activeOccurrencesForDate<T extends CalendarOccurrenceLike>(items:T[],date:string){
-  return items.filter((item)=>item.status!=='cancelled'&&item.date===date);
+  return items.filter((item)=>item.status==='scheduled'&&item.date===date);
 }
