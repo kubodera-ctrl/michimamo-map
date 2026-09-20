@@ -20,6 +20,9 @@ export default async function AdminTikTokPage({params}:{params:Params}){
   const {slug}=await params;
   const event=await getEvent(slug);
   if(!event) notFound();
+  if(['cancelled','postponed','sold_out','registration_closed'].includes(event.event_status)) {
+    redirect('/admin?error=tiktok-unavailable');
+  }
 
   const dateText=formatEventDate(event.start_date,event.end_date);
   const timeText=event.start_time
