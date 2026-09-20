@@ -1,4 +1,5 @@
 import { getEvent } from '@/lib/events';
+import { findOccurrenceForRequest } from '@/lib/calendar-selection';
 
 function escapeIcs(value: string) {
   return value
@@ -23,18 +24,18 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const event = await getEvent(slug);
   if (!event) return new Response('Not found', { status: 404 });
 
-  const requestedDate=new URL(request.url).searchParams.get('date');
-  const occurrence=requestedDate
-    ? (event.occurrences || []).find((item)=>item.date===requestedDate && item.status!=='cancelled')
-    : null;
+  const requestUrl=new URL(request.url);
+  const requestedDate=requestUrl.searchParams.get('date');
+  const requestedTime=requestUrl.searchParams.get('time');
+  const occurrence=findOccurrenceForRequest(event.occurrences || [],requestedDate,requestedTime);
   const continuousDateValid=Boolean(
     requestedDate
     && event.schedule_type==='continuous'
     && requestedDate>=event.start_date
     && requestedDate<=event.end_date
   );
-  if(requestedDate && !occurrence && !continuousDateValid) {
-    return new Response('Invalid occurrence date',{status:400});
+  if((requestedTime && !occurrence) || (requestedDate && !occurrence && !continuousDateValid)) {
+    return new Response('Invalid occurrence date or time',{status:400});
   }
 
   const startDate=occurrence?.date || (continuousDateValid ? requestedDate! : event.start_date);
