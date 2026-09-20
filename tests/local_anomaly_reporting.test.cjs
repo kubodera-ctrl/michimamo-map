@@ -8,7 +8,14 @@ assert.match(html,/<option value="local_anomaly">/,'post form includes local ano
 assert.match(html,/id="localAnomalyType"/,'local anomaly subtype selector exists');
 assert.match(html,/id="localAnomalyFactOnly"/,'fact-only / no-tracking acknowledgement exists');
 assert.match(html,/人物・車両を犯人や所有者と断定せず/,'UI explicitly prohibits identification and accusation');
-assert.match(html,/見つけた異変（事実のみ）/,'local anomaly title prompt asks for facts only');
+const anomalyAreaIndex=html.indexOf('id="localAnomalyArea"');
+const categoryIndex=html.indexOf('<label>種類</label>',html.indexOf('<form id="postForm"'));
+assert.ok(anomalyAreaIndex>=0 && anomalyAreaIndex<categoryIndex,'local anomaly guidance/subtype area appears before the category selector when shown');
+assert.match(html,/id="postTitleBlock"/,'title input can be conditionally hidden for local anomalies');
+assert.match(html,/titleBlock\.style\.display = isOther \? 'block' : 'none'/,'free-text title is shown only when subtype is other');
+assert.match(html,/titleLabel\.textContent = 'その他の内容'/,'other subtype asks for a specific free-text description');
+assert.match(html,/titleInput\.required = isOther/,'free-text title is required only for other subtype');
+assert.match(html,/title = anomalyLabel/,'non-other local anomaly submissions derive the title from the selected subtype');
 assert.match(html,/人物の特徴・氏名・顔・ナンバーなどは書かず/,'local anomaly comment prompt rejects identifiers');
 assert.match(html,/緊急の事故・犯罪・災害は110・119へ/,'local anomaly popup uses contextual emergency guidance');
 assert.match(html,/cat === 'local_anomaly'\) \{[\s\S]*reportArea\.style\.display = 'none'/,'police-reported checkbox is hidden for general local anomalies');
