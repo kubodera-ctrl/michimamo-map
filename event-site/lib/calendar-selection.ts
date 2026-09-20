@@ -29,3 +29,8 @@ export function findOccurrenceForRequest<T extends CalendarOccurrenceLike>(
 export function uniqueOccurrenceDates(items:CalendarOccurrenceLike[]){
   return [...new Set(items.filter((item)=>item.status!=='cancelled').map((item)=>item.date))];
 }
+
+
+export function activeOccurrencesForDate<T extends CalendarOccurrenceLike>(items:T[],date:string){
+  return items.filter((item)=>item.status!=='cancelled'&&item.date===date);
+}
