@@ -7,7 +7,16 @@ export function HomePrSlot(){
   const inner=(
     <>
       <div className="home-pr-media">
-        {imageUrl ? <img src={imageUrl} alt="" /> : <span>PR</span>}
+        {imageUrl ? (
+          <img src={imageUrl} alt="" />
+        ) : (
+          <div className="home-pr-placeholder" aria-hidden="true">
+            <small>PARTNER SPACE</small>
+            <strong>{title}</strong>
+            <span>PR</span>
+          </div>
+        )}
+        <i className="home-pr-corner" aria-hidden="true">AD / PARTNER</i>
       </div>
       <div className="home-pr-copy">
         <div className="home-pr-meta"><b>PR</b><span>スポンサー・運営からのお知らせ</span></div>
