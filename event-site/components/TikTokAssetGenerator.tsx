@@ -46,7 +46,7 @@ function wrapLines(ctx:CanvasRenderingContext2D,text:string,maxWidth:number,maxL
 
   if(index<chars.length && lines.length){
     const lastIndex=lines.length-1;
-    const lastChars=Array.from(lines[lastIndex]);
+    const lastChars=Array.from(lines[lines.length-1]);
     while(lastChars.length && ctx.measureText(lastChars.join('')+'…').width>maxWidth) lastChars.pop();
     lines[lastIndex]=lastChars.length ? lastChars.join('')+'…' : '…';
   }
