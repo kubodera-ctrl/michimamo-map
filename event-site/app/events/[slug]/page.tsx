@@ -17,7 +17,7 @@ import {
   isTrustedLocation,
   japanToday
 } from '@/lib/events';
-import { breadcrumbJsonLd, siteUrl } from '@/lib/seo';
+import { breadcrumbJsonLd, safeJsonLd, siteUrl } from '@/lib/seo';
 import { slugByPrefecture } from '@/lib/prefectures';
 
 type Params = Promise<{slug:string}>;
@@ -119,8 +119,8 @@ export default async function EventPage({ params }: { params: Params }) {
   return (
     <main className="detail-wrap">
       <MetricPing metric="event_view" eventSlug={event.slug} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }} />
       <nav className="breadcrumb" aria-label="パンくず">
         <Link href="/">まちイベ</Link>
         {prefSlug && <><span>›</span><Link href={`/area/${prefSlug}`}>{event.prefecture}</Link></>}
