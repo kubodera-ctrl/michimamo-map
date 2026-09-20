@@ -14,8 +14,8 @@ create table if not exists public.dining_family_profiles (
   address text,
   latitude double precision check (latitude is null or latitude between -90 and 90),
   longitude double precision check (longitude is null or longitude between -180 and 180),
-  official_url text,
-  source_url text not null,
+  official_url text check (official_url is null or official_url ~* '^https?://'),
+  source_url text not null check (source_url ~* '^https?://'),
   source_kind text not null default 'official'
     check (source_kind in ('official','restaurant_submission','partner','licensed_api','manual_verified')),
   child_friendly boolean,
@@ -51,7 +51,7 @@ create table if not exists public.dining_child_price_rules (
   condition_text text,
   valid_from date,
   valid_until date,
-  source_url text not null,
+  source_url text not null check (source_url ~* '^https?://'),
   last_verified_at timestamptz not null,
   verification_status text not null default 'verified'
     check (verification_status in ('verified','stale','hidden')),
