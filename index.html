@@ -440,8 +440,8 @@
                 </div>
 
                 <!-- 事故多発エリア -->
-                <div id="accidentAreaToggle" class="filter-chip" style="position: absolute; top: 110px; left: 10px; z-index: 999; background: rgba(255,255,255,0.9); border-color:#ef4444; color:#ef4444;" onclick="toggleAccidentData(this)">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア
+                <div id="accidentAreaToggle" class="filter-chip" hidden aria-hidden="true" style="display:none;position:absolute;top:110px;left:10px;z-index:999;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 事故多発エリア（再集計中）
                 </div>
 
 
@@ -583,7 +583,7 @@
                                 <p>指で地図を動かし、2本指で広げる・縮めると拡大縮小できます。詳細を閉じるときは×を押します。</p>
                                 <dl class="guide-legend"><div><dt>赤：違法駐車／青：危険停車</dt><dd>利用者からの状況報告。違反が確定した意味ではありません。</dd></div><div><dt>緑：巡回／黄：暴走・騒音／紫：不法放置</dt><dd>種類ごとに見分けられます。不法放置の投稿は写真が必要です。</dd></div><div><dt>警察情報・警察署・交番・駐在所・AED</dt><dd>公開情報などに基づく情報です。現在の利用状況は現地でも確認してください。</dd></div></dl>
                                 <p><strong>ピンが多い・見つからないとき：</strong>「表示選択」を開き、見たい種類をONにします。「すべて表示」はまとめてON／OFF。選択はこのブラウザーに保存されます。</p>
-                                <p>「事故多発エリア」は警察庁の2022〜2024年公開データを約250m区画で集計した表示です。将来の事故を予測・保証するものではありません。「駐車場予約」は外部予約サイトへの入口です。</p>
+                                <p>「事故多発エリア」は元データの再集計中のため、β版では一時非表示です。再公開時は警察庁の年別公開データを再検証してから戻します。「駐車場予約」は外部予約サイトへの入口です。</p>
                             </div></details>
                             <details id="guide-nearby"><summary><span>03　近くのAED・交番・暑さ情報</span><small>右下のメニューから探す</small></summary><div class="guide-body">
                                 <ol><li>「マップ」右下の<strong>メニュー</strong>を押します。</li><li><strong>近くのAED</strong>または<strong>近くの交番</strong>を選びます。</li><li>「現在地で更新」で探し、施設を確認してGoogleマップ／Appleマップのナビを選びます。</li></ol>
@@ -2621,17 +2621,7 @@ function shareSpot(title, address, category, event) {
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-    (function loadOfficialAccidentHotspots(){
-        'use strict';
-        const script=document.createElement('script');
-        script.src='accident-hotspots.js?v=32-npa2';
-        script.onerror=()=>{
-            const button=document.getElementById('accidentAreaToggle');
-            if(button){button.style.display='none';button.removeAttribute('onclick');}
-            console.error('Official accident hotspot layer could not be loaded.');
-        };
-        document.head.appendChild(script);
-    })();
+    // Accident hotspot UI is intentionally disabled for beta while the official-year aggregate is rebuilt.
 
     let activeMarkers = [], heatCircles = [], safetyMarkers = [];
     function createSafetyClusterIcon(category, cluster) {
