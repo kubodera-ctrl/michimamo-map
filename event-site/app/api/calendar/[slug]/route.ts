@@ -23,6 +23,9 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const { slug } = await params;
   const event = await getEvent(slug);
   if (!event) return new Response('Not found', { status: 404 });
+  if(['cancelled','postponed','sold_out','registration_closed'].includes(event.event_status)) {
+    return new Response('Event is not available for calendar planning',{status:409});
+  }
 
   const requestUrl=new URL(request.url);
   const requestedDate=requestUrl.searchParams.get('date');
@@ -34,7 +37,8 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
     && requestedDate>=event.start_date
     && requestedDate<=event.end_date
   );
-  if((requestedTime && !occurrence) || (requestedDate && !occurrence && !continuousDateValid)) {
+  const occurrenceRequired=event.schedule_type==='recurring'||event.schedule_type==='irregular';
+  if((occurrenceRequired && !occurrence) || (requestedTime && !occurrence) || (requestedDate && !occurrence && !continuousDateValid)) {
     return new Response('Invalid occurrence date or time',{status:400});
   }
 
