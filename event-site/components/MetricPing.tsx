@@ -8,6 +8,14 @@ declare global {
   }
 }
 
+function sanitizeSearchTerm(value:string|undefined){
+  const term=(value||'').normalize('NFKC').replace(/\s+/g,' ').trim().slice(0,80);
+  if(!term) return '';
+  if(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(term)) return '';
+  if(/\d{8,}/.test(term.replace(/[\s-]/g,''))) return '';
+  return term;
+}
+
 export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string) {
   if (typeof window === 'undefined') return;
 
@@ -23,7 +31,7 @@ export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string)
     void fetch('/api/analytics/track',{
       method:'POST',
       headers:{'content-type':'application/json'},
-      body:JSON.stringify({metric,eventSlug,searchTerm}),
+      body:JSON.stringify({metric,eventSlug,searchTerm:sanitizeSearchTerm(searchTerm)||undefined}),
       keepalive:true,
       credentials:'same-origin'
     });
@@ -33,7 +41,6 @@ export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string)
     try{
       window.gtag('event',metric,{
         event_slug:eventSlug || undefined,
-        search_term:searchTerm || undefined,
         send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
       });
     }catch{}
