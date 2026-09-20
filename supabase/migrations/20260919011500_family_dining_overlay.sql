@@ -154,7 +154,7 @@ as $$
   from public.dining_family_profiles p
   where p.verification_status = 'verified'
     and (p.valid_until is null or p.valid_until >= ((now() at time zone 'Asia/Tokyo')::date))
-    and (p_place_keys is null or cardinality(p_place_keys) = 0 or p.identity_key = any(p_place_keys))
+    and (p_place_keys is null or cardinality(p_place_keys) = 0 or p.identity_key = any(p_place_keys[1:100]))
     and (
       p_preschool_price is null
       or exists (
@@ -189,7 +189,7 @@ as $$
     )
     and (
       p_accessibility_keys is null or cardinality(p_accessibility_keys) = 0
-      or p.accessibility_keys @> p_accessibility_keys
+      or p.accessibility_keys @> p_accessibility_keys[1:20]
     )
   order by p.last_verified_at desc nulls last, p.name
   limit least(greatest(coalesce(p_limit,100),1),200);
