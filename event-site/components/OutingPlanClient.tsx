@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { getEventsBySlugs } from '@/lib/events';
-import { PREF_KEYS, getPlannedDate, readStringArray, setPlannedDate } from '@/lib/client-prefs';
+import { PREF_KEYS, getPlannedDate, getPlannedOccurrence, readStringArray, setPlannedDate, setPlannedOccurrence } from '@/lib/client-prefs';
 import type { EventDetail } from '@/lib/types';
-import { uniqueOccurrenceDates } from '@/lib/calendar-selection';
+import { findOccurrenceByKey, occurrenceKey, uniqueOccurrenceDates } from '@/lib/calendar-selection';
 
 function todayJa(){
   return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'})
@@ -23,6 +23,7 @@ function dateOptions(event:EventDetail):string[] {
 export function OutingPlanClient() {
   const [events,setEvents]=useState<EventDetail[]>([]);
   const [planned,setPlanned]=useState<Record<string,string>>({});
+  const [plannedOccurrences,setPlannedOccurrences]=useState<Record<string,string>>({});
   const [loading,setLoading]=useState(true);
 
   useEffect(()=>{
@@ -34,7 +35,14 @@ export function OutingPlanClient() {
         event.slug,
         getPlannedDate(event.slug) || (event.schedule_type==='single'?event.start_date:'')
       ]));
-      if(!cancelled){setEvents(rows);setPlanned(dates);setLoading(false);}
+      const occurrences=Object.fromEntries(rows.map((event)=>{
+        const saved=getPlannedOccurrence(event.slug);
+        const valid=findOccurrenceByKey(event.occurrences||[],saved);
+        const plannedDate=dates[event.slug]||'';
+        const firstForDate=(event.occurrences||[]).find((item)=>item.status!=='cancelled'&&item.date===plannedDate);
+        return [event.slug,valid?saved:(firstForDate?occurrenceKey(firstForDate):'')];
+      }));
+      if(!cancelled){setEvents(rows);setPlanned(dates);setPlannedOccurrences(occurrences);setLoading(false);}
     };
     void load();
     return ()=>{cancelled=true;};
@@ -60,6 +68,10 @@ export function OutingPlanClient() {
   const change=(event:EventDetail,date:string)=>{
     setPlanned((current)=>({...current,[event.slug]:date}));
     setPlannedDate(event.slug,date);
+    const firstForDate=(event.occurrences||[]).find((item)=>item.status!=='cancelled'&&item.date===date);
+    const key=firstForDate?occurrenceKey(firstForDate):'';
+    setPlannedOccurrences((current)=>({...current,[event.slug]:key}));
+    setPlannedOccurrence(event.slug,key);
   };
 
   if(loading) return <div className="empty-state"><p>おでかけプランを準備しています…</p></div>;
@@ -76,9 +88,11 @@ export function OutingPlanClient() {
           <div className="plan-list">
             {list.map((event)=>{
               const options=dateOptions(event);
+              const selectedOccurrence=findOccurrenceByKey(event.occurrences||[],plannedOccurrences[event.slug]||'');
+              const displayTime=selectedOccurrence?.start_time || event.start_time;
               return (
                 <article className="plan-item" key={event.slug}>
-                  <div className="plan-time">{event.start_time?.slice(0,5)||'時間未定'}</div>
+                  <div className="plan-time">{displayTime?.slice(0,5)||'時間未定'}</div>
                   <div className="plan-main">
                     <Link href={`/events/${event.slug}`}><strong>{event.title}</strong></Link>
                     <p>{[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' · ')}</p>
