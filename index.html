@@ -725,8 +725,7 @@
                     </div>
 
                     <div class="card" id="adminCsvCard" style="display:none; background:#f0fdf4; border:1px solid #86efac;">
-                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;"><i class="fa-solid fa-user-tie"></i> 【管理者専用】運営管理</h2>
-                        <div id="releaseVersionBadge" data-release="dev32-20260920" aria-label="管理画面のバージョン" style="font-size:.68rem;color:#64748b;text-align:right;margin:-6px 0 10px;">管理画面バージョン：開発32｜更新 2026年9月20日</div>
+                        <h2 style="font-size:1.1rem; color:#166534; margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span><i class="fa-solid fa-user-tie"></i> 【管理者専用】運営管理</span><span id="releaseVersionBadge" data-release="dev32-20260920" aria-label="管理画面バージョン32" title="開発32｜更新 2026年9月20日" style="display:inline-flex;align-items:center;justify-content:center;min-width:42px;padding:3px 9px;border-radius:999px;background:#166534;color:#fff;font-size:.68rem;font-weight:900;line-height:1.3;letter-spacing:.02em;">v32</span></h2>
                         <p class="muted" style="margin-bottom:12px; font-size:0.82rem;">LINEログイン済みの管理者だけが、退会申請、通報投稿、ポイント異常、利用停止を管理できます。</p>
                         <label for="adminExportPassword" style="font-size:0.8rem; color:#166534; font-weight:bold;">管理者パスワード</label>
                         <input type="password" id="adminExportPassword" autocomplete="off" placeholder="管理者パスワード" style="margin-top:6px; background:#fff; border-color:#86efac;" onkeydown="if(event.key === 'Enter') loadAdminDashboard()">
