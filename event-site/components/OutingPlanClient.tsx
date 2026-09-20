@@ -42,7 +42,8 @@ export function OutingPlanClient() {
       ]));
       const occurrences=Object.fromEntries(rows.map((event)=>{
         const saved=getPlannedOccurrence(event.slug);
-        const valid=findOccurrenceByKey(event.occurrences||[],saved);
+        const savedRow=findOccurrenceByKey(event.occurrences||[],saved);
+        const valid=savedRow?.status==='scheduled' ? savedRow : undefined;
         const plannedDate=dates[event.slug]||'';
         const firstForDate=(event.occurrences||[]).find((item)=>item.status==='scheduled'&&item.date===plannedDate);
         return [event.slug,valid?saved:(firstForDate?occurrenceKey(firstForDate):'')];
