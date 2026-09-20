@@ -3366,8 +3366,8 @@ function shareSpot(title, address, category, event) {
         submitButton.textContent = isAed
             ? 'AEDを審査へ送信（新規承認で累積スタンプ）'
             : isLocalAnomaly
-                ? '地域の異変を共有（+1pt・1日最大5pt）'
-                : '情報を投稿（+1pt・1日最大5pt）';
+                ? '地域の異変を共有（ポイントは1日最大5pt）'
+                : '情報を投稿（ポイントは1日最大5pt）';
         if (isAed && !aedGps) captureAedGps();
     }
 
@@ -3571,12 +3571,7 @@ function shareSpot(title, address, category, event) {
 
         const cat = document.getElementById('postCategory').value;
 
-        if (cat !== 'aed' && actionLimits.postCount >= 5) {
-            alert('【上限到達】本日の安全ポイント獲得（投稿）は5回までです。明日またお願いします！');
-            closePostModal();
-            return;
-        }
-
+        // 投稿自体は回数制限しない。ポイント付与上限（1日5pt）はDB側で判定する。
         let title = document.getElementById('postTitle').value;
         const comment = document.getElementById('postComment').value;
         const isReported = document.getElementById('postIsReported').checked;
@@ -3625,7 +3620,9 @@ function shareSpot(title, address, category, event) {
             width:camera?.width,height:camera?.height,payload,createdAt:Date.now()});
         // RPC returns the ledger result; do not invent +10 for a zero-point post.
         if(result.awarded>0){actionLimits.postCount++;saveLimits();}
-        showToast(`安全情報を共有しました（付与 ${result.awarded}pt）`);
+        showToast(result.awarded>0
+            ? `安全情報を共有しました（付与 ${result.awarded}pt）`
+            : '安全情報を共有しました（本日の投稿ポイント上限到達のため0pt）');
         if(version===photoSelectionRequest)closePostModal();
         visibleMapCategories.add(cat);syncFilterChips();
         await Promise.allSettled([loadAuthenticatedProfile(),loadSpots()]);
