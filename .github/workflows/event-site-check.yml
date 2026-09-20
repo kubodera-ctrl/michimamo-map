@@ -9,6 +9,7 @@ on:
       - 'index.html'
       - 'supabase/migrations/*event_platform*'
       - 'supabase/migrations/*dining*'
+      - 'supabase/tests/**'
       - '.github/workflows/event-site-check.yml'
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - 'index.html'
       - 'supabase/migrations/*event_platform*'
       - 'supabase/migrations/*dining*'
+      - 'supabase/tests/**'
       - '.github/workflows/event-site-check.yml'
 
 permissions:
@@ -89,6 +91,11 @@ jobs:
         env:
           PGPASSWORD: postgres
         run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/event_platform_smoke.sql
+      - name: Real event fixture smoke
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_real_fixture_smoke.sql
       - name: MAP event deep-link smoke
         working-directory: .
         run: |
