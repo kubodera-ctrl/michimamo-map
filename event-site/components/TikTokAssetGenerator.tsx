@@ -28,23 +28,29 @@ function wrapLines(ctx:CanvasRenderingContext2D,text:string,maxWidth:number,maxL
   const chars=Array.from(text);
   const lines:string[]=[];
   let current='';
-  for(const char of chars){
+  let index=0;
+
+  while(index<chars.length && lines.length<maxLines){
+    const char=chars[index];
     const next=current+char;
-    if(ctx.measureText(next).width>maxWidth && current){
-      lines.push(current);
-      current=char;
-      if(lines.length===maxLines-1) break;
-    }else{
+    if(!current || ctx.measureText(next).width<=maxWidth){
       current=next;
+      index+=1;
+      continue;
     }
+    lines.push(current);
+    current='';
   }
+
   if(lines.length<maxLines && current) lines.push(current);
-  const used=lines.join('');
-  if(used.length<text.length && lines.length){
-    let last=lines[lines.length-1];
-    while(last && ctx.measureText(last+'…').width>maxWidth) last=last.slice(0,-1);
-    lines[lines.length-1]=last+'…';
+
+  if(index<chars.length && lines.length){
+    const lastIndex=lines.length-1;
+    const lastChars=Array.from(lines[lastIndex]);
+    while(lastChars.length && ctx.measureText(lastChars.join('')+'…').width>maxWidth) lastChars.pop();
+    lines[lastIndex]=lastChars.length ? lastChars.join('')+'…' : '…';
   }
+
   return lines;
 }
 
