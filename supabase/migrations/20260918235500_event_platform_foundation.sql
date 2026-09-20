@@ -346,50 +346,50 @@ as $$
         )
       )
     )
-    and (p_prefecture is null or btrim(p_prefecture)='' or e.prefecture=btrim(p_prefecture))
+    and (p_prefecture is null or btrim(p_prefecture)='' or e.prefecture=left(btrim(p_prefecture),20))
     and (
       p_keyword is null or btrim(p_keyword)=''
-      or e.title ilike '%'||btrim(p_keyword)||'%'
-      or coalesce(e.summary,'') ilike '%'||btrim(p_keyword)||'%'
-      or coalesce(e.venue_name,'') ilike '%'||btrim(p_keyword)||'%'
-      or coalesce(e.municipality,'') ilike '%'||btrim(p_keyword)||'%'
-      or coalesce(e.organizer_name,'') ilike '%'||btrim(p_keyword)||'%'
+      or e.title ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.summary,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.venue_name,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.municipality,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.organizer_name,'') ilike '%'||left(btrim(p_keyword),100)||'%'
     )
     and not exists (
-      select 1 from unnest(coalesce(p_exclude_terms,'{}'::text[])) excluded(term)
+      select 1 from unnest(coalesce(p_exclude_terms[1:20],'{}'::text[])) excluded(term)
       where btrim(excluded.term)<>''
         and strpos(lower(concat_ws(' ',e.title,coalesce(e.summary,''),coalesce(e.venue_name,''),
           coalesce(e.municipality,''),coalesce(e.organizer_name,''),coalesce(e.price_text,''))),
-          lower(btrim(excluded.term)))>0
+          lower(left(btrim(excluded.term),80)))>0
     )
-    and (p_categories is null or cardinality(p_categories)=0 or e.category_keys&&p_categories)
-    and (p_age_groups is null or cardinality(p_age_groups)=0 or e.age_group_keys&&p_age_groups)
+    and (p_categories is null or cardinality(p_categories)=0 or e.category_keys&&p_categories[1:20])
+    and (p_age_groups is null or cardinality(p_age_groups)=0 or e.age_group_keys&&p_age_groups[1:20])
     and (
       p_duration_buckets is null or cardinality(p_duration_buckets)=0
-      or ('single'=any(p_duration_buckets) and (e.end_date-e.start_date+1)=1)
-      or ('2_4'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 2 and 4)
-      or ('5_10'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 5 and 10)
-      or ('11_30'=any(p_duration_buckets) and (e.end_date-e.start_date+1) between 11 and 30)
-      or ('31_plus'=any(p_duration_buckets) and (e.end_date-e.start_date+1)>=31)
+      or ('single'=any(p_duration_buckets[1:10]) and (e.end_date-e.start_date+1)=1)
+      or ('2_4'=any(p_duration_buckets[1:10]) and (e.end_date-e.start_date+1) between 2 and 4)
+      or ('5_10'=any(p_duration_buckets[1:10]) and (e.end_date-e.start_date+1) between 5 and 10)
+      or ('11_30'=any(p_duration_buckets[1:10]) and (e.end_date-e.start_date+1) between 11 and 30)
+      or ('31_plus'=any(p_duration_buckets[1:10]) and (e.end_date-e.start_date+1)>=31)
     )
     and (not coalesce(p_accessibility_only,false) or cardinality(e.accessibility_keys)>0)
-    and (p_accessibility_keys is null or cardinality(p_accessibility_keys)=0 or e.accessibility_keys@>p_accessibility_keys)
+    and (p_accessibility_keys is null or cardinality(p_accessibility_keys)=0 or e.accessibility_keys@>p_accessibility_keys[1:20])
     and (p_audience_intents is null or cardinality(p_audience_intents)=0
-      or (e.audience_intent_verified and e.audience_intent=any(p_audience_intents)))
+      or (e.audience_intent_verified and e.audience_intent=any(p_audience_intents[1:10])))
     and (
       p_fandom_slugs is null or cardinality(p_fandom_slugs)=0
       or exists (
         select 1 from public.event_fandom_links efl
         join public.fandom_entities fe on fe.id=efl.fandom_id
         where efl.event_id=e.id and efl.verification_status='verified'
-          and fe.is_active and fe.slug=any(p_fandom_slugs)
+          and fe.is_active and fe.slug=any(p_fandom_slugs[1:20])
       )
     )
     and (
       p_fandom_keyword is null or btrim(p_fandom_keyword)=''
-      or e.title ilike '%'||btrim(p_fandom_keyword)||'%'
-      or coalesce(e.summary,'') ilike '%'||btrim(p_fandom_keyword)||'%'
-      or coalesce(e.organizer_name,'') ilike '%'||btrim(p_fandom_keyword)||'%'
+      or e.title ilike '%'||left(btrim(p_fandom_keyword),80)||'%'
+      or coalesce(e.summary,'') ilike '%'||left(btrim(p_fandom_keyword),80)||'%'
+      or coalesce(e.organizer_name,'') ilike '%'||left(btrim(p_fandom_keyword),80)||'%'
       or exists (
         select 1
         from public.event_fandom_links efl
@@ -398,16 +398,16 @@ as $$
           and efl.verification_status='verified'
           and fe.is_active
           and (
-            fe.display_name ilike '%'||btrim(p_fandom_keyword)||'%'
+            fe.display_name ilike '%'||left(btrim(p_fandom_keyword),80)||'%'
             or exists (
               select 1
               from unnest(fe.aliases) as fandom_alias(value)
-              where fandom_alias.value ilike '%'||btrim(p_fandom_keyword)||'%'
+              where fandom_alias.value ilike '%'||left(btrim(p_fandom_keyword),80)||'%'
             )
           )
       )
     )
-    and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types))
+    and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types[1:10]))
     and (p_created_after is null or e.created_at > p_created_after)
     and (not coalesce(p_exclude_adult_oriented,false)
       or not (e.audience_intent_verified and e.audience_intent='adult_oriented'))
@@ -426,7 +426,7 @@ as $$
       then (e.end_date-e.start_date+1) end asc nulls last,
     e.start_date,e.start_time nulls first,e.title
   limit least(greatest(coalesce(p_limit,60),1),100)
-  offset greatest(coalesce(p_offset,0),0);
+  offset least(greatest(coalesce(p_offset,0),0),50000);
 $$;
 
 revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text,integer,integer)
