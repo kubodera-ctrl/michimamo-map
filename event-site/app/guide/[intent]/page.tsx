@@ -6,7 +6,7 @@ import { EventCard } from '@/components/EventCard';
 import { Pagination } from '@/components/Pagination';
 import { parsePage } from '@/lib/events';
 import { SEO_INTENTS, searchSeoIntentEvents, type SeoIntentKey } from '@/lib/seo-intents';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -57,7 +57,7 @@ export default async function IntentGuidePage({
 
   return (
     <main className="content-wrap area-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }} />
       <nav className="breadcrumb" aria-label="パンくず">
         <Link href="/">まちイベ</Link><span>›</span><span>{config.heading}</span>
       </nav>
