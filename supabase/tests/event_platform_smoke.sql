@@ -38,6 +38,9 @@ where slug='ci-free-today';
 insert into public.event_occurrences(event_id,occurrence_date,status)
 select id,((now() at time zone 'Asia/Tokyo')::date)+2,'scheduled' from public.events where slug='ci-recurring';
 
+insert into public.event_occurrences(event_id,occurrence_date,status)
+select id,((now() at time zone 'Asia/Tokyo')::date)+3,'sold_out' from public.events where slug='ci-recurring';
+
 insert into public.fandom_entities(slug,display_name,aliases,entity_type)
 values('ci-oshi','CI Oshi',array['CI推し'],'other');
 
@@ -103,6 +106,16 @@ begin
   );
   if n <> 1 then
     raise exception 'recurring event must match exact occurrence day';
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date)+3,
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date)+3,
+    p_keyword=>'CI Recurring'
+  );
+  if n <> 0 then
+    raise exception 'sold-out recurring occurrence must not match date search';
   end if;
 
   select count(*) into n
