@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAdminSupabase } from '@/lib/supabase-admin';
 import { allowRequest, requestClientKey } from '@/lib/server-rate-limit';
+import { isSameOriginRequest } from '@/lib/request-security';
 
 export const runtime='nodejs';
 
@@ -10,14 +11,6 @@ const METRICS=new Set([
   'map_google','map_apple','parking_search','dining_open',
   'machimamo_map','x_share','correction_open'
 ]);
-
-function sameOrigin(request:Request){
-  const origin=request.headers.get('origin');
-  if(!origin) return true;
-  try{
-    return new URL(origin).host===new URL(request.url).host;
-  }catch{return false;}
-}
 
 function sanitizeSearchTerm(value:unknown){
   if(typeof value!=='string') return '';
@@ -29,11 +22,7 @@ function sanitizeSearchTerm(value:unknown){
 }
 
 export async function POST(request:Request){
-  if(!sameOrigin(request)) return NextResponse.json({ok:false},{status:403});
-  const fetchSite=request.headers.get('sec-fetch-site');
-  if(fetchSite && fetchSite!=='same-origin' && fetchSite!=='same-site'){
-    return NextResponse.json({ok:false},{status:403});
-  }
+  if(!isSameOriginRequest(request)) return NextResponse.json({ok:false},{status:403});
   const rate=allowRequest(requestClientKey(request,'analytics'),60,60_000);
   if(!rate.allowed){
     return NextResponse.json({ok:false,reason:'rate_limited'},{status:429,headers:{'Retry-After':String(rate.retryAfter)}});
@@ -47,6 +36,7 @@ export async function POST(request:Request){
   const metric=typeof body.metric==='string'?body.metric:'';
   if(!METRICS.has(metric)) return NextResponse.json({ok:false},{status:400});
   const eventSlug=typeof body.eventSlug==='string'?body.eventSlug.slice(0,160):'';
+  if(eventSlug && !/^[a-z0-9][a-z0-9-]{2,159}$/.test(eventSlug)) return NextResponse.json({ok:false},{status:400});
   const searchTerm=sanitizeSearchTerm(body.searchTerm);
 
   const db=getAdminSupabase();
