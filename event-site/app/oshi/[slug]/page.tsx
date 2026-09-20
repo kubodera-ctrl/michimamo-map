@@ -5,7 +5,7 @@ import { DataUnavailable } from '@/components/DataUnavailable';
 import { EventCard } from '@/components/EventCard';
 import { Pagination } from '@/components/Pagination';
 import { FANDOM_LABELS, FANDOM_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -86,7 +86,7 @@ export default async function OshiPage({
 
   return (
     <main className="content-wrap area-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumb)}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(breadcrumb)}} />
       <nav className="breadcrumb" aria-label="パンくず">
         <Link href="/">まちイベ</Link><span>›</span><span>推し活：{label}</span>
       </nav>
