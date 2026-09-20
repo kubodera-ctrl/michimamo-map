@@ -74,7 +74,7 @@ export default async function EventPage({ params }: { params: Params }) {
   const eventPageUrl = siteUrl(`/events/${event.slug}`);
   const today=japanToday();
   const schemaOccurrence=(event.schedule_type==='recurring'||event.schedule_type==='irregular')
-    ? (event.occurrences || []).find((item)=>item.date>=today && item.status!=='cancelled')
+    ? (event.occurrences || []).find((item)=>item.date>=today && item.status==='scheduled')
     : undefined;
   const schemaStartDate=schemaOccurrence?.date || event.start_date;
   const schemaEndDate=schemaOccurrence?.date || event.end_date;
