@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
-      - 'feature/**'
+    paths:
+      - 'event-site/**'
+      - 'index.html'
+      - 'supabase/migrations/*event_platform*'
+      - 'supabase/migrations/*dining*'
+      - '.github/workflows/event-site-check.yml'
+  pull_request:
     paths:
       - 'event-site/**'
       - 'index.html'
