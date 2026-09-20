@@ -31,7 +31,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           <h1>まちイベ運営ダッシュボード</h1>
           <p>直近30日を中心に集計。PVはページ表示回数で、ユニークユーザー数ではありません。</p>
           <div className="admin-quick-links">
-            <a href="#new-events">新着イベント → X投稿候補へ</a>
+            <a href="#new-events">新着イベント → SNS素材へ</a>
             <a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="noreferrer">運営X @machiibe01 ↗</a>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
 
           <div className="admin-bottom-note">
             <strong>運用上の注意</strong>
-            <p>検索ワード・PVは運営改善用の集計値です。個人識別子は保存しません。Xボタンは投稿文を入れた作成画面を開くだけで、自動投稿やXの認証情報保存は行いません。ブラウザで @machiibe01 にログインしていれば、その運営アカウントから確認して投稿できます。</p>
+            <p>検索ワード・PVは運営改善用の集計値です。個人識別子は保存しません。Xは投稿文を入れた作成画面を開くだけで自動投稿しません。TikTokも1080×1920画像とキャプションの生成・保存までで、アカウント連携や自動投稿は行いません。どちらも投稿前に管理者が内容を確認します。</p>
           </div>
         </>
       )}
