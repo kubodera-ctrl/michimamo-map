@@ -47,3 +47,10 @@ test('TikTok generator reserves overlay-safe space and wraps before drawing pill
   assert.match(source,/イベント案内はこちら！/);
   assert.match(source,/右側の操作ボタン・下部キャプションに重要情報が重ならない9:16安全配置/);
 });
+
+
+test('TikTok generator keeps an iOS-safe caption copy fallback',()=>{
+  const source=fs.readFileSync(new URL('../components/TikTokAssetGenerator.tsx',import.meta.url),'utf8');
+  assert.match(source,/navigator\.clipboard\?\.writeText/);
+  assert.match(source,/document\.execCommand\('copy'\)/);
+});
