@@ -12,7 +12,12 @@ function todayJa(){
     .format(new Date());
 }
 
+function canPlanEvent(event:EventDetail){
+  return !['cancelled','postponed','sold_out','registration_closed'].includes(event.event_status);
+}
+
 function dateOptions(event:EventDetail):string[] {
+  if(!canPlanEvent(event)) return [];
   if(event.schedule_type==='recurring'||event.schedule_type==='irregular'){
     return uniqueOccurrenceDates(event.occurrences||[]);
   }
@@ -33,13 +38,13 @@ export function OutingPlanClient() {
       const rows=await getEventsBySlugs(readStringArray(PREF_KEYS.savedEvents));
       const dates=Object.fromEntries(rows.map((event)=>[
         event.slug,
-        getPlannedDate(event.slug) || (event.schedule_type==='single'?event.start_date:'')
+        canPlanEvent(event) ? (getPlannedDate(event.slug) || (event.schedule_type==='single'?event.start_date:'')) : ''
       ]));
       const occurrences=Object.fromEntries(rows.map((event)=>{
         const saved=getPlannedOccurrence(event.slug);
         const valid=findOccurrenceByKey(event.occurrences||[],saved);
         const plannedDate=dates[event.slug]||'';
-        const firstForDate=(event.occurrences||[]).find((item)=>item.status!=='cancelled'&&item.date===plannedDate);
+        const firstForDate=(event.occurrences||[]).find((item)=>item.status==='scheduled'&&item.date===plannedDate);
         return [event.slug,valid?saved:(firstForDate?occurrenceKey(firstForDate):'')];
       }));
       if(!cancelled){setEvents(rows);setPlanned(dates);setPlannedOccurrences(occurrences);setLoading(false);}
@@ -107,7 +112,7 @@ export function OutingPlanClient() {
                   <div className="plan-main">
                     <Link href={`/events/${event.slug}`}><strong>{event.title}</strong></Link>
                     <p>{[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' · ')}</p>
-                    {event.schedule_type==='continuous' && event.start_date!==event.end_date ? (
+                    {canPlanEvent(event) && event.schedule_type==='continuous' && event.start_date!==event.end_date ? (
                       <label>行く日
                         <input type="date" min={event.start_date} max={event.end_date} value={planned[event.slug]||''} onChange={(e)=>change(event,e.target.value)} />
                       </label>
