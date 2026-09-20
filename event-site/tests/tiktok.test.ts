@@ -54,3 +54,13 @@ test('TikTok generator keeps an iOS-safe caption copy fallback',()=>{
   assert.match(source,/navigator\.clipboard\?\.writeText/);
   assert.match(source,/document\.execCommand\('copy'\)/);
 });
+
+
+test('TikTok admin page blocks unavailable event statuses even on direct URLs',()=>{
+  const source=fs.readFileSync(new URL('../app/admin/tiktok/[slug]/page.tsx',import.meta.url),'utf8');
+  assert.match(source,/cancelled/);
+  assert.match(source,/postponed/);
+  assert.match(source,/sold_out/);
+  assert.match(source,/registration_closed/);
+  assert.match(source,/redirect\('\/admin\?error=tiktok-unavailable'\)/);
+});
