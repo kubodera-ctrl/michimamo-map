@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { getEventsBySlugs } from '@/lib/events';
 import { PREF_KEYS, getPlannedDate, readStringArray, setPlannedDate } from '@/lib/client-prefs';
 import type { EventDetail } from '@/lib/types';
+import { uniqueOccurrenceDates } from '@/lib/calendar-selection';
 
 function todayJa(){
   return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'})
@@ -13,7 +14,7 @@ function todayJa(){
 
 function dateOptions(event:EventDetail):string[] {
   if(event.schedule_type==='recurring'||event.schedule_type==='irregular'){
-    return (event.occurrences||[]).filter((o)=>o.status!=='cancelled').map((o)=>o.date);
+    return uniqueOccurrenceDates(event.occurrences||[]);
   }
   if(event.schedule_type==='single') return [event.start_date];
   return [];
