@@ -9,9 +9,9 @@ create table if not exists public.regional_sources (
   name text not null,
   source_kind text not null
     check (source_kind in ('official_api','open_data','rss','manual','provider_submission','partner_feed')),
-  homepage_url text not null,
-  data_url text,
-  terms_url text,
+  homepage_url text not null check (homepage_url ~* '^https?://'),
+  data_url text check (data_url is null or data_url ~* '^https?://'),
+  terms_url text check (terms_url is null or terms_url ~* '^https?://'),
   license_text text,
   prefecture text,
   municipality text,
@@ -68,8 +68,8 @@ create table if not exists public.events (
   reservation_required boolean,
   reservation_text text,
   organizer_name text,
-  official_url text not null,
-  ticket_url text,
+  official_url text not null check (official_url ~* '^https?://'),
+  ticket_url text check (ticket_url is null or ticket_url ~* '^https?://'),
 
   category_keys text[] not null default '{}',
   age_group_keys text[] not null default '{}',
@@ -82,15 +82,15 @@ create table if not exists public.events (
   accessibility_keys text[] not null default '{}',
   accessibility_notes text,
 
-  image_url text,
-  image_source_url text,
+  image_url text check (image_url is null or image_url ~* '^https?://'),
+  image_source_url text check (image_source_url is null or image_source_url ~* '^https?://'),
   image_license text,
   image_usage_status text not null default 'not_used'
     check (image_usage_status in ('not_used','allowed','link_only','permission_required')),
 
   source_id bigint not null references public.regional_sources(id),
   source_event_key text,
-  source_page_url text not null,
+  source_page_url text not null check (source_page_url ~* '^https?://'),
   source_updated_at timestamptz,
   fetched_at timestamptz not null default now(),
 
@@ -135,7 +135,7 @@ create table if not exists public.fandom_entities (
   aliases text[] not null default '{}',
   entity_type text not null default 'franchise'
     check (entity_type in ('character','franchise','creator','studio','brand','series','influencer','artist','other')),
-  official_url text,
+  official_url text check (official_url is null or official_url ~* '^https?://'),
   is_active boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -148,7 +148,7 @@ create table if not exists public.event_fandom_links (
     check (relation_type in ('official_event','licensed_collaboration','venue_collaboration','fan_event','mentioned')),
   verification_status text not null default 'needs_review'
     check (verification_status in ('needs_review','verified','hidden')),
-  source_url text not null,
+  source_url text not null check (source_url ~* '^https?://'),
   last_verified_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -225,7 +225,7 @@ create table if not exists public.event_source_records (
   source_start_date date,
   source_end_date date,
   source_venue_name text,
-  source_url text not null,
+  source_url text not null check (source_url ~* '^https?://'),
   content_hash text,
   normalization_status text not null default 'pending'
     check (normalization_status in ('pending','normalized','needs_review','ignored')),
