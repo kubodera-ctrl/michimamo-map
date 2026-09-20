@@ -179,6 +179,8 @@ select public.service_record_machiibe_metric('page_view',null,null);
 select public.service_record_machiibe_metric('search',null,'花火');
 select public.service_record_machiibe_metric('event_view','ci-free-today',null);
 select public.service_record_machiibe_metric('event_view','ci-free-today',null);
+select public.service_record_machiibe_metric('event_view','does-not-exist-event',null);
+select public.service_record_machiibe_metric('search',null,'person@example.com');
 
 do $smoke$
 declare
@@ -189,7 +191,7 @@ begin
   if coalesce((payload->'summary'->>'pv')::integer,0) <> 1 then
     raise exception 'admin dashboard PV aggregate failed';
   end if;
-  if coalesce((payload->'summary'->>'searches')::integer,0) <> 1 then
+  if coalesce((payload->'summary'->>'searches')::integer,0) <> 2 then
     raise exception 'admin dashboard search aggregate failed';
   end if;
   if coalesce((payload->'summary'->>'lineAuthUsers')::integer,0) <> 2 then
@@ -199,7 +201,10 @@ begin
     raise exception 'linked profile count expected 1';
   end if;
   if jsonb_array_length(payload->'searchTerms') <> 1 then
-    raise exception 'search term ranking missing';
+    raise exception 'PII search term must not enter ranking';
+  end if;
+  if coalesce((payload->'summary'->>'eventOpens')::integer,0) <> 2 then
+    raise exception 'invalid event metric must not be recorded';
   end if;
 
   select public.service_refresh_machiibe_pickups(6) into n;
@@ -243,5 +248,21 @@ begin
   end if;
 end;
 $$;
+
+
+do $url_guard$
+begin
+  begin
+    insert into public.regional_sources(
+      source_key,name,source_kind,homepage_url,event_use_allowed,image_policy,is_active
+    ) values (
+      'ci-unsafe-url','CI Unsafe URL','manual','javascript:alert(1)',false,'not_used',false
+    );
+    raise exception 'unsafe URL scheme must be rejected';
+  exception
+    when check_violation then null;
+  end;
+end;
+$url_guard$;
 
 rollback;
