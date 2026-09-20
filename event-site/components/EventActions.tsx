@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { PREF_KEYS, getPlannedDate, readStringArray, setPlannedDate, toggleInArray } from '@/lib/client-prefs';
+import { PREF_KEYS, getPlannedDate, getPlannedOccurrence, readStringArray, setPlannedDate, setPlannedOccurrence, toggleInArray } from '@/lib/client-prefs';
 import { recordMetric } from './MetricPing';
 import { buildXShareUrl } from '@/lib/share';
 import { findOccurrenceByKey, occurrenceKey } from '@/lib/calendar-selection';
@@ -51,8 +51,11 @@ export function EventActions({ event }: Props) {
     sync();
     const planned=getPlannedDate(event.slug);
     if(event.scheduleType==='recurring'||event.scheduleType==='irregular'){
+      const savedOccurrenceKey=getPlannedOccurrence(event.slug);
+      const savedOccurrence=findOccurrenceByKey(availableOccurrences,savedOccurrenceKey);
       const plannedOccurrence=availableOccurrences.find((item)=>item.date===planned);
-      setSelectedOccurrence(plannedOccurrence ? occurrenceKey(plannedOccurrence) : (availableOccurrences[0] ? occurrenceKey(availableOccurrences[0]) : ''));
+      const initialOccurrence=savedOccurrence || plannedOccurrence || availableOccurrences[0];
+      setSelectedOccurrence(initialOccurrence ? occurrenceKey(initialOccurrence) : '');
     } else if(event.scheduleType==='continuous' && event.startDate!==event.endDate) {
       setContinuousVisitDate(planned && planned>=event.startDate && planned<=event.endDate ? planned : '');
     }
@@ -83,11 +86,15 @@ export function EventActions({ event }: Props) {
     };
     const timed = Boolean(calendarSelection.startTime || calendarSelection.endTime);
     const googleEndDate = timed ? calendarSelection.endDate : addDays(calendarSelection.endDate, 1);
+    const googleStart=compact(calendarSelection.startDate,calendarSelection.startTime);
+    const googleEnd=calendarSelection.startTime && !calendarSelection.endTime
+      ? googleStart
+      : compact(googleEndDate,calendarSelection.endTime);
     const url = new URL('https://calendar.google.com/calendar/render');
     url.searchParams.set('action', 'TEMPLATE');
     url.searchParams.set('ctz', 'Asia/Tokyo');
     url.searchParams.set('text', event.title);
-    url.searchParams.set('dates', `${compact(calendarSelection.startDate,calendarSelection.startTime)}/${compact(googleEndDate,calendarSelection.endTime)}`);
+    url.searchParams.set('dates', `${googleStart}/${googleEnd}`);
     url.searchParams.set('location', [event.venueName,event.address].filter(Boolean).join(' '));
     url.searchParams.set('details', event.officialUrl);
     return url.toString();
@@ -157,6 +164,7 @@ export function EventActions({ event }: Props) {
             setSelectedOccurrence(key);
             const occurrence=findOccurrenceByKey(availableOccurrences,key);
             setPlannedDate(event.slug,occurrence?.date||'');
+            setPlannedOccurrence(event.slug,occurrence?key:'');
           }}>
             {availableOccurrences.length ? availableOccurrences.map((item)=>(
               <option key={occurrenceKey(item)} value={occurrenceKey(item)}>
