@@ -4587,27 +4587,37 @@ function shareSpot(title, address, category, event) {
         var orientation = window.matchMedia('(orientation: landscape)').matches ? 'landscape' : 'portrait';
         if (compensatedOrientation === orientation) return;
         var vv = window.visualViewport;
-        var outer = window.outerWidth || 0;
         var inner = window.innerWidth || 0;
-        var scale = vv && vv.scale ? vv.scale : 1;
-        var phoneOuter = outer > 0 && outer <= 600;
-        var doubledLayout = inner >= outer * 1.8 && inner <= outer * 2.2;
-        var halfScale = scale >= 0.45 && scale <= 0.55;
+        var screenShort = Math.min(screen.width || 0, screen.height || 0);
+        var screenLong = Math.max(screen.width || 0, screen.height || 0);
+        var expectedWidth = orientation === 'landscape' ? screenLong : screenShort;
+        var iosPhone = /iPhone|iPod/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0;
+        var layoutRatio = expectedWidth > 0 ? inner / expectedWidth : 1;
+        var visualWidth = vv && vv.width ? vv.width : inner;
+        var visualRatio = expectedWidth > 0 ? visualWidth / expectedWidth : 1;
+        // Private Safari can expose a desktop-like layout width even when outerWidth/scale
+        // do not report the old 2x/0.5x pair. Detect only a wide iPhone layout so normal
+        // Safari (ratio ~1) is never compensated.
+        var widePhoneLayout = layoutRatio >= 1.6 && layoutRatio <= 2.7;
+        var wideVisualLayout = visualRatio >= 1.6 && visualRatio <= 2.7;
         var root = document.documentElement;
         var body = document.body;
         var app = document.getElementById('app');
 
-        if (phoneOuter && doubledLayout && halfScale && body && app) {
+        if (iosPhone && screenShort > 0 && screenShort <= 600 &&
+            (widePhoneLayout || wideVisualLayout) && body && app) {
             compensatedOrientation = orientation;
             root.classList.add('ios-desktop-viewport');
-            body.style.width = outer + 'px';
-            body.style.maxWidth = outer + 'px';
-            app.style.width = outer + 'px';
-            app.style.maxWidth = outer + 'px';
-            root.style.width = outer + 'px';
-            root.style.maxWidth = outer + 'px';
-            // Force the rendered CSS viewport back to the physical phone width.
-            var zoomFactor = 1 / scale;
+            body.style.width = expectedWidth + 'px';
+            body.style.maxWidth = expectedWidth + 'px';
+            app.style.width = expectedWidth + 'px';
+            app.style.maxWidth = expectedWidth + 'px';
+            root.style.width = expectedWidth + 'px';
+            root.style.maxWidth = expectedWidth + 'px';
+            // Match the detected desktop-like layout width instead of depending on
+            // visualViewport.scale, which is inconsistent in Private Safari.
+            var zoomFactor = Math.max(1.6, Math.min(2.7,
+                widePhoneLayout ? layoutRatio : visualRatio));
             root.style.zoom = String(zoomFactor);
             root.style.overflow = 'hidden';
             body.style.overflow = 'hidden';
