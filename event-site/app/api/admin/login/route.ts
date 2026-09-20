@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
+import { isSameOriginRequest } from '@/lib/request-security';
 import { ADMIN_COOKIE, ADMIN_SESSION_MAX_AGE, adminConfigReady, createAdminSessionToken, validateAdminPassword } from '@/lib/admin-auth';
 import { allowRequest, requestClientKey } from '@/lib/server-rate-limit';
 
 export const runtime='nodejs';
 
 export async function POST(request:Request){
+  if(!isSameOriginRequest(request)) return new Response('Forbidden',{status:403});
   const rate=allowRequest(requestClientKey(request,'admin-login'),8,10*60_000);
   if(!rate.allowed){
     const rateTarget=new URL('/admin/login',request.url);
