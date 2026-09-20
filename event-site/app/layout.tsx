@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
-import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from '@/lib/seo';
+import { SITE_DESCRIPTION, SITE_NAME, safeJsonLd, siteUrl } from '@/lib/seo';
 import { PageViewTracker } from '@/components/PageViewTracker';
 import { TrackedLink } from '@/components/TrackedLink';
 import { BrandNav } from '@/components/BrandNav';
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         )}
         <Suspense fallback={null}><PageViewTracker /></Suspense>
         <a className="skip-link" href="#main-content">本文へ移動</a>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteJsonLd)}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(websiteJsonLd)}} />
         <header className="site-header">
           <div className="header-inner">
             <BrandNav />
