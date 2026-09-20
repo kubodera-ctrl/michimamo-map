@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <script>
-        // Some phone browsers retain a wide desktop layout viewport.
-        // Set an explicit CSS-pixel width before the first layout, without CSS zoom.
+        // Keep iPhone/Android phone layout stable in normal and private browsing.
+        // Use one viewport strategy only; never apply CSS zoom to the document.
         (function configurePhoneViewport() {
-            const phoneScreen = Math.min(screen.width, screen.height) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
-            if (!phoneScreen || !touchDevice) return;
             const viewport = document.querySelector('meta[name="viewport"]');
+            function clearLegacyViewportCompensation() {
+                const root = document.documentElement;
+                root.classList.remove('ios-desktop-viewport');
+                root.style.zoom = '';
+                root.style.width = '';
+                root.style.maxWidth = '';
+                root.style.height = '';
+                ['body', '#app'].forEach(selector => {
+                    const el = document.querySelector(selector);
+                    if (!el) return;
+                    el.style.width = '';
+                    el.style.maxWidth = '';
+                    el.style.height = '';
+                    el.style.minHeight = '';
+                    el.style.maxHeight = '';
+                });
+            }
             function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width, screen.height);
-                const longSide = Math.max(screen.width, screen.height);
+                clearLegacyViewportCompensation();
+                const shortSide = Math.min(screen.width || 0, screen.height || 0);
+                const longSide = Math.max(screen.width || 0, screen.height || 0);
+                const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
+                const phoneScreen = shortSide > 0 && shortSide <= 600;
+                if (!touchDevice || !phoneScreen) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+                    return;
+                }
                 const landscape = window.matchMedia('(orientation: landscape)').matches;
                 const width = landscape ? longSide : shortSide;
-                if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+                viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
             }
             updatePhoneViewport();
             window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
-            window.addEventListener('pageshow', updatePhoneViewport);
+            window.addEventListener('pageshow', () => setTimeout(updatePhoneViewport, 0));
         })();
     </script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -43,7 +64,7 @@
         html, body, #app, .view { touch-action: pan-x pan-y; }
         * { box-sizing: border-box; }
         body { width: 100%; max-width: 100vw; overflow: hidden; }
-        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100svh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
 
         header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
         .brand { display: flex; gap: 10px; align-items: center; }
@@ -64,7 +85,7 @@
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
+        nav { position:relative; background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
         nav button.active { color: #1f6feb; }
         nav button i { font-size: 20px; }
@@ -260,28 +281,6 @@
         input, select, textarea { min-width: 0; }
         .muted, .card, .sheet { overflow-wrap: anywhere; }
 
-
-        /* iOS補正時もヘッダーだけは以前のコンパクト表示を維持 */
-        html.ios-desktop-viewport header {
-            min-height: 0 !important;
-            padding: 6px 7px !important;
-            padding-top: calc(6px + env(safe-area-inset-top) / 2) !important;
-        }
-        html.ios-desktop-viewport .brand { gap: 5px !important; }
-        html.ios-desktop-viewport .logo {
-            width: 20px !important;
-            height: 20px !important;
-            border-radius: 6px !important;
-        }
-        html.ios-desktop-viewport .title {
-            font-size: 8.5px !important;
-            line-height: 1.15 !important;
-        }
-        html.ios-desktop-viewport .sub {
-            font-size: 5.5px !important;
-            line-height: 1.2 !important;
-            margin-top: 1px !important;
-        }
 
         @media screen and (max-width: 600px), screen and (max-device-width: 600px) {
             html, body { font-size: 16px; }
@@ -4579,80 +4578,7 @@ function shareSpot(title, address, category, event) {
 
 
 
-<script id="iosViewportCompensation">
-(function () {
-    var compensatedOrientation = null;
-    function applyFix() {
-        // Keep a detected desktop-view compensation through focus/keyboard zoom changes.
-        var orientation = window.matchMedia('(orientation: landscape)').matches ? 'landscape' : 'portrait';
-        if (compensatedOrientation === orientation) return;
-        var vv = window.visualViewport;
-        var outer = window.outerWidth || 0;
-        var inner = window.innerWidth || 0;
-        var scale = vv && vv.scale ? vv.scale : 1;
-        var phoneOuter = outer > 0 && outer <= 600;
-        var doubledLayout = inner >= outer * 1.8 && inner <= outer * 2.2;
-        var halfScale = scale >= 0.45 && scale <= 0.55;
-        var root = document.documentElement;
-        var body = document.body;
-        var app = document.getElementById('app');
 
-        if (phoneOuter && doubledLayout && halfScale && body && app) {
-            compensatedOrientation = orientation;
-            root.classList.add('ios-desktop-viewport');
-            body.style.width = outer + 'px';
-            body.style.maxWidth = outer + 'px';
-            app.style.width = outer + 'px';
-            app.style.maxWidth = outer + 'px';
-            root.style.width = outer + 'px';
-            root.style.maxWidth = outer + 'px';
-            // Force the rendered CSS viewport back to the physical phone width.
-            var zoomFactor = 1 / scale;
-            root.style.zoom = String(zoomFactor);
-            root.style.overflow = 'hidden';
-            body.style.overflow = 'hidden';
-
-            // CSS zoom also magnifies the layout height. Counter it so the fixed bottom nav
-            // still fits inside the visible iPhone viewport instead of being pushed below screen.
-            var visibleVh = 100 / zoomFactor;
-            root.style.height = visibleVh + 'dvh';
-            body.style.height = visibleVh + 'dvh';
-            app.style.height = visibleVh + 'dvh';
-            app.style.minHeight = visibleVh + 'dvh';
-            app.style.maxHeight = visibleVh + 'dvh';
-
-            // Leaflet needs a size refresh after viewport compensation.
-            setTimeout(function () {
-                if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
-            }, 150);
-        } else {
-            compensatedOrientation = null;
-            root.classList.remove('ios-desktop-viewport');
-            root.style.zoom = '';
-            root.style.width = '';
-            root.style.maxWidth = '';
-            root.style.height = '';
-            if (body) {
-                body.style.width = '';
-                body.style.maxWidth = '';
-                body.style.height = '';
-            }
-            if (app) {
-                app.style.width = '';
-                app.style.maxWidth = '';
-                app.style.height = '';
-                app.style.minHeight = '';
-                app.style.maxHeight = '';
-            }
-        }
-    }
-
-    applyFix();
-    window.addEventListener('pageshow', function () { setTimeout(applyFix, 50); });
-    window.addEventListener('resize', function () { setTimeout(applyFix, 50); });
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
-})();
-</script>
 
 <script src="wbgt.js"></script>
 <script src="nearby-safety.js"></script>
