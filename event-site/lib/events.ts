@@ -74,7 +74,8 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
     items: [
       ['detective-conan','名探偵コナン'],['aipri','アイプリ'],['precure','プリキュア'],
       ['kamen-rider','仮面ライダー'],['super-sentai','スーパー戦隊'],['ultraman','ウルトラマン'],
-      ['super-mario','スーパーマリオ'],['kirby','星のカービィ'],['animal-crossing','どうぶつの森']
+      ['super-mario','スーパーマリオ'],['kirby','星のカービィ'],['animal-crossing','どうぶつの森'],
+      ['idolmaster-sidem','アイドルマスター SideM']
     ]
   },
   {
@@ -92,7 +93,8 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
       ['colorful-peach','カラフルピーチ'],
       ['tiropino','ちろぴの'],
       ['bom-bom-tv','ボンボンTV'],
-      ['rocomacoaco','ろこまこあこ']
+      ['rocomacoaco','ろこまこあこ'],
+      ['quizknock','QuizKnock']
     ]
   }
 ] as const;
