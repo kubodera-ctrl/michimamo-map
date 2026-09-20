@@ -15,6 +15,7 @@ type Props = {
     startTime: string | null;
     endTime: string | null;
     scheduleType: 'single' | 'continuous' | 'recurring' | 'irregular';
+    eventStatus: 'scheduled'|'changed'|'postponed'|'cancelled'|'sold_out'|'registration_closed';
     occurrences: Array<{date:string;start_time:string|null;end_time:string|null;status:string}>;
     venueName: string | null;
     address: string;
@@ -39,7 +40,8 @@ function addDays(date: string, days: number) {
 export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
   const [attended,setAttended]=useState(false);
-  const availableOccurrences=event.occurrences.filter((item)=>item.status!=='cancelled');
+  const eventAvailable=!['cancelled','postponed','sold_out','registration_closed'].includes(event.eventStatus);
+  const availableOccurrences=event.occurrences.filter((item)=>item.status==='scheduled');
   const [selectedOccurrence,setSelectedOccurrence]=useState('');
   const [continuousVisitDate,setContinuousVisitDate]=useState('');
 
@@ -156,7 +158,7 @@ export function EventActions({ event }: Props) {
         <span>行くと決めたら</span>
         <strong>当日までここから準備</strong>
       </div>
-      {(event.scheduleType==='recurring'||event.scheduleType==='irregular') && (
+      {eventAvailable && (event.scheduleType==='recurring'||event.scheduleType==='irregular') && (
         <label className="occurrence-picker">
           <span>カレンダーに入れる開催日</span>
           <select value={selectedOccurrence} onChange={(e)=>{
@@ -174,7 +176,7 @@ export function EventActions({ event }: Props) {
           </select>
         </label>
       )}
-      {event.scheduleType==='continuous' && event.startDate!==event.endDate && (
+      {eventAvailable && event.scheduleType==='continuous' && event.startDate!==event.endDate && (
         <label className="occurrence-picker">
           <span>自分が行く予定日（任意）</span>
           <input
@@ -193,13 +195,13 @@ export function EventActions({ event }: Props) {
         <button type="button" className={`event-action-button ${attended ? 'is-attended' : ''}`} onClick={toggleAttended}>
           <span>✓</span><b>{attended ? '行った・保存済み' : '行った'}</b>
         </button>
-        {availableOccurrences.length || (event.scheduleType!=='recurring'&&event.scheduleType!=='irregular') ? (
+        {eventAvailable && (availableOccurrences.length || (event.scheduleType!=='recurring'&&event.scheduleType!=='irregular')) ? (
           <>
             <a className="event-action-button" href={googleCalendarUrl} target="_blank" rel="noreferrer" onClick={metric('calendar_google')}><span>📅</span><b>Googleカレンダー</b></a>
             <a className="event-action-button" href={`/api/calendar/${event.slug}${calendarAppQuery}`} onClick={metric('calendar_ics')}><span>＋</span><b>カレンダーアプリ</b></a>
           </>
         ) : (
-          <a className="event-action-button" href={event.officialUrl} target="_blank" rel="noreferrer"><span>📅</span><b>開催日を公式で確認</b></a>
+          <a className="event-action-button" href={event.officialUrl} target="_blank" rel="noreferrer"><span>📅</span><b>{eventAvailable?'開催日を公式で確認':'最新状況を公式で確認'}</b></a>
         )}
         <a className="event-action-button" href={googleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_google')}><span>📍</span><b>Google Maps</b></a>
         <a className="event-action-button" href={appleMapsUrl} target="_blank" rel="noreferrer" onClick={metric('map_apple')}><span></span><b>Apple Maps</b></a>
