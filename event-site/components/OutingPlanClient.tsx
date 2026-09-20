@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { getEventsBySlugs } from '@/lib/events';
 import { PREF_KEYS, getPlannedDate, getPlannedOccurrence, readStringArray, setPlannedDate, setPlannedOccurrence } from '@/lib/client-prefs';
 import type { EventDetail } from '@/lib/types';
-import { findOccurrenceByKey, occurrenceKey, uniqueOccurrenceDates } from '@/lib/calendar-selection';
+import { activeOccurrencesForDate, findOccurrenceByKey, occurrenceKey, uniqueOccurrenceDates } from '@/lib/calendar-selection';
 
 function todayJa(){
   return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'})
@@ -68,10 +68,20 @@ export function OutingPlanClient() {
   const change=(event:EventDetail,date:string)=>{
     setPlanned((current)=>({...current,[event.slug]:date}));
     setPlannedDate(event.slug,date);
-    const firstForDate=(event.occurrences||[]).find((item)=>item.status!=='cancelled'&&item.date===date);
+    const firstForDate=activeOccurrencesForDate(event.occurrences||[],date)[0];
     const key=firstForDate?occurrenceKey(firstForDate):'';
     setPlannedOccurrences((current)=>({...current,[event.slug]:key}));
     setPlannedOccurrence(event.slug,key);
+  };
+
+  const changeOccurrence=(event:EventDetail,key:string)=>{
+    const occurrence=findOccurrenceByKey(event.occurrences||[],key);
+    setPlannedOccurrences((current)=>({...current,[event.slug]:key}));
+    setPlannedOccurrence(event.slug,key);
+    if(occurrence){
+      setPlanned((current)=>({...current,[event.slug]:occurrence.date}));
+      setPlannedDate(event.slug,occurrence.date);
+    }
   };
 
   if(loading) return <div className="empty-state"><p>おでかけプランを準備しています…</p></div>;
@@ -89,6 +99,7 @@ export function OutingPlanClient() {
             {list.map((event)=>{
               const options=dateOptions(event);
               const selectedOccurrence=findOccurrenceByKey(event.occurrences||[],plannedOccurrences[event.slug]||'');
+              const sessions=activeOccurrencesForDate(event.occurrences||[],planned[event.slug]||'');
               const displayTime=selectedOccurrence?.start_time || event.start_time;
               return (
                 <article className="plan-item" key={event.slug}>
@@ -108,6 +119,18 @@ export function OutingPlanClient() {
                         </select>
                       </label>
                     ) : null}
+                    {sessions.length>1 && (
+                      <label>時間
+                        <select value={plannedOccurrences[event.slug]||''} onChange={(e)=>changeOccurrence(event,e.target.value)}>
+                          {sessions.map((item)=>(
+                            <option key={occurrenceKey(item)} value={occurrenceKey(item)}>
+                              {item.start_time?.slice(0,5)||'時間未定'}
+                              {item.end_time?`〜${item.end_time.slice(0,5)}`:''}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                    )}
                   </div>
                 </article>
               );
