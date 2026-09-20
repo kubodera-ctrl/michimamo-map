@@ -72,3 +72,11 @@ test('TikTok generator truncates by Unicode code points',()=>{
   assert.match(source,/const lastChars=Array\.from\(lines\[lastIndex\]\);/);
   assert.match(source,/lastChars\.pop\(\)/);
 });
+
+
+test('wrapped TikTok title truncation never slices UTF-16 pairs',()=>{
+  const source=fs.readFileSync(new URL('../components/TikTokAssetGenerator.tsx',import.meta.url),'utf8');
+  assert.match(source,/const lastChars=Array\.from\(lines\[lines\.length-1\]\)/);
+  assert.match(source,/lastChars\.pop\(\)/);
+  assert.doesNotMatch(source,/last=last\.slice\(0,-1\)/);
+});
