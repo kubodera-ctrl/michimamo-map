@@ -152,7 +152,7 @@ export default async function EventPage({ params }: { params: Params }) {
 
           <EventActions event={{
             slug:event.slug,title:event.title,startDate:event.start_date,endDate:event.end_date,
-            startTime:event.start_time,endTime:event.end_time,scheduleType:event.schedule_type,
+            startTime:event.start_time,endTime:event.end_time,scheduleType:event.schedule_type,eventStatus:event.event_status,
             occurrences:event.occurrences || [],venueName:event.venue_name,address,
             latitude:trustedLocation ? event.latitude : null,
             longitude:trustedLocation ? event.longitude : null,
