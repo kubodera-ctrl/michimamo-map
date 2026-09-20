@@ -342,7 +342,7 @@ as $$
           from public.event_occurrences eo
           where eo.event_id=e.id
             and eo.occurrence_date between coalesce(p_start_date,((now() at time zone 'Asia/Tokyo')::date)) and coalesce(p_end_date,((now() at time zone 'Asia/Tokyo')::date)+29)
-            and eo.status <> 'cancelled'
+            and eo.status = 'scheduled'
         )
       )
     )
