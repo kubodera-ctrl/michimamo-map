@@ -247,13 +247,30 @@ export function TikTokAssetGenerator(props:Props){
   };
 
   const copy=async()=>{
+    let ok=false;
     try{
-      await navigator.clipboard.writeText(caption);
-      setCopied(true);
-      window.setTimeout(()=>setCopied(false),1600);
-    }catch{
-      setCopied(false);
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(caption);
+        ok=true;
+      }
+    }catch{}
+
+    if(!ok){
+      try{
+        const fallback=document.createElement('textarea');
+        fallback.value=caption;
+        fallback.setAttribute('readonly','');
+        fallback.style.position='fixed';
+        fallback.style.opacity='0';
+        document.body.appendChild(fallback);
+        fallback.select();
+        ok=document.execCommand('copy');
+        document.body.removeChild(fallback);
+      }catch{}
     }
+
+    setCopied(ok);
+    if(ok) window.setTimeout(()=>setCopied(false),1600);
   };
 
   return (
