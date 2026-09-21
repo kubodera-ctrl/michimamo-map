@@ -1,0 +1,106 @@
+name: Event Site Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - feature/machimamo-events-foundation
+    paths:
+      - 'event-site/**'
+      - 'index.html'
+      - 'supabase/migrations/*event_platform*'
+      - 'supabase/migrations/*dining*'
+      - 'supabase/tests/**'
+      - '.github/workflows/event-site-check.yml'
+  pull_request:
+    paths:
+      - 'event-site/**'
+      - 'index.html'
+      - 'supabase/migrations/*event_platform*'
+      - 'supabase/migrations/*dining*'
+      - 'supabase/tests/**'
+      - '.github/workflows/event-site-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    defaults:
+      run:
+        working-directory: event-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: event-site/package.json
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Cloudflare adapter build
+        env:
+          NEXT_PUBLIC_ALLOW_INDEXING: 'false'
+        run: npm run cf:build
+      - name: Route smoke
+        env:
+          NEXT_PUBLIC_ALLOW_INDEXING: 'false'
+        run: |
+          npm run start -- -p 3100 > /tmp/machiibe-next.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3100/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:3100/ | grep -q "まちイベ"
+          curl -fsS http://127.0.0.1:3100/admin/login | grep -q "まちイベ運営画面"
+          curl -fsS http://127.0.0.1:3100/privacy | grep -q "プライバシー"
+          curl -fsS http://127.0.0.1:3100/robots.txt | grep -q "Disallow: /"
+          curl -fsS http://127.0.0.1:3100/manifest.webmanifest | grep -q "まちイベ"
+          curl -fsSI http://127.0.0.1:3100/ | tr -d '\r' | grep -qi "^x-robots-tag: noindex, nofollow, noarchive$"
+      - name: SQL migration check
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE ROLE anon; CREATE ROLE authenticated; CREATE ROLE service_role; CREATE SCHEMA auth; CREATE TABLE auth.users(id uuid primary key, created_at timestamptz default now()); CREATE TABLE public.profiles(auth_id uuid);"
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260918235500_event_platform_foundation.sql
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919011500_family_dining_overlay.sql
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919043000_event_platform_admin_analytics.sql
+      - name: SQL behavior smoke tests
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/event_platform_smoke.sql
+      - name: Real event fixture smoke
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_real_fixture_smoke.sql
+      - name: MAP event deep-link smoke
+        working-directory: .
+        run: |
+          grep -q "rawEventLat" index.html
+          grep -q "rawEventLng" index.html
+          grep -q "isFirstLocationSet = true" index.html
