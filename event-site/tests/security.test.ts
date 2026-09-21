@@ -40,3 +40,22 @@ test('correction analytics metric is registered end to end',()=>{
   assert.match(api,/correction_open/);
   assert.match(sql,/correction_open/);
 });
+
+
+test('admin routes are private-cache and wildcard image proxy is disabled',()=>{
+  const config=fs.readFileSync(new URL('../next.config.mjs',import.meta.url),'utf8');
+  assert.match(config,/Cache-Control/);
+  assert.match(config,/private, no-store, max-age=0/);
+  assert.doesNotMatch(config,/hostname:\s*['"]\*\*['"]/);
+});
+
+test('operator X compose rejects cross-site requests',()=>{
+  const source=fs.readFileSync(new URL('../app/api/admin/x/route.ts',import.meta.url),'utf8');
+  assert.match(source,/isSameOriginRequest\(request\)/);
+  assert.match(source,/status:403/);
+});
+
+test('sponsor image only accepts HTTPS configuration',()=>{
+  const source=fs.readFileSync(new URL('../components/HomePrSlot.tsx',import.meta.url),'utf8');
+  assert.match(source,/\^https:\\\/\\\//i);
+});
