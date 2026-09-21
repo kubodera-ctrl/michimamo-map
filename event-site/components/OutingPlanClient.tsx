@@ -13,7 +13,8 @@ function todayJa(){
 }
 
 function canPlanEvent(event:EventDetail){
-  return !['cancelled','postponed','sold_out','registration_closed'].includes(event.event_status);
+  return event.end_date>=todayJa()
+    && !['cancelled','postponed','sold_out','registration_closed'].includes(event.event_status);
 }
 
 function dateOptions(event:EventDetail):string[] {
@@ -36,10 +37,13 @@ export function OutingPlanClient() {
     const load=async()=>{
       setLoading(true);
       const rows=await getEventsBySlugs(readStringArray(PREF_KEYS.savedEvents));
-      const dates=Object.fromEntries(rows.map((event)=>[
-        event.slug,
-        canPlanEvent(event) ? (getPlannedDate(event.slug) || (event.schedule_type==='single'?event.start_date:'')) : ''
-      ]));
+      const dates=Object.fromEntries(rows.map((event)=>{
+        if(!canPlanEvent(event)) return [event.slug,''];
+        const savedDate=getPlannedDate(event.slug);
+        const earliest=event.start_date>todayJa()?event.start_date:todayJa();
+        const validSaved=savedDate && savedDate>=earliest && savedDate<=event.end_date ? savedDate : '';
+        return [event.slug,validSaved || (event.schedule_type==='single'?event.start_date:'')];
+      }));
       const occurrences=Object.fromEntries(rows.map((event)=>{
         const saved=getPlannedOccurrence(event.slug);
         const savedRow=findOccurrenceByKey(event.occurrences||[],saved);
@@ -115,7 +119,7 @@ export function OutingPlanClient() {
                     <p>{[event.prefecture,event.municipality,event.venue_name].filter(Boolean).join(' · ')}</p>
                     {canPlanEvent(event) && event.schedule_type==='continuous' && event.start_date!==event.end_date ? (
                       <label>行く日
-                        <input type="date" min={event.start_date} max={event.end_date} value={planned[event.slug]||''} onChange={(e)=>change(event,e.target.value)} />
+                        <input type="date" min={event.start_date>todayJa()?event.start_date:todayJa()} max={event.end_date} value={planned[event.slug]||''} onChange={(e)=>change(event,e.target.value)} />
                       </label>
                     ) : options.length>1 ? (
                       <label>行く日
