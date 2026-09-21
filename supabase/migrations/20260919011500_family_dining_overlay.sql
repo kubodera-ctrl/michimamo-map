@@ -75,11 +75,16 @@ alter table public.dining_child_price_rules enable row level security;
 revoke all on table public.dining_family_profiles from anon, authenticated;
 revoke all on table public.dining_child_price_rules from anon, authenticated;
 
+drop function if exists public.get_verified_family_dining_overlays(text[],text,text,text[],integer);
+
 create or replace function public.get_verified_family_dining_overlays(
   p_place_keys text[] default null,
   p_preschool_price text default null,
   p_elementary_price text default null,
   p_accessibility_keys text[] default null,
+  p_lat double precision default null,
+  p_lng double precision default null,
+  p_radius_km double precision default 15,
   p_limit integer default 100
 )
 returns table(
@@ -191,13 +196,30 @@ as $$
       p_accessibility_keys is null or cardinality(p_accessibility_keys) = 0
       or p.accessibility_keys @> p_accessibility_keys[1:20]
     )
-  order by p.last_verified_at desc nulls last, p.name
+    and (
+      p_lat is null or p_lng is null
+      or (
+        p_lat between -90 and 90
+        and p_lng between -180 and 180
+        and p.latitude is not null
+        and p.longitude is not null
+        and abs(p.latitude-p_lat) <= least(greatest(coalesce(p_radius_km,15),0.1),50)/110.574
+        and abs(p.longitude-p_lng) <= least(greatest(coalesce(p_radius_km,15),0.1),50)
+          /(111.320*greatest(abs(cos(radians(p_lat))),0.2))
+      )
+    )
+  order by
+    case when p_lat is not null and p_lng is not null and p.latitude is not null and p.longitude is not null
+      then power(p.latitude-p_lat,2)+power(p.longitude-p_lng,2)
+    end asc nulls last,
+    p.last_verified_at desc nulls last,
+    p.name
   limit least(greatest(coalesce(p_limit,100),1),200);
 $$;
 
-revoke all on function public.get_verified_family_dining_overlays(text[],text,text,text[],integer)
+revoke all on function public.get_verified_family_dining_overlays(text[],text,text,text[],double precision,double precision,double precision,integer)
   from public, anon, authenticated;
-grant execute on function public.get_verified_family_dining_overlays(text[],text,text,text[],integer)
+grant execute on function public.get_verified_family_dining_overlays(text[],text,text,text[],double precision,double precision,double precision,integer)
   to anon, authenticated;
 
 comment on table public.dining_family_profiles is
