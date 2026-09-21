@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   verification:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?{google:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}:undefined
 };
 
-const websiteJsonLd={'@context':'https://schema.org','@type':'WebSite',name:SITE_NAME,alternateName:'まちイベ by まちまも',url:siteUrl('/'),inLanguage:'ja-JP',description:SITE_DESCRIPTION,publisher:{'@type':'Organization',name:'SUMION合同会社',sameAs:['https://x.com/machiibe01']}};
+const websiteJsonLd={'@context':'https://schema.org','@type':'WebSite',name:SITE_NAME,alternateName:'まちイベ by まちまも',url:siteUrl('/'),inLanguage:'ja-JP',description:SITE_DESCRIPTION,publisher:{'@type':'Organization',name:'SUMION合同会社',sameAs:[xAccountUrl()]}};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
