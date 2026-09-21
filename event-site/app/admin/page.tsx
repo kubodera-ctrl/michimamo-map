@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { ADMIN_COOKIE, adminConfigReady, validateAdminSession } from '@/lib/admin-auth';
 import { getMachiibeAdminDashboard } from '@/lib/admin-dashboard';
+import { xAccountUrl } from '@/lib/url-config';
 
 export const dynamic='force-dynamic';
 export const metadata:Metadata={title:'運営ダッシュボード',robots:{index:false,follow:false}};
@@ -32,7 +33,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           <p>直近30日を中心に集計。PVはページ表示回数で、ユニークユーザー数ではありません。</p>
           <div className="admin-quick-links">
             <a href="#new-events">新着イベント → SNS素材へ</a>
-            <a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="noreferrer">運営X @machiibe01 ↗</a>
+            <a href={xAccountUrl()} target="_blank" rel="noreferrer">運営X @machiibe01 ↗</a>
           </div>
         </div>
         <form action="/api/admin/logout" method="post"><button type="submit">ログアウト</button></form>
