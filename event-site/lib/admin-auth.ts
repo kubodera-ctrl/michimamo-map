@@ -15,7 +15,9 @@ function sign(payload:string){
 }
 
 export function adminConfigReady(){
-  return Boolean(process.env.MACHIIBE_ADMIN_PASSWORD && process.env.MACHIIBE_ADMIN_SESSION_SECRET);
+  const password=process.env.MACHIIBE_ADMIN_PASSWORD || '';
+  const sessionSecret=process.env.MACHIIBE_ADMIN_SESSION_SECRET || '';
+  return password.length>=16 && sessionSecret.length>=32;
 }
 
 export function validateAdminPassword(input:string){
