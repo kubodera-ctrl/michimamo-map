@@ -7,6 +7,7 @@ import { Pagination } from '@/components/Pagination';
 import { CATEGORY_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
 import { PREFECTURES, prefectureBySlug } from '@/lib/prefectures';
 import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
+import { searchIndexingAllowed } from '@/lib/url-config';
 
 export const revalidate = 3600;
 
@@ -29,7 +30,7 @@ export async function generateMetadata({
   if (!name) return {};
   const today=japanToday();
   const sample=await searchEvents({startDate:today,endDate:addDays(today,29),prefecture:name,limit:3});
-  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  const allowIndexing=searchIndexingAllowed();
   const title = `${name}のイベント｜今日・今週末・子ども向けのおでかけ`;
   const description = `${name}の今日・今週末・30日以内のイベントを検索。子ども向け、無料、屋内、障害者向け配慮などの条件にも対応。`;
   return {
