@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node scripts/check_sign_assets.mjs"
+    "test": "node scripts/check_browser_scripts.cjs && node tests/ios_viewport_stability.test.cjs && node scripts/check_sign_assets.mjs",
+    "build": "node scripts/check_browser_scripts.cjs && node tests/ios_viewport_stability.test.cjs"
   },
   "repository": {
     "type": "git",

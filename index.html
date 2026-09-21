@@ -4574,7 +4574,19 @@ function shareSpot(title, address, category, event) {
 
             const adminCard = document.getElementById('adminCsvCard');
             const adminArea = document.getElementById('adminDashboardArea');
-        <script id="iosViewportCompensation">
+            const adminPassword = document.getElementById('adminExportPassword');
+            if (adminCard) adminCard.style.display = 'none';
+            if (adminArea) adminArea.style.display = 'none';
+            if (adminPassword) adminPassword.value = '';
+            adminDashboardRequest++;
+            window.MachimamoRoadReview?.reset();
+            if (adminAedReview) adminAedReview.clear();
+            loadLineOfficialSettings();
+        }
+    }
+</script>
+
+<script id="iosViewportCompensation">
 (function () {
     // Safari's Advanced Fingerprinting Protection intentionally masks screen/window
     // geometry in Private Browsing. Do not infer the physical iPhone width and do not
@@ -4609,18 +4621,6 @@ function shareSpot(title, address, category, event) {
     setTimeout(function () {
         if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
     }, 150);
-})();
-</script>      app.style.height = '';
-                app.style.minHeight = '';
-                app.style.maxHeight = '';
-            }
-        }
-    }
-
-    applyFix();
-    window.addEventListener('pageshow', function () { setTimeout(applyFix, 50); });
-    window.addEventListener('resize', function () { setTimeout(applyFix, 50); });
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
 })();
 </script>
 
