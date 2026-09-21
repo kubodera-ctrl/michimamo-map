@@ -6,6 +6,7 @@ import { EventCard } from '@/components/EventCard';
 import { Pagination } from '@/components/Pagination';
 import { FANDOM_LABELS, FANDOM_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
 import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
+import { searchIndexingAllowed } from '@/lib/url-config';
 
 export const revalidate = 3600;
 
@@ -56,7 +57,7 @@ export async function generateMetadata({
   if (!label) return {};
   const range=oshiRange();
   const sample=await searchEvents({...range,fandomSlugs:[slug],limit:3});
-  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  const allowIndexing=searchIndexingAllowed();
   const title=`${label}のイベント｜コラボ・ポップアップ・おでかけ情報`;
   const description=`${aliases[slug] || label}に関連する公開・確認済みイベントを探せます。開催日、地域、会場、公式情報を確認できます。`;
   return {
