@@ -13,6 +13,7 @@ import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType } from '@/lib/types';
+import { searchIndexingAllowed } from '@/lib/url-config';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
@@ -28,7 +29,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
     return Boolean(value);
   });
   const page=parsePage(params.page);
-  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  const allowIndexing=searchIndexingAllowed();
   return { alternates:{canonical:'/'}, robots:allowIndexing && !hasFilters && page===1?{index:true,follow:true}:{index:false,follow:allowIndexing} };
 }
 
