@@ -5,6 +5,7 @@ import { getAdminSupabase } from '@/lib/supabase-admin';
 import { buildXShareUrl } from '@/lib/share';
 import { siteUrl } from '@/lib/seo';
 import { CATEGORY_OPTIONS, PRICE_LABELS } from '@/lib/events';
+import { isSameOriginRequest } from '@/lib/request-security';
 
 export const runtime='nodejs';
 
@@ -20,6 +21,7 @@ function formatTime(start:string|null|undefined,end:string|null|undefined){
 }
 
 export async function GET(request:Request){
+  if(!isSameOriginRequest(request)) return new Response('Forbidden',{status:403});
   const jar=await cookies();
   if(!validateAdminSession(jar.get(ADMIN_COOKIE)?.value)) return NextResponse.redirect(new URL('/admin/login',request.url),303);
   const slug=new URL(request.url).searchParams.get('slug')||'';
