@@ -19,6 +19,7 @@ import {
 } from '@/lib/events';
 import { breadcrumbJsonLd, safeJsonLd, siteUrl } from '@/lib/seo';
 import { slugByPrefecture } from '@/lib/prefectures';
+import { machimamoMapUrl } from '@/lib/url-config';
 
 type Params = Promise<{slug:string}>;
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
@@ -63,7 +64,7 @@ export default async function EventPage({ params }: { params: Params }) {
 
   const address = [event.prefecture,event.municipality,event.address].filter(Boolean).join(' ');
   const trustedLocation=isTrustedLocation(event);
-  const mapBase = process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app';
+  const mapBase = machimamoMapUrl();
   const mapUrl = new URL(mapBase);
   if (trustedLocation) {
     mapUrl.searchParams.set('lat', String(event.latitude));
