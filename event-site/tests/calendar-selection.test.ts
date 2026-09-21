@@ -48,3 +48,14 @@ test('ICS UID includes selected occurrence date and time',()=>{
   assert.match(source,/const uid=\`\$\{event\.slug\}-\$\{startDate\}-\$\{uidTime\}@machi-ibe\`/);
   assert.doesNotMatch(source,/UID:\$\{escapeIcs\(event\.slug\)\}@machi-ibe/);
 });
+
+
+test('calendar surfaces reject past occurrences',()=>{
+  const actions=fs.readFileSync(new URL('../components/EventActions.tsx',import.meta.url),'utf8');
+  const route=fs.readFileSync(new URL('../app/api/calendar/[slug]/route.ts',import.meta.url),'utf8');
+  const plan=fs.readFileSync(new URL('../components/OutingPlanClient.tsx',import.meta.url),'utf8');
+  assert.match(actions,/item\.date>=today/);
+  assert.match(route,/occurrence\.date>=today/);
+  assert.match(route,/requestedDate>=today/);
+  assert.match(plan,/date>=todayJa\(\)/);
+});
