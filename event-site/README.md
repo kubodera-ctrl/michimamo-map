@@ -74,3 +74,33 @@ E5: PR・スポンサー・収益化
 - `event-site/package-lock.json` を本番公開前に生成・コミットし、CIは最終的に `npm ci` へ切り替える
 - `NEXT_PUBLIC_ALLOW_INDEXING=true` は独自ドメイン・canonical・Search Console確認後にだけ有効化する
 - 本番Supabase migration適用前に、CIのSQL migration / smoke / real fixture smokeをすべて通す
+
+
+## 開発3：実データ投入準備
+
+- 任意の日付指定を追加
+  - 1日だけ：開始日のみ選択
+  - 期間：開始日 + 終了日
+  - 逆順日付は自動正規化
+  - 最大400日間に制限
+  - ページ送り・保存検索にも日付条件を保持
+- 本番初期投入用seed: `supabase/seeds/machiibe_initial_verified_events.sql`
+  - 2026-09-21に公式ページを再確認した10件
+  - イベント画像は一切転載せず `image_usage_status=not_used`
+  - 2回実行しても重複しないidempotent設計
+- v1専用rollback: `supabase/rollback/machiibe_v1.sql`
+  - 既存まちまもテーブル・関数には触れず、まちイベv1オブジェクトだけを削除
+
+### 本番DB相当のROLLBACK検証
+
+2026-09-21、本番Supabase上で次を1トランザクション内に実行し、最後にROLLBACKした。
+
+1. event platform migration
+2. family dining migration
+3. admin analytics migration
+4. production seedを2回連続実行
+5. 10イベント / 32開催回 / 任意日付範囲 / QuizKnock関連 / 画像非公開 / anon直読禁止を確認
+6. v1 rollback SQLを実行し、対象オブジェクトが全て消えることを確認
+7. 最終ROLLBACK
+
+検証後、本番DBに `events` / `regional_sources` / `event_occurrences` 等が残っていないことも再確認済み。
