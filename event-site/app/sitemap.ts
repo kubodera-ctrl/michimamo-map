@@ -2,11 +2,12 @@ import type { MetadataRoute } from 'next';
 import { CATEGORY_OPTIONS, getEventSitemap, getPublicFacetSitemap, getPublicFandomSitemap } from '@/lib/events';
 import { slugByPrefecture } from '@/lib/prefectures';
 import { SEO_INTENTS, searchSeoIntentEvents } from '@/lib/seo-intents';
+import { publicSiteBaseUrl } from '@/lib/url-config';
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://events.example.jp';
+  const base = publicSiteBaseUrl().replace(/\/$/,'');
   const [eventRows, fandomRows, facetRows, guideRows] = await Promise.all([
     getEventSitemap(),
     getPublicFandomSitemap(),
