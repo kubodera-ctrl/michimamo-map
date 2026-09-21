@@ -30,6 +30,16 @@ begin
 
   select count(*) into n
   from public.search_public_events(
+    p_start_date=>'2026-09-22',
+    p_end_date=>'2026-09-23',
+    p_keyword=>'東京都水の科学館'
+  );
+  if n <> 2 then
+    raise exception 'custom 9/22-9/23 range expected two water museum events, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
     p_start_date=>'2026-09-20',
     p_end_date=>'2026-09-20',
     p_fandom_slugs=>array['quizknock']
