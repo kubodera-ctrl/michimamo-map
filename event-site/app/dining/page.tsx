@@ -38,7 +38,13 @@ export default async function DiningPage({ searchParams }: { searchParams: Searc
   const privateRoom=bool(one(params.privateRoom));
   const nonSmoking=bool(one(params.nonSmoking));
 
-  const overlays=await getDiningOverlays({preschool,elementary,accessibility,limit:200});
+  const overlays=await getDiningOverlays({
+    preschool,elementary,accessibility,
+    lat:hasCoords?lat:undefined,
+    lng:hasCoords?lng:undefined,
+    radiusKm:15,
+    limit:200
+  });
   const matched=overlays
     .filter((row)=>!kidsMenu || row.kids_menu===true)
     .filter((row)=>!highChair || row.high_chair===true)
