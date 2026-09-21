@@ -54,6 +54,9 @@ export async function getDiningOverlays(input:{
   preschool?:string;
   elementary?:string;
   accessibility?:string;
+  lat?:number;
+  lng?:number;
+  radiusKm?:number;
   limit?:number;
 }):Promise<DiningOverlay[]> {
   const db=getPublicSupabase();
@@ -63,6 +66,9 @@ export async function getDiningOverlays(input:{
     p_preschool_price:input.preschool||null,
     p_elementary_price:input.elementary||null,
     p_accessibility_keys:input.accessibility?[input.accessibility]:null,
+    p_lat:Number.isFinite(input.lat)?input.lat:null,
+    p_lng:Number.isFinite(input.lng)?input.lng:null,
+    p_radius_km:Number.isFinite(input.radiusKm)?input.radiusKm:15,
     p_limit:input.limit??200
   });
   if(error){
