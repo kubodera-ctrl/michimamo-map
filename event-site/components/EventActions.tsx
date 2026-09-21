@@ -5,6 +5,7 @@ import { PREF_KEYS, getPlannedDate, getPlannedOccurrence, readStringArray, setPl
 import { recordMetric } from './MetricPing';
 import { buildXShareUrl } from '@/lib/share';
 import { findOccurrenceByKey, occurrenceKey } from '@/lib/calendar-selection';
+import { normalizePublicUrl } from '@/lib/url-config';
 
 type Props = {
   event: {
@@ -126,7 +127,7 @@ export function EventActions({ event }: Props) {
     diningParams.set('lng', String(event.longitude));
   }
   const diningUrl = `/dining?${diningParams.toString()}`;
-  const parkingReservationUrl = process.env.NEXT_PUBLIC_PARKING_RESERVATION_URL || '';
+  const parkingReservationUrl = normalizePublicUrl(process.env.NEXT_PUBLIC_PARKING_RESERVATION_URL,{httpsOnly:true});
   const xShareUrl=buildXShareUrl({
     title:event.title,
     pageUrl:event.pageUrl,
