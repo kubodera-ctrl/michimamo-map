@@ -310,8 +310,31 @@ export function addDays(date: string, days: number): string {
   return next.toISOString().slice(0, 10);
 }
 
-export function resolveDateRange(mode: string | undefined): {startDate:string;endDate:string;label:string} {
+function validIsoDate(value:string|undefined) {
+  const text=(value||'').trim();
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(text)) return '';
+  const [y,m,d]=text.split('-').map(Number);
+  const probe=new Date(Date.UTC(y,m-1,d));
+  return Number.isFinite(probe.getTime()) && probe.toISOString().slice(0,10)===text ? text : '';
+}
+
+export function resolveDateRange(
+  mode: string | undefined,
+  customStart?: string,
+  customEnd?: string
+): {startDate:string;endDate:string;label:string} {
   const today = japanToday();
+  if (mode === 'custom') {
+    const rawStart=validIsoDate(customStart);
+    const rawEnd=validIsoDate(customEnd);
+    const first=rawStart || rawEnd || today;
+    const second=rawEnd || first;
+    const start=first<=second ? first : second;
+    const requestedEnd=first<=second ? second : first;
+    const maxEnd=addDays(start,399);
+    const end=requestedEnd>maxEnd ? maxEnd : requestedEnd;
+    return {startDate:start,endDate:end,label:formatEventDate(start,end)};
+  }
   if (mode === 'tomorrow') {
     const tomorrow = addDays(today, 1);
     return { startDate: tomorrow, endDate: tomorrow, label: '明日' };
