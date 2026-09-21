@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <script>
-        // Some phone browsers retain a wide desktop layout viewport.
-        // Set an explicit CSS-pixel width before the first layout, without CSS zoom.
+        // iPhone Safari Private Browsing deliberately masks screen/window metrics for
+        // fingerprinting protection. Keep iPhone on the standard responsive viewport
+        // instead of deriving a numeric width from screen/outerWidth.
         (function configurePhoneViewport() {
-            const phoneScreen = Math.min(screen.width, screen.height) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
-            if (!phoneScreen || !touchDevice) return;
             const viewport = document.querySelector('meta[name="viewport"]');
+            const ua = navigator.userAgent || '';
+            const iosPhone = /iPhone|iPod/i.test(ua);
+            if (iosPhone) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+                return;
+            }
+
+            // Preserve the existing explicit-width fallback for non-iPhone touch phones.
+            const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
+            const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
+            if (!phoneScreen || !touchDevice) return;
+
             function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width, screen.height);
-                const longSide = Math.max(screen.width, screen.height);
+                const shortSide = Math.min(screen.width || 0, screen.height || 0);
+                const longSide = Math.max(screen.width || 0, screen.height || 0);
                 const landscape = window.matchMedia('(orientation: landscape)').matches;
                 const width = landscape ? longSide : shortSide;
                 if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
@@ -4564,93 +4574,43 @@ function shareSpot(title, address, category, event) {
 
             const adminCard = document.getElementById('adminCsvCard');
             const adminArea = document.getElementById('adminDashboardArea');
-            const adminPassword = document.getElementById('adminExportPassword');
-            if (adminCard) adminCard.style.display = 'none';
-            if (adminArea) adminArea.style.display = 'none';
-            if (adminPassword) adminPassword.value = '';
-            adminDashboardRequest++;
-            window.MachimamoRoadReview?.reset();
-            if (adminAedReview) adminAedReview.clear();
-            loadLineOfficialSettings();
-        }
+        <script id="iosViewportCompensation">
+(function () {
+    // Safari's Advanced Fingerprinting Protection intentionally masks screen/window
+    // geometry in Private Browsing. Do not infer the physical iPhone width and do not
+    // CSS-zoom the whole document. Standard viewport=device-width is the source of truth.
+    if (!/iPhone|iPod/i.test(navigator.userAgent || '')) return;
+
+    var root = document.documentElement;
+    var body = document.body;
+    var app = document.getElementById('app');
+
+    root.classList.remove('ios-desktop-viewport');
+    root.style.zoom = '';
+    root.style.width = '';
+    root.style.maxWidth = '';
+    root.style.height = '';
+    root.style.overflow = '';
+
+    if (body) {
+        body.style.width = '';
+        body.style.maxWidth = '';
+        body.style.height = '';
+        body.style.overflow = '';
+    }
+    if (app) {
+        app.style.width = '';
+        app.style.maxWidth = '';
+        app.style.height = '';
+        app.style.minHeight = '';
+        app.style.maxHeight = '';
     }
 
-</script>
-
-
-
-<script id="iosViewportCompensation">
-(function () {
-    var compensatedOrientation = null;
-    function applyFix() {
-        // Keep a detected desktop-view compensation through focus/keyboard zoom changes.
-        var orientation = window.matchMedia('(orientation: landscape)').matches ? 'landscape' : 'portrait';
-        if (compensatedOrientation === orientation) return;
-        var vv = window.visualViewport;
-        var inner = window.innerWidth || 0;
-        var screenShort = Math.min(screen.width || 0, screen.height || 0);
-        var screenLong = Math.max(screen.width || 0, screen.height || 0);
-        var expectedWidth = orientation === 'landscape' ? screenLong : screenShort;
-        var iosPhone = /iPhone|iPod/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0;
-        var layoutRatio = expectedWidth > 0 ? inner / expectedWidth : 1;
-        var visualWidth = vv && vv.width ? vv.width : inner;
-        var visualRatio = expectedWidth > 0 ? visualWidth / expectedWidth : 1;
-        // Private Safari can expose a desktop-like layout width even when outerWidth/scale
-        // do not report the old 2x/0.5x pair. Detect only a wide iPhone layout so normal
-        // Safari (ratio ~1) is never compensated.
-        var widePhoneLayout = layoutRatio >= 1.6 && layoutRatio <= 2.7;
-        var wideVisualLayout = visualRatio >= 1.6 && visualRatio <= 2.7;
-        var root = document.documentElement;
-        var body = document.body;
-        var app = document.getElementById('app');
-
-        if (iosPhone && screenShort > 0 && screenShort <= 600 &&
-            (widePhoneLayout || wideVisualLayout) && body && app) {
-            compensatedOrientation = orientation;
-            root.classList.add('ios-desktop-viewport');
-            body.style.width = expectedWidth + 'px';
-            body.style.maxWidth = expectedWidth + 'px';
-            app.style.width = expectedWidth + 'px';
-            app.style.maxWidth = expectedWidth + 'px';
-            root.style.width = expectedWidth + 'px';
-            root.style.maxWidth = expectedWidth + 'px';
-            // Match the detected desktop-like layout width instead of depending on
-            // visualViewport.scale, which is inconsistent in Private Safari.
-            var zoomFactor = Math.max(1.6, Math.min(2.7,
-                widePhoneLayout ? layoutRatio : visualRatio));
-            root.style.zoom = String(zoomFactor);
-            root.style.overflow = 'hidden';
-            body.style.overflow = 'hidden';
-
-            // CSS zoom also magnifies the layout height. Counter it so the fixed bottom nav
-            // still fits inside the visible iPhone viewport instead of being pushed below screen.
-            var visibleVh = 100 / zoomFactor;
-            root.style.height = visibleVh + 'dvh';
-            body.style.height = visibleVh + 'dvh';
-            app.style.height = visibleVh + 'dvh';
-            app.style.minHeight = visibleVh + 'dvh';
-            app.style.maxHeight = visibleVh + 'dvh';
-
-            // Leaflet needs a size refresh after viewport compensation.
-            setTimeout(function () {
-                if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
-            }, 150);
-        } else {
-            compensatedOrientation = null;
-            root.classList.remove('ios-desktop-viewport');
-            root.style.zoom = '';
-            root.style.width = '';
-            root.style.maxWidth = '';
-            root.style.height = '';
-            if (body) {
-                body.style.width = '';
-                body.style.maxWidth = '';
-                body.style.height = '';
-            }
-            if (app) {
-                app.style.width = '';
-                app.style.maxWidth = '';
-                app.style.height = '';
+    setTimeout(function () {
+        if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
+    }, 150);
+})();
+</script>      app.style.height = '';
                 app.style.minHeight = '';
                 app.style.maxHeight = '';
             }
