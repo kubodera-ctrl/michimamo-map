@@ -60,7 +60,7 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${escapeIcs(event.slug)}@machi-ibe`,
+    `UID:${escapeIcs(uid)}`,
     `DTSTAMP:${now}`,
     timed ? `DTSTART;TZID=Asia/Tokyo:${dtStart}` : `DTSTART;VALUE=DATE:${dtStart}`,
     timed
