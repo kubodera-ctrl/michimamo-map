@@ -35,7 +35,9 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
-  const dateMode = one(params.when) || 'today';
+  const customStartRaw=one(params.from).slice(0,10);
+  const customEndRaw=one(params.to).slice(0,10);
+  const dateMode = one(params.when) || (customStartRaw || customEndRaw ? 'custom' : 'today');
   const prefecture = one(params.prefecture);
   const keyword = one(params.q).trim().slice(0,100);
   const excludeWords = one(params.exclude).slice(0,500);
@@ -58,7 +60,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
   const sinceRaw=one(params.since);
   const since=sinceRaw && Number.isFinite(Date.parse(sinceRaw)) ? new Date(sinceRaw).toISOString() : '';
-  const range = resolveDateRange(dateMode);
+  const range = resolveDateRange(dateMode,customStartRaw,customEndRaw);
   const searchAnalyticsTerm=keyword || [
     range.label,
     prefecture,
@@ -90,7 +92,10 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const longRunningEvents = groupLongRunning ? result.events.filter((event) => event.duration_days >= 11) : [];
 
   const paginationQuery:Record<string,string|undefined>={
-    when:dateMode !== 'today' ? dateMode : undefined,prefecture:prefecture||undefined,q:keyword||undefined,
+    when:dateMode !== 'today' ? dateMode : undefined,
+    from:dateMode==='custom'?range.startDate:undefined,
+    to:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:undefined,
+    prefecture:prefecture||undefined,q:keyword||undefined,
     exclude:excludeWords||undefined,category:category||undefined,age:age||undefined,duration:duration||undefined,
     oshi:fandom||undefined,oshiKeyword:fandomKeyword||undefined,price:price||undefined,accessibility:accessibilityOnly?'1':undefined,
     accessibilityFeature:accessibilityFeature||undefined,childFocus:childFocusOnly?'1':undefined,
@@ -107,7 +112,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <p className="eyebrow">MACHI IBE</p>
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
-          <EventFilters values={{dateMode,prefecture,keyword,excludeWords,category,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,excludeAdultOriented,indoorOnly,sort}} />
+          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,excludeAdultOriented,indoorOnly,sort}} />
         </div>
       </section>
 
