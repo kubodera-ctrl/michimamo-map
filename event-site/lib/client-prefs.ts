@@ -21,6 +21,18 @@ function canUseStorage() {
   return typeof window !== 'undefined';
 }
 
+function normalizeSavedSearchUrl(value:string){
+  const raw=(value||'').trim();
+  if(!raw.startsWith('/') || raw.startsWith('//')) return '';
+  try{
+    const parsed=new URL(raw,'https://machiibe.local');
+    if(parsed.origin!=='https://machiibe.local') return '';
+    return parsed.pathname+(parsed.search||'');
+  }catch{
+    return '';
+  }
+}
+
 export function readStringArray(key:string):string[] {
   if(!canUseStorage()) return [];
   try {
@@ -78,14 +90,20 @@ export function readSavedSearches():SavedSearch[] {
   if(!canUseStorage()) return [];
   try {
     const parsed=JSON.parse(localStorage.getItem(PREF_KEYS.savedSearches)||'[]');
-    return Array.isArray(parsed) ? parsed.filter((v)=>v && typeof v.url==='string' && typeof v.label==='string') : [];
+    return Array.isArray(parsed)
+      ? parsed
+          .filter((v)=>v && typeof v.url==='string' && typeof v.label==='string')
+          .map((v)=>({...v,url:normalizeSavedSearchUrl(v.url),label:v.label.slice(0,120)}))
+          .filter((v)=>Boolean(v.url))
+      : [];
   } catch { return []; }
 }
 
 export function saveCurrentSearch(label:string,url:string) {
   if(!canUseStorage()) return;
   const current=readSavedSearches();
-  const normalized=url.replace(/([?&])page=\d+(&|$)/,'$1').replace(/[?&]$/,'');
+  const normalized=normalizeSavedSearchUrl(url.replace(/([?&])page=\d+(&|$)/,'$1').replace(/[?&]$/,''));
+  if(!normalized) return;
   const existing=current.find((item)=>item.url===normalized);
   if(existing) return;
   const next=[{id:String(Date.now()),label,url:normalized,createdAt:new Date().toISOString()},...current].slice(0,20);
