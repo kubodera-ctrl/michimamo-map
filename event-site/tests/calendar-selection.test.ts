@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {
   activeOccurrencesForDate,
   findOccurrenceByKey,
@@ -38,4 +39,12 @@ test('planned date exposes both active sessions',()=>{
   const sessions=activeOccurrencesForDate(occurrences,'2026-09-23');
   assert.equal(sessions.length,2);
   assert.deepEqual(sessions.map((item)=>item.start_time),['11:00:00','13:30:00']);
+});
+
+
+test('ICS UID includes selected occurrence date and time',()=>{
+  const source=fs.readFileSync(new URL('../app/api/calendar/[slug]/route.ts',import.meta.url),'utf8');
+  assert.match(source,/const uidTime=\(startTime\|\|'all-day'\)/);
+  assert.match(source,/const uid=\`\$\{event\.slug\}-\$\{startDate\}-\$\{uidTime\}@machi-ibe\`/);
+  assert.doesNotMatch(source,/UID:\$\{escapeIcs\(event\.slug\)\}@machi-ibe/);
 });
