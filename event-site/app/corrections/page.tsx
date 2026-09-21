@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MetricPing } from '@/components/MetricPing';
+import { normalizePublicUrl } from '@/lib/url-config';
 
 export const metadata:Metadata={
   title:'掲載情報の訂正・掲載停止',
@@ -15,7 +16,7 @@ const one=(v:string|string[]|undefined)=>Array.isArray(v)?v[0]||'':v||'';
 export default async function CorrectionsPage({searchParams}:{searchParams:SearchParams}) {
   const params=await searchParams;
   const event=one(params.event);
-  const formUrl=process.env.NEXT_PUBLIC_CORRECTION_FORM_URL || '';
+  const formUrl=normalizePublicUrl(process.env.NEXT_PUBLIC_CORRECTION_FORM_URL,{httpsOnly:true});
   return (
     <main className="content-wrap area-page">
       <MetricPing metric="correction_open" eventSlug={event||undefined} />
