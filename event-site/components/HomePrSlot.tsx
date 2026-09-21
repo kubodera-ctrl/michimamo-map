@@ -1,6 +1,8 @@
 export function HomePrSlot(){
-  const url=process.env.NEXT_PUBLIC_HOME_PR_URL || 'https://sites.google.com/sumion.net/sumion/home?authuser=0&pli=1';
-  const imageUrl=process.env.NEXT_PUBLIC_HOME_PR_IMAGE_URL || '';
+  const configuredUrl=process.env.NEXT_PUBLIC_HOME_PR_URL || '';
+  const url=/^https?:\/\//i.test(configuredUrl) ? configuredUrl : 'https://sites.google.com/sumion.net/sumion/home?authuser=0&pli=1';
+  const configuredImageUrl=process.env.NEXT_PUBLIC_HOME_PR_IMAGE_URL || '';
+  const imageUrl=/^https:\/\//i.test(configuredImageUrl) ? configuredImageUrl : '';
 
   const title=process.env.NEXT_PUBLIC_HOME_PR_TITLE || 'SUMION合同会社';
   const description=process.env.NEXT_PUBLIC_HOME_PR_DESCRIPTION || 'まちイベを運営するSUMION合同会社の公式サイト';
