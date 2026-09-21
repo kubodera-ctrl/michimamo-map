@@ -6,11 +6,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   outputFileTracingRoot: process.cwd(),
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: '**' }
-    ]
-  },
   async headers() {
     const common = [
       { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -21,7 +16,16 @@ const nextConfig = {
     if (!allowIndexing) {
       common.push({ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' });
     }
-    return [{ source: '/:path*', headers: common }];
+    const privateAdmin = [
+      ...common,
+      { key: 'Cache-Control', value: 'private, no-store, max-age=0' },
+      { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }
+    ];
+    return [
+      { source: '/admin/:path*', headers: privateAdmin },
+      { source: '/api/admin/:path*', headers: privateAdmin },
+      { source: '/:path*', headers: common }
+    ];
   }
 };
 
