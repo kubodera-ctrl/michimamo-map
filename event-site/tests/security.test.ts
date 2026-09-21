@@ -59,3 +59,34 @@ test('sponsor image only accepts HTTPS configuration',()=>{
   const source=fs.readFileSync(new URL('../components/HomePrSlot.tsx',import.meta.url),'utf8');
   assert.match(source,/\^https:\\\/\\\//i);
 });
+
+
+test('GA measurement ID is validated before scripts and send targets',()=>{
+  const config=fs.readFileSync(new URL('../lib/analytics-config.ts',import.meta.url),'utf8');
+  const layout=fs.readFileSync(new URL('../app/layout.tsx',import.meta.url),'utf8');
+  const metric=fs.readFileSync(new URL('../components/MetricPing.tsx',import.meta.url),'utf8');
+  assert.match(config,/\^G-\[A-Z0-9\]/);
+  assert.match(layout,/normalizeGaMeasurementId/);
+  assert.match(metric,/normalizeGaMeasurementId/);
+  assert.match(metric,/page_location:sanitizedPageUrl/);
+  assert.match(metric,/page_referrer:/);
+});
+
+test('saved search URLs are constrained to local paths',()=>{
+  const source=fs.readFileSync(new URL('../lib/client-prefs.ts',import.meta.url),'utf8');
+  assert.match(source,/normalizeSavedSearchUrl/);
+  assert.match(source,/raw\.startsWith\('\/'\)/);
+  assert.match(source,/raw\.startsWith\('\/\/'\)/);
+});
+
+test('admin config requires strong minimum secrets',()=>{
+  const source=fs.readFileSync(new URL('../lib/admin-auth.ts',import.meta.url),'utf8');
+  assert.match(source,/password\.length>=16/);
+  assert.match(source,/sessionSecret\.length>=32/);
+});
+
+test('search-term retention is bounded in analytics migration',()=>{
+  const sql=fs.readFileSync(new URL('../../supabase/migrations/20260919043000_event_platform_admin_analytics.sql',import.meta.url),'utf8');
+  assert.match(sql,/event_search_terms_daily/);
+  assert.match(sql,/metric_date < .*\)-90/);
+});
