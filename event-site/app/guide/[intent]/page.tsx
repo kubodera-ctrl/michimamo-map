@@ -7,6 +7,7 @@ import { Pagination } from '@/components/Pagination';
 import { parsePage } from '@/lib/events';
 import { SEO_INTENTS, searchSeoIntentEvents, type SeoIntentKey } from '@/lib/seo-intents';
 import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
+import { searchIndexingAllowed } from '@/lib/url-config';
 
 export const revalidate = 3600;
 
@@ -28,7 +29,7 @@ export async function generateMetadata({
   const config = SEO_INTENTS[intent as SeoIntentKey];
   if (!config) return {};
   const sample=await searchSeoIntentEvents(intent,1,3);
-  const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  const allowIndexing=searchIndexingAllowed();
   return {
     title: config.title,description: config.description,
     alternates: { canonical: `/guide/${intent}` },
