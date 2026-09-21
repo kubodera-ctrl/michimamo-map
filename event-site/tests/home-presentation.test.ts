@@ -35,3 +35,18 @@ test('brand icon keeps the hidden five taps in five seconds admin entrance',()=>
   assert.match(source,/tapTimes\.current\.length>=5/);
   assert.match(source,/router\.push\('\/admin'\)/);
 });
+
+
+test('home search exposes arbitrary date selection and preserves it in pagination',()=>{
+  const filters=read('../components/EventFilters.tsx');
+  const page=read('../app/page.tsx');
+  const css=read('../app/globals.css');
+
+  assert.match(filters,/\['custom','日付指定'\]/);
+  assert.match(filters,/name="from"/);
+  assert.match(filters,/name="to"/);
+  assert.match(page,/resolveDateRange\(dateMode,customStartRaw,customEndRaw\)/);
+  assert.match(page,/from:dateMode==='custom'\?range\.startDate/);
+  assert.match(page,/to:dateMode==='custom'/);
+  assert.match(css,/input\[value="custom"\]:checked/);
+});
