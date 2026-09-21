@@ -19,7 +19,7 @@ function canPlanEvent(event:EventDetail){
 function dateOptions(event:EventDetail):string[] {
   if(!canPlanEvent(event)) return [];
   if(event.schedule_type==='recurring'||event.schedule_type==='irregular'){
-    return uniqueOccurrenceDates(event.occurrences||[]);
+    return uniqueOccurrenceDates(event.occurrences||[]).filter((date)=>date>=todayJa());
   }
   if(event.schedule_type==='single') return [event.start_date];
   return [];
@@ -43,9 +43,9 @@ export function OutingPlanClient() {
       const occurrences=Object.fromEntries(rows.map((event)=>{
         const saved=getPlannedOccurrence(event.slug);
         const savedRow=findOccurrenceByKey(event.occurrences||[],saved);
-        const valid=savedRow?.status==='scheduled' ? savedRow : undefined;
+        const valid=savedRow?.status==='scheduled' && savedRow.date>=todayJa() ? savedRow : undefined;
         const plannedDate=dates[event.slug]||'';
-        const firstForDate=(event.occurrences||[]).find((item)=>item.status==='scheduled'&&item.date===plannedDate);
+        const firstForDate=(event.occurrences||[]).find((item)=>item.status==='scheduled'&&item.date>=todayJa()&&item.date===plannedDate);
         return [event.slug,valid?saved:(firstForDate?occurrenceKey(firstForDate):'')];
       }));
       if(!cancelled){setEvents(rows);setPlanned(dates);setPlannedOccurrences(occurrences);setLoading(false);}
@@ -105,7 +105,7 @@ export function OutingPlanClient() {
             {list.map((event)=>{
               const options=dateOptions(event);
               const selectedOccurrence=findOccurrenceByKey(event.occurrences||[],plannedOccurrences[event.slug]||'');
-              const sessions=activeOccurrencesForDate(event.occurrences||[],planned[event.slug]||'');
+              const sessions=activeOccurrencesForDate(event.occurrences||[],planned[event.slug]||'').filter((item)=>item.date>=todayJa());
               const displayTime=selectedOccurrence?.start_time || event.start_time;
               return (
                 <article className="plan-item" key={event.slug}>
