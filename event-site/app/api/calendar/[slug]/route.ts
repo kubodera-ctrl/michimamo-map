@@ -1,4 +1,4 @@
-import { getEvent } from '@/lib/events';
+import { getEvent, japanToday } from '@/lib/events';
 import { findOccurrenceForRequest } from '@/lib/calendar-selection';
 
 function escapeIcs(value: string) {
@@ -30,22 +30,26 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const requestUrl=new URL(request.url);
   const requestedDate=requestUrl.searchParams.get('date');
   const requestedTime=requestUrl.searchParams.get('time');
+  const today=japanToday();
   const occurrence=findOccurrenceForRequest(event.occurrences || [],requestedDate,requestedTime);
+  const occurrenceValid=Boolean(occurrence && occurrence.date>=today);
   const continuousDateValid=Boolean(
     requestedDate
+    && requestedDate>=today
     && event.schedule_type==='continuous'
     && requestedDate>=event.start_date
     && requestedDate<=event.end_date
   );
   const occurrenceRequired=event.schedule_type==='recurring'||event.schedule_type==='irregular';
-  if((occurrenceRequired && !occurrence) || (requestedTime && !occurrence) || (requestedDate && !occurrence && !continuousDateValid)) {
+  if((occurrenceRequired && !occurrenceValid) || (requestedTime && !occurrenceValid) || (requestedDate && !occurrenceValid && !continuousDateValid)) {
     return new Response('Invalid occurrence date or time',{status:400});
   }
 
-  const startDate=occurrence?.date || (continuousDateValid ? requestedDate! : event.start_date);
-  const endDate=occurrence?.date || (continuousDateValid ? requestedDate! : event.end_date);
-  const startTime=occurrence?.start_time ?? event.start_time;
-  const endTime=occurrence?.end_time ?? event.end_time;
+  const selectedOccurrence=occurrenceValid ? occurrence : undefined;
+  const startDate=selectedOccurrence?.date || (continuousDateValid ? requestedDate! : event.start_date);
+  const endDate=selectedOccurrence?.date || (continuousDateValid ? requestedDate! : event.end_date);
+  const startTime=selectedOccurrence?.start_time ?? event.start_time;
+  const endTime=selectedOccurrence?.end_time ?? event.end_time;
   const timed = Boolean(startTime || endTime);
   const dtStart = compact(startDate, startTime);
   const allDayEnd = addDays(endDate, 1);
