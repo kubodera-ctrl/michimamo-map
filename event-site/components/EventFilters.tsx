@@ -12,7 +12,7 @@ import { SaveSearchButton } from './SaveSearchButton';
 
 type Props = {
   values: {
-    dateMode: string; prefecture: string; keyword: string; excludeWords: string;
+    dateMode: string; customStart:string; customEnd:string; prefecture: string; keyword: string; excludeWords: string;
     category: string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
     familyFriendlyOnly: boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
@@ -24,13 +24,25 @@ export function EventFilters({ values }: Props) {
     <form className="search-panel" action="/" method="get">
       <div className="date-tabs" role="radiogroup" aria-label="開催日">
         {[
-          ['today','今日'],['tomorrow','明日'],['weekend','今週末'],['30days','30日以内']
+          ['today','今日'],['tomorrow','明日'],['weekend','今週末'],['30days','30日以内'],['custom','日付指定']
         ].map(([value,label]) => (
           <label className={`date-chip ${values.dateMode === value ? 'active' : ''}`} key={value}>
             <input type="radio" name="when" value={value} defaultChecked={values.dateMode === value} />
             {label}
           </label>
         ))}
+      </div>
+
+      <div className="custom-date-range">
+        <label>
+          <span>開始日</span>
+          <input type="date" name="from" defaultValue={values.customStart} />
+        </label>
+        <label>
+          <span>終了日</span>
+          <input type="date" name="to" defaultValue={values.customEnd} />
+        </label>
+        <small>1日だけ探す場合は開始日だけ選択。期間で探す場合は終了日も指定できます。</small>
       </div>
 
       <div className="search-grid">
