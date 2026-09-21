@@ -47,8 +47,9 @@ function addDays(date: string, days: number) {
 export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
   const [attended,setAttended]=useState(false);
-  const eventAvailable=!['cancelled','postponed','sold_out','registration_closed'].includes(event.eventStatus);
   const today=todayJa();
+  const eventAvailable=event.endDate>=today
+    && !['cancelled','postponed','sold_out','registration_closed'].includes(event.eventStatus);
   const availableOccurrences=event.occurrences.filter((item)=>item.status==='scheduled' && item.date>=today);
   const [selectedOccurrence,setSelectedOccurrence]=useState('');
   const [continuousVisitDate,setContinuousVisitDate]=useState('');
@@ -67,7 +68,8 @@ export function EventActions({ event }: Props) {
       const initialOccurrence=savedOccurrence || plannedOccurrence || availableOccurrences[0];
       setSelectedOccurrence(initialOccurrence ? occurrenceKey(initialOccurrence) : '');
     } else if(event.scheduleType==='continuous' && event.startDate!==event.endDate) {
-      setContinuousVisitDate(planned && planned>=event.startDate && planned<=event.endDate ? planned : '');
+      const earliest=event.startDate>today ? event.startDate : today;
+      setContinuousVisitDate(planned && planned>=earliest && planned<=event.endDate ? planned : '');
     }
     window.addEventListener('machiibe:prefs',sync);
     return ()=>window.removeEventListener('machiibe:prefs',sync);
@@ -189,7 +191,7 @@ export function EventActions({ event }: Props) {
           <span>自分が行く予定日（任意）</span>
           <input
             type="date"
-            min={event.startDate}
+            min={event.startDate>today?event.startDate:today}
             max={event.endDate}
             value={continuousVisitDate}
             onChange={(e)=>{setContinuousVisitDate(e.target.value);setPlannedDate(event.slug,e.target.value);}}
