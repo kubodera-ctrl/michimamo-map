@@ -4,13 +4,14 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { SITE_DESCRIPTION, SITE_NAME, safeJsonLd, siteUrl } from '@/lib/seo';
 import { normalizeGaMeasurementId } from '@/lib/analytics-config';
+import { machimamoMapUrl, publicSiteBaseUrl, searchIndexingAllowed, xAccountUrl } from '@/lib/url-config';
 import { PageViewTracker } from '@/components/PageViewTracker';
 import { TrackedLink } from '@/components/TrackedLink';
 import { BrandNav } from '@/components/BrandNav';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
-const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+const allowIndexing=searchIndexingAllowed();
 const gaId=normalizeGaMeasurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   description:SITE_DESCRIPTION,
   icons:{icon:'/machiibe-icon.svg',shortcut:'/machiibe-icon.svg',apple:'/machiibe-icon.svg'},
   manifest:'/manifest.webmanifest',
-  metadataBase:new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://events.example.jp'),
+  metadataBase:new URL(publicSiteBaseUrl()),
   alternates:{canonical:'/'},
   openGraph:{type:'website',siteName:SITE_NAME,title:'まちイベ｜全国の今日・週末イベント検索',description:SITE_DESCRIPTION,url:'/'},
   twitter:{card:'summary_large_image',title:'まちイベ｜全国の今日・週末イベント検索',description:SITE_DESCRIPTION,site:'@machiibe01',creator:'@machiibe01'},
@@ -55,14 +56,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>
               <Link className="header-mini-link" href="/plan">📅 予定</Link>
-              <TrackedLink className="map-link" href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'} metric="machimamo_map">まちまもMAP</TrackedLink>
+              <TrackedLink className="map-link" href={machimamoMapUrl()} metric="machimamo_map">まちまもMAP</TrackedLink>
             </nav>
           </div>
         </header>
         <div id="main-content" tabIndex={-1}>{children}</div>
         <footer className="site-footer">
           <div><strong>まちイベ</strong><p>掲載内容は変更される場合があります。来場前に必ず主催者・公式サイトの最新情報をご確認ください。</p></div>
-          <div className="footer-links"><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><a href={process.env.NEXT_PUBLIC_X_ACCOUNT_URL || 'https://x.com/machiibe01'} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={process.env.NEXT_PUBLIC_MACHIMAMO_MAP_URL || 'https://machimamo-map.vercel.app'} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
+          <div className="footer-links"><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><a href={xAccountUrl()} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={machimamoMapUrl()} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
         </footer>
       </body>
     </html>
