@@ -456,9 +456,15 @@ as $$
           )
           order by eo.occurrence_date,eo.start_time nulls first
         )
-        from public.event_occurrences eo
-        where eo.event_id=e.id
-          and eo.occurrence_date >= ((now() at time zone 'Asia/Tokyo')::date)-7
+        from (
+          select occurrence_date,start_time,end_time,status,source_note
+          from public.event_occurrences
+          where event_id=e.id
+            and occurrence_date >= ((now() at time zone 'Asia/Tokyo')::date)-7
+            and occurrence_date <= ((now() at time zone 'Asia/Tokyo')::date)+400
+          order by occurrence_date,start_time nulls first
+          limit 500
+        ) eo
       ),'[]'::jsonb) as occurrences,
       e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
       e.location_precision,e.location_verified,e.place_external_id,
