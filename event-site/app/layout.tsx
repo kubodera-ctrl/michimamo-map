@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import { SITE_DESCRIPTION, SITE_NAME, safeJsonLd, siteUrl } from '@/lib/seo';
+import { normalizeGaMeasurementId } from '@/lib/analytics-config';
 import { PageViewTracker } from '@/components/PageViewTracker';
 import { TrackedLink } from '@/components/TrackedLink';
 import { BrandNav } from '@/components/BrandNav';
@@ -10,6 +11,7 @@ import 'leaflet/dist/leaflet.css';
 import './globals.css';
 
 const allowIndexing=process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true' && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+const gaId=normalizeGaMeasurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
 
 export const metadata: Metadata = {
   applicationName: SITE_NAME,
@@ -31,15 +33,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ja">
       <body>
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        {gaId && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
             <Script id="machiibe-ga" strategy="afterInteractive">{`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               window.gtag = gtag;
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', { anonymize_ip: true, send_page_view: false });
+              gtag('config', '${gaId}', { anonymize_ip: true, send_page_view: false });
             `}</Script>
           </>
         )}
