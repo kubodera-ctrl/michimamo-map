@@ -77,10 +77,22 @@ begin
   end if;
 
   if v_metric='search' and (
-    v_term ~* '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'
+    v_term ~* '[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}'
     or regexp_replace(v_term,'[[:space:]-]','','g') ~ '[0-9]{8,}'
+    or v_term ~* 'https?://|www\.'
   ) then
     v_term := '';
+  end if;
+
+  if v_metric='search' then
+    delete from public.event_search_terms_daily
+    where metric_date < ((now() at time zone 'Asia/Tokyo')::date)-90;
+  end if;
+
+  if v_metric='correction_open' and v_slug<>'' and not exists(
+    select 1 from public.events e where e.slug=v_slug
+  ) then
+    v_slug := '';
   end if;
 
   insert into public.event_site_metrics_daily(metric_date,metric,event_slug,count,updated_at)
