@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
-const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true'
-  && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+const configuredSiteUrl = (() => {
+  try {
+    const url = new URL(process.env.NEXT_PUBLIC_SITE_URL || '');
+    return url.protocol === 'https:' && !url.username && !url.password ? url.toString() : '';
+  } catch {
+    return '';
+  }
+})();
+const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true' && Boolean(configuredSiteUrl);
 
 const nextConfig = {
   poweredByHeader: false,
@@ -17,7 +24,7 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://www.google-analytics.com",
+      "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.googletagmanager.com",
       "worker-src 'self' blob:",
       "manifest-src 'self'"
     ].join('; ');
