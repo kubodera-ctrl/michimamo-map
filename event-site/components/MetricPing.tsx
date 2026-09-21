@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { normalizeGaMeasurementId } from '@/lib/analytics-config';
 
 declare global {
   interface Window {
@@ -52,7 +53,7 @@ export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string)
         event_slug:eventSlug || undefined,
         page_location:sanitizedPageUrl(window.location.href),
         page_referrer:document.referrer ? sanitizedPageUrl(document.referrer) : undefined,
-        send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
+        send_to:normalizeGaMeasurementId(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) || undefined
       });
     }catch{}
   }
