@@ -32,6 +32,12 @@ type Props = {
   };
 };
 
+function todayJa(){
+  return new Intl.DateTimeFormat('en-CA',{
+    timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'
+  }).format(new Date());
+}
+
 function addDays(date: string, days: number) {
   const [y,m,d] = date.split('-').map(Number);
   return new Date(Date.UTC(y,m-1,d+days)).toISOString().slice(0,10);
@@ -41,7 +47,8 @@ export function EventActions({ event }: Props) {
   const [saved, setSaved] = useState(false);
   const [attended,setAttended]=useState(false);
   const eventAvailable=!['cancelled','postponed','sold_out','registration_closed'].includes(event.eventStatus);
-  const availableOccurrences=event.occurrences.filter((item)=>item.status==='scheduled');
+  const today=todayJa();
+  const availableOccurrences=event.occurrences.filter((item)=>item.status==='scheduled' && item.date>=today);
   const [selectedOccurrence,setSelectedOccurrence]=useState('');
   const [continuousVisitDate,setContinuousVisitDate]=useState('');
 
