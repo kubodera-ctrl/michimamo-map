@@ -235,6 +235,23 @@ insert into public.dining_child_price_rules(
 select id,'preschool','all','free','CI条件','https://example.test/dining-price',now(),'verified'
 from public.dining_family_profiles where identity_key='ci-dining';
 
+insert into public.dining_family_profiles(
+  identity_key,name,prefecture,municipality,address,latitude,longitude,
+  source_url,source_kind,child_friendly,kids_menu,high_chair,stroller_ok,
+  verification_status,last_verified_at,valid_until
+) values (
+  'ci-dining-far','CI Far Family Dining','大阪府','大阪市','遠方テスト住所',34.69,135.50,
+  'https://example.test/dining-far','official',true,true,true,true,
+  'verified',now(),((now() at time zone 'Asia/Tokyo')::date)+30
+);
+
+insert into public.dining_child_price_rules(
+  profile_id,age_group,meal_period,rule_type,condition_text,
+  source_url,last_verified_at,verification_status
+)
+select id,'preschool','all','free','CI遠方条件','https://example.test/dining-far-price',now(),'verified'
+from public.dining_family_profiles where identity_key='ci-dining-far';
+
 do $$
 declare n integer;
 begin
@@ -243,8 +260,20 @@ begin
     p_preschool_price=>'free',
     p_limit=>10
   );
+  if n <> 2 then
+    raise exception 'unscoped verified preschool-free dining overlay expected 2, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.get_verified_family_dining_overlays(
+    p_preschool_price=>'free',
+    p_lat=>35.63,
+    p_lng=>139.77,
+    p_radius_km=>15,
+    p_limit=>10
+  );
   if n <> 1 then
-    raise exception 'verified preschool-free dining overlay expected 1, got %',n;
+    raise exception 'Tokyo dining geo filter expected only the nearby fixture, got %',n;
   end if;
 end;
 $$;
