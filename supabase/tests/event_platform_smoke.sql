@@ -71,6 +71,15 @@ begin
   select count(*) into n
   from public.search_public_events(
     p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
+    p_end_date=>((now() at time zone 'Asia/Tokyo')::date)+367
+  );
+  if n <> 0 then
+    raise exception 'oversized date window must be rejected, got %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>((now() at time zone 'Asia/Tokyo')::date),
     p_end_date=>((now() at time zone 'Asia/Tokyo')::date),
     p_audience_intents=>array['family_friendly']
   );
@@ -151,6 +160,11 @@ begin
   select public.get_public_event('ci-free-today') into payload;
   if payload is null then
     raise exception 'public event lookup returned null';
+  end if;
+
+  select public.get_public_event(repeat('x',500)) into payload;
+  if payload is not null then
+    raise exception 'malformed slug must not resolve';
   end if;
   if payload->'image_url' <> 'null'::jsonb then
     raise exception 'unlicensed image leaked through public RPC';
