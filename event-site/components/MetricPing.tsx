@@ -8,6 +8,15 @@ declare global {
   }
 }
 
+function sanitizedPageUrl(value:string){
+  try{
+    const url=new URL(value,window.location.origin);
+    return url.origin+url.pathname;
+  }catch{
+    return window.location.origin+window.location.pathname;
+  }
+}
+
 function sanitizeSearchTerm(value:string|undefined){
   const term=(value||'').normalize('NFKC').replace(/\s+/g,' ').trim().slice(0,80);
   if(!term) return '';
@@ -41,6 +50,8 @@ export function recordMetric(metric:string,eventSlug?:string,searchTerm?:string)
     try{
       window.gtag('event',metric,{
         event_slug:eventSlug || undefined,
+        page_location:sanitizedPageUrl(window.location.href),
+        page_referrer:document.referrer ? sanitizedPageUrl(document.referrer) : undefined,
         send_to:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || undefined
       });
     }catch{}
