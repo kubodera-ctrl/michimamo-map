@@ -31,6 +31,9 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const requestedDate=requestUrl.searchParams.get('date');
   const requestedTime=requestUrl.searchParams.get('time');
   const today=japanToday();
+  if(event.end_date<today) {
+    return new Response('Event has already ended',{status:409});
+  }
   const occurrence=findOccurrenceForRequest(event.occurrences || [],requestedDate,requestedTime);
   const occurrenceValid=Boolean(occurrence && occurrence.date>=today);
   const continuousDateValid=Boolean(
@@ -56,6 +59,8 @@ export async function GET(request: Request, { params }: { params: Promise<{slug:
   const dtEnd = compact(timed ? endDate : allDayEnd, endTime);
   const location = [event.venue_name,event.prefecture,event.municipality,event.address].filter(Boolean).join(' ');
   const now = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+  const uidTime=(startTime||'all-day').replaceAll(':','');
+  const uid=`${event.slug}-${startDate}-${uidTime}@machi-ibe`;
 
   const lines = [
     'BEGIN:VCALENDAR',
