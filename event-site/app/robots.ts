@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
+import { publicSiteBaseUrl, searchIndexingAllowed } from '@/lib/url-config';
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://events.example.jp';
-  const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true'
-    && Boolean(process.env.NEXT_PUBLIC_SITE_URL);
+  const base = publicSiteBaseUrl().replace(/\/$/,'');
+  const allowIndexing = searchIndexingAllowed();
 
   if (!allowIndexing) {
     return {
