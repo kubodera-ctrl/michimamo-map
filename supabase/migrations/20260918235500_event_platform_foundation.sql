@@ -82,8 +82,8 @@ create table if not exists public.events (
   accessibility_keys text[] not null default '{}',
   accessibility_notes text,
 
-  image_url text check (image_url is null or image_url ~* '^https?://'),
-  image_source_url text check (image_source_url is null or image_source_url ~* '^https?://'),
+  image_url text check (image_url is null or image_url ~* '^https://'),
+  image_source_url text check (image_source_url is null or image_source_url ~* '^https://'),
   image_license text,
   image_usage_status text not null default 'not_used'
     check (image_usage_status in ('not_used','allowed','link_only','permission_required')),
