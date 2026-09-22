@@ -165,6 +165,7 @@ values
   ('cinnamoroll','シナモロール',array['シナモロール','シナモン'],'character'),
   ('detective-conan','名探偵コナン',array['名探偵コナン','コナン'],'franchise'),
   ('sumikkogurashi','すみっコぐらし',array['すみっコぐらし','すみっこぐらし'],'franchise'),
+  ('moomin','ムーミン',array['ムーミン','Moomin','MOOMIN'],'franchise'),
   ('aipri','アイプリ',array['アイプリ'],'franchise'),
   ('precure','プリキュア',array['プリキュア'],'franchise'),
   ('kamen-rider','仮面ライダー',array['仮面ライダー'],'franchise'),
@@ -177,6 +178,7 @@ values
   ('kirby','星のカービィ',array['星のカービィ','カービィ'],'franchise'),
   ('animal-crossing','どうぶつの森',array['どうぶつの森','あつ森'],'franchise'),
   ('idolmaster-sidem','アイドルマスター SideM',array['アイドルマスター SideM','SideM','サイドエム'],'franchise'),
+  ('touken-ranbu','刀剣乱舞',array['刀剣乱舞','とうらぶ','Touken Ranbu'],'franchise'),
   ('tamagotchi','たまごっち',array['たまごっち'],'brand'),
   ('sylvanian-families','シルバニアファミリー',array['シルバニアファミリー','シルバニア'],'brand'),
   ('miffy','ミッフィー',array['ミッフィー','miffy'],'character'),
@@ -190,6 +192,7 @@ values
   ('one-piece','ONE PIECE',array['ONE PIECE','ワンピース'],'franchise'),
   ('demon-slayer','鬼滅の刃',array['鬼滅の刃','鬼滅'],'franchise'),
   ('spy-family','SPY×FAMILY',array['SPY×FAMILY','SPY FAMILY','スパイファミリー'],'franchise'),
+  ('dr-stone','Dr.STONE',array['Dr.STONE','Dr. STONE','ドクターストーン'],'franchise'),
   ('my-hero-academia','僕のヒーローアカデミア',array['僕のヒーローアカデミア','ヒロアカ','My Hero Academia','MHA'],'franchise'),
   ('haikyu','ハイキュー!!',array['ハイキュー!!','ハイキュー','HAIKYU!!','Haikyu!!'],'franchise'),
   ('jujutsu-kaisen','呪術廻戦',array['呪術廻戦','呪術','Jujutsu Kaisen'],'franchise'),
@@ -209,7 +212,8 @@ values
   ('tiropino','ちろぴの',array['ちろぴの','チロピノ'],'influencer'),
   ('bom-bom-tv','ボンボンTV',array['ボンボンTV','ボンボンティービー'],'influencer'),
   ('rocomacoaco','ろこまこあこ',array['ろこまこあこ','RMA'],'influencer'),
-  ('quizknock','QuizKnock',array['QuizKnock','クイズノック'],'creator')
+  ('quizknock','QuizKnock',array['QuizKnock','クイズノック'],'creator'),
+  ('hololive','ホロライブ',array['ホロライブ','hololive','Hololive'],'brand')
 on conflict(slug) do update
 set display_name=excluded.display_name,
     aliases=excluded.aliases,
