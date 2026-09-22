@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
+import {localePath,type Locale} from '@/lib/i18n-config';
 
-export function BrandNav(){
+export function BrandNav({locale,tagline}:{locale:Locale;tagline:string}){
   const router=useRouter();
   const tapTimes=useRef<number[]>([]);
 
@@ -30,10 +31,10 @@ export function BrandNav(){
           <img className="brand-icon-image" src="/machiibe-icon.svg" alt="" />
         </span>
       </button>
-      <Link href="/" className="brand brand-copy">
+      <Link href={localePath('/',locale)} className="brand brand-copy">
         <span>
           <strong>まちイベ</strong>
-          <small>by まちまも｜全国のおでかけを、もっと見つけやすく。</small>
+          <small>{tagline}</small>
         </span>
       </Link>
     </div>
