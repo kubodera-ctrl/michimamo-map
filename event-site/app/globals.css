@@ -1027,3 +1027,28 @@ body::before{
 
 .featured-story-experience .featured-story-visual{background:radial-gradient(circle at 82% 18%,rgba(255,255,255,.32),transparent 22%),linear-gradient(145deg,#6b4fd3,#a16ee8)}
 .featured-story-kids .featured-story-visual{background:radial-gradient(circle at 18% 18%,rgba(255,255,255,.34),transparent 24%),linear-gradient(145deg,#ff9f43,#ff6f61)}
+
+
+/* Machi Ibe -> Machimamo bridge */
+.machimamo-bridge{margin:26px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center;overflow:hidden;position:relative;border:1px solid #bddded;border-radius:24px;padding:24px;background:radial-gradient(circle at 90% 15%,rgba(255,201,40,.22),transparent 28%),linear-gradient(135deg,#f1fbff,#fffdf3);box-shadow:0 14px 38px rgba(24,83,119,.07)}
+.machimamo-bridge::after{content:"";position:absolute;right:-70px;bottom:-105px;width:190px;height:190px;border-radius:50%;border:1px solid rgba(41,168,239,.13);box-shadow:0 0 0 34px rgba(41,168,239,.035)}
+.machimamo-bridge-copy{position:relative;z-index:1}
+.machimamo-bridge-copy h2{margin:2px 0 8px;font-size:clamp(20px,3vw,29px);letter-spacing:-.025em}
+.machimamo-bridge-copy>p:last-of-type{margin:0;color:#5c7183;font-size:12px;line-height:1.75}
+.machimamo-bridge-points,.machimamo-detail-points{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.machimamo-bridge-points span,.machimamo-detail-points b{display:inline-flex;align-items:center;min-height:29px;padding:5px 9px;border:1px solid #d5e6ef;border-radius:999px;background:rgba(255,255,255,.84);font-size:10px;font-weight:900;color:#365f7b}
+.machimamo-bridge-action{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:7px;min-width:190px}
+.machimamo-bridge-action small{font-size:9px;font-weight:900;color:#71869a}
+.machimamo-bridge-action a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border-radius:14px;background:#174f78;color:#fff;text-decoration:none;font-size:12px;font-weight:950;box-shadow:0 9px 22px rgba(23,79,120,.18)}
+.machimamo-day-support h2{margin:3px 0 7px}
+.machimamo-day-support p{margin:0;line-height:1.7}
+.machimamo-day-support .machimamo-detail-points{margin-top:11px}
+.machimamo-day-support .machimamo-detail-points b{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:#eaf5fb}
+@media(max-width:700px){
+  .machimamo-bridge{grid-template-columns:1fr;gap:17px;padding:20px;border-radius:20px}
+  .machimamo-bridge-action{align-items:stretch;min-width:0}
+  .machimamo-bridge-action a{width:100%;min-height:50px}
+  .machimamo-bridge-action small{text-align:center}
+  .machimamo-bridge-points{display:grid;grid-template-columns:1fr 1fr}
+  .machimamo-bridge-points span{justify-content:center}
+}
