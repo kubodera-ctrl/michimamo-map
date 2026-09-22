@@ -11,6 +11,7 @@ const VERIFY_STATUS=new Set(['unverified','verified','needs_review']);
 const PUBLICATION_STATUS=new Set(['draft','published','expired','hidden']);
 const PRICE_TYPES=new Set(['free','partly_free','paid','unknown']);
 const AUDIENCE=new Set(['child_centered','family_friendly','general','adult_oriented']);
+const VENUE_TYPES=new Set(['park_plaza','mall','event_venue_indoor','event_venue_outdoor','hotel','amusement','culture_public','other']);
 const isoDate=(v:string)=>/^\d{4}-\d{2}-\d{2}$/.test(v);
 const httpUrl=(v:string)=>{try{const u=new URL(v);return u.protocol==='http:'||u.protocol==='https:';}catch{return false;}};
 const text=(data:FormData,name:string,max:number)=>String(data.get(name)||'').trim().slice(0,max);
@@ -39,12 +40,13 @@ export async function POST(request:Request){
   const audience=text(data,'audience_intent',40);
   const officialUrl=text(data,'official_url',1000);
   const indoorRaw=text(data,'indoor',10);
+  const venueTypes=data.getAll('venue_type').map((value)=>String(value)).filter((value)=>VENUE_TYPES.has(value)).slice(0,8);
 
   if(!title || !prefecture || !isoDate(startDate) || !isoDate(endDate) || endDate<startDate) return fail('dates');
   if(startTime && !/^\d{2}:\d{2}$/.test(startTime)) return fail('start-time');
   if(endTime && !/^\d{2}:\d{2}$/.test(endTime)) return fail('end-time');
   if(!EVENT_STATUS.has(eventStatus)||!VERIFY_STATUS.has(verificationStatus)||!PUBLICATION_STATUS.has(publicationStatus)) return fail('status');
-  if(!PRICE_TYPES.has(priceType)||!AUDIENCE.has(audience)||!httpUrl(officialUrl)) return fail('fields');
+  if(!PRICE_TYPES.has(priceType)||!AUDIENCE.has(audience)||!httpUrl(officialUrl)||venueTypes.length<1) return fail('fields');
   if(!['','true','false'].includes(indoorRaw)) return fail('indoor');
 
   const db=getAdminSupabase();
@@ -72,6 +74,7 @@ export async function POST(request:Request){
     municipality:nullable(text(data,'municipality',100)),
     address:nullable(text(data,'address',500)),
     official_url:officialUrl,
+    venue_type_keys:venueTypes,
     price_type:priceType,
     price_text:nullable(text(data,'price_text',1000)),
     indoor:indoorRaw===''?null:indoorRaw==='true',
