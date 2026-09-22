@@ -77,6 +77,14 @@ create table if not exists public.events (
     check (location_precision in ('exact_venue','exact_address','street','approximate','unknown')),
   location_verified boolean not null default false,
   place_external_id text,
+  venue_type_keys text[] not null default array['other']::text[],
+  constraint events_venue_type_keys_ck check (
+    venue_type_keys <@ array[
+      'park_plaza','mall','event_venue_indoor','event_venue_outdoor',
+      'hotel','amusement','culture_public','other'
+    ]::text[]
+    and cardinality(venue_type_keys) >= 1
+  ),
 
   price_text text,
   price_type text not null default 'unknown'
@@ -266,6 +274,7 @@ create index if not exists events_prefecture_date_idx
   on public.events(prefecture, start_date, end_date)
   where publication_status='published' and verification_status='verified';
 create index if not exists events_categories_gin_idx on public.events using gin(category_keys);
+create index if not exists events_venue_types_gin_idx on public.events using gin(venue_type_keys);
 create index if not exists events_age_groups_gin_idx on public.events using gin(age_group_keys);
 create index if not exists events_accessibility_gin_idx on public.events using gin(accessibility_keys);
 create index if not exists events_audience_idx on public.events(audience_intent,audience_intent_verified);
@@ -309,6 +318,8 @@ create or replace function public.search_public_events(
   p_created_after timestamptz default null,
   p_exclude_adult_oriented boolean default false,
   p_indoor_only boolean default false,
+  p_venue_types text[] default null,
+  p_venue_filter_active boolean default false,
   p_sort text default 'recommended',
   p_limit integer default 60,
   p_offset integer default 0
@@ -318,6 +329,7 @@ returns table(
   duration_days integer, start_time time, end_time time, all_day boolean, schedule_type text,
   event_status text, status_note text,
   venue_name text, prefecture text, municipality text, address text,
+  venue_type_keys text[],
   latitude double precision, longitude double precision,
   location_precision text, location_verified boolean,
   price_text text, price_type text, is_free boolean,
@@ -333,7 +345,7 @@ as $$
     e.id,e.slug,e.title,e.summary,e.start_date,e.end_date,
     (e.end_date-e.start_date+1)::integer,e.start_time,e.end_time,e.all_day,e.schedule_type,
     e.event_status,e.status_note,
-    e.venue_name,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
+    e.venue_name,e.prefecture,e.municipality,e.address,e.venue_type_keys,e.latitude,e.longitude,
     e.location_precision,e.location_verified,
     e.price_text,e.price_type,e.is_free,e.reservation_required,e.organizer_name,e.official_url,
     e.category_keys,e.age_group_keys,e.indoor,
@@ -439,6 +451,13 @@ as $$
     and (not coalesce(p_exclude_adult_oriented,false)
       or not (e.audience_intent_verified and e.audience_intent='adult_oriented'))
     and (not coalesce(p_indoor_only,false) or e.indoor is true)
+    and (
+      not coalesce(p_venue_filter_active,false)
+      or (
+        cardinality(coalesce(p_venue_types,'{}'::text[]))>0
+        and e.venue_type_keys && p_venue_types[1:20]
+      )
+    )
     and (e.expires_at is null or e.expires_at>now())
   order by
     case e.event_status
@@ -456,9 +475,9 @@ as $$
   offset least(greatest(coalesce(p_offset,0),0),50000);
 $$;
 
-revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text,integer,integer)
+revoke all on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text[],boolean,text,integer,integer)
   from public,anon,authenticated;
-grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text,integer,integer)
+grant execute on function public.search_public_events(date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],text,text[],timestamptz,boolean,boolean,text[],boolean,text,integer,integer)
   to anon,authenticated;
 
 create or replace function public.get_public_event(p_slug text)
