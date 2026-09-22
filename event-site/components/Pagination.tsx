@@ -5,13 +5,15 @@ type Props = {
   page: number;
   hasPrevious: boolean;
   hasNext: boolean;
-  query?: Record<string,string | undefined>;
+  query?: Record<string,string | string[] | undefined>;
 };
 
-function buildHref(basePath:string, page:number, query:Record<string,string|undefined>) {
+function buildHref(basePath:string, page:number, query:Record<string,string|string[]|undefined>) {
   const params=new URLSearchParams();
   for (const [key,value] of Object.entries(query)) {
-    if (value) params.set(key,value);
+    if(Array.isArray(value)){
+      for(const item of value) if(item) params.append(key,item);
+    } else if(value) params.set(key,value);
   }
   if (page > 1) params.set('page',String(page));
   const qs=params.toString();
