@@ -9,14 +9,7 @@ declare
   payload jsonb;
 begin
   select count(*) into n
-  from public.events
-  where slug in (
-    'water-kendama-20260921','water-clown-rio-20260922','water-seoppi-20260923',
-    'miraikan-moon-2026','city-circuit-kart-ev-20260923','littleplanet-halloween-divercity-2026',
-    'ariake-quizknock-nazotoki-2026','joypolis-sidem-3-2026','toyosu-kamimaro-202609','dainankyoku-2026',
-    'sunshine-gashapon-tours-2026','tdc-hybrid-training-2026','tdc-toukenranbu-return-2026',
-    'lalaport-jujutsu-5th-2026','kamogawa-beluga-50th-2026','metsa-harvest-2026','metsa-fika-20261004'
-  );
+  from public.events;
   if n <> 30 then
     raise exception 'production seed expected 30 events after double-run, got %',n;
   end if;
@@ -68,18 +61,22 @@ begin
 
   if exists(
     select 1 from public.events
-    where slug in (
-      'water-kendama-20260921','water-clown-rio-20260922','water-seoppi-20260923',
-      'miraikan-moon-2026','city-circuit-kart-ev-20260923','littleplanet-halloween-divercity-2026',
-      'ariake-quizknock-nazotoki-2026','joypolis-sidem-3-2026','toyosu-kamimaro-202609','dainankyoku-2026'
-    )
-    and image_usage_status <> 'not_used'
+    where image_usage_status <> 'not_used'
   ) then
     raise exception 'production seed must not publish images';
   end if;
 
   if has_table_privilege('anon','public.events','select') then
     raise exception 'anon must not directly select public.events after production seed';
+  end if;
+
+  if exists(
+    select 1 from public.events e
+    join public.regional_sources rs on rs.id=e.source_id
+    where e.publication_status='published'
+      and (e.verification_status<>'verified' or not rs.event_use_allowed or not rs.is_active)
+  ) then
+    raise exception 'published event violates publish gate';
   end if;
 end;
 $$;
