@@ -60,7 +60,7 @@ E5: PR・スポンサー・収益化
 
 1. CloudflareプレビューでPC / スマホUIを確認
 2. 管理画面のX・TikTok素材生成を確認
-3. 公式・利用条件確認済みの実イベントを17件から段階投入
+3. 公式・利用条件確認済みの実イベントを30件から段階投入
 4. 単日 / 長期 / 無料 / 有料 / ファミリー / 推し活 / 不定期を混ぜて検索・詳細・MAP連携を確認
 5. 問題なければ地域単位から全国へ拡大する
 
@@ -84,8 +84,8 @@ E5: PR・スポンサー・収益化
   - 逆順日付は自動正規化
   - 最大400日間に制限
   - ページ送り・保存検索にも日付条件を保持
-- 本番初期投入用seed: `supabase/seeds/machiibe_initial_verified_events.sql`
-  - 2026-09-21〜22に公式ページを再確認した17件
+- 本番初期投入用seed: `supabase/seeds/machiibe_initial_verified_events.sql`\n- verified batch2: `supabase/seeds/machiibe_verified_events_batch2.sql`
+  - 2026-09-21〜22に公式ページを再確認した30件（初期17件 + verified batch2 13件）
   - イベント画像は一切転載せず `image_usage_status=not_used`
   - 2回実行しても重複しないidempotent設計
 - v1専用rollback: `supabase/rollback/machiibe_v1.sql`
@@ -99,7 +99,7 @@ E5: PR・スポンサー・収益化
 2. family dining migration
 3. admin analytics migration
 4. production seedを2回連続実行
-5. 17イベント / 38開催回 / 任意日付範囲 / QuizKnock・呪術廻戦・刀剣乱舞・ムーミン関連 / 画像非公開 / anon直読禁止を確認
+5. 30イベント / 38開催回 / 任意日付範囲 / QuizKnock・呪術廻戦・刀剣乱舞・ムーミン関連 / 画像非公開 / anon直読禁止を確認
 6. v1 rollback SQLを実行し、対象オブジェクトが全て消えることを確認
 7. 最終ROLLBACK
 
@@ -122,7 +122,7 @@ E5: PR・スポンサー・収益化
   - 東京18 / 千葉18 / 埼玉12 / 神奈川13
   - 雨の日向け候補21
   - 候補は全件 publishable=false / image_policy=not_used
-  - 公式詳細再確認済み7件をproduction seedへ昇格
+  - 公式詳細・公式運営発表を再確認した20候補をproduction seedへ昇格
 - 管理画面にイベント確認・公開編集を追加
   - verified + 情報源利用許可 + 情報源active の3条件なしではpublishedへ変更不可
 - 3周確認方式を `docs/machiibe-release-checklist.md` に固定
