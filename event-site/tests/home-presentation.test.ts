@@ -127,3 +127,22 @@ test('Machimamo handoff is visible without overwhelming event search',()=>{
   assert.match(detail,/まちまもで会場周辺を見る/);
   assert.match(layout,/まちまも 安全MAP/);
 });
+
+
+test('venue-type filter is multi-select and exclusionary',()=>{
+  const events=read('../lib/events.ts');
+  const selector=read('../components/VenueTypeSelector.tsx');
+  const page=read('../app/page.tsx');
+  const pagination=read('../components/Pagination.tsx');
+
+  for(const key of ['park_plaza','mall','event_venue_indoor','event_venue_outdoor','hotel','amusement','culture_public','other']){
+    assert.ok(events.includes(`['${key}'`),`missing venue type: ${key}`);
+  }
+  assert.match(selector,/チェックした場所だけ検索結果に表示/);
+  assert.match(selector,/name="venue"/);
+  assert.match(selector,/すべて/);
+  assert.match(selector,/全解除/);
+  assert.match(page,/venueFilterActive/);
+  assert.match(page,/venueTypes/);
+  assert.match(pagination,/params\.append\(key,item\)/);
+});
