@@ -18,7 +18,7 @@ drop function if exists public.get_public_events_by_slugs(text[]);
 drop function if exists public.get_public_event(text);
 drop function if exists public.search_public_events(
   date,date,text,text,text[],text[],text[],text[],boolean,text[],text[],text[],
-  text,text[],timestamptz,boolean,boolean,text,integer,integer
+  text,text[],timestamptz,boolean,boolean,text[],boolean,text,integer,integer
 );
 
 drop table if exists public.event_pickups cascade;
