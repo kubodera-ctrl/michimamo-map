@@ -11,6 +11,7 @@ import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { VisitTracker } from '@/components/VisitTracker';
 import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
+import { MachimamoBridge } from '@/components/MachimamoBridge';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType } from '@/lib/types';
 import { searchIndexingAllowed } from '@/lib/url-config';
@@ -123,6 +124,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
       <section className="content-wrap">
         <HomePrSlot />
         <FeaturedStories />
+        <MachimamoBridge />
         <PickupEvents />
         <div className="result-tools">
           <NewSinceLastVisitLink active={Boolean(since)} />
