@@ -63,7 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div id="main-content" tabIndex={-1}>{children}</div>
         <footer className="site-footer">
           <div><strong>まちイベ</strong><p>掲載内容は変更される場合があります。来場前に必ず主催者・公式サイトの最新情報をご確認ください。</p></div>
-          <div className="footer-links"><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><a href={xAccountUrl()} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={machimamoMapUrl()} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
+          <div className="footer-links"><Link href="/partners">まちイベについて</Link><Link href="/corrections">掲載情報の訂正</Link><Link href="/privacy">プライバシー</Link><Link href="/saved">行きたい一覧</Link><a href={xAccountUrl()} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={machimamoMapUrl()} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
         </footer>
       </body>
     </html>
