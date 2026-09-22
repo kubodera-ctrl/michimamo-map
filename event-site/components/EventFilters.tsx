@@ -3,6 +3,7 @@ import {
   AGE_OPTIONS,
   CATEGORY_OPTIONS,
   DURATION_OPTIONS,
+  EXPERIENCE_OPTIONS,
   FANDOM_GROUPS,
   PRICE_OPTIONS,
   SORT_OPTIONS
@@ -13,7 +14,7 @@ import { SaveSearchButton } from './SaveSearchButton';
 type Props = {
   values: {
     dateMode: string; customStart:string; customEnd:string; prefecture: string; keyword: string; excludeWords: string;
-    category: string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
+    category: string; experience:string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
     familyFriendlyOnly: boolean; rainyDayOnly:boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
   };
@@ -49,9 +50,14 @@ export function EventFilters({ values }: Props) {
         <label><span>エリア</span><select name="prefecture" defaultValue={values.prefecture}>
           <option value="">全国</option>{PREFECTURES.map(([slug,name]) => <option key={slug} value={name}>{name}</option>)}
         </select></label>
-        <label className="keyword-field"><span>キーワード</span><input name="q" defaultValue={values.keyword} maxLength={100} placeholder="花火、マルシェ、科学館…" /></label>
+        <label className="keyword-field"><span>キーワード</span><input name="q" defaultValue={values.keyword} maxLength={100} placeholder="花火、宝石探し、釣り、ガラス細工…" /></label>
         <label><span>カテゴリ</span><select name="category" defaultValue={values.category}>
           <option value="">すべて</option>{CATEGORY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
+        </select></label>
+        <label><span>体験ジャンル</span><select name="experience" defaultValue={values.experience}>
+          <option value="">指定なし</option>
+          <option value="experience">体験をすべて見る</option>
+          {EXPERIENCE_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
         </select></label>
         <label><span>対象</span><select name="age" defaultValue={values.age}>
           <option value="">指定なし</option>{AGE_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
