@@ -8,6 +8,7 @@ export type XShareInput={
   summary?:string;
   prefix?:string;
   hashtags?:string[];
+  ctaLines?:string[];
 };
 
 function clean(value:string|undefined){
@@ -58,6 +59,7 @@ export function buildXShareText(input:XShareInput){
     input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,34) : '',
     input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,24) : '',
     truncateWeighted(input.summary,32),
+    ...(input.ctaLines||[]).slice(0,2).map((line)=>truncateWeighted(line,38)),
     truncateWeighted(tags,24)
   ].filter(Boolean);
 
