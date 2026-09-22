@@ -17,7 +17,7 @@ create table if not exists public.regional_sources (
   municipality text,
   event_use_allowed boolean not null default false,
   terms_review_status text not null default 'pending'
-    check (terms_review_status in ('pending','reviewed_allowed','reviewed_restricted','contact_required')),
+    check (terms_review_status in ('pending','reviewed_facts_only','reviewed_allowed','reviewed_restricted','contact_required')),
   acquisition_mode text not null default 'manual_facts_only'
     check (acquisition_mode in ('manual_facts_only','discovery_only','official_page_monitor','official_api','open_data','rss','partner_feed')),
   automated_fetch_allowed boolean not null default false,
@@ -36,7 +36,7 @@ create table if not exists public.regional_sources (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   constraint regional_sources_terms_gate_ck
-    check (not event_use_allowed or terms_review_status='reviewed_allowed'),
+    check (not event_use_allowed or terms_review_status in ('reviewed_facts_only','reviewed_allowed')),
   constraint regional_sources_automation_gate_ck
     check (
       not automated_fetch_allowed
