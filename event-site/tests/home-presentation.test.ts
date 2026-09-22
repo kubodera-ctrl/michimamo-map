@@ -50,3 +50,19 @@ test('home search exposes arbitrary date selection and preserves it in paginatio
   assert.match(page,/to:dateMode==='custom'/);
   assert.match(css,/input\[value="custom"\]:checked/);
 });
+
+
+test('rainy-day shortcut combines indoor and family-safe filters',()=>{
+  const filters=read('../components/EventFilters.tsx');
+  const page=read('../app/page.tsx');
+  const stories=read('../components/FeaturedStories.tsx');
+
+  assert.match(filters,/name="rainy"/);
+  assert.match(filters,/雨の日の室内遊び/);
+  assert.match(page,/rainyDayOnly = one\(params\.rainy\) === '1'/);
+  assert.match(page,/indoorOnly: indoorOnly \|\| rainyDayOnly/);
+  assert.match(page,/familyFriendlyOnly \|\| rainyDayOnly/);
+  assert.match(page,/excludeAdultOriented: excludeAdultOriented \|\| rainyDayOnly/);
+  assert.match(page,/rainy:rainyDayOnly\?'1':undefined/);
+  assert.match(stories,/\?when=today&rainy=1/);
+});
