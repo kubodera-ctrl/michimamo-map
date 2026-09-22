@@ -14,7 +14,7 @@ export type AdminDashboard={
   }>;
   sources:Array<{
     id:number;name:string;source_kind:string;prefecture:string|null;municipality:string|null;
-    terms_review_status:'pending'|'reviewed_allowed'|'reviewed_restricted'|'contact_required';
+    terms_review_status:'pending'|'reviewed_facts_only'|'reviewed_allowed'|'reviewed_restricted'|'contact_required';
     acquisition_mode:'manual_facts_only'|'discovery_only'|'official_page_monitor'|'official_api'|'open_data'|'rss'|'partner_feed';
     automated_fetch_allowed:boolean;coverage_scope:string|null;coverage_estimate:number|null;
     fetch_status:'unknown'|'healthy'|'degraded'|'disabled';last_success_at:string|null;last_failure_at:string|null;
