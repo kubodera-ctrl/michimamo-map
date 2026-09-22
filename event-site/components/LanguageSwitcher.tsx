@@ -8,7 +8,8 @@ export function LanguageSwitcher({locale,label}:{locale:Locale;label:string}){
   const router=useRouter();
 
   const change=(next:Locale)=>{
-    document.cookie=`machiibe_locale=${next}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+    const secure=window.location.protocol==='https:' ? '; Secure' : '';
+    document.cookie=`machiibe_locale=${next}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
     router.push(localePath(pathname,next));
     router.refresh();
   };
