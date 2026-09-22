@@ -7,7 +7,7 @@ import { publicSiteBaseUrl, searchIndexingAllowed } from '@/lib/url-config';
 export const revalidate = 3600;
 
 const STATIC_POLICY_PATHS=[
-  '/policies','/terms','/privacy','/data-policy','/advertising-policy',
+  '/policies','/terms','/privacy','/external-transmission','/data-policy','/advertising-policy',
   '/copyright','/disclaimer','/accessibility','/corrections','/operator'
 ] as const;
 
