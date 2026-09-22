@@ -1,6 +1,6 @@
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
-import {DEFAULT_LOCALE,isLocale,localePath,stripLocalePrefix,type Locale} from './lib/i18n-config';
+import {DEFAULT_LOCALE,HTML_LANG,isLocale,localePath,stripLocalePrefix,type Locale} from './lib/i18n-config';
 
 const COOKIE='machiibe_locale';
 
@@ -32,8 +32,8 @@ export function middleware(request:NextRequest){
     const requestHeaders=new Headers(request.headers);
     requestHeaders.set('x-machiibe-locale',parsed.locale);
     const response=NextResponse.rewrite(url,{request:{headers:requestHeaders}});
-    response.cookies.set(COOKIE,parsed.locale,{path:'/',maxAge:60*60*24*365,sameSite:'lax',secure:true});
-    response.headers.set('Content-Language',parsed.locale);
+    response.cookies.set(COOKIE,parsed.locale,{path:'/',maxAge:60*60*24*365,sameSite:'lax',secure:request.nextUrl.protocol==='https:'});
+    response.headers.set('Content-Language',HTML_LANG[parsed.locale]);
     return response;
   }
 
@@ -46,7 +46,7 @@ export function middleware(request:NextRequest){
   const requestHeaders=new Headers(request.headers);
   requestHeaders.set('x-machiibe-locale',DEFAULT_LOCALE);
   const response=NextResponse.next({request:{headers:requestHeaders}});
-  response.headers.set('Content-Language',DEFAULT_LOCALE);
+  response.headers.set('Content-Language',HTML_LANG[DEFAULT_LOCALE]);
   return response;
 }
 
