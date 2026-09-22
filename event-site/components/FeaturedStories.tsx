@@ -36,6 +36,24 @@ const stories=[
     mark:'04',
     visual:'¥0',
     theme:'free'
+  },
+  {
+    eyebrow:'EXPERIENCE',
+    title:'作る・釣る・探す。体験から選ぶ',
+    description:'宝石探し、釣り、ガラス細工、指輪作りなど参加型のおでかけ。',
+    href:'/?when=30days&experience=experience',
+    mark:'05',
+    visual:'DO IT',
+    theme:'experience'
+  },
+  {
+    eyebrow:'FOR KIDS',
+    title:'子どもが主役のおでかけ',
+    description:'見るだけじゃなく、子ども自身が楽しみやすいイベントを探す。',
+    href:'/?when=30days&childFocus=1',
+    mark:'06',
+    visual:'KIDS',
+    theme:'kids'
   }
 ] as const;
 
