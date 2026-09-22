@@ -1,5 +1,7 @@
 \ir ../seeds/machiibe_initial_verified_events.sql
+\ir ../seeds/machiibe_verified_events_batch2.sql
 \ir ../seeds/machiibe_initial_verified_events.sql
+\ir ../seeds/machiibe_verified_events_batch2.sql
 
 do $$
 declare
@@ -15,8 +17,8 @@ begin
     'sunshine-gashapon-tours-2026','tdc-hybrid-training-2026','tdc-toukenranbu-return-2026',
     'lalaport-jujutsu-5th-2026','kamogawa-beluga-50th-2026','metsa-harvest-2026','metsa-fika-20261004'
   );
-  if n <> 17 then
-    raise exception 'production seed expected 17 events after double-run, got %',n;
+  if n <> 30 then
+    raise exception 'production seed expected 30 events after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -50,6 +52,18 @@ begin
      or not (public.get_public_event('metsa-harvest-2026')->'fandom_slugs' ? 'moomin')
   then
     raise exception 'production seed additional fandom links missing';
+  end if;
+
+  if not (public.get_public_event('solamachi-space-brothers-2026')->'fandom_slugs' ? 'space-brothers')
+     or not (public.get_public_event('joypolis-hololive-shiny-party')->'fandom_slugs' ? 'hololive')
+     or not (public.get_public_event('tdc-drstone-tenq-2026')->'fandom_slugs' ? 'dr-stone')
+     or not (public.get_public_event('lalaport-pokemon-height-2026')->'fandom_slugs' ? 'pokemon')
+     or not (public.get_public_event('lalaterrace-sanrio-wagon-2026')->'fandom_slugs' ? 'sanrio')
+     or not (public.get_public_event('lalaport-shinako-20260923')->'fandom_slugs' ? 'shinako')
+     or not (public.get_public_event('sakuratown-kozame-2026')->'fandom_slugs' ? 'odekake-kozame')
+     or not (public.get_public_event('sakuratown-galaxy999-2026')->'fandom_slugs' ? 'galaxy-express-999')
+  then
+    raise exception 'batch 2 fandom relations missing';
   end if;
 
   if exists(
