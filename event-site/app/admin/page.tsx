@@ -99,7 +99,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
                 <tbody>{dashboard.popularEvents.slice(0,20).map((item,index)=>(
                   <tr key={item.id}>
                     <td>{index+1}</td>
-                    <td><Link href={`/events/${item.slug}`} target="_blank">{item.title}</Link></td>
+                    <td><Link href={`/events/${item.slug}`} target="_blank">{item.title}</Link><small className="admin-source"><Link href={`/admin/events/${item.slug}`}>運営編集</Link></small></td>
                     <td>{item.prefecture}{item.municipality||''}</td>
                     <td>{n(item.count)}</td>
                     <td>
@@ -145,7 +145,7 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
                     <tr key={item.id}>
                       <td>{new Date(item.fetched_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'})}</td>
                       <td>
-                        {item.slug ? <Link href={`/events/${item.slug}`} target="_blank">{item.title||item.source_title||'名称未取得'}</Link> : <span>{item.source_title||'名称未取得'}</span>}
+                        {item.slug ? <><Link href={`/events/${item.slug}`} target="_blank">{item.title||item.source_title||'名称未取得'}</Link><small className="admin-source"><Link href={`/admin/events/${item.slug}`}>運営編集</Link></small></> : <span>{item.source_title||'名称未取得'}</span>}
                         <small className="admin-source"><a href={item.source_url} target="_blank" rel="noreferrer">取得元</a></small>
                       </td>
                       <td>{item.normalization_status}</td>
