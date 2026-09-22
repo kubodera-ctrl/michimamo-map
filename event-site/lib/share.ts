@@ -51,16 +51,17 @@ export function buildXShareText(input:XShareInput){
     .map((tag)=>`#${tag}`)
     .join(' ');
 
+  const hasCta=Boolean(input.ctaLines?.length);
   const lines=[
     truncateWeighted(input.prefix,16),
-    truncateWeighted(input.placeText,24),
-    truncateWeighted(input.title,50),
-    truncateWeighted(input.conditionText,30),
-    input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,34) : '',
-    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,24) : '',
-    truncateWeighted(input.summary,32),
-    ...(input.ctaLines||[]).slice(0,2).map((line)=>truncateWeighted(line,38)),
-    truncateWeighted(tags,24)
+    truncateWeighted(input.placeText,20),
+    truncateWeighted(input.title,44),
+    truncateWeighted(input.conditionText,24),
+    input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,30) : '',
+    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,20) : '',
+    hasCta ? '' : truncateWeighted(input.summary,28),
+    ...(input.ctaLines||[]).slice(0,2).map((line)=>truncateWeighted(line,32)),
+    truncateWeighted(tags,20)
   ].filter(Boolean);
 
   return lines.join('\n');
