@@ -69,6 +69,8 @@ export type EventSummary = {
   last_verified_at: string | null;
   created_at: string;
   updated_at: string;
+  translation_locale?: 'en' | 'zh-cn' | 'zh-tw' | 'ko';
+  translation_source?: 'manual' | 'provider' | 'machine_reviewed';
 };
 
 export type EventDetail = EventSummary & {
@@ -108,6 +110,7 @@ export type EventSearchInput = {
   sort?: 'recommended' | 'start_date' | 'short_first' | 'newest';
   limit?: number;
   offset?: number;
+  locale?: 'ja' | 'en' | 'zh-cn' | 'zh-tw' | 'ko';
 };
 
 export type EventSearchError = 'unconfigured' | 'request_failed' | null;
