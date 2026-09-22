@@ -111,3 +111,15 @@ test('admin event editor enforces publish gate and bounded fields',()=>{
   assert.match(page,/name="event_status"/);
   assert.match(dashboard,/\/admin\/events\//);
 });
+
+
+test('source terms review gates automated fetching and publication',()=>{
+  const foundation=fs.readFileSync(new URL('../../supabase/migrations/20260918235500_event_platform_foundation.sql',import.meta.url),'utf8');
+  const route=fs.readFileSync(new URL('../app/api/admin/events/update/route.ts',import.meta.url),'utf8');
+  assert.match(foundation,/reviewed_facts_only/);
+  assert.match(foundation,/regional_sources_terms_gate_ck/);
+  assert.match(foundation,/regional_sources_automation_gate_ck/);
+  assert.match(foundation,/official_page_monitor/);
+  assert.match(route,/reviewed_facts_only/);
+  assert.match(route,/reviewed_allowed/);
+});
