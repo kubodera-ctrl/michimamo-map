@@ -15,6 +15,9 @@ import { MachimamoBridge } from '@/components/MachimamoBridge';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, VENUE_TYPE_LABELS, VENUE_TYPE_OPTIONS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType, VenueTypeKey } from '@/lib/types';
 import { searchIndexingAllowed } from '@/lib/url-config';
+import { getRequestLocale } from '@/lib/i18n-server';
+import { getMessages } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n-config';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
@@ -24,6 +27,8 @@ const categoryLabels=Object.fromEntries(CATEGORY_OPTIONS) as Record<string,strin
 const ageLabels=Object.fromEntries(AGE_OPTIONS) as Record<string,string>;
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+  const locale=await getRequestLocale();
+  const messages=getMessages(locale);
   const params = await searchParams;
   const hasFilters = Object.entries(params).some(([key,value]) => {
     if (key === 'page') return false;
@@ -32,10 +37,17 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   });
   const page=parsePage(params.page);
   const allowIndexing=searchIndexingAllowed();
-  return { alternates:{canonical:'/'}, robots:allowIndexing && !hasFilters && page===1?{index:true,follow:true}:{index:false,follow:allowIndexing} };
+  return {
+    title:messages.homeTitle,
+    description:messages.homeDescription,
+    alternates:{canonical:localePath('/',locale),languages:{'ja-JP':'/',en:'/en','zh-Hans':'/zh-cn','zh-Hant':'/zh-tw',ko:'/ko','x-default':'/'}},
+    robots:allowIndexing && !hasFilters && page===1?{index:true,follow:true}:{index:false,follow:allowIndexing}
+  };
 }
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
+  const locale=await getRequestLocale();
+  const messages=getMessages(locale);
   const params = await searchParams;
   const customStartRaw=one(params.from).slice(0,10);
   const customEndRaw=one(params.to).slice(0,10);
@@ -123,8 +135,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
       <section className="hero">
         <div className="hero-inner">
           <p className="eyebrow">MACHI IBE</p>
-          <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
-          <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
+          <h1>{messages.heroTitleLine1}<br />{messages.heroTitleLine2}</h1>
+          <p className="hero-copy">{messages.heroCopy}</p>
           <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,venueTypes,venueFilterActive,sort}} />
         </div>
       </section>
@@ -136,13 +148,13 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         <PickupEvents />
         <div className="result-tools">
           <NewSinceLastVisitLink active={Boolean(since)} />
-          <Link href="/saved">♡ 行きたい一覧</Link>
-          <Link href="/saved-searches">☆ 保存した検索</Link>
-          <Link href="/plan">📅 おでかけプラン</Link>
+          <Link href={localePath('/saved',locale)}>{messages.savedList}</Link>
+          <Link href={localePath('/saved-searches',locale)}>{messages.savedSearches}</Link>
+          <Link href={localePath('/plan',locale)}>{messages.plan}</Link>
         </div>
         <div className="section-heading">
           <div><span className="result-kicker">{since?'前回訪問後の新着':range.label}</span><h2>{prefecture || '全国'}のイベント</h2></div>
-          <span className="result-count" aria-live="polite">{result.events.length}件表示・{result.page}ページ目</span>
+          <span className="result-count" aria-live="polite">{locale==='ja'?`${result.events.length}件表示・${result.page}ページ目`:`${result.events.length} ${messages.displayed} · ${messages.page} ${result.page}`}</span>
         </div>
 
         {result.error ? <DataUnavailable /> : result.events.length ? (
@@ -154,10 +166,10 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
                 <div className="event-grid long-running-grid">{longRunningEvents.map((event) => <EventCard key={event.id} event={event} />)}</div>
               </details>
             )}
-            <Pagination basePath="/" page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} />
+            <Pagination basePath={localePath('/',locale)} page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} />
           </>
         ) : (
-          <div className="empty-state"><div className="empty-icon">◎</div><h2>条件に合う公開イベントはまだありません</h2><p>条件を少し緩めるか、除外ワード・開催期間を見直してください。出典と利用条件を確認できたイベントだけを順次公開します。</p></div>
+          <div className="empty-state"><div className="empty-icon">◎</div><h2>{messages.noResultsTitle}</h2><p>{messages.noResultsCopy}</p></div>
         )}
         <SeoBrowseLinks />
       </section>
