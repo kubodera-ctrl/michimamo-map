@@ -126,3 +126,24 @@ E5: PR・スポンサー・収益化
 - 管理画面にイベント確認・公開編集を追加
   - verified + 情報源利用許可 + 情報源active の3条件なしではpublishedへ変更不可
 - 3周確認方式を `docs/machiibe-release-checklist.md` に固定
+
+
+### 30件版production seed 再ドライラン
+
+2026-09-22、本番Supabase上で以下を1トランザクション内に実行し、最後にROLLBACKした。
+
+- migration 3本
+- 初期seed 17件
+- verified batch2 13件
+- 2セットを再実行しても重複なし
+- 合計30イベント
+- occurrence 38件
+- 10月期間検索
+- 雨の日検索（屋内 + 子ども/ファミリー + 大人向け除外）
+- 宇宙兄弟 / ホロライブ / Dr.STONE / ポケモン / サンリオ / しなこ / おでかけ子ザメ / 銀河鉄道999 の推し活紐付け
+- 全イベント image_usage_status=not_used
+- anonからevents直接SELECT不可
+- publishedはverified + source利用許可 + source active
+- v1 rollback後に対象オブジェクトが残らないことを確認
+
+検証後、本番DBは未変更。
