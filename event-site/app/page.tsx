@@ -108,6 +108,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     indoorOnly: indoorOnly || rainyDayOnly,
     venueTypes,
     venueFilterActive,
+    locale,
     sort: sort === 'start_date' || sort === 'short_first' || sort === 'newest' ? sort : 'recommended'
   },page,24);
 
