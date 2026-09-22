@@ -2,11 +2,17 @@ import type { MetadataRoute } from 'next';
 import { CATEGORY_OPTIONS, getEventSitemap, getPublicFacetSitemap, getPublicFandomSitemap } from '@/lib/events';
 import { slugByPrefecture } from '@/lib/prefectures';
 import { SEO_INTENTS, searchSeoIntentEvents } from '@/lib/seo-intents';
-import { publicSiteBaseUrl } from '@/lib/url-config';
+import { publicSiteBaseUrl, searchIndexingAllowed } from '@/lib/url-config';
 
 export const revalidate = 3600;
 
+const STATIC_POLICY_PATHS=[
+  '/policies','/terms','/privacy','/data-policy','/advertising-policy',
+  '/copyright','/disclaimer','/accessibility','/corrections','/operator'
+] as const;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if(!searchIndexingAllowed()) return [];
   const base = publicSiteBaseUrl().replace(/\/$/,'');
   const [eventRows, fandomRows, facetRows, guideRows] = await Promise.all([
     getEventSitemap(),
@@ -27,6 +33,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     { url: base, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
+    ...STATIC_POLICY_PATHS.map((path)=>({
+      url:`${base}${path}`,
+      lastModified:new Date(),
+      changeFrequency:'monthly' as const,
+      priority:0.3
+    })),
     ...areas.map(({row,slug}) => ({
       url: `${base}/area/${slug}`,
       lastModified: new Date(row.updated_at),
