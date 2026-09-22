@@ -69,3 +69,41 @@ test('only detail-verified candidates are promoted into production seed',()=>{
     assert.match(event.seed_note,/official-detail recheck/i);
   }
 });
+
+
+test('national mall source target registry is conservative and structurally valid',()=>{
+  const registry=readJson('../../data/machiibe/venue_source_targets_v1.json');
+  assert.ok(Array.isArray(registry.targets));
+  assert.ok(registry.targets.length>=12);
+  assert.equal(registry.policy.automated_fetch_default,false);
+  assert.equal(registry.policy.facility_detail_recheck_required,true);
+  assert.equal(registry.policy.target_count,registry.targets.length);
+
+  const keys=new Set<string>();
+  let nationalDiscovery=0;
+  for(const source of registry.targets){
+    assert.equal(typeof source.source_key,'string');
+    assert.ok(!keys.has(source.source_key),`duplicate venue source_key: ${source.source_key}`);
+    keys.add(source.source_key);
+    assert.match(source.homepage_url,/^https:\/\//);
+    assert.match(source.event_url,/^https:\/\//);
+    assert.equal(source.venue_type,'mall');
+    assert.equal(source.automated_fetch_allowed,false);
+    assert.equal(source.acquisition_mode,'discovery_only');
+    assert.equal(source.terms_review_status,'contact_required');
+    assert.ok(['national_discovery','facility_directory'].includes(source.role));
+    if(source.role==='national_discovery') nationalDiscovery+=1;
+  }
+
+  for(const required of [
+    'mall-discovery-aeonmall-corporate-events',
+    'mall-discovery-mitsui-shopping-park',
+    'mall-discovery-ario',
+    'mall-discovery-opa',
+    'mall-discovery-marui-modi',
+    'mall-discovery-premium-outlets'
+  ]){
+    assert.ok(keys.has(required),`missing important mall source: ${required}`);
+  }
+  assert.ok(nationalDiscovery>=2);
+});
