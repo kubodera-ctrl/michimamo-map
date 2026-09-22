@@ -66,6 +66,28 @@ begin
     raise exception 'production seed must not publish images';
   end if;
 
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>'2026-09-22',
+    p_end_date=>'2026-10-31',
+    p_venue_types=>array['mall'],
+    p_venue_filter_active=>true
+  );
+  if n < 5 then
+    raise exception 'mall venue filter returned too few seeded events: %',n;
+  end if;
+
+  select count(*) into n
+  from public.search_public_events(
+    p_start_date=>'2026-09-22',
+    p_end_date=>'2026-10-31',
+    p_venue_types=>'{}'::text[],
+    p_venue_filter_active=>true
+  );
+  if n <> 0 then
+    raise exception 'active venue filter with no selections must return 0, got %',n;
+  end if;
+
   if has_table_privilege('anon','public.events','select') then
     raise exception 'anon must not directly select public.events after production seed';
   end if;
