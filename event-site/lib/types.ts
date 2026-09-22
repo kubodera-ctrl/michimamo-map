@@ -8,6 +8,15 @@ export type EventStatus =
 
 export type PriceType = 'free' | 'partly_free' | 'paid' | 'unknown';
 export type LocationPrecision = 'exact_venue' | 'exact_address' | 'street' | 'approximate' | 'unknown';
+export type VenueTypeKey =
+  | 'park_plaza'
+  | 'mall'
+  | 'event_venue_indoor'
+  | 'event_venue_outdoor'
+  | 'hotel'
+  | 'amusement'
+  | 'culture_public'
+  | 'other';
 
 export type EventOccurrence = {
   date:string;
@@ -35,6 +44,7 @@ export type EventSummary = {
   prefecture: string;
   municipality: string | null;
   address: string | null;
+  venue_type_keys: VenueTypeKey[];
   latitude: number | null;
   longitude: number | null;
   location_precision: LocationPrecision;
@@ -93,6 +103,8 @@ export type EventSearchInput = {
   freeOnly?: boolean;
   excludeAdultOriented?: boolean;
   indoorOnly?: boolean;
+  venueTypes?: VenueTypeKey[];
+  venueFilterActive?: boolean;
   sort?: 'recommended' | 'start_date' | 'short_first' | 'newest';
   limit?: number;
   offset?: number;
