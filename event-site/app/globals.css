@@ -131,6 +131,7 @@ a{color:inherit}
 .advanced-grid select:focus,.advanced-grid input:focus{border-color:#70a7e5;box-shadow:0 0 0 3px #dbeafe}
 .exclude-field small,.oshi-keyword-field small{font-size:10px;color:#64748b;line-height:1.55}
 .check-chip-accessibility{background:#f4f0ff;border-color:#d8ccff;color:#5b3aa6}
+.check-chip-rainy{background:#eef8ff;border-color:#b9dff5;color:#175f8d}
 .tag-long{background:#fff7ed;color:#9a4b06}
 .tag-family{background:#fff1f2;color:#be123c}
 .tag-accessibility{background:#f4f0ff;color:#5b3aa6}
