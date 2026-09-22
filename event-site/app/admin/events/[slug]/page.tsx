@@ -4,6 +4,7 @@ import {cookies} from 'next/headers';
 import {notFound,redirect} from 'next/navigation';
 import {ADMIN_COOKIE,validateAdminSession} from '@/lib/admin-auth';
 import {getAdminSupabase} from '@/lib/supabase-admin';
+import {VENUE_TYPE_OPTIONS} from '@/lib/events';
 
 export const dynamic='force-dynamic';
 export const metadata:Metadata={title:'イベント運営編集',robots:{index:false,follow:false}};
@@ -22,7 +23,7 @@ export default async function AdminEventEditPage({params,searchParams}:{params:P
   if(!db) redirect('/admin?error=config');
 
   const {data:event,error}=await db.from('events').select(
-    'id,slug,title,summary,start_date,end_date,start_time,end_time,event_status,status_note,venue_name,prefecture,municipality,address,price_text,price_type,indoor,audience_intent,official_url,verification_status,publication_status,source_id,last_verified_at'
+    'id,slug,title,summary,start_date,end_date,start_time,end_time,event_status,status_note,venue_name,prefecture,municipality,address,venue_type_keys,price_text,price_type,indoor,audience_intent,official_url,verification_status,publication_status,source_id,last_verified_at'
   ).eq('slug',slug).maybeSingle();
   if(error || !event) notFound();
 
@@ -103,6 +104,14 @@ export default async function AdminEventEditPage({params,searchParams}:{params:P
             <label>都道府県<input name="prefecture" required maxLength={20} defaultValue={event.prefecture} /></label>
             <label>市区町村<input name="municipality" maxLength={100} defaultValue={event.municipality||''} /></label>
             <label className="admin-edit-wide">住所<input name="address" maxLength={500} defaultValue={event.address||''} /></label>
+            <div className="admin-edit-wide admin-venue-types">
+              <span>場所タイプ</span>
+              <div>
+                {VENUE_TYPE_OPTIONS.map(([key,label])=>(
+                  <label key={key}><input type="checkbox" name="venue_type" value={key} defaultChecked={(event.venue_type_keys||[]).includes(key)} />{label}</label>
+                ))}
+              </div>
+            </div>
             <label className="admin-edit-wide">公式URL<input type="url" name="official_url" required maxLength={1000} defaultValue={event.official_url} /></label>
           </div>
         </section>
