@@ -1100,3 +1100,34 @@ body::before{
 .admin-venue-types label{display:flex;flex-direction:row;align-items:center;gap:7px;min-height:40px;border:1px solid #dbe5ec;border-radius:11px;background:#fff;padding:7px 9px;font-size:11px;font-weight:800}
 .admin-venue-types input{width:16px!important;min-height:0!important;height:16px;accent-color:#168bc8}
 @media(max-width:600px){.admin-venue-types>div{grid-template-columns:1fr}}
+
+
+.language-switcher{
+  display:inline-flex;
+  align-items:center;
+}
+.language-switcher select{
+  min-height:38px;
+  max-width:132px;
+  border:1px solid rgba(20,74,110,.18);
+  border-radius:999px;
+  background:rgba(255,255,255,.84);
+  color:inherit;
+  padding:0 30px 0 12px;
+  font:inherit;
+  font-size:13px;
+  cursor:pointer;
+}
+.translation-notice{
+  margin-top:8px;
+  font-size:12px;
+  opacity:.78;
+}
+@media (max-width:720px){
+  .language-switcher select{
+    min-height:36px;
+    max-width:112px;
+    font-size:12px;
+    padding-left:10px;
+  }
+}
