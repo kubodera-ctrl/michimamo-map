@@ -47,7 +47,7 @@ select has_table_privilege('anon','public.events','select') as anon_events_selec
 
 ## Phase 2 — verified seed
 
-`supabase/seeds/machiibe_initial_verified_events.sql`
+`supabase/seeds/machiibe_initial_verified_events.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch2.sql`
 
 確認:
 
@@ -103,7 +103,7 @@ from public.events;
 - 画像は原則not_used
 
 目安:
-- 初期17件
+- 初期30件
 - 30件
 - 60件
 - 100件
