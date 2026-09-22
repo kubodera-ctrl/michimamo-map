@@ -90,3 +90,24 @@ test('search-term retention is bounded in analytics migration',()=>{
   assert.match(sql,/event_search_terms_daily/);
   assert.match(sql,/metric_date < .*\)-90/);
 });
+
+
+test('admin event editor enforces publish gate and bounded fields',()=>{
+  const route=fs.readFileSync(new URL('../app/api/admin/events/update/route.ts',import.meta.url),'utf8');
+  const page=fs.readFileSync(new URL('../app/admin/events/[slug]/page.tsx',import.meta.url),'utf8');
+  const dashboard=fs.readFileSync(new URL('../app/admin/page.tsx',import.meta.url),'utf8');
+
+  assert.match(route,/isSameOriginRequest\(request\)/);
+  assert.match(route,/validateAdminSession/);
+  assert.match(route,/publicationStatus==='published'/);
+  assert.match(route,/verificationStatus!=='verified'/);
+  assert.match(route,/!source\.event_use_allowed/);
+  assert.match(route,/!source\.is_active/);
+  assert.match(route,/endDate<startDate/);
+  assert.match(route,/httpUrl\(officialUrl\)/);
+  assert.match(page,/イベント確認・公開設定/);
+  assert.match(page,/name="verification_status"/);
+  assert.match(page,/name="publication_status"/);
+  assert.match(page,/name="event_status"/);
+  assert.match(dashboard,/\/admin\/events\//);
+});
