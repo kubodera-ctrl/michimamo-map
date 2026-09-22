@@ -66,6 +66,8 @@ export default async function EventPage({ params }: { params: Params }) {
   const trustedLocation=isTrustedLocation(event);
   const mapBase = machimamoMapUrl();
   const mapUrl = new URL(mapBase);
+  mapUrl.searchParams.set('from','machiibe');
+  mapUrl.searchParams.set('eventSlug',event.slug);
   if (trustedLocation) {
     mapUrl.searchParams.set('lat', String(event.latitude));
     mapUrl.searchParams.set('lng', String(event.longitude));
@@ -210,11 +212,12 @@ export default async function EventPage({ params }: { params: Params }) {
 
           <section className="machimamo-day-support">
             <div>
-              <span>当日の安心</span>
-              <h2>会場周辺は、まちまもで確認</h2>
-              <p>{trustedLocation ? '確認済みの会場位置を基準に、' : ''}WBGT、AED、交番、周辺道路の安全情報などを確認できる導線を段階接続します。</p>
+              <span>まちイベ → まちまも</span>
+              <h2>行き先が決まったら、会場周辺の安心も確認</h2>
+              <p>{trustedLocation ? '確認済みの会場位置を基準に、' : ''}暑さ指数（WBGT）、AED、交番・警察署などをまちまもMAPで確認できます。</p>
+              <div className="machimamo-detail-points"><b>🌡 暑さ</b><b>❤️ AED</b><b>👮 交番</b><b>🗺 周辺</b></div>
             </div>
-            <TrackedLink href={mapUrl.toString()} metric="machimamo_map" eventSlug={event.slug}>まちまもMAPで周辺を見る</TrackedLink>
+            <TrackedLink href={mapUrl.toString()} metric="machimamo_map" eventSlug={event.slug}>まちまもで会場周辺を見る →</TrackedLink>
           </section>
 
           <div className="detail-actions">
