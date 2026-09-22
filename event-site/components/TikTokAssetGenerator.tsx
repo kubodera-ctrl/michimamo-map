@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import {MACHIIBE_SOCIAL_MASTER} from '@/lib/machiibe-social-master';
 
 type Props={
   slug:string;
@@ -54,9 +55,8 @@ function wrapLines(ctx:CanvasRenderingContext2D,text:string,maxWidth:number,maxL
   return lines;
 }
 
-const SAFE_LEFT=92;
-const SAFE_RIGHT=840;
-const SAFE_BOTTOM=1580;
+const {left:SAFE_LEFT,right:SAFE_RIGHT,bottom:SAFE_BOTTOM}=MACHIIBE_SOCIAL_MASTER.tiktok.safeArea;
+const {width:MASTER_WIDTH,height:MASTER_HEIGHT}=MACHIIBE_SOCIAL_MASTER.tiktok.format;
 
 function fitText(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){
   if(ctx.measureText(text).width<=maxWidth) return text;
@@ -95,7 +95,7 @@ export function TikTokAssetGenerator(props:Props){
     if(!ctx) return;
 
     const draw=(icon:HTMLImageElement|null)=>{
-      const w=1080,h=1920;
+      const w=MASTER_WIDTH,h=MASTER_HEIGHT;
       ctx.clearRect(0,0,w,h);
 
       const bg=ctx.createLinearGradient(0,0,w,h);
@@ -287,7 +287,7 @@ export function TikTokAssetGenerator(props:Props){
           <button type="button" onClick={download}>PNGを保存</button>
         </div>
         <div className="tiktok-canvas-wrap">
-          <canvas ref={canvasRef} width={1080} height={1920} aria-label="TikTok投稿画像プレビュー" />
+          <canvas ref={canvasRef} width={MASTER_WIDTH} height={MASTER_HEIGHT} aria-label="TikTok投稿画像プレビュー" />
         </div>
         <p className="tiktok-brand-note">正式まちイベアイコンは全テンプレートに必ず入ります。右側の操作ボタン・下部キャプションに重要情報が重ならない9:16安全配置です。イベント写真は使用していません。</p>
       </section>
