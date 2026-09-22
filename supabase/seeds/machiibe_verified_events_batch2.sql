@@ -284,4 +284,18 @@ on conflict(source_id,source_event_key) do update set
   source_updated_at=excluded.source_updated_at,
   updated_at=now();
 
+-- Venue type normalization for verified batch 2.
+update public.events set venue_type_keys=array['mall','event_venue_indoor'] where slug='solamachi-space-brothers-2026';
+update public.events set venue_type_keys=array['amusement'] where slug in (
+  'joypolis-halloween-2026','joypolis-hololive-shiny-party','joypolis-bloom-world',
+  'tdc-space-travel-tour-2026','tdc-drstone-tenq-2026'
+);
+update public.events set venue_type_keys=array['mall'] where slug in (
+  'lalaport-pokemon-height-2026','lalaterrace-sanrio-wagon-2026',
+  'lalaport-shinako-20260923','ariake-thanks-mama-mini-2026'
+);
+update public.events set venue_type_keys=array['culture_public'] where slug in (
+  'sakuratown-kozame-2026','sakuratown-galaxy999-2026','sakuratown-essay-manga-2026'
+);
+
 commit;
