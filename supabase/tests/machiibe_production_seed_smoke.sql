@@ -74,7 +74,7 @@ begin
     select 1 from public.events e
     join public.regional_sources rs on rs.id=e.source_id
     where e.publication_status='published'
-      and (e.verification_status<>'verified' or not rs.event_use_allowed or rs.terms_review_status<>'reviewed_allowed' or not rs.is_active)
+      and (e.verification_status<>'verified' or not rs.event_use_allowed or rs.terms_review_status not in ('reviewed_facts_only','reviewed_allowed') or not rs.is_active)
   ) then
     raise exception 'published event violates publish gate';
   end if;
