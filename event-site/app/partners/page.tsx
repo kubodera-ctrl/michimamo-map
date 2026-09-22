@@ -1,14 +1,13 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import {operatorSiteUrl} from '@/lib/url-config';
 
 export const metadata:Metadata={
   title:'まちイベについて｜情報提供・データ連携',
   description:'全国イベント検索サービス「まちイベ」の事業概要、データ連携方針、情報の取り扱いをご案内します。',
   robots:{index:false,follow:true}
 };
-
-const operatorUrl='https://sites.google.com/sumion.net/sumion/home?authuser=0&pli=1';
 
 export default function PartnersPage(){
   return (
@@ -154,8 +153,8 @@ export default function PartnersPage(){
               各提供元の条件に沿って個別に確認しながら進めます。
             </p>
             <div className="partners-contact-actions">
-              <a href={operatorUrl} target="_blank" rel="noreferrer">SUMION公式サイト ↗</a>
-              <Link href="/corrections">掲載情報の訂正窓口</Link>
+              <a href={operatorSiteUrl()} target="_blank" rel="noreferrer">SUMION公式サイト ↗</a>
+              <Link href="/corrections">掲載情報の訂正窓口</Link><Link href="/policies">ポリシー・規約</Link>
             </div>
           </div>
         </div>
