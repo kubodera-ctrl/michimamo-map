@@ -27,7 +27,8 @@ async function getApprovedEventTranslations(eventIds:number[],locale:EventSearch
     console.error('get_public_event_translations failed',error.message);
     return new Map();
   }
-  return new Map((Array.isArray(data)?data:[]).map((row:ApprovedEventTranslation)=>[row.event_id,row]));
+  const rows=(Array.isArray(data)?data:[]) as ApprovedEventTranslation[];
+  return new Map<number,ApprovedEventTranslation>(rows.map((row)=>[row.event_id,row] as const));
 }
 
 function overlayTranslation<T extends EventSummary>(event:T,translation:ApprovedEventTranslation|undefined):T{
