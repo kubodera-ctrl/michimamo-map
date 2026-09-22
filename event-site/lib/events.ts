@@ -1,6 +1,62 @@
 import { getPublicSupabase } from './supabase';
 import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, EventSummary, LocationPrecision, PriceType, VenueTypeKey } from './types';
 
+type ApprovedEventTranslation = {
+  event_id:number;
+  locale:'en'|'zh-cn'|'zh-tw'|'ko';
+  title:string;
+  summary:string|null;
+  status_note:string|null;
+  venue_name:string|null;
+  address_text:string|null;
+  price_text:string|null;
+  reservation_text:string|null;
+  organizer_name:string|null;
+  accessibility_notes:string|null;
+  translation_source:'manual'|'provider'|'machine_reviewed';
+  reviewed_at:string|null;
+};
+
+async function getApprovedEventTranslations(eventIds:number[],locale:EventSearchInput['locale']):Promise<Map<number,ApprovedEventTranslation>>{
+  if(!locale || locale==='ja' || !eventIds.length) return new Map();
+  const db=getPublicSupabase();
+  if(!db) return new Map();
+  const unique=[...new Set(eventIds)].slice(0,100);
+  const {data,error}=await db.rpc('get_public_event_translations',{p_event_ids:unique,p_locale:locale});
+  if(error){
+    console.error('get_public_event_translations failed',error.message);
+    return new Map();
+  }
+  return new Map((Array.isArray(data)?data:[]).map((row:ApprovedEventTranslation)=>[row.event_id,row]));
+}
+
+function overlayTranslation<T extends EventSummary>(event:T,translation:ApprovedEventTranslation|undefined):T{
+  if(!translation) return event;
+  const localized:any={
+    ...event,
+    title:translation.title || event.title,
+    summary:translation.summary ?? event.summary,
+    status_note:translation.status_note ?? event.status_note,
+    venue_name:translation.venue_name ?? event.venue_name,
+    address:translation.address_text ?? event.address,
+    price_text:translation.price_text ?? event.price_text,
+    organizer_name:translation.organizer_name ?? event.organizer_name,
+    accessibility_notes:translation.accessibility_notes ?? event.accessibility_notes,
+    translation_locale:translation.locale,
+    translation_source:translation.translation_source
+  };
+  if('reservation_text' in event){
+    localized.reservation_text=translation.reservation_text ?? (event as EventDetail).reservation_text;
+  }
+  return localized as T;
+}
+
+async function localizeEvents<T extends EventSummary>(events:T[],locale:EventSearchInput['locale']):Promise<T[]>{
+  if(!locale || locale==='ja' || !events.length) return events;
+  const translations=await getApprovedEventTranslations(events.map((event)=>event.id),locale);
+  return events.map((event)=>overlayTranslation(event,translations.get(event.id)));
+}
+
 export const CATEGORY_OPTIONS = [
   ['family','親子・子ども'],
   ['festival','お祭り'],
@@ -226,7 +282,8 @@ export async function searchEventsWithStatus(input: EventSearchInput): Promise<E
     return { events: [], error: 'request_failed' };
   }
 
-  return { events: (data ?? []) as EventSummary[], error: null };
+  const events=(data ?? []) as EventSummary[];
+  return { events: await localizeEvents(events,input.locale), error: null };
 }
 
 export async function searchEvents(input: EventSearchInput): Promise<EventSummary[]> {
@@ -261,7 +318,7 @@ export async function searchEventsPage(
   };
 }
 
-export async function getEvent(slug: string): Promise<EventDetail | null> {
+export async function getEvent(slug: string, locale:EventSearchInput['locale']='ja'): Promise<EventDetail | null> {
   const db = getPublicSupabase();
   if (!db) return null;
 
@@ -270,10 +327,12 @@ export async function getEvent(slug: string): Promise<EventDetail | null> {
     console.error('get_public_event failed', error.message);
     return null;
   }
-  return (data || null) as EventDetail | null;
+  const event=(data || null) as EventDetail | null;
+  if(!event) return null;
+  return (await localizeEvents([event],locale))[0] || event;
 }
 
-export async function getEventsBySlugs(slugs:string[]): Promise<EventDetail[]> {
+export async function getEventsBySlugs(slugs:string[],locale:EventSearchInput['locale']='ja'): Promise<EventDetail[]> {
   const db=getPublicSupabase();
   if (!db || !slugs.length) return [];
   const unique=[...new Set(slugs)].slice(0,100);
@@ -282,10 +341,10 @@ export async function getEventsBySlugs(slugs:string[]): Promise<EventDetail[]> {
     console.error('get_public_events_by_slugs failed',error.message);
     return [];
   }
-  return (Array.isArray(data) ? data : []) as EventDetail[];
+  return localizeEvents((Array.isArray(data) ? data : []) as EventDetail[],locale);
 }
 
-export async function getPickupEvents(limit=6): Promise<EventDetail[]> {
+export async function getPickupEvents(limit=6,locale:EventSearchInput['locale']='ja'): Promise<EventDetail[]> {
   const db=getPublicSupabase();
   if(!db) return [];
   const {data,error}=await db.rpc('get_public_machiibe_pickups',{p_limit:Math.min(Math.max(limit,1),12)});
@@ -293,7 +352,7 @@ export async function getPickupEvents(limit=6): Promise<EventDetail[]> {
     console.error('get_public_machiibe_pickups failed',error.message);
     return [];
   }
-  return (Array.isArray(data)?data:[]) as EventDetail[];
+  return localizeEvents((Array.isArray(data)?data:[]) as EventDetail[],locale);
 }
 
 export async function getPublicFacetSitemap(): Promise<Array<{kind:'prefecture'|'category';key:string;updated_at:string;event_count:number}>> {
