@@ -501,7 +501,7 @@
       "production_seed": false
     },
     {
-      "slug": "kamogawa-beluga-50th",
+      "slug": "kamogawa-beluga-50th-2026",
       "title": "ベルーガ50th Anniversary",
       "start_date": "2026-09-01",
       "end_date": "2027-06-30",
@@ -517,7 +517,8 @@
       "publishable": false,
       "image_policy": "not_used",
       "verified_on": "2026-09-22",
-      "production_seed": false
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "meguspa-september-2026",
@@ -1190,6 +1191,6 @@
       "production_seed": false
     }
   ],
-  "production_seed_promoted": 19,
+  "production_seed_promoted": 20,
   "last_reviewed": "2026-09-22"
 }
