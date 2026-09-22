@@ -8,7 +8,7 @@ test('home feature stories keep distinct editorial treatments and responsive col
   const source=read('../components/FeaturedStories.tsx');
   const css=read('../app/globals.css');
 
-  for(const theme of ['weekend','indoor','oshi','free']){
+  for(const theme of ['weekend','indoor','oshi','free','experience','kids']){
     assert.match(source,new RegExp(`theme:'${theme}'`));
     assert.match(css,new RegExp(`\\.featured-story-${theme} \\.featured-story-visual`));
   }
@@ -86,4 +86,25 @@ test('experience search supports broad and specific hands-on genres',()=>{
   assert.match(page,/const experience = one\(params\.experience\)/);
   assert.match(page,/categories: experience \? \[experience\] : category \? \[category\] : undefined/);
   assert.match(page,/experience:experience\|\|undefined/);
+});
+
+
+test('search form keeps common filters visible and advanced filters collapsible',()=>{
+  const filters=read('../components/EventFilters.tsx');
+  const css=read('../app/globals.css');
+
+  assert.match(filters,/すぐ使える条件/);
+  assert.match(filters,/もっと細かく絞り込む/);
+  assert.match(filters,/advancedCount/);
+  assert.match(filters,/open=\{advancedOpen\}/);
+  assert.match(filters,/条件をクリア/);
+  assert.match(css,/\.search-submit-row\{position:sticky/);
+  assert.match(css,/font-size:16px/);
+});
+
+test('home discovery includes direct experience and child-first shortcuts',()=>{
+  const source=read('../components/FeaturedStories.tsx');
+  assert.match(source,/experience=experience/);
+  assert.match(source,/childFocus=1/);
+  assert.match(source,/宝石探し、釣り、ガラス細工、指輪作り/);
 });
