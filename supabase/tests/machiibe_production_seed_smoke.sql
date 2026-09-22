@@ -11,10 +11,12 @@ begin
   where slug in (
     'water-kendama-20260921','water-clown-rio-20260922','water-seoppi-20260923',
     'miraikan-moon-2026','city-circuit-kart-ev-20260923','littleplanet-halloween-divercity-2026',
-    'ariake-quizknock-nazotoki-2026','joypolis-sidem-3-2026','toyosu-kamimaro-202609','dainankyoku-2026'
+    'ariake-quizknock-nazotoki-2026','joypolis-sidem-3-2026','toyosu-kamimaro-202609','dainankyoku-2026',
+    'sunshine-gashapon-tours-2026','tdc-hybrid-training-2026','tdc-toukenranbu-return-2026',
+    'lalaport-jujutsu-5th-2026','kamogawa-beluga-50th-2026','metsa-harvest-2026','metsa-fika-20261004'
   );
-  if n <> 10 then
-    raise exception 'production seed expected 10 events after double-run, got %',n;
+  if n <> 17 then
+    raise exception 'production seed expected 17 events after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -22,10 +24,10 @@ begin
   join public.events e on e.id=eo.event_id
   where e.slug in (
     'water-kendama-20260921','water-clown-rio-20260922','water-seoppi-20260923',
-    'miraikan-moon-2026','toyosu-kamimaro-202609'
+    'miraikan-moon-2026','toyosu-kamimaro-202609','tdc-hybrid-training-2026'
   );
-  if n <> 32 then
-    raise exception 'production seed expected 32 occurrences after double-run, got %',n;
+  if n <> 38 then
+    raise exception 'production seed expected 38 occurrences after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -41,6 +43,13 @@ begin
   select public.get_public_event('ariake-quizknock-nazotoki-2026') into payload;
   if payload is null or not (payload->'fandom_slugs' ? 'quizknock') then
     raise exception 'production seed QuizKnock relation missing';
+  end if;
+
+  if not (public.get_public_event('lalaport-jujutsu-5th-2026')->'fandom_slugs' ? 'jujutsu-kaisen')
+     or not (public.get_public_event('tdc-toukenranbu-return-2026')->'fandom_slugs' ? 'touken-ranbu')
+     or not (public.get_public_event('metsa-harvest-2026')->'fandom_slugs' ? 'moomin')
+  then
+    raise exception 'production seed additional fandom links missing';
   end if;
 
   if exists(
