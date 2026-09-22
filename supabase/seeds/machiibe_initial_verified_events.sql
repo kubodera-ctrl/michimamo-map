@@ -451,4 +451,21 @@ on conflict(source_id,source_event_key) do update set
   source_updated_at=excluded.source_updated_at,
   updated_at=now();
 
+-- Venue type normalization for initial verified seed.
+update public.events set venue_type_keys=array['culture_public'] where slug in (
+  'water-kendama-20260921','water-clown-rio-20260922','water-seoppi-20260923',
+  'miraikan-moon-2026','dainankyoku-2026'
+);
+update public.events set venue_type_keys=array['amusement'] where slug in (
+  'city-circuit-kart-ev-20260923','joypolis-sidem-3-2026',
+  'tdc-toukenranbu-return-2026','kamogawa-beluga-50th-2026',
+  'metsa-harvest-2026','metsa-fika-20261004'
+);
+update public.events set venue_type_keys=array['mall','amusement'] where slug='littleplanet-halloween-divercity-2026';
+update public.events set venue_type_keys=array['mall'] where slug in (
+  'ariake-quizknock-nazotoki-2026','toyosu-kamimaro-202609','lalaport-jujutsu-5th-2026'
+);
+update public.events set venue_type_keys=array['mall','event_venue_indoor'] where slug='sunshine-gashapon-tours-2026';
+update public.events set venue_type_keys=array['amusement','event_venue_outdoor'] where slug='tdc-hybrid-training-2026';
+
 commit;
