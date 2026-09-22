@@ -11,7 +11,8 @@ export const metadata:Metadata={
 
 const policies=[
   {href:'/terms',title:'利用規約',body:'まちイベを利用する際の基本ルール、禁止事項、外部サービス、知的財産、変更・停止等。'},
-  {href:'/privacy',title:'プライバシーポリシー',body:'端末保存、アクセス解析、Cookie・外部送信、問い合わせ情報、保存期間、安全管理等。'},
+  {href:'/privacy',title:'プライバシーポリシー',body:'端末保存、アクセス解析、Cookie・問い合わせ情報、保存期間、安全管理等。'},
+  {href:'/external-transmission',title:'外部送信について',body:'Google Analytics、Supabase、OpenStreetMap等への外部通信と利用目的。'},
   {href:'/data-policy',title:'イベント情報・データポリシー',body:'情報源、API・RSS・公式URL、確認・自動更新・重複統合・公開基準・画像利用等。'},
   {href:'/advertising-policy',title:'広告・アフィリエイトポリシー',body:'PR・広告表示、ASPリンク、スポンサー枠と通常検索結果の分離、編集方針。'},
   {href:'/copyright',title:'著作権・商標・リンク方針',body:'まちイベ独自コンテンツ、第三者の名称・画像・ロゴ、引用、リンクに関する方針。'},
