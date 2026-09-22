@@ -190,6 +190,7 @@ detected as (
 source_health as (
   select
     s.id,s.name,s.source_kind,s.prefecture,s.municipality,
+    s.terms_review_status,s.acquisition_mode,s.automated_fetch_allowed,s.coverage_scope,s.coverage_estimate,
     s.fetch_status,s.last_success_at,s.last_failure_at,s.consecutive_failures,
     s.is_active,s.last_reviewed_at,
     count(e.id)::bigint as event_count,
@@ -197,6 +198,7 @@ source_health as (
   from public.regional_sources s
   left join public.events e on e.source_id=s.id
   group by s.id,s.name,s.source_kind,s.prefecture,s.municipality,
+    s.terms_review_status,s.acquisition_mode,s.automated_fetch_allowed,s.coverage_scope,s.coverage_estimate,
     s.fetch_status,s.last_success_at,s.last_failure_at,s.consecutive_failures,
     s.is_active,s.last_reviewed_at
   order by
