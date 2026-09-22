@@ -14,7 +14,7 @@ const stories=[
     eyebrow:'INDOOR',
     title:'雨の日も暑い日も。室内おでかけ',
     description:'天候に左右されにくい、親子向けの屋内イベントをチェック。',
-    href:'/guide/today-indoor-family',
+    href:'/?when=today&rainy=1',
     mark:'02',
     visual:'INSIDE',
     theme:'indoor'
