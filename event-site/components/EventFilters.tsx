@@ -8,16 +8,18 @@ import {
   PRICE_OPTIONS,
   SORT_OPTIONS
 } from '@/lib/events';
+import type {VenueTypeKey} from '@/lib/types';
 import { PREFECTURES } from '@/lib/prefectures';
 import Link from 'next/link';
 import { SaveSearchButton } from './SaveSearchButton';
+import {VenueTypeSelector} from './VenueTypeSelector';
 
 type Props = {
   values: {
     dateMode: string; customStart:string; customEnd:string; prefecture: string; keyword: string; excludeWords: string;
     category: string; experience:string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
-    familyFriendlyOnly: boolean; rainyDayOnly:boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
+    familyFriendlyOnly: boolean; rainyDayOnly:boolean; excludeAdultOriented: boolean; indoorOnly: boolean; venueTypes:VenueTypeKey[]; venueFilterActive:boolean; sort: string;
   };
 };
 
@@ -71,6 +73,8 @@ export function EventFilters({ values }: Props) {
           <option value="">指定なし</option>{AGE_OPTIONS.map(([key,label]) => <option key={key} value={key}>{label}</option>)}
         </select></label>
       </div>
+
+      <VenueTypeSelector selected={values.venueTypes} active={values.venueFilterActive} />
 
       <div className="quick-filter-block">
         <div className="quick-filter-title"><strong>すぐ使える条件</strong><small>よく使うものだけ先に選べます</small></div>
