@@ -108,3 +108,22 @@ test('home discovery includes direct experience and child-first shortcuts',()=>{
   assert.match(source,/childFocus=1/);
   assert.match(source,/宝石探し、釣り、ガラス細工、指輪作り/);
 });
+
+
+test('Machimamo handoff is visible without overwhelming event search',()=>{
+  const home=read('../app/page.tsx');
+  const bridge=read('../components/MachimamoBridge.tsx');
+  const detail=read('../app/events/[slug]/page.tsx');
+  const layout=read('../app/layout.tsx');
+
+  assert.match(home,/MachimamoBridge/);
+  assert.match(bridge,/行き先を決めたら、当日の安心は「まちまも」へ/);
+  assert.match(bridge,/暑さ指数/);
+  assert.match(bridge,/AED/);
+  assert.match(bridge,/交番・警察署/);
+  assert.match(bridge,/searchParams\.set\('from','machiibe'\)/);
+  assert.match(detail,/searchParams\.set\('from','machiibe'\)/);
+  assert.match(detail,/searchParams\.set\('eventSlug',event\.slug\)/);
+  assert.match(detail,/まちまもで会場周辺を見る/);
+  assert.match(layout,/まちまも 安全MAP/);
+});
