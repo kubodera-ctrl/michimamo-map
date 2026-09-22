@@ -27,6 +27,7 @@ export function SaveSearchButton() {
     const pieces=[
       selectedText(form,'prefecture'),
       selectedText(form,'category'),
+      selectedText(form,'experience'),
       selectedText(form,'age'),
       selectedText(form,'price'),
       selectedText(form,'oshi')
