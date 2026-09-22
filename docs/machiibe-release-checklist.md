@@ -128,3 +128,42 @@
 - [ ] Supabase advisory再確認
 - [ ] X/TikTok実投稿1件ずつ目視
 - [ ] まちまもMAP連携1件実走
+
+
+## ポリシー・法務導線
+
+### Round A — 内容・実装
+- [ ] /policies から全ポリシーへ到達できる
+- [ ] 利用規約
+- [ ] プライバシーポリシー
+- [ ] 外部送信について
+- [ ] イベント情報・データポリシー
+- [ ] 広告・アフィリエイトポリシー
+- [ ] 著作権・商標・リンク方針
+- [ ] 免責事項
+- [ ] アクセシビリティ方針
+- [ ] 訂正・掲載停止・権利侵害申告
+- [ ] 運営者情報
+- [ ] footerから主要ポリシーへ到達できる
+- [ ] PR/広告枠には広告と分かる表示がある
+- [ ] アフィリエイト導入時も対象リンク付近の表示が明瞭
+- [ ] raw検索語をGoogle Analyticsへ送らない
+- [ ] Google Analytics / Supabase / OpenStreetMapの外部送信説明が実装と一致
+- [ ] 画像・ロゴは利用条件確認前に公開しない
+- [ ] facts-only確認と自動取得許諾をDB上で別管理
+
+### Round B — 設定
+- [ ] NEXT_PUBLIC_OPERATOR_SITE_URL
+- [ ] NEXT_PUBLIC_CONTACT_URL
+- [ ] NEXT_PUBLIC_CORRECTION_FORM_URL
+- [ ] NEXT_PUBLIC_GA_MEASUREMENT_IDの実設定と外部送信説明が一致
+- [ ] β期間はNEXT_PUBLIC_ALLOW_INDEXING=false
+- [ ] β期間のsitemapが空
+- [ ] /partnersは公開後もnoindex
+
+### Round C — 本公開直前
+- [ ] ポリシー最終更新日を確認
+- [ ] 実際に導入したASP/広告事業者に合わせて広告方針を再確認
+- [ ] 新たな外部SDK/埋め込みが増えていないか確認
+- [ ] 直接販売機能を追加した場合は必要な販売事業者表示を追加
+- [ ] 主催者投稿機能を追加した場合は投稿者向け規約・権利保証条項を追加
