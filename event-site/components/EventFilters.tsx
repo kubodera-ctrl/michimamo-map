@@ -15,7 +15,7 @@ type Props = {
     dateMode: string; customStart:string; customEnd:string; prefecture: string; keyword: string; excludeWords: string;
     category: string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
-    familyFriendlyOnly: boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
+    familyFriendlyOnly: boolean; rainyDayOnly:boolean; excludeAdultOriented: boolean; indoorOnly: boolean; sort: string;
   };
 };
 
@@ -93,7 +93,7 @@ export function EventFilters({ values }: Props) {
       </div>
 
       <div className="toggle-row">
-        <label className="check-chip"><input type="checkbox" name="indoor" value="1" defaultChecked={values.indoorOnly} />屋内だけ</label>
+        <label className="check-chip check-chip-rainy"><input type="checkbox" name="rainy" value="1" defaultChecked={values.rainyDayOnly} />☔ 雨の日の室内遊び</label>\n        <label className="check-chip"><input type="checkbox" name="indoor" value="1" defaultChecked={values.indoorOnly} />屋内だけ</label>
         <label className="check-chip check-chip-accessibility"><input type="checkbox" name="accessibility" value="1" defaultChecked={values.accessibilityOnly} />障害者向け・配慮情報あり</label>
         <label className="check-chip"><input type="checkbox" name="childFocus" value="1" defaultChecked={values.childFocusOnly} />子どもが主役</label>
         <label className="check-chip"><input type="checkbox" name="family" value="1" defaultChecked={values.familyFriendlyOnly} />ファミリー向け</label>
