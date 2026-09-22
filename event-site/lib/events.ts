@@ -1,5 +1,5 @@
 import { getPublicSupabase } from './supabase';
-import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, EventSummary, LocationPrecision, PriceType } from './types';
+import type { EventDetail, EventPageResult, EventSearchInput, EventSearchResult, EventStatus, EventSummary, LocationPrecision, PriceType, VenueTypeKey } from './types';
 
 export const CATEGORY_OPTIONS = [
   ['family','親子・子ども'],
@@ -14,6 +14,19 @@ export const CATEGORY_OPTIONS = [
   ['sports','スポーツ'],
   ['art','アート・文化']
 ] as const;
+
+export const VENUE_TYPE_OPTIONS: ReadonlyArray<readonly [VenueTypeKey,string]> = [
+  ['park_plaza','🌳 公園・広場'],
+  ['mall','🛍 モール・商業施設'],
+  ['event_venue_indoor','🏢 イベント会場（屋内）'],
+  ['event_venue_outdoor','🎪 イベント会場（屋外）'],
+  ['hotel','🏨 ホテル・宿泊施設'],
+  ['amusement','🎡 レジャー・アミューズメント'],
+  ['culture_public','🏛 文化・公共施設'],
+  ['other','📍 その他']
+];
+
+export const VENUE_TYPE_LABELS=Object.fromEntries(VENUE_TYPE_OPTIONS) as Record<VenueTypeKey,string>;
 
 export const EXPERIENCE_OPTIONS = [
   ['experience_gem','宝石・鉱物・化石探し'],
@@ -201,6 +214,8 @@ export async function searchEventsWithStatus(input: EventSearchInput): Promise<E
     p_created_after: input.createdAfter || null,
     p_exclude_adult_oriented: input.excludeAdultOriented || false,
     p_indoor_only: input.indoorOnly || false,
+    p_venue_types: input.venueTypes ?? null,
+    p_venue_filter_active: input.venueFilterActive || false,
     p_sort: input.sort || 'recommended',
     p_limit: input.limit ?? 60,
     p_offset: input.offset ?? 0
