@@ -54,7 +54,7 @@ export async function POST(request:Request){
   const {data:source,error:sourceError}=await db.from('regional_sources').select('event_use_allowed,terms_review_status,is_active').eq('id',event.source_id).maybeSingle();
   if(sourceError||!source) return fail('source');
 
-  if(publicationStatus==='published' && (verificationStatus!=='verified' || !source.event_use_allowed || source.terms_review_status!=='reviewed_allowed' || !source.is_active)) {
+  if(publicationStatus==='published' && (verificationStatus!=='verified' || !source.event_use_allowed || !['reviewed_facts_only','reviewed_allowed'].includes(source.terms_review_status) || !source.is_active)) {
     return fail('publish-gate');
   }
 
