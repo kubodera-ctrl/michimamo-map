@@ -6,6 +6,7 @@ import { buildXShareUrl } from '@/lib/share';
 import { siteUrl } from '@/lib/seo';
 import { CATEGORY_OPTIONS, PRICE_LABELS } from '@/lib/events';
 import { isSameOriginRequest } from '@/lib/request-security';
+import {MACHIIBE_SOCIAL_MASTER} from '@/lib/machiibe-social-master';
 
 export const runtime='nodejs';
 
@@ -62,7 +63,7 @@ export async function GET(request:Request){
     conditionText:conditions,
     dateText:formatDate(event.start_date,event.end_date),
     timeText:formatTime(event.start_time,event.end_time),
-    summary:event.summary||undefined,
+    summary:[event.summary,MACHIIBE_SOCIAL_MASTER.copy.cta.machiibe,MACHIIBE_SOCIAL_MASTER.copy.cta.machimamo].filter(Boolean).join(' / '),
     pageUrl:siteUrl(`/events/${slug}`),
     hashtags:['イベント情報']
   }),302);
