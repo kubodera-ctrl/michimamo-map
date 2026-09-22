@@ -31,6 +31,8 @@ export const metadata: Metadata = {
 const websiteJsonLd={'@context':'https://schema.org','@type':'WebSite',name:SITE_NAME,alternateName:'まちイベ by まちまも',url:siteUrl('/'),inLanguage:'ja-JP',description:SITE_DESCRIPTION,publisher:{'@type':'Organization',name:'SUMION合同会社',sameAs:[xAccountUrl()]}};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const machimamoUrl=new URL(machimamoMapUrl());
+  machimamoUrl.searchParams.set('from','machiibe');
   return (
     <html lang="ja">
       <body>
@@ -56,14 +58,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link className="header-mini-link" href="/saved">♡ 行きたい</Link>
               <Link className="header-mini-link" href="/saved-searches">☆ 保存検索</Link>
               <Link className="header-mini-link" href="/plan">📅 予定</Link>
-              <TrackedLink className="map-link" href={machimamoMapUrl()} metric="machimamo_map">まちまもMAP</TrackedLink>
+              <TrackedLink className="map-link" href={machimamoUrl.toString()} metric="machimamo_map">まちまも 安全MAP</TrackedLink>
             </nav>
           </div>
         </header>
         <div id="main-content" tabIndex={-1}>{children}</div>
         <footer className="site-footer">
           <div><strong>まちイベ</strong><p>掲載内容は変更される場合があります。来場前に必ず主催者・公式サイトの最新情報をご確認ください。</p></div>
-          <div className="footer-links"><Link href="/partners">まちイベについて</Link><Link href="/policies">ポリシー・規約</Link><Link href="/terms">利用規約</Link><Link href="/privacy">プライバシー</Link><Link href="/corrections">訂正・掲載停止</Link><Link href="/operator">運営者情報</Link><Link href="/saved">行きたい一覧</Link><a href={xAccountUrl()} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={machimamoMapUrl()} metric="machimamo_map">周辺の安全情報を見る</TrackedLink></div>
+          <div className="footer-links"><Link href="/partners">まちイベについて</Link><Link href="/policies">ポリシー・規約</Link><Link href="/terms">利用規約</Link><Link href="/privacy">プライバシー</Link><Link href="/corrections">訂正・掲載停止</Link><Link href="/operator">運営者情報</Link><Link href="/saved">行きたい一覧</Link><a href={xAccountUrl()} target="_blank" rel="me noreferrer">𝕏 @machiibe01</a><TrackedLink href={machimamoUrl.toString()} metric="machimamo_map">まちまもで安全情報を見る</TrackedLink></div>
         </footer>
       </body>
     </html>
