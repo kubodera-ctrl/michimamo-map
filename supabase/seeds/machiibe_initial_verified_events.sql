@@ -7,21 +7,22 @@ begin;
 
 insert into public.regional_sources(
   source_key,name,source_kind,homepage_url,data_url,prefecture,municipality,
-  event_use_allowed,image_policy,fetch_status,last_success_at,notes,is_active,last_reviewed_at
+  event_use_allowed,terms_review_status,acquisition_mode,automated_fetch_allowed,coverage_scope,coverage_estimate,
+  image_policy,fetch_status,last_success_at,notes,is_active,last_reviewed_at
 ) values
-('official-mizunokagaku','東京都水の科学館','manual','https://www.mizunokagaku.jp/','https://www.mizunokagaku.jp/event/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-miraikan','日本科学未来館','manual','https://www.miraikan.jst.go.jp/','https://www.miraikan.jst.go.jp/events/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-city-circuit','CITY CIRCUIT TOKYO BAY','manual','https://city-circuit.com/','https://city-circuit.com/news/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-littleplanet','リトルプラネット','manual','https://litpla.com/','https://litpla.com/news/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-ariake-garden','有明ガーデン','manual','https://ariake.shopping-sumitomo-rd.com/','https://ariake.shopping-sumitomo-rd.com/event/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-joypolis','東京ジョイポリス','manual','https://tokyo-joypolis.com/','https://tokyo-joypolis.com/event/','東京都','港区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-toyosu-senkyaku','豊洲 千客万来','manual','https://www.toyosu-senkyakubanrai.jp/','https://www.toyosu-senkyakubanrai.jp/event_news','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-dainankyoku','特別展「大南極展」公式サイト','manual','https://dainankyokuten.jp/','https://dainankyokuten.jp/','東京都','江東区',true,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
-('official-sunshine-city','サンシャインシティ','manual','https://sunshinecity.jp/','https://sunshinecity.jp/event/','東京都','豊島区',true,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
-('official-tokyo-dome-city','東京ドームシティ','manual','https://www.tokyo-dome.co.jp/','https://www.tokyo-dome.co.jp/event/','東京都','文京区',true,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
-('official-lalaport-tokyobay','ららぽーとTOKYO-BAY','manual','https://mitsui-shopping-park.com/lalaport/tokyo-bay/','https://mitsui-shopping-park.com/lalaport/tokyo-bay/event/','千葉県','船橋市',true,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
-('official-kamogawa-seaworld','鴨川シーワールド','manual','https://www.kamogawa-seaworld.jp/','https://www.kamogawa-seaworld.jp/event/','千葉県','鴨川市',true,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
-('official-metsa','ムーミンバレーパーク・メッツァビレッジ','manual','https://metsa-hanno.com/','https://metsa-hanno.com/event/','埼玉県','飯能市',true,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now())
+('official-mizunokagaku','東京都水の科学館','manual','https://www.mizunokagaku.jp/','https://www.mizunokagaku.jp/event/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-miraikan','日本科学未来館','manual','https://www.miraikan.jst.go.jp/','https://www.miraikan.jst.go.jp/events/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-city-circuit','CITY CIRCUIT TOKYO BAY','manual','https://city-circuit.com/','https://city-circuit.com/news/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-littleplanet','リトルプラネット','manual','https://litpla.com/','https://litpla.com/news/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-ariake-garden','有明ガーデン','manual','https://ariake.shopping-sumitomo-rd.com/','https://ariake.shopping-sumitomo-rd.com/event/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-joypolis','東京ジョイポリス','manual','https://tokyo-joypolis.com/','https://tokyo-joypolis.com/event/','東京都','港区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-toyosu-senkyaku','豊洲 千客万来','manual','https://www.toyosu-senkyakubanrai.jp/','https://www.toyosu-senkyakubanrai.jp/event_news','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-dainankyoku','特別展「大南極展」公式サイト','manual','https://dainankyokuten.jp/','https://dainankyokuten.jp/','東京都','江東区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official page used as factual source; no source prose/media copied.',true,now()),
+('official-sunshine-city','サンシャインシティ','manual','https://sunshinecity.jp/','https://sunshinecity.jp/event/','東京都','豊島区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
+('official-tokyo-dome-city','東京ドームシティ','manual','https://www.tokyo-dome.co.jp/','https://www.tokyo-dome.co.jp/event/','東京都','文京区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
+('official-lalaport-tokyobay','ららぽーとTOKYO-BAY','manual','https://mitsui-shopping-park.com/lalaport/tokyo-bay/','https://mitsui-shopping-park.com/lalaport/tokyo-bay/event/','千葉県','船橋市',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
+('official-kamogawa-seaworld','鴨川シーワールド','manual','https://www.kamogawa-seaworld.jp/','https://www.kamogawa-seaworld.jp/event/','千葉県','鴨川市',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
+('official-metsa','ムーミンバレーパーク・メッツァビレッジ','manual','https://metsa-hanno.com/','https://metsa-hanno.com/event/','埼玉県','飯能市',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now())
 on conflict(source_key) do update set
   name=excluded.name,
   homepage_url=excluded.homepage_url,
@@ -29,6 +30,11 @@ on conflict(source_key) do update set
   prefecture=excluded.prefecture,
   municipality=excluded.municipality,
   event_use_allowed=excluded.event_use_allowed,
+  terms_review_status=excluded.terms_review_status,
+  acquisition_mode=excluded.acquisition_mode,
+  automated_fetch_allowed=excluded.automated_fetch_allowed,
+  coverage_scope=excluded.coverage_scope,
+  coverage_estimate=excluded.coverage_estimate,
   image_policy=excluded.image_policy,
   fetch_status=excluded.fetch_status,
   last_success_at=excluded.last_success_at,
