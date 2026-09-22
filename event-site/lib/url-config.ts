@@ -32,3 +32,18 @@ export function xAccountUrl(){
   return normalizePublicUrl(process.env.NEXT_PUBLIC_X_ACCOUNT_URL,{httpsOnly:true})
     || 'https://x.com/machiibe01';
 }
+
+
+export function operatorSiteUrl(){
+  return normalizePublicUrl(process.env.NEXT_PUBLIC_OPERATOR_SITE_URL,{httpsOnly:true})
+    || 'https://sites.google.com/sumion.net/sumion/home?authuser=0&pli=1';
+}
+
+export function contactUrl(){
+  return normalizePublicUrl(process.env.NEXT_PUBLIC_CONTACT_URL,{httpsOnly:true})
+    || operatorSiteUrl();
+}
+
+export function correctionFormUrl(){
+  return normalizePublicUrl(process.env.NEXT_PUBLIC_CORRECTION_FORM_URL,{httpsOnly:true});
+}
