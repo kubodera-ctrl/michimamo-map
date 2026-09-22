@@ -62,8 +62,8 @@ test('candidate pool has useful regional and rainy-day coverage',()=>{
 test('only detail-verified candidates are promoted into production seed',()=>{
   const pool=readJson('../../data/machiibe/candidate_events_kanto_v1.json');
   const promoted=pool.candidates.filter((event:any)=>event.production_seed===true);
-  assert.equal(promoted.length,7);
-  assert.equal(pool.production_seed_promoted,7);
+  assert.equal(promoted.length,20);
+  assert.equal(pool.production_seed_promoted,20);
   for(const event of promoted){
     assert.equal(event.review_state,'detail_verified',`non-detail candidate promoted: ${event.slug}`);
     assert.match(event.seed_note,/official-detail recheck/i);
