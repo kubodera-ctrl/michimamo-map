@@ -51,7 +51,7 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
     items: [
       ['chiikawa','ちいかわ'],['pokemon','ポケモン'],['sanrio','サンリオ'],
       ['hello-kitty','ハローキティ'],['kuromi','クロミ'],['cinnamoroll','シナモロール'],
-      ['sumikkogurashi','すみっコぐらし'],['moomin','ムーミン'],['doraemon','ドラえもん'],['anpanman','アンパンマン'],
+      ['sumikkogurashi','すみっコぐらし'],['moomin','ムーミン'],['odekake-kozame','おでかけ子ザメ'],['doraemon','ドラえもん'],['anpanman','アンパンマン'],
       ['crayon-shinchan','クレヨンしんちゃん'],['miffy','ミッフィー'],
       ['paw-patrol','パウ・パトロール'],['thomas','きかんしゃトーマス'],
       ['sylvanian-families','シルバニアファミリー'],['tamagotchi','たまごっち']
@@ -66,7 +66,7 @@ export const FANDOM_GROUPS: ReadonlyArray<{ label: string; items: ReadonlyArray<
       ['naruto','NARUTO'],['bleach','BLEACH'],['gintama','銀魂'],
       ['prince-of-tennis','テニスの王子様'],['kuroko-basketball','黒子のバスケ'],
       ['world-trigger','ワールドトリガー'],['blue-exorcist','青の祓魔師'],
-      ['chainsaw-man','チェンソーマン'],['sakamoto-days','SAKAMOTO DAYS'],['dr-stone','Dr.STONE']
+      ['chainsaw-man','チェンソーマン'],['sakamoto-days','SAKAMOTO DAYS'],['dr-stone','Dr.STONE'],['space-brothers','宇宙兄弟'],['galaxy-express-999','銀河鉄道999']
     ]
   },
   {
