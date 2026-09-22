@@ -20,7 +20,9 @@ export function SaveSearchButton() {
     const params=new URLSearchParams();
     for(const [key,value] of data.entries()) {
       const text=String(value).trim();
-      if(text) params.set(key,text);
+      if(!text) continue;
+      if(key==='venue') params.append(key,text);
+      else params.set(key,text);
     }
     params.delete('page');
     params.delete('since');
@@ -32,6 +34,11 @@ export function SaveSearchButton() {
       selectedText(form,'price'),
       selectedText(form,'oshi')
     ].filter((v)=>v && !['全国','すべて','指定なし'].includes(v));
+    const venueLabels=[...form.querySelectorAll<HTMLInputElement>('input[name="venue"]:checked')]
+      .map((input)=>input.closest('label')?.textContent?.trim()||'')
+      .filter(Boolean);
+    const venueTotal=form.querySelectorAll('input[name="venue"]').length;
+    if(venueLabels.length>0 && venueLabels.length<venueTotal) pieces.push(venueLabels.slice(0,2).join('・'));
     const q=String(data.get('q')||'').trim();
     const oshiKeyword=String(data.get('oshiKeyword')||'').trim();
     if(oshiKeyword) pieces.unshift(oshiKeyword);
