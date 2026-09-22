@@ -84,7 +84,8 @@ E5: PR・スポンサー・収益化
   - 逆順日付は自動正規化
   - 最大400日間に制限
   - ページ送り・保存検索にも日付条件を保持
-- 本番初期投入用seed: `supabase/seeds/machiibe_initial_verified_events.sql`\n- verified batch2: `supabase/seeds/machiibe_verified_events_batch2.sql`
+- 本番初期投入用seed: `supabase/seeds/machiibe_initial_verified_events.sql`
+- verified batch2: `supabase/seeds/machiibe_verified_events_batch2.sql`
   - 2026-09-21〜22に公式ページを再確認した30件（初期17件 + verified batch2 13件）
   - イベント画像は一切転載せず `image_usage_status=not_used`
   - 2回実行しても重複しないidempotent設計
@@ -157,3 +158,44 @@ E5: PR・スポンサー・収益化
 - 全国化・定期更新・差分確認・重複統合・確認後公開の方針を説明
 - 出典保持、規約確認、画像権利、訂正/掲載停止の運用方針を説明
 - 公開前の営業・問い合わせ用途のためページ単体は `noindex,follow`
+
+
+## 公開ポリシー・法務導線
+
+公開前に以下を実装し、`/policies` から一元案内する。
+
+- `/terms` 利用規約
+- `/privacy` プライバシーポリシー
+- `/external-transmission` 外部送信について
+- `/data-policy` イベント情報・データポリシー
+- `/advertising-policy` 広告・アフィリエイトポリシー
+- `/copyright` 著作権・商標・リンク方針
+- `/disclaimer` 免責事項
+- `/accessibility` アクセシビリティ方針
+- `/corrections` 訂正・掲載停止・権利侵害申告
+- `/operator` 運営者情報
+
+### 公開制御
+
+- β期間中は全ポリシーページも `NEXT_PUBLIC_ALLOW_INDEXING=false` に従いnoindex
+- sitemapはindex許可前は空配列
+- `/partners` は問い合わせ・営業用途のため公開後もページ単体でnoindex
+- 本公開後のみ一般ポリシーをsitemapへ追加
+
+### 情報源ガバナンス
+
+`regional_sources` では以下を分離管理する。
+
+- `terms_review_status`
+  - `pending`
+  - `reviewed_facts_only`（公式ページの事実項目を手動確認して利用）
+  - `reviewed_allowed`（確認済み条件の範囲でAPI/RSS/自動取得等を許可可能）
+  - `reviewed_restricted`
+  - `contact_required`
+- `acquisition_mode`
+  - manual_facts_only / discovery_only / official_page_monitor / official_api / open_data / rss / partner_feed
+- `automated_fetch_allowed`
+
+重要：**手動の事実確認OKと、自動取得・転載・API再利用の許諾は同一扱いにしない。**
+
+自動取得は `reviewed_allowed` かつ許可済み取得方式でなければDB制約上ONにできない。
