@@ -1069,3 +1069,28 @@ body::before{
 .admin-master-copy{font-size:12px;line-height:1.8;color:#52677a}
 @media(max-width:900px){.social-master-frame-grid{grid-template-columns:1fr 1fr}.social-master-frame-grid article:last-child{grid-column:1/-1}}
 @media(max-width:520px){.social-master-frame-grid{grid-template-columns:1fr}.social-master-frame-grid article:last-child{grid-column:auto}}
+
+
+/* Venue type multi-select */
+.venue-filter-block{margin-top:14px;padding:15px;border:1px solid #dce7ee;border-radius:18px;background:linear-gradient(145deg,#fbfdff,#f6fbfe)}
+.venue-filter-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.venue-filter-head>div:first-child{display:flex;flex-direction:column;gap:2px}
+.venue-filter-head strong{font-size:12px;color:#334155}
+.venue-filter-head small{font-size:10px;color:#718093}
+.venue-filter-actions{display:flex;gap:6px}
+.venue-filter-actions button{min-height:32px;border:1px solid #cadce7;border-radius:999px;background:#fff;padding:5px 10px;color:#476579;font-size:10px;font-weight:900;cursor:pointer}
+.venue-filter-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:11px}
+.venue-check-chip{position:relative;display:flex;align-items:center;min-height:42px;border:1px solid #d6e2ea;border-radius:13px;background:#fff;padding:8px 10px;cursor:pointer;user-select:none;transition:.15s border-color,.15s background,.15s transform}
+.venue-check-chip:has(input:checked){border-color:#82c4e8;background:#eaf8ff;box-shadow:0 0 0 2px rgba(41,168,239,.07)}
+.venue-check-chip:active{transform:scale(.985)}
+.venue-check-chip input{width:16px;height:16px;margin:0 8px 0 0;accent-color:#168bc8}
+.venue-check-chip span{font-size:11px;font-weight:850;line-height:1.35;color:#3e5669}
+.venue-filter-empty{margin:9px 0 0;color:#b45309;font-size:10px;font-weight:800}
+@media(max-width:760px){
+  .venue-filter-grid{grid-template-columns:1fr 1fr}
+  .venue-filter-head{align-items:flex-start}
+  .venue-check-chip{min-height:46px}
+}
+@media(max-width:380px){
+  .venue-filter-grid{grid-template-columns:1fr}
+}
