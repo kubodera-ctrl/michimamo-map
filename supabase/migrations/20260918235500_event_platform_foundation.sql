@@ -19,7 +19,7 @@ create table if not exists public.regional_sources (
   terms_review_status text not null default 'pending'
     check (terms_review_status in ('pending','reviewed_allowed','reviewed_restricted','contact_required')),
   acquisition_mode text not null default 'manual_facts_only'
-    check (acquisition_mode in ('manual_facts_only','discovery_only','official_api','open_data','rss','partner_feed')),
+    check (acquisition_mode in ('manual_facts_only','discovery_only','official_page_monitor','official_api','open_data','rss','partner_feed')),
   automated_fetch_allowed boolean not null default false,
   coverage_scope text,
   coverage_estimate integer check (coverage_estimate is null or coverage_estimate >= 0),
@@ -34,7 +34,17 @@ create table if not exists public.regional_sources (
   is_active boolean not null default true,
   last_reviewed_at timestamptz,
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+  constraint regional_sources_terms_gate_ck
+    check (not event_use_allowed or terms_review_status='reviewed_allowed'),
+  constraint regional_sources_automation_gate_ck
+    check (
+      not automated_fetch_allowed
+      or (
+        terms_review_status='reviewed_allowed'
+        and acquisition_mode in ('official_page_monitor','official_api','open_data','rss','partner_feed')
+      )
+    )
 );
 
 create table if not exists public.events (
