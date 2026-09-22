@@ -66,3 +66,24 @@ test('rainy-day shortcut combines indoor and family-safe filters',()=>{
   assert.match(page,/rainy:rainyDayOnly\?'1':undefined/);
   assert.match(stories,/\?when=today&rainy=1/);
 });
+
+
+test('experience search supports broad and specific hands-on genres',()=>{
+  const events=read('../lib/events.ts');
+  const filters=read('../components/EventFilters.tsx');
+  const page=read('../app/page.tsx');
+
+  assert.match(events,/\['experience','体験・ものづくり'\]/);
+  for(const key of [
+    'experience_gem','experience_fishing','experience_glass','experience_ring',
+    'experience_pottery','experience_food','experience_farm','experience_animal',
+    'experience_science','experience_traditional','experience_factory','experience_outdoor'
+  ]){
+    assert.ok(events.includes(`['${key}'`),`missing experience taxonomy: ${key}`);
+  }
+  assert.match(filters,/name="experience"/);
+  assert.match(filters,/体験をすべて見る/);
+  assert.match(page,/const experience = one\(params\.experience\)/);
+  assert.match(page,/categories: experience \? \[experience\] : category \? \[category\] : undefined/);
+  assert.match(page,/experience:experience\|\|undefined/);
+});
