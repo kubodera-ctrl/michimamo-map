@@ -10,8 +10,8 @@ insert into public.regional_sources(
   event_use_allowed,terms_review_status,acquisition_mode,automated_fetch_allowed,coverage_scope,coverage_estimate,
   image_policy,fetch_status,last_success_at,notes,is_active,last_reviewed_at
 ) values
-('official-tokyo-solamachi','東京ソラマチ','manual','https://www.tokyo-solamachi.jp/','https://www.tokyo-solamachi.jp/event/list/','東京都','墨田区',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
-('official-tokorozawa-sakuratown','ところざわサクラタウン','manual','https://tokorozawa-sakuratown.com/','https://tokorozawa-sakuratown.com/event_all/','埼玉県','所沢市',true,'reviewed_allowed','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now())
+('official-tokyo-solamachi','東京ソラマチ','manual','https://www.tokyo-solamachi.jp/','https://www.tokyo-solamachi.jp/event/list/','東京都','墨田区',true,'reviewed_facts_only','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now()),
+('official-tokorozawa-sakuratown','ところざわサクラタウン','manual','https://tokorozawa-sakuratown.com/','https://tokorozawa-sakuratown.com/event_all/','埼玉県','所沢市',true,'reviewed_facts_only','manual_facts_only',false,'single_venue',null,'not_used','healthy',now(),'Official event page used as factual source; no source prose/media copied.',true,now())
 on conflict(source_key) do update set
   name=excluded.name,
   homepage_url=excluded.homepage_url,
@@ -19,7 +19,7 @@ on conflict(source_key) do update set
   prefecture=excluded.prefecture,
   municipality=excluded.municipality,
   event_use_allowed=true,
-  terms_review_status='reviewed_allowed',
+  terms_review_status='reviewed_facts_only',
   acquisition_mode='manual_facts_only',
   automated_fetch_allowed=false,
   coverage_scope='single_venue',
