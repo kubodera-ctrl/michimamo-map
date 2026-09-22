@@ -8,11 +8,33 @@ export const CATEGORY_OPTIONS = [
   ['food','グルメ'],
   ['market','マルシェ'],
   ['nature','自然'],
-  ['learning','学び・体験'],
+  ['learning','学び'],
+  ['experience','体験・ものづくり'],
   ['entertainment','遊び・エンタメ'],
   ['sports','スポーツ'],
   ['art','アート・文化']
 ] as const;
+
+export const EXPERIENCE_OPTIONS = [
+  ['experience_gem','宝石・鉱物・化石探し'],
+  ['experience_fishing','釣り・魚つかみ'],
+  ['experience_glass','ガラス細工'],
+  ['experience_ring','指輪・アクセサリー作り'],
+  ['experience_pottery','陶芸・焼き物'],
+  ['experience_craft','工作・クラフト'],
+  ['experience_woodwork','木工・DIY'],
+  ['experience_food','料理・お菓子・食品づくり'],
+  ['experience_farm','農業・収穫'],
+  ['experience_animal','動物ふれあい・飼育'],
+  ['experience_science','科学・実験'],
+  ['experience_traditional','伝統文化・工芸'],
+  ['experience_factory','工場見学・職業体験'],
+  ['experience_outdoor','アウトドア・自然体験'],
+  ['experience_sports','スポーツ体験'],
+  ['experience_other','その他の体験']
+] as const;
+
+export const EXPERIENCE_LABELS=Object.fromEntries(EXPERIENCE_OPTIONS) as Record<string,string>;
 
 export const AGE_OPTIONS = [
   ['age_0_2','0〜2歳'],
