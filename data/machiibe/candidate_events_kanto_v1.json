@@ -26,7 +26,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "solamachi-oktoberfest-2026",
@@ -44,7 +45,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "solamachi-space-brothers-2026",
@@ -62,7 +64,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "solamachi-working-vehicles-2026",
@@ -80,7 +83,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "joypolis-halloween-2026",
@@ -98,7 +102,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "joypolis-hololive-shiny-party",
@@ -116,7 +121,8 @@
       "fandom_hint": "hololive",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "joypolis-bloom-world",
@@ -134,7 +140,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sunshine-enichi-ballpark-2026",
@@ -152,7 +159,9 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false,
+      "seed_note": "Official detail verified, but kept out of initial seed because the event ends on 2026-09-23."
     },
     {
       "slug": "sunshine-gashapon-tours-2026",
@@ -170,7 +179,9 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "tdc-drstone-tenq-2026",
@@ -188,7 +199,8 @@
       "fandom_hint": "dr-stone",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "tdc-space-travel-tour-2026",
@@ -206,7 +218,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "tdc-tenq-autumn-workshops-2026",
@@ -224,7 +237,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "tdc-hybrid-training-2026",
@@ -242,7 +256,9 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "tdc-toukenranbu-return-2026",
@@ -260,7 +276,9 @@
       "fandom_hint": "touken-ranbu",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "ariake-thanks-mama-mini-2026",
@@ -278,7 +296,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "ariake-joy-candle-2026",
@@ -296,7 +315,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "ariake-halloween-rally-2026",
@@ -314,7 +334,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "ariake-mercari-kids-flea-2026",
@@ -332,7 +353,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "lalaport-pokemon-height-2026",
@@ -350,7 +372,8 @@
       "fandom_hint": "pokemon",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "lalaport-jujutsu-5th-2026",
@@ -368,7 +391,9 @@
       "fandom_hint": "jujutsu-kaisen",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "lalaport-shinako-20260923",
@@ -386,7 +411,8 @@
       "fandom_hint": "shinako",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "lalaterrace-sanrio-wagon-2026",
@@ -404,7 +430,8 @@
       "fandom_hint": "sanrio",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "lalaport-childrens-festival-2026",
@@ -422,7 +449,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "lalaport-bay-road-openhouse-2026",
@@ -440,7 +468,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "chiba-science-moonwalk-2026",
@@ -458,7 +487,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "kamogawa-beluga-50th",
@@ -476,7 +506,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "meguspa-september-2026",
@@ -494,7 +525,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "meguspa-october-2026",
@@ -512,7 +544,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "boso-mura-autumn-2026",
@@ -530,7 +563,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "yachiyo-higanbana-2026",
@@ -548,7 +582,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "keisei-rose-white-rabbit-2026",
@@ -566,7 +601,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sawara-autumn-festival-2026",
@@ -584,7 +620,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "isumi-lobster-festival-2026",
@@ -602,7 +639,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "onjuku-lobster-festival-2026",
@@ -620,7 +658,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "chiba-raw-shake-festival-2026",
@@ -638,7 +677,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "tateyama-autumn-harvest-2026",
@@ -656,7 +696,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "metsa-harvest-2026",
@@ -674,7 +715,9 @@
       "fandom_hint": "moomin",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "metsa-fika-20261004",
@@ -692,7 +735,9 @@
       "fandom_hint": "moomin",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": true,
+      "seed_note": "Promoted after official-detail recheck on 2026-09-22."
     },
     {
       "slug": "seibuen-parallel-toshimaen-2026",
@@ -710,7 +755,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "seibuen-wanwan-halloween-2026",
@@ -728,7 +774,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "seibuen-sidem-2026",
@@ -746,7 +793,8 @@
       "fandom_hint": "idolmaster-sidem",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sakuratown-kozame-2026",
@@ -764,7 +812,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sakuratown-galaxy999-2026",
@@ -782,7 +831,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sakuratown-essay-manga-2026",
@@ -800,7 +850,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "mint-saitama-thanks-2026",
@@ -818,7 +869,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "terasaka-higanbana-2026",
@@ -836,7 +888,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "gyoda-heritage-marche-2026",
@@ -854,7 +907,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "kamikawa-winter-sakura-2026",
@@ -872,7 +926,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "enosui-dissection-2026",
@@ -890,7 +945,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "yokohama-english-garden-halloween-2026",
@@ -908,7 +964,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "fujiko-15th-gadget-2026",
@@ -926,7 +983,8 @@
       "fandom_hint": "doraemon",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "ikuta-moon-festa-2026",
@@ -944,7 +1002,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "kawasaki-tamagawa-fireworks-2026",
@@ -962,7 +1021,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "kawasaki-port-festival-2026",
@@ -980,7 +1040,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "hadano-tobacco-festival-2026",
@@ -998,7 +1059,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sankeien-moon-viewing-2026",
@@ -1016,7 +1078,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sagamihara-gourmet-walk-2026",
@@ -1034,7 +1097,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sagamihara-halloween-lantern-2026",
@@ -1052,7 +1116,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "kanagawa-life-satoyama-animals-2026",
@@ -1070,7 +1135,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "sogo-suzuki-shintaro-2026",
@@ -1088,7 +1154,8 @@
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     },
     {
       "slug": "anpanman-halloween-greeting-2026",
@@ -1106,7 +1173,10 @@
       "fandom_hint": "anpanman",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22"
+      "verified_on": "2026-09-22",
+      "production_seed": false
     }
-  ]
+  ],
+  "production_seed_promoted": 7,
+  "last_reviewed": "2026-09-22"
 }
