@@ -20,23 +20,38 @@ import {
 import { breadcrumbJsonLd, safeJsonLd, siteUrl } from '@/lib/seo';
 import { slugByPrefecture } from '@/lib/prefectures';
 import { machimamoMapUrl } from '@/lib/url-config';
+import { getRequestLocale } from '@/lib/i18n-server';
+import { getMessages } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n-config';
 
 type Params = Promise<{slug:string}>;
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const locale=await getRequestLocale();
   const { slug } = await params;
-  const event = await getEvent(slug);
+  const event = await getEvent(slug,locale);
   if (!event) return {};
   const title = event.title;
   const statusPrefix=event.event_status === 'cancelled' ? '【中止】' : event.event_status === 'postponed' ? '【延期】' : '';
   const description = event.summary || `${formatEventDate(event.start_date,event.end_date)}・${event.prefecture}${event.municipality || ''}で開催予定。`;
+  const localizedPath=localePath(`/events/${event.slug}`,locale);
   return {
     title:`${statusPrefix}${title}`,
     description,
-    alternates: { canonical: `/events/${event.slug}` },
+    alternates: {
+      canonical:localizedPath,
+      languages:{
+        'ja-JP':`/events/${event.slug}`,
+        en:`/en/events/${event.slug}`,
+        'zh-Hans':`/zh-cn/events/${event.slug}`,
+        'zh-Hant':`/zh-tw/events/${event.slug}`,
+        ko:`/ko/events/${event.slug}`,
+        'x-default':`/events/${event.slug}`
+      }
+    },
     openGraph: {
-      type: 'website',title:`${statusPrefix}${title}`,description,url: `/events/${event.slug}`,
+      type: 'website',title:`${statusPrefix}${title}`,description,url:localizedPath,
       images: event.image_url ? [{ url: event.image_url }] : undefined
     },
     twitter: {
@@ -58,8 +73,10 @@ function schemaEventStatus(status:string) {
 }
 
 export default async function EventPage({ params }: { params: Params }) {
+  const locale=await getRequestLocale();
+  const messages=getMessages(locale);
   const { slug } = await params;
-  const event = await getEvent(slug);
+  const event = await getEvent(slug,locale);
   if (!event) notFound();
 
   const address = [event.prefecture,event.municipality,event.address].filter(Boolean).join(' ');
@@ -74,7 +91,7 @@ export default async function EventPage({ params }: { params: Params }) {
     mapUrl.searchParams.set('event', event.title);
   }
 
-  const eventPageUrl = siteUrl(`/events/${event.slug}`);
+  const eventPageUrl = siteUrl(localePath(`/events/${event.slug}`,locale));
   const today=japanToday();
   const schemaOccurrence=(event.schedule_type==='recurring'||event.schedule_type==='irregular')
     ? (event.occurrences || []).find((item)=>item.date>=today && item.status==='scheduled')
@@ -113,9 +130,9 @@ export default async function EventPage({ params }: { params: Params }) {
 
   const prefSlug = slugByPrefecture[event.prefecture];
   const breadcrumbItems = [
-    { name: 'まちイベ', path: '/' },
-    ...(prefSlug ? [{ name: event.prefecture, path: `/area/${prefSlug}` }] : []),
-    { name: event.title, path: `/events/${event.slug}` }
+    { name: 'まちイベ', path: localePath('/',locale) },
+    ...(prefSlug ? [{ name: event.prefecture, path: localePath(`/area/${prefSlug}`,locale) }] : []),
+    { name: event.title, path: localePath(`/events/${event.slug}`,locale) }
   ];
   const breadcrumb = breadcrumbJsonLd(breadcrumbItems);
 
@@ -125,8 +142,8 @@ export default async function EventPage({ params }: { params: Params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }} />
       <nav className="breadcrumb" aria-label="パンくず">
-        <Link href="/">まちイベ</Link>
-        {prefSlug && <><span>›</span><Link href={`/area/${prefSlug}`}>{event.prefecture}</Link></>}
+        <Link href={localePath('/',locale)}>まちイベ</Link>
+        {prefSlug && <><span>›</span><Link href={localePath(`/area/${prefSlug}`,locale)}>{event.prefecture}</Link></>}
         <span>›</span><span>{event.title}</span>
       </nav>
 
@@ -230,7 +247,8 @@ export default async function EventPage({ params }: { params: Params }) {
             <p>出典：<a href={event.source_url} target="_blank" rel="noreferrer">{event.source_name}</a></p>
             <p>最終確認：{event.last_verified_at ? new Date(event.last_verified_at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}) : '確認日時未登録'}</p>
             <p>開催内容・料金・申込条件は変更される場合があります。来場前に必ず公式情報をご確認ください。</p>
-            <p><Link href={`/corrections?event=${encodeURIComponent(event.slug)}`}>掲載情報の訂正・掲載停止について</Link></p>
+            {locale!=='ja' && <p>{messages.translationNotice}</p>}
+            <p><Link href={`${localePath('/corrections',locale)}?event=${encodeURIComponent(event.slug)}`}>掲載情報の訂正・掲載停止について</Link></p>
           </aside>
         </div>
       </article>
