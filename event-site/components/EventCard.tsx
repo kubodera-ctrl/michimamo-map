@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import {
   CATEGORY_OPTIONS,
   EVENT_STATUS_LABELS,
+  EXPERIENCE_LABELS,
   FANDOM_LABELS,
   PRICE_LABELS,
   formatDuration,
@@ -14,7 +15,7 @@ import { PREF_KEYS, getPreviousVisit, readStringArray, setViewed, toggleInArray,
 import type { EventSummary } from '@/lib/types';
 import { recordMetric } from './MetricPing';
 
-const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
+const categoryLabels = {...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
 
 export function EventCard({ event, respectHidden=true }: { event: EventSummary; respectHidden?:boolean }) {
   const statusAlert=event.event_status !== 'scheduled';
