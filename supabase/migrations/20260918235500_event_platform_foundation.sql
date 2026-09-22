@@ -16,6 +16,13 @@ create table if not exists public.regional_sources (
   prefecture text,
   municipality text,
   event_use_allowed boolean not null default false,
+  terms_review_status text not null default 'pending'
+    check (terms_review_status in ('pending','reviewed_allowed','reviewed_restricted','contact_required')),
+  acquisition_mode text not null default 'manual_facts_only'
+    check (acquisition_mode in ('manual_facts_only','discovery_only','official_api','open_data','rss','partner_feed')),
+  automated_fetch_allowed boolean not null default false,
+  coverage_scope text,
+  coverage_estimate integer check (coverage_estimate is null or coverage_estimate >= 0),
   image_policy text not null default 'not_used'
     check (image_policy in ('not_used','link_only','reuse_allowed','permission_required')),
   fetch_status text not null default 'unknown'
@@ -601,7 +608,7 @@ $$;
 revoke all on function public.get_public_facet_sitemap(integer) from public,anon,authenticated;
 grant execute on function public.get_public_facet_sitemap(integer) to anon,authenticated;
 
-comment on table public.regional_sources is '地域情報エンジンの情報源台帳。取得健全性も保持する。';
+comment on table public.regional_sources is '地域情報エンジンの情報源台帳。規約確認、自動取得許可、取得健全性を分離して保持する。';
 comment on table public.events is 'まちイベの正規化済みcanonical event。事実項目を推測で埋めない。';
 comment on table public.event_occurrences is '継続・不定期イベントの実開催日。';
 comment on table public.fandom_entities is '推し活検索用の正規化辞書。名称は識別用で画像・ロゴ利用権を意味しない。';
