@@ -63,7 +63,8 @@ export async function GET(request:Request){
     conditionText:conditions,
     dateText:formatDate(event.start_date,event.end_date),
     timeText:formatTime(event.start_time,event.end_time),
-    summary:[event.summary,MACHIIBE_SOCIAL_MASTER.copy.cta.machiibe,MACHIIBE_SOCIAL_MASTER.copy.cta.machimamo].filter(Boolean).join(' / '),
+    summary:event.summary||undefined,
+    ctaLines:[MACHIIBE_SOCIAL_MASTER.copy.cta.machiibe,MACHIIBE_SOCIAL_MASTER.copy.cta.machimamo],
     pageUrl:siteUrl(`/events/${slug}`),
     hashtags:['イベント情報']
   }),302);
