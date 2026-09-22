@@ -512,7 +512,7 @@ as $$
           limit 500
         ) eo
       ),'[]'::jsonb) as occurrences,
-      e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.latitude,e.longitude,
+      e.venue_name,e.postal_code,e.prefecture,e.municipality,e.address,e.venue_type_keys,e.latitude,e.longitude,
       e.location_precision,e.location_verified,e.place_external_id,
       e.price_text,e.price_type,e.is_free,e.reservation_required,e.reservation_text,e.organizer_name,
       e.official_url,e.ticket_url,e.category_keys,e.age_group_keys,e.indoor,
