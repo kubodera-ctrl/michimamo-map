@@ -11,7 +11,7 @@ import { SeoBrowseLinks } from '@/components/SeoBrowseLinks';
 import { VisitTracker } from '@/components/VisitTracker';
 import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
-import { AGE_OPTIONS, CATEGORY_OPTIONS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
+import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType } from '@/lib/types';
 import { searchIndexingAllowed } from '@/lib/url-config';
 
@@ -42,6 +42,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const keyword = one(params.q).trim().slice(0,100);
   const excludeWords = one(params.exclude).slice(0,500);
   const category = one(params.category);
+  const experience = one(params.experience);
   const age = one(params.age);
   const duration = one(params.duration);
   const fandom = one(params.oshi);
@@ -66,6 +67,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     range.label,
     prefecture,
     category ? categoryLabels[category] : '',
+    experience ? (experience==='experience' ? '体験・ものづくり' : EXPERIENCE_LABELS[experience]) : '',
     age ? ageLabels[age] : '',
     fandom ? FANDOM_LABELS[fandom] : '',
     fandomKeyword,
@@ -77,7 +79,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
 
   const result = await searchEventsPage({
     startDate: range.startDate,endDate: range.endDate,prefecture,keyword,
-    excludeTerms: parseExcludeTerms(excludeWords),categories: category ? [category] : undefined,
+    excludeTerms: parseExcludeTerms(excludeWords),categories: experience ? [experience] : category ? [category] : undefined,
     ageGroups: age ? [age] : undefined,durationBuckets: duration ? [duration] : undefined,
     fandomSlugs: fandom ? [fandom] : undefined,fandomKeyword:fandomKeyword||undefined,priceTypes: price ? [price] : undefined,
     createdAfter: since || undefined,
@@ -98,7 +100,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     from:dateMode==='custom'?range.startDate:undefined,
     to:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:undefined,
     prefecture:prefecture||undefined,q:keyword||undefined,
-    exclude:excludeWords||undefined,category:category||undefined,age:age||undefined,duration:duration||undefined,
+    exclude:excludeWords||undefined,category:category||undefined,experience:experience||undefined,age:age||undefined,duration:duration||undefined,
     oshi:fandom||undefined,oshiKeyword:fandomKeyword||undefined,price:price||undefined,accessibility:accessibilityOnly?'1':undefined,
     accessibilityFeature:accessibilityFeature||undefined,childFocus:childFocusOnly?'1':undefined,
     family:familyFriendlyOnly?'1':undefined,rainy:rainyDayOnly?'1':undefined,excludeAdult:excludeAdultOriented?'1':undefined,indoor:indoorOnly?'1':undefined,
@@ -114,7 +116,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <p className="eyebrow">MACHI IBE</p>
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
-          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,sort}} />
+          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,sort}} />
         </div>
       </section>
 
