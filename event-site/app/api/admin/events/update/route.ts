@@ -40,7 +40,7 @@ export async function POST(request:Request){
   const officialUrl=text(data,'official_url',1000);
   const indoorRaw=text(data,'indoor',10);
 
-  if(!title || !isoDate(startDate) || !isoDate(endDate) || endDate<startDate) return fail('dates');
+  if(!title || !prefecture || !isoDate(startDate) || !isoDate(endDate) || endDate<startDate) return fail('dates');
   if(startTime && !/^\d{2}:\d{2}$/.test(startTime)) return fail('start-time');
   if(endTime && !/^\d{2}:\d{2}$/.test(endTime)) return fail('end-time');
   if(!EVENT_STATUS.has(eventStatus)||!VERIFY_STATUS.has(verificationStatus)||!PUBLICATION_STATUS.has(publicationStatus)) return fail('status');
@@ -68,7 +68,7 @@ export async function POST(request:Request){
     event_status:eventStatus,
     status_note:nullable(text(data,'status_note',500)),
     venue_name:nullable(text(data,'venue_name',300)),
-    prefecture:text(data,'prefecture',20),
+    prefecture,
     municipality:nullable(text(data,'municipality',100)),
     address:nullable(text(data,'address',500)),
     official_url:officialUrl,
