@@ -12,12 +12,13 @@ import { VisitTracker } from '@/components/VisitTracker';
 import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
 import { MachimamoBridge } from '@/components/MachimamoBridge';
-import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
-import type { PriceType } from '@/lib/types';
+import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, VENUE_TYPE_LABELS, VENUE_TYPE_OPTIONS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
+import type { PriceType, VenueTypeKey } from '@/lib/types';
 import { searchIndexingAllowed } from '@/lib/url-config';
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 const one = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] || '' : value || '';
+const many = (value:string|string[]|undefined) => Array.isArray(value) ? value.filter(Boolean) : value ? [value] : [];
 const priceValues:PriceType[]=['free','partly_free','paid','unknown'];
 const categoryLabels=Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 const ageLabels=Object.fromEntries(AGE_OPTIONS) as Record<string,string>;
@@ -58,6 +59,9 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const excludeAdultOriented = one(params.excludeAdult) === '1';
   const indoorOnly = one(params.indoor) === '1';
   const rainyDayOnly = one(params.rainy) === '1';
+  const venueFilterActive=one(params.venueFilter)==='1';
+  const venueAllowed=new Set<VenueTypeKey>(VENUE_TYPE_OPTIONS.map(([key])=>key));
+  const venueTypes=many(params.venue).filter((value):value is VenueTypeKey=>venueAllowed.has(value as VenueTypeKey));
   const sort = one(params.sort) || 'recommended';
   const page=parsePage(params.page);
   const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
@@ -74,6 +78,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     fandomKeyword,
     price ? PRICE_LABELS[price] : '',
     rainyDayOnly ? '雨の日・室内遊び' : indoorOnly ? '室内' : '',
+    venueFilterActive && venueTypes.length<VENUE_TYPE_OPTIONS.length ? venueTypes.map((key)=>VENUE_TYPE_LABELS[key]).join(' ') : '',
     childFocusOnly ? '子どもが主役' : familyFriendlyOnly ? 'ファミリー向け' : '',
     accessibilityOnly || accessibilityFeature ? '配慮情報' : ''
   ].filter(Boolean).join(' ');
@@ -89,6 +94,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     audienceIntents: childFocusOnly ? ['child_centered'] : (familyFriendlyOnly || rainyDayOnly) ? ['child_centered','family_friendly'] : undefined,
     excludeAdultOriented: excludeAdultOriented || rainyDayOnly,
     indoorOnly: indoorOnly || rainyDayOnly,
+    venueTypes,
+    venueFilterActive,
     sort: sort === 'start_date' || sort === 'short_first' || sort === 'newest' ? sort : 'recommended'
   },page,24);
 
@@ -96,7 +103,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const regularEvents = groupLongRunning ? result.events.filter((event) => event.duration_days <= 10) : result.events;
   const longRunningEvents = groupLongRunning ? result.events.filter((event) => event.duration_days >= 11) : [];
 
-  const paginationQuery:Record<string,string|undefined>={
+  const paginationQuery:Record<string,string|string[]|undefined>={
     when:dateMode !== 'today' ? dateMode : undefined,
     from:dateMode==='custom'?range.startDate:undefined,
     to:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:undefined,
@@ -105,6 +112,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     oshi:fandom||undefined,oshiKeyword:fandomKeyword||undefined,price:price||undefined,accessibility:accessibilityOnly?'1':undefined,
     accessibilityFeature:accessibilityFeature||undefined,childFocus:childFocusOnly?'1':undefined,
     family:familyFriendlyOnly?'1':undefined,rainy:rainyDayOnly?'1':undefined,excludeAdult:excludeAdultOriented?'1':undefined,indoor:indoorOnly?'1':undefined,
+    venueFilter:venueFilterActive?'1':undefined,venue:venueFilterActive?venueTypes:undefined,
     sort:sort!=='recommended'?sort:undefined,since:since||undefined
   };
 
@@ -117,7 +125,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <p className="eyebrow">MACHI IBE</p>
           <h1>今日、どこ行く？<br />全国のイベントをひとつに。</h1>
           <p className="hero-copy">地域の小さなお祭りから大型イベントまで。見たいものを残し、見たくないものは除外できるイベント検索を目指します。</p>
-          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,sort}} />
+          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,venueTypes,venueFilterActive,sort}} />
         </div>
       </section>
 
