@@ -1094,3 +1094,9 @@ body::before{
 @media(max-width:380px){
   .venue-filter-grid{grid-template-columns:1fr}
 }
+
+.admin-venue-types>span{display:block;margin-bottom:7px;font-size:11px;font-weight:900;color:#475569}
+.admin-venue-types>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.admin-venue-types label{display:flex;flex-direction:row;align-items:center;gap:7px;min-height:40px;border:1px solid #dbe5ec;border-radius:11px;background:#fff;padding:7px 9px;font-size:11px;font-weight:800}
+.admin-venue-types input{width:16px!important;min-height:0!important;height:16px;accent-color:#168bc8}
+@media(max-width:600px){.admin-venue-types>div{grid-template-columns:1fr}}
