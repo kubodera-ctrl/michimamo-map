@@ -14,6 +14,7 @@ drop function if exists public.get_verified_family_dining_overlays(text[],text,t
 drop function if exists public.get_public_facet_sitemap(integer);
 drop function if exists public.get_public_fandom_sitemap(integer);
 drop function if exists public.get_public_event_sitemap(integer);
+drop function if exists public.get_public_event_translations(bigint[],text);
 drop function if exists public.get_public_events_by_slugs(text[]);
 drop function if exists public.get_public_event(text);
 drop function if exists public.search_public_events(
@@ -28,6 +29,7 @@ drop table if exists public.event_site_metrics_daily cascade;
 drop table if exists public.dining_child_price_rules cascade;
 drop table if exists public.dining_family_profiles cascade;
 
+drop table if exists public.event_translations cascade;
 drop table if exists public.event_source_records cascade;
 drop table if exists public.event_fandom_links cascade;
 drop table if exists public.fandom_entities cascade;
