@@ -11,8 +11,6 @@ import {
   FANDOM_LABELS,
   LOCATION_PRECISION_LABELS,
   PRICE_LABELS,
-  formatEventDate,
-  formatDuration,
   getEvent,
   isTrustedLocation,
   japanToday
@@ -47,7 +45,6 @@ const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,str
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const locale=await getRequestLocale();
   const labels=eventLabels(locale);
-  const t=detailCopy[locale] || detailCopy.ja;
   const { slug } = await params;
   const event = await getEvent(slug,locale);
   if (!event) return {};
@@ -234,7 +231,7 @@ export default async function EventPage({ params }: { params: Params }) {
             {event.start_time && <div><dt>{t.time}</dt><dd>{event.start_time.slice(0,5)}{event.end_time ? ` 〜 ${event.end_time.slice(0,5)}` : ''}</dd></div>}
             <div><dt>{t.venue}</dt><dd>{event.venue_name || t.venueFallback}</dd></div>
             <div><dt>{t.place}</dt><dd>{address}<br /><small>{labels.location[event.location_precision] || LOCATION_PRECISION_LABELS[event.location_precision]}</small></dd></div>
-            <div><dt>料金区分</dt><dd>{PRICE_LABELS[event.price_type]}</dd></div>
+            <div><dt>{t.priceType}</dt><dd>{labels.price[event.price_type] || PRICE_LABELS[event.price_type]}</dd></div>
             {event.price_text && <div><dt>{t.priceDetail}</dt><dd>{event.price_text}</dd></div>}
             {event.reservation_text && <div><dt>{t.reservation}</dt><dd>{event.reservation_text}</dd></div>}
             {event.organizer_name && <div><dt>{t.organizer}</dt><dd>{event.organizer_name}</dd></div>}
