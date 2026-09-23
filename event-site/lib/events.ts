@@ -74,7 +74,7 @@ export const CATEGORY_OPTIONS = [
 
 export const VENUE_TYPE_OPTIONS: ReadonlyArray<readonly [VenueTypeKey,string]> = [
   ['park_plaza','🌳 公園・広場'],
-  ['mall','🛍 モール・商業施設'],
+  ['mall','🛍 モール・商業施設・大型店'],
   ['event_venue_indoor','🏢 イベント会場（屋内）'],
   ['event_venue_outdoor','🎪 イベント会場（屋外）'],
   ['hotel','🏨 ホテル・宿泊施設'],
