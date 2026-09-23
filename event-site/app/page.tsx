@@ -138,17 +138,17 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <p className="eyebrow">MACHI IBE</p>
           <h1>{messages.heroTitleLine1}<br />{messages.heroTitleLine2}</h1>
           <p className="hero-copy">{messages.heroCopy}</p>
-          <EventFilters values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,venueTypes,venueFilterActive,sort}} />
+          <EventFilters locale={locale} values={{dateMode,customStart:dateMode==='custom'?range.startDate:'',customEnd:dateMode==='custom'&&range.endDate!==range.startDate?range.endDate:'',prefecture,keyword,excludeWords,category,experience,age,duration,fandom,fandomKeyword,price,accessibilityOnly,accessibilityFeature,childFocusOnly,familyFriendlyOnly,rainyDayOnly,excludeAdultOriented,indoorOnly,venueTypes,venueFilterActive,sort}} />
         </div>
       </section>
 
       <section className="content-wrap">
         <HomePrSlot />
-        <FeaturedStories />
-        <MachimamoBridge />
+        <FeaturedStories locale={locale} />
+        <MachimamoBridge locale={locale} />
         <PickupEvents />
         <div className="result-tools">
-          <NewSinceLastVisitLink active={Boolean(since)} />
+          <NewSinceLastVisitLink active={Boolean(since)} locale={locale} />
           <Link href={localePath('/saved',locale)}>{messages.savedList}</Link>
           <Link href={localePath('/saved-searches',locale)}>{messages.savedSearches}</Link>
           <Link href={localePath('/plan',locale)}>{messages.plan}</Link>
@@ -158,16 +158,16 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           <span className="result-count" aria-live="polite">{locale==='ja'?`${result.events.length}件表示・${result.page}ページ目`:`${result.events.length} ${messages.displayed} · ${messages.page} ${result.page}`}</span>
         </div>
 
-        {result.error ? <DataUnavailable /> : result.events.length ? (
+        {result.error ? <DataUnavailable locale={locale} /> : result.events.length ? (
           <>
-            {regularEvents.length > 0 && <div className="event-grid">{regularEvents.map((event) => <EventCard key={event.id} event={event} />)}</div>}
+            {regularEvents.length > 0 && <div className="event-grid">{regularEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} />)}</div>}
             {longRunningEvents.length > 0 && (
               <details className="long-running-group">
                 <summary><span><strong>長期開催のイベント</strong><small>11日以上のイベントは、繰り返し検索の邪魔になりにくいよう分けて表示します。</small></span><b>{longRunningEvents.length}件</b></summary>
-                <div className="event-grid long-running-grid">{longRunningEvents.map((event) => <EventCard key={event.id} event={event} />)}</div>
+                <div className="event-grid long-running-grid">{longRunningEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} />)}</div>
               </details>
             )}
-            <Pagination basePath={localePath('/',locale)} page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} />
+            <Pagination basePath={localePath('/',locale)} page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} locale={locale} />
           </>
         ) : (
           <div className="empty-state"><div className="empty-icon">◎</div><h2>{messages.noResultsTitle}</h2><p>{messages.noResultsCopy}</p></div>
