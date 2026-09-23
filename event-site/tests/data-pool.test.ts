@@ -62,8 +62,8 @@ test('candidate pool has useful regional and rainy-day coverage',()=>{
 test('only detail-verified candidates are promoted into production seed',()=>{
   const pool=readJson('../../data/machiibe/candidate_events_kanto_v1.json');
   const promoted=pool.candidates.filter((event:any)=>event.production_seed===true);
-  assert.equal(promoted.length,20);
-  assert.equal(pool.production_seed_promoted,20);
+  assert.equal(promoted.length,26);
+  assert.equal(pool.production_seed_promoted,26);
   for(const event of promoted){
     assert.equal(event.review_state,'detail_verified',`non-detail candidate promoted: ${event.slug}`);
     assert.match(event.seed_note,/official-detail recheck/i);
@@ -106,4 +106,25 @@ test('national mall source target registry is conservative and structurally vali
     assert.ok(keys.has(required),`missing important mall source: ${required}`);
   }
   assert.ok(nationalDiscovery>=2);
+});
+
+
+test('batch 3 promoted candidates use official detail URLs',()=>{
+  const pool=readJson('../../data/machiibe/candidate_events_kanto_v1.json');
+  const expected=new Map<string,string>([
+    ['fujiko-15th-gadget-2026','fujiko-museum.com'],
+    ['kanagawa-life-satoyama-animals-2026','nh.kanagawa-museum.jp'],
+    ['yokohama-english-garden-halloween-2026','y-eg.jp'],
+    ['sankeien-moon-viewing-2026','sankeien.or.jp'],
+    ['isumi-lobster-festival-2026','isumi-kankou.com'],
+    ['onjuku-lobster-festival-2026','onjuku-kankou.com']
+  ]);
+  for(const [slug,host] of expected){
+    const event=pool.candidates.find((item:any)=>item.slug===slug);
+    assert.ok(event,`missing batch3 candidate: ${slug}`);
+    assert.equal(event.review_state,'detail_verified');
+    assert.equal(event.production_seed,true);
+    assert.equal(new URL(event.source_url).hostname.replace(/^www\./,''),host);
+    assert.match(event.seed_note,/official-detail recheck/i);
+  }
 });
