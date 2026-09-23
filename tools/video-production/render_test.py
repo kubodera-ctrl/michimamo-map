@@ -289,17 +289,17 @@ SHORT = [
 ]
 
 LONG = [
-    {"duration": 10, "offset": 0, "zoom": 1.0, "section": "1｜概要",
+    {"duration": 11, "offset": 0, "zoom": 1.0, "section": "1｜概要",
      "summary": "台風25号の影響で関東では大雨被害が発生。9月23日も国や自治体による道路・河川の復旧対応が続いています。"},
     {"duration": 12, "offset": 1.7, "zoom": 1.10, "section": "2｜道路への影響",
      "summary": "千葉県では国道127号などで土砂災害・通行止め対応が行われ、23日には一部区間で通行止め解除の発表も出ています。"},
-    {"duration": 12, "offset": 3.4, "zoom": 1.22, "section": "3｜復旧支援",
+    {"duration": 13, "offset": 3.4, "zoom": 1.18, "section": "3｜復旧支援",
      "summary": "関東地方整備局はTEC-FORCEを千葉県へ派遣。印旛沼周辺の堤防では緊急復旧への技術的な支援が進められています。"},
-    {"duration": 12, "offset": 5.1, "zoom": 1.30, "section": "4｜安全行動",
+    {"duration": 13, "offset": 5.1, "zoom": 1.20, "section": "4｜安全行動",
      "summary": "冠水した道路には車で進入しない。斜面や崖、増水した河川には近づかない。移動前に道路情報を確認してください。"},
-    {"duration": 12, "offset": 6.7, "zoom": 1.16, "section": "5｜最新情報",
+    {"duration": 13, "offset": 6.7, "zoom": 1.12, "section": "5｜最新情報",
      "summary": "被害状況や規制は短時間で変わります。気象庁・国土交通省・自治体の公式情報を確認し、安全を優先して行動してください。"},
-    {"duration": 10, "end": True},
+    {"duration": 6, "end": True},
 ]
 
 def render_variant(name, specs, source, outdir):
@@ -339,9 +339,19 @@ def main():
     make_preview(short, [2, 12, 26, 33], out / "preview_short.jpg")
     make_preview(long, [3, 16, 30, 47, 58, 64], out / "preview_long.jpg")
 
+    source_duration = duration_of(source)
+    visual_variety_low = source_duration < 15.0
     meta = {
-        "short": {"file": short.name, "duration": duration_of(short)},
-        "long": {"file": long.name, "duration": duration_of(long)},
+        "promptVersion": "1.2",
+        "short": {"file": short.name, "duration": duration_of(short), "publishEligible": True},
+        "long": {
+            "file": long.name,
+            "duration": duration_of(long),
+            "visualVarietyLow": visual_variety_low,
+            "publishEligibleLong": not visual_variety_low,
+            "note": "15秒未満の1素材のみのため人手確認が必要" if visual_variety_low else "自動投稿候補"
+        },
+        "sourceDurationSeconds": source_duration,
         "source": "Typhoon Dujuan / Himawari-9 / JMA-JAXA-CSU-CIRA",
         "render": "1080x1920 H.264 / 30fps / silent AAC compatibility track",
     }
