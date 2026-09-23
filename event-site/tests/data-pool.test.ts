@@ -62,8 +62,8 @@ test('candidate pool has useful regional and rainy-day coverage',()=>{
 test('only detail-verified candidates are promoted into production seed',()=>{
   const pool=readJson('../../data/machiibe/candidate_events_kanto_v1.json');
   const promoted=pool.candidates.filter((event:any)=>event.production_seed===true);
-  assert.equal(promoted.length,31);
-  assert.equal(pool.production_seed_promoted,31);
+  assert.equal(promoted.length,35);
+  assert.equal(pool.production_seed_promoted,35);
   for(const event of promoted){
     assert.equal(event.review_state,'detail_verified',`non-detail candidate promoted: ${event.slug}`);
     assert.match(event.seed_note,/official-detail(?:\/operator)? recheck/i);
@@ -142,6 +142,25 @@ test('batch 4 promoted candidates use official detail URLs',()=>{
   for(const [slug,host] of expected){
     const event=pool.candidates.find((item:any)=>item.slug===slug);
     assert.ok(event,`missing batch4 candidate: ${slug}`);
+    assert.equal(event.review_state,'detail_verified');
+    assert.equal(event.production_seed,true);
+    assert.equal(new URL(event.source_url).hostname.replace(/^www\./,''),host);
+    assert.match(event.seed_note,/official-detail(?:\/operator)? recheck/i);
+  }
+});
+
+
+test('batch 5 promoted candidates use official operator URLs',()=>{
+  const pool=readJson('../../data/machiibe/candidate_events_kanto_v1.json');
+  const expected=new Map<string,string>([
+    ['seibuen-sidem-2026','seibuen-amusement-park.jp'],
+    ['seibuen-wanwan-halloween-2026','seibuen-amusement-park.jp'],
+    ['seibuen-parallel-toshimaen-2026','seibuen-amusement-park.jp'],
+    ['chiba-raw-shake-festival-2026','sudo-farm.com']
+  ]);
+  for(const [slug,host] of expected){
+    const event=pool.candidates.find((item:any)=>item.slug===slug);
+    assert.ok(event,`missing batch5 candidate: ${slug}`);
     assert.equal(event.review_state,'detail_verified');
     assert.equal(event.production_seed,true);
     assert.equal(new URL(event.source_url).hostname.replace(/^www\./,''),host);
