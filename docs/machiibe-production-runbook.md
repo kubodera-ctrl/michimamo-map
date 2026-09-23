@@ -1,6 +1,6 @@
 # まちイベ 本番投入ランブック
 
-更新: 2026-09-22
+更新: 2026-09-23
 
 ## 原則
 
@@ -27,6 +27,7 @@
 1. `20260918235500_event_platform_foundation.sql`
 2. `20260919011500_family_dining_overlay.sql`
 3. `20260919043000_event_platform_admin_analytics.sql`
+4. `20260923073000_event_i18n_foundation.sql`
 
 適用後確認:
 
@@ -47,7 +48,7 @@ select has_table_privilege('anon','public.events','select') as anon_events_selec
 
 ## Phase 2 — verified seed
 
-`supabase/seeds/machiibe_initial_verified_events.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch2.sql`
+`supabase/seeds/machiibe_initial_verified_events.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch2.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch3.sql`
 
 確認:
 
@@ -66,6 +67,8 @@ from public.events;
 ```
 
 初期seedでは期待値: 0
+
+2026-09-23時点では initial + batch2 + batch3 の合計36イベントをROLLBACKトランザクションで検証済み。batch3は6件、いすみイセエビまつりの開催回12件、ドラえもんfandom、venue type、画像非使用、source gateまで確認済み。
 
 ## Phase 3 — noindex状態でアプリ接続
 
@@ -103,10 +106,10 @@ from public.events;
 - 画像は原則not_used
 
 目安:
-- 初期30件
-- 30件
+- 現在のverified seed: 36件
 - 60件
 - 100件
+- 300件
 - 地域単位で全国拡大
 
 ## Phase 5 — index解放
