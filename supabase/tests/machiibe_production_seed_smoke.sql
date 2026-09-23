@@ -1,19 +1,21 @@
 \ir ../seeds/machiibe_initial_verified_events.sql
 \ir ../seeds/machiibe_verified_events_batch2.sql
 \ir ../seeds/machiibe_verified_events_batch3.sql
+\ir ../seeds/machiibe_verified_events_batch4.sql
 \ir ../seeds/machiibe_initial_verified_events.sql
 \ir ../seeds/machiibe_verified_events_batch2.sql
 \ir ../seeds/machiibe_verified_events_batch3.sql
+\ir ../seeds/machiibe_verified_events_batch4.sql
 
-do $$
+do $
 declare
   n integer;
   payload jsonb;
 begin
   select count(*) into n
   from public.events;
-  if n <> 36 then
-    raise exception 'production seed expected 36 events after double-run, got %',n;
+  if n <> 41 then
+    raise exception 'production seed expected 41 events after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -79,6 +81,27 @@ begin
       @> '["culture_public","event_venue_indoor"]'::jsonb
   ) then
     raise exception 'batch 3 culture/public indoor venue classification missing';
+  end if;
+
+  select count(*) into n
+  from public.get_public_event_translations(
+    array[(select id from public.events where slug='solamachi-oktoberfest-2026')],
+    'en'
+  )
+  where title='Oktoberfest in TOKYO SKYTREE TOWN ®2026';
+  if n <> 1 then
+    raise exception 'batch 4 official English translation missing';
+  end if;
+
+  if not (
+    public.get_public_event('sogo-suzuki-shintaro-2026')->'venue_type_keys'
+      @> '["mall","culture_public","event_venue_indoor"]'::jsonb
+  ) then
+    raise exception 'batch 4 Sogo venue classification missing';
+  end if;
+
+  if (public.get_public_event('kawasaki-port-festival-2026')->>'audience_intent') <> 'family_friendly' then
+    raise exception 'batch 4 family-friendly verification missing';
   end if;
 
   if exists(
