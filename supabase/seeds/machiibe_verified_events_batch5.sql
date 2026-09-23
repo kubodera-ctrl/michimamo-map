@@ -88,7 +88,7 @@ insert into public.events(
   '2026-06-01','2026-10-31',null,null,true,'continuous',
   '千葉県内参加店舗','千葉県','複数',null,'unknown',false,
   '参加店舗・商品により異なる','unknown',null,false,'店舗ごとの提供期間・営業時間・商品情報は公式参加店舗一覧を確認','須藤牧場',
-  'https://www.sudo-farm.com/',
+  'https://www.sudo-farm.com/stamp-rally/stamp-book/list-boso?city=1',
   array['food'],'{}',null,'general',false,
   '{}',null,
   (select id from public.regional_sources where source_key='official-sudo-farm'),
