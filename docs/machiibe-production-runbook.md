@@ -48,7 +48,7 @@ select has_table_privilege('anon','public.events','select') as anon_events_selec
 
 ## Phase 2 — verified seed
 
-`supabase/seeds/machiibe_initial_verified_events.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch2.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch3.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch4.sql`
+`supabase/seeds/machiibe_initial_verified_events.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch2.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch3.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch4.sql`\n\n続けて:\n`supabase/seeds/machiibe_verified_events_batch5.sql`
 
 確認:
 
@@ -68,7 +68,7 @@ from public.events;
 
 初期seedでは期待値: 0
 
-2026-09-23時点では initial + batch2 + batch3 + batch4 の合計41イベントをROLLBACKトランザクションで検証済み。batch3は6件、いすみイセエビまつりの開催回12件、ドラえもんfandomを確認。batch4は5件、そごうの複合venue type、川崎みなと祭りのfamily判定、ソラマチ公式英訳の公開RPC、画像非使用、source gateまで確認済み。
+2026-09-23時点では initial + batch2 + batch3 + batch4 の合計45イベントをROLLBACKトランザクションで検証済み。batch3は6件、いすみイセエビまつりの開催回12件、ドラえもんfandomを確認。batch4は5件、そごうの複合venue type、川崎みなと祭りのfamily判定、ソラマチ公式英訳の公開RPCを確認。batch5は4件、西武園SideMのfandom、amusement分類、複数店舗イベントの正規化、画像非使用、source gateまで確認済み。
 
 ## Phase 3 — noindex状態でアプリ接続
 
@@ -106,7 +106,7 @@ from public.events;
 - 画像は原則not_used
 
 目安:
-- 現在のverified seed: 41件
+- 現在のverified seed: 45件
 - 60件
 - 100件
 - 300件
