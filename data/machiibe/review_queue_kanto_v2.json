@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23-kanto-review-queue-v3",
+  "version": "2026-09-23-kanto-review-queue-v4",
   "generated_from": "candidate_events_kanto_v1.json",
   "policy": {
     "target": "promote verified events in safe batches of roughly 10",
@@ -12,12 +12,12 @@
       "production promotion"
     ]
   },
-  "remaining_count": 35,
+  "remaining_count": 30,
   "review_state_counts": {
     "detail_verified": 1,
-    "official_list_verified": 11,
+    "official_list_verified": 10,
     "needs_occurrence_review": 3,
-    "discovery_only": 20
+    "discovery_only": 16
   },
   "queue": [
     {
@@ -82,27 +82,6 @@
       "verified_on": "2026-09-22",
       "production_seed": false,
       "days_left": 39,
-      "next_action": "open official detail page and verify price/venue/indoor"
-    },
-    {
-      "slug": "solamachi-oktoberfest-2026",
-      "title": "オクトーバーフェストin東京スカイツリータウン®2026",
-      "start_date": "2026-09-19",
-      "end_date": "2026-10-26",
-      "prefecture": "東京都",
-      "municipality": "墨田区",
-      "source_key": "tokyo-solamachi",
-      "source_url": "https://www.tokyo-solamachi.jp/autumn/event/",
-      "review_state": "official_list_verified",
-      "indoor_hint": false,
-      "family_hint": false,
-      "child_hint": false,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 34,
       "next_action": "open official detail page and verify price/venue/indoor"
     },
     {
@@ -442,69 +421,6 @@
       "next_action": "find organizer/venue official page"
     },
     {
-      "slug": "sogo-suzuki-shintaro-2026",
-      "title": "そごう美術館「カラフルパレット 鈴木信太郎」展",
-      "start_date": "2026-09-12",
-      "end_date": "2026-10-12",
-      "prefecture": "神奈川県",
-      "municipality": "横浜市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": true,
-      "family_hint": false,
-      "child_hint": false,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 20,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "sawara-autumn-festival-2026",
-      "title": "佐原の大祭 秋祭り",
-      "start_date": "2026-10-09",
-      "end_date": "2026-10-11",
-      "prefecture": "千葉県",
-      "municipality": "香取市",
-      "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_10882.html",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 19,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "kawasaki-port-festival-2026",
-      "title": "川崎港開港75周年記念 第53回川崎みなと祭り",
-      "start_date": "2026-10-10",
-      "end_date": "2026-10-11",
-      "prefecture": "神奈川県",
-      "municipality": "川崎市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 19,
-      "next_action": "find organizer/venue official page"
-    },
-    {
       "slug": "mint-saitama-thanks-2026",
       "title": "造幣さいたまサンクスフェア2026～ありがとう10周年～",
       "start_date": "2026-10-03",
@@ -555,27 +471,6 @@
       "municipality": "行田市",
       "source_key": "chocotabi-saitama",
       "source_url": "https://chocotabi-saitama.jp/event/",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 11,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "kawasaki-tamagawa-fireworks-2026",
-      "title": "第85回 川崎市制記念多摩川花火大会",
-      "start_date": "2026-10-03",
-      "end_date": "2026-10-03",
-      "prefecture": "神奈川県",
-      "municipality": "川崎市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
       "review_state": "discovery_only",
       "indoor_hint": false,
       "family_hint": true,
@@ -765,5 +660,12 @@
     "isumi-lobster-festival-2026",
     "onjuku-lobster-festival-2026"
   ],
-  "last_reviewed": "2026-09-23"
+  "last_reviewed": "2026-09-23",
+  "promoted_batch4": [
+    "sogo-suzuki-shintaro-2026",
+    "solamachi-oktoberfest-2026",
+    "sawara-autumn-festival-2026",
+    "kawasaki-tamagawa-fireworks-2026",
+    "kawasaki-port-festival-2026"
+  ]
 }
