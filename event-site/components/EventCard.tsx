@@ -7,17 +7,19 @@ import {
   EVENT_STATUS_LABELS,
   EXPERIENCE_LABELS,
   FANDOM_LABELS,
-  PRICE_LABELS,
-  formatDuration,
-  formatEventDate
+  PRICE_LABELS
 } from '@/lib/events';
+import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
+import {localePath,type Locale} from '@/lib/i18n-config';
 import { PREF_KEYS, getPreviousVisit, readStringArray, setViewed, toggleInArray, wasViewed } from '@/lib/client-prefs';
 import type { EventSummary } from '@/lib/types';
 import { recordMetric } from './MetricPing';
 
 const categoryLabels = {...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
 
-export function EventCard({ event, respectHidden=true }: { event: EventSummary; respectHidden?:boolean }) {
+export function EventCard({ event, respectHidden=true, locale='ja' }: { event: EventSummary; respectHidden?:boolean; locale?:Locale }) {
+  const labels=eventLabels(locale);
+  const g=labels.generic;
   const statusAlert=event.event_status !== 'scheduled';
   const [hidden,setHidden]=useState(false);
   const [viewed,setViewedState]=useState(false);
@@ -52,8 +54,8 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
   if(hidden && justHidden) {
     return (
       <article className="event-card event-card-hidden-undo">
-        <p>このイベントを今後の一覧から非表示にしました。</p>
-        <button type="button" onClick={undoHide}>元に戻す</button>
+        <p>{g.hiddenNotice}</p>
+        <button type="button" onClick={undoHide}>{g.undo}</button>
       </article>
     );
   }
@@ -61,7 +63,7 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
 
   return (
     <article className={`event-card ${statusAlert ? 'event-card-status-alert' : ''} ${viewed ? 'event-card-viewed' : ''}`}>
-      <Link href={`/events/${event.slug}`} className="event-card-link" aria-label={event.title} onClick={openEvent}>
+      <Link href={localePath(`/events/${event.slug}`,locale)} className="event-card-link" aria-label={event.title} onClick={openEvent}>
         {event.image_url ? (
           <img className="event-card-image" src={event.image_url} alt={`${event.title}のイベント画像`} loading="lazy" />
         ) : (
@@ -72,29 +74,29 @@ export function EventCard({ event, respectHidden=true }: { event: EventSummary; 
         )}
         <div className="event-card-body">
           <div className="card-meta-line">
-            {isNew && <span className="new-badge">新着</span>}
-            {viewed && <span className="viewed-badge">閲覧済み</span>}
+            {isNew && <span className="new-badge">{g.new}</span>}
+            {viewed && <span className="viewed-badge">{g.viewed}</span>}
           </div>
-          {statusAlert && <div className={`event-status-banner status-${event.event_status}`}>{EVENT_STATUS_LABELS[event.event_status]}</div>}
-          <div className="event-date">{formatEventDate(event.start_date, event.end_date)}</div>
+          {statusAlert && <div className={`event-status-banner status-${event.event_status}`}>{labels.status[event.event_status] || EVENT_STATUS_LABELS[event.event_status]}</div>}
+          <div className="event-date">{formatEventDateLocalized(event.start_date,event.end_date,locale)}</div>
           <h2>{event.title}</h2>
           <p className="event-place">{[event.prefecture, event.municipality, event.venue_name].filter(Boolean).join(' · ')}</p>
           <div className="tag-row">
-            <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDuration(event.duration_days)}</span>
-            {(event.schedule_type==='recurring'||event.schedule_type==='irregular') && <span className="tag tag-recurring">開催日指定あり</span>}
-            <span className={`tag tag-price tag-price-${event.price_type}`}>{PRICE_LABELS[event.price_type]}</span>
-            {event.indoor === true && <span className="tag">屋内</span>}
-            {event.audience_intent === 'child_centered' && <span className="tag tag-family">子どもが主役</span>}
-            {event.audience_intent === 'family_friendly' && <span className="tag tag-family">ファミリー向け</span>}
-            {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">配慮情報あり</span>}
-            {event.fandom_slugs.slice(0,2).map((slug) => <span className="tag tag-oshi" key={slug}>推し活：{FANDOM_LABELS[slug] || slug}</span>)}
-            {event.category_keys.slice(0,2).map((key) => <span className="tag" key={key}>{categoryLabels[key] || key}</span>)}
+            <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDurationLocalized(event.duration_days,locale)}</span>
+            {(event.schedule_type==='recurring'||event.schedule_type==='irregular') && <span className="tag tag-recurring">{g.recurring}</span>}
+            <span className={`tag tag-price tag-price-${event.price_type}`}>{labels.price[event.price_type] || PRICE_LABELS[event.price_type]}</span>
+            {event.indoor === true && <span className="tag">{g.indoor}</span>}
+            {event.audience_intent === 'child_centered' && <span className="tag tag-family">{g.childCentered}</span>}
+            {event.audience_intent === 'family_friendly' && <span className="tag tag-family">{g.familyFriendly}</span>}
+            {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">{g.accessibilityAvailable}</span>}
+            {event.fandom_slugs.slice(0,2).map((slug) => <span className="tag tag-oshi" key={slug}>{g.fandom}：{FANDOM_LABELS[slug] || slug}</span>)}
+            {event.category_keys.slice(0,2).map((key) => <span className="tag" key={key}>{labels.category[key] || labels.experience[key] || categoryLabels[key] || key}</span>)}
           </div>
         </div>
       </Link>
       {respectHidden && (
-        <button className="hide-event-button" type="button" onClick={hideEvent} aria-label={`${event.title}を今後表示しない`}>
-          今後表示しない
+        <button className="hide-event-button" type="button" onClick={hideEvent} aria-label={`${event.title} ${g.hideFuture}`}>
+          {g.hideFuture}
         </button>
       )}
     </article>
