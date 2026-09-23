@@ -134,7 +134,7 @@ export function EventFilters({ values, locale='ja' }: Props) {
         <Link className="clear-search-link" href={localePath('/',locale)}>{g.clearConditions}</Link>
         <button className="search-button" type="submit">{g.search}</button>
       </div>
-      <SaveSearchButton />
+      <SaveSearchButton locale={locale} />
     </form>
   );
 }
