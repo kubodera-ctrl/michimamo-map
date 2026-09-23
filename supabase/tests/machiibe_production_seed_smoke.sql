@@ -2,6 +2,7 @@
 \ir ../seeds/machiibe_verified_events_batch2.sql
 \ir ../seeds/machiibe_verified_events_batch3.sql
 \ir ../seeds/machiibe_verified_events_batch4.sql
+\ir ../seeds/machiibe_verified_events_batch5.sql
 \ir ../seeds/machiibe_initial_verified_events.sql
 \ir ../seeds/machiibe_verified_events_batch2.sql
 \ir ../seeds/machiibe_verified_events_batch3.sql
@@ -14,8 +15,8 @@ declare
 begin
   select count(*) into n
   from public.events;
-  if n <> 41 then
-    raise exception 'production seed expected 41 events after double-run, got %',n;
+  if n <> 45 then
+    raise exception 'production seed expected 45 events after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -102,6 +103,21 @@ begin
 
   if (public.get_public_event('kawasaki-port-festival-2026')->>'audience_intent') <> 'family_friendly' then
     raise exception 'batch 4 family-friendly verification missing';
+  end if;
+
+  if not (public.get_public_event('seibuen-sidem-2026')->'fandom_slugs' ? 'idolmaster-sidem') then
+    raise exception 'batch 5 SideM fandom relation missing';
+  end if;
+
+  if not (
+    public.get_public_event('seibuen-sidem-2026')->'venue_type_keys'
+      @> '["amusement"]'::jsonb
+  ) then
+    raise exception 'batch 5 Seibuen venue classification missing';
+  end if;
+
+  if (public.get_public_event('chiba-raw-shake-festival-2026')->>'municipality') <> '複数' then
+    raise exception 'batch 5 multi-venue municipality marker missing';
   end if;
 
   if exists(
