@@ -1,7 +1,9 @@
 \ir ../seeds/machiibe_initial_verified_events.sql
 \ir ../seeds/machiibe_verified_events_batch2.sql
+\ir ../seeds/machiibe_verified_events_batch3.sql
 \ir ../seeds/machiibe_initial_verified_events.sql
 \ir ../seeds/machiibe_verified_events_batch2.sql
+\ir ../seeds/machiibe_verified_events_batch3.sql
 
 do $$
 declare
@@ -10,8 +12,8 @@ declare
 begin
   select count(*) into n
   from public.events;
-  if n <> 30 then
-    raise exception 'production seed expected 30 events after double-run, got %',n;
+  if n <> 36 then
+    raise exception 'production seed expected 36 events after double-run, got %',n;
   end if;
 
   select count(*) into n
@@ -57,6 +59,26 @@ begin
      or not (public.get_public_event('sakuratown-galaxy999-2026')->'fandom_slugs' ? 'galaxy-express-999')
   then
     raise exception 'batch 2 fandom relations missing';
+  end if;
+
+  if not (public.get_public_event('fujiko-15th-gadget-2026')->'fandom_slugs' ? 'doraemon') then
+    raise exception 'batch 3 Doraemon relation missing';
+  end if;
+
+  select count(*) into n
+  from public.event_occurrences eo
+  join public.events e on e.id=eo.event_id
+  where e.slug='isumi-lobster-festival-2026'
+    and eo.status='scheduled';
+  if n <> 12 then
+    raise exception 'batch 3 Isumi recurring schedule expected 12 occurrences, got %',n;
+  end if;
+
+  if not (
+    public.get_public_event('kanagawa-life-satoyama-animals-2026')->'venue_type_keys'
+      @> '["culture_public","event_venue_indoor"]'::jsonb
+  ) then
+    raise exception 'batch 3 culture/public indoor venue classification missing';
   end if;
 
   if exists(
