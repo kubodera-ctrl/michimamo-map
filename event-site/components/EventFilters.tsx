@@ -67,7 +67,7 @@ export function EventFilters({ values, locale='ja' }: Props) {
         </select></label>
         <label className="keyword-field"><span>{g.keyword}</span><input name="q" defaultValue={values.keyword} maxLength={100} placeholder={g.keywordPlaceholder} /></label>
         <label><span>{g.category}</span><select name="category" defaultValue={values.category}>
-          <option value="">すべて</option>{CATEGORY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.category[key] || label}</option>)}
+          <option value="">{g.all}</option>{CATEGORY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.category[key] || label}</option>)}
         </select></label>
         <label><span>{g.experienceGenre}</span><select name="experience" defaultValue={values.experience}>
           <option value="">{g.none}</option>
@@ -118,7 +118,7 @@ export function EventFilters({ values, locale='ja' }: Props) {
             <small>{g.fandomHelp}</small>
           </label>
           <label><span>{g.accessibilityField}</span><select name="accessibilityFeature" defaultValue={values.accessibilityFeature}>
-            <option value="">指定なし</option>{ACCESSIBILITY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.accessibility[key] || label}</option>)}
+            <option value="">{g.none}</option>{ACCESSIBILITY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.accessibility[key] || label}</option>)}
           </select></label>
           <label><span>{g.sort}</span><select name="sort" defaultValue={values.sort}>
             {SORT_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.sort[key] || label}</option>)}
