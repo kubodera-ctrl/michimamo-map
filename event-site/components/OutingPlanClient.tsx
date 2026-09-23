@@ -133,7 +133,7 @@ export function OutingPlanClient({locale='ja'}:{locale?:Locale}) {
                         <input type="date" min={event.start_date>todayJa()?event.start_date:todayJa()} max={event.end_date} value={planned[event.slug]||''} onChange={(e)=>change(event,e.target.value)} />
                       </label>
                     ) : options.length>1 ? (
-                      <label>行く日
+                      <label>{t.visitDay}
                         <select value={planned[event.slug]||''} onChange={(e)=>change(event,e.target.value)}>
                           <option value="">{t.select}</option>
                           {options.map((date)=><option key={date} value={date}>{date}</option>)}
