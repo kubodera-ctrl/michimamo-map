@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { getPreviousVisit } from '@/lib/client-prefs';
+import {eventLabels} from '@/lib/event-labels';
+import type {Locale} from '@/lib/i18n-config';
 
-export function NewSinceLastVisitLink({active}:{active:boolean}) {
+export function NewSinceLastVisitLink({active,locale='ja'}:{active:boolean;locale?:Locale}) {
+  const g=eventLabels(locale).generic;
   const [href,setHref]=useState<string|null>(null);
   useEffect(()=>{
     const url=new URL(window.location.href);
@@ -19,5 +22,5 @@ export function NewSinceLastVisitLink({active}:{active:boolean}) {
     setHref(url.pathname+`?${url.searchParams.toString()}`);
   },[active]);
   if(!href) return null;
-  return <a className={`new-since-link ${active?'active':''}`} href={href}>{active?'新着だけ表示を解除':'前回訪問後の新着だけ'}</a>;
+  return <a className={`new-since-link ${active?'active':''}`} href={href}>{active?g.clearNewOnly:g.newOnly}</a>;
 }
