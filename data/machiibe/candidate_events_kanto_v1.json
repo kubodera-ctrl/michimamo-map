@@ -642,16 +642,17 @@
       "prefecture": "千葉県",
       "municipality": "いすみ市",
       "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_13145.html",
-      "review_state": "needs_occurrence_review",
+      "source_url": "https://isumi-kankou.com/iseebimaturi/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "onjuku-lobster-festival-2026",
@@ -661,16 +662,17 @@
       "prefecture": "千葉県",
       "municipality": "御宿町",
       "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_13181.html",
-      "review_state": "discovery_only",
+      "source_url": "https://onjuku-kankou.com/event/iseebi/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "chiba-raw-shake-festival-2026",
@@ -970,16 +972,17 @@
       "prefecture": "神奈川県",
       "municipality": "横浜市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://y-eg.jp/information/3905/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "fujiko-15th-gadget-2026",
@@ -989,16 +992,17 @@
       "prefecture": "神奈川県",
       "municipality": "川崎市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://fujiko-museum.com/info/topics/",
+      "review_state": "detail_verified",
       "indoor_hint": true,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": "doraemon",
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "ikuta-moon-festa-2026",
@@ -1084,16 +1088,17 @@
       "prefecture": "神奈川県",
       "municipality": "横浜市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://www.sankeien.or.jp/event/10698/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "sagamihara-gourmet-walk-2026",
@@ -1141,16 +1146,17 @@
       "prefecture": "神奈川県",
       "municipality": "小田原市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://nh.kanagawa-museum.jp/exhibition/temporary/",
+      "review_state": "detail_verified",
       "indoor_hint": true,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 3 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "sogo-suzuki-shintaro-2026",
@@ -1191,6 +1197,6 @@
       "production_seed": false
     }
   ],
-  "production_seed_promoted": 20,
-  "last_reviewed": "2026-09-22"
+  "production_seed_promoted": 26,
+  "last_reviewed": "2026-09-23"
 }
