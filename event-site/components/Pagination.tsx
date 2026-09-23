@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import {eventLabels} from '@/lib/event-labels';
+import type {Locale} from '@/lib/i18n-config';
 
 type Props = {
   basePath: string;
@@ -6,6 +8,7 @@ type Props = {
   hasPrevious: boolean;
   hasNext: boolean;
   query?: Record<string,string | string[] | undefined>;
+  locale?:Locale;
 };
 
 function buildHref(basePath:string, page:number, query:Record<string,string|string[]|undefined>) {
@@ -20,16 +23,17 @@ function buildHref(basePath:string, page:number, query:Record<string,string|stri
   return qs ? `${basePath}?${qs}` : basePath;
 }
 
-export function Pagination({basePath,page,hasPrevious,hasNext,query={}}:Props) {
+export function Pagination({basePath,page,hasPrevious,hasNext,query={},locale='ja'}:Props) {
+  const g=eventLabels(locale).generic;
   if (!hasPrevious && !hasNext) return null;
   return (
-    <nav className="pagination" aria-label="検索結果のページ移動">
+    <nav className="pagination" aria-label={locale==='ja'?'検索結果のページ移動':'Search result pages'}>
       {hasPrevious ? (
-        <Link href={buildHref(basePath,page-1,query)} rel="prev">← 前のページ</Link>
+        <Link href={buildHref(basePath,page-1,query)} rel="prev">{g.previousPage}</Link>
       ) : <span aria-hidden="true" />}
-      <span className="pagination-current" aria-current="page">{page}ページ目</span>
+      <span className="pagination-current" aria-current="page">{locale==='ja'?`${page}${g.pageLabel}`:`${g.pageLabel} ${page}`}</span>
       {hasNext ? (
-        <Link href={buildHref(basePath,page+1,query)} rel="next">次のページ →</Link>
+        <Link href={buildHref(basePath,page+1,query)} rel="next">{g.nextPage}</Link>
       ) : <span aria-hidden="true" />}
     </nav>
   );
