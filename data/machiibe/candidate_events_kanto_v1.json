@@ -37,16 +37,17 @@
       "prefecture": "東京都",
       "municipality": "墨田区",
       "source_key": "tokyo-solamachi",
-      "source_url": "https://www.tokyo-solamachi.jp/autumn/event/",
-      "review_state": "official_list_verified",
+      "source_url": "https://www.tokyo-solamachi.jp/event/2811/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": false,
       "child_hint": false,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 4 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "solamachi-space-brothers-2026",
@@ -623,16 +624,17 @@
       "prefecture": "千葉県",
       "municipality": "香取市",
       "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_10882.html",
-      "review_state": "discovery_only",
+      "source_url": "https://www.city.katori.lg.jp/sightseeing/matsuri/introduction/aki.html",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 4 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "isumi-lobster-festival-2026",
@@ -1031,16 +1033,17 @@
       "prefecture": "神奈川県",
       "municipality": "川崎市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://www.city.kawasaki.jp/280/page/0000117559.html",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 4 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "kawasaki-port-festival-2026",
@@ -1050,16 +1053,17 @@
       "prefecture": "神奈川県",
       "municipality": "川崎市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://kawasakiminato.com/",
+      "review_state": "detail_verified",
       "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 4 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "hadano-tobacco-festival-2026",
@@ -1166,16 +1170,17 @@
       "prefecture": "神奈川県",
       "municipality": "横浜市",
       "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
+      "source_url": "https://www.sogo-seibu.jp/yokohama/topics/sogo-museum-suzuki-shintaro",
+      "review_state": "detail_verified",
       "indoor_hint": true,
       "family_hint": false,
       "child_hint": false,
       "fandom_hint": null,
       "publishable": false,
       "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false
+      "verified_on": "2026-09-23",
+      "production_seed": true,
+      "seed_note": "Promoted in verified batch 4 after official-detail recheck on 2026-09-23."
     },
     {
       "slug": "anpanman-halloween-greeting-2026",
@@ -1197,6 +1202,6 @@
       "production_seed": false
     }
   ],
-  "production_seed_promoted": 26,
+  "production_seed_promoted": 31,
   "last_reviewed": "2026-09-23"
 }
