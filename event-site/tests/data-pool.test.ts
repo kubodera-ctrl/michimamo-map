@@ -66,7 +66,7 @@ test('only detail-verified candidates are promoted into production seed',()=>{
   assert.equal(pool.production_seed_promoted,26);
   for(const event of promoted){
     assert.equal(event.review_state,'detail_verified',`non-detail candidate promoted: ${event.slug}`);
-    assert.match(event.seed_note,/official-detail(?:\\/operator)? recheck/i);
+    assert.match(event.seed_note,/official-detail(?:\/operator)? recheck/i);
   }
 });
 
@@ -125,6 +125,6 @@ test('batch 3 promoted candidates use official detail URLs',()=>{
     assert.equal(event.review_state,'detail_verified');
     assert.equal(event.production_seed,true);
     assert.equal(new URL(event.source_url).hostname.replace(/^www\./,''),host);
-    assert.match(event.seed_note,/official-detail(?:\\/operator)? recheck/i);
+    assert.match(event.seed_note,/official-detail(?:\/operator)? recheck/i);
   }
 });
