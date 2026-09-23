@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23-kanto-review-queue-v4",
+  "version": "2026-09-23-kanto-review-queue-v5",
   "generated_from": "candidate_events_kanto_v1.json",
   "policy": {
     "target": "promote verified events in safe batches of roughly 10",
@@ -12,12 +12,12 @@
       "production promotion"
     ]
   },
-  "remaining_count": 30,
+  "remaining_count": 26,
   "review_state_counts": {
     "detail_verified": 1,
-    "official_list_verified": 10,
+    "official_list_verified": 7,
     "needs_occurrence_review": 3,
-    "discovery_only": 16
+    "discovery_only": 15
   },
   "queue": [
     {
@@ -43,27 +43,6 @@
       "next_action": "seed timing review"
     },
     {
-      "slug": "seibuen-sidem-2026",
-      "title": "アイドルマスター SideM 超!!レトローズパーティ",
-      "start_date": "2026-10-30",
-      "end_date": "2026-12-01",
-      "prefecture": "埼玉県",
-      "municipality": "所沢市",
-      "source_key": "seibuen",
-      "source_url": "https://www.seibuen-amusement-park.jp/event/index.html",
-      "review_state": "official_list_verified",
-      "indoor_hint": false,
-      "family_hint": false,
-      "child_hint": false,
-      "fandom_hint": "idolmaster-sidem",
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 70,
-      "next_action": "open official detail page and verify price/venue/indoor"
-    },
-    {
       "slug": "solamachi-autumn-treasure-2026",
       "title": "TOKYO solamachi AUTUMN Treasure Hunt",
       "start_date": "2026-09-01",
@@ -82,48 +61,6 @@
       "verified_on": "2026-09-22",
       "production_seed": false,
       "days_left": 39,
-      "next_action": "open official detail page and verify price/venue/indoor"
-    },
-    {
-      "slug": "seibuen-parallel-toshimaen-2026",
-      "title": "西武園ゆうえんち パラレルワールドとしまえん",
-      "start_date": "2026-09-15",
-      "end_date": "2026-10-25",
-      "prefecture": "埼玉県",
-      "municipality": "所沢市",
-      "source_key": "seibuen",
-      "source_url": "https://www.seibuen-amusement-park.jp/event/index.html",
-      "review_state": "official_list_verified",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 33,
-      "next_action": "open official detail page and verify price/venue/indoor"
-    },
-    {
-      "slug": "seibuen-wanwan-halloween-2026",
-      "title": "わんわん西武園ゆうえんち ～わんだふるハロウィン～",
-      "start_date": "2026-10-23",
-      "end_date": "2026-10-25",
-      "prefecture": "埼玉県",
-      "municipality": "所沢市",
-      "source_key": "seibuen",
-      "source_url": "https://www.seibuen-amusement-park.jp/event/index.html",
-      "review_state": "official_list_verified",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 33,
       "next_action": "open official detail page and verify price/venue/indoor"
     },
     {
@@ -334,27 +271,6 @@
       "verified_on": "2026-09-22",
       "production_seed": false,
       "days_left": 62,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "chiba-raw-shake-festival-2026",
-      "title": "第8回 千葉 生シェイク祭り2026",
-      "start_date": "2026-06-01",
-      "end_date": "2026-10-31",
-      "prefecture": "千葉県",
-      "municipality": "複数",
-      "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_13031.html",
-      "review_state": "discovery_only",
-      "indoor_hint": null,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 39,
       "next_action": "find organizer/venue official page"
     },
     {
@@ -667,5 +583,11 @@
     "sawara-autumn-festival-2026",
     "kawasaki-tamagawa-fireworks-2026",
     "kawasaki-port-festival-2026"
+  ],
+  "promoted_batch5": [
+    "seibuen-sidem-2026",
+    "seibuen-wanwan-halloween-2026",
+    "seibuen-parallel-toshimaen-2026",
+    "chiba-raw-shake-festival-2026"
   ]
 }
