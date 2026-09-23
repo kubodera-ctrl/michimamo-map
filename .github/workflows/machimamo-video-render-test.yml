@@ -1,6 +1,12 @@
 name: Machimamo video render test
 
 on:
+  push:
+    branches:
+      - feature/machimamo-video-render-test
+    paths:
+      - "tools/video-production/**"
+      - ".github/workflows/machimamo-video-render-test.yml"
   pull_request:
     paths:
       - "tools/video-production/**"
