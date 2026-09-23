@@ -13,7 +13,7 @@
 イベントは1つ以上の `venue_type_keys` を持つ。複数可。
 
 - `park_plaza` — 公園・広場
-- `mall` — モール・商業施設
+- `mall` — モール・商業施設・大型店
 - `event_venue_indoor` — イベント会場（屋内）
 - `event_venue_outdoor` — イベント会場（屋外）
 - `hotel` — ホテル・宿泊施設
@@ -129,3 +129,17 @@
 4. 個別公式詳細で事実確認
 5. review queueへ投入
 6. production seed昇格は verified + publish gate 通過分のみ
+
+
+### 具体的な分類例
+
+- 独立した野外ステージ → `event_venue_outdoor`
+- 公園内の野外ステージ → `park_plaza + event_venue_outdoor`
+- 商業施設の屋外ステージ → `mall + event_venue_outdoor`
+- イトーヨーカドー等の大型店店内イベント → `mall + event_venue_indoor`
+- イトーヨーカドー等の店頭広場イベント → `mall + event_venue_outdoor`
+- テーマパーク内の野外ステージ → `amusement + event_venue_outdoor`
+- 文化センター・市民会館・公民館・自治体ホール → `culture_public`
+- 文化センター等のホール開催 → `culture_public + event_venue_indoor`
+
+`other` は、寺社・駅構内・学校・企業敷地など、既存分類のいずれにも自然に当てはまらない会場に限定して使う。
