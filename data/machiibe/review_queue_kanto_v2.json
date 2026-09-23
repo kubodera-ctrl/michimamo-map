@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-22-kanto-review-queue-v2",
+  "version": "2026-09-23-kanto-review-queue-v3",
   "generated_from": "candidate_events_kanto_v1.json",
   "policy": {
     "target": "promote verified events in safe batches of roughly 10",
@@ -12,12 +12,12 @@
       "production promotion"
     ]
   },
-  "remaining_count": 41,
+  "remaining_count": 35,
   "review_state_counts": {
     "detail_verified": 1,
     "official_list_verified": 11,
-    "needs_occurrence_review": 4,
-    "discovery_only": 25
+    "needs_occurrence_review": 3,
+    "discovery_only": 20
   },
   "queue": [
     {
@@ -274,27 +274,6 @@
       "next_action": "open official detail page and verify price/venue/indoor"
     },
     {
-      "slug": "isumi-lobster-festival-2026",
-      "title": "第9回 2026いすみイセエビまつり",
-      "start_date": "2026-08-01",
-      "end_date": "2026-10-31",
-      "prefecture": "千葉県",
-      "municipality": "いすみ市",
-      "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_13145.html",
-      "review_state": "needs_occurrence_review",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 39,
-      "next_action": "normalize actual occurrence dates/times"
-    },
-    {
       "slug": "anpanman-halloween-greeting-2026",
       "title": "横浜アンパンマンこどもミュージアム ハロウィーングリーティング",
       "start_date": "2026-09-14",
@@ -358,27 +337,6 @@
       "next_action": "normalize actual occurrence dates/times"
     },
     {
-      "slug": "fujiko-15th-gadget-2026",
-      "title": "藤子・F・不二雄ミュージアム開館15周年記念 ドラえも～ん！願いをかなえるひみつ道具展",
-      "start_date": "2026-07-01",
-      "end_date": "2027-06-20",
-      "prefecture": "神奈川県",
-      "municipality": "川崎市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": true,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": "doraemon",
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 271,
-      "next_action": "find organizer/venue official page"
-    },
-    {
       "slug": "keisei-rose-white-rabbit-2026",
       "title": "白うさぎのロイヤル インビテーション／京成バラ園",
       "start_date": "2026-10-10",
@@ -400,48 +358,6 @@
       "next_action": "find organizer/venue official page"
     },
     {
-      "slug": "kanagawa-life-satoyama-animals-2026",
-      "title": "神奈川県立生命の星・地球博物館 特別展「しらべて分かった！里山にくらす動物たち」",
-      "start_date": "2026-07-18",
-      "end_date": "2026-11-08",
-      "prefecture": "神奈川県",
-      "municipality": "小田原市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": true,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 47,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "onjuku-lobster-festival-2026",
-      "title": "おんじゅく伊勢えび祭り",
-      "start_date": "2026-09-01",
-      "end_date": "2026-10-31",
-      "prefecture": "千葉県",
-      "municipality": "御宿町",
-      "source_key": "maruchiba",
-      "source_url": "https://maruchiba.jp/event/detail_13181.html",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 39,
-      "next_action": "find organizer/venue official page"
-    },
-    {
       "slug": "chiba-raw-shake-festival-2026",
       "title": "第8回 千葉 生シェイク祭り2026",
       "start_date": "2026-06-01",
@@ -452,27 +368,6 @@
       "source_url": "https://maruchiba.jp/event/detail_13031.html",
       "review_state": "discovery_only",
       "indoor_hint": null,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 39,
-      "next_action": "find organizer/venue official page"
-    },
-    {
-      "slug": "yokohama-english-garden-halloween-2026",
-      "title": "横浜イングリッシュガーデン「ハロウィン・ディスプレイ2026」",
-      "start_date": "2026-09-12",
-      "end_date": "2026-10-31",
-      "prefecture": "神奈川県",
-      "municipality": "横浜市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
       "family_hint": true,
       "child_hint": true,
       "fandom_hint": null,
@@ -757,27 +652,6 @@
       "next_action": "find organizer/venue official page"
     },
     {
-      "slug": "sankeien-moon-viewing-2026",
-      "title": "横浜・三溪園「観月会」",
-      "start_date": "2026-09-25",
-      "end_date": "2026-09-29",
-      "prefecture": "神奈川県",
-      "municipality": "横浜市",
-      "source_key": "kanagawa-now",
-      "source_url": "https://www.kanagawa-kankou.or.jp/event",
-      "review_state": "discovery_only",
-      "indoor_hint": false,
-      "family_hint": true,
-      "child_hint": true,
-      "fandom_hint": null,
-      "publishable": false,
-      "image_policy": "not_used",
-      "verified_on": "2026-09-22",
-      "production_seed": false,
-      "days_left": 7,
-      "next_action": "find organizer/venue official page"
-    },
-    {
       "slug": "yachiyo-higanbana-2026",
       "title": "2026やちよ彼岸花まつり",
       "start_date": "2026-09-19",
@@ -882,5 +756,14 @@
       "days_left": 4,
       "next_action": "find organizer/venue official page"
     }
-  ]
+  ],
+  "promoted_batch3": [
+    "fujiko-15th-gadget-2026",
+    "kanagawa-life-satoyama-animals-2026",
+    "yokohama-english-garden-halloween-2026",
+    "sankeien-moon-viewing-2026",
+    "isumi-lobster-festival-2026",
+    "onjuku-lobster-festival-2026"
+  ],
+  "last_reviewed": "2026-09-23"
 }
