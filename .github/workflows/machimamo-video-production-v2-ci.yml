@@ -25,6 +25,8 @@ jobs:
         run: npm install --ignore-scripts
       - name: Typecheck
         run: npm run typecheck
+      - name: Rights gate tests
+        run: npm run test:rights
       - name: Render deterministic sample
         run: npm run render:short -- samples/typhoon25.json out/ci-short.mp4
       - name: Technical QC
