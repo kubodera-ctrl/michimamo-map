@@ -33,3 +33,5 @@ AIはverifiedFactsからheadline、summary、safetyPoints候補を作るだけ�
 レイアウトはmachimamo-card-v2に固定する。
 
 詳細はARCHITECTURE.md。
+
+CI validation target: feature/machimamo-video-production-v2
