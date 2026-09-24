@@ -37,12 +37,39 @@ const Shield=({size=58}:{size?:number})=>(
   </svg>
 );
 
-const MiniIcon=({kind}:{kind:'rain'|'car'|'info'|'alert'})=>{
-  if(kind==='rain') return <div style={{fontSize:52}}>🌧️</div>;
-  if(kind==='car') return <div style={{fontSize:52}}>🚙</div>;
-  if(kind==='alert') return <div style={{fontSize:52}}>⚠️</div>;
-  return <div style={{fontSize:52}}>ⓘ</div>;
-};
+const MiniIcon=({kind}:{kind:'rain'|'car'|'info'|'alert'})=>(
+  <svg width="62" height="62" viewBox="0 0 64 64" aria-hidden>
+    {kind==='rain'?<>
+      <path d="M18 37h30c7 0 11-5 11-11s-5-11-12-11c-3-7-9-11-17-11-10 0-18 7-19 17C5 22 2 27 2 32c0 3 2 5 5 5h11Z" fill="#148BE8"/>
+      <path d="M16 45 11 56M31 45l-5 11M46 45l-5 11" stroke="#148BE8" strokeWidth="5" strokeLinecap="round"/>
+    </>:kind==='car'?<>
+      <path d="M13 26 19 12h26l7 14 5 4v18h-7v7h-8v-7H22v7h-8v-7H7V31l6-5Z" fill="#173A5C"/>
+      <rect x="18" y="17" width="28" height="11" rx="3" fill="#DFF2FF"/>
+      <circle cx="20" cy="40" r="4" fill="#fff"/><circle cx="45" cy="40" r="4" fill="#fff"/>
+    </>:kind==='alert'?<>
+      <path d="M32 5 60 57H4L32 5Z" fill="#F2B800"/>
+      <rect x="29" y="21" width="6" height="20" rx="3" fill="#173A5C"/>
+      <circle cx="32" cy="48" r="4" fill="#173A5C"/>
+    </>:<>
+      <circle cx="32" cy="32" r="26" fill="none" stroke="#148BE8" strokeWidth="7"/>
+      <rect x="29" y="27" width="6" height="21" rx="3" fill="#148BE8"/>
+      <circle cx="32" cy="18" r="4" fill="#148BE8"/>
+    </>}
+  </svg>
+);
+
+const ActionIcon=({kind}:{kind:'save'|'share'|'follow'})=>(
+  <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden>
+    {kind==='save'?<path d="M15 8h34v48L32 45 15 56V8Z" fill="none" stroke="#087CE8" strokeWidth="6" strokeLinejoin="round"/>:
+    kind==='share'?<>
+      <circle cx="17" cy="32" r="8" fill="#087CE8"/><circle cx="47" cy="17" r="8" fill="#087CE8"/><circle cx="47" cy="47" r="8" fill="#087CE8"/>
+      <path d="M24 28 40 20M24 36l16 8" stroke="#087CE8" strokeWidth="5" strokeLinecap="round"/>
+    </>:<>
+      <circle cx="25" cy="22" r="11" fill="none" stroke="#087CE8" strokeWidth="6"/>
+      <path d="M8 54c2-12 9-18 17-18s15 6 17 18M50 28v22M39 39h22" stroke="#087CE8" strokeWidth="6" strokeLinecap="round"/>
+    </>}
+  </svg>
+);
 
 const PhoneMap=()=>(
   <div style={{width:158,height:252,borderRadius:28,background:'#fff',padding:12,boxShadow:'0 15px 35px #004a9740'}}>
@@ -123,8 +150,10 @@ const NewsCard=({p,mainFrames}:{p:MachimamoVideoProps;mainFrames:number})=>{
     extrapolateRight:'clamp',
     easing:Easing.out(Easing.cubic)
   });
-  const h1=p.headline1.length>18?46:54;
-  const h2=p.headline2.length>18?45:53;
+  const headlineSize=(text:string,max:number)=>Math.max(34,Math.min(max,Math.floor(970/Math.max(1,text.length*0.94))));
+  const h1=headlineSize(p.headline1,54);
+  const h2=headlineSize(p.headline2,53);
+  const summarySize=phase.text.length>88?23:phase.text.length>64?26:30;
 
   return (
     <AbsoluteFill style={{fontFamily:baseFont,background:'#EEF6FB',color:C.ink}}>
@@ -148,7 +177,7 @@ const NewsCard=({p,mainFrames}:{p:MachimamoVideoProps;mainFrames:number})=>{
 
       <div style={{position:'absolute',left:20,top:994,width:1040,height:220,borderRadius:18,background:'#fff',border:'2px solid #D9EAF5',boxSizing:'border-box',padding:'18px 28px'}}>
         <div style={{display:'inline-block',background:'#E7F4FF',color:C.blue2,borderRadius:20,padding:'7px 22px',fontSize:23,fontWeight:900}}>{phase.label}</div>
-        <div style={{opacity:summaryOpacity,fontSize:30,fontWeight:700,lineHeight:1.55,marginTop:16,color:C.ink}}>{phase.text}</div>
+        <div style={{opacity:summaryOpacity,fontSize:summarySize,fontWeight:700,lineHeight:1.55,marginTop:16,color:C.ink}}>{phase.text}</div>
       </div>
 
       <div style={{position:'absolute',left:20,top:1230,width:1040,height:64,borderRadius:17,background:'#FFF1A9',border:'2px solid #FFDC55'}}>
@@ -208,13 +237,13 @@ const EndCard=({p,fadeInFrames}:{p:MachimamoVideoProps;fadeInFrames:number})=>{
       </div>
 
       <div style={{position:'absolute',top:820,left:55,right:55,display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
-        {[
-          ['🔖','保存','あとで確認'],
-          ['👨‍👩‍👧','家族に共有','大切な人にも'],
-          ['＋','フォロー','最新情報を確認']
-        ].map(([icon,title,sub])=>(
+        {([
+          ['save','保存','あとで確認'],
+          ['share','家族に共有','大切な人にも'],
+          ['follow','フォロー','最新情報を確認']
+        ] as const).map(([kind,title,sub])=>(
           <div key={title} style={{height:250,borderRadius:28,background:'#fff',border:'2px solid #D4E9F7',boxShadow:'0 16px 40px #1771a617',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-            <div style={{fontSize:62}}>{icon}</div>
+            <ActionIcon kind={kind}/>
             <div style={{fontSize:31,fontWeight:900,color:C.navy,marginTop:12}}>{title}</div>
             <div style={{fontSize:19,fontWeight:700,color:C.muted,marginTop:8}}>{sub}</div>
           </div>
