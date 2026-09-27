@@ -33,6 +33,7 @@
 - PR #20はDraftのまま。Vercel project `machimamo-map` のProductionは既知正常 deployment `dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4`（`machimamo-map.vercel.app`）と確認。Productionには変更なし。
 - Vercel project Settings > Git で「This Project is not connected to a Git repository」を確認。PR #20のPreview URLは未作成。Vercel GitHub App/repository接続の権限を戻す操作は本人の明示確認後に行う。
 - 最新候補deployment `dpl_4rNUM3ezdXPPSpMRKAAYE7V2tyHt` はtarget/aliasなしでPR #20 Previewとして使えない。
+- Cloudflare DashboardはCloudflareのセキュリティ検証画面で停止（検証回避なし）。ローカルにVercel CLI/Wranglerと`.vercel`接続設定なし。独立Preview経路は未確立。
 - PreviewができるまでSafari実機QA・merge・Production反映は禁止。Cloudflare等のProduction非接触Preview経路も調査する。
 
 1. Safari標準viewport修正、回帰テスト、独立Preview作成。
