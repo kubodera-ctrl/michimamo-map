@@ -91,3 +91,16 @@
 - `本番掲載準備` 現行行ではLepton BridgeとLeptonの2件が「掲載不可」。現行のProduction URL/Web・PWA・アプリ条件と掲載位置の最終確認待ち。掲載gateに `production_listing_approved` を追加し、Sheetで掲載可になるまでRuntimeでは公開できない。
 - Lepton Bridgeは還元不可。App/SNS/LINE媒体承認も未確認。正規URLをdraft同期する場合もポイント表示なし、machiibeへリンクを流用しない。
 - admin UIはJSON importを受けるが、Google Sheets API直接同期/変換は未接続。ASP2のソース編集は行わない。
+
+## 2026-09-27 次工程検証（feature側記録）
+
+- この追記はPR #21側。PR #20 base e0eb669は未変更。
+- ASP修正push: 829fe3a9fe0093d42be2157a8bd04fafe61558e2。隔離PostgreSQL実行検証PASS、退会時クリックFK/CHECK衝突を修正。Production未適用。
+- Cloudflare failed build 4件を特定、ログ本文はCloud Browserのセキュリティ検証で未取得。根本原因未確定。
+- GitHub Event Site Checkはevent-site/package.json不在によるcache pathエラーを確認。Cloudflare原因と混同しない。
+- Vercel Git選択画面にkubodera-ctrl/michimamo-mapのConnect表示。本人接続待ち。Preview ID/URLなし。
+- ASP2契約とchannel・unknown automation・approved placement・sync auditに差分あり。現PRは本番利用不可、C継続。
+- P2追加14テスト=12PASS/2FAIL（旧quiz fixture重複、旧exchange期待文言）。実機未確認。
+- P4別branch feat/dev34-current-production-engine @42549914a67bfe4111e703805af46cafb7f07e7f。CURRENT timeline実装/テストのみ、Renderer/MP4 QC未完了。
+- P5はまちイベ既存共通schemaを再利用する方針。同名DDL追加なし。
+- 詳細/検証限界/次工程: planning/dev34-validation-20260927.md。
