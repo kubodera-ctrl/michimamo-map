@@ -98,3 +98,13 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - Local P4 validation checkout reports `npm test`, `npm run test:production-current`, and `git diff --check` PASS; this is local test evidence, distinct from a clean checkout test bound to the remote Preview SHA. No current Python SINGLE/WEEKLY render, decode, Golden frame comparison, or MP4 visual QC has passed.
 - Supabase read-only schema audit found no news/article tables and no shared `publishing_*` tables. Admin news manager remains unconnected/fail-closed. No schema writes or production mutations.
 - P4 UI verification still needed on iPhone Safari: open the Preview above, open `ニュース投稿管理`, scroll from top to bottom; check SHORT/SINGLE list, LONG/WEEKLY block, week/prefecture selectors, 6/9/12 choices, posted-state filters and lower controls remain reachable and not covered by an ad band. Do not generate or publish. No P4 Production deploy.
+
+
+## 2026-09-27 開発35再開監査・将来管理OS整合
+
+- GitHub再取得: `main @7b4b935a5facb0a441445a9e14adce1982c909e1`, `restart/dev34 @52f213b8ceb451eec5d865db5037ea29f45e144f`, P4 `feat/dev34-current-production-engine` は再開時 `ed9e2af12c139a82a9b8ce6ec940ec60e5a6daa5`。PR #20=open/Draft/未merge/mergeable、PR #21=open/Draft/未mergeで現在mergeable=false、PR #22=open/Draft/未merge/mergeable。
+- Vercel再取得: P4 Preview `dpl_31ZZE6FU35sMgTTU2Q1Q9y6pFYUE` / `https://machimamo-objootvhp-miti4.vercel.app` は READY、target=null、source branch=P4、source SHA=`ed9e2af...`。Productionではない。
+- Supabase `ckftozjhdszlwqnylmxv` は ACTIVE_HEALTHY。read-only schema確認で `news/article`, `publishing_*`, `asp_runtime_*` のlive tableは0件。したがってニュース管理UIはfail-closed未接続、ASP Runtime migrationも本番未適用の判定を維持。
+- P4 Renderer: CURRENT source/asset監査、`ASSET_ROOT/WORK_ROOT` adapterは存在。hash-verified REVIEW3からv16.1/legacy overlaysはMAPPED。確認済みの真のsource blockerは `machimamo_reference_v13/package/machimamo_reference_v13.py`。日本語fontはMasterへ同梱せずruntime解決。新規SINGLE/WEEKLY MP4・decode・Golden visual QCは未実施。
+- 将来の正式方針としてDrive `統合運営管理センター構想・実装ロードマップ v1` を確認。現行リリースを止めず、まちまも側は必要最小限管理UI + API/DB契約、共通側はPublishing/ASP/Auditを責務分離して再利用し、将来Admin API/BFF経由で管理センターへ段階移行する。管理OS自体は正式開始指示まで実装しない。
+- P4 domain/UI scaffoldに `serviceId=machimamo` を明示し、共通Publishingのglobal idempotency/generation keyへservice dimensionを含める小差分を実装。CURRENTのSINGLE/WEEKLY尺、renderer、旧SNS素材UIは変更しない。管理センター固有table/auth/dashboardは追加しない。
