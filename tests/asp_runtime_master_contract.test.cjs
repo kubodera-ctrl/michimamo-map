@@ -25,6 +25,7 @@ assert.match(sql, /and s\.production_listing_approved/);
 assert.match(sql, /s\.tracking_url is not null/);
 assert.match(sql, /s\.publish_status = 'active'/);
 assert.match(sql, /and p\.enabled/);
+assert.match(sql, /impression_tracking_url text/);
 assert.match(sql, /point_reward_allowed and s\.reward_rule_confirmed/);
 assert.match(sql, /p_offer_id text/);
 assert.match(sql, /p_service_key text/);
