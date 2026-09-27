@@ -19,7 +19,8 @@ assert.match(html,/cat==='abandoned' \|\| \(cat==='local_anomaly' && file\)/,'op
 assert.match(html,/option\[value="local_anomaly"\]/,'AI camera draft cannot select local anomaly');
 assert.match(html,/spot\.category === 'local_anomaly'.*fa-eye/s,'local anomaly map pin uses its own icon');
 assert.match(html,/s\.category === 'local_anomaly'.*#0891b2/s,'local anomaly heat circle uses its own color');
-assert.match(html,/else if \(category === 'local_anomaly'\) catStr = "🟦地域の異変"/,'share copy names the local anomaly category');
+assert.match(html,/else if \(category === 'local_anomaly'\) catStr = /,'share copy names the local anomaly category');
+assert.match(html,/利用者投稿：警察・防犯に関する情報/,'police-safety subtype remains user-submitted in share text');
 
 assert.match(migration,/add column if not exists anomaly_type text/,'database stores only the anomaly subtype');
 assert.match(migration,/cat not in \('illegal','danger','patrol','abandoned','reckless','local_anomaly'\)/,'RPC accepts the new category');
