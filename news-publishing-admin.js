@@ -109,17 +109,33 @@
     }
     const shown = filtered.slice(0, 100);
     target.innerHTML = shown.map(item => {
+      const headline = item.headline || item.title || '名称なし';
       const region = [item.prefecture, item.municipality].filter(Boolean).join(' ') || '地域要確認';
-      return `<tr data-candidate-id="${escapeHtml(item.candidateId)}" role="button" tabindex="0" aria-label="ニュース詳細を開く：${escapeHtml(item.title)}">
-        <td><strong>${escapeHtml(item.title)}</strong><div class="muted" style="font-size:.61rem;margin-top:3px;">旧データ #${Number(item.legacySpotId)}</div></td>
+      const legacy = item.informationKind === LEGACY_KIND;
+      const canonicalProductionReady =
+        item.productionEligible === true ||
+        (item.publishEligible === true && item.selection?.include === true);
+      const sourceText = legacy ? '要確認' : escapeHtml(item.sourceStatus || '要確認');
+      const factsText = legacy ? '要確認' : escapeHtml(item.factsStatus || '要確認');
+      const rightsText = legacy ? '要確認' : escapeHtml(item.rightsStatus || '要確認');
+      const idLine = legacy
+        ? `旧データ #${Number(item.legacySpotId)}`
+        : `${escapeHtml(item.informationKind || 'canonical')} / ${escapeHtml(item.sourceEventId || 'sourceEventId要確認')}`;
+      return `<tr data-candidate-id="${escapeHtml(item.candidateId)}" role="button" tabindex="0" aria-label="ニュース詳細を開く：${escapeHtml(headline)}">
+        <td><strong>${escapeHtml(headline)}</strong><div class="muted" style="font-size:.61rem;margin-top:3px;">${idLine}</div></td>
         <td>${escapeHtml(region)}</td>
         <td>${escapeHtml(item.prefecture || '要確認')}</td>
         <td>${escapeHtml(item.municipality || '要確認')}</td>
         <td>${escapeHtml(item.newsDate || '日付要確認')}</td>
-        <td><span style="color:#92400e;font-weight:800;">要確認</span><div style="font-size:.6rem;">旧official・一次URL未保持</div></td>
-        <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
-        <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
-        <td>不可</td><td>未</td><td>未</td><td>未</td><td>未</td><td>—</td>
+        <td><span style="font-weight:800;">${sourceText}</span>${legacy ? '<div style="font-size:.6rem;">旧official・一次URL未保持</div>' : ''}</td>
+        <td><span style="font-weight:800;">${factsText}</span></td>
+        <td><span style="font-weight:800;">${rightsText}</span></td>
+        <td>${legacy || !canonicalProductionReady ? '不可' : 'Renderer待ち'}</td>
+        <td>${legacy ? '不可' : '未接続'}</td>
+        <td>${legacy ? '不可' : '未接続'}</td>
+        <td>${legacy ? '不可' : '接続設定必要'}</td>
+        <td>${legacy ? '不可' : '接続設定必要'}</td>
+        <td>${escapeHtml(item.postedAt || '—')}</td>
         <td><button type="button" data-news-detail-id="${escapeHtml(item.candidateId)}">詳細</button></td>
       </tr>`;
     }).join('');
@@ -145,7 +161,7 @@
       target.textContent = `${prefecture}・${weekValue} に一致する旧ニュース候補はありません。架空ニュースで補完しません。`;
       return;
     }
-    const examples = summary.candidates.slice(0, Math.min(6, count)).map(item => item.title);
+    const examples = summary.candidates.slice(0, Math.min(6, count)).map(item => item.headline || item.title || '名称なし');
     target.innerHTML = `<strong>${escapeHtml(prefecture)} / ${escapeHtml(weekValue)}</strong><br>
       実候補 ${count.toLocaleString()}件 / Production利用可能 0件。選択希望 ${requestedCount}件に対し、全件でsource・facts・rights確認が必要です。
       <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div>`;
