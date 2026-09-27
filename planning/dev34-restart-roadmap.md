@@ -241,3 +241,38 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - PR #20 open/Draft/unmerged/mergeable=true @52f213b. PR #21 open/Draft/unmerged/mergeable=false @c51893b with base drift. PR #22 open/Draft/unmerged/mergeable=true @9c4276b; base matches restart/dev34 and remains isolated user-submitted police_safety additive PR.
 - iPhone news-admin QA PASS remains recorded; detailed candidate→Production/QC/Publishing drill-down is P4/P5 follow-up, not a scroll defect.
 - Production deploy/migration/write, legacy cron manual dispatch/enable, SNS post, OAuth, paid staging remain untouched.
+
+## 2026-09-28 ニュース詳細 read-only 導線
+
+- Candidate list row/buttonからread-only詳細を開くUIを実装。LEGACY_UNVERIFIED実データ一覧で行全体/「詳細」ボタン/Enter/Spaceから開ける。
+- news-candidate-detail.js を追加し、Candidate詳細presentationを一覧UIから分離。service=machimamoを維持。
+- 詳細項目: headline / informationKind / prefecture / municipality / newsDate / category / sourceEventId / source name / source URL / source date / sourceHash / last verified / verifiedFacts / source/facts/rights/correction status / rights level / commercialUseAllowed / rightsScopeConfirmed / attribution / rights evidence / locality evidence / retention / classifier topic/priority/include/reason / publishEligible / blockers。
+- LEGACY_UNVERIFIEDは「旧ニュース候補・要確認」と明示。source/facts/rights/correctionはneeds_review、source URL/hash/rights証跡は要確認、publishEligible=false。Render/QC/Approval/X/TikTokをすべて不可表示。
+- canonical detail view modelはcanonical fields + validation + selection contextを受け取れる。Production gateを満たす場合だけ「Productionへ進める候補」。後続は Production Preview=未接続、Render=Renderer待ち(exact v7)、QC/Approval/Publishing Preview=未接続、X/TikTok=接続設定必要と表示。
+- iPhone向けにdetail modalは単一scroll container、sticky close header、safe-area top/bottom、URL/hash/JSONのwrap、detail open中ad非表示。nested scrollは追加していない。
+- Admin detail read projectionとCandidate→Production→Render→QC→Approval→Publishingの責務境界を news-candidate-api-contract.md に記録。管理OS固有schema/Authは追加していない。
+- JS syntax/static/runtime contract検証PASS。Production writeなし。
+
+## 2026-09-28 Keishicho dry-run matrix強化
+
+- adapterは source/facts/rights/correction gate と selection/retentionを分け、productionEligible = validation.publishEligible && selection.include を明示。
+- rightsScopeConfirmed=trueを明示できるまで rightsStatus=needs_review / Production不可を維持。
+- dry-run matrixへ current / correction(hash変更) / withdrawn / sourceEventId欠落 / rightsScope未確認 / locality未確認 / 60日 / 61日 / 90日 / 91日 / CHILD_SAFETY / 声かけ / SPECIAL_FRAUD_CALL / 高速逆走 / 一般TRAFFIC_INFORMATION / NOTICE / 一般防犯広報 / 地域内入管法違反逮捕 を追加。
+- classifierは公式source categoryを使える一方、NOTICE・一般交通・一般防犯広報は具体的地域安全事案が無ければfail-closedで除外。
+- fixture + CLIはProduction writeなし。Open DATA transport endpoint/columnは未確認のため未実装。
+
+## 2026-09-28 News MAP scaling contract
+
+- news-map-query-contract.cjs / test / design docを追加。Production RPC/migrationなし。
+- map readはservice=machimamo、直近最大60日、viewport boundsまたはprefecture scope必須、cursor pagination、default 250 / max 500件。
+- public MAP projectionはcandidateId/headline/region/date/category/representativeLocation等の描画最小項目だけ。sourceHash/verifiedFacts/rights/audit/publishing stateは詳細API側へ分離。
+- DB保存件数と一画面描画件数を分離し、全件SELECT→全marker生成を禁止するcontract。
+
+## 2026-09-28 Renderer v7探索 closeout
+
+- v7探索は限定最終確認で終了。nested archive / support artifact path strings / historical generated packagesを確認。
+- SOURCE_v13.zip と standalone v8 sourceにはexpected v7 path文字列のみ存在し、exact Python sourceは未収録。nested archiveにも該当sourceなし。
+- Renderer状態を RENDERER_BLOCKED_BY_EXACT_V7_SOURCE に固定。doNotReconstruct=true。
+- expected path: machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py。
+- required symbol surface: v7.v6 / v7.TOKYO_MAIN / v7.map_japan / v7.prep / v7.frame。
+- exact sourceが回収されるまでRenderer broad search / MP4 reverse engineering / v6+v8 synthetic replacementを行わない。
