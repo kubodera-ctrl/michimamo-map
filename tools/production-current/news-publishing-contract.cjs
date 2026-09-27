@@ -1,6 +1,11 @@
 'use strict';
 
 // UI/domain contract only. Does not render, write a database, or call social APIs.
+// Keep service identity explicit so this contract can reuse the shared publishing_*
+// schema without coupling the machimamo UI to a future unified admin frontend.
+const SERVICE_ID = 'machimamo';
+const SUPPORTED_SERVICES = Object.freeze(['machimamo', 'machiibe']);
+
 const PRODUCTION_LABELS = Object.freeze({
   SINGLE: 'TikTok SHORT / SINGLE · 43秒',
   WEEKLY: 'TikTok LONG / WEEKLY · CURRENT尺'
@@ -27,16 +32,27 @@ function weeklyDurationSec(newsCount) {
   return 38 + 12 * Math.ceil(newsCount / 3);
 }
 
+function assertService(service) {
+  if (!SUPPORTED_SERVICES.includes(service)) throw new TypeError('service must be machimamo or machiibe');
+  return service;
+}
+
 function weeklySetKey({ weekStart, prefecture }) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(weekStart || '')) throw new TypeError('weekStart must be YYYY-MM-DD');
   if (!WEEKLY_PREFECTURES.includes(prefecture)) throw new TypeError('prefecture must be one of the 47 prefectures');
   return `${weekStart}:${prefecture}`;
 }
 
-function publishingIdempotencyKey({ revisionId, renderId, platform }) {
+function sharedWeeklyGenerationKey({ service = SERVICE_ID, weekStart, prefecture }) {
+  assertService(service);
+  return `${service}:WEEKLY:${weeklySetKey({ weekStart, prefecture })}`;
+}
+
+function publishingIdempotencyKey({ service = SERVICE_ID, revisionId, renderId, platform }) {
+  assertService(service);
   if (![revisionId, renderId].every(x => typeof x === 'string' && x.trim())) throw new TypeError('revisionId and renderId are required');
   if (!['X', 'TIKTOK'].includes(platform)) throw new TypeError('platform must be X or TIKTOK');
-  return `${revisionId}:${renderId}:${platform}`;
+  return `${service}:${revisionId}:${renderId}:${platform}`;
 }
 
 function isCompletedPost({ platform, status, externalPostId, finalStatus }) {
@@ -52,7 +68,8 @@ function overallSingleStatus(xPosted, tiktokPosted) {
 }
 
 module.exports = {
+  SERVICE_ID, SUPPORTED_SERVICES,
   PRODUCTION_LABELS, WEEKLY_PRESETS, WEEKLY_PREFECTURES, POST_STATES,
-  weeklyDurationSec, weeklySetKey, publishingIdempotencyKey,
+  weeklyDurationSec, weeklySetKey, sharedWeeklyGenerationKey, publishingIdempotencyKey,
   isCompletedPost, overallSingleStatus
 };
