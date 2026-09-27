@@ -2725,13 +2725,15 @@ function shareSpot(title, address, category, event) {
         });
         return { rect, viewport, bounds, scaleX: scaleX || 1, scaleY: scaleY || 1 };
     }
-    function getMapPopupOptions() {
+    function getMapPopupOptions({ noImage = false } = {}) {
         const g = renderedMapGeometry();
+        const clientWidth = document.documentElement.clientWidth || window.innerWidth || 300;
+        const viewportHeight = window.visualViewport?.height || window.innerHeight || 600;
         return {
             autoPan: false, keepInView: false, closeOnClick: false,
-            maxWidth: Math.max(120, Math.min(300, (g.bounds.right - g.bounds.left) / g.scaleX - 40)),
+            maxWidth: Math.max(120, Math.min(noImage ? 430 : 300, noImage ? clientWidth * 0.82 : (g.bounds.right - g.bounds.left) / g.scaleX - 40)),
             minWidth: 100,
-            maxHeight: Math.max(60, Math.min(430, (g.bounds.bottom - g.bounds.top) / g.scaleY - 65))
+            maxHeight: Math.max(60, Math.min(noImage ? 650 : 430, noImage ? viewportHeight * 0.74 - 65 : (g.bounds.bottom - g.bounds.top) / g.scaleY - 65))
         };
     }
     function focusSelectedPopup(marker, popup) {
@@ -2739,7 +2741,7 @@ function shareSpot(title, address, category, event) {
         popupFocusPanUntil = performance.now() + 800;
         requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup || !popup.isOpen()) return;
-            Object.assign(popup.options, getMapPopupOptions());
+            Object.assign(popup.options, getMapPopupOptions({ noImage: marker._machimamoSpot?.hasImage === false }));
             popup.update();
             const el = popup.getElement();
             if (!el) return;
@@ -2986,7 +2988,7 @@ function shareSpot(title, address, category, event) {
             `;
         }
 
-        m.bindPopup(popupContent, getMapPopupOptions());
+        m.bindPopup(popupContent, getMapPopupOptions({ noImage: !spot.image_url }));
         m.on('popupopen', () => syncSpotPopupControls(m));
         activeMarkers.push({ id: spot.id, category: spot.category, createdBy: spot.created_by || null, hasImage: !!spot.image_url, instance: m, circle: hc });
     }
