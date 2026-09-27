@@ -50,7 +50,7 @@ PASS: SQL構文、依存signature、未認証拒否、同一offer再import、初
 |今日のお出かけ・まちイベ|イベントbranchに実装。live eventsなし。公開導線/小画面E2E未確認|C|
 |警視庁ニュース管理|既存コードあり。管理生成/承認E2E未確認|C|
 
-P2対象14テスト中12PASS/2FAIL。npm test本体はPASS。旧テストFAILを隠すための削除やsnapshot更新は行っていない。
+P2対象13テスト中11PASS/2FAIL。npm test本体はPASS。旧テストFAILを隠すための削除やsnapshot更新は行っていない。
 
 ## P4（C）
 Drive CURRENT v16.4 + REVIEW5確認、SOURCE_CURRENT_FULL.zip取得。SHA256=916157c8126923d7e4324cb968d34e38511c767ad0bdb25803656d148052bf93。
