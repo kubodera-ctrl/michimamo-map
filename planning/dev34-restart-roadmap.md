@@ -287,3 +287,14 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 変更契約のNode syntax / focused regression testはlocal PASS。
 - 新しいニュース詳細modalのiPhone実機QAはまだ未完了。実機PASS前に詳細UIからProduction Previewへ新しい操作導線は接続しない。
 - Production deploy / Production DB write・migration / SNS投稿 / OAuth / legacy police cron dispatch-enable-rerunは未実施。
+
+## 2026-09-28 開発36｜source identity scope correction
+
+- Production Preview contractのsource identity条件をcanonical candidate contractへ再整合。
+- `sourceEventId` 必須は `POLICE_OFFICIAL` のみに限定。`LOCAL_ANOMALY` はsourceEventId欠落だけではblockしない。
+- POLICE_OFFICIALのsourceEventId欠落は引き続きfail-closed。
+- sourceHash / verifiedFacts / publishEligible / selection / retentionの既存gateは維持。
+- focused regressionにLOCAL_ANOMALY without sourceEventIdを追加しPASS。
+- fix commit: `33518d0f6028113b56a16b38c7e3bd7ac11cccb5`
+- Preview: `dpl_B8EUPrPtQ4Ex2pbFmCB6Vd6DZwCL` READY / target=null / branch alias追従確認。
+- Production変更なし。iPhone詳細modal実機QAは引き続き未完了。
