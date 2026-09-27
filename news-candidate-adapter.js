@@ -133,7 +133,10 @@
     const matched = (Array.isArray(candidates) ? candidates : []).filter(item =>
       item.prefecture === prefecture && item.newsDate && item.newsDate >= start && item.newsDate <= end
     );
-    const eligible = matched.filter(item => item.publishEligible === true);
+    const eligible = matched.filter(item =>
+      item.productionEligible === true ||
+      (item.publishEligible === true && item.selection?.include === true)
+    );
     return {
       start, end, candidates: matched, eligible,
       requestedCount,
