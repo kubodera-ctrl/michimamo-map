@@ -38,7 +38,7 @@ create table if not exists public.asp_runtime_service_offers (
   line_approval_status text not null default 'unknown'
     check (line_approval_status in ('approved','pending','rejected','unknown')),
   tracking_url text,
-  creative_type text check (creative_type is null or creative_type in ('text','image','html')),
+  creative_type text check (creative_type is null or creative_type in ('text','image')),
   creative_url text,
   impression_tracking_url text,
   point_reward_allowed boolean not null default false,
@@ -59,7 +59,12 @@ create table if not exists public.asp_runtime_service_offers (
   check (tracking_url is null or tracking_url ~ '^https://[^[:space:]<>"'']+$'),
   check (creative_url is null or creative_url ~ '^https://[^[:space:]<>"'']+$'),
   check (impression_tracking_url is null or impression_tracking_url ~ '^https://[^[:space:]<>"'']+$'),
-  check (not point_reward_allowed or reward_rule_confirmed)
+  check (jsonb_typeof(reward_rule) = 'object'),
+  check (not point_reward_allowed or (
+    reward_rule_confirmed
+    and (reward_amount is not null or reward_rate is not null)
+    and reward_rule <> '{}'::jsonb
+  ))
 );
 
 create table if not exists public.asp_runtime_placements (
