@@ -19,6 +19,7 @@ const summary = {
   valid: results.filter(x => x.validation.valid).length,
   publishEligible: results.filter(x => x.validation.publishEligible).length,
   selected: results.filter(x => x.selection?.include).length,
+  productionEligible: results.filter(x => x.productionEligible === true).length,
   productionWrite: false,
   candidates: results.map(x => ({
     candidateId: x.candidate?.candidateId || null,
@@ -28,6 +29,7 @@ const summary = {
     sourceHash: x.candidate?.source?.sourceHash || null,
     valid: x.validation.valid,
     publishEligible: x.validation.publishEligible,
+    productionEligible: x.productionEligible === true,
     selection: x.selection
   }))
 };
