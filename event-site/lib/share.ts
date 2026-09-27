@@ -57,7 +57,7 @@ export function buildXShareText(input:XShareInput){
     {key:'condition',text:clean(input.conditionText)},
     {key:'date',text:input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,44) : ''},
     {key:'time',text:input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,30) : ''},
-    {key:'summary',text:hasCta ? '' : truncateWeighted(input.summary,28)},
+    {key:'summary',text:hasCta ? '' : clean(input.summary)},
     ...(input.ctaLines||[]).slice(0,2).map((line,index)=>({key:`cta-${index}`,text:truncateWeighted(line,48)})),
     {key:'hashtags',text:hashtagTokens.join(' ')}
   ];
@@ -76,6 +76,11 @@ export function buildXShareText(input:XShareInput){
     const target=Math.max(minWeight,current-excess);
     line.text=target<=0?'':truncateWeighted(line.text,target);
   };
+
+  if(totalWeight()>maxWeight){
+    const summaryLine=lines.find((line)=>line.key==='summary');
+    if(summaryLine?.text) summaryLine.text=truncateWeighted(summaryLine.text,28);
+  }
 
   // Preserve dates, time, CTA and the brand hashtag; shorten descriptive copy first.
   for(const [key,min] of [['summary',0],['condition',16],['title',30],['place',14],['prefix',12]] as const){
