@@ -10,48 +10,37 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'machimamo-renderer-'));
 try {
   const missingResult = inspectRendererBundle(root);
   assert.equal(missingResult.ready, false);
-  assert.ok(missingResult.missing.includes('machimamo_reference_v13/package/machimamo_reference_v13.py'));
-  assert.ok(missingResult.missing.includes('machimamo_reference_v16_3/overlays/news_short.png'));
+  assert.ok(missingResult.missingCode.includes('machimamo_reference_v13/package/machimamo_reference_v13.py'));
+  assert.ok(missingResult.missingCode.includes('machimamo_reference_v16_1/src/machimamo_reference_v16_1.py'));
 
   const manifestPath = path.join(root, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify({
     sourceMaster: 'fixture',
     primaryRenderer: 'entry.py',
-    requiredFiles: ['source/entry.py'],
+    requiredExistingFiles: ['source/entry.py'],
+    missingCodeDependencies: [],
+    runtimeFontPolicy: 'Resolve Japanese font from runtime.',
   }));
   fs.mkdirSync(path.join(root, 'source'));
   fs.writeFileSync(path.join(root, 'source/entry.py'), '# fixture renderer');
-  assert.equal(inspectRendererBundle(root, manifestPath, {}).ready, false, 'approved font path is required');
-  const fontPath = path.join(root, 'approved-japanese-font.otf');
-  fs.writeFileSync(fontPath, 'font fixture');
-  assert.deepEqual(inspectRendererBundle(root, manifestPath, {}), {
-    ready: false,
-    sourceMaster: 'fixture',
-    renderer: 'entry.py',
-    missing: ['approved-font:unspecified'],
-  });
-  const fontManifestPath = path.join(root, 'font-manifest.json');
-  fs.writeFileSync(fontManifestPath, JSON.stringify({
-    sourceMaster: 'fixture',
-    primaryRenderer: 'entry.py',
-    requiredFiles: ['source/entry.py'],
-    approvedJapaneseFontEnv: 'TEST_APPROVED_FONT',
-  }));
-  assert.deepEqual(inspectRendererBundle(root, fontManifestPath, { TEST_APPROVED_FONT: fontPath }), {
+  assert.deepEqual(inspectRendererBundle(root, manifestPath), {
     ready: true,
     sourceMaster: 'fixture',
     renderer: 'entry.py',
     missing: [],
-  });
+    missingCode: [],
+    fontPolicy: 'Resolve Japanese font from runtime.',
+  }, 'font environment variables are not mandatory preconditions');
 
   const traversalPath = path.join(root, 'escape.py');
   fs.writeFileSync(traversalPath, '# must not satisfy a path outside bundle root');
   fs.writeFileSync(manifestPath, JSON.stringify({
     sourceMaster: 'fixture',
     primaryRenderer: '../escape.py',
-    requiredFiles: ['../escape.py'],
+    requiredExistingFiles: ['../escape.py'],
+    missingCodeDependencies: [],
   }));
-  assert.equal(inspectRendererBundle(root, manifestPath, {}).ready, false);
+  assert.equal(inspectRendererBundle(root, manifestPath).ready, false);
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
