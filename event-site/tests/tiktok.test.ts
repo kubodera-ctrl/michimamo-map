@@ -40,8 +40,10 @@ test('TikTok caption adds oshi hashtag only for confirmed fandom links',()=>{
 
 test('TikTok generator reserves overlay-safe space and wraps before drawing pills',()=>{
   const source=fs.readFileSync(new URL('../components/TikTokAssetGenerator.tsx',import.meta.url),'utf8');
-  assert.match(source,/const SAFE_RIGHT=840;/);
-  assert.match(source,/const SAFE_BOTTOM=1580;/);
+  const master=fs.readFileSync(new URL('../lib/machiibe-social-master.ts',import.meta.url),'utf8');
+  assert.match(source,/right:SAFE_RIGHT,bottom:SAFE_BOTTOM/);
+  assert.match(source,/MACHIIBE_SOCIAL_MASTER\\.tiktok\\.safeArea/);
+  assert.match(master,/safeArea:\\{left:92,right:840,bottom:1580\\}/);
   assert.match(source,/if\(tagX\+measured\.width>SAFE_RIGHT\)\{tagX=SAFE_LEFT;tagY\+=72;\}/);
   assert.match(source,/drawPill\(ctx,measured\.text,tagX,tagY,measured\.width\)/);
   assert.match(source,/イベント案内はこちら！/);

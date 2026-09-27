@@ -41,8 +41,10 @@ test('home search exposes arbitrary date selection and preserves it in paginatio
   const filters=read('../components/EventFilters.tsx');
   const page=read('../app/page.tsx');
   const css=read('../app/globals.css');
+  const labels=read('../lib/event-labels.ts');
 
-  assert.match(filters,/\['custom','日付指定'\]/);
+  assert.match(filters,/\['custom',g\.customDate\]/);
+  assert.match(labels,/customDate:'日付指定'/);
   assert.match(filters,/name="from"/);
   assert.match(filters,/name="to"/);
   assert.match(page,/resolveDateRange\(dateMode,customStartRaw,customEndRaw\)/);
@@ -56,9 +58,11 @@ test('rainy-day shortcut combines indoor and family-safe filters',()=>{
   const filters=read('../components/EventFilters.tsx');
   const page=read('../app/page.tsx');
   const stories=read('../components/FeaturedStories.tsx');
+  const labels=read('../lib/event-labels.ts');
 
   assert.match(filters,/name="rainy"/);
-  assert.match(filters,/雨の日の室内遊び/);
+  assert.match(filters,/g\.rainy/);
+  assert.match(labels,/rainy:'☔ 雨の日'/);
   assert.match(page,/rainyDayOnly = one\(params\.rainy\) === '1'/);
   assert.match(page,/indoorOnly: indoorOnly \|\| rainyDayOnly/);
   assert.match(page,/familyFriendlyOnly \|\| rainyDayOnly/);
@@ -72,6 +76,7 @@ test('experience search supports broad and specific hands-on genres',()=>{
   const events=read('../lib/events.ts');
   const filters=read('../components/EventFilters.tsx');
   const page=read('../app/page.tsx');
+  const labels=read('../lib/event-labels.ts');
 
   assert.match(events,/\['experience','体験・ものづくり'\]/);
   for(const key of [
@@ -82,7 +87,8 @@ test('experience search supports broad and specific hands-on genres',()=>{
     assert.ok(events.includes(`['${key}'`),`missing experience taxonomy: ${key}`);
   }
   assert.match(filters,/name="experience"/);
-  assert.match(filters,/体験をすべて見る/);
+  assert.match(filters,/labels\.experience\.experience/);
+  assert.match(labels,/experience:\{experience:'体験をすべて見る'/);
   assert.match(page,/const experience = one\(params\.experience\)/);
   assert.match(page,/categories: experience \? \[experience\] : category \? \[category\] : undefined/);
   assert.match(page,/experience:experience\|\|undefined/);
@@ -92,12 +98,16 @@ test('experience search supports broad and specific hands-on genres',()=>{
 test('search form keeps common filters visible and advanced filters collapsible',()=>{
   const filters=read('../components/EventFilters.tsx');
   const css=read('../app/globals.css');
+  const labels=read('../lib/event-labels.ts');
 
-  assert.match(filters,/すぐ使える条件/);
-  assert.match(filters,/もっと細かく絞り込む/);
+  assert.match(filters,/g\.quick/);
+  assert.match(filters,/g\.advanced/);
+  assert.match(labels,/quick:'すぐ使える条件'/);
+  assert.match(labels,/advanced:'もっと細かく絞り込む'/);
   assert.match(filters,/advancedCount/);
   assert.match(filters,/open=\{advancedOpen\}/);
-  assert.match(filters,/条件をクリア/);
+  assert.match(filters,/g\.clearConditions/);
+  assert.match(labels,/clearConditions:'条件をクリア'/);
   assert.match(css,/\.search-submit-row\{position:sticky/);
   assert.match(css,/font-size:16px/);
 });
@@ -115,6 +125,7 @@ test('Machimamo handoff is visible without overwhelming event search',()=>{
   const bridge=read('../components/MachimamoBridge.tsx');
   const detail=read('../app/events/[slug]/page.tsx');
   const layout=read('../app/layout.tsx');
+  const i18n=read('../lib/i18n.ts');
 
   assert.match(home,/MachimamoBridge/);
   assert.match(bridge,/行き先を決めたら、当日の安心は「まちまも」へ/);
@@ -125,7 +136,8 @@ test('Machimamo handoff is visible without overwhelming event search',()=>{
   assert.match(detail,/searchParams\.set\('from','machiibe'\)/);
   assert.match(detail,/searchParams\.set\('eventSlug',event\.slug\)/);
   assert.match(detail,/まちまもで会場周辺を見る/);
-  assert.match(layout,/まちまも 安全MAP/);
+  assert.match(layout,/messages\.safeMap/);
+  assert.match(i18n,/safeMap:'まちまも 安全MAP'/);
 });
 
 
@@ -134,14 +146,18 @@ test('venue-type filter is multi-select and exclusionary',()=>{
   const selector=read('../components/VenueTypeSelector.tsx');
   const page=read('../app/page.tsx');
   const pagination=read('../components/Pagination.tsx');
+  const labels=read('../lib/event-labels.ts');
 
   for(const key of ['park_plaza','mall','event_venue_indoor','event_venue_outdoor','hotel','amusement','culture_public','other']){
     assert.ok(events.includes(`['${key}'`),`missing venue type: ${key}`);
   }
-  assert.match(selector,/チェックした場所だけ検索結果に表示/);
+  assert.match(selector,/g\.venueHelp/);
   assert.match(selector,/name="venue"/);
-  assert.match(selector,/すべて/);
-  assert.match(selector,/全解除/);
+  assert.match(selector,/g\.selectAll/);
+  assert.match(selector,/g\.clearAll/);
+  assert.match(labels,/venueHelp:'チェックした場所だけ検索結果に表示'/);
+  assert.match(labels,/selectAll:'すべて'/);
+  assert.match(labels,/clearAll:'全解除'/);
   assert.match(page,/venueFilterActive/);
   assert.match(page,/venueTypes/);
   assert.match(pagination,/params\.append\(key,item\)/);

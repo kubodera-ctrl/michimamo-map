@@ -87,7 +87,7 @@ test('correction workflow has rights takedown and safe contact fallback',()=>{
 test('footer exposes policy hub, terms, privacy, corrections and operator',()=>{
   const source=read('../app/layout.tsx');
   for(const href of ['/policies','/terms','/privacy','/corrections','/operator']){
-    assert.ok(source.includes(`href="${href}"`),`missing footer link: ${href}`);
+    assert.ok(source.includes(`localePath('${href}',locale)`),`missing localized footer link: ${href}`);
   }
 });
 

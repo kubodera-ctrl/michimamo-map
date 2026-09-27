@@ -2,17 +2,18 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {MACHIIBE_SOCIAL_MASTER} from '../lib/machiibe-social-master';
+import {MACHIIBE_CAROUSEL_CURRENT,MACHIIBE_VIDEO_CURRENT} from '../lib/machiibe-production-master';
 import {buildXShareText,xWeightedLength} from '../lib/share';
 
 const read=(path:string)=>fs.readFileSync(new URL(path,import.meta.url),'utf8');
 
-test('social master locks five TikTok frames and a separate end card',()=>{
+test('legacy single-event TikTok asset master stays separate from CURRENT Production',()=>{
   assert.equal(MACHIIBE_SOCIAL_MASTER.tiktok.frames.length,5);
-  assert.deepEqual(MACHIIBE_SOCIAL_MASTER.tiktok.format,{width:1080,height:1920,aspect:'9:16',fps:30});
   assert.equal(MACHIIBE_SOCIAL_MASTER.tiktok.frames[4].id,'end_card');
-  assert.equal(MACHIIBE_SOCIAL_MASTER.tiktok.frames[4].layout,'separate_end_card');
+  assert.equal(MACHIIBE_CAROUSEL_CURRENT.productionType,'CAROUSEL');
+  assert.equal(MACHIIBE_CAROUSEL_CURRENT.output,'PNG');
+  assert.equal(MACHIIBE_VIDEO_CURRENT.active,false);
   assert.equal(MACHIIBE_SOCIAL_MASTER.brand.aiMayChangeLayout,false);
-  assert.equal(MACHIIBE_SOCIAL_MASTER.media.requireUsagePermission,true);
 });
 
 test('X master leaves room for the separately attached URL',()=>{
@@ -39,10 +40,12 @@ test('current TikTok renderer consumes canonical dimensions and safe area',()=>{
   assert.match(source,/MACHIIBE_SOCIAL_MASTER\.tiktok\.format/);
 });
 
-test('admin exposes the production master and keeps manual posting',()=>{
+test('admin exposes CURRENT CAROUSEL and keeps VIDEO disabled until its formal master exists',()=>{
   const admin=read('../app/admin/page.tsx');
   const master=read('../app/admin/social-master/page.tsx');
-  assert.match(admin,/\/admin\/social-master/);
-  assert.match(master,/固定5Frame/);
-  assert.match(master,/自動投稿はしません/);
+  assert.match(admin,/\\/admin\\/social-master/);
+  assert.match(master,/CAROUSEL — ACTIVE/);
+  assert.match(master,/VIDEO — MASTER待ち/);
+  assert.match(master,/MACHIIBE_VIDEO_CURRENT\\.reason/);
+  assert.match(master,/SNS Publishing/);
 });

@@ -21,8 +21,10 @@ test('partner overview stays out of search indexes during outreach',()=>{
   assert.match(page,/robots:\{index:false,follow:true\}/);
 });
 
-test('partner overview is reachable from the public footer',()=>{
+test('partner overview is reachable from the localized public footer',()=>{
   const layout=read('../app/layout.tsx');
-  assert.match(layout,/href="\/partners"/);
-  assert.match(layout,/まちイベについて/);
+  const i18n=read('../lib/i18n.ts');
+  assert.match(layout,/localePath\('\/partners',locale\)/);
+  assert.match(layout,/messages\.about/);
+  assert.match(i18n,/about:'まちイベについて'/);
 });

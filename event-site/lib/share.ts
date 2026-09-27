@@ -43,28 +43,63 @@ function truncateWeighted(value:string|undefined,maxWeight:number){
 }
 
 export function buildXShareText(input:XShareInput){
-  const tags=[...(input.hashtags||[]),'まちイベ']
-    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\s+/g,'')))
+  const tagNames=[...(input.hashtags||[])]
+    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\\s+/g,'')))
     .filter(Boolean)
-    .filter((tag,index,array)=>array.indexOf(tag)===index)
-    .slice(0,3)
-    .map((tag)=>`#${tag}`)
-    .join(' ');
-
+    .filter((tag,index,array)=>array.indexOf(tag)===index);
+  const extraTags=tagNames.filter((tag)=>tag!=='まちイベ').slice(0,2);
+  const hashtagTokens=[...extraTags,'まちイベ'].map((tag)=>\`#\${tag}\`);
   const hasCta=Boolean(input.ctaLines?.length);
-  const lines=[
-    truncateWeighted(input.prefix,16),
-    truncateWeighted(input.placeText,20),
-    truncateWeighted(input.title,44),
-    truncateWeighted(input.conditionText,24),
-    input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,30) : '',
-    input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,20) : '',
-    hasCta ? '' : truncateWeighted(input.summary,28),
-    ...(input.ctaLines||[]).slice(0,2).map((line)=>truncateWeighted(line,32)),
-    truncateWeighted(tags,20)
-  ].filter(Boolean);
+  const lines:Array<{key:string;text:string}>=[
+    {key:'prefix',text:clean(input.prefix)},
+    {key:'place',text:clean(input.placeText)},
+    {key:'title',text:clean(input.title)},
+    {key:'condition',text:clean(input.conditionText)},
+    {key:'date',text:input.dateText ? truncateWeighted(\`開催日：\${clean(input.dateText)}\`,44) : ''},
+    {key:'time',text:input.timeText ? truncateWeighted(\`時間：\${clean(input.timeText)}\`,30) : ''},
+    {key:'summary',text:hasCta ? '' : clean(input.summary)},
+    ...(input.ctaLines||[]).slice(0,2).map((line,index)=>({key:\`cta-\${index}\`,text:truncateWeighted(line,48)})),
+    {key:'hashtags',text:hashtagTokens.join(' ')}
+  ];
 
-  return lines.join('\n');
+  const maxWeight=245;
+  const totalWeight=()=>{
+    const active=lines.map((line)=>line.text).filter(Boolean);
+    return active.reduce((total,line)=>total+xWeightedLength(line),0)+Math.max(0,active.length-1);
+  };
+  const shrink=(key:string,minWeight:number)=>{
+    const line=lines.find((item)=>item.key===key);
+    if(!line?.text) return;
+    const excess=totalWeight()-maxWeight;
+    if(excess<=0) return;
+    const current=xWeightedLength(line.text);
+    const target=Math.max(minWeight,current-excess);
+    line.text=target<=0?'':truncateWeighted(line.text,target);
+  };
+
+  // Preserve dates, time, CTA and the brand hashtag; shorten descriptive copy first.
+  for(const [key,min] of [['summary',0],['condition',16],['title',30],['place',14],['prefix',12]] as const){
+    shrink(key,min);
+  }
+
+  const tagsLine=lines.find((line)=>line.key==='hashtags');
+  while(totalWeight()>maxWeight && hashtagTokens.length>1){
+    let removable=-1;
+    for(let index=hashtagTokens.length-1;index>=0;index-=1){
+      if(hashtagTokens[index]!=='#まちイベ'){removable=index;break;}
+    }
+    if(removable<0) break;
+    hashtagTokens.splice(removable,1);
+    if(tagsLine) tagsLine.text=hashtagTokens.join(' ');
+  }
+
+  // Formal CTA copy is short, but keep a final bounded fallback for unexpected operator input.
+  if(totalWeight()>maxWeight){
+    for(const key of ['prefix','place','condition'] as const) shrink(key,0);
+    shrink('title',20);
+  }
+
+  return lines.map((line)=>line.text).filter(Boolean).join('\\n');
 }
 
 export function buildXShareUrl(input:XShareInput) {
