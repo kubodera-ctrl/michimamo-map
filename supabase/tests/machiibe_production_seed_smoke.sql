@@ -8,7 +8,7 @@
 \ir ../seeds/machiibe_verified_events_batch3.sql
 \ir ../seeds/machiibe_verified_events_batch4.sql
 
-do $
+do $$
 declare
   n integer;
   payload jsonb;
