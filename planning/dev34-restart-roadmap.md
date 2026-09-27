@@ -228,3 +228,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 現接続ではworkflow-definition state / repository Actions policy endpointを読めず、個別workflowがdisabled_manuallyかactiveかは未確定。残原因クラスはworkflow個別stateまたはGitHub schedule enqueue側。
 - legacy workflowはProduction spotsへ直接writeするためmanual dispatch/re-run/enable変更は未実施。
 - 詳細: `planning/police-workflow-stop-audit-20260927.md`。
+
+## 2026-09-28 自動継続一区切り
+
+- P4 latest HEAD: 8b5a1b11fb541f5e5a35a08afd400d9722b2fdef.
+- Keishicho/Open DATA selection gate hardened: explicit localityEvidence confirmed=false no longer falls back to municipality text; adapter sets officialSource=true; NOTICE/general traffic/general safety-information are fail-closed unless concrete incident terms qualify; official categories CHILD_SAFETY / APPROACH_OR_SUSPICIOUS / INDECENT_EXPOSURE / ROBBERY / SPECIAL_FRAUD_CALL / SERIAL_INCIDENT can drive classification without relying only on headline keywords.
+- Local Node dry-run PASS: canonical 3-row fixture; correction sourceHash change; withdrawn not publishable; missing sourceEventId invalid; immigration local arrest included; highway wrong-way = TRAFFIC_WRONG_WAY/high; unconfirmed locality excluded; generic notice/general traffic excluded; special-fraud-call and child categories prioritized.
+- Renderer: v13 and runtime font availability recovered; exact v7 source remains only code import blocker. Deep search of all materialized historical v8-v16.4/CURRENT/REVIEW archives found no v7 Python source. v8 requires exactly v7.v6 / v7.TOKYO_MAIN / v7.map_japan / v7.prep / v7.frame; do not reimplement from adjacent versions.
+- v7 completed MP4 recovered and hash-confirmed against QC: f04f5fd8768d7faddba98d6dbcecf4fe9b8141cdfca646e9e72d0e74a080b408, 44.0s / 1080x1920 / 30fps / H.264 / yuv420p. This is provenance evidence only and not a CURRENT render base.
+- Golden CURRENT SINGLE independently verified: SHA 27108db3aa4e6351b5cb40ead40785a6c04bee601e7373c2bf0130132e56a215, 43.0s, 1080x1920, H.264, 30fps, yuv420p, AAC 48kHz, full decode error 0. QC frames prepared for future generated-vs-Golden comparison.
+- Runtime font: Noto Sans CJK JP Regular/Bold expected paths exist; Debian package fonts-noto-cjk local copyright declares SIL Open Font License 1.1. Font binaries remain external to Master and are not redistributed.
+- PR #20 open/Draft/unmerged/mergeable=true @52f213b. PR #21 open/Draft/unmerged/mergeable=false @c51893b with base drift. PR #22 open/Draft/unmerged/mergeable=true @9c4276b; base matches restart/dev34 and remains isolated user-submitted police_safety additive PR.
+- iPhone news-admin QA PASS remains recorded; detailed candidate→Production/QC/Publishing drill-down is P4/P5 follow-up, not a scroll defect.
+- Production deploy/migration/write, legacy cron manual dispatch/enable, SNS post, OAuth, paid staging remain untouched.
