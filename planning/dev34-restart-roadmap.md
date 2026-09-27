@@ -73,58 +73,28 @@
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
 
-## 2026-09-27 SNS素材スクロール実機報告対応（base側）
-- Vercel Git接続復旧、e0eb669 Preview READY: dpl_2V2ihPmbXUQqLKfrxTNszmdfNGB8。
-- 本人報告: 他はほぼOK、SNS素材モーダルが下までスクロールできず広告帯が重なる。通常/Private別の全項目PASSではない。
-- fix d85cbacbc976df80895089f95db73e1293c4ffc4: SNS modalのみ90dvh/flex/min-height:0の独立scroll body、header固定、adより上へ配置。デザイン/投稿データ/Productionは未変更。
-- static tests admin_social_assets / safari_private_viewport / ios_viewport_stability PASS。隔離Chromium検証はbrowser downloadが壊れたarchiveで未実行。iPhone再確認待ち。
-- 修正Preview候補 https://machimamo-q7vvvj8of-miti4.vercel.app/ (dpl_FU8oJEDbgwugwjNYJXogLdysPUS7、source d85cbac)。実機でPNG保存/投稿文/コピー/Xボタンへスクロール到達とcloseを確認する。外部投稿はしない。
-- PR21はstackedのまま、今回base修正の取り込みは次工程で再照合。merge/Production前に必須。
 
-## 2026-09-27 P0 最新Preview再確認・投稿先DB隔離判定
-- restart/dev34 HEAD: 99edca82c7e5d0d4129707c19fb250b77e57a85c。修正: document capture-phase touch handlerで、開いているadminSocialAssetModalのスワイプをadminSocialAssetBody.scrollTopへ手動反映。button/link/input/textarea/select/contenteditableでは介入せず、既存filter用gestureは維持。Regression assertionsをtests/admin_social_assets.test.cjsへ追加。
-- Vercel Preview READY: dpl_DwvHg9XTpR7j394kcUs1LqkqQn3b / https://machimamo-m9lhdknfm-miti4.vercel.app/。source=git、branch=restart/dev34、SHA=99edca82c7e5d0d4129707c19fb250b77e57a85c、target=null (Preview)。前のd85 Previewに対する実機報告とこの新修正後の再確認は区別する。
-- 本人報告: 通常/Private Safariの表示サイズ、下部メニュー、各モーダルなど基礎表示はPASS。SNS素材画面は最下部までスクロールできるとの確認あり。一方、別途「管理画面内TikTok投稿ページ」はスクロールできないとの報告。対象画面が異なるため、SNS素材モーダルのPASSで未解決ページをPASS扱いしない。99ed Previewでの該当画面再確認待ち。
-- DB隔離ゲート: 現行branchのfrontend SUPABASE_URLは https://ckftozjhdszlwqnylmxv.supabase.co、mainも同じProject Ref。Preview DBはProductionと共有。書込テスト投稿は本番データへ入るため禁止。テスト投稿なし、Migrationなし、本番変更なし。隔離Supabase Project/Preview環境が用意・確認されるまで異変投稿E2Eは保留。
-- PR #20: open/Draft/mergeable=true、未merge。main最新SHA=7b4b935a5facb0a441445a9e14adce1982c909e1、PR headはmainより15 commit先行・behind 0、GitHub compareはmerge conflictなし。Productionは変更なし。Draft解除はTikTok投稿ページの実機再確認、CI failureの扱い確認、実投稿DB安全性ゲート解決後。
-- Checks: camera-regression success、Vercel Preview deployment READY。Event Site Checkは別サービスのworkflowでsetup-nodeが存在しない event-site/package.json をcache pathに指定して失敗、Install/testsはskipped。PR20のまちまも変更起因ではない。Cloudflare Workers Buildsもmachiibe-preview/michimamo-map双方failure。原因本文はDashboardで未確認・PR20 Previewの代替ではない。
+## 2026-09-27 P4 Renderer blocker correction and CURRENT source audit
+
+- P4 starts from `feat/dev34-current-production-engine`; requested current base is `restart/dev34`. Use a normal merge to preserve P0 changes; do not force-rebase. The synchronized feature HEAD and Preview provenance must be recorded from GitHub/Vercel after push; a stale local mirror is not evidence of latest HEAD.
+- Corrected prior interpretation: `SOURCE_CURRENT_FULL.zip` is a restoration snapshot, and “historical path not found” does not mean “asset absent.” Hash-verified source mappings are in `tools/production-current/renderer-dependency-map.md`. The 2026-09-27 REVIEW3 snapshot contains v16.1 foundation code SHA `0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114`, exact dog/overlay source assets; those are historical base candidates, not approved REVIEW5 substitutions until the later deltas are checked.
+- Audited CURRENT/REVIEW3 assets show approved TOP, END, transparent emblem, happy dog, sad dog candidate, and REVIEW5 patches present. v16.1 code/old overlay paths can be mapped by content/provenance. `machimamo_reference_v13/package/machimamo_reference_v13.py` remains truly missing in the audited CURRENT and REVIEW3 trees, preventing complete engine execution without an approved source recovery. No drawing implementation was rewritten.
+- README_RESTORE says fonts are intentionally absent from ZIPs and Japanese font must resolve in the runtime. Removed any interpretation that `MACHIMAMO_APPROVED_JP_FONT` or a bundled binary is a required configuration. This runner currently has no `fc-match :lang=ja` family, so text metrics and visual QC are still blocked.
+- `asset_path_adapter.py` maps historical `/mnt/data` literals via ASSET_ROOT/WORK_ROOT in a copied source tree, leaving drawing code unchanged; adapter and preflight tests cover this. No actual SINGLE/WEEKLY final MP4 has been regenerated, decoded, or Golden-compared yet.
+- Admin news publishing remains fail-closed scaffold: real news/article table and shared `publishing_*` tables are absent from the inspected Supabase schema, so read-only data connection and weekly candidate filtering are not yet possible. No DB write/migration was applied; no SNS/ASP action taken.
+- P4 Preview is for UI/manual iPhone QA only and has no proof of renderer execution. Production is unchanged. Police-safety remains its own additive-migration PR and is not mixed into P4.
 
 
-## 2026-09-27 最新確定要件反映（P0 / P4/P5）
+## 2026-09-27 P4 Renderer audit correction — latest verified state
 
-- TikTok関連を画面名で分類する。既存地域投稿系は `#adminSocialPostArea` → `openAdminTikTokAsset(id)` → `#adminSocialAssetModal/#adminSocialAssetBody/#adminSocialCanvas` の1080×1920 PNG/caption保存機能と、`openAdminXPost(id)` / `twitter.com/intent/tweet`。これはレガシー地域投稿SNS素材で、iPhone最下部まで操作できる実機PASSを維持する。API投稿・revision・production statusは持たない。
-- 「管理画面TikTok投稿ページ」は実装中の別routeではなく、正式なニュース投稿管理と混同したもの。現行コードにニュースSINGLE/WEEKLY画面、Production/PDF/MP4 Renderer、QC/approval、投稿状態、X/TikTok Publishing APIがないと確定。既存SNS素材を流用・削除せず、新規ニュース投稿管理はP4/P5へ分離する。
-- 最新iPhone報告: Safari通常/Private基本表示、表示サイズ、下部メニュー、既存各モーダル PASS。SNS素材scroll PASS。地域異変write E2EはPreviewがProduction Supabaseと同一ref `ckftozjhdszlwqnylmxv.supabase.co` のため未実施。
-- PR #20 HEAD `8acc32d54505af7a4ab4772a940bf5a51b274336`（restart/dev34、Draft/open/未merge、main 7b4b93…からahead18/behind0）。Latest clean `npm test` PASS。Camera Regression/Event Site Check success。Event Site workflowは `event-site/package.json` 存在確認し、manifestがなければBuild jobだけskip、対象ありなら既存tests/smokesを保ち実行。`isFirstLocationSet` smoke assertion維持。Vercel Preview dpl_BgyMwqL9GtkMPqTZbsDzmAmWdmqa / https://machimamo-488j4qlau-miti4.vercel.app/ READY, target=null。Cloudflare build logは最新原因未確認。
-- Drive CURRENT 2026-09-27追記に詳細 inventory / checks / Preview / migration / blockersを保存。
+This section supersedes the earlier statement that v16.1 foundation code and the sad-dog/news-overlay content were entirely missing. The user clarified that `SOURCE_CURRENT_FULL` is a 2026-09-27 approved restoration snapshot, so old-path absence was rechecked across the base and deltas.
 
-### P4/P5 current contract (implementation pending)
-- Display mapping only: TikTok SHORT=SINGLE (43 sec fixed; TOP3/MAP7/NEWS12/MAP explanation8/logic8/END5); TikTok LONG=WEEKLY (`38 + 12 * ceil(actualNewsCount/3)`, 3/page; admin presets 6/9/12, default6, no synthetic filler). Official input modes remain `SINGLE/WEEKLY`; no arbitrary duration or 61s single mode.
-- New `ニュース投稿管理` must have separate SINGLE and Weekly panels, region/type/source/facts/rights/render/QC/approval/X/TikTok/status filters, weekly 47 prefectures + week selection, separate platform states, “済を表示”. Final TikTok complete only after `PUBLISHED`, X after created externalPostId. Idempotency key revision+render+platform. Shared machiibe `publishing_*` schema is reused after exact latest migration reconciliation; no duplicate same-role tables. New UI and app data pipeline not implemented yet.
-- P4 branch `feat/dev34-current-production-engine` is synced to restart/dev34 @52f213b8 (behind 0); current HEAD after merge/docs correction is 8726f94f. P4 admin UI scaffold is present; real data connection and renderer remain incomplete.
-- Police-safety subtype is separate PR #22: branch `feat/dev34-police-safety-anomaly @8b83caa527ed1d443ac51d844d15ab7496b8bf27`, base restart/dev34 @8acc32d; additive Migration `20260927190000_local_anomaly_police_safety.sql` locally verified in PGlite and `npm test` extension PASS. New `police_safety` is subtype only for user `local_anomaly`, labeled “利用者投稿”; `official` remains verified public-source data. Draft PR #22, no production migration or post.
-- No production deploy/promotion, DB write test, real ASP click, or external SNS post. Preserve existing production.
-
-
-## 2026-09-27 P4/P5追加進捗（feature branchのみ）
-
-- TikTok機能区分: A「SNS投稿素材（直近の公開投稿）」= `#adminSocialPostArea` / `renderAdminSocialPosts()`、B=`#adminSocialAssetModal`（`openAdminTikTokAsset`、`#adminSocialAssetBody`、`#adminSocialCanvas`）、C=地域投稿用TikTok 9:16/1080×1920 PNG、D=X intent起動。すべて既存地域投稿・互換SNS素材であり、ニュースProduction/Publishingではない。既存SNS素材画面のスクロールPASSを維持。X intent/PNG保存を実SNS投稿済みと数えない。
-- 新規ニュース投稿管理は旧SNS素材UIと分離。SINGLEはTikTok SHORT 43秒固定（TOP 3 + MAP 7 + NEWS 12 + MAP説明 8 + ロジック 8 + END 5）。WEEKLYはTikTok LONG固定38秒 + 12秒×ceil(newsCount/3)、6/9/12件=62/74/86秒。CURRENTにないSINGLE尺を足さない。
-- `adminNewsPublishingSection` UI scaffold commit `d0b01d44800b808e9731a1a4a0f342648d0e213f`: SHORT/LONG, 47 prefectures, week and 6/9/12 choices, posted filters, legacy SNS retained, admin PR banner suppressed. Current synced branch includes this scaffold; read-only data/API remains disconnected. P4 latest preview: deployment `dpl_3ZAW52ZEFvJEsPykK2MVWMLSphcw`, https://machimamo-nhz3aacte-miti4.vercel.app, source branch `feat/dev34-current-production-engine`, exact source SHA `5188662eff2de6d41fbb317da209c0460d5ffaf9`, Preview target=null. iPhone verification pending.
-- Renderer preflight correction and current test files were applied to the local validation checkout; `npm test`, `npm run test:production-current`, and `git diff --check` PASS. This does not claim a newly rendered MP4 or Golden visual QC.
- 
-
-- P4 base sync completed by `be528ca9ed75b386a80f7f628b7928696e458b6b`; restart/dev34 `52f213b8ceb451eec5d865db5037ea29f45e144f` is an ancestor. Compare reports ahead 19 / behind 0; no force rebase.
-
-
-## 2026-09-27 P4 Renderer blocker correction / archive audit
-
-- P4 branch is synced to latest restart/dev34: base 52f213b8ceb451eec5d865db5037ea29f45e144f is ancestor, ahead 19 / behind 0. P4 merge commit: be528ca9ed75b386a80f7f628b7928696e458b6b. Renderer preflight and asset inventory follow-up HEAD: 8726f94f5ddf8d954406db67d1585a483e037b76.
-- Corrected the earlier inaccurate statement that approved visual assets and an approved font binary are missing. All archive SHA256 values match MASTER_SHA256.txt. The approved TOP, central transparent emblem, smiling dog, sad-dog candidates, approved END, and REVIEW4/5 page assets exist in CURRENT. Font binaries are intentionally excluded by README_RESTORE; do not require MACHIMAMO_APPROVED_JP_FONT.
-- Git file: tools/production-current/renderer-dependency-map.md lists logical asset, historical path, CURRENT path, SHA256, page/use, and FOUND/MAPPED/NEEDS_REVIEW/MISSING state. Historical footer overlay names and sad-dog mapping remain NEEDS_REVIEW pending render-to-Golden comparison; no substitute has been silently adopted.
-- Actual renderer blocker is source code, not visuals: machimamo_reference_v13/package/machimamo_reference_v13.py and machimamo_reference_v16_1/src/machimamo_reference_v16_1.py are absent from VIDEO_MASTER_CURRENT_20260927.zip, SOURCE_CURRENT_FULL.zip, TOP_MASTER_CURRENT.zip and REVIEW5 delta. Other import chains in the supplied source depend on these. Do not redesign or synthesize these foundations.
-- Renderer manifest/preflight no longer requires MACHIMAMO_APPROVED_JP_FONT and distinguishes visual/current asset mappings from missing code dependencies. Runtime Japanese font availability must be resolved and glyph/layout checked against the approved MP4 in the actual renderer environment.
-- All approved single/weekly MP4 dimensions, codecs and durations were confirmed by ffprobe earlier; this is source-baseline QC, not a regenerated output. No new MP4 or Golden comparison is claimed. No P4 Preview URL is yet confirmed for current follow-up HEAD.
-- Admin UI remains scaffold/fail-closed; read-only integration to current news data and week+prefecture candidate query are not complete. X/TikTok remain “接続設定必要”; no external posts.
-- police_safety remains a separate small PR/Migration, not included in P4. No Production migration or posting tests.
-- Next: obtain the two exact CURRENT renderer base modules (hash-verified), then wire ASSET_ROOT/WORK_ROOT path adapter without changing drawing functions, runtime font resolution, render SINGLE and compare approved QC frames. Do not render WEEKLY until SINGLE visual QC passes.
+- CURRENT archive SHA256 values match `MASTER_SHA256.txt`. REVIEW3 base `SOURCE_v16.4_REVIEW3_PRE_REDESIGN_20260927.zip` contains `machimamo_reference_v16_1/src/machimamo_reference_v16_1.py` (SHA256 `0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114`), exact `dog_sad_v16_2.png`, and exact `news_short.png` / `news_weekly.png` old overlays. REVIEW4 and REVIEW5 delta contents are additive patch code/assets and do not replace these base source dependencies. Those entries are MAPPED, not MISSING; old overlay-to-final composition still requires frame QC.
+- Approved CURRENT visual assets exist: TOP/clean TOP, END, transparent logo emblem, dog candidates, REVIEW4 overlays and REVIEW5 header patches. Their SHA-256 and use mapping are in `tools/production-current/renderer-dependency-map.md`.
+- Only confirmed absent renderer module across VIDEO_MASTER_CURRENT_20260927.zip, SOURCE_CURRENT_FULL.zip, TOP_MASTER_CURRENT.zip, REVIEW3 base, REVIEW4 delta and REVIEW5 delta: `machimamo_reference_v13/package/machimamo_reference_v13.py`. Renderer cannot run without recovering this original module. No substitute or drawing rewrite was made.
+- Font binaries are explicitly excluded by README_RESTORE. Removed `MACHIMAMO_APPROVED_JP_FONT` as a required environment variable. This execution image has no `fc-match :lang=ja` font; use a Japanese-capable runtime font and verify its glyphs/metrics against QC before visual pass.
+- `asset_path_adapter.py` rewrites only legacy `/mnt/data` literals within copied Python source into `ASSET_ROOT` / `WORK_ROOT`; 11 source modules were copied and checked with 0 remaining absolute literals. Unit tests pass.
+- Latest P4 synchronized feature branch source: `feat/dev34-current-production-engine @5fa45541276a81ea17ab47bb6be1787a14dfd16d`; P4 merge `be528ca9ed75b386a80f7f628b7928696e458b6b` includes restart/dev34 `52f213b8ceb451eec5d865db5037ea29f45e144f` without force-rebase. Preview is READY, deployment `dpl_77uNmjrocRb5zqkyrm8zKw92x4ZY`, `https://machimamo-monbwqdgb-miti4.vercel.app`, source branch/SHA exact above, target=null (Preview only). It is UI scaffold preview, not renderer execution proof.
+- Local P4 validation checkout reports `npm test`, `npm run test:production-current`, and `git diff --check` PASS; this is local test evidence, distinct from a clean checkout test bound to the remote Preview SHA. No current Python SINGLE/WEEKLY render, decode, Golden frame comparison, or MP4 visual QC has passed.
+- Supabase read-only schema audit found no news/article tables and no shared `publishing_*` tables. Admin news manager remains unconnected/fail-closed. No schema writes or production mutations.
+- P4 UI verification still needed on iPhone Safari: open the Preview above, open `ニュース投稿管理`, scroll from top to bottom; check SHORT/SINGLE list, LONG/WEEKLY block, week/prefecture selectors, 6/9/12 choices, posted-state filters and lower controls remain reachable and not covered by an ad band. Do not generate or publish. No P4 Production deploy.
