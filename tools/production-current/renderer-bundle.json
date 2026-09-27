@@ -27,16 +27,30 @@
     "machimamo_v164/review5_assets/map_header_patch.png"
   ],
   "missingCodeDependencies": [
-    "machimamo_reference_v13/package/machimamo_reference_v13.py",
-    "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py"
+    "machimamo_reference_v13/package/machimamo_reference_v13.py"
   ],
   "mappedLegacyAssets": {
-    "machimamo_reference_v16_2/src/dog_sad_v16_2.png": "machimamo_v164/build/v162/dog_sad_generated_blue_clean.png (needs visual review; alternate approved 107x111 review4_sad_dog_transparent.png)",
-    "machimamo_reference_v16_3/overlays/news_short.png": "machimamo_v164/review4_assets/footer_news_sad.png (needs frame-level overlay review)",
-    "machimamo_reference_v16_3/overlays/news_weekly.png": "machimamo_v164/review4_assets/footer_news_sad.png (needs frame-level overlay review)"
+    "machimamo_reference_v16_2/src/dog_sad_v16_2.png": "Exact SHA-verified file exists in REVIEW3 source snapshot; current v16.2 clean dog has a distinct path and role pending visual QC.",
+    "machimamo_reference_v16_3/overlays/news_short.png": "Exact SHA-verified REVIEW3 base overlay, inherited by additive REVIEW4/REVIEW5 deltas.",
+    "machimamo_reference_v16_3/overlays/news_weekly.png": "Exact SHA-verified REVIEW3 base overlay, inherited by additive REVIEW4/REVIEW5 deltas."
   },
   "runtimeFontPolicy": "Resolve Japanese-capable font from renderer execution environment using existing renderer fallback. No fixed MACHIMAMO_APPROVED_JP_FONT variable or font binary requirement.",
   "forbiddenVersions": [
     "v16.5"
-  ]
+  ],
+  "historicalCodeMappings": {
+    "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py": {
+      "source": "SOURCE_v16.4_REVIEW3_PRE_REDESIGN_20260927.zip",
+      "sha256": "0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114",
+      "status": "verified base module; additive REVIEW4/REVIEW5 deltas do not replace it"
+    },
+    "machimamo_reference_v16_3/overlays/news_short.png": {
+      "sha256": "31e3e4a5a0fcdbf596a3deb89a100e6fbce8cc719a225d663cf04a9d01acb566",
+      "status": "verified base overlay inherited by additive REVIEW4/REVIEW5 deltas"
+    },
+    "machimamo_reference_v16_3/overlays/news_weekly.png": {
+      "sha256": "0ccdfe01e9df3abf3ffbc07ab6492ca4a69a0493f4d14b376a5b6fa63ccf48d0",
+      "status": "verified base overlay inherited by additive REVIEW4/REVIEW5 deltas"
+    }
+  }
 }
