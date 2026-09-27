@@ -32,7 +32,11 @@ export default async function AdminPage({searchParams}:{searchParams:SearchParam
           <h1>まちイベ運営ダッシュボード</h1>
           <p>直近30日を中心に集計。PVはページ表示回数で、ユニークユーザー数ではありません。</p>
           <div className="admin-quick-links">
-            <a href="#new-events">新着イベント → SNS素材へ</a><Link href="/admin/social-master">SNSマスター確認 →</Link>
+            <Link href="/admin/production">Production一覧 →</Link>
+            <Link href="/admin/production/new">CAROUSEL作成 →</Link>
+            <Link href="/admin/promotions">広告・PR管理 →</Link>
+            <Link href="/admin/social-master">CURRENT Master確認 →</Link>
+            <a href="#new-events">新着イベント →</a>
             <a href={xAccountUrl()} target="_blank" rel="noreferrer">運営X @machiibe01 ↗</a>
           </div>
         </div>
