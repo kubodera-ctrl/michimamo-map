@@ -60,3 +60,35 @@ const unconfirmed = p.classifyCandidate({
   localityEvidence:{type:'occurred',confirmed:false}
 }, NOW);
 assert.equal(unconfirmed.include,false,'explicit unconfirmed locality must not fall back to municipality text');
+
+const notice = p.classifyCandidate({
+  ...base,
+  headline:'防犯イベントのお知らせ',
+  category:'NOTICE'
+}, NOW);
+assert.equal(notice.include,false,'generic notice must be excluded');
+
+const ordinaryTraffic = p.classifyCandidate({
+  ...base,
+  headline:'交通安全のお知らせ',
+  category:'TRAFFIC_INFORMATION'
+}, NOW);
+assert.equal(ordinaryTraffic.include,false,'ordinary traffic information must not become a news candidate');
+
+const fraudCategory = p.classifyCandidate({
+  ...base,
+  headline:'警察署からの注意情報',
+  category:'SPECIAL_FRAUD_CALL'
+}, NOW);
+assert.equal(fraudCategory.include,true);
+assert.equal(fraudCategory.priority,'high');
+assert.equal(fraudCategory.topic,'FRAUD_LOCAL');
+
+const childCategory = p.classifyCandidate({
+  ...base,
+  headline:'地域安全情報',
+  category:'CHILD_SAFETY'
+}, NOW);
+assert.equal(childCategory.include,true);
+assert.equal(childCategory.priority,'high');
+assert.equal(childCategory.topic,'CHILD_SAFETY');
