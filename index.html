@@ -68,22 +68,6 @@
         .ad-banner:active { background: #f9fafb; }
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
-        body.admin-dashboard-open .ad-banner { display: none !important; }
-        .news-publishing-admin { margin: 18px 0; padding: 14px; border: 1px solid #bfdbfe; border-radius: 12px; background: #f8fbff; color: #17212b; }
-        .news-publishing-admin h3 { margin: 0 0 8px; color: #0f4c81; font-size: 1rem; }
-        .news-publishing-admin h4 { margin: 15px 0 8px; color: #164e63; font-size: .9rem; }
-        .news-publishing-admin .news-admin-meta { font-size: .72rem; line-height: 1.55; color: #475569; }
-        .news-publishing-admin .news-admin-filters { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 8px; margin: 10px 0; }
-        .news-publishing-admin label { display: grid; gap: 4px; font-size: .7rem; font-weight: 800; }
-        .news-publishing-admin select, .news-publishing-admin input { min-width: 0; width: 100%; min-height: 42px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; font-size: 16px; }
-        .news-publishing-admin .news-admin-state { display: flex; flex-wrap: wrap; gap: 6px; }
-        .news-publishing-admin .news-admin-state span { padding: 4px 8px; border-radius: 999px; background: #e2e8f0; font-size: .68rem; font-weight: 800; }
-        .news-publishing-admin .news-admin-empty { padding: 12px; border: 1px dashed #94a3b8; border-radius: 8px; background: #fff; font-size: .75rem; line-height: 1.5; }
-        .news-publishing-admin .news-admin-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .news-publishing-admin table { width: 100%; min-width: 1080px; border-collapse: collapse; font-size: .68rem; background: #fff; }
-        .news-publishing-admin th, .news-publishing-admin td { padding: 7px; border: 1px solid #dbe5ef; text-align: left; vertical-align: top; }
-        .news-publishing-admin button[disabled] { opacity: .55; cursor: not-allowed; }
-
 
         nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
@@ -179,6 +163,26 @@
         .modal.open .sheet { transform: translateY(0); }
         body.post-modal-open .ad-banner { display: none !important; }
         #postModal .sheet { scroll-behavior: smooth; }
+        /* SNS assets: keep the close button visible and scroll the content,
+           including gestures that start on the large canvas, above the ad. */
+        #adminSocialAssetModal { z-index: 10000; padding: env(safe-area-inset-top) 0 0; }
+        #adminSocialAssetModal .sheet {
+            display: flex; flex-direction: column; min-height: 0;
+            height: 90vh; height: 90dvh; max-height: 100%;
+            overflow: hidden; padding-bottom: 0;
+        }
+        #adminSocialAssetModal .sheet > .row { flex: 0 0 auto; }
+        #adminSocialAssetModal .close { flex-shrink: 0; }
+        #adminSocialAssetBody {
+            flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain;
+            touch-action: pan-y; padding-bottom: calc(24px + env(safe-area-inset-bottom));
+            display: grid; grid-template-columns: repeat(auto-fit,minmax(min(240px,100%),1fr));
+            gap: 14px; align-items: start;
+        }
+        #adminSocialAssetBody > div { min-width: 0; }
+        #adminSocialCanvas { touch-action: pan-y; }
+
         .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
 
@@ -395,7 +399,23 @@
             #adminStatsCards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
             #adminDashboardArea [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: minmax(0, 1fr) !important; }
         }
-    </style>
+            body.admin-dashboard-open .ad-banner { display: none !important; }
+        .news-publishing-admin { margin: 18px 0; padding: 14px; border: 1px solid #bfdbfe; border-radius: 12px; background: #f8fbff; color: #17212b; }
+        .news-publishing-admin h3 { margin: 0 0 8px; color: #0f4c81; font-size: 1rem; }
+        .news-publishing-admin h4 { margin: 15px 0 8px; color: #164e63; font-size: .9rem; }
+        .news-publishing-admin .news-admin-meta { font-size: .72rem; line-height: 1.55; color: #475569; }
+        .news-publishing-admin .news-admin-filters { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 8px; margin: 10px 0; }
+        .news-publishing-admin label { display: grid; gap: 4px; font-size: .7rem; font-weight: 800; }
+        .news-publishing-admin select, .news-publishing-admin input { min-width: 0; width: 100%; min-height: 42px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; font-size: 16px; }
+        .news-publishing-admin .news-admin-state { display: flex; flex-wrap: wrap; gap: 6px; }
+        .news-publishing-admin .news-admin-state span { padding: 4px 8px; border-radius: 999px; background: #e2e8f0; font-size: .68rem; font-weight: 800; }
+        .news-publishing-admin .news-admin-empty { padding: 12px; border: 1px dashed #94a3b8; border-radius: 8px; background: #fff; font-size: .75rem; line-height: 1.5; }
+        .news-publishing-admin .news-admin-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .news-publishing-admin table { width: 100%; min-width: 1080px; border-collapse: collapse; font-size: .68rem; background: #fff; }
+        .news-publishing-admin th, .news-publishing-admin td { padding: 7px; border: 1px solid #dbe5ef; text-align: left; vertical-align: top; }
+        .news-publishing-admin button[disabled] { opacity: .55; cursor: not-allowed; }
+
+</style>
     <style>
         @media (pointer: coarse) {
             input:not([type="checkbox"]):not([type="radio"]), select, textarea {
@@ -833,7 +853,6 @@
                                 <div class="news-admin-state" aria-label="都道府県別WEEKLY状態"><span>未</span><span>生成中</span><span>生成済</span><span>QC待ち</span><span>承認済</span><span>投稿準備中</span><span>投稿処理中</span><span>済</span><span>失敗</span><span>接続設定必要</span></div>
                                 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" disabled aria-disabled="true">WEEKLY生成（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTok Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button></div>
                             </section>
-                            
                             <h3 style="font-size:.92rem; color:#0f4c81; margin:16px 0 5px;">SNS投稿素材（直近の公開投稿）</h3>
                             <p class="muted" style="font-size:.7rem;line-height:1.55;margin:0 0 8px;">Xは投稿文入りの作成画面を開き、TikTokは9:16画像と投稿文を生成します。自動投稿はせず、必ず内容を確認してから投稿します。</p>
                             <div id="adminSocialPostArea"><div class="muted" style="font-size:.72rem;">管理画面を読み込むと表示します。</div></div>
@@ -1229,7 +1248,7 @@
             </div>
             <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;">
+        <div id="adminSocialAssetBody">
             <div>
                 <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
                 <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
@@ -4717,7 +4736,7 @@ function shareSpot(title, address, category, event) {
 
 <script id="mobileFilterTouchScrollV2">
 (function () {
-    var state = { active:false, el:null, lastY:0 };
+    var state = { active:false, el:null, lastY:0, mode:null };
 
     function getFilterList() {
         return document.querySelector('.filter-content');
@@ -4760,15 +4779,33 @@ function shareSpot(title, address, category, event) {
     }
 
     function begin(e) {
-        var el = getFilterList();
-        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
-        var t = e.target && e.target.closest ? e.target.closest('.filter-content') : null;
-        if (!t) return;
         var touch = e.touches && e.touches[0];
         if (!touch) return;
+
+        // The page shell is intentionally non-scrollable. On iOS, native momentum
+        // scrolling can fail for this nested modal, especially when a swipe begins
+        // on the large canvas. Route that gesture directly to the modal body.
+        var target = e.target;
+        var socialBody = target && target.closest ? target.closest('#adminSocialAssetBody') : null;
+        var socialModal = document.getElementById('adminSocialAssetModal');
+        if (socialBody && socialModal && socialModal.classList.contains('open')) {
+            if (target.closest('button,a,input,textarea,select,[contenteditable="true"]')) return;
+            state.active = true;
+            state.el = socialBody;
+            state.lastY = touch.clientY;
+            state.mode = 'admin-social';
+            e.stopPropagation();
+            return;
+        }
+
+        var el = getFilterList();
+        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
+        var t = target && target.closest ? target.closest('.filter-content') : null;
+        if (!t) return;
         state.active = true;
         state.el = el;
         state.lastY = touch.clientY;
+        state.mode = 'filter';
         e.stopPropagation();
     }
 
@@ -4782,8 +4819,7 @@ function shareSpot(title, address, category, event) {
         state.lastY = y;
 
         if (Math.abs(delta) >= 1) {
-            // getBoundingClientRect / touch coordinates are after CSS zoom, whereas
-            // scrollTop is in layout pixels, so divide by the zoom factor.
+            // Touch coordinates are visual CSS pixels; scrollTop uses layout pixels.
             var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
             state.el.scrollTop += delta / zoom;
             e.preventDefault();
@@ -4795,6 +4831,7 @@ function shareSpot(title, address, category, event) {
         if (!state.active) return;
         state.active = false;
         state.el = null;
+        state.mode = null;
         if (e) e.stopPropagation();
     }
 

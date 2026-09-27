@@ -73,10 +73,45 @@
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
 
+## 2026-09-27 SNS素材スクロール実機報告対応（base側）
+- Vercel Git接続復旧、e0eb669 Preview READY: dpl_2V2ihPmbXUQqLKfrxTNszmdfNGB8。
+- 本人報告: 他はほぼOK、SNS素材モーダルが下までスクロールできず広告帯が重なる。通常/Private別の全項目PASSではない。
+- fix d85cbacbc976df80895089f95db73e1293c4ffc4: SNS modalのみ90dvh/flex/min-height:0の独立scroll body、header固定、adより上へ配置。デザイン/投稿データ/Productionは未変更。
+- static tests admin_social_assets / safari_private_viewport / ios_viewport_stability PASS。隔離Chromium検証はbrowser downloadが壊れたarchiveで未実行。iPhone再確認待ち。
+- 修正Preview候補 https://machimamo-q7vvvj8of-miti4.vercel.app/ (dpl_FU8oJEDbgwugwjNYJXogLdysPUS7、source d85cbac)。実機でPNG保存/投稿文/コピー/Xボタンへスクロール到達とcloseを確認する。外部投稿はしない。
+- PR21はstackedのまま、今回base修正の取り込みは次工程で再照合。merge/Production前に必須。
+
+## 2026-09-27 P0 最新Preview再確認・投稿先DB隔離判定
+- restart/dev34 HEAD: 99edca82c7e5d0d4129707c19fb250b77e57a85c。修正: document capture-phase touch handlerで、開いているadminSocialAssetModalのスワイプをadminSocialAssetBody.scrollTopへ手動反映。button/link/input/textarea/select/contenteditableでは介入せず、既存filter用gestureは維持。Regression assertionsをtests/admin_social_assets.test.cjsへ追加。
+- Vercel Preview READY: dpl_DwvHg9XTpR7j394kcUs1LqkqQn3b / https://machimamo-m9lhdknfm-miti4.vercel.app/。source=git、branch=restart/dev34、SHA=99edca82c7e5d0d4129707c19fb250b77e57a85c、target=null (Preview)。前のd85 Previewに対する実機報告とこの新修正後の再確認は区別する。
+- 本人報告: 通常/Private Safariの表示サイズ、下部メニュー、各モーダルなど基礎表示はPASS。SNS素材画面は最下部までスクロールできるとの確認あり。一方、別途「管理画面内TikTok投稿ページ」はスクロールできないとの報告。対象画面が異なるため、SNS素材モーダルのPASSで未解決ページをPASS扱いしない。99ed Previewでの該当画面再確認待ち。
+- DB隔離ゲート: 現行branchのfrontend SUPABASE_URLは https://ckftozjhdszlwqnylmxv.supabase.co、mainも同じProject Ref。Preview DBはProductionと共有。書込テスト投稿は本番データへ入るため禁止。テスト投稿なし、Migrationなし、本番変更なし。隔離Supabase Project/Preview環境が用意・確認されるまで異変投稿E2Eは保留。
+- PR #20: open/Draft/mergeable=true、未merge。main最新SHA=7b4b935a5facb0a441445a9e14adce1982c909e1、PR headはmainより15 commit先行・behind 0、GitHub compareはmerge conflictなし。Productionは変更なし。Draft解除はTikTok投稿ページの実機再確認、CI failureの扱い確認、実投稿DB安全性ゲート解決後。
+- Checks: camera-regression success、Vercel Preview deployment READY。Event Site Checkは別サービスのworkflowでsetup-nodeが存在しない event-site/package.json をcache pathに指定して失敗、Install/testsはskipped。PR20のまちまも変更起因ではない。Cloudflare Workers Buildsもmachiibe-preview/michimamo-map双方failure。原因本文はDashboardで未確認・PR20 Previewの代替ではない。
+
+
+## 2026-09-27 最新確定要件反映（P0 / P4/P5）
+
+- TikTok関連を画面名で分類する。既存地域投稿系は `#adminSocialPostArea` → `openAdminTikTokAsset(id)` → `#adminSocialAssetModal/#adminSocialAssetBody/#adminSocialCanvas` の1080×1920 PNG/caption保存機能と、`openAdminXPost(id)` / `twitter.com/intent/tweet`。これはレガシー地域投稿SNS素材で、iPhone最下部まで操作できる実機PASSを維持する。API投稿・revision・production statusは持たない。
+- 「管理画面TikTok投稿ページ」は実装中の別routeではなく、正式なニュース投稿管理と混同したもの。現行コードにニュースSINGLE/WEEKLY画面、Production/PDF/MP4 Renderer、QC/approval、投稿状態、X/TikTok Publishing APIがないと確定。既存SNS素材を流用・削除せず、新規ニュース投稿管理はP4/P5へ分離する。
+- 最新iPhone報告: Safari通常/Private基本表示、表示サイズ、下部メニュー、既存各モーダル PASS。SNS素材scroll PASS。地域異変write E2EはPreviewがProduction Supabaseと同一ref `ckftozjhdszlwqnylmxv.supabase.co` のため未実施。
+- PR #20 HEAD `8acc32d54505af7a4ab4772a940bf5a51b274336`（restart/dev34、Draft/open/未merge、main 7b4b93…からahead18/behind0）。Latest clean `npm test` PASS。Camera Regression/Event Site Check success。Event Site workflowは `event-site/package.json` 存在確認し、manifestがなければBuild jobだけskip、対象ありなら既存tests/smokesを保ち実行。`isFirstLocationSet` smoke assertion維持。Vercel Preview dpl_BgyMwqL9GtkMPqTZbsDzmAmWdmqa / https://machimamo-488j4qlau-miti4.vercel.app/ READY, target=null。Cloudflare build logは最新原因未確認。
+- Drive CURRENT 2026-09-27追記に詳細 inventory / checks / Preview / migration / blockersを保存。
+
+### P4/P5 current contract (implementation pending)
+- Display mapping only: TikTok SHORT=SINGLE (43 sec fixed; TOP3/MAP7/NEWS12/MAP explanation8/logic8/END5); TikTok LONG=WEEKLY (`38 + 12 * ceil(actualNewsCount/3)`, 3/page; admin presets 6/9/12, default6, no synthetic filler). Official input modes remain `SINGLE/WEEKLY`; no arbitrary duration or 61s single mode.
+- New `ニュース投稿管理` must have separate SINGLE and Weekly panels, region/type/source/facts/rights/render/QC/approval/X/TikTok/status filters, weekly 47 prefectures + week selection, separate platform states, “済を表示”. Final TikTok complete only after `PUBLISHED`, X after created externalPostId. Idempotency key revision+render+platform. Shared machiibe `publishing_*` schema is reused after exact latest migration reconciliation; no duplicate same-role tables. New UI and app data pipeline not implemented yet.
+- P4 branch `feat/dev34-current-production-engine @59f6aca...` has CURRENT validation, time/type/status contracts and admin screen spec only. Renderer, Golden, final MP4/decode/visual QC and actual admin UI remain incomplete.
+- Police-safety subtype is separate PR #22: branch `feat/dev34-police-safety-anomaly @8b83caa527ed1d443ac51d844d15ab7496b8bf27`, base restart/dev34 @8acc32d; additive Migration `20260927190000_local_anomaly_police_safety.sql` locally verified in PGlite and `npm test` extension PASS. New `police_safety` is subtype only for user `local_anomaly`, labeled “利用者投稿”; `official` remains verified public-source data. Draft PR #22, no production migration or post.
+- No production deploy/promotion, DB write test, real ASP click, or external SNS post. Preserve existing production.
+
 
 ## 2026-09-27 P4/P5追加進捗（feature branchのみ）
 
 - TikTok機能区分: A「SNS投稿素材（直近の公開投稿）」= `#adminSocialPostArea` / `renderAdminSocialPosts()`、B=`#adminSocialAssetModal`（`openAdminTikTokAsset`、`#adminSocialAssetBody`、`#adminSocialCanvas`）、C=地域投稿用TikTok 9:16/1080×1920 PNG、D=X intent起動。すべて既存地域投稿・互換SNS素材であり、ニュースProduction/Publishingではない。既存SNS素材画面のスクロールPASSを維持。X intent/PNG保存を実SNS投稿済みと数えない。
 - 新規ニュース投稿管理は旧SNS素材UIと分離。SINGLEはTikTok SHORT 43秒固定（TOP 3 + MAP 7 + NEWS 12 + MAP説明 8 + ロジック 8 + END 5）。WEEKLYはTikTok LONG固定38秒 + 12秒×ceil(newsCount/3)、6/9/12件=62/74/86秒。CURRENTにないSINGLE尺を足さない。
-- `feat/dev34-current-production-engine` latest `d0b01d44800b808e9731a1a4a0f342648d0e213f`: `adminNewsPublishingSection` fail-closed scaffold、SHORT/LONG、47 prefectures、週・6/9/12件、済 filter、旧SNS欄維持、admin表示中PR帯を非表示。接続/API未実装のため操作無効・状態捏造なし。iPhone Preview scroll未検証。まだPreview/PR/Production反映なし。
+- `feat/dev34-current-production-engine` UI commit `d0b01d44800b808e9731a1a4fbd?`: `adminNewsPublishingSection` fail-closed scaffold、SHORT/LONG、47 prefectures、週・6/9/12件、済 filter、旧SNS欄維持、admin表示中PR帯を非表示。接続/API未実装のため操作無効・状態捏造なし。iPhone Preview scroll未検証。まだPreview/PR/Production反映なし。
 - P4 tests (local branch snapshot): `npm run test:production-current`, `npm test`, `git diff --check` PASS。CURRENT renderer依存・承認済日本語font欠落は継続blocker。MP4/Golden/visual QCなし。
+ 
+
+- P4 base sync: restart/dev34 52f213b8ceb451eec5d865db5037ea29f45e144f を取り込むmerge commitを作成中。P0のSafari/modal修正を優先して維持。
