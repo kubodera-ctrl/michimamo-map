@@ -146,7 +146,12 @@ function buildCanonicalCandidate(record, { checkedAt = new Date(), classify = tr
 
   const validation = validateCanonicalCandidate(candidate);
   const selection = classify ? classifyCandidate(candidate, new Date(checkedIso)) : null;
-  return { candidate: Object.freeze(candidate), validation, selection };
+  return {
+    candidate: Object.freeze(candidate),
+    validation,
+    selection,
+    productionEligible: validation.publishEligible === true && selection?.include === true
+  };
 }
 
 function dryRun(records, options = {}) {
