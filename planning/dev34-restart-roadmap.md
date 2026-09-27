@@ -55,11 +55,11 @@
 ### P3 — ASP実広告リンク・Runtime Master・交換台帳
 
 1. ASP2がGoogle Sheets「まちまも・まちイベ ASP案件マスター」の編集責任者・事業正本を保持。開発34はSheet→Supabase Runtime Master同期とアプリ利用を担当し、同期直前に最新状態を再取得する。
-2. `offer_id = asp:program_id` を安定IDとしてRuntime MasterへImportする。Importはsource factsだけをupsertし、公開・placementを有効化しない。raw広告HTML/iframe/scriptは拒否する。
-3. offerとservice(media)を分離する。まちまもとまちイベで承認/リンクを共有しない。まちまも公開gateは提携承認、まちまも掲載許可、媒体承認、Web承認、実tracking URL、active、掲載期間、enabled placementを全て要求する。
+2. ASP案件マスターの安定 `offer_id` をそのままPrimary KeyとしてRuntime MasterへImportし、別名や合成IDに置き換えない。Importはsource factsだけをupsertし、公開・placementを有効化しない。raw広告HTML/iframe/scriptは拒否する。
+3. offerとservice(media)を分離する。まちまもとまちイベで承認/リンクを共有しない。まちまも公開gateは提携承認、まちまも掲載許可、媒体承認、本番掲載可否、Web承認、実tracking URL、active、掲載期間、enabled placementを全て要求する。
 4. 広告掲載許可とポイント還元許可を分離する。ポイント情報は `point_reward_allowed AND reward_rule_confirmed` の場合だけ返す。NG案件はポイント付与せず通常PR掲載のみ可能。
 5. 管理画面で公開ON/OFF、placement、掲載期間、一時停止、クリック数、還元条件、媒体承認、source同期/最終確認を確認できる。成果連携は未接続と明示する。
-6. クリックは内部click_id/offer/service/placement/userまたは匿名session/time/source screenを記録し、ASP発行tracking URLへ直接遷移する。URLへパラメータを足さず、計測失敗で遷移を止めない。テストは実リンクをクリックしない。
+6. クリックは内部click_id/offer/service/placement/userまたは匿名session/time/source screenを記録し、ASP発行tracking URLへ直接遷移する。ASP2 masterの本番掲載準備が掲載不可/未確認の現行案件はdraftに留める。URLへパラメータを足さず、計測失敗で遷移を止めない。テストは実リンクをクリックしない。
 7. 成果照合、reward_token、Webhook/Queue、ledgerは後続工程。ASPが識別パラメータを許可しない案件を自動個人照合しない。ASPへ個人情報を渡さない。
 8. available/reserved/confirmed/expired/reversed台帳、交換予約・失敗返還・完了のidempotencyを実装する。ギフト事業者契約/費用/個人情報フローが未確定の間はlive交換を無効に保つ。
 
@@ -83,3 +83,10 @@
 - schema / secrets / shared auth / rewards / deploy の最新状態を本番前に再取得。
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
+
+
+### P3 実装確認メモ（2026-09-27）
+- 現行ASP masterの安定IDは `offer_id` 列（例 `ofr_000002`）、A8の `program_id` は `s00000027130002`。offer_idを合成IDへ置き換えない。
+- `本番掲載準備` 現行行ではLepton BridgeとLeptonの2件が「掲載不可」。現行のProduction URL/Web・PWA・アプリ条件と掲載位置の最終確認待ち。掲載gateに `production_listing_approved` を追加し、Sheetで掲載可になるまでRuntimeでは公開できない。
+- Lepton Bridgeは還元不可。App/SNS/LINE媒体承認も未確認。正規URLをdraft同期する場合もポイント表示なし、machiibeへリンクを流用しない。
+- admin UIはJSON importを受けるが、Google Sheets API直接同期/変換は未接続。ASP2のソース編集は行わない。
