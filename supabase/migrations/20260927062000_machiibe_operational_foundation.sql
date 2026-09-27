@@ -344,7 +344,7 @@ create index if not exists publishing_audit_entity_idx
 create table if not exists public.machiibe_promotions (
   id uuid primary key default gen_random_uuid(),
   source_master_id text,
-  promotion_type text not null check (promotion_type in ('asp','sponsor','pr','featured','house')),
+  promotion_type text not null check (promotion_type in ('sponsor','pr','featured','house')),
   provider_name text,
   advertiser_name text,
   campaign_name text not null,
@@ -410,6 +410,6 @@ comment on table public.production_master_registry is 'Drive CURRENTをProductio
 comment on table public.publishing_post_sets is '地域・期間・特集単位のProduction Set。';
 comment on table public.publishing_revisions is '承認済みRevisionを上書きせず、QC/rights/facts/goldenとmedia manifestを保持する。';
 comment on table public.publishing_platform_posts is 'X/TikTokのRevision単位投稿状態。外部投稿完了のみpostedとする。';
-comment on table public.machiibe_promotions is 'ASP/スポンサー/PR/注目記事/自社広告。まちイベ媒体承認とURL確認前はenabledにできない。';
+comment on table public.machiibe_promotions is 'まちイベ固有のスポンサー/PR/注目記事/自社広告。ASP案件本体・媒体承認・実リンク・placement・clickは共通asp_runtime_*を正本とし、この表へコピー保持しない。';
 
 commit;

@@ -25,7 +25,7 @@ export default async function PromotionsPage(){
   return (
     <main className="admin-shell">
       <nav className="breadcrumb"><Link href="/admin">運営ダッシュボード</Link><span>›</span><span>広告・PR管理</span></nav>
-      <div className="admin-topbar"><div><p className="eyebrow">MONETIZATION</p><h1>ASP / スポンサー / PR管理</h1><p>まちイベでは原則ポイント還元なし。媒体承認・専用URL確認前のASPはONにできません。</p></div></div>
+      <div className="admin-topbar"><div><p className="eyebrow">MONETIZATION</p><h1>スポンサー / PR管理</h1><p>ASP案件本体・媒体承認・実リンク・placement・clickは共通ASP Runtimeで管理します。この画面はまちイベ固有のスポンサー・PR・注目枠・自社広告用です。</p></div></div>
       {unavailable&&<div className="admin-warning">広告管理DBはまだ本番未適用です。Migration反映後に有効になります。</div>}
       <section className="admin-panel">
         <div className="admin-production-table-wrap"><table className="admin-production-table">

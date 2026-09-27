@@ -149,22 +149,11 @@ begin
     raise exception 'active venue filter with no selections must return 0, got %',n;
   end if;
 
-  select count(*) into n
-  from public.machiibe_promotions
-  where source_master_id in ('26','55','61','62','86','92','93','95')
-    and enabled=false
-    and reward_mode='none'
-    and machiibe_media_approval='pending';
-  if n <> 8 then
-    raise exception 'promotion candidate import expected 8 disabled pending rows, got %',n;
-  end if;
-
   if exists(
     select 1 from public.machiibe_promotions
-    where source_master_id in ('26','55','61','62','86','92','93','95')
-      and target_url is not null
+    where promotion_type='asp'
   ) then
-    raise exception 'Machiibe-specific ASP URL must stay unset until media approval';
+    raise exception 'ASP offer copies must not be stored in machiibe_promotions; use shared asp_runtime_* master';
   end if;
 
   if has_table_privilege('anon','public.events','select') then
