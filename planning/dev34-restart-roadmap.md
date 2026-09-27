@@ -88,3 +88,19 @@
 - DB隔離ゲート: 現行branchのfrontend SUPABASE_URLは https://ckftozjhdszlwqnylmxv.supabase.co、mainも同じProject Ref。Preview DBはProductionと共有。書込テスト投稿は本番データへ入るため禁止。テスト投稿なし、Migrationなし、本番変更なし。隔離Supabase Project/Preview環境が用意・確認されるまで異変投稿E2Eは保留。
 - PR #20: open/Draft/mergeable=true、未merge。main最新SHA=7b4b935a5facb0a441445a9e14adce1982c909e1、PR headはmainより15 commit先行・behind 0、GitHub compareはmerge conflictなし。Productionは変更なし。Draft解除はTikTok投稿ページの実機再確認、CI failureの扱い確認、実投稿DB安全性ゲート解決後。
 - Checks: camera-regression success、Vercel Preview deployment READY。Event Site Checkは別サービスのworkflowでsetup-nodeが存在しない event-site/package.json をcache pathに指定して失敗、Install/testsはskipped。PR20のまちまも変更起因ではない。Cloudflare Workers Buildsもmachiibe-preview/michimamo-map双方failure。原因本文はDashboardで未確認・PR20 Previewの代替ではない。
+
+
+## 2026-09-27 最新確定要件反映（P0 / P4/P5）
+
+- TikTok関連を画面名で分類する。既存地域投稿系は `#adminSocialPostArea` → `openAdminTikTokAsset(id)` → `#adminSocialAssetModal/#adminSocialAssetBody/#adminSocialCanvas` の1080×1920 PNG/caption保存機能と、`openAdminXPost(id)` / `twitter.com/intent/tweet`。これはレガシー地域投稿SNS素材で、iPhone最下部まで操作できる実機PASSを維持する。API投稿・revision・production statusは持たない。
+- 「管理画面TikTok投稿ページ」は実装中の別routeではなく、正式なニュース投稿管理と混同したもの。現行コードにニュースSINGLE/WEEKLY画面、Production/PDF/MP4 Renderer、QC/approval、投稿状態、X/TikTok Publishing APIがないと確定。既存SNS素材を流用・削除せず、新規ニュース投稿管理はP4/P5へ分離する。
+- 最新iPhone報告: Safari通常/Private基本表示、表示サイズ、下部メニュー、既存各モーダル PASS。SNS素材scroll PASS。地域異変write E2EはPreviewがProduction Supabaseと同一ref `ckftozjhdszlwqnylmxv.supabase.co` のため未実施。
+- PR #20 HEAD `8acc32d54505af7a4ab4772a940bf5a51b274336`（restart/dev34、Draft/open/未merge、main 7b4b93…からahead18/behind0）。Latest clean `npm test` PASS。Camera Regression/Event Site Check success。Event Site workflowは `event-site/package.json` 存在確認し、manifestがなければBuild jobだけskip、対象ありなら既存tests/smokesを保ち実行。`isFirstLocationSet` smoke assertion維持。Vercel Preview dpl_BgyMwqL9GtkMPqTZbsDzmAmWdmqa / https://machimamo-488j4qlau-miti4.vercel.app/ READY, target=null。Cloudflare build logは最新原因未確認。
+- Drive CURRENT 2026-09-27追記に詳細 inventory / checks / Preview / migration / blockersを保存。
+
+### P4/P5 current contract (implementation pending)
+- Display mapping only: TikTok SHORT=SINGLE (43 sec fixed; TOP3/MAP7/NEWS12/MAP explanation8/logic8/END5); TikTok LONG=WEEKLY (`38 + 12 * ceil(actualNewsCount/3)`, 3/page; admin presets 6/9/12, default6, no synthetic filler). Official input modes remain `SINGLE/WEEKLY`; no arbitrary duration or 61s single mode.
+- New `ニュース投稿管理` must have separate SINGLE and Weekly panels, region/type/source/facts/rights/render/QC/approval/X/TikTok/status filters, weekly 47 prefectures + week selection, separate platform states, “済を表示”. Final TikTok complete only after `PUBLISHED`, X after created externalPostId. Idempotency key revision+render+platform. Shared machiibe `publishing_*` schema is reused after exact latest migration reconciliation; no duplicate same-role tables. New UI and app data pipeline not implemented yet.
+- P4 branch `feat/dev34-current-production-engine @59f6aca...` has CURRENT validation, time/type/status contracts and admin screen spec only. Renderer, Golden, final MP4/decode/visual QC and actual admin UI remain incomplete.
+- Police-safety subtype is separate PR #22: branch `feat/dev34-police-safety-anomaly @8b83caa527ed1d443ac51d844d15ab7496b8bf27`, base restart/dev34 @8acc32d; additive Migration `20260927190000_local_anomaly_police_safety.sql` locally verified in PGlite and `npm test` extension PASS. New `police_safety` is subtype only for user `local_anomaly`, labeled “利用者投稿”; `official` remains verified public-source data. Draft PR #22, no production migration or post.
+- No production deploy/promotion, DB write test, real ASP click, or external SNS post. Preserve existing production.
