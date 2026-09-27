@@ -13,6 +13,7 @@ const record = {
   headline: '中学生女性へのつきまとい',
   body: '平和台2丁目の路上で中学生女性が不審な者につきまとわれたと警視庁が配信。',
   correctionStatus: 'current',
+  rightsScopeConfirmed: true,
   localityType: 'occurred',
   localityConfirmed: true
 };
@@ -50,7 +51,8 @@ const rows = a.dryRun([
     sourceEventId:'TOKYO-20260923-002',sourceCategory:'声かけ等',municipality:'八王子市',
     occurredAt:'2026-09-23T23:20:00+09:00',publishedAt:'2026-09-24T00:00:00+09:00',
     headline:'女性への声かけ',body:'廿里町の路上で帰宅途中の女性が男に声をかけられたと警視庁が配信。',
-    correctionStatus:'current'
+    correctionStatus:'current',
+    rightsScopeConfirmed:true
   },
   {
     sourceEventId:'TOKYO-20260923-003',sourceCategory:'公然わいせつ',municipality:'板橋区',
@@ -106,3 +108,12 @@ const localityUnconfirmed = a.buildCanonicalCandidate({
 }, { checkedAt });
 assert.equal(localityUnconfirmed.validation.valid,true);
 assert.equal(localityUnconfirmed.selection.include,false);
+
+const rightsScopeUnknown = a.buildCanonicalCandidate({
+  ...record,
+  sourceEventId:'TOKYO-20260923-RIGHTS-UNKNOWN',
+  rightsScopeConfirmed:false
+}, { checkedAt });
+assert.equal(rightsScopeUnknown.validation.valid,true);
+assert.equal(rightsScopeUnknown.candidate.rightsStatus,'needs_review');
+assert.equal(rightsScopeUnknown.validation.publishEligible,false,'rights scope must fail closed until excluded fields are separated');
