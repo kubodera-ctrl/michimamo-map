@@ -145,3 +145,15 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - validator実行検証PASS：正常な警視庁OPEN DATA型candidateはvalid/publishEligible=true、correctionStatus=unknownはvalidだがpublishEligible=false、commercialUseAllowed=falseはinvalid、LEGACY_UNVERIFIEDはinvalid。
 - 警視庁OPEN DATA最新公式確認：対象データはCC BY 4.0、出所表示、事実と異なる加工回避、訂正追従の注意あり。Open DATAサイトでは2026-09-24までの配信データ掲載を確認。利用規約は利用時に最新再確認する。
 - P4 HEAD `17a0321e8fc77e153f2c014b3206c9e3ae5bc1ec`。Vercel Preview `dpl_HRhpe1UgUjtP11wNYB7iQPkzjgLC` READY / target=null。Production変更なし。
+
+## 2026-09-27 警視庁ニュース更新・反映監査
+
+- 警視庁側は更新継続。メールけいしちょうOpen DATAは9/24配信分まで、犯罪発生情報は9/25付情報まで確認。
+- Production `spots.category=official` は1,972件、最新created_atは2026-09-19 06:15:37 UTC。東京らしい行は220件。サイト自動反映は現在停止と判定。
+- `police_cron.yml` は6時間ごとのscheduleを維持しているが、全Actions runを監査した結果、最後のscheduled runは #102 / 2026-09-19 06:11:59 UTC。以後scheduled runなし。last runはsuccess、71 RSS lanes成功/1失敗、599候補抽出、新規23件、DB登録失敗0。
+- last run headからcurrent mainまで `police_cron.yml` / `fetch_police_data.py` の差分なし。停止原因はworkflow disable / schedule enqueue等の外部状態を含め未確定。Production書込になるためmanual dispatchは未実施。
+- 現fetcherは警視庁Open DATA直結ではなくMCAP + Google News RSS。Drive Events_Verifiedには9/24公開の東京3件TEST_OKがあるがruntime未接続。
+- 件数増加は可能だがlane limit単純増加は採用しない。一次source直結、source/facts/rights/correction保持、市区町村代表座標/cache、MAP viewport取得へ移行してから増量する。
+- public Nominatimの定期bulk利用条件と現1.5秒間隔が不整合のため、件数増加前にニュースpipelineからの依存を縮小/除去する。
+- 詳細監査: `planning/police-news-ingestion-audit-20260927.md`。
+- Production cron設定変更、DB書込、migration、全件取込、MAP増量は未実施。
