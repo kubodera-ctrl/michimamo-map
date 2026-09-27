@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { DataUnavailable } from '@/components/DataUnavailable';
 import { EventCard } from '@/components/EventCard';
 import { Pagination } from '@/components/Pagination';
+import { AspPlacement } from '@/components/AspPlacement';
 import { CATEGORY_OPTIONS, addDays, japanToday, parsePage, searchEvents, searchEventsPage } from '@/lib/events';
 import { breadcrumbJsonLd, safeJsonLd } from '@/lib/seo';
 import { searchIndexingAllowed } from '@/lib/url-config';
@@ -77,6 +78,7 @@ export default async function CategoryPage({
       <p className="eyebrow">CATEGORY</p>
       <h1>{prefecture ? `${prefecture}の` : '全国の'}{label}イベント</h1>
       <p className="area-copy">今日から30日以内の公開・確認済みイベントを表示しています。</p>
+      <AspPlacement placementId="feature" sourceScreen={'category-'+category} className="home-pr-slot contextual-pr-slot" />
 
       {result.error ? <DataUnavailable /> : result.events.length ? (
         <>
