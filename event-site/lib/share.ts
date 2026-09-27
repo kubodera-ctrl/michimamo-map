@@ -57,7 +57,7 @@ export function buildXShareText(input:XShareInput){
     {key:'condition',text:clean(input.conditionText)},
     {key:'date',text:input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,44) : ''},
     {key:'time',text:input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,30) : ''},
-    {key:'summary',text:hasCta ? '' : clean(input.summary)},
+    {key:'summary',text:hasCta ? '' : truncateWeighted(input.summary,28)},
     ...(input.ctaLines||[]).slice(0,2).map((line,index)=>({key:`cta-${index}`,text:truncateWeighted(line,48)})),
     {key:'hashtags',text:hashtagTokens.join(' ')}
   ];
