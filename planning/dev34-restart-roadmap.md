@@ -171,3 +171,11 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - ユーザー例: 海外詐欺グループ逮捕=除外、新宿区で詐欺グループ逮捕=対象、新宿区拠点の全国万引きグループ=対象、羽田空港の単純違法物発見=除外、痴漢/つきまとい/誘拐/迷子/子ども捜索=優先。
 - MAP保持とSNS Production選定は分離。SNS件数不足を古い/無関係ニュースで補完しない。
 - 詳細: planning/news-selection-retention-policy-20260927.md
+
+
+## 2026-09-27 交通安全ニュース追加確定
+
+- 高速道路・自動車専用道路の逆走/逆走車は、重大な交通安全リスクとしてニュース選定の高優先カテゴリへ追加。
+- 対象: 逆走発生、逆走車確認、逆走による事故、通行止め/車線規制、警察・道路管理者の緊急注意喚起。
+- 地域/路線の具体的接点を確認し、古い再掲だけのニュースは除外。直近60日retentionを適用。
+- tools/production-current/news-selection-policy.cjs に TRAFFIC_WRONG_WAY を実装し、地域性・60日retentionと合わせて判定する。
