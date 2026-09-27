@@ -29,6 +29,7 @@ Each canonical candidate uses `machimamo-news-candidate-v1` and includes:
 
 - `service = machimamo`
 - `candidateId`
+- `sourceEventId` for POLICE_OFFICIAL (stable source identity; required)
 - `informationKind = POLICE_OFFICIAL | LOCAL_ANOMALY`
 - `headline`
 - `prefecture`
@@ -103,3 +104,26 @@ Candidate ingestion/provenance storage and Publishing storage have different res
 - Audit: actor/action/reason/history.
 
 The final table names are intentionally not fixed until the machiibe shared schema and management-center data model are reconciled.
+
+
+## Keishicho direct adapter
+
+`keishicho-open-data-adapter.cjs` is the transport-independent dry-run conversion core for the Tokyo Metropolitan Police Department's "メールけいしちょう OPEN DATA".
+
+It accepts normalized official-source records and produces `machimamo-news-candidate-v1` candidates. It does not write Supabase and does not publish.
+
+Preserved fields include:
+- stable `sourceEventId`;
+- source publish/occurrence dates;
+- SHA-256 `sourceHash` over the frozen source record;
+- Tokyo prefecture and municipality;
+- source category + canonical category;
+- headline and verified facts without invented details;
+- CC BY rights metadata, attribution and evidence URL;
+- correction status;
+- `lastVerifiedAt`;
+- structured locality evidence.
+
+The source transport/export parser is intentionally separate from this mapper because the public Open DATA site exposes an interactive export UI and the exact current download payload contract must be captured from the live export before hard-coding an endpoint or column schema. Until that capture is verified, do not guess the download endpoint.
+
+Dry-run fixtures based on the verified Tokyo rows in Drive (Nerima, Hachioji, Itabashi; published 2026-09-24) are used for the adapter regression test. Production DB writes remain prohibited.
