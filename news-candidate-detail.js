@@ -33,7 +33,7 @@
     return { active:false, display:false, ageDays, state:'expired_over_90d', label:`表示終了（${ageDays}日）` };
   }
 
-  function gateBlockers(candidate, selection) {
+  function gateBlockers(candidate, selection, validation = null) {
     if (!candidate || typeof candidate !== 'object') return ['候補データがありません'];
     if (candidate.informationKind === LEGACY_KIND) {
       return [
@@ -45,6 +45,8 @@
     }
 
     const blockers = [];
+    if (Array.isArray(validation?.errors)) blockers.push(...validation.errors.map(x => `validation: ${x}`));
+    if (Array.isArray(candidate?.validation?.errors)) blockers.push(...candidate.validation.errors.map(x => `validation: ${x}`));
     if (candidate.service && candidate.service !== SERVICE_ID) blockers.push('serviceがmachimamoではありません');
     if (candidate.sourceStatus !== 'verified') blockers.push('sourceStatusがverifiedではありません');
     if (candidate.factsStatus !== 'verified') blockers.push('factsStatusがverifiedではありません');
@@ -87,12 +89,15 @@
     ];
   }
 
-  function toDetailView(candidate, { now = new Date(), selection = null } = {}) {
+  function toDetailView(candidate, { now = new Date(), selection = null, validation = null } = {}) {
     const legacy = candidate?.informationKind === LEGACY_KIND;
     const actualSelection = selection || candidate?.selection || null;
     const retention = actualSelection?.retention || retentionState(candidate?.newsDate, now);
-    const blockers = gateBlockers(candidate, actualSelection);
-    const explicitPublishEligible = candidate?.publishEligible === true;
+    const blockers = gateBlockers(candidate, actualSelection, validation);
+    const explicitPublishEligible =
+      candidate?.publishEligible === true ||
+      validation?.publishEligible === true ||
+      candidate?.validation?.publishEligible === true;
     const gateReady = !legacy && blockers.length === 0;
     const publishEligible = explicitPublishEligible && gateReady;
     const source = candidate?.source || {};
@@ -108,7 +113,9 @@
       prefecture: candidate?.prefecture || '要確認',
       municipality: candidate?.municipality || '要確認',
       newsDate: candidate?.newsDate || '要確認',
+      category: candidate?.category || '要確認',
       sourceEventId: legacy ? '要確認' : (candidate?.sourceEventId || '要確認'),
+      sourceName: legacy ? (candidate?.sourceName || '旧officialデータ') : (source.name || '要確認'),
       sourceUrl: legacy ? null : (source.url || candidate?.sourceUrl || null),
       sourceDate: legacy ? '要確認' : (source.publishedAt || '要確認'),
       sourceHash: legacy ? '要確認' : (source.sourceHash || '要確認'),
@@ -121,6 +128,8 @@
       commercialUseAllowed: legacy ? null : (rights.commercialUseAllowed === true ? true : rights.commercialUseAllowed === false ? false : null),
       attribution: legacy ? '要確認' : (rights.attributionText || '要確認'),
       rightsEvidenceUrl: legacy ? null : (rights.rightsEvidenceUrl || null),
+      rightsScopeConfirmed: legacy ? null : (candidate?.rightsScopeConfirmed === true ? true : candidate?.rightsScopeConfirmed === false ? false : null),
+      lastVerifiedAt: legacy ? '要確認' : (candidate?.lastVerifiedAt || source.checkedAt || '要確認'),
       localityEvidence: legacy ? null : locality,
       retention,
       classifierTopic: legacy ? '未判定' : (actualSelection?.topic || '未接続'),
@@ -182,13 +191,16 @@
           ${field('prefecture', view.prefecture)}
           ${field('municipality', view.municipality)}
           ${field('newsDate', view.newsDate)}
+          ${field('category', view.category)}
           ${field('sourceEventId', view.sourceEventId, 'news-detail-break')}
         </div>
       </div>
       <div class="news-detail-section">
         <h4>source / facts / rights</h4>
+        ${field('source name', view.sourceName)}
         ${htmlField('source URL', sourceUrl)}
         ${field('source date', view.sourceDate)}
+        ${field('last verified', view.lastVerifiedAt)}
         ${field('sourceHash', view.sourceHash, 'news-detail-break news-detail-mono')}
         <div class="news-detail-field"><div class="news-detail-label">verifiedFacts</div><div class="news-detail-value">${facts}</div></div>
         <div class="news-detail-grid">
@@ -198,6 +210,7 @@
           ${field('correctionStatus', view.correctionStatus)}
           ${field('rights level', view.rightsLevel)}
           ${field('commercialUseAllowed', boolText(view.commercialUseAllowed))}
+          ${field('rightsScopeConfirmed', boolText(view.rightsScopeConfirmed))}
           ${field('attribution', view.attribution)}
         </div>
         ${htmlField('rights evidence', rightsUrl)}
