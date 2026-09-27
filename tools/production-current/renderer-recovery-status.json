@@ -1,0 +1,102 @@
+{
+  "statusVersion": "renderer-recovery-20260928-v1",
+  "productionMaster": "CURRENT_20260927_v16.4_REVIEW5_FINE_TUNE",
+  "forbiddenVersions": [
+    "v16.5"
+  ],
+  "outputContract": {
+    "singleSeconds": 43,
+    "weeklyFormula": "38 + 12 * ceil(newsCount / 3)"
+  },
+  "sourceRecovery": {
+    "sourceV13Archive": {
+      "status": "RECOVERED_FROM_LIBRARY",
+      "archiveSha256": "54499b60676f5c1f14d6bc51cf9234bed8f8ccb77fd8c4b86e7f92e133fc7d64",
+      "sizeBytes": 3672935
+    },
+    "v13": {
+      "status": "RECOVERED",
+      "stagedPath": "machimamo_reference_v13/package/machimamo_reference_v13.py",
+      "archivePath": "machimamo_reference_v13.py",
+      "sha256": "12d6911d2454eebe17d260d9139d127ebba9b341f3cc2ddafa6c6b48b314b4e1",
+      "sizeBytes": 17761
+    },
+    "v12": {
+      "status": "RECOVERED",
+      "sha256": "c4ff0016667fdd0dd958019998aba00f410d305fb00ae3d2de29913cf84ebf7d"
+    },
+    "v11": {
+      "status": "RECOVERED",
+      "sha256": "20bfed79e442adedca880dc17e4a31410b61225237b745c87632b031bfce6d57"
+    },
+    "v10": {
+      "status": "RECOVERED",
+      "sha256": "d5e334b5df9a0b3d0c71ecff3d7938250386342076c0193d809d96cd2a28b31e"
+    },
+    "v9": {
+      "status": "RECOVERED",
+      "sha256": "b828ce6e76e1d947db23d91c3392f08fafe43d0396c34aae58bd802751842124"
+    },
+    "v8": {
+      "status": "RECOVERED",
+      "sha256": "301df3b28862bb21136277dcad04daa60f24fb6050f7cca371d5c995a54fba6a"
+    },
+    "v7": {
+      "status": "MISSING",
+      "expectedPath": "machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py",
+      "requiredBy": "machimamo_video5_build_v4/render_short_44s_v8_oldstyle.py",
+      "doNotReconstruct": true
+    },
+    "v6": {
+      "status": "RECOVERED",
+      "sha256": "f39ccb65af98d3519a510ac6e7fefebf29359d5a0186d2b186e58b0e10c8c326"
+    },
+    "historicalBase": {
+      "status": "NEEDS_REVIEW",
+      "path": "machimamo_video5_build/render_short_44s.py",
+      "sha256": "37fea5bc6374681970faf8c6a201726904e4fe22b23d1c1ce197653158b0019b",
+      "note": "Library source recovered; exact v6-era provenance relation not yet independently proven."
+    },
+    "v14": {
+      "status": "RECOVERED",
+      "sha256": "f1477950f9765297e389865af092a129be69c6a5d21b6e7302e3d42de2d5b0f3"
+    },
+    "v15": {
+      "status": "MAPPED",
+      "sha256": "a4cd61bba0a39bf6774ea9bf378af66620311e1331c806cffed6f24e36bced7b"
+    },
+    "v16Final": {
+      "status": "MAPPED",
+      "sha256": "ea0bed4b6f2a623e6fbb2fb2fe0b43fc13cb4f65f2b26b15aa2f5abb0601b216"
+    },
+    "v16_1": {
+      "status": "MAPPED",
+      "sha256": "0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114"
+    },
+    "v16_2": {
+      "status": "FOUND",
+      "sha256": "4cc1408241aa4444e122608cbe4c13ffe707822ac85a642d8d0b3840831a85a5"
+    }
+  },
+  "runtimeFont": {
+    "availability": "FOUND_RUNTIME",
+    "family": "Noto Sans CJK JP",
+    "regularPath": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "boldPath": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+    "bundledInMaster": false,
+    "visualQc": "NEEDS_REVIEW"
+  },
+  "renderState": {
+    "dependencyImport": "BLOCKED_BY_V7",
+    "single43Generated": false,
+    "newOutputFfprobe": false,
+    "newOutputDecode": false,
+    "goldenComparison": false,
+    "singleVisualQc": "NOT_RUN",
+    "weekly62": "NOT_STARTED"
+  },
+  "goldenBaseline": {
+    "sha256": "27108db3aa4e6351b5cb40ead40785a6c04bee601e7373c2bf0130132e56a215",
+    "technicalQc": "PASS_REFERENCE_ONLY"
+  }
+}
