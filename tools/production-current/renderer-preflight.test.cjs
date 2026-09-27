@@ -21,7 +21,23 @@ try {
   }));
   fs.mkdirSync(path.join(root, 'source'));
   fs.writeFileSync(path.join(root, 'source/entry.py'), '# fixture renderer');
-  assert.deepEqual(inspectRendererBundle(root, manifestPath), {
+  assert.equal(inspectRendererBundle(root, manifestPath, {}).ready, false, 'approved font path is required');
+  const fontPath = path.join(root, 'approved-japanese-font.otf');
+  fs.writeFileSync(fontPath, 'font fixture');
+  assert.deepEqual(inspectRendererBundle(root, manifestPath, {}), {
+    ready: false,
+    sourceMaster: 'fixture',
+    renderer: 'entry.py',
+    missing: ['approved-font:unspecified'],
+  });
+  const fontManifestPath = path.join(root, 'font-manifest.json');
+  fs.writeFileSync(fontManifestPath, JSON.stringify({
+    sourceMaster: 'fixture',
+    primaryRenderer: 'entry.py',
+    requiredFiles: ['source/entry.py'],
+    approvedJapaneseFontEnv: 'TEST_APPROVED_FONT',
+  }));
+  assert.deepEqual(inspectRendererBundle(root, fontManifestPath, { TEST_APPROVED_FONT: fontPath }), {
     ready: true,
     sourceMaster: 'fixture',
     renderer: 'entry.py',
@@ -35,7 +51,7 @@ try {
     primaryRenderer: '../escape.py',
     requiredFiles: ['../escape.py'],
   }));
-  assert.equal(inspectRendererBundle(root, manifestPath).ready, false);
+  assert.equal(inspectRendererBundle(root, manifestPath, {}).ready, false);
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
