@@ -108,3 +108,15 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - P4 Renderer: CURRENT source/asset監査、`ASSET_ROOT/WORK_ROOT` adapterは存在。hash-verified REVIEW3からv16.1/legacy overlaysはMAPPED。確認済みの真のsource blockerは `machimamo_reference_v13/package/machimamo_reference_v13.py`。日本語fontはMasterへ同梱せずruntime解決。新規SINGLE/WEEKLY MP4・decode・Golden visual QCは未実施。
 - 将来の正式方針としてDrive `統合運営管理センター構想・実装ロードマップ v1` を確認。現行リリースを止めず、まちまも側は必要最小限管理UI + API/DB契約、共通側はPublishing/ASP/Auditを責務分離して再利用し、将来Admin API/BFF経由で管理センターへ段階移行する。管理OS自体は正式開始指示まで実装しない。
 - P4 domain/UI scaffoldに `serviceId=machimamo` を明示し、共通Publishingのglobal idempotency/generation keyへservice dimensionを含める小差分を実装。CURRENTのSINGLE/WEEKLY尺、renderer、旧SNS素材UIは変更しない。管理センター固有table/auth/dashboardは追加しない。
+
+
+## 2026-09-27 P4 iPhone QA｜LINE認証なし閲覧専用モード
+
+- iPhone実機でP4 PreviewからLINE認証できず、ニュース投稿管理へ到達できないため、P4 Preview branchだけにread-only QA入口を追加。
+- 固定QA host: `machimamo-map-git-feat-dev34-current-production-engine-miti4.vercel.app`。query `newsAdminQa=1` の両方が一致した場合だけ有効。Production hostや通常URLでは無効。
+- QAモードは `#adminNewsPublishingSection` のみ表示し、既存管理ダッシュボードの道路/AED/ポイント/退会/通報/SNS素材等はCSSで非表示。admin password入力、CSV、`loadAdminDashboard()` は呼ばないため、本番管理RPC・DB取得・書込を開始しない。
+- SINGLE/WEEKLYのfilter/selectはUI確認用に操作可能。生成/X/TikTok/WEEKLY投稿ボタンは既存通りdisabled・接続設定必要。Production/Publishing DB未接続・fail-closedを維持。
+- 通常の管理者経路は維持：LINEログイン → `is_current_user_admin` → 管理パスワード → admin RPC。無認証QAでこの経路を置換しない。
+- 実装commit `42e1a4ec7fe9f50258a71d1e6822133741e46734`、test commit `5f9b29e90bc97d6ce22fbe5413128b638d64ff78`。静的contract確認でQA host/query gate、read-only banner、通常admin auth/RPC保持、service=machimamo/fail-closedをPASS。
+- Vercel deployment `dpl_G6L77deG87UeHVYJ4jgoR5gqjX6K` は READY / target=null / source SHA `5f9b29e90bc97d6ce22fbe5413128b638d64ff78`。stable branch aliasをiPhone QA入口として使用。
+- iPhone確認URL: `https://machimamo-map-git-feat-dev34-current-production-engine-miti4.vercel.app/?newsAdminQa=1`。最上部〜最下部scroll、SHORT/SINGLE、LONG/WEEKLY、都道府県/週/6・9・12/済filter/下部操作/広告非干渉を確認。投稿・生成操作は行わない。
