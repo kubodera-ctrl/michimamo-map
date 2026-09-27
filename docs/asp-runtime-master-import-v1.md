@@ -64,7 +64,7 @@ This is a shape example only. Do not use its example hostnames as real links.
 
 Import upserts source facts but does not enable publication or placements. The existing admin-controlled `publish_status`, listing flag, and placement controls remain unchanged. The public read RPC only returns a row when partnership, service listing permission, service media approval, explicit production listing approval, Web channel approval, exact tracking URL, active status, enabled placement, and dates all pass. If present, the approved impression tracking URL is returned as a separate HTTPS field; the HTML tag is never inserted.
 
-Point reward is a second gate: only `point_reward_allowed AND reward_rule_confirmed` is exposed. A normal PR offer may be published without points when all advertising gates pass; the response then contains no reward amount/rate or reward rule.
+Point reward data must include explicit permission, a confirmed rule, at least an amount or rate, and a non-empty structured rule object. Creative types are restricted to text/image. Point reward is a second gate: only `point_reward_allowed AND reward_rule_confirmed` is exposed. A normal PR offer may be published without points when all advertising gates pass; the response then contains no reward amount/rate or reward rule.
 
 Click recording is separate from navigation. It creates an internal `click_id`, records offer, service, placement, signed-in user or anonymous session, timestamp and source screen, while the browser opens the unchanged ASP tracking URL directly. Failure to record a click must not stop the outbound navigation. Automated tests must never click a real tracking URL.
 
