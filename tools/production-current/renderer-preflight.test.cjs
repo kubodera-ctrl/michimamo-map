@@ -11,7 +11,7 @@ try {
   const missingResult = inspectRendererBundle(root);
   assert.equal(missingResult.ready, false);
   assert.ok(missingResult.missingCode.includes('machimamo_reference_v13/package/machimamo_reference_v13.py'));
-  assert.ok(missingResult.missingCode.includes('machimamo_reference_v16_1/src/machimamo_reference_v16_1.py'));
+  assert.ok(!missingResult.missingCode.includes('machimamo_reference_v16_1/src/machimamo_reference_v16_1.py'), 'hash-verified v16.1 module is mapped from the REVIEW3 restoration snapshot');
 
   const manifestPath = path.join(root, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify({
