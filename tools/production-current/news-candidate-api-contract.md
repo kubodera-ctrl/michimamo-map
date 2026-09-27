@@ -1,0 +1,105 @@
+# Canonical news candidate Admin API/BFF contract
+
+Status: P4 design + validation contract. No Production endpoint or migration is created by this document.
+
+## Purpose
+
+The machimamo admin UI must not depend permanently on legacy `public.spots`. A future Admin API/BFF should return service-scoped, source-verified news candidates that can be consumed by the current machimamo admin UI and the future integrated operations center without changing Production SINGLE/WEEKLY rules.
+
+## Read endpoint
+
+Suggested contract shape:
+
+`GET /admin/v1/news-candidates?service=machimamo&informationKind=&prefecture=&municipality=&from=&to=&status=&week=&limit=&cursor=`
+
+The exact deployment surface is intentionally not fixed yet. It may be a Cloudflare Worker/Admin BFF or another approved server-side route.
+
+Required properties:
+
+- authentication/authorization occurs server-side for Production admin use;
+- Preview may expose a separate read-only QA fixture/adapter but cannot inherit write permissions;
+- response must be service-scoped;
+- pagination must be cursor-based or otherwise bounded;
+- no service_role key is exposed to the browser;
+- no publication state is inferred from UI state.
+
+## Candidate response
+
+Each canonical candidate uses `machimamo-news-candidate-v1` and includes:
+
+- `service = machimamo`
+- `candidateId`
+- `informationKind = POLICE_OFFICIAL | LOCAL_ANOMALY`
+- `headline`
+- `prefecture`
+- `municipality` when available
+- `newsDate`
+- `sourceStatus`
+- `factsStatus`
+- `rightsStatus`
+- `correctionStatus`
+- `verifiedFacts[]`
+- source name / HTTPS URL / publishedAt / checkedAt / SHA-256 `sourceHash`
+- rights level / media use mode / commercial-use flag / checkedAt / evidence URL / attribution text
+
+The executable validator is `news-candidate-contract.cjs`.
+
+## Publish eligibility
+
+A candidate is only eligible to advance toward render input when:
+
+- source status is `verified`;
+- facts status is `verified`;
+- rights status is `cleared`;
+- correction status is `current`;
+- source URL and rights evidence are HTTPS;
+- source hash is present;
+- verifiedFacts is non-empty;
+- the rights level is one of the CURRENT publishable levels;
+- commercial use is explicitly allowed;
+- CC BY records contain attribution text.
+
+Passing this candidate gate does not itself publish or render anything. The CURRENT render input validator, renderer QC, admin approval and platform publishing gates still apply.
+
+## Correction handling
+
+Official sources may correct or withdraw previously published content.
+
+- store a stable candidate/source identity and latest source hash;
+- if the source hash changes after approval, do not mutate an approved revision silently;
+- mark the previous candidate/revision as needing re-verification;
+- corrections create a new revision or candidate state transition;
+- withdrawn source records cannot remain publish eligible;
+- publication correction/removal policy is handled by Publishing/Audit, not by the candidate UI.
+
+## Source-specific rights
+
+A Source Master entry is configuration, not evidence that every record is publishable.
+
+Example currently rechecked: the Tokyo Metropolitan Police Department's "メールけいしちょう OPEN DATA" states that covered data is provided under CC BY 4.0, requests source attribution, asks users not to alter facts into something different, and requires following corrections. It excludes map information, hyperlink descriptions and contact descriptions from the covered information. Rights must therefore be evaluated at the record/media layer, not assumed from the site name alone.
+
+Official source:
+- https://mail.keishicho.metro.tokyo.lg.jp/opendata/
+- https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy
+
+## Legacy bridge
+
+`LEGACY_UNVERIFIED` is UI/migration-only and is not accepted by the canonical candidate validator.
+
+Legacy rows:
+- can be displayed read-only;
+- cannot be promoted merely by selecting them;
+- need source provenance reconstruction or fresh retrieval from a canonical source;
+- remain visibly distinguished until migrated.
+
+## Storage boundary
+
+Do not create a machimamo-only duplicate of shared Publishing state.
+
+Candidate ingestion/provenance storage and Publishing storage have different responsibilities:
+- candidate/source layer: raw source identity, facts, rights, correction status, source hash;
+- Production/Revision: frozen render input and QC;
+- Publishing: platform-specific post state and external IDs;
+- Audit: actor/action/reason/history.
+
+The final table names are intentionally not fixed until the machiibe shared schema and management-center data model are reconciled.
