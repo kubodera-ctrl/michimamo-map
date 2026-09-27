@@ -129,3 +129,37 @@ Preserved fields include:
 The source transport/export parser is intentionally separate from this mapper because the public Open DATA site exposes an interactive export UI and the exact current download payload contract must be captured from the live export before hard-coding an endpoint or column schema. The mapper keeps `rightsStatus=needs_review` unless normalized input explicitly sets `rightsScopeConfirmed=true`, so excluded map/URL/contact material cannot become publishable by default. Until that capture is verified, do not guess the download endpoint.
 
 Dry-run fixtures based on the verified Tokyo rows in Drive (Nerima, Hachioji, Itabashi; published 2026-09-24) are used for the adapter regression test. Production DB writes remain prohibited.
+
+## Read-only admin detail projection
+
+The candidate list and candidate detail are separate UI responsibilities.
+
+A detail response is service-scoped (service=machimamo) and may expose the full admin read model:
+- headline / informationKind / prefecture / municipality / newsDate / category;
+- sourceEventId / source name / source URL / source date / sourceHash / last verified;
+- verifiedFacts;
+- sourceStatus / factsStatus / rightsStatus / correctionStatus;
+- rights level / commercialUseAllowed / attribution / rights evidence / rightsScopeConfirmed;
+- locality evidence;
+- retention state;
+- classifier topic / priority / include / reason;
+- explicit publishEligible and publish blockers.
+
+The UI must not infer that a workflow step completed merely because a detail screen exists.
+
+The future workflow is represented as distinct responsibility boundaries:
+
+Candidate → Production Preview → Render → QC → Approval → Publishing Preview → X/TikTok → final publication confirmation.
+
+Current state:
+- Candidate/detail read: implemented for LEGACY_UNVERIFIED; canonical detail view model supported.
+- Production Preview: unconnected.
+- Render: blocked by exact v7 source.
+- QC: unconnected.
+- Approval: unconnected.
+- Publishing Preview: unconnected.
+- X/TikTok: connection required.
+
+LEGACY_UNVERIFIED remains read-only at every downstream boundary. A legacy row may open a detail view but never becomes render/approval/publishing eligible by that action.
+
+The detail UI is intentionally a thin presentation layer. Candidate validation, Production admission, Render, QC, Approval, Publishing and Audit remain separate domain/API responsibilities so a future Admin API/BFF / integrated management OS can replace the frontend without redefining these states.
