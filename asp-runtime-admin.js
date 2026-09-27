@@ -35,7 +35,7 @@
         if (!Array.isArray(offers) || offers.length > 300) throw new Error('1〜300件の配列JSONを指定してください');
         if (hasForbiddenHtml(offers)) throw new Error('完全広告HTMLは同期できません。URL等の構造化フィールドに分けてください');
         for (const offer of offers) {
-            if (!offer || typeof offer !== 'object' || offer.offer_id !== `${offer.asp}:${offer.program_id}`) throw new Error('offer_idは「ASP:program_id」の安定IDにしてください');
+            if (!offer || typeof offer !== 'object' || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$/.test(String(offer.offer_id || '')) || !offer.program_id) throw new Error('案件マスターの安定offer_idとprogram_idを指定してください');
             for (const service of Object.values(offer.services || {})) {
                 validHttps(service.tracking_url, 'tracking_url');
                 validHttps(service.creative_url, 'creative_url');
@@ -56,7 +56,8 @@
 
     function statusLabel(row) {
         const gates = [row.approval_status === 'approved', row.source_listing_allowed,
-            row.source_media_approved, row.web_approval_status === 'approved', !!row.tracking_url];
+            row.source_media_approved, row.production_listing_approved,
+            row.web_approval_status === 'approved', !!row.tracking_url];
         return gates.every(Boolean) ? 'ソース条件確認済み' : '未公開条件あり';
     }
 
@@ -73,7 +74,7 @@
             return `<article data-asp-card data-offer-id="${escapeHtml(row.offer_id)}" data-service-key="${escapeHtml(row.service_key)}" style="margin:10px 0;padding:10px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:9px;">
                 <div style="font-weight:900;font-size:.78rem;">${escapeHtml(row.offer_name)}</div>
                 <div style="font-size:.67rem;color:#475569;margin:3px 0 8px;">${escapeHtml(row.asp)} / ${escapeHtml(row.program_id)} / ${escapeHtml(row.service_key)} · ${statusLabel(row)}</div>
-                <div style="font-size:.65rem;line-height:1.5;color:#475569;">提携：${escapeHtml(row.approval_status)} · Web媒体：${escapeHtml(row.web_approval_status)} · App：${escapeHtml(row.app_approval_status)} · SNS：${escapeHtml(row.sns_approval_status)} · LINE：${escapeHtml(row.line_approval_status)}<br>ポイント：${row.point_reward_allowed && row.reward_rule_confirmed ? '可・条件確定' : '対象外または未確定'} · click：${Number(row.click_count || 0)} · 成果連携：未接続<br>還元条件：${escapeHtml(JSON.stringify(row.reward_rule || {}))} · 最終確認：${escapeHtml(row.last_verified_at || '未記録')} · マスター同期：${escapeHtml(row.source_master_updated_at || '未同期')}<br>tracking URL：<code>${escapeHtml(displayUrl(row.tracking_url))}</code></div>
+                <div style="font-size:.65rem;line-height:1.5;color:#475569;">提携：${escapeHtml(row.approval_status)} · Web媒体：${escapeHtml(row.web_approval_status)} · 本番掲載判定：${row.production_listing_approved ? '許可' : '未許可'} · App：${escapeHtml(row.app_approval_status)} · SNS：${escapeHtml(row.sns_approval_status)} · LINE：${escapeHtml(row.line_approval_status)}<br>ポイント：${row.point_reward_allowed && row.reward_rule_confirmed ? '可・条件確定' : '対象外または未確定'} · click：${Number(row.click_count || 0)} · 成果連携：未接続<br>還元条件：${escapeHtml(JSON.stringify(row.reward_rule || {}))} · 最終確認：${escapeHtml(row.last_verified_at || '未記録')} · マスター同期：${escapeHtml(row.source_master_updated_at || '未同期')}<br>tracking URL：<code>${escapeHtml(displayUrl(row.tracking_url))}</code></div>
                 <details style="margin-top:5px;font-size:.65rem;"><summary style="cursor:pointer;">登録済みURLを確認（クリック計測は発生しません）</summary><div style="overflow-wrap:anywhere;margin-top:5px;">tracking: <code>${escapeHtml(row.tracking_url || '未取得')}</code><br>creative: <code>${escapeHtml(row.creative_url || '未取得')}</code><br>impression: <code>${escapeHtml(row.impression_tracking_url || '未取得')}</code></div></details>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px;">
                     <label style="font-size:.68rem;">公開状態<select data-field="publish_status" style="margin-top:3px;background:white;"><option value="draft" ${row.publish_status === 'draft' ? 'selected' : ''}>draft</option><option value="active" ${row.publish_status === 'active' ? 'selected' : ''}>active</option><option value="paused" ${row.publish_status === 'paused' ? 'selected' : ''}>paused</option><option value="ended" ${row.publish_status === 'ended' ? 'selected' : ''}>ended</option></select></label>
