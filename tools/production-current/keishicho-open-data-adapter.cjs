@@ -119,7 +119,7 @@ function buildCanonicalCandidate(record, { checkedAt = new Date(), classify = tr
     verifiedFacts,
     sourceStatus: sourceEventId && publishedAt ? 'verified' : 'needs_review',
     factsStatus: verifiedFacts.length ? 'verified' : 'needs_review',
-    rightsStatus: 'cleared',
+    rightsStatus: record.rightsScopeConfirmed === true ? 'cleared' : 'needs_review',
     correctionStatus,
     source: {
       name: SOURCE_NAME,
@@ -140,7 +140,8 @@ function buildCanonicalCandidate(record, { checkedAt = new Date(), classify = tr
     },
     localityEvidence,
     lastVerifiedAt: checkedIso,
-    rawSourceCategory: String(record.sourceCategory || '').trim()
+    rawSourceCategory: String(record.sourceCategory || '').trim(),
+    rightsScopeConfirmed: record.rightsScopeConfirmed === true
   };
 
   const validation = validateCanonicalCandidate(candidate);
