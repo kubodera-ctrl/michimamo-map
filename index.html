@@ -163,6 +163,26 @@
         .modal.open .sheet { transform: translateY(0); }
         body.post-modal-open .ad-banner { display: none !important; }
         #postModal .sheet { scroll-behavior: smooth; }
+        /* SNS assets: keep the close button visible and scroll the content,
+           including gestures that start on the large canvas, above the ad. */
+        #adminSocialAssetModal { z-index: 10000; padding: env(safe-area-inset-top) 0 0; }
+        #adminSocialAssetModal .sheet {
+            display: flex; flex-direction: column; min-height: 0;
+            height: 90vh; height: 90dvh; max-height: 100%;
+            overflow: hidden; padding-bottom: 0;
+        }
+        #adminSocialAssetModal .sheet > .row { flex: 0 0 auto; }
+        #adminSocialAssetModal .close { flex-shrink: 0; }
+        #adminSocialAssetBody {
+            flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain;
+            touch-action: pan-y; padding-bottom: calc(24px + env(safe-area-inset-bottom));
+            display: grid; grid-template-columns: repeat(auto-fit,minmax(min(240px,100%),1fr));
+            gap: 14px; align-items: start;
+        }
+        #adminSocialAssetBody > div { min-width: 0; }
+        #adminSocialCanvas { touch-action: pan-y; }
+
         .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
 
@@ -1173,7 +1193,7 @@
             </div>
             <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;">
+        <div id="adminSocialAssetBody">
             <div>
                 <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
                 <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
