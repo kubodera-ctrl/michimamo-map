@@ -10,8 +10,8 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'machimamo-renderer-'));
 try {
   const missingResult = inspectRendererBundle(root);
   assert.equal(missingResult.ready, false);
-  assert.ok(missingResult.missingCode.includes('machimamo_reference_v13/package/machimamo_reference_v13.py'));
-  assert.ok(!missingResult.missingCode.includes('machimamo_reference_v16_1/src/machimamo_reference_v16_1.py'), 'hash-verified v16.1 module is mapped from the REVIEW3 restoration snapshot');
+  assert.ok(missingResult.missingCode.includes('machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py'));
+  assert.ok(!missingResult.missingCode.includes('machimamo_reference_v13/package/machimamo_reference_v13.py'), 'v13 is recovered from SOURCE_v13.zip');\n  assert.ok(!missingResult.missingCode.includes('machimamo_reference_v16_1/src/machimamo_reference_v16_1.py'), 'hash-verified v16.1 module is mapped from the REVIEW3 restoration snapshot');
 
   const manifestPath = path.join(root, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify({
