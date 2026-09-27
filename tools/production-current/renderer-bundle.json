@@ -23,5 +23,6 @@
     "machimamo_v164/review5_logo_emblem_grabcut.png"
   ],
   "fontPolicy": "Use the font files specified by the official renderer bundle; never silently substitute a different Japanese font.",
+  "approvedJapaneseFontEnv": "MACHIMAMO_APPROVED_JP_FONT",
   "forbiddenVersions": ["v16.5"]
 }
