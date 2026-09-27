@@ -110,11 +110,11 @@
 
 - TikTok機能区分: A「SNS投稿素材（直近の公開投稿）」= `#adminSocialPostArea` / `renderAdminSocialPosts()`、B=`#adminSocialAssetModal`（`openAdminTikTokAsset`、`#adminSocialAssetBody`、`#adminSocialCanvas`）、C=地域投稿用TikTok 9:16/1080×1920 PNG、D=X intent起動。すべて既存地域投稿・互換SNS素材であり、ニュースProduction/Publishingではない。既存SNS素材画面のスクロールPASSを維持。X intent/PNG保存を実SNS投稿済みと数えない。
 - 新規ニュース投稿管理は旧SNS素材UIと分離。SINGLEはTikTok SHORT 43秒固定（TOP 3 + MAP 7 + NEWS 12 + MAP説明 8 + ロジック 8 + END 5）。WEEKLYはTikTok LONG固定38秒 + 12秒×ceil(newsCount/3)、6/9/12件=62/74/86秒。CURRENTにないSINGLE尺を足さない。
-- `feat/dev34-current-production-engine` UI commit `d0b01d44800b808e9731a1a4fbd?`: `adminNewsPublishingSection` fail-closed scaffold、SHORT/LONG、47 prefectures、週・6/9/12件、済 filter、旧SNS欄維持、admin表示中PR帯を非表示。接続/API未実装のため操作無効・状態捏造なし。iPhone Preview scroll未検証。まだPreview/PR/Production反映なし。
-- P4 tests (local branch snapshot): `npm run test:production-current`, `npm test`, `git diff --check` PASS。CURRENT renderer依存・承認済日本語font欠落は継続blocker。MP4/Golden/visual QCなし。
+- `adminNewsPublishingSection` UI scaffold commit `d0b01d44800b808e9731a1a4f0a342648d0e213f`: SHORT/LONG, 47 prefectures, week and 6/9/12 choices, posted filters, legacy SNS retained, admin PR banner suppressed. Current synced branch includes this scaffold; read-only data/API remains disconnected. P4 latest preview: deployment `dpl_3ZAW52ZEFvJEsPykK2MVWMLSphcw`, https://machimamo-nhz3aacte-miti4.vercel.app, source branch `feat/dev34-current-production-engine`, exact source SHA `5188662eff2de6d41fbb317da209c0460d5ffaf9`, Preview target=null. iPhone verification pending.
+- Renderer preflight correction and current test files were applied to the local validation checkout; `npm test`, `npm run test:production-current`, and `git diff --check` PASS. This does not claim a newly rendered MP4 or Golden visual QC.
  
 
-- P4 base sync: restart/dev34 52f213b8ceb451eec5d865db5037ea29f45e144f を取り込むmerge commitを作成中。P0のSafari/modal修正を優先して維持。
+- P4 base sync completed by `be528ca9ed75b386a80f7f628b7928696e458b6b`; restart/dev34 `52f213b8ceb451eec5d865db5037ea29f45e144f` is an ancestor. Compare reports ahead 19 / behind 0; no force rebase.
 
 
 ## 2026-09-27 P4 Renderer blocker correction / archive audit
