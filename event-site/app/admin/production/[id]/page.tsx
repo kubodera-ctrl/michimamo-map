@@ -5,6 +5,7 @@ import {notFound,redirect} from 'next/navigation';
 import {ADMIN_COOKIE,validateAdminSession} from '@/lib/admin-auth';
 import {getAdminSupabase} from '@/lib/supabase-admin';
 import type {CarouselInput} from '@/lib/machiibe-production-master';
+import MachiibeFinalCarouselRenderer from '@/components/MachiibeFinalCarouselRenderer';
 import {deriveOverallPostState} from '@/lib/publishing-state';
 
 export const dynamic='force-dynamic';
@@ -103,6 +104,10 @@ export default async function ProductionDetailPage({params}:{params:Params}){
             <p>行く前・当日は「まちまも」で周辺確認</p>
           </article>
         </div>
+      </section>
+
+      <section className="admin-panel">
+        <MachiibeFinalCarouselRenderer input={input} pageCount={pageCount} />
       </section>
 
       <section className="admin-panel">
