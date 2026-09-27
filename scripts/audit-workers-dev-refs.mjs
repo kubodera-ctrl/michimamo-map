@@ -47,6 +47,14 @@ for(const file of files(root)){
 const legacy=findings.filter(x=>x.keys.includes('legacy_account_subdomain'));
 const workers=findings.filter(x=>x.keys.includes('workers_dev_any'));
 const related=findings.filter(x=>x.keys.includes('cors_callback_webhook_access_search'));
+const expectedLegacy=new Set([
+  'cloudflare/machiibe-pipeline/src/index.ts:95',
+  'event-site/wrangler.jsonc:17'
+]);
+const actualLegacy=new Set(legacy.map((item)=>item.path+':'+item.line));
+const unexpected=[...actualLegacy].filter((item)=>!expectedLegacy.has(item));
+const missing=[...expectedLegacy].filter((item)=>!actualLegacy.has(item));
+
 const report={
   scannedRoot:path.relative(process.cwd(),root)||'.',
   scannedFiles:files(root).length,
@@ -60,3 +68,7 @@ const report={
 console.log('=== workers.dev repository audit ===');
 console.log(JSON.stringify(report,null,2));
 console.log('WORKERS_DEV_AUDIT_JSON='+JSON.stringify(report));
+if(unexpected.length||missing.length){
+  console.error('workers.dev migration guard failed',JSON.stringify({unexpected,missing}));
+  process.exitCode=1;
+}
