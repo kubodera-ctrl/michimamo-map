@@ -80,3 +80,11 @@
 - static tests admin_social_assets / safari_private_viewport / ios_viewport_stability PASS。隔離Chromium検証はbrowser downloadが壊れたarchiveで未実行。iPhone再確認待ち。
 - 修正Preview候補 https://machimamo-q7vvvj8of-miti4.vercel.app/ (dpl_FU8oJEDbgwugwjNYJXogLdysPUS7、source d85cbac)。実機でPNG保存/投稿文/コピー/Xボタンへスクロール到達とcloseを確認する。外部投稿はしない。
 - PR21はstackedのまま、今回base修正の取り込みは次工程で再照合。merge/Production前に必須。
+
+## 2026-09-27 P0 最新Preview再確認・投稿先DB隔離判定
+- restart/dev34 HEAD: 99edca82c7e5d0d4129707c19fb250b77e57a85c。修正: document capture-phase touch handlerで、開いているadminSocialAssetModalのスワイプをadminSocialAssetBody.scrollTopへ手動反映。button/link/input/textarea/select/contenteditableでは介入せず、既存filter用gestureは維持。Regression assertionsをtests/admin_social_assets.test.cjsへ追加。
+- Vercel Preview READY: dpl_DwvHg9XTpR7j394kcUs1LqkqQn3b / https://machimamo-m9lhdknfm-miti4.vercel.app/。source=git、branch=restart/dev34、SHA=99edca82c7e5d0d4129707c19fb250b77e57a85c、target=null (Preview)。前のd85 Previewに対する実機報告とこの新修正後の再確認は区別する。
+- 本人報告: 通常/Private Safariの表示サイズ、下部メニュー、各モーダルなど基礎表示はPASS。SNS素材画面は最下部までスクロールできるとの確認あり。一方、別途「管理画面内TikTok投稿ページ」はスクロールできないとの報告。対象画面が異なるため、SNS素材モーダルのPASSで未解決ページをPASS扱いしない。99ed Previewでの該当画面再確認待ち。
+- DB隔離ゲート: 現行branchのfrontend SUPABASE_URLは https://ckftozjhdszlwqnylmxv.supabase.co、mainも同じProject Ref。Preview DBはProductionと共有。書込テスト投稿は本番データへ入るため禁止。テスト投稿なし、Migrationなし、本番変更なし。隔離Supabase Project/Preview環境が用意・確認されるまで異変投稿E2Eは保留。
+- PR #20: open/Draft/mergeable=true、未merge。main最新SHA=7b4b935a5facb0a441445a9e14adce1982c909e1、PR headはmainより15 commit先行・behind 0、GitHub compareはmerge conflictなし。Productionは変更なし。Draft解除はTikTok投稿ページの実機再確認、CI failureの扱い確認、実投稿DB安全性ゲート解決後。
+- Checks: camera-regression success、Vercel Preview deployment READY。Event Site Checkは別サービスのworkflowでsetup-nodeが存在しない event-site/package.json をcache pathに指定して失敗、Install/testsはskipped。PR20のまちまも変更起因ではない。Cloudflare Workers Buildsもmachiibe-preview/michimamo-map双方failure。原因本文はDashboardで未確認・PR20 Previewの代替ではない。
