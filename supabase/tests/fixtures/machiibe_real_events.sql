@@ -5,62 +5,63 @@
 
 insert into public.regional_sources(
   source_key,name,source_kind,homepage_url,data_url,license_text,prefecture,municipality,
-  event_use_allowed,image_policy,fetch_status,last_success_at,notes,is_active,last_reviewed_at
+  event_use_allowed,terms_review_status,acquisition_mode,automated_fetch_allowed,
+  image_policy,fetch_status,last_success_at,notes,is_active,last_reviewed_at
 ) values
 (
   'preview-mizunokagaku','東京都水の科学館','manual',
   'https://www.mizunokagaku.jp/','https://www.mizunokagaku.jp/event/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-miraikan','日本科学未来館','manual',
   'https://www.miraikan.jst.go.jp/','https://www.miraikan.jst.go.jp/events/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-city-circuit','CITY CIRCUIT TOKYO BAY','manual',
   'https://city-circuit.com/','https://city-circuit.com/news/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-littleplanet','リトルプラネット','manual',
   'https://litpla.com/','https://litpla.com/news/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-ariake-garden','有明ガーデン','manual',
   'https://ariake.shopping-sumitomo-rd.com/','https://ariake.shopping-sumitomo-rd.com/event/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-joypolis','東京ジョイポリス','manual',
   'https://tokyo-joypolis.com/','https://tokyo-joypolis.com/event/',
   'CI-only factual metadata; no source prose or media copied.','東京都','港区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-toyosu-senkyaku','豊洲 千客万来','manual',
   'https://www.toyosu-senkyakubanrai.jp/','https://www.toyosu-senkyakubanrai.jp/event_news',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 ),
 (
   'preview-dainankyoku','特別展「大南極展」公式サイト','manual',
   'https://dainankyokuten.jp/','https://dainankyokuten.jp/',
   'CI-only factual metadata; no source prose or media copied.','東京都','江東区',
-  true,'not_used','healthy',now(),
+  true,'reviewed_facts_only','manual_facts_only',false,'not_used','healthy',now(),
   'Ephemeral CI fixture only. event_use_allowed=true solely to exercise public RPC behavior.',true,now()
 );
 
