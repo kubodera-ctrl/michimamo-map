@@ -137,7 +137,8 @@
 
     document.addEventListener('click', (event) => {
         const button = event.target.closest('[data-action="save"]');
-        if (button) saveCard(button.closest('[data-asp-card]'));
+        const card = button && button.closest('[data-asp-card]');
+        if (card) saveCard(card);
     });
 
     root.MachimamoAspAdmin = { load, importFromSheet };

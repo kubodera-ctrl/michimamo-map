@@ -92,8 +92,9 @@ create table if not exists public.asp_runtime_clicks (
   clicked_at timestamptz not null default now(),
   source_screen text not null check (length(source_screen) between 1 and 100),
   foreign key (offer_id, service_key, placement_id)
-    references public.asp_runtime_placements(offer_id, service_key, placement_id) on delete restrict,
-  check (user_id is not null or anonymous_session_id is not null)
+    references public.asp_runtime_placements(offer_id, service_key, placement_id) on delete restrict
+  -- The RPC requires an authenticated user or anonymous session on insertion.
+  -- Both may be NULL after auth.users deletion; preserve anonymized click history.
 );
 
 create index if not exists asp_runtime_service_gate_idx

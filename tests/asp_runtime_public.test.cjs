@@ -20,7 +20,7 @@ global.window = {
     rpcCalls.push({ name, args });
     if (name === 'get_asp_offers_for_placement') return { data: [{
       offer_id: 'A8.net:program-id', offer_name: '<img src=x onerror=alert(1)>',
-      tracking_url: 'https://px.a8.net/svt/ejp?a8mat=exact%2Btracking',
+      tracking_url: 'https://EXAMPLE.invalid:443/svt/ejp?a8mat=exact%2Btracking',
       creative_type: 'image', creative_url: 'https://cdn.example/banner.png',
       impression_tracking_url: 'https://www19.a8.net/0.gif?a8mat=original'
     }], error: null };
@@ -36,7 +36,7 @@ require('../asp-runtime-public.js');
   await window.MachimamoAspPublic.mount(container);
   const card = container.children[0];
   const titleLink = card.children[0];
-  assert.equal(titleLink.href, 'https://px.a8.net/svt/ejp?a8mat=exact%2Btracking', 'tracking URL is unchanged');
+  assert.equal(titleLink.href, 'https://EXAMPLE.invalid:443/svt/ejp?a8mat=exact%2Btracking', 'tracking URL is unchanged');
   assert.equal(titleLink.rel, 'sponsored nofollow noopener noreferrer');
   assert.equal(titleLink.children[1].textContent, '<img src=x onerror=alert(1)>', 'offer title is text, not HTML');
   const clickEvent = { defaultPrevented: false };
@@ -48,6 +48,10 @@ require('../asp-runtime-public.js');
   assert.equal(clickEvent.defaultPrevented, false, 'outbound navigation is not cancelled on logging failure');
   const imageAnchor = card.children.find((child) => child.tagName === 'a' && child !== titleLink);
   assert.equal(imageAnchor.href, titleLink.href);
+  const beforeImageClick = rpcCalls.length;
+  imageAnchor.listeners.click({});
+  await Promise.resolve();
+  assert.equal(rpcCalls.length, beforeImageClick + 1, 'image click records exactly once without synthetic navigation');
   assert.equal(imageAnchor.children[0].referrerPolicy, 'no-referrer');
   const pixel = card.children.find((child) => child.tagName === 'img' && child.width === 1);
   assert.equal(pixel.src, 'https://www19.a8.net/0.gif?a8mat=original', 'uses the structured, unmodified approved impression URL');

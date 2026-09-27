@@ -4,7 +4,8 @@
     const safeHttps = (value) => {
         try {
             const url = new URL(value);
-            return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
+            return typeof value === 'string' && !/[\s<>"']/.test(value)
+                && url.protocol === 'https:' && !url.username && !url.password ? value : null;
         } catch { return null; }
     };
 
@@ -37,7 +38,7 @@
         link.rel = 'sponsored nofollow noopener noreferrer';
         link.append(sponsor, title);
         link.style.cssText = 'display:block;text-decoration:none;';
-        link.addEventListener('click', () => {
+        const recordClick = () => {
             const anonId = anonymousSessionId();
             // Record asynchronously. Never cancel or delay the outbound ASP navigation.
             try {
@@ -48,9 +49,10 @@
                     p_source_screen: placementId,
                     p_anonymous_session_id: anonId
                 });
-                if (result && typeof result.catch === 'function') result.catch(() => {});
+                Promise.resolve(result).catch(() => {});
             } catch { /* tracking failure must not block the official ASP URL */ }
-        }, { passive: true });
+        };
+        link.addEventListener('click', recordClick, { passive: true });
         card.appendChild(link);
         const disclosure = document.createElement('p');
         disclosure.textContent = '広告・PR';
@@ -69,7 +71,7 @@
             image.referrerPolicy = 'no-referrer';
             image.style.cssText = 'display:block;max-width:100%;height:auto;margin-top:7px;border-radius:8px;';
             imageLink.appendChild(image);
-            imageLink.addEventListener('click', () => link.dispatchEvent(new Event('click')));
+            imageLink.addEventListener('click', recordClick, { passive: true });
             card.appendChild(imageLink);
         }
         const pixelUrl = safeHttps(offer.impression_tracking_url);
