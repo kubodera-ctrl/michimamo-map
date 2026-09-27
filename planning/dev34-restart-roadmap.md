@@ -205,3 +205,26 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - runtime fontは現環境で `Noto Sans CJK JP` を解決し、historical renderer期待のRegular/Bold TTC pathが存在。font availability blockerは解消したがVisual QCは未実施。
 - new SINGLE 43s render / ffprobe / decode / Golden compare / Visual QCはv7 blockerのため未実施。WEEKLYはSINGLE PASSまで開始しない。
 - 詳細: `planning/renderer-dependency-recovery-v13-20260927.md`。
+
+
+## 2026-09-27 警視庁Open DATA direct adapter dry-run
+
+- `machimamo-news-candidate-v1` のPOLICE_OFFICIALにstable `sourceEventId` を必須化。
+- `tools/production-current/keishicho-open-data-adapter.cjs` を追加。Production writeなしのtransport-independent converterとして、sourceEventId / publishedAt / occurredAt / municipality / headline / body / source category / correction stateをcanonical candidateへ変換。
+- sourceHashはsource identity/date/category/locality/headline/body/correctionを固定順でSHA-256化。訂正でhashが変わる契約。
+- rightsは最新公式利用規約に基づきCC BY / attribution required / commercialUseAllowed=true / evidence URLを保持。地図・URL記述・問い合わせ記述は対象情報外という規約上の境界は別途維持。
+- locality evidence、lastVerifiedAt、raw source categoryを保持し、60日retention + priority classifierへ渡す。
+- Drive Events_Verifiedの東京都3件（練馬区/八王子市/板橋区、2026-09-24公開）をdry-run regression fixtureとして使用。adapter/testの構文確認PASS。
+- 公開Open DATAのinteractive export画面は確認したが、current download endpoint/column payloadはこの環境から未取得。endpointや列名を推測で固定せず、source transport parserはlive export contract取得後に接続する。
+- Production DB migration/writeなし。
+
+
+## 2026-09-27 legacy police schedule停止原因の切り分け
+
+- default branch=main、current mainにもpolice_cron.yml存在、schedule `0 0,6,12,18 * * *`維持。
+- last scheduled run #102 (2026-09-19 06:11:59 UTC) はsuccess。以後repository Actions collectionにschedule event runなし。
+- last-run HEAD→current mainでpolice_cron.yml / fetch_police_data.py差分なし。
+- 9/27も他PR workflowは正常実行しているためrepo全体のActions停止ではない。
+- 現接続ではworkflow-definition state / repository Actions policy endpointを読めず、個別workflowがdisabled_manuallyかactiveかは未確定。残原因クラスはworkflow個別stateまたはGitHub schedule enqueue側。
+- legacy workflowはProduction spotsへ直接writeするためmanual dispatch/re-run/enable変更は未実施。
+- 詳細: `planning/police-workflow-stop-audit-20260927.md`。
