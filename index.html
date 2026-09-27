@@ -423,6 +423,52 @@
         body.admin-news-qa-only #adminDashboardArea > * { display: none !important; }
         body.admin-news-qa-only #adminDashboardArea > #adminNewsPublishingSection { display: block !important; }
         .news-admin-qa-banner { margin: 0 0 10px; padding: 10px 12px; border: 1px solid #f59e0b; border-radius: 10px; background: #fffbeb; color: #92400e; font-size: .73rem; font-weight: 800; line-height: 1.55; }
+        body.news-detail-open .ad-banner { display:none !important; }
+        #adminNewsDetailModal { z-index: 12000; padding-top: env(safe-area-inset-top); }
+        #adminNewsDetailModal .news-detail-sheet {
+            width:100%; max-width:760px; height:94vh; height:94dvh; max-height:calc(100dvh - env(safe-area-inset-top));
+            margin:auto; padding:0 16px calc(24px + env(safe-area-inset-bottom));
+            overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch;
+            overscroll-behavior-y:contain; touch-action:pan-y; background:#fff;
+            border-radius:24px 24px 0 0;
+        }
+        #adminNewsDetailModal .news-detail-header {
+            position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:12px;
+            padding:14px 0 12px; background:rgba(255,255,255,.97); border-bottom:1px solid #e2e8f0;
+            backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+        }
+        #adminNewsDetailModal .news-detail-header h2 { margin:0; font-size:1rem; color:#0f172a; }
+        #adminNewsDetailModal .news-detail-close { flex:0 0 auto; }
+        #adminNewsDetailBody { min-width:0; padding:14px 0 8px; }
+        .news-detail-badge { display:inline-flex; align-items:center; min-height:28px; padding:5px 9px; border-radius:999px; font-size:.72rem; font-weight:900; }
+        .news-detail-badge.is-legacy { background:#fff7ed; color:#9a3412; border:1px solid #fdba74; }
+        .news-detail-badge.is-canonical { background:#ecfdf5; color:#166534; border:1px solid #86efac; }
+        .news-detail-headline { margin:10px 0 14px; font-size:1.1rem; line-height:1.5; overflow-wrap:anywhere; }
+        .news-detail-section { margin:14px 0; padding:12px; border:1px solid #dbe5ef; border-radius:12px; background:#f8fafc; min-width:0; }
+        .news-detail-section h4 { margin:0 0 10px; font-size:.82rem; color:#0f4c81; }
+        .news-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr)); gap:8px; }
+        .news-detail-field { min-width:0; margin:8px 0; }
+        .news-detail-label { font-size:.64rem; font-weight:900; color:#64748b; margin-bottom:3px; }
+        .news-detail-value { min-width:0; font-size:.76rem; line-height:1.55; color:#17212b; overflow-wrap:anywhere; word-break:break-word; }
+        .news-detail-break { overflow-wrap:anywhere; word-break:break-all; }
+        .news-detail-mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.68rem; }
+        .news-detail-facts, .news-detail-blockers { margin:0; padding-left:1.2rem; font-size:.75rem; line-height:1.65; }
+        .news-detail-blockers { color:#991b1b; }
+        .news-detail-warn { color:#92400e; font-weight:800; }
+        .news-detail-ok { color:#166534; font-weight:900; }
+        .news-detail-json { max-width:100%; margin:0; padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; background:#fff; border-radius:8px; font-size:.68rem; }
+        .news-detail-gate { margin:6px 0 10px; padding:10px; border-radius:9px; font-size:.8rem; font-weight:900; }
+        .news-detail-gate.is-ready { background:#dcfce7; color:#166534; }
+        .news-detail-gate.is-blocked { background:#fee2e2; color:#991b1b; }
+        .news-detail-pipeline { display:grid; gap:7px; }
+        .news-detail-stage { display:grid; grid-template-columns:28px minmax(0,1fr); gap:8px; align-items:start; padding:8px; border-radius:9px; border:1px solid #dbe5ef; background:#fff; font-size:.72rem; line-height:1.45; }
+        .news-detail-stage-index { width:24px; height:24px; border-radius:50%; display:grid; place-items:center; background:#e2e8f0; font-weight:900; }
+        .news-detail-stage-ready { border-color:#86efac; background:#f0fdf4; }
+        .news-detail-stage-blocked { border-color:#fecaca; background:#fff7f7; }
+        .news-detail-note { margin:9px 0 0; color:#64748b; font-size:.68rem; line-height:1.55; }
+        #adminNewsSingleRows tr[data-candidate-id] { cursor:pointer; }
+        #adminNewsSingleRows tr[data-candidate-id]:focus-visible { outline:3px solid #2563eb; outline-offset:-3px; }
+        #adminNewsSingleRows tr[data-candidate-id]:hover { background:#f8fafc; }
 
 </style>
     <style>
@@ -1273,6 +1319,17 @@
                 <p class="muted" style="font-size:.68rem;line-height:1.55;margin-top:9px;">画像・文面は安全情報のカテゴリと地域を中心に生成し、投稿者名・顔・ナンバー・車両識別情報はSNS素材に含めません。</p>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- ニュース候補詳細モーダル：read-only -->
+<div class="modal" id="adminNewsDetailModal" role="dialog" aria-modal="true" aria-labelledby="adminNewsDetailTitle">
+    <div class="sheet news-detail-sheet">
+        <div class="news-detail-header">
+            <h2 id="adminNewsDetailTitle">ニュース詳細</h2>
+            <button class="close news-detail-close" type="button" onclick="MachimamoNewsCandidateDetail.close()" aria-label="ニュース詳細を閉じる"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="adminNewsDetailBody" aria-live="polite"></div>
     </div>
 </div>
 
@@ -4921,7 +4978,8 @@ function shareSpot(title, address, category, event) {
 <script src="profile-v2.js?v=29-profile3"></script>
 <script src="exchange-service.js?v=31-digital-gift1"></script>
 <script src="point-exchange.js?v=31-digital-gift1"></script>
-<script src="news-candidate-adapter.js?v=1" defer></script>
-<script src="news-publishing-admin.js?v=2-readonly-legacy" defer></script>
+<script src="news-candidate-adapter.js?v=2-detail" defer></script>
+<script src="news-candidate-detail.js?v=1" defer></script>
+<script src="news-publishing-admin.js?v=3-readonly-detail" defer></script>
 </body>
 </html>
