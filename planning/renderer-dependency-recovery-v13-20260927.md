@@ -67,12 +67,13 @@ Exact v7 source was searched in:
 - CURRENT / REVIEW3 / REVIEW4 / REVIEW5 archives
 - Drive CURRENT/snapshot folders
 
-Only QC report / completed v7 MP4 / map and end contact assets were found. Exact `render_short_44s_v7_zoom_refined.py` source has not been recovered. Do not reconstruct or guess its drawing implementation.
+Only QC report / completed v7 MP4 / map and end contact assets were found. The recovered v7 completed MP4 is SHA256 `f04f5fd8768d7faddba98d6dbcecf4fe9b8141cdfca646e9e72d0e74a080b408`, matching `QC_REPORT_SHORT_44s_ZOOM_REFINED_20260926_v7.md`; ffprobe confirms 44.000s / 1080x1920 / 30fps / H.264 / yuv420p. Exact `render_short_44s_v7_zoom_refined.py` source has not been recovered. Do not reconstruct or guess its drawing implementation.
 
 ## font runtime
 
 - README_RESTORE rule maintained: font binaries are not embedded into Master.
 - Current renderer runtime resolves `Noto Sans CJK JP`.
+- Runtime package: `fonts-noto-cjk` 1:20240730+repack1-1. Local package copyright declares `SIL Open Font License 1.1` for the font. This verification is for runtime use only; the font binary is not added to Git/Drive Master and is not redistributed.
 - Historical base renderer expects:
   - `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`
   - `/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc`
@@ -99,3 +100,15 @@ Golden baseline is locally recovered and hash-verified:
 3. Once import passes, run CURRENT SINGLE 43 sec using formal input schema.
 4. ffprobe → full decode → QC frames → Golden compare.
 5. Only after technical + visual PASS proceed to WEEKLY 6=62.
+
+
+## v7 symbol surface required by v8
+
+Static inspection of recovered `render_short_44s_v8_oldstyle.py` shows it imports v7 and references exactly:
+- `v7.v6`
+- `v7.TOKYO_MAIN`
+- `v7.map_japan`
+- `v7.prep`
+- `v7.frame`
+
+This documents the missing dependency surface but is not permission to reimplement those symbols from later/earlier versions. Exact source recovery remains required.
