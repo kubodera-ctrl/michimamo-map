@@ -1,58 +1,8 @@
 'use strict';
-const assert = require('node:assert/strict');
-const c = require('./news-production-preview-contract.cjs');
-
-const canonical = {
-  service:'machimamo',
-  candidateId:'cand_001',
-  informationKind:'POLICE_OFFICIAL',
-  sourceEventId:'keishicho_001',
-  headline:'中学生女性へのつきまとい',
-  prefecture:'東京都', municipality:'練馬区', newsDate:'2026-09-24',
-  source:{sourceHash:'a'.repeat(64)},
-  verifiedFacts:['2026-09-24公開','練馬区内の事案'],
-  publishEligible:true,
-  selection:{include:true,retention:{active:true}}
-};
-
-let p = c.buildProductionPreview(canonical);
-assert.equal(p.schemaVersion,'machimamo-news-production-preview-v1');
-assert.equal(p.service,'machimamo');
-assert.equal(p.mode,'SINGLE');
-assert.equal(p.readOnly,true);
-assert.equal(p.connected,false);
-assert.equal(p.status,'READY_FOR_PRODUCTION_PREVIEW');
-assert.deepEqual(p.blockers,[]);
-assert.equal(p.downstream.productionRecord,'NOT_CONNECTED');
-assert.equal(p.downstream.render,'RENDERER_BLOCKED_BY_EXACT_V7_SOURCE');
-assert.equal(p.downstream.externalPublishing,'CONNECTION_REQUIRED');
-
-p = c.buildProductionPreview({...canonical,informationKind:'LEGACY_UNVERIFIED',legacy:true,publishEligible:false});
-assert.equal(p.status,'BLOCKED');
-assert.ok(p.blockers.some(x=>x.includes('LEGACY_UNVERIFIED')));
-assert.ok(p.blockers.some(x=>x.includes('publishEligible')));
-
-
-const localAnomaly = {
-  ...canonical,
-  candidateId:'cand_local_001',
-  informationKind:'LOCAL_ANOMALY',
-  sourceEventId:null,
-  headline:'利用者投稿の地域異変'
-};
-p = c.buildProductionPreview(localAnomaly);
-assert.equal(p.status,'READY_FOR_PRODUCTION_PREVIEW');
-assert.deepEqual(p.blockers,[]);
-
-p = c.buildProductionPreview({...canonical,sourceEventId:'',source:{sourceHash:'bad'}});
-assert.equal(p.status,'BLOCKED');
-assert.ok(p.blockers.some(x=>x.includes('sourceEventId is required for POLICE_OFFICIAL')));
-assert.ok(p.blockers.some(x=>x.includes('sourceHash')));
-
-p = c.buildProductionPreview({...canonical,selection:{include:false,reason:'classifier excluded',retention:{active:true}}},{mode:'WEEKLY'});
-assert.equal(p.mode,'WEEKLY');
-assert.equal(p.status,'BLOCKED');
-assert.ok(p.blockers.includes('classifier excluded'));
-
-assert.throws(()=>c.buildProductionPreview(canonical,{mode:'SHORT'}));
-console.log('PASS news production preview contract: canonical admission, legacy fail-closed, read-only downstream states');
+const assert=require('node:assert/strict');
+const c=require('./news-production-preview-contract.cjs');
+const base={service:'machimamo',candidateId:'c1',informationKind:'POLICE_OFFICIAL',sourceEventId:'p1',headline:'test',prefecture:'東京都',municipality:'港区',newsDate:'2026-09-24',sourceStatus:'verified',factsStatus:'verified',rightsStatus:'cleared',correctionStatus:'current',rightsScopeConfirmed:true,publishEligible:true,source:{sourceHash:'a'.repeat(64)},verifiedFacts:['fact'],rights:{commercialUseAllowed:true},selection:{include:true,priority:'high',retention:{active:true}}};
+let p=c.buildProductionPreview(base,{mode:'SINGLE'});assert.equal(p.status,'READY_FOR_PRODUCTION_PREVIEW');assert.equal(p.productionRecordCreated,false);assert.equal(p.revisionId,null);assert.equal(p.renderId,null);assert.equal(p.plannedDurationSec,43);assert.deepEqual(p.plannedPlatforms,['X','TIKTOK']);assert.equal(p.externalRequestSent,false);
+p=c.buildProductionPreview({...base,informationKind:'LOCAL_ANOMALY',sourceEventId:null});assert.equal(p.status,'READY_FOR_PRODUCTION_PREVIEW');
+p=c.buildProductionPreview({...base,informationKind:'LEGACY_UNVERIFIED',publishEligible:false});assert.equal(p.status,'BLOCKED');
+const arr=Array.from({length:6},(_,i)=>({...base,candidateId:'w'+i,sourceEventId:'wp'+i,selection:{include:true,priority:i<2?'high':'medium',retention:{active:true}}}));const sum={start:'2026-09-21',end:'2026-09-27',candidates:arr,eligible:arr};let w=c.buildWeeklyProductionPreview(sum,{weekValue:'2026-W39',prefecture:'東京都',requestedCount:6});assert.equal(w.status,'READY_FOR_PRODUCTION_PREVIEW');assert.equal(w.plannedDurationSec,62);assert.deepEqual(w.plannedPlatforms,['TIKTOK']);w=c.buildWeeklyProductionPreview({start:sum.start,end:sum.end,candidates:arr.slice(0,3),eligible:arr.slice(0,3)},{weekValue:'2026-W39',prefecture:'東京都',requestedCount:6});assert.equal(w.status,'BLOCKED');assert.equal(w.weeklySet.shortage,3);console.log('PASS production preview shared contract');

@@ -92,6 +92,7 @@
     const detail = window.MachimamoNewsCandidateDetail;
     if (!item || !detail?.open) return;
     detail.open(item);
+    window.MachimamoNewsProductionAdmin?.attachSingleActions?.(item);
   }
 
   function currentFilters() {
@@ -172,7 +173,7 @@
     const examples = summary.candidates.slice(0, Math.min(6, count)).map(item => item.headline || item.title || '名称なし');
     target.innerHTML = `<strong>${escapeHtml(prefecture)} / ${escapeHtml(weekValue)}</strong><br>
       実候補 ${count.toLocaleString()}件 / Production候補 ${eligibleCount.toLocaleString()}件。選択希望 ${requestedCount}件に対し不足 ${summary.shortage.toLocaleString()}件です。件数不足を架空ニュースで補完しません。
-      <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div>`;
+      <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div><div style="margin-top:9px;"><button type="button" data-news-weekly-detail>WEEKLY詳細</button></div>`;
   }
 
   function bindCandidateDetailNavigation() {
@@ -192,6 +193,20 @@
     });
   }
 
+  function bindWeeklyDetailNavigation() {
+    const target = document.getElementById('adminWeeklyCandidates');
+    const adapter = window.MachimamoNewsCandidateAdapter;
+    if (!target || !adapter) return;
+    target.addEventListener('click', event => {
+      if (!event.target.closest?.('[data-news-weekly-detail]')) return;
+      const weekValue = document.getElementById('adminWeeklyWeek')?.value || '';
+      const prefecture = document.getElementById('adminWeeklyPrefecture')?.value || '';
+      const requestedCount = Number(document.getElementById('adminWeeklyCount')?.value || 6);
+      if (!weekValue || !prefecture) return;
+      const summary = adapter.weeklySummary(candidates, { weekValue, prefecture, requestedCount });
+      window.MachimamoNewsProductionAdmin?.openWeeklyDetail?.(summary, { weekValue, prefecture, requestedCount });
+    });
+  }
   function bindFilters() {
     ['adminNewsTypeFilter','adminNewsPrefectureFilter','adminNewsStatusFilter','adminNewsShowPosted']
       .forEach(id => document.getElementById(id)?.addEventListener('change', renderSingleCandidates));
@@ -223,6 +238,7 @@
 
     bindFilters();
     bindCandidateDetailNavigation();
+    bindWeeklyDetailNavigation();
     window.MachimamoNewsCandidateDetail?.init?.();
 
     const dashboard = document.getElementById('adminDashboardArea');
@@ -236,7 +252,7 @@
     }
 
     const state = window.MachimamoNewsPublishingAdmin = Object.freeze({
-      version: 'news-publishing-admin-ui-v3-readonly-detail',
+      version: 'news-publishing-admin-ui-v4-production-preview-weekly',
       serviceId: SERVICE_ID,
       productionModes: Object.freeze(['SINGLE', 'WEEKLY']),
       informationKinds: Object.freeze(['LOCAL_ANOMALY', 'POLICE_OFFICIAL', LEGACY_KIND]),

@@ -894,9 +894,7 @@
                                     <table><thead><tr><th>ニュースタイトル</th><th>対象地域</th><th>都道府県</th><th>市区町村</th><th>日付</th><th>source</th><th>facts</th><th>rights</th><th>動画生成</th><th>QC</th><th>承認</th><th>X</th><th>TikTok</th><th>投稿日時</th><th>操作</th></tr></thead>
                                     <tbody id="adminNewsSingleRows"><tr><td colspan="15">ニュース候補を読み込み中です。未確認ニュースは生成候補として扱いません。</td></tr></tbody></table>
                                 </div>
-                                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
-                                    <button type="button" disabled aria-disabled="true">Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">Xへ投稿（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button>
-                                </div>
+                                <p class="news-admin-meta" style="margin-top:8px;">各候補の「詳細」から Production Preview → X Preview / TikTok Preview を確認できます。実投稿は前提条件が揃うまでdisabledです。</p>
                                 <h4>ウィークリー投稿 / TikTok LONG・WEEKLY（CURRENT尺）</h4>
                                 <div class="news-admin-filters" role="group" aria-label="ウィークリー投稿対象">
                                     <label>対象週<input id="adminWeeklyWeek" type="week" required></label>
@@ -906,7 +904,7 @@
                                 <p class="news-admin-meta">38秒 + 12秒 × ceil(確認済みニュース数 / 3)。1ページ最大3件。最終ページも12秒を保持し、件数不足を作り話で埋めません。旧候補は件数確認のみで、Production利用にはsource・facts・rights確認が必要です。</p>
                                 <div class="news-admin-empty" role="status" id="adminWeeklyCandidates">対象週と都道府県を選ぶと、読み取り専用の実ニュース候補件数を確認できます。</div>
                                 <div class="news-admin-state" aria-label="都道府県別WEEKLY状態"><span>未</span><span>生成中</span><span>生成済</span><span>QC待ち</span><span>承認済</span><span>投稿準備中</span><span>投稿処理中</span><span>済</span><span>失敗</span><span>接続設定必要</span></div>
-                                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" disabled aria-disabled="true">WEEKLY生成（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTok Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button></div>
+                                <p class="news-admin-meta" style="margin-top:8px;">候補件数の下の「WEEKLY詳細」から候補確認 → Production Preview → TikTok Previewへ進めます。WEEKLYのX投稿は現仕様では対象外です。</p>
                             </section>
                             <h3 style="font-size:.92rem; color:#0f4c81; margin:16px 0 5px;">SNS投稿素材（直近の公開投稿）</h3>
                             <p class="muted" style="font-size:.7rem;line-height:1.55;margin:0 0 8px;">Xは投稿文入りの作成画面を開き、TikTokは9:16画像と投稿文を生成します。自動投稿はせず、必ず内容を確認してから投稿します。</p>
@@ -4981,6 +4979,8 @@ function shareSpot(title, address, category, event) {
 <script src="news-candidate-adapter.js?v=2-detail" defer></script>
 <script src="news-candidate-detail.js?v=1" defer></script>
 <script src="news-canonical-qa-fixture.js?v=1" defer></script>
-<script src="news-publishing-admin.js?v=4-readonly-detail-fixture" defer></script>
+<script src="news-production-domain.js?v=1" defer></script>
+<script src="news-production-admin-ui.js?v=1" defer></script>
+<script src="news-publishing-admin.js?v=5-production-preview-weekly" defer></script>
 </body>
 </html>

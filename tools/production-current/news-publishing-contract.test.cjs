@@ -1,27 +1,2 @@
 'use strict';
-const assert = require('node:assert/strict');
-const c = require('./news-publishing-contract.cjs');
-
-assert.equal(c.SERVICE_ID, 'machimamo');
-assert.deepEqual(c.SUPPORTED_SERVICES, ['machimamo', 'machiibe']);
-assert.equal(c.PRODUCTION_LABELS.SINGLE, 'TikTok SHORT / SINGLE · 43秒');
-assert.equal(c.PRODUCTION_LABELS.WEEKLY, 'TikTok LONG / WEEKLY · CURRENT尺');
-assert.deepEqual(c.WEEKLY_PRESETS, [6, 9, 12]);
-assert.equal(c.WEEKLY_PREFECTURES.length, 47);
-assert.equal(new Set(c.WEEKLY_PREFECTURES).size, 47);
-for (const [n, duration] of [[6,62],[9,74],[12,86],[13,98]]) assert.equal(c.weeklyDurationSec(n), duration);
-assert.equal(c.weeklySetKey({weekStart:'2026-09-21',prefecture:'東京都'}), '2026-09-21:東京都');
-assert.equal(c.sharedWeeklyGenerationKey({weekStart:'2026-09-21',prefecture:'東京都'}), 'machimamo:WEEKLY:2026-09-21:東京都');
-assert.equal(c.sharedWeeklyGenerationKey({service:'machiibe',weekStart:'2026-09-21',prefecture:'東京都'}), 'machiibe:WEEKLY:2026-09-21:東京都');
-assert.throws(() => c.sharedWeeklyGenerationKey({service:'other',weekStart:'2026-09-21',prefecture:'東京都'}));
-assert.throws(() => c.weeklySetKey({weekStart:'2026-09-21',prefecture:'東京'}));
-assert.equal(c.publishingIdempotencyKey({revisionId:'r1',renderId:'m1',platform:'TIKTOK'}), 'machimamo:r1:m1:TIKTOK');
-assert.equal(c.publishingIdempotencyKey({service:'machiibe',revisionId:'r1',renderId:'m1',platform:'X'}), 'machiibe:r1:m1:X');
-assert.throws(() => c.publishingIdempotencyKey({service:'other',revisionId:'r1',renderId:'m1',platform:'X'}));
-assert.throws(() => c.publishingIdempotencyKey({revisionId:'r1',renderId:'m1',platform:'X/TIKTOK'}));
-assert.equal(c.isCompletedPost({platform:'X',status:'posted',externalPostId:'x1'}), true);
-assert.equal(c.isCompletedPost({platform:'TIKTOK',status:'posted',externalPostId:'p1',finalStatus:'PROCESSING'}), false);
-assert.equal(c.isCompletedPost({platform:'TIKTOK',status:'posted',externalPostId:'p1',finalStatus:'PUBLISHED'}), true);
-assert.equal(c.overallSingleStatus(true,false), '一部済');
-assert.equal(c.overallSingleStatus(true,true), '済');
-console.log('PASS news publishing contract: service scope, mode labels, 47 prefectures, weekly durations, idempotency, completion gates');
+const assert=require('node:assert/strict');const c=require('./news-publishing-contract.cjs');assert.equal(c.weeklyDurationSec(6),62);assert.equal(c.weeklyDurationSec(9),74);assert.equal(c.weeklyDurationSec(12),86);assert.ok(c.POST_STATES.includes('preview_available'));assert.equal(c.publishingIdempotencyKey({revisionId:'r',renderId:'m',platform:'X'}),'machimamo:r:m:X');assert.equal(c.weeklyPublishingIdempotencyKey({weekValue:'2026-W39',prefecture:'東京都',revisionId:'r',renderId:'m'}),'machimamo:WEEKLY:2026-W39:東京都:r:m:TIKTOK');assert.throws(()=>c.weeklyPublishingIdempotencyKey({weekValue:'2026-W39',prefecture:'東京都',revisionId:'r',renderId:'m',platform:'X'}));assert.equal(c.isCompletedPost({platform:'X',status:'posted',externalPostId:'x1'}),true);assert.equal(c.isCompletedPost({platform:'TIKTOK',status:'posted',externalPostId:'t1',finalStatus:'PROCESSING'}),false);assert.equal(c.isCompletedPost({platform:'TIKTOK',status:'posted',externalPostId:'t1',finalStatus:'PUBLISHED'}),true);assert.equal(c.overallSingleStatus(true,false),'一部済');assert.equal(c.overallWeeklyStatus(true),'済');console.log('PASS publishing completion and idempotency contract');

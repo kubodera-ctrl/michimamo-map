@@ -52,7 +52,7 @@
     if (candidate.factsStatus !== 'verified') blockers.push('factsStatusがverifiedではありません');
     if (candidate.rightsStatus !== 'cleared') blockers.push('rightsStatusがclearedではありません');
     if (candidate.correctionStatus !== 'current') blockers.push('correctionStatusがcurrentではありません');
-    if (!candidate.sourceEventId) blockers.push('sourceEventIdがありません');
+    if (candidate.informationKind === 'POLICE_OFFICIAL' && !candidate.sourceEventId) blockers.push('sourceEventIdがありません');
     if (!httpsUrl(candidate.source?.url)) blockers.push('source URLが未確認です');
     if (!/^[0-9a-f]{64}$/i.test(candidate.source?.sourceHash || '')) blockers.push('sourceHashが未確認です');
     if (!Array.isArray(candidate.verifiedFacts) || candidate.verifiedFacts.length === 0) blockers.push('verifiedFactsがありません');
@@ -79,11 +79,11 @@
     }
     return [
       ['Candidate', publishEligible ? 'Productionへ進める候補' : 'gate確認待ち', publishEligible ? 'ready' : 'blocked'],
-      ['Production Preview','未接続','pending'],
+      ['Production Preview', publishEligible ? 'read-only確認可能' : 'gate確認待ち', publishEligible ? 'ready' : 'blocked'],
       ['Render','Renderer待ち（exact v7 source）','pending'],
       ['QC','未接続','pending'],
       ['管理者承認','未接続','pending'],
-      ['Publishing Preview','未接続','pending'],
+      ['Publishing Preview','read-only preview可能','pending'],
       ['X / TikTok','接続設定必要','pending'],
       ['投稿完了確認','未接続','pending']
     ];

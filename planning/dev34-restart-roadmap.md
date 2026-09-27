@@ -298,3 +298,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - fix commit: `33518d0f6028113b56a16b38c7e3bd7ac11cccb5`
 - Preview: `dpl_B8EUPrPtQ4Ex2pbFmCB6Vd6DZwCL` READY / target=null / branch alias追従確認。
 - Production変更なし。iPhone詳細modal実機QAは引き続き未完了。
+
+## 2026-09-28 開発36｜iPhone detail PASS → Production/Publishing Preview UI
+
+- 本人iPhone QA: canonical detail modal / vertical scroll / sticky close / horizontal layout / ad non-interference / flow 1-8 display = PASS。
+- このPASSは詳細modal表示の確認のみ。Publishing操作・実SNS投稿のPASSではない。
+- SINGLE: 詳細→Production Preview(read-only)→Publishing Preview(X/TikTok)を追加。Production record/revision/renderIdは作らない。
+- SINGLE投稿操作はX/TikTok別表示。Renderer/QC/Approval/OAuth/API/Publishing Adapter/最終本人確認が未充足のためdisabled + 理由表示。
+- WEEKLY: 一覧→WEEKLY詳細を追加。対象週/都道府県/選択件数/実候補/Production候補/不足/候補ごとのsource-facts-rights-correction-publishEligibleを確認可能。
+- WEEKLY候補数は6/9/12。Production候補が不足するpresetはdisabled。架空ニュース補完なし。管理者が推薦候補を最終確認・変更可能。
+- WEEKLYもSINGLEと同じworkflow state contractを利用。WEEKLYのplatformはTikTokのみ、X=NOT_APPLICABLE。
+- Production PreviewでRenderer blocker `RENDERER_BLOCKED_BY_EXACT_V7_SOURCE` / exact v7 source未回収を明示しRender disabled。
+- Publishing Previewはread-only。externalRequestSent=false。実SNS requestは送らない。
+- Production DB write/migration/OAuth/課金/legacy police cron操作なし。
