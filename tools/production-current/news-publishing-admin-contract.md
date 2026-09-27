@@ -66,3 +66,23 @@ For current machimamo work:
 - Production/rendering, Publishing, ASP and Audit remain separate responsibilities and separate state transitions.
 - A future management center may consume the same service-scoped read/write contracts through Admin API/BFF; migration of the UI must not require redesigning CURRENT SINGLE/WEEKLY or legacy user-post SNS assets.
 - No Admin Auth/RBAC, management-center dashboard, inquiries, or management-center migration is started by this compatibility note.
+
+
+## Read-only legacy candidate bridge (temporary P4 integration)
+
+Until the canonical verified-news API/table exists, the P4 admin UI may read public legacy `spots.category=official` rows as **LEGACY_UNVERIFIED** candidates. This is a migration bridge, not a Production news source.
+
+Rules:
+- Read only public columns: id, created_at, category, title, comment, address, is_hidden, report_count.
+- Never classify these rows as `POLICE_OFFICIAL` solely because the legacy category is `official`. Historical rows include third-party news/aggregator text and do not preserve canonical primary-source identity.
+- Source URL, verifiedFacts and rights evidence are absent from the legacy schema, so every bridged row is `source=needs_review / facts=needs_review / rights=needs_review / publishEligible=false`.
+- Rendering, QC approval and X/TikTok publication remain disabled for these rows.
+- Prefecture/date parsing is navigation/filter assistance only; it does not promote extracted text into verified facts.
+- WEEKLY may show the count of matching real legacy candidates, but eligible count remains zero until canonical source/facts/rights gates pass. Never fill a requested 6/9/12 count with synthetic stories.
+- The bridge must load only when the news admin is visible (normal authenticated admin or Preview QA), not for every public map visitor.
+- The bridge reads through existing public RLS only. It must not use service_role or add a Production migration merely for Preview display.
+
+Canonical replacement:
+- Replace the legacy reader with an Admin API/BFF or a reconciled shared news source table containing source provenance, verified facts, rights evidence, correction state and content hash.
+- Official source adapters must preserve the source-specific license and correction requirements. A source-master entry alone is not a fact record.
+- Existing legacy candidates remain visibly distinguishable during migration; never silently upgrade them to verified.
