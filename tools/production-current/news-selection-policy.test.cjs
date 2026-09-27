@@ -53,3 +53,10 @@ assert.equal(p.retentionState('2026-07-28', NOW).display,true);
 assert.equal(p.retentionState('2026-06-28', NOW).display,false);
 
 console.log('PASS news selection policy: 60-day retention, locality, priority categories, highway wrong-way');
+
+const unconfirmed = p.classifyCandidate({
+  ...base,
+  headline:'新宿区で痴漢事案',
+  localityEvidence:{type:'occurred',confirmed:false}
+}, NOW);
+assert.equal(unconfirmed.include,false,'explicit unconfirmed locality must not fall back to municipality text');
