@@ -414,6 +414,15 @@
         .news-publishing-admin table { width: 100%; min-width: 1080px; border-collapse: collapse; font-size: .68rem; background: #fff; }
         .news-publishing-admin th, .news-publishing-admin td { padding: 7px; border: 1px solid #dbe5ef; text-align: left; vertical-align: top; }
         .news-publishing-admin button[disabled] { opacity: .55; cursor: not-allowed; }
+        /* Preview-only, read-only QA for the new news publishing scaffold.
+           Never exposes the rest of the admin dashboard without normal auth. */
+        body.admin-news-qa-only #adminCsvCard > p,
+        body.admin-news-qa-only #adminCsvCard > label,
+        body.admin-news-qa-only #adminCsvCard > input,
+        body.admin-news-qa-only #adminCsvCard > button { display: none !important; }
+        body.admin-news-qa-only #adminDashboardArea > * { display: none !important; }
+        body.admin-news-qa-only #adminDashboardArea > #adminNewsPublishingSection { display: block !important; }
+        .news-admin-qa-banner { margin: 0 0 10px; padding: 10px 12px; border: 1px solid #f59e0b; border-radius: 10px; background: #fffbeb; color: #92400e; font-size: .73rem; font-weight: 800; line-height: 1.55; }
 
 </style>
     <style>
@@ -2228,6 +2237,47 @@ function shareSpot(title, address, category, event) {
         }
     }
 
+    const NEWS_ADMIN_QA_PREVIEW_HOST = 'machimamo-map-git-feat-dev34-current-production-engine-miti4.vercel.app';
+
+    function isNewsAdminPreviewQaAllowed() {
+        const params = new URLSearchParams(window.location.search);
+        return window.location.hostname === NEWS_ADMIN_QA_PREVIEW_HOST && params.get('newsAdminQa') === '1';
+    }
+
+    function openNewsAdminPreviewQa() {
+        if (!isNewsAdminPreviewQaAllowed()) return false;
+        const csvCard = document.getElementById('adminCsvCard');
+        const dashboard = document.getElementById('adminDashboardArea');
+        const newsSection = document.getElementById('adminNewsPublishingSection');
+        if (!csvCard || !dashboard || !newsSection) return false;
+
+        const profileTab = document.getElementById('profileTab');
+        const profileTabButton = document.getElementById('myPageProfileTabBtn');
+        if (profileTab && csvCard.parentElement === profileTab) profileTab.prepend(csvCard);
+        if (profileTabButton && typeof switchTab === 'function') switchTab('profileTab', profileTabButton);
+
+        document.body.classList.add('admin-news-qa-only');
+        csvCard.style.display = 'block';
+        dashboard.style.display = 'block';
+
+        let banner = document.getElementById('adminNewsQaBanner');
+        if (!banner) {
+            banner = document.createElement('p');
+            banner.id = 'adminNewsQaBanner';
+            banner.className = 'news-admin-qa-banner';
+            banner.textContent = 'Preview QA・閲覧専用：LINE認証なしでニュース投稿管理UIだけを確認しています。本番管理データの取得、生成、投稿、DB書込は行いません。';
+            newsSection.prepend(banner);
+        }
+        requestAnimationFrame(() => newsSection.scrollIntoView({ block: 'start', behavior: 'auto' }));
+        return true;
+    }
+
+    function initNewsAdminPreviewQa() {
+        if (isNewsAdminPreviewQaAllowed()) openNewsAdminPreviewQa();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNewsAdminPreviewQa, { once: true });
+    else initNewsAdminPreviewQa();
+
     let adminTapCount = 0; let adminTapTimer = null;
     async function adminTap() {
         adminTapCount++; clearTimeout(adminTapTimer);
@@ -2235,7 +2285,10 @@ function shareSpot(title, address, category, event) {
         if (adminTapCount >= 3) {
             const csvCard = document.getElementById('adminCsvCard');
             if (csvCard.style.display === 'none') {
-                if (!currentAuthUserId) { showToast('管理者はLINEログインが必要です'); adminTapCount = 0; return; }
+                if (!currentAuthUserId) {
+                    if (openNewsAdminPreviewQa()) { adminTapCount = 0; return; }
+                    showToast('管理者はLINEログインが必要です'); adminTapCount = 0; return;
+                }
                 const { data, error } = await db.rpc('is_current_user_admin');
                 if (error || data !== true) { showToast('このアカウントには管理者権限がありません'); adminTapCount = 0; return; }
                 const profileTab = document.getElementById('profileTab');
