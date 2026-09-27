@@ -51,6 +51,9 @@ jobs:
         working-directory: event-site
     steps:
       - uses: actions/checkout@v4
+      - name: workers.dev full repository audit
+        working-directory: .
+        run: node scripts/audit-workers-dev-refs.mjs .
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
