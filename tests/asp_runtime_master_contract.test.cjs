@@ -14,12 +14,14 @@ assert.match(sql, /revoke all on public\.asp_runtime_offers, public\.asp_runtime
 
 assert.match(sql, /offer_id text primary key/);
 assert.match(sql, /unique \(asp, program_id\)/);
+assert.match(sql, /production_listing_approved boolean not null default false/);
 assert.match(sql, /publish_status text not null default 'draft'/);
 assert.match(sql, /listing_enabled boolean not null default false/);
 assert.match(sql, /check \(not point_reward_allowed or reward_rule_confirmed\)/);
 assert.match(sql, /web_approval_status = 'approved'/);
 assert.match(sql, /source_listing_allowed/);
 assert.match(sql, /source_media_approved/);
+assert.match(sql, /and s\.production_listing_approved/);
 assert.match(sql, /s\.tracking_url is not null/);
 assert.match(sql, /s\.publish_status = 'active'/);
 assert.match(sql, /and p\.enabled/);
@@ -30,7 +32,7 @@ assert.match(sql, /p_placement_id text/);
 assert.match(sql, /p_anonymous_session_id uuid/);
 assert.match(sql, /auth\.uid\(\)/);
 assert.match(sql, /raw html tags are not accepted/);
-assert.match(sql, /v_offer_id is distinct from \(v_asp \|\| ':' \|\| v_program_id\)/);
+assert.match(sql, /v_offer_id !~ '\^\[a-za-z0-9\]\[a-za-z0-9\._:-\]\{0,119\}\$'/);
 assert.match(sql, /perform public\.admin_validate\(p_password\)/);
 assert.match(sql, /insert into public\.admin_audit_log/);
 assert.match(sql, /set search_path = ''/);
