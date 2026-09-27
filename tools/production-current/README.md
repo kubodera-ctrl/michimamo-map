@@ -8,8 +8,8 @@ Source of truth: Drive `VIDEO_PRODUCTION_MASTER_CURRENT.md` and `ADMIN_INTEGRATI
 
 Source archive: Drive ID `1T5mxTuPUHkq_En-rjmggmXYHlQzzAECr` (`SOURCE_CURRENT_FULL.zip`). SHA256: `916157c8126923d7e4324cb968d34e38511c767ad0bdb25803656d148052bf93`.
 
-Audited source entry: `source/machimamo_v164/review5_finetune.py`, imports `review4_unified_design.py`, uses absolute `/mnt/data` asset/output references. Archive includes approved TOP/dog/emblem/overlay assets. Japanese font binaries are not included. Source is a restoration snapshot, not an already integrated request-driven renderer.
+Audited entry: `source/machimamo_v164/render_latest.py` and `source/machimamo_v164/review5_finetune.py`. The archive contains the v14 and v16.4 layers but references external v13, v16.1 renderer, v16.2 dog, and v16.3 overlay paths that are absent from that archive. It also contains no approved Japanese font binaries. Therefore this snapshot cannot currently render a frame in a clean environment without fabricating substitutes. `renderer-bundle.json` and `renderer-preflight.cjs` list the exact runtime dependencies and fail closed until the approved set is complete. Drawing functions have not been changed.
 
-Next: make ASSET_ROOT/WORK_ROOT configurable without changing drawing functions; connect sourceType to verified source records; feed validated CURRENT input; load approved fonts; render with the same engine for Admin Preview/MP4/QC frames; compare final MP4 and Golden. No renderer or MP4 QC PASS claimed yet.
+Next: obtain the missing exact renderer/font assets from the current master set; then configure ASSET_ROOT/WORK_ROOT without changing drawing functions, feed validated CURRENT input, use the same engine for Admin Preview/MP4/QC, and compare the completed MP4 with the approved Golden. No renderer, Golden, decode/QC, or browser Preview PASS is claimed.
 
-Run: `node tools/production-current/timeline.test.cjs`, `node tools/production-current/input-contract.test.cjs`, and `node tools/production-current/news-publishing-contract.test.cjs`.
+Run `npm run test:production-current` for timeline, provenance, publishing contract, and source-bundle readiness contract.
