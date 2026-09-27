@@ -1,7 +1,7 @@
 # まちイベ CAROUSEL Media Storage Contract
 
 更新: 2026-09-28
-状態: CURRENT実装契約 / R2実resource未作成
+状態: CURRENT実装契約 / R2実resource・Wrangler binding未作成
 
 ## 目的
 CURRENT CAROUSEL Rendererが生成した1080×1920 PNGを、Production Revisionと一意に対応付けて保存・検証・Publishingへ渡す。
@@ -60,10 +60,12 @@ TikTok Photo PostのPULL_FROM_URLは公開アクセス可能かつTikTok Appで�
 想定bucket名: `machiibe-media`
 
 現在:
-- wrangler設計あり
-- 実bucket存在・binding・課金条件は未確認
-- 実resource作成は行わない
-- resource作成前でもRenderer / manifest / hashの検証は継続する
+- 保存contract / object key / API boundaryは設計・Git実装済み
+- `event-site/wrangler.jsonc` には `r2_buckets` bindingをまだ追加していない
+- 実bucket存在・binding名・課金条件は未確認
+- server側storage providerはdisabledで、実storage未接続時はfail-closed
+- 実resource作成・binding追加は本人承認と実環境確認後に行う
+- resource作成前でもRenderer / manifest / hash / mock storageの検証は継続する
 
 ## QC
 R2保存はGolden合格を意味しない。

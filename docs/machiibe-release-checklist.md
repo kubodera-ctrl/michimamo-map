@@ -1,6 +1,6 @@
 # まちイベ 公開前実機チェック表
 
-更新: 2026-09-23
+更新: 2026-09-28
 
 ## 方針
 
@@ -63,6 +63,61 @@
 - [ ] migration → seed×2 → smoke → rollback が通る
 
 ---
+
+## Round A2 — Production CAROUSEL / Media / ASP / Publishing
+
+### CAROUSEL / Golden
+- [x] CURRENT page allocationを自動テスト（3〜10イベント → 5〜8ページ）
+- [x] synthetic Golden fixture 5P / 7P / 8P routeがβ/noindex時だけ利用可能
+- [x] Final PNGは1080×1920 / Previewと同一Canvas renderer
+- [x] 権利未承認イベント画像をRendererで使用しない
+- [ ] synthetic 5P / 7P / 8Pを実ブラウザでScreenshot確認
+- [ ] page number / logo / CTA / disclaimer / overflow / clipping / card boundary / text line breakを目視確認
+- [ ] Drive正式Goldenとの差分を最終確認
+- [ ] Golden PASS（Golden自動更新は禁止）
+
+### mediaManifest / storage
+- [x] page単位SHA-256 + aggregate mediaHashの自動テスト
+- [x] same-origin + admin session + Revision状態をupload APIで再検証
+- [x] server側でPNG bytesをSHA-256再検証
+- [x] partial upload failure時cleanup設計
+- [x] 全media成功後のみDBへatomic commitするRPCをtemporary DBで検証
+- [x] media再生成時はvisual/golden/admin approvalをpendingへ戻しpublishEligible=false
+- [x] actual storage未設定時はfail-closedでDBを更新しない
+- [ ] Cloudflare DashboardでR2 bucket実在 / binding種類 / binding名をread-only確認
+- [ ] 本人承認後にR2 resource / Wrangler bindingを設定
+- [ ] private object実upload + retry + cleanupをPreview環境で確認
+- [ ] public media delivery endpointは正式domain確定後まで作らない
+
+### ASP Runtime
+- [x] ASP案件本体をまちイベ側へ複製しない
+- [x] TOP `pr` / detail `event_detail` を共通Runtimeへ接続
+- [x] 明確な検索意図に `search / rain / child / family` を段階接続
+- [x] category一覧へ `feature` を接続
+- [x] tracking URL / program IDをまちイベコードへハードコードしない
+- [x] publishable案件0件なら表示0件のfail-closed
+- [ ] ASP正式媒体URL確定
+- [ ] ASP媒体登録 / 専用リンク取得
+- [ ] 公開可能案件だけ実表示されることをPreviewで確認
+
+### X / TikTok preflight
+- [x] publish-preview APIはsame-origin + admin session + publishEligible/Revisionを検証
+- [x] preview APIは `externalRequestSent=false` 固定
+- [x] XはCAROUSEL 5〜8枚を4枚へ勝手に削らずfail-closed
+- [x] TikTok Photo PostはOAuth / public media / verified domain gateを分離
+- [ ] X multi-post strategyを本人確定
+- [ ] TikTok OAuth / audit / verified media domain
+- [ ] X API費用承認 / credentials
+- [ ] 実SNS投稿（本人判断後のみ）
+
+### Preview / URL gate
+- [x] workers.dev旧account subdomain参照をrepo全体で監査するCI guard
+- [x] runtime/config上の旧hostname依存を2箇所へ特定
+- [x] βは `NEXT_PUBLIC_ALLOW_INDEXING=false`
+- [ ] Cloudflare account subdomain `sumion` availabilityをDashboardで確認
+- [ ] account subdomain変更前にcallback / webhook / Access / CORS / Search Console /外部登録URLを再確認
+- [ ] account subdomain変更は本人承認後のみ
+- [ ] 正式URL決定後にcanonical / OG / sitemap / structured dataを統一
 
 ## Round B — 実機
 

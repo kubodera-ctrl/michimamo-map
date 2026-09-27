@@ -1,6 +1,6 @@
 # まちイベ 本番投入ランブック
 
-更新: 2026-09-23
+更新: 2026-09-28
 
 ## 原則
 
@@ -16,9 +16,11 @@
 2. Event Site Check最新HEAD success
 3. Cloudflare/Vercel Previewが最新HEAD
 4. `NEXT_PUBLIC_ALLOW_INDEXING=false`
-5. production seed内容を再確認
-6. Supabaseのバックアップ/復旧手段を確認
-7. Security/Performance advisors取得
+5. Production CAROUSELのGolden Visual QA 5P / 7P / 8Pを完了
+6. R2 resource / binding / media deliveryの実環境方針を確認（未承認なら実作成しない）
+7. production seed内容を再確認
+8. Supabaseのバックアップ/復旧手段を確認
+9. Security/Performance advisors取得
 
 ## Phase 1 — DB migration
 
@@ -28,6 +30,10 @@
 2. `20260919011500_family_dining_overlay.sql`
 3. `20260919043000_event_platform_admin_analytics.sql`
 4. `20260923073000_event_i18n_foundation.sql`
+5. `20260927062000_machiibe_operational_foundation.sql`
+6. `20260928082000_machiibe_media_commit.sql`
+
+上記はCI temporary PostgreSQLでは順番どおり適用・smoke済み。本番適用は本人承認まで行わない。
 
 適用後確認:
 
@@ -83,7 +89,11 @@ from public.events;
 - MAP
 - 保存/予定
 - admin editor
-- X/TikTok
+- CAROUSEL synthetic 5P / 7P / 8P
+- mediaManifest / mediaHash
+- storage未接続時のfail-closed
+- ASP Runtime（publishable=0なら広告0件）
+- X/TikTok publish-preview（外部送信なし）
 
 ここで1件でも重大不具合ならindex解放しない。
 
