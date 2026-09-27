@@ -66,3 +66,43 @@ assert.ok(rows.every(x => x.validation.publishEligible));
 assert.ok(rows.every(x => x.candidate.source.name === '警視庁 メールけいしちょう OPEN DATA'));
 
 console.log('PASS Keishicho Open DATA adapter core: canonical mapping, sourceHash, rights, correction, locality, selection');
+
+const immigration = a.buildCanonicalCandidate({
+  sourceEventId:'TOKYO-20260924-IMM-001',
+  sourceCategory:'その他の犯罪発生情報',
+  municipality:'新宿区',
+  occurredAt:'2026-09-24T09:00:00+09:00',
+  publishedAt:'2026-09-24T12:00:00+09:00',
+  headline:'出入国管理法違反で新宿区内で逮捕',
+  body:'公的機関一次情報として地域内の逮捕を確認。',
+  correctionStatus:'current',
+  localityType:'arrested',
+  localityConfirmed:true
+}, { checkedAt });
+assert.equal(immigration.candidate.officialSource,true);
+assert.equal(immigration.selection.include,true);
+assert.equal(immigration.selection.topic,'IMMIGRATION_LOCAL_ARREST');
+
+const wrongWay = a.buildCanonicalCandidate({
+  sourceEventId:'TOKYO-20260924-TRAFFIC-001',
+  sourceCategory:'交通情報',
+  municipality:'江東区',
+  occurredAt:'2026-09-24T08:00:00+09:00',
+  publishedAt:'2026-09-24T08:30:00+09:00',
+  headline:'首都高速で逆走車を確認、通行規制',
+  body:'首都高速道路で逆走車が確認され、通行規制が実施された。',
+  correctionStatus:'current',
+  localityType:'impact',
+  localityConfirmed:true
+}, { checkedAt });
+assert.equal(wrongWay.selection.include,true);
+assert.equal(wrongWay.selection.priority,'high');
+assert.equal(wrongWay.selection.topic,'TRAFFIC_WRONG_WAY');
+
+const localityUnconfirmed = a.buildCanonicalCandidate({
+  ...record,
+  sourceEventId:'TOKYO-20260923-UNCONFIRMED',
+  localityConfirmed:false
+}, { checkedAt });
+assert.equal(localityUnconfirmed.validation.valid,true);
+assert.equal(localityUnconfirmed.selection.include,false);
