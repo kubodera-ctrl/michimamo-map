@@ -113,11 +113,13 @@ create or replace function public.get_asp_offers_for_placement(
 returns table (
   offer_id text, asp text, program_id text, advertiser_name text, offer_name text,
   category text, creative_type text, creative_url text, tracking_url text,
+  impression_tracking_url text,
   point_reward_allowed boolean, reward_rule jsonb, reward_amount numeric, reward_rate numeric
 )
 language sql stable security definer set search_path = '' as $$
   select o.offer_id, o.asp, o.program_id, o.advertiser_name, o.offer_name,
          o.category, s.creative_type, s.creative_url, s.tracking_url,
+         s.impression_tracking_url,
          (s.point_reward_allowed and s.reward_rule_confirmed),
          case when s.point_reward_allowed and s.reward_rule_confirmed then s.reward_rule else '{}'::jsonb end,
          case when s.point_reward_allowed and s.reward_rule_confirmed then s.reward_amount else null end,
