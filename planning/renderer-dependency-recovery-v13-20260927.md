@@ -128,3 +128,16 @@ The approved CURRENT SINGLE baseline was recovered directly from Drive and check
 - local QC extraction prepared at the CURRENT boundaries and NEWS completed-hold window for later generated-vs-Golden comparison
 
 This validates the Golden reference only. It is not evidence that the recovered renderer can reproduce it.
+
+
+## v14/v15/v16 provenance cross-check
+
+Additional byte-level checks on the recovered CURRENT ancestry:
+
+- v14: CURRENT `machimamo_v164/build/v14/src/machimamo_reference_v14.py` == standalone Library `SOURCE_v14.zip`; SHA256 `f1477950f9765297e389865af092a129be69c6a5d21b6e7302e3d42de2d5b0f3`.
+- v15: REVIEW3 `build/v15/src/machimamo_reference_v15.py` == standalone Library `SOURCE_v15_DELTA.zip`; SHA256 `a4cd61bba0a39bf6774ea9bf378af66620311e1331c806cffed6f24e36bced7b`.
+- v16 final: REVIEW3 top-level `machimamo_reference_v16_final.py` == REVIEW3 build/v16 copy; SHA256 `ea0bed4b6f2a623e6fbb2fb2fe0b43fc13cb4f65f2b26b15aa2f5abb0601b216`.
+- v16.1: REVIEW3 top-level == build/v161 copy; SHA256 `0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114`.
+- v16.2: CURRENT build/v162 == REVIEW3 top-level source; SHA256 `4cc1408241aa4444e122608cbe4c13ffe707822ac85a642d8d0b3840831a85a5`.
+
+This confirms that the CURRENT ancestry through v14-v16.2 is byte-consistent with the separately recovered historical archives/snapshot. The remaining discontinuity is still the absent v7 source.
