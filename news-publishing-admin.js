@@ -76,6 +76,17 @@
     return loadPromise;
   }
 
+  function findCandidate(candidateId) {
+    return candidates.find(item => item.candidateId === candidateId) || null;
+  }
+
+  function openCandidateDetail(candidateId) {
+    const item = findCandidate(candidateId);
+    const detail = window.MachimamoNewsCandidateDetail;
+    if (!item || !detail?.open) return;
+    detail.open(item);
+  }
+
   function currentFilters() {
     return {
       informationKind: document.getElementById('adminNewsTypeFilter')?.value || 'all',
@@ -99,7 +110,7 @@
     const shown = filtered.slice(0, 100);
     target.innerHTML = shown.map(item => {
       const region = [item.prefecture, item.municipality].filter(Boolean).join(' ') || '地域要確認';
-      return `<tr data-candidate-id="${escapeHtml(item.candidateId)}">
+      return `<tr data-candidate-id="${escapeHtml(item.candidateId)}" role="button" tabindex="0" aria-label="ニュース詳細を開く：${escapeHtml(item.title)}">
         <td><strong>${escapeHtml(item.title)}</strong><div class="muted" style="font-size:.61rem;margin-top:3px;">旧データ #${Number(item.legacySpotId)}</div></td>
         <td>${escapeHtml(region)}</td>
         <td>${escapeHtml(item.prefecture || '要確認')}</td>
@@ -109,7 +120,7 @@
         <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
         <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
         <td>不可</td><td>未</td><td>未</td><td>未</td><td>未</td><td>—</td>
-        <td><button type="button" disabled aria-disabled="true">検証待ち</button></td>
+        <td><button type="button" data-news-detail-id="${escapeHtml(item.candidateId)}">詳細</button></td>
       </tr>`;
     }).join('');
     if (filtered.length > shown.length) {
@@ -138,6 +149,23 @@
     target.innerHTML = `<strong>${escapeHtml(prefecture)} / ${escapeHtml(weekValue)}</strong><br>
       実候補 ${count.toLocaleString()}件 / Production利用可能 0件。選択希望 ${requestedCount}件に対し、全件でsource・facts・rights確認が必要です。
       <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div>`;
+  }
+
+  function bindCandidateDetailNavigation() {
+    const target = document.getElementById('adminNewsSingleRows');
+    if (!target) return;
+    target.addEventListener('click', event => {
+      const button = event.target.closest?.('[data-news-detail-id]');
+      const row = event.target.closest?.('tr[data-candidate-id]');
+      const id = button?.dataset.newsDetailId || row?.dataset.candidateId;
+      if (id) openCandidateDetail(id);
+    });
+    target.addEventListener('keydown', event => {
+      const row = event.target.closest?.('tr[data-candidate-id]');
+      if (!row || !['Enter',' '].includes(event.key)) return;
+      event.preventDefault();
+      openCandidateDetail(row.dataset.candidateId);
+    });
   }
 
   function bindFilters() {
@@ -170,6 +198,8 @@
     if (adapter && weeklyInput && !weeklyInput.value) weeklyInput.value = adapter.isoWeekValue(new Date());
 
     bindFilters();
+    bindCandidateDetailNavigation();
+    window.MachimamoNewsCandidateDetail?.init?.();
 
     const dashboard = document.getElementById('adminDashboardArea');
     const updateAdminState = () => {
@@ -182,7 +212,7 @@
     }
 
     const state = window.MachimamoNewsPublishingAdmin = Object.freeze({
-      version: 'news-publishing-admin-ui-v2-readonly-legacy',
+      version: 'news-publishing-admin-ui-v3-readonly-detail',
       serviceId: SERVICE_ID,
       productionModes: Object.freeze(['SINGLE', 'WEEKLY']),
       informationKinds: Object.freeze(['LOCAL_ANOMALY', 'POLICE_OFFICIAL', LEGACY_KIND]),
