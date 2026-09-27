@@ -7,6 +7,7 @@ const good = {
   service: 'machimamo',
   schemaVersion: c.CANDIDATE_SCHEMA_VERSION,
   candidateId: 'keishicho-20260924-001',
+  sourceEventId: 'TOKYO-20260924-001',
   informationKind: 'POLICE_OFFICIAL',
   headline: '港区で声かけ事案',
   prefecture: '東京都',
@@ -51,6 +52,10 @@ assert.equal(result.publishEligible, false);
 
 result = c.validateCanonicalCandidate({ ...good, sourceStatus: 'stale' });
 assert.equal(result.valid, true);
+assert.equal(result.publishEligible, false);
+
+result = c.validateCanonicalCandidate({ ...good, sourceEventId: '' });
+assert.equal(result.valid, false, 'missing sourceEventId must fail for police official');
 assert.equal(result.publishEligible, false);
 
 result = c.validateCanonicalCandidate({ ...good, informationKind: 'LEGACY_UNVERIFIED' });
