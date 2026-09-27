@@ -1,9 +1,11 @@
 begin;
 
 insert into public.regional_sources(
-  source_key,name,source_kind,homepage_url,event_use_allowed,image_policy,is_active
+  source_key,name,source_kind,homepage_url,event_use_allowed,terms_review_status,
+  acquisition_mode,automated_fetch_allowed,image_policy,is_active
 ) values (
-  'ci-official','CI Official','manual','https://example.test/source',true,'not_used',true
+  'ci-official','CI Official','manual','https://example.test/source',true,'reviewed_facts_only',
+  'manual_facts_only',false,'not_used',true
 );
 
 insert into public.events(
