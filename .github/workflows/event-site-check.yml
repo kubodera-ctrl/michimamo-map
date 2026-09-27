@@ -99,6 +99,7 @@ jobs:
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260919043000_event_platform_admin_analytics.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260923073000_event_i18n_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260927062000_machiibe_operational_foundation.sql
+          psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928082000_machiibe_media_commit.sql
       - name: SQL behavior smoke tests
         working-directory: .
         env:
