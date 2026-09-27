@@ -13,7 +13,8 @@
       "body": "平和台2丁目の路上で中学生女性が不審な者につきまとわれたと警視庁が配信。",
       "correctionStatus": "current",
       "localityType": "occurred",
-      "localityConfirmed": true
+      "localityConfirmed": true,
+      "rightsScopeConfirmed": true
     },
     {
       "sourceEventId": "TOKYO-20260923-002",
@@ -25,7 +26,8 @@
       "body": "廿里町の路上で帰宅途中の女性が男に声をかけられたと警視庁が配信。",
       "correctionStatus": "current",
       "localityType": "occurred",
-      "localityConfirmed": true
+      "localityConfirmed": true,
+      "rightsScopeConfirmed": true
     },
     {
       "sourceEventId": "TOKYO-20260923-003",
@@ -37,7 +39,8 @@
       "body": "本町の路上で男が下半身を露出した事案が発生したと警視庁が配信。",
       "correctionStatus": "current",
       "localityType": "occurred",
-      "localityConfirmed": true
+      "localityConfirmed": true,
+      "rightsScopeConfirmed": true
     }
   ]
 }
