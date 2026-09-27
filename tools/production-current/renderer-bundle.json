@@ -2,7 +2,8 @@
   "sourceMaster": "CURRENT_20260927_v16.4_REVIEW5_FINE_TUNE",
   "sourceArchiveSha256": "916157c8126923d7e4324cb968d34e38511c767ad0bdb25803656d148052bf93",
   "primaryRenderer": "machimamo_v164/render_latest.py",
-  "requiredFiles": [
+  "assetRootLayout": "${ASSET_ROOT}/machimamo_v164 and ${ASSET_ROOT}/machimamo_reference_v16_1",
+  "requiredExistingFiles": [
     "machimamo_v164/render_latest.py",
     "machimamo_v164/revise_after_review.py",
     "machimamo_v164/review3_revisions.py",
@@ -10,19 +11,32 @@
     "machimamo_v164/review5_finetune.py",
     "machimamo_v164/build/v164a/src/render_news_v16_4.py",
     "machimamo_v164/build/v162/machimamo_reference_v16_2.py",
-    "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py",
     "machimamo_reference_v16_1/src/dog_only_generated_officialized.png",
-    "machimamo_reference_v16_2/src/dog_sad_v16_2.png",
-    "machimamo_reference_v16_3/overlays/news_short.png",
-    "machimamo_reference_v16_3/overlays/news_weekly.png",
+    "machimamo_v164/build/v162/dog_sad_generated_blue_clean.png",
     "machimamo_v164/build/v14/src/machimamo_reference_v14.py",
-    "machimamo_reference_v13/package/machimamo_reference_v13.py",
     "machimamo_v164/build/v14/src/TOP_BACKGROUND_CLEAN.png",
     "machimamo_v164/build/v14/src/TOP_VISUAL_MASTER_APPROVED.png",
     "machimamo_v164/build/v14/src/ENDCARD_APPROVED.png",
-    "machimamo_v164/review5_logo_emblem_grabcut.png"
+    "machimamo_v164/review5_logo_emblem_grabcut.png",
+    "machimamo_v164/review4_sad_dog_transparent.png",
+    "machimamo_v164/review3_segments/dog_clean_transparent.png",
+    "machimamo_v164/review4_assets/footer_news_sad.png",
+    "machimamo_v164/review4_assets/footer_safety_smile.png",
+    "machimamo_v164/review5_assets/header_short_patch.png",
+    "machimamo_v164/review5_assets/header_weekly_patch.png",
+    "machimamo_v164/review5_assets/map_header_patch.png"
   ],
-  "fontPolicy": "Use the font files specified by the official renderer bundle; never silently substitute a different Japanese font.",
-  "approvedJapaneseFontEnv": "MACHIMAMO_APPROVED_JP_FONT",
-  "forbiddenVersions": ["v16.5"]
+  "missingCodeDependencies": [
+    "machimamo_reference_v13/package/machimamo_reference_v13.py",
+    "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py"
+  ],
+  "mappedLegacyAssets": {
+    "machimamo_reference_v16_2/src/dog_sad_v16_2.png": "machimamo_v164/build/v162/dog_sad_generated_blue_clean.png (needs visual review; alternate approved 107x111 review4_sad_dog_transparent.png)",
+    "machimamo_reference_v16_3/overlays/news_short.png": "machimamo_v164/review4_assets/footer_news_sad.png (needs frame-level overlay review)",
+    "machimamo_reference_v16_3/overlays/news_weekly.png": "machimamo_v164/review4_assets/footer_news_sad.png (needs frame-level overlay review)"
+  },
+  "runtimeFontPolicy": "Resolve Japanese-capable font from renderer execution environment using existing renderer fallback. No fixed MACHIMAMO_APPROVED_JP_FONT variable or font binary requirement.",
+  "forbiddenVersions": [
+    "v16.5"
+  ]
 }
