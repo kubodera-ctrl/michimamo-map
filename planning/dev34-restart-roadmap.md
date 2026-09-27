@@ -192,3 +192,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 後続P4/P5で `候補詳細 → source/facts/rights → Production Preview → QC → 承認 → Publishing` を接続する。
 - `LEGACY_UNVERIFIED` は将来詳細画面を開けても render / QC承認 / Publishing不可を維持する。
 - Production Auth / RPC / DB write / SNS送信は変更なし。
+
+
+## 2026-09-27 Renderer v13 recovery再開
+
+- ChatGPT Libraryから `SOURCE_v13.zip` を回収。archive SHA256 `54499b60676f5c1f14d6bc51cf9234bed8f8ccb77fd8c4b86e7f92e133fc7d64`。
+- root `machimamo_reference_v13.py` は17,761 bytes、SHA256 `12d6911d2454eebe17d260d9139d127ebba9b341f3cc2ddafa6c6b48b314b4e1` でユーザー提示値と一致。旧「v13不存在」blockerを訂正。
+- READMEの `v13 is a strict delta over v12` を確認。v13→v12→v11→v10→v9→v6/v8 import chainを実物で追跡。
+- v12/v11/v10/v9/v8はstandalone historical archiveとexact hash match。v6もSOURCE_v13から回収。base `render_short_44s.py` はLibrary v3 sourceから回収したがprovenance relationはNEEDS_REVIEW。
+- CURRENT + REVIEW3/4/5 + v13/historyをASSET_ROOTへstageし、WORK_ROOTへpath literalだけrewriteしてactual `render_latest.py` importを実施。v13を越えてv8まで進み、`machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py` で停止。現時点のtrue code blockerはv7。
+- exact v7 sourceはLibrary/Drive/CURRENT/REVIEW/historical archivesで未回収。QC reportとv7 completed MP4は存在するが、描画sourceを推測で再構築しない。
+- runtime fontは現環境で `Noto Sans CJK JP` を解決し、historical renderer期待のRegular/Bold TTC pathが存在。font availability blockerは解消したがVisual QCは未実施。
+- new SINGLE 43s render / ffprobe / decode / Golden compare / Visual QCはv7 blockerのため未実施。WEEKLYはSINGLE PASSまで開始しない。
+- 詳細: `planning/renderer-dependency-recovery-v13-20260927.md`。
