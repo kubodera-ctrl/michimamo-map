@@ -2,7 +2,7 @@
   "sourceMaster": "CURRENT_20260927_v16.4_REVIEW5_FINE_TUNE",
   "sourceArchiveSha256": "916157c8126923d7e4324cb968d34e38511c767ad0bdb25803656d148052bf93",
   "primaryRenderer": "machimamo_v164/render_latest.py",
-  "assetRootLayout": "${ASSET_ROOT}/machimamo_v164 and ${ASSET_ROOT}/machimamo_reference_v16_1",
+  "assetRootLayout": "CURRENT source plus hash/provenance-recovered historical roots staged below ASSET_ROOT; paths adapted through ASSET_ROOT/WORK_ROOT.",
   "requiredExistingFiles": [
     "machimamo_v164/render_latest.py",
     "machimamo_v164/revise_after_review.py",
@@ -10,10 +10,27 @@
     "machimamo_v164/review4_unified_design.py",
     "machimamo_v164/review5_finetune.py",
     "machimamo_v164/build/v164a/src/render_news_v16_4.py",
-    "machimamo_v164/build/v162/machimamo_reference_v16_2.py",
+    "machimamo_reference_v16_2/src/machimamo_reference_v16_2.py",
+    "machimamo_reference_v16_2/src/dog_sad_v16_2.png",
+    "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py",
     "machimamo_reference_v16_1/src/dog_only_generated_officialized.png",
-    "machimamo_v164/build/v162/dog_sad_generated_blue_clean.png",
+    "machimamo_reference_v16_3/overlays/news_short.png",
+    "machimamo_reference_v16_3/overlays/news_weekly.png",
+    "machimamo_reference_v16_final/src/machimamo_reference_v16_final.py",
+    "machimamo_reference_v15/src/machimamo_reference_v15.py",
     "machimamo_v164/build/v14/src/machimamo_reference_v14.py",
+    "machimamo_reference_v13/package/machimamo_reference_v13.py",
+    "machimamo_reference_v13/src/TOP_VISUAL_MASTER_APPROVED.png",
+    "machimamo_reference_v13/src/ENDCARD_APPROVED.png",
+    "machimamo_reference_v13/src/short_facts_v12.json",
+    "machimamo_reference_v13/src/weekly_facts_v12.json",
+    "machimamo_reference_v12/source/machimamo_reference_v12.py",
+    "machimamo_reference_v11/source/machimamo_reference_v11.py",
+    "machimamo_reference_v10/source/machimamo_reference_v10.py",
+    "machimamo_reference_v9/source/machimamo_reference_rebuild_v9.py",
+    "machimamo_video5_build_v4/render_short_44s_v6_refined.py",
+    "machimamo_video5_build_v4/render_short_44s_v8_oldstyle.py",
+    "machimamo_video5_build/render_short_44s.py",
     "machimamo_v164/build/v14/src/TOP_BACKGROUND_CLEAN.png",
     "machimamo_v164/build/v14/src/TOP_VISUAL_MASTER_APPROVED.png",
     "machimamo_v164/build/v14/src/ENDCARD_APPROVED.png",
@@ -27,30 +44,66 @@
     "machimamo_v164/review5_assets/map_header_patch.png"
   ],
   "missingCodeDependencies": [
-    "machimamo_reference_v13/package/machimamo_reference_v13.py"
+    "machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py"
   ],
-  "mappedLegacyAssets": {
-    "machimamo_reference_v16_2/src/dog_sad_v16_2.png": "Exact SHA-verified file exists in REVIEW3 source snapshot; current v16.2 clean dog has a distinct path and role pending visual QC.",
-    "machimamo_reference_v16_3/overlays/news_short.png": "Exact SHA-verified REVIEW3 base overlay, inherited by additive REVIEW4/REVIEW5 deltas.",
-    "machimamo_reference_v16_3/overlays/news_weekly.png": "Exact SHA-verified REVIEW3 base overlay, inherited by additive REVIEW4/REVIEW5 deltas."
-  },
-  "runtimeFontPolicy": "Resolve Japanese-capable font from renderer execution environment using existing renderer fallback. No fixed MACHIMAMO_APPROVED_JP_FONT variable or font binary requirement.",
+  "runtimeFontPolicy": "Renderer expects /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc and NotoSansCJK-Bold.ttc through its historical font() implementation. Resolve fonts at runtime; do not bundle font binaries into Production Master. Visual metrics remain subject to Golden QC.",
   "forbiddenVersions": [
     "v16.5"
   ],
+  "recoveredDependencies": {
+    "SOURCE_v13.zip": {
+      "archiveSha256": "54499b60676f5c1f14d6bc51cf9234bed8f8ccb77fd8c4b86e7f92e133fc7d64",
+      "source": "ChatGPT Library",
+      "status": "RECOVERED_FROM_LIBRARY"
+    },
+    "machimamo_reference_v13/package/machimamo_reference_v13.py": {
+      "sha256": "12d6911d2454eebe17d260d9139d127ebba9b341f3cc2ddafa6c6b48b314b4e1",
+      "source": "SOURCE_v13.zip archive root machimamo_reference_v13.py",
+      "status": "RECOVERED"
+    },
+    "machimamo_reference_v12/source/machimamo_reference_v12.py": {
+      "sha256": "c4ff0016667fdd0dd958019998aba00f410d305fb00ae3d2de29913cf84ebf7d",
+      "status": "RECOVERED; exact match SOURCE_v12.zip"
+    },
+    "machimamo_reference_v11/source/machimamo_reference_v11.py": {
+      "sha256": "20bfed79e442adedca880dc17e4a31410b61225237b745c87632b031bfce6d57",
+      "status": "RECOVERED; exact match SOURCE_v11.zip"
+    },
+    "machimamo_reference_v10/source/machimamo_reference_v10.py": {
+      "sha256": "d5e334b5df9a0b3d0c71ecff3d7938250386342076c0193d809d96cd2a28b31e",
+      "status": "RECOVERED; exact match REFERENCE_STYLE_SOURCE_v10.zip"
+    },
+    "machimamo_reference_v9/source/machimamo_reference_rebuild_v9.py": {
+      "sha256": "b828ce6e76e1d947db23d91c3392f08fafe43d0396c34aae58bd802751842124",
+      "status": "RECOVERED; exact match REFERENCE_STYLE_SOURCE_v9.zip"
+    },
+    "machimamo_video5_build_v4/render_short_44s_v8_oldstyle.py": {
+      "sha256": "301df3b28862bb21136277dcad04daa60f24fb6050f7cca371d5c995a54fba6a",
+      "status": "RECOVERED; exact match SHORT_44s_PREVIOUS_STYLE_SOURCE_20260926_v8.zip"
+    },
+    "machimamo_video5_build_v4/render_short_44s_v6_refined.py": {
+      "sha256": "f39ccb65af98d3519a510ac6e7fefebf29359d5a0186d2b186e58b0e10c8c326",
+      "status": "RECOVERED_FROM_SOURCE_v13"
+    },
+    "machimamo_video5_build/render_short_44s.py": {
+      "sha256": "37fea5bc6374681970faf8c6a201726904e4fe22b23d1c1ce197653158b0019b",
+      "source": "SHORT_44s_TEST_SOURCE_20260926_v3.zip",
+      "status": "RECOVERED_FROM_LIBRARY_NEEDS_PROVENANCE_REVIEW"
+    }
+  },
   "historicalCodeMappings": {
     "machimamo_reference_v16_1/src/machimamo_reference_v16_1.py": {
       "source": "SOURCE_v16.4_REVIEW3_PRE_REDESIGN_20260927.zip",
       "sha256": "0594994c2b595e432a66fdec452976798d64844c1cb65a3e16555b40def41114",
-      "status": "verified base module; additive REVIEW4/REVIEW5 deltas do not replace it"
+      "status": "MAPPED; verified base module"
     },
     "machimamo_reference_v16_3/overlays/news_short.png": {
       "sha256": "31e3e4a5a0fcdbf596a3deb89a100e6fbce8cc719a225d663cf04a9d01acb566",
-      "status": "verified base overlay inherited by additive REVIEW4/REVIEW5 deltas"
+      "status": "MAPPED; verified REVIEW3 base overlay"
     },
     "machimamo_reference_v16_3/overlays/news_weekly.png": {
       "sha256": "0ccdfe01e9df3abf3ffbc07ab6492ca4a69a0493f4d14b376a5b6fa63ccf48d0",
-      "status": "verified base overlay inherited by additive REVIEW4/REVIEW5 deltas"
+      "status": "MAPPED; verified REVIEW3 base overlay"
     }
   }
 }
