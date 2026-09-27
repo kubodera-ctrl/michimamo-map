@@ -11,7 +11,7 @@ The admin panel accepts a JSON array derived from the latest master. `source_mas
   {
     "offer_id": "ofr_000002",
     "source_record_id": "master-row-number",
-    "asp": "A8.net",
+    "asp": "a8",
     "program_id": "program-id-from-master",
     "advertiser_name": "Advertiser",
     "offer_name": "Program name",
@@ -62,7 +62,7 @@ This is a shape example only. Do not use its example hostnames as real links.
 
 ## Fail-closed behavior
 
-Import upserts source facts but does not enable publication or placements. The existing admin-controlled `publish_status`, listing flag, and placement controls remain unchanged. The public read RPC only returns a row when partnership, service listing permission, service media approval, Web channel approval, exact tracking URL, active status, enabled placement, and dates all pass.
+Import upserts source facts but does not enable publication or placements. The existing admin-controlled `publish_status`, listing flag, and placement controls remain unchanged. The public read RPC only returns a row when partnership, service listing permission, service media approval, explicit production listing approval, Web channel approval, exact tracking URL, active status, enabled placement, and dates all pass. If present, the approved impression tracking URL is returned as a separate HTTPS field; the HTML tag is never inserted.
 
 Point reward is a second gate: only `point_reward_allowed AND reward_rule_confirmed` is exposed. A normal PR offer may be published without points when all advertising gates pass; the response then contains no reward amount/rate or reward rule.
 
