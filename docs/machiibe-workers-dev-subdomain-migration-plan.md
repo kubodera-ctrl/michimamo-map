@@ -30,9 +30,10 @@ Cloudflare Workersのworkers.dev URLは
 
 CI #545のcheckout済みrepository全体監査:
 - 対象text files: 1,455
-- `kubodera.workers.dev` exact参照: 2件
-- workers.dev hostname参照: 2件
-- 未知の旧account subdomain参照: 0件
+- 実行コード/設定の `kubodera.workers.dev` exact参照: 2件
+- 実行コード/設定の workers.dev hostname参照: 2件
+- 未知の旧account subdomain実行参照: 0件
+- 本手順書内の旧URL記載は説明用documentation参照としてguard対象外
 
 ### exact参照 1
 `event-site/wrangler.jsonc:17`

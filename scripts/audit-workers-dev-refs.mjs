@@ -47,21 +47,24 @@ for(const file of files(root)){
 const legacy=findings.filter(x=>x.keys.includes('legacy_account_subdomain'));
 const workers=findings.filter(x=>x.keys.includes('workers_dev_any'));
 const related=findings.filter(x=>x.keys.includes('cors_callback_webhook_access_search'));
-const expectedLegacy=new Set([
+const expectedLegacyRuntime=new Set([
   'cloudflare/machiibe-pipeline/src/index.ts:95',
   'event-site/wrangler.jsonc:17'
 ]);
-const actualLegacy=new Set(legacy.map((item)=>item.path+':'+item.line));
-const unexpected=[...actualLegacy].filter((item)=>!expectedLegacy.has(item));
-const missing=[...expectedLegacy].filter((item)=>!actualLegacy.has(item));
+const legacyRuntime=legacy.filter((item)=>!item.path.startsWith('docs/')&&!item.path.startsWith('scripts/'));
+const actualLegacyRuntime=new Set(legacyRuntime.map((item)=>item.path+':'+item.line));
+const unexpected=[...actualLegacyRuntime].filter((item)=>!expectedLegacyRuntime.has(item));
+const missing=[...expectedLegacyRuntime].filter((item)=>!actualLegacyRuntime.has(item));
 
 const report={
   scannedRoot:path.relative(process.cwd(),root)||'.',
   scannedFiles:files(root).length,
   legacyCount:legacy.length,
+  legacyRuntimeCount:legacyRuntime.length,
   workersDevCount:workers.length,
   relatedCount:related.length,
   legacy,
+  legacyRuntime,
   workers,
   related
 };
