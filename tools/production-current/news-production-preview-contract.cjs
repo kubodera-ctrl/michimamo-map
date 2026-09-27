@@ -23,7 +23,7 @@ function candidateBlockers(candidate) {
   if (candidate.informationKind === 'LEGACY_UNVERIFIED' || candidate.legacy === true) blockers.push('LEGACY_UNVERIFIED cannot enter Production Preview');
   if (candidate.publishEligible !== true) blockers.push('candidate publishEligible must be true');
   if (!nonEmpty(candidate.candidateId)) blockers.push('candidateId is required');
-  if (!nonEmpty(candidate.sourceEventId)) blockers.push('sourceEventId is required');
+  if (candidate.informationKind === 'POLICE_OFFICIAL' && !nonEmpty(candidate.sourceEventId)) blockers.push('sourceEventId is required for POLICE_OFFICIAL');
   const sourceHash = candidate?.source?.sourceHash || candidate.sourceHash;
   if (!sha256(sourceHash || '')) blockers.push('sourceHash must be SHA-256');
   if (!Array.isArray(candidate.verifiedFacts) || candidate.verifiedFacts.length === 0) blockers.push('verifiedFacts are required');

@@ -32,9 +32,21 @@ assert.equal(p.status,'BLOCKED');
 assert.ok(p.blockers.some(x=>x.includes('LEGACY_UNVERIFIED')));
 assert.ok(p.blockers.some(x=>x.includes('publishEligible')));
 
+
+const localAnomaly = {
+  ...canonical,
+  candidateId:'cand_local_001',
+  informationKind:'LOCAL_ANOMALY',
+  sourceEventId:null,
+  headline:'利用者投稿の地域異変'
+};
+p = c.buildProductionPreview(localAnomaly);
+assert.equal(p.status,'READY_FOR_PRODUCTION_PREVIEW');
+assert.deepEqual(p.blockers,[]);
+
 p = c.buildProductionPreview({...canonical,sourceEventId:'',source:{sourceHash:'bad'}});
 assert.equal(p.status,'BLOCKED');
-assert.ok(p.blockers.some(x=>x.includes('sourceEventId')));
+assert.ok(p.blockers.some(x=>x.includes('sourceEventId is required for POLICE_OFFICIAL')));
 assert.ok(p.blockers.some(x=>x.includes('sourceHash')));
 
 p = c.buildProductionPreview({...canonical,selection:{include:false,reason:'classifier excluded',retention:{active:true}}},{mode:'WEEKLY'});
