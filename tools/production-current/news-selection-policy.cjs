@@ -59,7 +59,8 @@ function hasAny(text, terms) {
 function hasLocality(candidate) {
   const locality = candidate?.localityEvidence;
   if (locality && typeof locality === 'object') {
-    if (['occurred','arrested','searched','protected','found','base','impact'].includes(locality.type) && locality.confirmed === true) return true;
+    return ['occurred','arrested','searched','protected','found','base','impact'].includes(locality.type) &&
+      locality.confirmed === true;
   }
   return typeof candidate?.municipality === 'string' && candidate.municipality.trim().length > 0;
 }
