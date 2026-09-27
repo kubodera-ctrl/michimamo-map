@@ -12,6 +12,7 @@ import { VisitTracker } from '@/components/VisitTracker';
 import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
 import { MachimamoBridge } from '@/components/MachimamoBridge';
+import { AspPlacement } from '@/components/AspPlacement';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, VENUE_TYPE_LABELS, VENUE_TYPE_OPTIONS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType, VenueTypeKey } from '@/lib/types';
 import { searchIndexingAllowed } from '@/lib/url-config';
@@ -77,6 +78,15 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
   const sort = one(params.sort) || 'recommended';
   const page=parsePage(params.page);
   const hasExplicitSearch=Object.entries(params).some(([key,value]) => key!=='page' && key!=='since' && (Array.isArray(value)?value.some(Boolean):Boolean(value)));
+  const contextualAspPlacement = rainyDayOnly
+    ? 'rain'
+    : childFocusOnly
+      ? 'child'
+      : familyFriendlyOnly
+        ? 'family'
+        : hasExplicitSearch
+          ? 'search'
+          : '';
   const sinceRaw=one(params.since);
   const since=sinceRaw && Number.isFinite(Date.parse(sinceRaw)) ? new Date(sinceRaw).toISOString() : '';
   const range = resolveDateRange(dateMode,customStartRaw,customEndRaw);
@@ -147,6 +157,13 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         <FeaturedStories locale={locale} />
         <MachimamoBridge locale={locale} />
         <PickupEvents />
+        {contextualAspPlacement && (
+          <AspPlacement
+            placementId={contextualAspPlacement}
+            sourceScreen={'home-'+contextualAspPlacement}
+            className="home-pr-slot contextual-pr-slot"
+          />
+        )}
         <div className="result-tools">
           <NewSinceLastVisitLink active={Boolean(since)} locale={locale} />
           <Link href={localePath('/saved',locale)}>{messages.savedList}</Link>
