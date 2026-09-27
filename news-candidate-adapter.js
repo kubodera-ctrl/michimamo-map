@@ -69,6 +69,8 @@
       legacySpotId: Number(row.id),
       informationKind: LEGACY_INFORMATION_KIND,
       title: String(row.title || '名称なし').trim(),
+      legacyComment: String(row.comment || '').trim(),
+      legacyAddress: String(row.address || '').trim(),
       prefecture,
       municipality: inferMunicipality(row, prefecture),
       newsDate,
