@@ -141,3 +141,34 @@ Additional byte-level checks on the recovered CURRENT ancestry:
 - v16.2: CURRENT build/v162 == REVIEW3 top-level source; SHA256 `4cc1408241aa4444e122608cbe4c13ffe707822ac85a642d8d0b3840831a85a5`.
 
 This confirms that the CURRENT ancestry through v14-v16.2 is byte-consistent with the separately recovered historical archives/snapshot. The remaining discontinuity is still the absent v7 source.
+
+
+## Final v7 search closeout
+
+The broad recovery search is closed. One bounded final pass checked:
+- nested archives inside the already materialized support/source packages;
+- source-manifest/path strings embedded in generated support artifacts;
+- the exact expected path string.
+
+Findings:
+- `SOURCE_v13.zip` contains the expected v7 path only as an import/reference string inside recovered v8 code.
+- `SHORT_44s_PREVIOUS_STYLE_SOURCE_20260926_v8.zip` contains the same path only as an import/reference string.
+- no nested archive contains `render_short_44s_v7_zoom_refined.py`.
+- no additional exact-source artifact was found.
+
+Renderer state is therefore frozen as:
+
+`RENDERER_BLOCKED_BY_EXACT_V7_SOURCE`
+
+Expected path:
+`machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py`
+
+Required symbol surface observed from v8:
+`v7.v6 / v7.TOKYO_MAIN / v7.map_japan / v7.prep / v7.frame`
+
+Historical completed v7 MP4:
+SHA256 `f04f5fd8768d7faddba98d6dbcecf4fe9b8141cdfca646e9e72d0e74a080b408`
+
+`doNotReconstruct=true`
+
+Do not continue broad searches or synthesize the source from v6/v8/MP4/QC. Reopen Renderer only when the exact source is recovered.
