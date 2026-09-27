@@ -317,3 +317,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - `news-publishing-contract.cjs` は既存API（47都道府県、weeklySetKey、sharedWeeklyGenerationKey等）を維持したまま拡張する。
 - WEEKLY posting idempotencyに weekValue + prefecture + revisionId + renderId + TIKTOK を追加。
 - candidate detail JS変更のPreview cache混在を避けるためasset versionを `v=2-production-preview` へ更新。
+
+## 2026-09-28 開発36｜committed-code validation
+
+- feature commit a46036dc…、compatibility fix 7b2312b0…、static-test fix 7bdb501d… をGit実物から再取得して検証。
+- browser JS syntax: PASS。
+- shared domain runtime: SINGLE Production Preview 43秒 / X+TikTok、WEEKLY 6=62秒・9=74秒・12=86秒 / TikTok only = PASS。
+- LEGACY_UNVERIFIED=BLOCKED、LOCAL_ANOMALYはsourceEventId欠落だけではBLOCKしない、POLICE_OFFICIALはsourceEventId必須を維持。
+- 投稿操作 fail-closed: Renderer / QC / Approval / OAuth / API / Publishing Adapter / 最終本人確認の未充足理由を確認。externalRequestSent=false。
+- TikTokはPROCESSINGでは完了扱いせず、externalPostId + final PUBLISHEDのみ完了。WEEKLY投稿識別はweek + prefecture + revisionId + renderId + TIKTOK。
+- 既存Publishing contractの47都道府県 / weeklySetKey / sharedWeeklyGenerationKey等を維持。互換性PASS。
+- 最終Previewのcache混在回避のため新domain/UI asset versionを更新。
+- 新しいSINGLE/WEEKLY Production/Publishing PreviewのiPhone実機確認は未実施。本人QA待ち。
+- Production / Production DB / migration / OAuth / SNS external request / legacy cronは未変更・未実施。
