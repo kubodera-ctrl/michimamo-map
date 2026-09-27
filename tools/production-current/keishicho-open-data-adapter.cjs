@@ -110,6 +110,7 @@ function buildCanonicalCandidate(record, { checkedAt = new Date(), classify = tr
     candidateId: sourceEventId ? `keishicho-open-data:${sourceEventId}` : '',
     sourceEventId,
     informationKind: 'POLICE_OFFICIAL',
+    officialSource: true,
     headline,
     prefecture: '東京都',
     municipality,
