@@ -21,7 +21,8 @@ global.window = {
     if (name === 'get_asp_offers_for_placement') return { data: [{
       offer_id: 'A8.net:program-id', offer_name: '<img src=x onerror=alert(1)>',
       tracking_url: 'https://px.a8.net/svt/ejp?a8mat=exact%2Btracking',
-      creative_type: 'image', creative_url: 'https://cdn.example/banner.png', impression_tracking_url: null
+      creative_type: 'image', creative_url: 'https://cdn.example/banner.png',
+      impression_tracking_url: 'https://www19.a8.net/0.gif?a8mat=original'
     }], error: null };
     return { error: new Error('internal click tracking unavailable') };
   } }
@@ -48,5 +49,7 @@ require('../asp-runtime-public.js');
   const imageAnchor = card.children.find((child) => child.tagName === 'a' && child !== titleLink);
   assert.equal(imageAnchor.href, titleLink.href);
   assert.equal(imageAnchor.children[0].referrerPolicy, 'no-referrer');
+  const pixel = card.children.find((child) => child.tagName === 'img' && child.width === 1);
+  assert.equal(pixel.src, 'https://www19.a8.net/0.gif?a8mat=original', 'uses the structured, unmodified approved impression URL');
   console.log('PASS: public ASP slot escapes data, preserves official tracking link, and does not block navigation on click-log failure');
 })().catch((error) => { console.error(error); process.exitCode = 1; });
