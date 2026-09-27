@@ -179,3 +179,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 対象: 逆走発生、逆走車確認、逆走による事故、通行止め/車線規制、警察・道路管理者の緊急注意喚起。
 - 地域/路線の具体的接点を確認し、古い再掲だけのニュースは除外。直近60日retentionを適用。
 - tools/production-current/news-selection-policy.cjs に TRAFFIC_WRONG_WAY を実装し、地域性・60日retentionと合わせて判定する。
+
+
+## 2026-09-27 P4 iPhone QA｜ニュース管理 PASS
+
+- iPhone実機で固定QA入口 `https://machimamo-map-git-feat-dev34-current-production-engine-miti4.vercel.app/?newsAdminQa=1` を確認。
+- 上部→最下部まで縦スクロールPASS。
+- SINGLE一覧、WEEKLY、東京都 / 2026-W38、実候補件数、状態表示、最下部操作欄まで到達PASS。
+- 広告帯による操作遮蔽なし。
+- 実ニュース候補表示PASS。
+- 候補行タップ時に詳細・Production・QC・Publishingへ遷移しない点は現行read-only一覧の実装範囲であり、今回のスクロール不具合ではない。
+- 後続P4/P5で `候補詳細 → source/facts/rights → Production Preview → QC → 承認 → Publishing` を接続する。
+- `LEGACY_UNVERIFIED` は将来詳細画面を開けても render / QC承認 / Publishing不可を維持する。
+- Production Auth / RPC / DB write / SNS送信は変更なし。
