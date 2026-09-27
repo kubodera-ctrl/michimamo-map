@@ -72,3 +72,11 @@
 - schema / secrets / shared auth / rewards / deploy の最新状態を本番前に再取得。
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
+
+
+## 2026-09-27 P4/P5追加進捗（feature branchのみ）
+
+- TikTok機能区分: A「SNS投稿素材（直近の公開投稿）」= `#adminSocialPostArea` / `renderAdminSocialPosts()`、B=`#adminSocialAssetModal`（`openAdminTikTokAsset`、`#adminSocialAssetBody`、`#adminSocialCanvas`）、C=地域投稿用TikTok 9:16/1080×1920 PNG、D=X intent起動。すべて既存地域投稿・互換SNS素材であり、ニュースProduction/Publishingではない。既存SNS素材画面のスクロールPASSを維持。X intent/PNG保存を実SNS投稿済みと数えない。
+- 新規ニュース投稿管理は旧SNS素材UIと分離。SINGLEはTikTok SHORT 43秒固定（TOP 3 + MAP 7 + NEWS 12 + MAP説明 8 + ロジック 8 + END 5）。WEEKLYはTikTok LONG固定38秒 + 12秒×ceil(newsCount/3)、6/9/12件=62/74/86秒。CURRENTにないSINGLE尺を足さない。
+- `feat/dev34-current-production-engine` latest `d0b01d44800b808e9731a1a4a0f342648d0e213f`: `adminNewsPublishingSection` fail-closed scaffold、SHORT/LONG、47 prefectures、週・6/9/12件、済 filter、旧SNS欄維持、admin表示中PR帯を非表示。接続/API未実装のため操作無効・状態捏造なし。iPhone Preview scroll未検証。まだPreview/PR/Production反映なし。
+- P4 tests (local branch snapshot): `npm run test:production-current`, `npm test`, `git diff --check` PASS。CURRENT renderer依存・承認済日本語font欠落は継続blocker。MP4/Golden/visual QCなし。
