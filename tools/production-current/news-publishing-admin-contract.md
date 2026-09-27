@@ -53,3 +53,16 @@ All new list/preview/review/post confirmation views must be tested in normal and
 ## Gate state
 
 This document is a P4/P5 build contract, not evidence of an operational UI. No new publishing table, Production record, migration, OAuth, external post, or Production deployment is created by this contract. Current preview database shares Production; never create test posts there. A dedicated isolated Supabase preview project or verified local/staging endpoint is required before write E2E.
+
+
+## Future integrated admin OS compatibility (design constraint, not implementation)
+
+The Drive roadmap `地域生活プラットフォーム｜統合運営管理センター構想・実装ロードマップ v1（2026-09-27）` is a forward architecture constraint only. This P4/P5 branch does **not** implement the integrated admin OS.
+
+For current machimamo work:
+- The service identity is explicitly `machimamo`; shared keys must include the service dimension where they can be globally unique across services.
+- Keep the machimamo admin UI as a thin view over domain/API contracts. Do not put renderer, publishing completion, ASP, or audit truth into DOM-only state.
+- Reuse the shared `publishing_post_sets / publishing_revisions / publishing_platform_posts / publishing_audit_log` model after exact migration reconciliation. Do not add duplicate machimamo-only tables with the same responsibility.
+- Production/rendering, Publishing, ASP and Audit remain separate responsibilities and separate state transitions.
+- A future management center may consume the same service-scoped read/write contracts through Admin API/BFF; migration of the UI must not require redesigning CURRENT SINGLE/WEEKLY or legacy user-post SNS assets.
+- No Admin Auth/RBAC, management-center dashboard, inquiries, or management-center migration is started by this compatibility note.
