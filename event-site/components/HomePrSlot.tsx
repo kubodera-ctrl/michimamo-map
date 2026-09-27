@@ -1,4 +1,9 @@
-export function HomePrSlot(){
+import {AspPlacement} from './AspPlacement';
+import {getMachiibeAspOffersForPlacement} from '@/lib/asp-runtime';
+
+export async function HomePrSlot(){
+  const runtimeOffers=await getMachiibeAspOffersForPlacement('pr');
+  if(runtimeOffers.length) return <AspPlacement placementId="pr" sourceScreen="home" />;
   const configuredUrl=process.env.NEXT_PUBLIC_HOME_PR_URL || '';
   const url=/^https?:\/\//i.test(configuredUrl) ? configuredUrl : 'https://sites.google.com/sumion.net/sumion/home?authuser=0&pli=1';
   const configuredImageUrl=process.env.NEXT_PUBLIC_HOME_PR_IMAGE_URL || '';

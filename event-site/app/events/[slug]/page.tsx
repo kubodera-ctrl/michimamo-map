@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EventActions } from '@/components/EventActions';
+import { AspPlacement } from '@/components/AspPlacement';
 import { TrackedLink } from '@/components/TrackedLink';
 import { MetricPing } from '@/components/MetricPing';
 import {
@@ -255,6 +256,8 @@ export default async function EventPage({ params }: { params: Params }) {
             </div>
             <TrackedLink href={mapUrl.toString()} metric="machimamo_map" eventSlug={event.slug}>{t.supportCta}</TrackedLink>
           </section>
+
+          <AspPlacement placementId="event_detail" sourceScreen="event-detail" className="home-pr-slot detail-pr-slot" />
 
           <div className="detail-actions">
             <a className="primary-action" href={event.official_url} target="_blank" rel="noreferrer">{t.officialCta}</a>
