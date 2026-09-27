@@ -72,3 +72,11 @@
 - schema / secrets / shared auth / rewards / deploy の最新状態を本番前に再取得。
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
+
+## 2026-09-27 SNS素材スクロール実機報告対応（base側）
+- Vercel Git接続復旧、e0eb669 Preview READY: dpl_2V2ihPmbXUQqLKfrxTNszmdfNGB8。
+- 本人報告: 他はほぼOK、SNS素材モーダルが下までスクロールできず広告帯が重なる。通常/Private別の全項目PASSではない。
+- fix d85cbacbc976df80895089f95db73e1293c4ffc4: SNS modalのみ90dvh/flex/min-height:0の独立scroll body、header固定、adより上へ配置。デザイン/投稿データ/Productionは未変更。
+- static tests admin_social_assets / safari_private_viewport / ios_viewport_stability PASS。隔離Chromium検証はbrowser downloadが壊れたarchiveで未実行。iPhone再確認待ち。
+- 修正Preview候補 https://machimamo-q7vvvj8of-miti4.vercel.app/ (dpl_FU8oJEDbgwugwjNYJXogLdysPUS7、source d85cbac)。実機でPNG保存/投稿文/コピー/Xボタンへスクロール到達とcloseを確認する。外部投稿はしない。
+- PR21はstackedのまま、今回base修正の取り込みは次工程で再照合。merge/Production前に必須。
