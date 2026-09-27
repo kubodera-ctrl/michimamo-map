@@ -172,8 +172,19 @@ begin
     raise exception 'unlicensed image leaked through public RPC';
   end if;
 
-  if jsonb_array_length(public.get_public_event('ci-recurring')->'occurrences') <> 1 then
+  if jsonb_array_length(public.get_public_event('ci-recurring')->'occurrences') <> 2 then
     raise exception 'recurring occurrence list missing';
+  end if;
+  if not exists (
+    select 1
+    from jsonb_array_elements(public.get_public_event('ci-recurring')->'occurrences') item
+    where item->>'status'='scheduled'
+  ) or not exists (
+    select 1
+    from jsonb_array_elements(public.get_public_event('ci-recurring')->'occurrences') item
+    where item->>'status'='sold_out'
+  ) then
+    raise exception 'recurring occurrence statuses missing';
   end if;
 
   if not exists (
