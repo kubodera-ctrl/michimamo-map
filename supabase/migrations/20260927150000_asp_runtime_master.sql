@@ -28,6 +28,7 @@ create table if not exists public.asp_runtime_service_offers (
   service_key text not null check (service_key in ('machimamo','machiibe')),
   source_listing_allowed boolean not null default false,
   source_media_approved boolean not null default false,
+  production_listing_approved boolean not null default false,
   web_approval_status text not null default 'unknown'
     check (web_approval_status in ('approved','pending','rejected','unknown')),
   app_approval_status text not null default 'unknown'
@@ -130,6 +131,7 @@ language sql stable security definer set search_path = '' as $$
     and o.approval_status = 'approved'
     and s.source_listing_allowed
     and s.source_media_approved
+    and s.production_listing_approved
     and s.web_approval_status = 'approved'
     and s.tracking_url is not null
     and s.publish_status = 'active'
@@ -171,10 +173,11 @@ begin
     v_asp := nullif(trim(v_offer->>'asp'),'');
     v_program_id := nullif(trim(v_offer->>'program_id'),'');
     v_offer_id := nullif(trim(v_offer->>'offer_id'),'');
-    if v_asp is null or v_program_id is null or v_offer_id is distinct from (v_asp || ':' || v_program_id)
+    if v_asp is null or v_program_id is null or v_offer_id is null
+       or v_offer_id !~ '^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$'
        or nullif(trim(v_offer->>'advertiser_name'),'') is null
        or nullif(trim(v_offer->>'offer_name'),'') is null then
-      raise exception 'offer_id must be stable asp:program_id; required labels missing' using errcode = '22023';
+      raise exception 'stable source offer_id, program_id, and labels are required' using errcode = '22023';
     end if;
     if v_offer ? 'services' and jsonb_typeof(v_offer->'services') <> 'object' then
       raise exception 'services must be an object' using errcode = '22023';
@@ -215,14 +218,16 @@ begin
         raise exception 'raw HTML tags are not accepted' using errcode = '22023';
       end if;
       insert into public.asp_runtime_service_offers(
-        offer_id, service_key, source_listing_allowed, source_media_approved,
-        web_approval_status, app_approval_status, sns_approval_status, line_approval_status,
+      offer_id, service_key, source_listing_allowed, source_media_approved,
+      production_listing_approved,
+      web_approval_status, app_approval_status, sns_approval_status, line_approval_status,
         tracking_url, creative_type, creative_url, impression_tracking_url,
         point_reward_allowed, reward_rule_confirmed, reward_rule, reward_amount, reward_rate,
         valid_from, valid_until, last_verified_at, source_master_updated_at, updated_at
       ) values (
         v_offer_id, v_service_key, coalesce((v_service->>'source_listing_allowed')::boolean,false),
         coalesce((v_service->>'source_media_approved')::boolean,false),
+        coalesce((v_service->>'production_listing_approved')::boolean,false),
         coalesce(nullif(v_service->>'web_approval_status',''),'unknown'),
         coalesce(nullif(v_service->>'app_approval_status',''),'unknown'),
         coalesce(nullif(v_service->>'sns_approval_status',''),'unknown'),
@@ -238,6 +243,7 @@ begin
       ) on conflict (offer_id, service_key) do update set
         source_listing_allowed = excluded.source_listing_allowed,
         source_media_approved = excluded.source_media_approved,
+        production_listing_approved = excluded.production_listing_approved,
         web_approval_status = excluded.web_approval_status,
         app_approval_status = excluded.app_approval_status,
         sns_approval_status = excluded.sns_approval_status,
@@ -264,7 +270,8 @@ create or replace function public.admin_list_asp_runtime(p_password text)
 returns table (
   offer_id text, asp text, program_id text, advertiser_name text, offer_name text,
   category text, service_key text, approval_status text, source_listing_allowed boolean,
-  source_media_approved boolean, web_approval_status text, app_approval_status text,
+  source_media_approved boolean, production_listing_approved boolean,
+  web_approval_status text, app_approval_status text,
   sns_approval_status text, line_approval_status text, tracking_url text,
   creative_type text, creative_url text, impression_tracking_url text,
   publish_status text, listing_enabled boolean, point_reward_allowed boolean,
@@ -279,6 +286,7 @@ begin
   return query
   select o.offer_id,o.asp,o.program_id,o.advertiser_name,o.offer_name,o.category,
     s.service_key,o.approval_status,s.source_listing_allowed,s.source_media_approved,
+    s.production_listing_approved,
     s.web_approval_status,s.app_approval_status,s.sns_approval_status,s.line_approval_status,
     s.tracking_url,s.creative_type,s.creative_url,s.impression_tracking_url,s.publish_status,
     s.listing_enabled,s.point_reward_allowed,s.reward_rule_confirmed,s.reward_rule,
