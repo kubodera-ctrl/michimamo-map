@@ -107,7 +107,7 @@ export default async function ProductionDetailPage({params}:{params:Params}){
       </section>
 
       <section className="admin-panel">
-        <MachiibeFinalCarouselRenderer input={input} pageCount={pageCount} />
+        <MachiibeFinalCarouselRenderer input={input} pageCount={pageCount} postSetId={id} revisionId={revision.id} />
       </section>
 
       <section className="admin-panel">

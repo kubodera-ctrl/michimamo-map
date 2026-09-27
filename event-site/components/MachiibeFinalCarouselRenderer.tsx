@@ -3,6 +3,7 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import type {CarouselEventInput,CarouselInput} from '@/lib/machiibe-production-master';
 import {buildMachiibeRenderPages,renderPageFileName,type MachiibeRenderPage} from '@/lib/machiibe-carousel-render-plan';
+import {buildMachiibeMediaManifest,hashMachiibeMediaManifest,type MachiibeMediaManifest} from '@/lib/machiibe-media-manifest';
 
 const W=1080;
 const H=1920;
@@ -139,14 +140,51 @@ async function render(canvas:HTMLCanvasElement,page:MachiibeRenderPage,input:Car
 function asPng(canvas:HTMLCanvasElement){return new Promise<Blob>((resolve,reject)=>canvas.toBlob((blob)=>blob?resolve(blob):reject(new Error('PNG encode failed')),'image/png'));}
 async function sha256(blob:Blob){const hash=await crypto.subtle.digest('SHA-256',await blob.arrayBuffer());return Array.from(new Uint8Array(hash)).map((b)=>b.toString(16).padStart(2,'0')).join('');}
 
-export default function MachiibeFinalCarouselRenderer({input,pageCount}:{input:CarouselInput;pageCount:number}){
+export default function MachiibeFinalCarouselRenderer({input,pageCount,postSetId,revisionId}:{input:CarouselInput;pageCount:number;postSetId:string;revisionId:string}){
   const pages=useMemo(()=>buildMachiibeRenderPages(input,pageCount),[input,pageCount]);const refs=useRef<Array<HTMLCanvasElement|null>>([]);
-  const [busy,setBusy]=useState(true),[error,setError]=useState('');const [files,setFiles]=useState<Array<{name:string;hash:string;bytes:number;url:string}>>([]);
+  const [busy,setBusy]=useState(true),[error,setError]=useState('');const [files,setFiles]=useState<Array<{pageNumber:number;pageCount:number;name:string;hash:string;bytes:number;url:string}>>([]);const [manifest,setManifest]=useState<MachiibeMediaManifest|null>(null);const [manifestHash,setManifestHash]=useState('');
   useEffect(()=>{let alive=true;(async()=>{setBusy(true);try{if(document.fonts?.ready)await document.fonts.ready;for(let i=0;i<pages.length;i++){const c=refs.current[i];if(c)await render(c,pages[i],input);}}catch(e){if(alive)setError(e instanceof Error?e.message:'render failed');}finally{if(alive)setBusy(false);}})();return()=>{alive=false;};},[pages,input]);
   useEffect(()=>()=>{files.forEach((f)=>URL.revokeObjectURL(f.url));},[files]);
-  async function generate(){setBusy(true);setError('');try{files.forEach((f)=>URL.revokeObjectURL(f.url));const next=[];for(let i=0;i<pages.length;i++){const c=refs.current[i];if(!c)throw new Error('canvas missing');await render(c,pages[i],input);const blob=await asPng(c);next.push({name:renderPageFileName(input,pages[i].pageNumber,pages[i].pageCount),hash:await sha256(blob),bytes:blob.size,url:URL.createObjectURL(blob)});}setFiles(next);}catch(e){setError(e instanceof Error?e.message:'PNG generation failed');}finally{setBusy(false);}}
+  async function generate(){
+    setBusy(true);setError('');setManifest(null);setManifestHash('');
+    try{
+      files.forEach((f)=>URL.revokeObjectURL(f.url));
+      const next:Array<{pageNumber:number;pageCount:number;name:string;hash:string;bytes:number;url:string}>=[];
+      for(let i=0;i<pages.length;i++){
+        const c=refs.current[i];if(!c)throw new Error('canvas missing');
+        await render(c,pages[i],input);
+        const blob=await asPng(c);
+        next.push({
+          pageNumber:pages[i].pageNumber,
+          pageCount:pages[i].pageCount,
+          name:renderPageFileName(input,pages[i].pageNumber,pages[i].pageCount),
+          hash:await sha256(blob),
+          bytes:blob.size,
+          url:URL.createObjectURL(blob)
+        });
+      }
+      const built=buildMachiibeMediaManifest(postSetId,revisionId,next.map((file)=>({
+        pageNumber:file.pageNumber,
+        pageCount:file.pageCount,
+        fileName:file.name,
+        sha256:file.hash,
+        bytes:file.bytes
+      })));
+      setFiles(next);
+      setManifest(built);
+      setManifestHash(await hashMachiibeMediaManifest(built));
+    }catch(e){
+      setError(e instanceof Error?e.message:'PNG generation failed');
+    }finally{
+      setBusy(false);
+    }
+  }
+
   return <div><div className="admin-panel-head"><div><h2>Final PNG Renderer</h2><p>Golden原典を基準に、Previewと1080×1920 PNGを同じCanvas描画から生成します。権利未承認画像は使いません。</p></div><button className="admin-primary" type="button" onClick={generate} disabled={busy}>{busy?'描画中…':'PNGセットを生成'}</button></div>
     {error&&<div className="admin-warning">{error}</div>}<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:18}}>
       {pages.map((page,index)=><article key={page.pageNumber}><canvas ref={(node)=>{refs.current[index]=node;}} style={{display:'block',width:'100%',aspectRatio:'9 / 16',borderRadius:18,boxShadow:'0 8px 24px rgba(13,53,86,.14)',background:'#eef7fb'}}/><div style={{display:'flex',justifyContent:'space-between',gap:8,marginTop:8,fontSize:12}}><span>{page.pageNumber}/{page.pageCount} {page.kind.toUpperCase()}</span>{files[index]&&<a href={files[index].url} download={files[index].name}>PNG</a>}</div>{files[index]&&<small style={{display:'block',overflowWrap:'anywhere'}}>sha256: {files[index].hash}<br/>{files[index].bytes.toLocaleString()} bytes</small>}</article>)}
-    </div>{files.length===pages.length&&<p style={{marginTop:14}}>mediaManifest準備: {files.length} files / 各PNGのSHA-256算出済み。R2保存API接続前のためDB/R2にはまだ書き込みません。</p>}</div>;
+    </div>{files.length===pages.length&&<div style={{marginTop:14}}>
+      <p>mediaManifest準備: {files.length} files / 各PNGのSHA-256算出済み。R2保存API接続前のためDB/R2にはまだ書き込みません。</p>
+      {manifest&&<small style={{display:'block',overflowWrap:'anywhere'}}>manifest: {manifest.version}<br/>mediaHash: {manifestHash}<br/>R2 prefix: production/machiibe/{postSetId}/{revisionId}/</small>}
+    </div>}</div>;
 }
