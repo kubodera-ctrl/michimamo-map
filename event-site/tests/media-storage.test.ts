@@ -68,8 +68,8 @@ test('media upload route requires admin/same-origin, server rehash and atomic DB
 test('media commit SQL is service-role only and resets approval gates',()=>{
   const sql=fs.readFileSync(new URL('../../supabase/migrations/20260928082000_machiibe_media_commit.sql',import.meta.url),'utf8');
   assert.match(sql,/security definer/i);
-  assert.match(sql,/grant execute .*service_role/is);
-  assert.match(sql,/revoke all .*anon,authenticated/is);
+  assert.match(sql,/grant execute [\\s\\S]*service_role/i);
+  assert.match(sql,/revoke all [\\s\\S]*anon,authenticated/i);
   assert.match(sql,/media_committed/);
   assert.match(sql,/visual_qc='pending'/);
   assert.match(sql,/golden_qc='pending'/);
