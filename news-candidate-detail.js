@@ -141,6 +141,10 @@
     return `<div class="news-detail-field"><div class="news-detail-label">${escapeHtml(label)}</div><div class="news-detail-value ${className}">${safe}</div></div>`;
   }
 
+  function htmlField(label, safeHtml) {
+    return `<div class="news-detail-field"><div class="news-detail-label">${escapeHtml(label)}</div><div class="news-detail-value">${safeHtml}</div></div>`;
+  }
+
   function boolText(value) {
     return value === true ? 'true' : value === false ? 'false' : '要確認';
   }
@@ -183,7 +187,7 @@
       </div>
       <div class="news-detail-section">
         <h4>source / facts / rights</h4>
-        ${field('source URL', sourceUrl, 'news-detail-html')}
+        ${htmlField('source URL', sourceUrl)}
         ${field('source date', view.sourceDate)}
         ${field('sourceHash', view.sourceHash, 'news-detail-break news-detail-mono')}
         <div class="news-detail-field"><div class="news-detail-label">verifiedFacts</div><div class="news-detail-value">${facts}</div></div>
@@ -196,7 +200,7 @@
           ${field('commercialUseAllowed', boolText(view.commercialUseAllowed))}
           ${field('attribution', view.attribution)}
         </div>
-        <div class="news-detail-field"><div class="news-detail-label">rights evidence</div><div class="news-detail-value news-detail-html">${rightsUrl}</div></div>
+        ${htmlField('rights evidence', rightsUrl)}
         <div class="news-detail-field"><div class="news-detail-label">locality evidence</div><div class="news-detail-value">${locality}</div></div>
       </div>
       <div class="news-detail-section">
