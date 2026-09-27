@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs"
+    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs",
+    "test:production-current": "node tools/production-current/timeline.test.cjs && node tools/production-current/input-contract.test.cjs && node tools/production-current/news-publishing-contract.test.cjs && node tools/production-current/renderer-preflight.test.cjs"
   },
   "repository": {
     "type": "git",
