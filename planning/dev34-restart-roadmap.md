@@ -16,7 +16,7 @@
 | AIカメラ / 車載モード | C | カメラ関連UI・保持期限・AI停止ガード等はコード/DBに存在。現端末で撮影から保存/破棄までE2E未確認。 |
 | ポイント / スタンプ / クイズ | B | 台帳・transaction/RPC・重複防止に関する実装・回帰テストあり。実ユーザー運用と端末での集計表示は別途確認。 |
 | ポイント交換 / デジタルギフト | B | 交換画面・DB/APIの雛形あり。Supabase live configは `exchange_enabled=false`, `processing_enabled=false`、申請0件。外部処理・有効化はしない。 |
-| ASP連携 | D | Drive ASPマスターが正本。案件ごとに還元許可・計測・否認/承認要件を確認し、匿名reward_token・台帳・Webhookを実装する必要あり。 |
+| ASP実広告リンク / Runtime Master | C | ASP2管理のDrive案件マスター最終更新 2026-09-27 15:09 JSTを読取確認。専用ブランチ `feat/dev34-asp-runtime-master` にfail-closed schema/RPC、管理同期UI、PR枠、クリック記録、契約テストを追加。migration未適用・Preview未確認・実リンク未公開。成果連携/Webhook/ポイント台帳接続は未実装。 |
 | まちイベ / 今日のお出かけ導線 | C | 仕様・コードの現状態と導線の端末確認を行い、既存機能を継続利用。追加ポップアップは共通UI/Feature flag/API契約を先に用意する。 |
 | 警視庁ニュース自動化 | C | 取得/検証コードは存在。最新記事性、一次ソース、失敗時、管理者承認の実運用確認が未完。 |
 | 動画Production | C | local `tools/news-studio` は15秒/4frame試作でDrive CURRENTの v16.4 + REVIEW5 (43s/Weekly公式尺) と不一致。参考成果物として保管し、本番生成・MP4には採用しない。 |
@@ -27,6 +27,14 @@
 ## 統合ロードマップ
 
 ### P0 — Safari・既存未完了の回収
+
+## 現在の接続・Preview blocker（2026-09-27）
+
+- PR #20はDraftのまま。Vercel project `machimamo-map` のProductionは既知正常 deployment `dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4`（`machimamo-map.vercel.app`）と確認。Productionには変更なし。
+- Vercel project Settings > Git で「This Project is not connected to a Git repository」を確認。PR #20のPreview URLは未作成。Vercel GitHub App/repository接続の権限を戻す操作は本人の明示確認後に行う。
+- 最新候補deployment `dpl_4rNUM3ezdXPPSpMRKAAYE7V2tyHt` はtarget/aliasなしでPR #20 Previewとして使えない。
+- Cloudflare DashboardはCloudflareのセキュリティ検証画面で停止（検証回避なし）。ローカルにVercel CLI/Wranglerと`.vercel`接続設定なし。独立Preview経路は未確立。
+- PreviewができるまでSafari実機QA・merge・Production反映は禁止。Cloudflare等のProduction非接触Preview経路も調査する。
 
 1. Safari標準viewport修正、回帰テスト、独立Preview作成。
 2. 通常Safari / Private Safari AAPオン、オフで実機確認。確認までは本番にpromoteしない。
@@ -45,12 +53,16 @@
 2. 今日のお出かけ/まちイベポップアップを仕様に沿って追加し、既存イベント導線・表示抑制・deep linkと統合。
 3. AIカメラ/車載モード、ポイント/スタンプ/クイズをログイン状態・通信失敗・連続操作込みで回帰。
 
-### P3 — ASP・交換台帳
+### P3 — ASP実広告リンク・Runtime Master・交換台帳
 
-1. Drive「まちまも・まちイベ ASP案件マスター」現行行を唯一の案件基準とし、pointOK案件だけ対象。成果計測方式、許可媒体、承認/否認、確定日を確認。
-2. API-firstで匿名token発行・クリック・Webhook/Queue受信・照合・重複排除・承認待ちを実装。ASPへ個人情報を渡さない。
-3. available/reserved/confirmed/expired/reversedの台帳、交換予約・失敗返還・完了のidempotencyを実装。
-4. ギフト事業者API/契約費用/個人情報フローが未確定の間はlive交換を無効のまま維持。
+1. ASP2がGoogle Sheets「まちまも・まちイベ ASP案件マスター」の編集責任者・事業正本を保持。開発34はSheet→Supabase Runtime Master同期とアプリ利用を担当し、同期直前に最新状態を再取得する。
+2. ASP案件マスターの安定 `offer_id` をそのままPrimary KeyとしてRuntime MasterへImportし、別名や合成IDに置き換えない。Importはsource factsだけをupsertし、公開・placementを有効化しない。raw広告HTML/iframe/scriptは拒否する。
+3. offerとservice(media)を分離する。まちまもとまちイベで承認/リンクを共有しない。まちまも公開gateは提携承認、まちまも掲載許可、媒体承認、本番掲載可否、Web承認、実tracking URL、active、掲載期間、enabled placementを全て要求する。
+4. 広告掲載許可とポイント還元許可を分離する。ポイント情報は `point_reward_allowed AND reward_rule_confirmed` の場合だけ返す。NG案件はポイント付与せず通常PR掲載のみ可能。
+5. 管理画面で公開ON/OFF、placement、掲載期間、一時停止、クリック数、還元条件、媒体承認、source同期/最終確認を確認できる。成果連携は未接続と明示する。
+6. クリックは内部click_id/offer/service/placement/userまたは匿名session/time/source screenを記録し、ASP発行tracking URLへ直接遷移する。ASP2 masterの本番掲載準備が掲載不可/未確認の現行案件はdraftに留める。URLへパラメータを足さず、計測失敗で遷移を止めない。テストは実リンクをクリックしない。
+7. 成果照合、reward_token、Webhook/Queue、ledgerは後続工程。ASPが識別パラメータを許可しない案件を自動個人照合しない。ASPへ個人情報を渡さない。
+8. available/reserved/confirmed/expired/reversed台帳、交換予約・失敗返還・完了のidempotencyを実装する。ギフト事業者契約/費用/個人情報フローが未確定の間はlive交換を無効に保つ。
 
 ### P4 — 公式動画Production Master
 
@@ -72,3 +84,23 @@
 - schema / secrets / shared auth / rewards / deploy の最新状態を本番前に再取得。
 - ProductionはPreviewと実機QA完了後のみ。Safari実機確認前のPromotionは禁止。
 - GitHub Actions以外の継続経路を確認できるまで、Actions成功だけをデプロイ可用性とみなさない。
+
+
+### P3 実装確認メモ（2026-09-27）
+- 現行ASP masterの安定IDは `offer_id` 列（例 `ofr_000002`）、A8の `program_id` は `s00000027130002`。offer_idを合成IDへ置き換えない。
+- `本番掲載準備` 現行行ではLepton BridgeとLeptonの2件が「掲載不可」。現行のProduction URL/Web・PWA・アプリ条件と掲載位置の最終確認待ち。掲載gateに `production_listing_approved` を追加し、Sheetで掲載可になるまでRuntimeでは公開できない。
+- Lepton Bridgeは還元不可。App/SNS/LINE媒体承認も未確認。正規URLをdraft同期する場合もポイント表示なし、machiibeへリンクを流用しない。
+- admin UIはJSON importを受けるが、Google Sheets API直接同期/変換は未接続。ASP2のソース編集は行わない。
+
+## 2026-09-27 次工程検証（feature側記録）
+
+- この追記はPR #21側。PR #20 base e0eb669は未変更。
+- ASP修正push: 829fe3a9fe0093d42be2157a8bd04fafe61558e2。隔離PostgreSQL実行検証PASS、退会時クリックFK/CHECK衝突を修正。Production未適用。
+- Cloudflare failed build 4件を特定、ログ本文はCloud Browserのセキュリティ検証で未取得。根本原因未確定。
+- GitHub Event Site Checkはevent-site/package.json不在によるcache pathエラーを確認。Cloudflare原因と混同しない。
+- Vercel Git選択画面にkubodera-ctrl/michimamo-mapのConnect表示。本人接続待ち。Preview ID/URLなし。
+- ASP2契約とchannel・unknown automation・approved placement・sync auditに差分あり。現PRは本番利用不可、C継続。
+- P2追加13テスト=11PASS/2FAIL（旧quiz fixture重複、旧exchange期待文言）。実機未確認。
+- P4別branch feat/dev34-current-production-engine @42549914a67bfe4111e703805af46cafb7f07e7f。CURRENT timeline実装/テストのみ、Renderer/MP4 QC未完了。
+- P5はまちイベ既存共通schemaを再利用する方針。同名DDL追加なし。
+- 詳細/検証限界/次工程: planning/dev34-validation-20260927.md。
