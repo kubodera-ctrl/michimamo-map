@@ -3,6 +3,16 @@
 
 begin;
 
+drop view if exists public.machiibe_event_provenance;
+drop table if exists public.machiibe_promotions cascade;
+drop table if exists public.publishing_audit_log cascade;
+drop table if exists public.publishing_platform_posts cascade;
+drop table if exists public.publishing_revisions cascade;
+drop table if exists public.publishing_post_sets cascade;
+drop table if exists public.production_master_registry cascade;
+drop table if exists public.machiibe_ingest_items cascade;
+drop table if exists public.machiibe_ingest_jobs cascade;
+
 drop function if exists public.get_public_machiibe_pickups(integer);
 drop function if exists public.service_set_machiibe_pickup(bigint,boolean,integer);
 drop function if exists public.service_refresh_machiibe_pickups(integer);
