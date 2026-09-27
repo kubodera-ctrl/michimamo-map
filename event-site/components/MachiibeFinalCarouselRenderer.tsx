@@ -207,7 +207,7 @@ async function drawEvents(ctx:CanvasRenderingContext2D,page:Extract<MachiibeRend
   else{await drawEventCard(ctx,page.events[0],44,110,482,1725);await drawEventCard(ctx,page.events[1],554,110,482,1725);}
   rounded(ctx,0,1850,W,70,0,NAVY);label(ctx,'詳しくはプロフィールから',38,1868,28,800,'#fff');
 }
-function drawCta(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,input:CarouselInput){
+async function drawCta(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,input:CarouselInput){
   const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#fff4f7');g.addColorStop(.58,'#fff');g.addColorStop(1,SOFT_BLUE);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);pageBadge(ctx,page);
   label(ctx,'おでかけイベントを探すなら',540,105,42,900,PINK,'center');brand(ctx,315,195,1.18);
   accentRays(ctx,935,265,.48);
@@ -226,14 +226,13 @@ function drawCta(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,input:Caro
   rounded(ctx,160,995,470,130,28,'#f9fbfd','#e2edf4');label(ctx,input.area.prefecture+'の'+String(input.events.filter((e)=>e.includedInPost!==false).length)+'件をチェック',395,1030,25,850,INK,'center');
 
   const events=input.events.filter((e)=>e.includedInPost!==false);
-  const imgA=approvedUrl(events.find((e)=>approvedUrl(e))||events[0]);
-  const imgB=approvedUrl(events.find((e,index)=>index>0&&approvedUrl(e))||events[1]);
-  // Keep CTA deterministic even when media is unavailable: image cards fall back to brand gradients.
-  const drawPolaroid=async()=>{};
-  void drawPolaroid;
-  ctx.save();ctx.translate(840,610);ctx.rotate(.075);rounded(ctx,-145,-180,290,330,7,'#fff');ctx.fillStyle='#dff4ff';ctx.fillRect(-125,-160,250,235);label(ctx,'EVENT',0,-75,32,900,SKY,'center');label(ctx,'見つけた！',0,90,25,850,INK,'center');ctx.restore();
-  ctx.save();ctx.translate(820,975);ctx.rotate(-.06);rounded(ctx,-145,-165,290,310,7,'#fff');ctx.fillStyle='#fff1f5';ctx.fillRect(-125,-145,250,215);label(ctx,'SAVE',0,-65,31,900,PINK,'center');label(ctx,'家族に共有',0,85,23,850,INK,'center');ctx.restore();
-  void imgA;void imgB;
+  const heroA=events.find((e)=>approvedUrl(e))||events[0];
+  const heroB=events.find((e,index)=>index>0&&approvedUrl(e))||events[1];
+  const imgA=await loadImage(approvedUrl(heroA));
+  const imgB=await loadImage(approvedUrl(heroB));
+  // Approved event media is used when available; otherwise imageFill keeps a deterministic brand fallback.
+  ctx.save();ctx.translate(840,610);ctx.rotate(.075);rounded(ctx,-145,-180,290,330,7,'#fff');imageFill(ctx,imgA,-125,-160,250,235);label(ctx,'見つけた！',0,90,25,850,INK,'center');ctx.restore();
+  ctx.save();ctx.translate(820,975);ctx.rotate(-.06);rounded(ctx,-145,-165,290,310,7,'#fff');imageFill(ctx,imgB,-125,-145,250,215);label(ctx,'家族に共有',0,85,23,850,INK,'center');ctx.restore();
 
   rounded(ctx,0,1320,W,430,0,'#e8f7ff');
   label(ctx,'行く前・当日の安心は',72,1375,34,850,INK);
@@ -252,7 +251,7 @@ function drawCta(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,input:Caro
 }
 async function render(canvas:HTMLCanvasElement,page:MachiibeRenderPage,input:CarouselInput){
   canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('canvas unavailable');ctx.clearRect(0,0,W,H);
-  if(page.kind==='cover')await drawCover(ctx,page,input);else if(page.kind==='highlights')await drawHighlights(ctx,page,input);else if(page.kind==='events')await drawEvents(ctx,page);else drawCta(ctx,page,input);
+  if(page.kind==='cover')await drawCover(ctx,page,input);else if(page.kind==='highlights')await drawHighlights(ctx,page,input);else if(page.kind==='events')await drawEvents(ctx,page);else await drawCta(ctx,page,input);
 }
 function asPng(canvas:HTMLCanvasElement){return new Promise<Blob>((resolve,reject)=>canvas.toBlob((blob)=>blob?resolve(blob):reject(new Error('PNG encode failed')),'image/png'));}
 async function sha256(blob:Blob){const hash=await crypto.subtle.digest('SHA-256',await blob.arrayBuffer());return Array.from(new Uint8Array(hash)).map((b)=>b.toString(16).padStart(2,'0')).join('');}
