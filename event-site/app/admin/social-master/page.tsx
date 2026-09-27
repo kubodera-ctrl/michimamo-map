@@ -3,10 +3,13 @@ import Link from 'next/link';
 import {cookies} from 'next/headers';
 import {redirect} from 'next/navigation';
 import {ADMIN_COOKIE,validateAdminSession} from '@/lib/admin-auth';
-import {MACHIIBE_SOCIAL_MASTER,MACHIIBE_SOCIAL_MASTER_VERSION} from '@/lib/machiibe-social-master';
+import {
+  MACHIIBE_CAROUSEL_CURRENT,
+  MACHIIBE_VIDEO_CURRENT
+} from '@/lib/machiibe-production-master';
 
 export const dynamic='force-dynamic';
-export const metadata:Metadata={title:'SNS Production Master',robots:{index:false,follow:false}};
+export const metadata:Metadata={title:'Production Master',robots:{index:false,follow:false}};
 
 export default async function SocialMasterPage(){
   const jar=await cookies();
@@ -14,60 +17,74 @@ export default async function SocialMasterPage(){
 
   return (
     <main className="admin-shell">
-      <nav className="breadcrumb" aria-label="パンくず"><Link href="/admin">運営ダッシュボード</Link><span>›</span><span>SNS Production Master</span></nav>
+      <nav className="breadcrumb" aria-label="パンくず"><Link href="/admin">運営ダッシュボード</Link><span>›</span><span>Production Master</span></nav>
       <div className="admin-topbar">
         <div>
-          <p className="eyebrow">MACHI IBE SOCIAL MASTER</p>
-          <h1>X / TikTok 正式マスター</h1>
-          <p>{MACHIIBE_SOCIAL_MASTER_VERSION}・AIは文章整理のみ。レイアウトはコード固定。</p>
+          <p className="eyebrow">MACHI IBE PRODUCTION MASTER</p>
+          <h1>まちイベ CURRENT Production Master</h1>
+          <p>Drive CURRENT 2026-09-27を正本とし、旧TikTok固定5Frame仕様はProduction CURRENTとして使用しません。</p>
         </div>
-        <Link className="admin-back-link" href="/admin#new-events">SNS素材一覧へ</Link>
+        <Link className="admin-back-link" href="/admin">運営ダッシュボードへ</Link>
       </div>
 
       <section className="admin-panel">
-        <div className="admin-panel-head"><div><h2>TikTok 固定5Frame</h2><p>Frame1〜4積み上げ + Frame5完全別エンドカード。</p></div></div>
-        <div className="social-master-frame-grid">
-          {MACHIIBE_SOCIAL_MASTER.tiktok.frames.map((frame)=>(
-            <article key={frame.id}>
-              <b>FRAME {frame.number}</b>
-              <strong>{frame.id.toUpperCase()}</strong>
-              <span>{frame.purpose}</span>
-              <small>{frame.required.join(' / ')}</small>
-            </article>
-          ))}
+        <div className="admin-panel-head">
+          <div>
+            <h2>CAROUSEL — ACTIVE</h2>
+            <p>{MACHIIBE_CAROUSEL_CURRENT.masterVersion}</p>
+          </div>
         </div>
+        <div className="social-master-frame-grid">
+          <article><b>1</b><strong>表紙</strong><span>地域 / 期間 / キャッチ / ロゴ</span></article>
+          <article><b>2</b><strong>見どころ</strong><span>確認済みジャンル・選び方</span></article>
+          <article><b>MIDDLE</b><strong>イベント詳細</strong><span>事実を削らず1〜2イベント/枚を基本</span></article>
+          <article><b>LAST</b><strong>CTA</strong><span>まちイベ検索 + 保存共有 + まちまも安全導線</span></article>
+        </div>
+
         <div className="admin-bottom-note">
-          <strong>素材優先</strong>
-          <p>許諾済み公式動画 → 許諾済み公式画像 → 運営者提供素材 → ブランドカテゴリービジュアル。公式ページに掲載されているだけでは利用可と判断しません。</p>
+          <strong>可変ページ数</strong>
+          <p>3〜4件=5枚 / 5〜6件=6枚 / 7〜8件=7枚 / 9〜10件=8枚。11件以上は8枚へ詰めずPart分割。</p>
+        </div>
+
+        <div className="admin-bottom-note">
+          <strong>公開ゲート</strong>
+          <p>{MACHIIBE_CAROUSEL_CURRENT.publishGate.join(' → ')}</p>
         </div>
       </section>
 
-      <div className="admin-two-col">
-        <section className="admin-panel">
-          <div className="admin-panel-head"><div><h2>Frame 4 自動切替</h2><p>デザインは変えず、確認済み内容だけ切り替え。</p></div></div>
-          <ol className="social-master-priority">
-            <li><b>1</b><span>体験</span><small>宝石、釣り、ガラス、指輪、陶芸など</small></li>
-            <li><b>2</b><span>推し活</span><small>確認済み作品・キャラ・出演者</small></li>
-            <li><b>3</b><span>子ども・ファミリー</span><small>対象・屋内・料金等</small></li>
-            <li><b>4</b><span>雨の日・屋内</span><small>確認済み屋内条件</small></li>
-            <li><b>5</b><span>無料</span><small>完全無料を確認できた場合のみ</small></li>
-          </ol>
-        </section>
-
-        <section className="admin-panel">
-          <div className="admin-panel-head"><div><h2>Frame 5 固定CTA</h2><p>まちイベ→まちまもまで一つの導線にする。</p></div></div>
-          <div className="social-master-cta">
-            <strong>{MACHIIBE_SOCIAL_MASTER.copy.cta.machiibe}</strong>
-            <strong>{MACHIIBE_SOCIAL_MASTER.copy.cta.saveShare}</strong>
-            <strong>{MACHIIBE_SOCIAL_MASTER.copy.cta.machimamo}</strong>
-            <strong>{MACHIIBE_SOCIAL_MASTER.copy.cta.profile}</strong>
+      <section className="admin-panel">
+        <div className="admin-panel-head">
+          <div>
+            <h2>画像・事実ルール</h2>
+            <p>AIは確認済み事実を整理できますが、事実値や権利状態を補完しません。</p>
           </div>
-        </section>
-      </div>
+        </div>
+        <ul className="admin-master-copy">
+          <li>開催日・時間・会場・住所・市区町村・料金・対象年齢・予約・雨天・主催・公式URL・中止延期終了は推測禁止。</li>
+          <li>権利確認済み公式画像 → 提供画像 → 一般イメージ → AI一般イメージ。unknown / blockedのイベント素材は自動利用禁止。</li>
+          <li>一般/AIイメージは必要な免責を必須化。</li>
+          <li>Golden Snapshotはテスト失敗時に自動更新しない。</li>
+        </ul>
+      </section>
 
       <section className="admin-panel">
-        <div className="admin-panel-head"><div><h2>X マスター</h2><p>リンククリック優先。自動投稿はしません。</p></div></div>
-        <p className="admin-master-copy">フック → 地域 → イベント名 → 日時 → 会場 → 確認済み特徴最大3点 → まちイベ → まちまも → ハッシュタグ最大{MACHIIBE_SOCIAL_MASTER.x.maxHashtags}個。</p>
+        <div className="admin-panel-head">
+          <div>
+            <h2>VIDEO — MASTER待ち</h2>
+            <p>共通Publishing基盤はVIDEOを扱えるようにしますが、まちイベ用の正式VIDEO CURRENTがDriveに登録されるまで生成を有効化しません。</p>
+          </div>
+        </div>
+        <div className="admin-warning">{MACHIIBE_VIDEO_CURRENT.reason}</div>
+      </section>
+
+      <section className="admin-panel">
+        <div className="admin-panel-head">
+          <div>
+            <h2>SNS Publishing</h2>
+            <p>CAROUSEL生成・QC・承認の後に、X / TikTokへRevision単位で投稿します。</p>
+          </div>
+        </div>
+        <p className="admin-master-copy">同一Revisionの二重投稿は idempotency で防止し、外部投稿完了を確認してから「済」とします。</p>
       </section>
     </main>
   );
