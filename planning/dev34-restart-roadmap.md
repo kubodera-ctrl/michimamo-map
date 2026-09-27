@@ -134,3 +134,14 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - adapter実行検証: 福岡の実legacy sampleで prefecture=福岡県、municipality=みやこ町、newsDate=2026-09-18、publishEligible=false、W38 filterをPASS。関連JS/testの構文PASS。
 - Source Master過去seedでは警視庁「メールけいしちょう OPEN DATA」が一次ソース候補。現行公式サイトでもCC BY 4.0、出所表示、事実と異なる加工回避、訂正追従が明記されている。正式adapterはSource Masterの存在だけでなく最新利用規約・一次データ・訂正状態を保持する設計にする。
 - 次: iPhone Previewで実候補表示/filters/weekly countを確認。並行してcanonical verified-news Admin API/BFF contractを設計し、legacy bridgeを置換できるようにする。Production migration・外部投稿なし。
+
+
+## 2026-09-27 P4 canonical verified-news contract
+
+- `tools/production-current/news-candidate-contract.cjs` を追加。schemaVersion=`machimamo-news-candidate-v1`、service=`machimamo`、informationKind=`POLICE_OFFICIAL|LOCAL_ANOMALY`。
+- Candidate gateは sourceStatus=verified / factsStatus=verified / rightsStatus=cleared / correctionStatus=current を全て要求。HTTPS source/evidence、sourceHash SHA-256、verifiedFacts非空、publishable rights level、commercialUseAllowed=true、CC_BY attributionを検証。
+- `LEGACY_UNVERIFIED` はcanonical validatorで拒否。旧spots candidateを選択しただけで正式候補へ昇格させない。
+- `news-candidate-api-contract.md` に将来Admin API/BFFのread contract、service scope、pagination、correction/hash更新、storage責務分離を記録。endpoint実装・Production migration・Admin Auth変更は未実施。
+- validator実行検証PASS：正常な警視庁OPEN DATA型candidateはvalid/publishEligible=true、correctionStatus=unknownはvalidだがpublishEligible=false、commercialUseAllowed=falseはinvalid、LEGACY_UNVERIFIEDはinvalid。
+- 警視庁OPEN DATA最新公式確認：対象データはCC BY 4.0、出所表示、事実と異なる加工回避、訂正追従の注意あり。Open DATAサイトでは2026-09-24までの配信データ掲載を確認。利用規約は利用時に最新再確認する。
+- P4 HEAD `17a0321e8fc77e153f2c014b3206c9e3ae5bc1ec`。Vercel Preview `dpl_HRhpe1UgUjtP11wNYB7iQPkzjgLC` READY / target=null。Production変更なし。
