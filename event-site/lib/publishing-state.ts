@@ -1,6 +1,7 @@
 export type PublishingPlatform='x'|'tiktok';
 export type PlatformPostStatus='not_requested'|'queued'|'uploading'|'sent'|'posting'|'posted'|'failed'|'cancelled';
 export type OverallPostState='未'|'一部済'|'済'|'失敗'|'投稿処理中';
+export type PlatformDisplayState='未'|'接続設定必要'|'投稿準備中'|'queued'|'uploading'|'送信済 / 投稿未完了'|'posting'|'済'|'失敗';
 
 export type PlatformPostSnapshot={
   platform:PublishingPlatform;
@@ -37,6 +38,22 @@ export function isTikTokFinalPosted(status:string){
 
 export function isXCreateComplete(httpStatus:number,externalPostId:string|null|undefined){
   return httpStatus===201 && Boolean(externalPostId);
+}
+
+export function platformDisplayState(input:{
+  connected:boolean;
+  publishEligible:boolean;
+  status?:PlatformPostStatus|null;
+}):PlatformDisplayState{
+  if(!input.connected) return '接続設定必要';
+  const status=input.status||'not_requested';
+  if(status==='not_requested'||status==='cancelled') return input.publishEligible?'投稿準備中':'未';
+  if(status==='queued') return 'queued';
+  if(status==='uploading') return 'uploading';
+  if(status==='sent') return '送信済 / 投稿未完了';
+  if(status==='posting') return 'posting';
+  if(status==='posted') return '済';
+  return '失敗';
 }
 
 export function deriveOverallPostState(posts:PlatformPostSnapshot[]):OverallPostState{

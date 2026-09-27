@@ -6,6 +6,7 @@ import {
   isTikTokFinalPosted,
   isXCreateComplete,
   mapTikTokExternalStatus,
+  platformDisplayState,
   publishingIdempotencyKey
 } from '../lib/publishing-state';
 
@@ -50,4 +51,17 @@ test('approved publishEligible revision is required and posted revision needs ex
     publishEligible:true,approvalStatus:'approved',platform:'x',
     existing:{platform:'x',status:'posted'},explicitRepost:true
   }),true);
+});
+
+
+test('platform display distinguishes connection setup and posting lifecycle',()=>{
+  assert.equal(platformDisplayState({connected:false,publishEligible:true,status:'not_requested'}),'接続設定必要');
+  assert.equal(platformDisplayState({connected:true,publishEligible:false,status:'not_requested'}),'未');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'not_requested'}),'投稿準備中');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'queued'}),'queued');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'uploading'}),'uploading');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'sent'}),'送信済 / 投稿未完了');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'posting'}),'posting');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'posted'}),'済');
+  assert.equal(platformDisplayState({connected:true,publishEligible:true,status:'failed'}),'失敗');
 });

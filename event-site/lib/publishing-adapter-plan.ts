@@ -19,6 +19,8 @@ export type PublishingReadiness={
   externalConnectionRequired:boolean;
 };
 
+export const PUBLISHING_ADAPTER_IMPLEMENTED={x:false,tiktok:false} as const;
+
 export const CURRENT_PUBLISHING_CAPABILITIES={
   verifiedAt:'2026-09-28',
   x:{

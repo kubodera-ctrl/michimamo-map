@@ -6,7 +6,8 @@ import {ADMIN_COOKIE,validateAdminSession} from '@/lib/admin-auth';
 import {getAdminSupabase} from '@/lib/supabase-admin';
 import type {CarouselInput} from '@/lib/machiibe-production-master';
 import MachiibeFinalCarouselRenderer from '@/components/MachiibeFinalCarouselRenderer';
-import {deriveOverallPostState} from '@/lib/publishing-state';
+import {deriveOverallPostState,platformDisplayState} from '@/lib/publishing-state';
+import {PUBLISHING_ADAPTER_IMPLEMENTED,CURRENT_PUBLISHING_CAPABILITIES} from '@/lib/publishing-adapter-plan';
 
 export const dynamic='force-dynamic';
 export const metadata:Metadata={title:'Production Revision',robots:{index:false,follow:false}};
@@ -136,7 +137,19 @@ export default async function ProductionDetailPage({params}:{params:Params}){
         <div className="admin-platform-actions">
           {(['x','tiktok'] as const).map((platform)=>{
             const post=posts.find((item)=>item.platform===platform);
-            return <div key={platform}><strong>{platform==='x'?'X':'TikTok'}</strong><span>{post?.status||'未'}</span>{post?.external_status&&<small>{post.external_status}</small>}</div>;
+            const display=platformDisplayState({
+              connected:PUBLISHING_ADAPTER_IMPLEMENTED[platform],
+              publishEligible:Boolean(revision.publish_eligible),
+              status:post?.status||'not_requested'
+            });
+            return <div key={platform}>
+              <strong>{platform==='x'?'X':'TikTok'}</strong>
+              <span>{display}</span>
+              {post?.external_status&&<small>{post.external_status}</small>}
+              {platform==='x'&&pageCount>CURRENT_PUBLISHING_CAPABILITIES.x.maxPhotosPerPost&&
+                <small>CURRENT {pageCount}枚はX 1投稿の画像上限4枚を超えるため、multi-post方針承認まで投稿禁止</small>}
+              {platform==='tiktok'&&<small>Photo Postは公開可能なverified media URLとOAuth接続後に有効化</small>}
+            </div>;
           })}
         </div>
         {!revision.publish_eligible && <div className="admin-warning">Visual / Golden QCと管理者承認が完了するまで投稿できません。</div>}
