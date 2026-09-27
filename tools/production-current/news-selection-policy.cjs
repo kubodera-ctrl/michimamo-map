@@ -89,27 +89,45 @@ function classifyCandidate(candidate, now = new Date()) {
   let include = locality;
   let reason = locality ? '地域との具体的接点あり' : '地域との具体的接点を確認できない';
 
-  if (hasAny(text, WRONG_WAY_TERMS) && (hasAny(text, EXPRESSWAY_TERMS) || candidate?.category === 'WRONG_WAY_DRIVING')) {
+  if (candidate?.category === 'NOTICE') {
+    topic = TOPICS.GENERAL;
+    priority = PRIORITIES.EXCLUDE;
+    include = false;
+    reason = '各種イベント・お知らせは通常のニュース候補から除外';
+  } else if (candidate?.category === 'TRAFFIC_INFORMATION' &&
+             !hasAny(text, WRONG_WAY_TERMS) &&
+             !hasAny(text, MAJOR_TRAFFIC_TERMS)) {
+    topic = TOPICS.TRAFFIC_MAJOR;
+    priority = PRIORITIES.EXCLUDE;
+    include = false;
+    reason = '一般交通情報は重大安全事案に該当する場合だけ候補化';
+  } else if (candidate?.category === 'SAFETY_INFORMATION' &&
+             !hasAny(text, [...PERSON_TERMS, ...CHILD_TERMS, ...FRAUD_TERMS, ...PUBLIC_SAFETY_TERMS])) {
+    topic = TOPICS.GENERAL;
+    priority = PRIORITIES.EXCLUDE;
+    include = false;
+    reason = '一般防犯広報は具体的な安全事案がある場合だけ候補化';
+  } else if (hasAny(text, WRONG_WAY_TERMS) && (hasAny(text, EXPRESSWAY_TERMS) || candidate?.category === 'WRONG_WAY_DRIVING')) {
     topic = TOPICS.TRAFFIC_WRONG_WAY;
     priority = PRIORITIES.HIGH;
     include = locality;
     reason = locality ? '高速道路等の逆走は重大な交通安全事案' : '逆走事案だが地域接点の確認が必要';
-  } else if (hasAny(text, CHILD_TERMS)) {
+  } else if (candidate?.category === 'CHILD_SAFETY' || hasAny(text, CHILD_TERMS)) {
     topic = hasAny(text, ['迷子','行方不明','捜索','保護要請']) ? TOPICS.MISSING_PERSON : TOPICS.CHILD_SAFETY;
     priority = PRIORITIES.HIGH;
     include = locality;
     reason = locality ? '子ども・捜索・保護に関する地域安全情報' : '子ども関連だが地域接点の確認が必要';
-  } else if (hasAny(text, PERSON_TERMS)) {
+  } else if (['APPROACH_OR_SUSPICIOUS','INDECENT_EXPOSURE','ROBBERY','ROBBERY_SNATCH'].includes(candidate?.category) || hasAny(text, PERSON_TERMS)) {
     topic = TOPICS.PERSON_SAFETY;
     priority = PRIORITIES.HIGH;
     include = locality;
     reason = locality ? '対人安全に関する地域事案' : '対人事案だが地域接点の確認が必要';
-  } else if (hasAny(text, FRAUD_TERMS)) {
+  } else if (candidate?.category === 'SPECIAL_FRAUD_CALL' || hasAny(text, FRAUD_TERMS)) {
     topic = TOPICS.FRAUD_LOCAL;
     priority = locality ? PRIORITIES.HIGH : PRIORITIES.EXCLUDE;
     include = locality;
     reason = locality ? '地域内の詐欺・特殊詐欺事案' : '地域接点のない詐欺ニュース';
-  } else if (hasAny(text, ORGANIZED_PROPERTY_TERMS)) {
+  } else if (candidate?.category === 'SERIAL_INCIDENT' || hasAny(text, ORGANIZED_PROPERTY_TERMS)) {
     topic = TOPICS.ORGANIZED_LOCAL;
     priority = locality ? PRIORITIES.HIGH : PRIORITIES.EXCLUDE;
     include = locality;
