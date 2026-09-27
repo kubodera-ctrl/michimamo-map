@@ -68,7 +68,7 @@ from public.events;
 
 初期seedでは期待値: 0
 
-2026-09-23時点では initial + batch2 + batch3 + batch4 の合計45イベントをROLLBACKトランザクションで検証済み。batch3は6件、いすみイセエビまつりの開催回12件、ドラえもんfandomを確認。batch4は5件、そごうの複合venue type、川崎みなと祭りのfamily判定、ソラマチ公式英訳の公開RPCを確認。batch5は4件、西武園SideMのfandom、amusement分類、複数店舗イベントの正規化、画像非使用、source gateまで確認済み。
+2026-09-23時点では initial + batch2 + batch3 + batch4 + batch5 の合計45イベントをROLLBACKトランザクションで検証済み。batch3は6件、いすみイセエビまつりの開催回12件、ドラえもんfandomを確認。batch4は5件、そごうの複合venue type、川崎みなと祭りのfamily判定、ソラマチ公式英訳の公開RPCを確認。batch5は4件、西武園SideMのfandom、amusement分類、複数店舗イベントの正規化、画像非使用、source gateまで確認済み。
 
 ## Phase 3 — noindex状態でアプリ接続
 
