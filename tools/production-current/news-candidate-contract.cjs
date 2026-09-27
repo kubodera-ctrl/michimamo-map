@@ -20,8 +20,7 @@ function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 function httpsUrl(value) {
-  if (!nonEmpty(value)) return false;
-  try { return new URL(value).protocol === 'https:'; } catch { return false; }
+  return nonEmpty(value) && /^https:\/\/[^\s]+$/i.test(value.trim());
 }
 function isoDate(value) {
   if (!nonEmpty(value)) return false;
