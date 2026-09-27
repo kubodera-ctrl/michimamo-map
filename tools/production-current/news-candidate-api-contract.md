@@ -163,3 +163,25 @@ Current state:
 LEGACY_UNVERIFIED remains read-only at every downstream boundary. A legacy row may open a detail view but never becomes render/approval/publishing eligible by that action.
 
 The detail UI is intentionally a thin presentation layer. Candidate validation, Production admission, Render, QC, Approval, Publishing and Audit remain separate domain/API responsibilities so a future Admin API/BFF / integrated management OS can replace the frontend without redefining these states.
+
+## Production Preview read-only contract
+
+`news-production-preview-contract.cjs` defines the UI-independent admission snapshot between Candidate and a future Production record.
+
+- schema: `machimamo-news-production-preview-v1`
+- service is fixed to `machimamo`
+- modes are `SINGLE | WEEKLY`
+- `LEGACY_UNVERIFIED` is always blocked
+- canonical candidates must already be explicitly `publishEligible=true`, have candidate/source identity, SHA-256 sourceHash and non-empty verifiedFacts
+- classifier exclusion or inactive retention blocks admission
+- `READY_FOR_PRODUCTION_PREVIEW` means only that the candidate may be reviewed at the next boundary; it does **not** mean a Production record exists
+
+The current downstream projection remains read-only and disconnected:
+- Production record: `NOT_CONNECTED`
+- Render: `RENDERER_BLOCKED_BY_EXACT_V7_SOURCE`
+- QC: `NOT_CONNECTED`
+- Approval: `NOT_CONNECTED`
+- Publishing Preview: `NOT_CONNECTED`
+- external X/TikTok: `CONNECTION_REQUIRED`
+
+No database write, renderer invocation, approval or external publishing may be inferred from this preview object.

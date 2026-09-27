@@ -276,3 +276,14 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - expected path: machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py。
 - required symbol surface: v7.v6 / v7.TOKYO_MAIN / v7.map_japan / v7.prep / v7.frame。
 - exact sourceが回収されるまでRenderer broad search / MP4 reverse engineering / v6+v8 synthetic replacementを行わない。
+
+## 2026-09-28 開発36｜contract separation
+
+- 起点再確認: `feat/dev34-current-production-engine` = `6be6d7e66e7efec0d17c3efa679d714c55c11a20`; Vercel Preview `dpl_8NeaT2oj5ecHWQ8cLJDzkeXrexiT` READY / target=null / source SHA一致。
+- Candidate→Production Previewのread-only contractを追加。canonical candidateだけを次境界へ通し、LEGACY_UNVERIFIEDはfail-closed。READYはProduction record作成済みを意味しない。
+- Production / Render / QC / Approval / Publishing Preview / X・TikTokのstate contractをUI/DOMから分離。前段PASSなしの後段状態を拒否し、POSTEDにはrevisionId + renderIdを要求。
+- Rendererは従来どおり `RENDERER_BLOCKED_BY_EXACT_V7_SOURCE`。exact v7 sourceの代替再構築・広範囲再探索は行っていない。
+- MAP query contractを強化: 47都道府県validate、municipality最大25 + prefecture必須、stable cursor sort、`mapDisplayEligible=true`明示gate、page上限/重複candidateId検証。SNS publishEligibleとは分離。
+- 変更契約のNode syntax / focused regression testはlocal PASS。
+- 新しいニュース詳細modalのiPhone実機QAはまだ未完了。実機PASS前に詳細UIからProduction Previewへ新しい操作導線は接続しない。
+- Production deploy / Production DB write・migration / SNS投稿 / OAuth / legacy police cron dispatch-enable-rerunは未実施。

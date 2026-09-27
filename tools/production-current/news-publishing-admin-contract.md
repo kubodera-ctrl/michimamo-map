@@ -86,3 +86,16 @@ Canonical replacement:
 - Replace the legacy reader with an Admin API/BFF or a reconciled shared news source table containing source provenance, verified facts, rights evidence, correction state and content hash.
 - Official source adapters must preserve the source-specific license and correction requirements. A source-master entry alone is not a fact record.
 - Existing legacy candidates remain visibly distinguishable during migration; never silently upgrade them to verified.
+
+## UI-independent workflow state contract
+
+`news-workflow-state-contract.cjs` keeps Production / Render / QC / Approval / Publishing state outside DOM/UI state.
+
+Fail-closed prerequisites:
+- `render=SUCCEEDED` requires `production=FROZEN`
+- `qc=PASSED` requires `render=SUCCEEDED`
+- `approval=APPROVED` requires `qc=PASSED`
+- `publishingPreview=READY` requires `approval=APPROVED`
+- a platform `POSTED` state requires `publishingPreview=READY` plus both `revisionId` and `renderId`
+
+Opening a modal, showing a button, or rendering a read-only preview never advances a domain state. Current X/TikTok state remains `CONNECTION_REQUIRED`; no OAuth or external send is performed by this contract.

@@ -53,3 +53,16 @@ The database may retain the required canonical/audit metadata beyond the active 
 - no mass import
 
 Before Production connection, query-plan/index design and iPhone map performance must be tested against realistic volumes.
+
+## Contract hardening
+
+The executable contract additionally requires:
+- prefecture scope to be one of the official 47 prefecture names;
+- at most 25 municipality filters per request, deduplicated, and municipality filters require an explicit prefecture scope;
+- stable ordering `newsDate desc, candidateId desc` for cursor pagination;
+- explicit domain/API decision `mapDisplayEligible=true` before a candidate can enter the public MAP projection;
+- MAP eligibility is independent from SNS `publishEligible`;
+- `LEGACY_UNVERIFIED` cannot enter the public canonical MAP projection;
+- page responses cannot exceed the requested limit and cannot contain duplicate candidateId values.
+
+This remains a contract-only change: no Production RPC, index or migration is added.
