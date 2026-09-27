@@ -4,13 +4,17 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-function inspectRendererBundle(bundleRoot, manifestPath = path.join(__dirname, 'renderer-bundle.json')) {
+function inspectRendererBundle(bundleRoot, manifestPath = path.join(__dirname, 'renderer-bundle.json'), env = process.env) {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   const root = path.resolve(bundleRoot);
   const missing = manifest.requiredFiles.filter((relativePath) => {
     const resolved = path.resolve(root, relativePath);
     return !resolved.startsWith(`${root}${path.sep}`) || !fs.existsSync(resolved) || !fs.statSync(resolved).isFile();
   });
+  const fontPath = manifest.approvedJapaneseFontEnv ? env[manifest.approvedJapaneseFontEnv] : null;
+  if (!fontPath || !fs.existsSync(fontPath) || !fs.statSync(fontPath).isFile()) {
+    missing.push(`approved-font:${manifest.approvedJapaneseFontEnv || 'unspecified'}`);
+  }
   return {
     ready: missing.length === 0,
     sourceMaster: manifest.sourceMaster,
