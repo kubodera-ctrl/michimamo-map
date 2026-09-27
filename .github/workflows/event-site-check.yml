@@ -123,3 +123,4 @@ jobs:
         run: |
           grep -q "rawEventLat" index.html
           grep -q "rawEventLng" index.html
+          grep -q "isFirstLocationSet = true" index.html
