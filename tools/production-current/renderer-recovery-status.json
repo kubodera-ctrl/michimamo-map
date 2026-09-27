@@ -45,7 +45,32 @@
       "status": "MISSING",
       "expectedPath": "machimamo_video5_build_v4/source_v7/render_short_44s_v7_zoom_refined.py",
       "requiredBy": "machimamo_video5_build_v4/render_short_44s_v8_oldstyle.py",
-      "doNotReconstruct": true
+      "doNotReconstruct": true,
+      "requiredSymbolSurface": [
+        "v7.v6",
+        "v7.TOKYO_MAIN",
+        "v7.map_japan",
+        "v7.prep",
+        "v7.frame"
+      ],
+      "completedMp4Sha256": "f04f5fd8768d7faddba98d6dbcecf4fe9b8141cdfca646e9e72d0e74a080b408",
+      "completedMp4Role": "historical provenance/QC evidence only; never a CURRENT render base",
+      "finalSearch": {
+        "complete": true,
+        "checked": [
+          "Library title/content search",
+          "Drive CURRENT/REVIEW folders",
+          "GitHub branch history/search",
+          "historical v8-v16.4 source archives",
+          "SOURCE_v16.2 prior version",
+          "nested archive/path-string scan of materialized support/source packages"
+        ],
+        "findings": [
+          "SOURCE_v13.zip contains only a content reference to the expected v7 path from v8",
+          "SHORT_44s_PREVIOUS_STYLE_SOURCE_20260926_v8.zip contains only the same content reference",
+          "no nested archive contains the exact v7 Python source"
+        ]
+      }
     },
     "v6": {
       "status": "RECOVERED",
@@ -87,16 +112,19 @@
     "visualQc": "NEEDS_REVIEW"
   },
   "renderState": {
-    "dependencyImport": "BLOCKED_BY_V7",
+    "dependencyImport": "RENDERER_BLOCKED_BY_EXACT_V7_SOURCE",
     "single43Generated": false,
     "newOutputFfprobe": false,
     "newOutputDecode": false,
     "goldenComparison": false,
     "singleVisualQc": "NOT_RUN",
-    "weekly62": "NOT_STARTED"
+    "weekly62": "NOT_STARTED",
+    "preflight": "BLOCKED_EXACT_V7_SOURCE_ONLY"
   },
   "goldenBaseline": {
     "sha256": "27108db3aa4e6351b5cb40ead40785a6c04bee601e7373c2bf0130132e56a215",
     "technicalQc": "PASS_REFERENCE_ONLY"
-  }
+  },
+  "status": "RENDERER_BLOCKED_BY_EXACT_V7_SOURCE",
+  "doNotReconstruct": true
 }
