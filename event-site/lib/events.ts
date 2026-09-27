@@ -47,7 +47,7 @@ function overlayTranslation<T extends EventSummary>(event:T,translation:Approved
     translation_source:translation.translation_source
   };
   if('reservation_text' in event){
-    localized.reservation_text=translation.reservation_text ?? (event as EventDetail).reservation_text;
+    localized.reservation_text=translation.reservation_text ?? (event as T & {reservation_text:string|null}).reservation_text;
   }
   return localized as T;
 }

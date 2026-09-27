@@ -9,6 +9,7 @@ import {
   planMachiibeCarousel,
   validateMachiibeCarouselInput
 } from '../lib/machiibe-production-master';
+import type {CarouselInput} from '../lib/machiibe-production-master';
 
 test('CURRENT carousel page-count rules match Drive master',()=>{
   for(const count of [3,4]) assert.equal(planMachiibeCarousel(count).parts[0]?.pageCount,5);
@@ -30,7 +31,7 @@ test('CURRENT does not invent a carousel layout for fewer than 3 events',()=>{
 });
 
 test('facts and rights gates block unverifiable carousel inputs',()=>{
-  const input={
+  const input:CarouselInput={
     period:{periodType:'weekly' as const,periodLabel:'9/28〜10/4',periodStart:'2026-09-28',periodEnd:'2026-10-04'},
     area:{prefecture:'東京都',prefectureCode:'13'},
     events:Array.from({length:3},(_,index)=>({

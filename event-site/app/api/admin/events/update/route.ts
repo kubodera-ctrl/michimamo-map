@@ -39,6 +39,7 @@ export async function POST(request:Request){
   const priceType=text(data,'price_type',30);
   const audience=text(data,'audience_intent',40);
   const officialUrl=text(data,'official_url',1000);
+  const prefecture=text(data,'prefecture',20);
   const indoorRaw=text(data,'indoor',10);
   const venueTypes=data.getAll('venue_type').map((value)=>String(value)).filter((value)=>VENUE_TYPES.has(value)).slice(0,8);
 

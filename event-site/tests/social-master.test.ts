@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {MACHIIBE_SOCIAL_MASTER} from '../lib/machiibe-social-master.ts';
-import {buildXShareText,xWeightedLength} from '../lib/share.ts';
+import {MACHIIBE_SOCIAL_MASTER} from '../lib/machiibe-social-master';
+import {buildXShareText,xWeightedLength} from '../lib/share';
 
 const read=(path:string)=>fs.readFileSync(new URL(path,import.meta.url),'utf8');
 
