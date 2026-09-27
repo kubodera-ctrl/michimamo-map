@@ -112,3 +112,19 @@ Static inspection of recovered `render_short_44s_v8_oldstyle.py` shows it import
 - `v7.frame`
 
 This documents the missing dependency surface but is not permission to reimplement those symbols from later/earlier versions. Exact source recovery remains required.
+
+
+## Golden baseline technical audit
+
+The approved CURRENT SINGLE baseline was recovered directly from Drive and checked independently of any new renderer output:
+
+- file: `まちまも_SHORT_MASTER_43s_CURRENT.mp4`
+- SHA256: `27108db3aa4e6351b5cb40ead40785a6c04bee601e7373c2bf0130132e56a215` (matches `MASTER_SHA256.txt`)
+- duration: 43.000000 sec
+- video: H.264 / 1080x1920 / 30 fps / yuv420p
+- audio: AAC / 48 kHz
+- full decode: error log 0 bytes
+- approved `QC_CONTACT_CURRENT.jpg` recovered
+- local QC extraction prepared at the CURRENT boundaries and NEWS completed-hold window for later generated-vs-Golden comparison
+
+This validates the Golden reference only. It is not evidence that the recovered renderer can reproduce it.
