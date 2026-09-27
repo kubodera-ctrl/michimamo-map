@@ -101,7 +101,7 @@
 ### P4/P5 current contract (implementation pending)
 - Display mapping only: TikTok SHORT=SINGLE (43 sec fixed; TOP3/MAP7/NEWS12/MAP explanation8/logic8/END5); TikTok LONG=WEEKLY (`38 + 12 * ceil(actualNewsCount/3)`, 3/page; admin presets 6/9/12, default6, no synthetic filler). Official input modes remain `SINGLE/WEEKLY`; no arbitrary duration or 61s single mode.
 - New `ニュース投稿管理` must have separate SINGLE and Weekly panels, region/type/source/facts/rights/render/QC/approval/X/TikTok/status filters, weekly 47 prefectures + week selection, separate platform states, “済を表示”. Final TikTok complete only after `PUBLISHED`, X after created externalPostId. Idempotency key revision+render+platform. Shared machiibe `publishing_*` schema is reused after exact latest migration reconciliation; no duplicate same-role tables. New UI and app data pipeline not implemented yet.
-- P4 branch `feat/dev34-current-production-engine @59f6aca...` has CURRENT validation, time/type/status contracts and admin screen spec only. Renderer, Golden, final MP4/decode/visual QC and actual admin UI remain incomplete.
+- P4 branch `feat/dev34-current-production-engine` is synced to restart/dev34 @52f213b8 (behind 0); current HEAD after merge/docs correction is 8726f94f. P4 admin UI scaffold is present; real data connection and renderer remain incomplete.
 - Police-safety subtype is separate PR #22: branch `feat/dev34-police-safety-anomaly @8b83caa527ed1d443ac51d844d15ab7496b8bf27`, base restart/dev34 @8acc32d; additive Migration `20260927190000_local_anomaly_police_safety.sql` locally verified in PGlite and `npm test` extension PASS. New `police_safety` is subtype only for user `local_anomaly`, labeled “利用者投稿”; `official` remains verified public-source data. Draft PR #22, no production migration or post.
 - No production deploy/promotion, DB write test, real ASP click, or external SNS post. Preserve existing production.
 
@@ -115,3 +115,16 @@
  
 
 - P4 base sync: restart/dev34 52f213b8ceb451eec5d865db5037ea29f45e144f を取り込むmerge commitを作成中。P0のSafari/modal修正を優先して維持。
+
+
+## 2026-09-27 P4 Renderer blocker correction / archive audit
+
+- P4 branch is synced to latest restart/dev34: base 52f213b8ceb451eec5d865db5037ea29f45e144f is ancestor, ahead 19 / behind 0. P4 merge commit: be528ca9ed75b386a80f7f628b7928696e458b6b. Renderer preflight and asset inventory follow-up HEAD: 8726f94f5ddf8d954406db67d1585a483e037b76.
+- Corrected the earlier inaccurate statement that approved visual assets and an approved font binary are missing. All archive SHA256 values match MASTER_SHA256.txt. The approved TOP, central transparent emblem, smiling dog, sad-dog candidates, approved END, and REVIEW4/5 page assets exist in CURRENT. Font binaries are intentionally excluded by README_RESTORE; do not require MACHIMAMO_APPROVED_JP_FONT.
+- Git file: tools/production-current/renderer-dependency-map.md lists logical asset, historical path, CURRENT path, SHA256, page/use, and FOUND/MAPPED/NEEDS_REVIEW/MISSING state. Historical footer overlay names and sad-dog mapping remain NEEDS_REVIEW pending render-to-Golden comparison; no substitute has been silently adopted.
+- Actual renderer blocker is source code, not visuals: machimamo_reference_v13/package/machimamo_reference_v13.py and machimamo_reference_v16_1/src/machimamo_reference_v16_1.py are absent from VIDEO_MASTER_CURRENT_20260927.zip, SOURCE_CURRENT_FULL.zip, TOP_MASTER_CURRENT.zip and REVIEW5 delta. Other import chains in the supplied source depend on these. Do not redesign or synthesize these foundations.
+- Renderer manifest/preflight no longer requires MACHIMAMO_APPROVED_JP_FONT and distinguishes visual/current asset mappings from missing code dependencies. Runtime Japanese font availability must be resolved and glyph/layout checked against the approved MP4 in the actual renderer environment.
+- All approved single/weekly MP4 dimensions, codecs and durations were confirmed by ffprobe earlier; this is source-baseline QC, not a regenerated output. No new MP4 or Golden comparison is claimed. No P4 Preview URL is yet confirmed for current follow-up HEAD.
+- Admin UI remains scaffold/fail-closed; read-only integration to current news data and week+prefecture candidate query are not complete. X/TikTok remain “接続設定必要”; no external posts.
+- police_safety remains a separate small PR/Migration, not included in P4. No Production migration or posting tests.
+- Next: obtain the two exact CURRENT renderer base modules (hash-verified), then wire ASSET_ROOT/WORK_ROOT path adapter without changing drawing functions, runtime font resolution, render SINGLE and compare approved QC frames. Do not render WEEKLY until SINGLE visual QC passes.
