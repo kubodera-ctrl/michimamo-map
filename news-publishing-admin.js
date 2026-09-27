@@ -57,11 +57,18 @@
     if (connection) connection.textContent = '既存ニュース候補へ読み取り専用で接続しています…';
     loadPromise = fetchLegacyRowsReadOnly()
       .then(rows => {
-        candidates = rows.map(adapter.normalizeLegacySpot).filter(Boolean);
+        const legacyCandidates = rows.map(adapter.normalizeLegacySpot).filter(Boolean);
+        const qaFixtures = document.body.classList.contains('admin-news-qa-only')
+          ? Array.from(window.MachimamoCanonicalQaFixtures || [])
+          : [];
+        candidates = [...qaFixtures, ...legacyCandidates];
         const section = document.getElementById('adminNewsPublishingSection');
         if (section) section.dataset.connection = 'legacy-read-only';
         if (connection) {
-          connection.textContent = `旧official実データ ${candidates.length.toLocaleString()}件を読み取り専用で表示しています。一次ソースURL・verifiedFacts・rights証跡が旧データに無いため全件「要確認」で、生成・公開には使用できません。`;
+          const qaCount = document.body.classList.contains('admin-news-qa-only') ? (window.MachimamoCanonicalQaFixtures?.length || 0) : 0;
+          connection.textContent = qaCount
+            ? `旧official実データ ${legacyCandidates.length.toLocaleString()}件 + canonical dry-run fixture ${qaCount}件を読み取り専用で表示しています。fixtureはPreview QA専用でProduction DBへ書き込みません。`
+            : `旧official実データ ${legacyCandidates.length.toLocaleString()}件を読み取り専用で表示しています。一次ソースURL・verifiedFacts・rights証跡が旧データに無いため全件「要確認」で、生成・公開には使用できません。`;
         }
         renderSingleCandidates();
         renderWeeklyCandidates();
@@ -157,13 +164,14 @@
     }
     const summary = adapter.weeklySummary(candidates, { weekValue, prefecture, requestedCount });
     const count = summary.candidates.length;
+    const eligibleCount = summary.eligible.length;
     if (!count) {
       target.textContent = `${prefecture}・${weekValue} に一致する旧ニュース候補はありません。架空ニュースで補完しません。`;
       return;
     }
     const examples = summary.candidates.slice(0, Math.min(6, count)).map(item => item.headline || item.title || '名称なし');
     target.innerHTML = `<strong>${escapeHtml(prefecture)} / ${escapeHtml(weekValue)}</strong><br>
-      実候補 ${count.toLocaleString()}件 / Production利用可能 0件。選択希望 ${requestedCount}件に対し、全件でsource・facts・rights確認が必要です。
+      実候補 ${count.toLocaleString()}件 / Production候補 ${eligibleCount.toLocaleString()}件。選択希望 ${requestedCount}件に対し不足 ${summary.shortage.toLocaleString()}件です。件数不足を架空ニュースで補完しません。
       <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div>`;
   }
 
@@ -233,8 +241,10 @@
       productionModes: Object.freeze(['SINGLE', 'WEEKLY']),
       informationKinds: Object.freeze(['LOCAL_ANOMALY', 'POLICE_OFFICIAL', LEGACY_KIND]),
       prefectureCount: PREFECTURES.length,
-      candidateSource: 'public.spots:official(read-only,legacy-unverified)',
-      connected: 'read-only-legacy'
+      candidateSource: document.body.classList.contains('admin-news-qa-only')
+        ? 'public.spots:official(read-only,legacy-unverified)+canonical-dry-run-fixture'
+        : 'public.spots:official(read-only,legacy-unverified)',
+      connected: document.body.classList.contains('admin-news-qa-only') ? 'read-only-qa-mixed' : 'read-only-legacy'
     });
     document.dispatchEvent(new CustomEvent('machimamo:news-publishing-admin-ready', { detail: state }));
   };
