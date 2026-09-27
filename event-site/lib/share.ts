@@ -44,21 +44,21 @@ function truncateWeighted(value:string|undefined,maxWeight:number){
 
 export function buildXShareText(input:XShareInput){
   const tagNames=[...(input.hashtags||[])]
-    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\\s+/g,'')))
+    .map((tag)=>clean(tag.replace(/^#/,'').replace(/\s+/g,'')))
     .filter(Boolean)
     .filter((tag,index,array)=>array.indexOf(tag)===index);
   const extraTags=tagNames.filter((tag)=>tag!=='まちイベ').slice(0,2);
-  const hashtagTokens=[...extraTags,'まちイベ'].map((tag)=>\`#\${tag}\`);
+  const hashtagTokens=[...extraTags,'まちイベ'].map((tag)=>`#${tag}`);
   const hasCta=Boolean(input.ctaLines?.length);
   const lines:Array<{key:string;text:string}>=[
     {key:'prefix',text:clean(input.prefix)},
     {key:'place',text:clean(input.placeText)},
     {key:'title',text:clean(input.title)},
     {key:'condition',text:clean(input.conditionText)},
-    {key:'date',text:input.dateText ? truncateWeighted(\`開催日：\${clean(input.dateText)}\`,44) : ''},
-    {key:'time',text:input.timeText ? truncateWeighted(\`時間：\${clean(input.timeText)}\`,30) : ''},
+    {key:'date',text:input.dateText ? truncateWeighted(`開催日：${clean(input.dateText)}`,44) : ''},
+    {key:'time',text:input.timeText ? truncateWeighted(`時間：${clean(input.timeText)}`,30) : ''},
     {key:'summary',text:hasCta ? '' : clean(input.summary)},
-    ...(input.ctaLines||[]).slice(0,2).map((line,index)=>({key:\`cta-\${index}\`,text:truncateWeighted(line,48)})),
+    ...(input.ctaLines||[]).slice(0,2).map((line,index)=>({key:`cta-${index}`,text:truncateWeighted(line,48)})),
     {key:'hashtags',text:hashtagTokens.join(' ')}
   ];
 
@@ -99,7 +99,7 @@ export function buildXShareText(input:XShareInput){
     shrink('title',20);
   }
 
-  return lines.map((line)=>line.text).filter(Boolean).join('\\n');
+  return lines.map((line)=>line.text).filter(Boolean).join('\n');
 }
 
 export function buildXShareUrl(input:XShareInput) {

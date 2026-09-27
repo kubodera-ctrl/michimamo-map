@@ -43,9 +43,9 @@ test('current TikTok renderer consumes canonical dimensions and safe area',()=>{
 test('admin exposes CURRENT CAROUSEL and keeps VIDEO disabled until its formal master exists',()=>{
   const admin=read('../app/admin/page.tsx');
   const master=read('../app/admin/social-master/page.tsx');
-  assert.match(admin,/\\/admin\\/social-master/);
+  assert.match(admin,/\/admin\/social-master/);
   assert.match(master,/CAROUSEL — ACTIVE/);
   assert.match(master,/VIDEO — MASTER待ち/);
-  assert.match(master,/MACHIIBE_VIDEO_CURRENT\\.reason/);
+  assert.match(master,/MACHIIBE_VIDEO_CURRENT\.reason/);
   assert.match(master,/SNS Publishing/);
 });
