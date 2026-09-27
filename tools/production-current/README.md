@@ -4,10 +4,12 @@ Source of truth: Drive `VIDEO_PRODUCTION_MASTER_CURRENT.md` and `ADMIN_INTEGRATI
 
 `timeline.cjs` implements the formal timeline only. `input-contract.cjs` validates the official CURRENT input contract and fail-closed publish gates. Its app integration extension requires `sourceType` and item-level source/rights for weekly items so anomaly posts and police notices cannot be conflated or share an unproven clearance. The Drive-owned CURRENT schema itself is unchanged. Neither file generates or publishes media. No active Production Master is registered by this change.
 
+`news-publishing-contract.cjs` records the separate admin/P5 domain labels and safe status contract only. Admin labels are **TikTok SHORT / SINGLE (43 seconds)** and **TikTok LONG / WEEKLY (CURRENT duration)**. The official input mode remains `SINGLE` / `WEEKLY`; there is no independent single-news 61-second duration. Weekly presets are 6/9/12 actual verified items; duration remains `38 + 12 * ceil(newsCount/3)` including a full 12-second final page with 1–2 items. The weekly key is week start + prefecture; the publishing key is revision + render + platform. A TikTok `publish_id` is not completion: only final `PUBLISHED` status counts as done. This file does not implement the admin UI, persistence, or API adapter.
+
 Source archive: Drive ID `1T5mxTuPUHkq_En-rjmggmXYHlQzzAECr` (`SOURCE_CURRENT_FULL.zip`). SHA256: `916157c8126923d7e4324cb968d34e38511c767ad0bdb25803656d148052bf93`.
 
 Audited source entry: `source/machimamo_v164/review5_finetune.py`, imports `review4_unified_design.py`, uses absolute `/mnt/data` asset/output references. Archive includes approved TOP/dog/emblem/overlay assets. Japanese font binaries are not included. Source is a restoration snapshot, not an already integrated request-driven renderer.
 
 Next: make ASSET_ROOT/WORK_ROOT configurable without changing drawing functions; connect sourceType to verified source records; feed validated CURRENT input; load approved fonts; render with the same engine for Admin Preview/MP4/QC frames; compare final MP4 and Golden. No renderer or MP4 QC PASS claimed yet.
 
-Run: `node tools/production-current/timeline.test.cjs` and `node tools/production-current/input-contract.test.cjs`.
+Run: `node tools/production-current/timeline.test.cjs`, `node tools/production-current/input-contract.test.cjs`, and `node tools/production-current/news-publishing-contract.test.cjs`.
