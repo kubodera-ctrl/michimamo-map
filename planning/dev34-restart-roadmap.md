@@ -120,3 +120,17 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 実装commit `42e1a4ec7fe9f50258a71d1e6822133741e46734`、test commit `5f9b29e90bc97d6ce22fbe5413128b638d64ff78`。静的contract確認でQA host/query gate、read-only banner、通常admin auth/RPC保持、service=machimamo/fail-closedをPASS。
 - Vercel deployment `dpl_G6L77deG87UeHVYJ4jgoR5gqjX6K` は READY / target=null / source SHA `5f9b29e90bc97d6ce22fbe5413128b638d64ff78`。stable branch aliasをiPhone QA入口として使用。
 - iPhone確認URL: `https://machimamo-map-git-feat-dev34-current-production-engine-miti4.vercel.app/?newsAdminQa=1`。最上部〜最下部scroll、SHORT/SINGLE、LONG/WEEKLY、都道府県/週/6・9・12/済filter/下部操作/広告非干渉を確認。投稿・生成操作は行わない。
+
+
+## 2026-09-27 P4 実ニュース候補 read-only接続
+
+- Production Supabase `public.spots` をread-only監査。legacy `category=official` は1,972件（visible 1,972件）、期間 2026-08-30〜2026-09-19。旧データには第三者ニュース/集約元テキストもあり、`official` という旧categoryだけで警察公式とみなさない。
+- `spots` schemaにはsource URL / verifiedFacts / rights証跡の正式フィールドが無い。従って既存実データは `LEGACY_UNVERIFIED` としてのみ管理UIへ表示し、全件 `publishEligible=false`。
+- Supabase RLSを再確認: `spots_public_read` は anon/authenticated SELECT、`is_hidden=false OR created_by=auth.uid()`。anon/authenticatedのtable SELECT privilegeもtrue。Preview QAは公開行・限定列のみを読む。Production DB write/migrationなし。
+- 新 `news-candidate-adapter.js` を追加。旧official row→candidate変換、都道府県補助推定、タイトル内月日からの暫定newsDate、SINGLE filter、ISO week、WEEKLY集計をUIから分離。推定値はverified factへ昇格しない。
+- `news-publishing-admin.js` v2はニュース管理が表示された時だけ最大2,500件を500件単位でread-only取得。通常公開MAP訪問ではこの候補読込を開始しない。
+- SINGLE一覧は実候補を表示し、source/facts/rights=要確認、render=不可、生成操作=disabled。WEEKLYは対象週+都道府県の実候補件数を表示するがProduction利用可能=0件を維持し、6/9/12件不足を架空補完しない。
+- Preview QAの無認証閲覧は従来どおりニュース管理セクション限定。他の管理領域/RPC/書込は起動しない。
+- adapter実行検証: 福岡の実legacy sampleで prefecture=福岡県、municipality=みやこ町、newsDate=2026-09-18、publishEligible=false、W38 filterをPASS。関連JS/testの構文PASS。
+- Source Master過去seedでは警視庁「メールけいしちょう OPEN DATA」が一次ソース候補。現行公式サイトでもCC BY 4.0、出所表示、事実と異なる加工回避、訂正追従が明記されている。正式adapterはSource Masterの存在だけでなく最新利用規約・一次データ・訂正状態を保持する設計にする。
+- 次: iPhone Previewで実候補表示/filters/weekly countを確認。並行してcanonical verified-news Admin API/BFF contractを設計し、legacy bridgeを置換できるようにする。Production migration・外部投稿なし。
