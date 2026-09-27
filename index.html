@@ -825,7 +825,7 @@
                             </div>
                             <section id="adminNewsPublishingSection" class="news-publishing-admin" aria-labelledby="adminNewsPublishingTitle" data-connection="unconfigured">
                                 <h3 id="adminNewsPublishingTitle">ニュース投稿管理</h3>
-                                <p class="news-admin-empty" role="status" id="adminNewsPublishingConnection">Production / Publishing接続設定がありません。ニュース情報や投稿状態は表示していません。生成・公開操作はできません。</p>
+                                <p class="news-admin-empty" role="status" id="adminNewsPublishingConnection">ニュース候補を読み取り専用で確認します。旧officialデータは一次ソース・facts・rightsの再確認が必要なため、生成・公開には使用できません。</p>
                                 <div class="news-admin-filters" role="group" aria-label="ニュース投稿管理フィルター">
                                     <label>情報種別
                                         <select id="adminNewsTypeFilter"><option value="all">すべて</option><option value="LOCAL_ANOMALY">地域の異変（利用者投稿）</option><option value="POLICE_OFFICIAL">警察情報（公式ソース）</option></select>
@@ -846,7 +846,7 @@
                                 <p class="news-admin-meta">CURRENT SINGLE: TOP 3秒 / MAP 7秒 / NEWS 12秒 / MAP説明 8秒 / ロジック 8秒 / END 5秒。ニュースごとに1本。生成・QC・承認データ待ち。</p>
                                 <div class="news-admin-table-wrap" tabindex="0" aria-label="単体ニュース一覧（横スクロール可能）">
                                     <table><thead><tr><th>ニュースタイトル</th><th>対象地域</th><th>都道府県</th><th>市区町村</th><th>日付</th><th>source</th><th>facts</th><th>rights</th><th>動画生成</th><th>QC</th><th>承認</th><th>X</th><th>TikTok</th><th>投稿日時</th><th>操作</th></tr></thead>
-                                    <tbody id="adminNewsSingleRows"><tr><td colspan="15">候補ニュース接続待ちです。未確認ニュースを生成候補として表示しません。</td></tr></tbody></table>
+                                    <tbody id="adminNewsSingleRows"><tr><td colspan="15">ニュース候補を読み込み中です。未確認ニュースは生成候補として扱いません。</td></tr></tbody></table>
                                 </div>
                                 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
                                     <button type="button" disabled aria-disabled="true">Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">Xへ投稿（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button>
@@ -857,8 +857,8 @@
                                     <label>都道府県（必須）<select id="adminWeeklyPrefecture" required><option value="">選択してください</option></select></label>
                                     <label>ニュース件数<select id="adminWeeklyCount"><option value="6" selected>6件</option><option value="9">9件</option><option value="12">12件</option></select></label>
                                 </div>
-                                <p class="news-admin-meta">38秒 + 12秒 × ceil(確認済みニュース数 / 3)。1ページ最大3件。最終ページも12秒を保持し、件数不足を作り話で埋めません。現状は候補接続未設定です。</p>
-                                <div class="news-admin-empty" role="status" id="adminWeeklyCandidates">対象週・都道府県のニュース候補を取得する接続がありません。</div>
+                                <p class="news-admin-meta">38秒 + 12秒 × ceil(確認済みニュース数 / 3)。1ページ最大3件。最終ページも12秒を保持し、件数不足を作り話で埋めません。旧候補は件数確認のみで、Production利用にはsource・facts・rights確認が必要です。</p>
+                                <div class="news-admin-empty" role="status" id="adminWeeklyCandidates">対象週と都道府県を選ぶと、読み取り専用の実ニュース候補件数を確認できます。</div>
                                 <div class="news-admin-state" aria-label="都道府県別WEEKLY状態"><span>未</span><span>生成中</span><span>生成済</span><span>QC待ち</span><span>承認済</span><span>投稿準備中</span><span>投稿処理中</span><span>済</span><span>失敗</span><span>接続設定必要</span></div>
                                 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" disabled aria-disabled="true">WEEKLY生成（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTok Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button></div>
                             </section>
