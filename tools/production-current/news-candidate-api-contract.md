@@ -42,6 +42,7 @@ Each canonical candidate uses `machimamo-news-candidate-v1` and includes:
 - `verifiedFacts[]`
 - source name / HTTPS URL / publishedAt / checkedAt / SHA-256 `sourceHash`
 - rights level / media use mode / commercial-use flag / checkedAt / evidence URL / attribution text
+- source-specific `rightsScopeConfirmed` where the upstream license excludes subfields (for example maps, URL descriptions, contact descriptions)
 
 The executable validator is `news-candidate-contract.cjs`.
 
@@ -58,6 +59,7 @@ A candidate is only eligible to advance toward render input when:
 - verifiedFacts is non-empty;
 - the rights level is one of the CURRENT publishable levels;
 - commercial use is explicitly allowed;
+- upstream-source scope exclusions have been separated and explicitly confirmed before rightsStatus becomes `cleared`;
 - CC BY records contain attribution text.
 
 Passing this candidate gate does not itself publish or render anything. The CURRENT render input validator, renderer QC, admin approval and platform publishing gates still apply.
@@ -124,6 +126,6 @@ Preserved fields include:
 - `lastVerifiedAt`;
 - structured locality evidence.
 
-The source transport/export parser is intentionally separate from this mapper because the public Open DATA site exposes an interactive export UI and the exact current download payload contract must be captured from the live export before hard-coding an endpoint or column schema. Until that capture is verified, do not guess the download endpoint.
+The source transport/export parser is intentionally separate from this mapper because the public Open DATA site exposes an interactive export UI and the exact current download payload contract must be captured from the live export before hard-coding an endpoint or column schema. The mapper keeps `rightsStatus=needs_review` unless normalized input explicitly sets `rightsScopeConfirmed=true`, so excluded map/URL/contact material cannot become publishable by default. Until that capture is verified, do not guess the download endpoint.
 
 Dry-run fixtures based on the verified Tokyo rows in Drive (Nerima, Hachioji, Itabashi; published 2026-09-24) are used for the adapter regression test. Production DB writes remain prohibited.
