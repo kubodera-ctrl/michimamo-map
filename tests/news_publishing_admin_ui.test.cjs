@@ -18,6 +18,12 @@ assert.match(html, /id="adminNewsShowPosted" type="checkbox"/);
 assert.match(html, /Xへ投稿（接続設定必要）/);
 assert.match(html, /TikTokへ投稿（接続設定必要）/);
 assert.match(html, /body\.admin-dashboard-open \.ad-banner \{ display: none !important;/);
+assert.match(html, /NEWS_ADMIN_QA_PREVIEW_HOST = 'machimamo-map-git-feat-dev34-current-production-engine-miti4\\.vercel\\.app'/);
+assert.match(html, /params\\.get\\('newsAdminQa'\\) === '1'/);
+assert.match(html, /admin-news-qa-only/);
+assert.match(html, /Preview QA・閲覧専用/);
+assert.match(html, /if \\(openNewsAdminPreviewQa\\(\\)\\)/);
+
 assert.match(script, /const SERVICE_ID = 'machimamo'/);
 assert.match(script, /serviceId: SERVICE_ID/);
 assert.match(script, /'地域の異変|LOCAL_ANOMALY/);
