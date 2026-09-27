@@ -2,7 +2,7 @@
 
 import {useEffect,useMemo,useRef,useState} from 'react';
 import type {CarouselEventInput,CarouselInput} from '@/lib/machiibe-production-master';
-import {buildMachiibeRenderPages,renderPageFileName,type MachiibeRenderPage} from '@/lib/machiibe-carousel-render-plan';
+import {buildMachiibeRenderPages,deriveVerifiedHighlightLabels,renderPageFileName,type MachiibeRenderPage} from '@/lib/machiibe-carousel-render-plan';
 import {buildMachiibeMediaManifest,hashMachiibeMediaManifest,type MachiibeMediaManifest} from '@/lib/machiibe-media-manifest';
 
 const W=1080;
@@ -91,24 +91,59 @@ async function drawCover(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,in
   const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(13,53,86,.05)');g.addColorStop(.6,'rgba(13,53,86,.12)');g.addColorStop(1,'rgba(13,53,86,.76)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
   pageBadge(ctx,page);label(ctx,input.period.periodLabel,64,145,50,900,'#fff');
   wrapped(ctx,'今週どこ行く？\nおでかけイベント',64,235,880,82,98,3,900,'#fff');
-  rounded(ctx,680,470,320,160,75,'rgba(255,255,255,.95)');wrapped(ctx,input.area.prefecture+(input.area.municipalityName?'\n'+input.area.municipalityName:''),730,505,220,42,50,2,900,PINK);
+  rounded(ctx,680,470,320,160,75,'rgba(255,255,255,.95)');
+  ctx.fillStyle='rgba(255,255,255,.95)';ctx.beginPath();ctx.moveTo(815,625);ctx.lineTo(850,690);ctx.lineTo(885,625);ctx.closePath();ctx.fill();
+  wrapped(ctx,input.area.prefecture+(input.area.municipalityName?'\n'+input.area.municipalityName:''),730,505,220,42,50,2,900,PINK);
   rounded(ctx,44,1430,992,245,38,'rgba(255,248,219,.97)');wrapped(ctx,String(events.length)+'件の検証済みイベントから\n家族のおでかけ候補をチェック',78,1480,890,47,62,3,900,'#111');
   rounded(ctx,0,1680,1080,240,0,'rgba(255,255,255,.97)');brand(ctx,125,1735,1.35);label(ctx,'見つけよう、みんなのおでかけ',540,1830,29,700,INK,'center');
   disclaimer(ctx,hero,58,1358,520);
 }
 async function drawHighlights(ctx:CanvasRenderingContext2D,page:Extract<MachiibeRenderPage,{kind:'highlights'}>,input:CarouselInput){
-  const hero=page.events.find((e)=>approvedUrl(e))||page.events[0];imageFill(ctx,await loadImage(approvedUrl(hero)),0,0,W,930);
-  ctx.fillStyle='rgba(13,53,86,.34)';ctx.fillRect(0,0,W,930);pageBadge(ctx,page);wrapped(ctx,'見つける、\n比べる、\n出かける。',72,145,850,78,98,4,900,'#fff');
-  ctx.fillStyle=PAPER;ctx.fillRect(0,900,W,1020);label(ctx,'今週の見どころ',70,980,56,900,INK);
-  page.events.slice(0,5).forEach((event,index)=>{
-    const y=1090+index*130;rounded(ctx,70,y,940,102,28,'#fff',index%2?SKY:PINK);
-    ctx.fillStyle=index%2?SKY:PINK;ctx.beginPath();ctx.arc(120,y+51,18,0,Math.PI*2);ctx.fill();
-    wrapped(ctx,event.title,160,y+20,800,31,39,2,850,INK);
+  const hero=page.events.find((e)=>approvedUrl(e))||page.events[0];
+  const second=page.events.find((e)=>e!==hero&&approvedUrl(e))||page.events[1];
+  imageFill(ctx,await loadImage(approvedUrl(hero)),0,0,W,H);
+  ctx.fillStyle='rgba(8,35,53,.18)';ctx.fillRect(0,0,W,H);
+  pageBadge(ctx,page);
+
+  ctx.save();
+  ctx.strokeStyle='rgba(13,53,86,.62)';ctx.lineWidth=10;ctx.lineJoin='round';
+  ctx.font='900 76px '+FONT;ctx.textBaseline='top';ctx.fillStyle='#fff';
+  const headline=['見つける、','比べる、','出かける。'];
+  headline.forEach((row,index)=>{
+    ctx.strokeText(row,72,135+index*90);
+    ctx.fillText(row,72,135+index*90);
   });
-  label(ctx,'検証済みの事実だけを掲載。詳細は公式情報をご確認ください',70,1790,24,650,'#647a8c');brand(ctx,70,1845,.7);disclaimer(ctx,hero,520,830,500);
+  ctx.restore();
+
+  const tags=deriveVerifiedHighlightLabels(page.events).slice(0,4);
+  rounded(ctx,75,720,610,330,52,'rgba(255,255,255,.94)');
+  ctx.fillStyle='rgba(255,255,255,.94)';ctx.beginPath();ctx.moveTo(555,1020);ctx.lineTo(635,1115);ctx.lineTo(665,1010);ctx.closePath();ctx.fill();
+  label(ctx,'今週の見どころ',120,770,38,900,INK);
+  tags.forEach((tag,index)=>{
+    const y=840+index*50;
+    ctx.fillStyle=index%2?SKY:PINK;ctx.beginPath();ctx.arc(135,y+17,10,0,Math.PI*2);ctx.fill();
+    wrapped(ctx,tag,165,y,455,29,36,1,850,INK);
+  });
+
+  const imgA=await loadImage(approvedUrl(hero));
+  const imgB=await loadImage(approvedUrl(second));
+  ctx.save();ctx.translate(250,1355);ctx.rotate(-0.075);
+  rounded(ctx,-150,-170,390,310,8,'#fff');
+  imageFill(ctx,imgA,-130,-150,350,230);
+  label(ctx,'家族で楽しむ',45,95,27,850,INK,'center');ctx.restore();
+  ctx.save();ctx.translate(765,1360);ctx.rotate(0.085);
+  rounded(ctx,-205,-165,390,310,8,'#fff');
+  imageFill(ctx,imgB,-185,-145,350,230);
+  label(ctx,'気になる体験をチェック',-10,100,24,850,INK,'center');ctx.restore();
+
+  rounded(ctx,175,1680,730,105,42,'rgba(255,255,255,.94)');
+  label(ctx,'どんなイベントに出会えるかな？',540,1707,34,900,INK,'center');
+  brand(ctx,70,1845,.7);
+  disclaimer(ctx,hero,520,620,500);
 }
+
 async function drawEventCard(ctx:CanvasRenderingContext2D,event:CarouselEventInput,x:number,y:number,w:number,h:number){
-  rounded(ctx,x,y,w,h,34,'#fff','#d7e5ef');const ih=390,img=await loadImage(approvedUrl(event));
+  rounded(ctx,x,y,w,h,34,'#fff',SKY);ctx.fillStyle=SKY;ctx.fillRect(x+34,y,w-68,12);const ih=390,img=await loadImage(approvedUrl(event));
   ctx.save();ctx.beginPath();ctx.roundRect(x+20,y+20,w-40,ih,28);ctx.clip();imageFill(ctx,img,x+20,y+20,w-40,ih);ctx.restore();
   disclaimer(ctx,event,x+35,y+ih-48,w-70);wrapped(ctx,event.title,x+40,y+ih+48,w-80,w>700?46:36,w>700?56:45,3,900,INK);
   const f=facts(event),base=y+ih+220;factRow(ctx,'開催日',f.date,x+40,base,w-80);factRow(ctx,'時間',f.time,x+40,base+110,w-80);factRow(ctx,'会場',f.place,x+40,base+220,w-80);
