@@ -1,0 +1,43 @@
+{
+  "fixtureVersion": "keishicho-events-verified-20260924-v1",
+  "source": "Drive Events_Verified",
+  "productionWrite": false,
+  "records": [
+    {
+      "sourceEventId": "TOKYO-20260923-001",
+      "sourceCategory": "声かけ等",
+      "municipality": "練馬区",
+      "occurredAt": "2026-09-23T22:00:00+09:00",
+      "publishedAt": "2026-09-24T00:00:00+09:00",
+      "headline": "中学生女性へのつきまとい",
+      "body": "平和台2丁目の路上で中学生女性が不審な者につきまとわれたと警視庁が配信。",
+      "correctionStatus": "current",
+      "localityType": "occurred",
+      "localityConfirmed": true
+    },
+    {
+      "sourceEventId": "TOKYO-20260923-002",
+      "sourceCategory": "声かけ等",
+      "municipality": "八王子市",
+      "occurredAt": "2026-09-23T23:20:00+09:00",
+      "publishedAt": "2026-09-24T00:00:00+09:00",
+      "headline": "女性への声かけ",
+      "body": "廿里町の路上で帰宅途中の女性が男に声をかけられたと警視庁が配信。",
+      "correctionStatus": "current",
+      "localityType": "occurred",
+      "localityConfirmed": true
+    },
+    {
+      "sourceEventId": "TOKYO-20260923-003",
+      "sourceCategory": "公然わいせつ",
+      "municipality": "板橋区",
+      "occurredAt": "2026-09-23T23:50:00+09:00",
+      "publishedAt": "2026-09-24T00:00:00+09:00",
+      "headline": "公然わいせつ事案",
+      "body": "本町の路上で男が下半身を露出した事案が発生したと警視庁が配信。",
+      "correctionStatus": "current",
+      "localityType": "occurred",
+      "localityConfirmed": true
+    }
+  ]
+}
