@@ -23,6 +23,8 @@ assert.equal(candidate.publishEligible, false);
 assert.equal(candidate.sourceStatus, 'needs_review');
 assert.equal(candidate.factsStatus, 'needs_review');
 assert.equal(candidate.rightsStatus, 'needs_review');
+assert.equal(candidate.legacyComment, row.comment);
+assert.equal(candidate.legacyAddress, row.address);
 
 assert.equal(adapter.normalizeLegacySpot({ ...row, category: 'local_anomaly' }), null);
 assert.equal(adapter.isoWeekStart('2026-W38'), '2026-09-14');
@@ -52,3 +54,35 @@ assert.equal(weekly.eligible.length, 0);
 assert.equal(weekly.shortage, 6);
 
 console.log('PASS legacy news candidate adapter: inference, date/week filtering, publish gate');
+
+const canonicalWeekly = adapter.weeklySummary([
+  {
+    candidateId:'canonical-1',
+    informationKind:'POLICE_OFFICIAL',
+    headline:'首都高速で逆走車を確認',
+    prefecture:'東京都',
+    municipality:'江東区',
+    newsDate:'2026-09-24',
+    publishEligible:true,
+    productionEligible:true,
+    selection:{include:true}
+  },
+  {
+    candidateId:'canonical-2',
+    informationKind:'POLICE_OFFICIAL',
+    headline:'一般広報',
+    prefecture:'東京都',
+    municipality:'新宿区',
+    newsDate:'2026-09-24',
+    publishEligible:true,
+    productionEligible:false,
+    selection:{include:false}
+  }
+], {
+  weekValue:'2026-W39',
+  prefecture:'東京都',
+  requestedCount:6
+});
+assert.equal(canonicalWeekly.candidates.length,2);
+assert.equal(canonicalWeekly.eligible.length,1);
+assert.equal(canonicalWeekly.shortage,5);
