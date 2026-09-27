@@ -4681,7 +4681,7 @@ function shareSpot(title, address, category, event) {
 
 <script id="mobileFilterTouchScrollV2">
 (function () {
-    var state = { active:false, el:null, lastY:0 };
+    var state = { active:false, el:null, lastY:0, mode:null };
 
     function getFilterList() {
         return document.querySelector('.filter-content');
@@ -4724,15 +4724,33 @@ function shareSpot(title, address, category, event) {
     }
 
     function begin(e) {
-        var el = getFilterList();
-        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
-        var t = e.target && e.target.closest ? e.target.closest('.filter-content') : null;
-        if (!t) return;
         var touch = e.touches && e.touches[0];
         if (!touch) return;
+
+        // The page shell is intentionally non-scrollable. On iOS, native momentum
+        // scrolling can fail for this nested modal, especially when a swipe begins
+        // on the large canvas. Route that gesture directly to the modal body.
+        var target = e.target;
+        var socialBody = target && target.closest ? target.closest('#adminSocialAssetBody') : null;
+        var socialModal = document.getElementById('adminSocialAssetModal');
+        if (socialBody && socialModal && socialModal.classList.contains('open')) {
+            if (target.closest('button,a,input,textarea,select,[contenteditable="true"]')) return;
+            state.active = true;
+            state.el = socialBody;
+            state.lastY = touch.clientY;
+            state.mode = 'admin-social';
+            e.stopPropagation();
+            return;
+        }
+
+        var el = getFilterList();
+        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
+        var t = target && target.closest ? target.closest('.filter-content') : null;
+        if (!t) return;
         state.active = true;
         state.el = el;
         state.lastY = touch.clientY;
+        state.mode = 'filter';
         e.stopPropagation();
     }
 
@@ -4746,8 +4764,7 @@ function shareSpot(title, address, category, event) {
         state.lastY = y;
 
         if (Math.abs(delta) >= 1) {
-            // getBoundingClientRect / touch coordinates are after CSS zoom, whereas
-            // scrollTop is in layout pixels, so divide by the zoom factor.
+            // Touch coordinates are visual CSS pixels; scrollTop uses layout pixels.
             var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
             state.el.scrollTop += delta / zoom;
             e.preventDefault();
@@ -4759,6 +4776,7 @@ function shareSpot(title, address, category, event) {
         if (!state.active) return;
         state.active = false;
         state.el = null;
+        state.mode = null;
         if (e) e.stopPropagation();
     }
 

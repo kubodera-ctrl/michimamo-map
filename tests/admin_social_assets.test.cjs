@@ -28,3 +28,8 @@ assert.doesNotMatch(canvasBody,/spot\.title|spot\.comment/,'TikTok image does no
 assert.doesNotMatch(html,/api\.tiktok\.com|open-api\.tiktok|POST[^\n]*tiktok/i,'no TikTok auto-post API is wired');
 
 console.log('PASS: machimamo admin X/TikTok asset generation is manual, privacy-aware and mobile-safe.');
+
+assert.match(html,/target\.closest\('#adminSocialAssetBody'\)/,'admin social asset swipe gestures are routed to the modal body');
+assert.match(html,/socialModal\.classList\.contains\('open'\)/,'social scroll routing is active only while its modal is open');
+assert.match(html,/state\.el\.scrollTop \+= delta \/ zoom/,'iOS touch gestures manually advance the active scroll container');
+assert.match(html,/target\.closest\('button,a,input,textarea,select,\[contenteditable="true"\]'\)/,'buttons and editable controls retain their native interaction');
