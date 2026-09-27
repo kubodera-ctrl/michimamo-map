@@ -311,3 +311,9 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - Production PreviewでRenderer blocker `RENDERER_BLOCKED_BY_EXACT_V7_SOURCE` / exact v7 source未回収を明示しRender disabled。
 - Publishing Previewはread-only。externalRequestSent=false。実SNS requestは送らない。
 - Production DB write/migration/OAuth/課金/legacy police cron操作なし。
+
+## 2026-09-28 開発36｜compatibility follow-up
+
+- `news-publishing-contract.cjs` は既存API（47都道府県、weeklySetKey、sharedWeeklyGenerationKey等）を維持したまま拡張する。
+- WEEKLY posting idempotencyに weekValue + prefecture + revisionId + renderId + TIKTOK を追加。
+- candidate detail JS変更のPreview cache混在を避けるためasset versionを `v=2-production-preview` へ更新。
