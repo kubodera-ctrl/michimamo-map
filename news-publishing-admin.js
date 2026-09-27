@@ -2,6 +2,9 @@
   'use strict';
 
   const SERVICE_ID = 'machimamo';
+  const LEGACY_KIND = 'LEGACY_UNVERIFIED';
+  const PAGE_SIZE = 500;
+  const MAX_ROWS = 2500;
   const PREFECTURES = [
     '北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県',
     '茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県',
@@ -13,6 +16,140 @@
     '福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県',
   ];
 
+  let candidates = [];
+  let loadPromise = null;
+
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    })[ch]);
+  }
+
+  function isAdminNewsVisible() {
+    const dashboard = document.getElementById('adminDashboardArea');
+    return document.body.classList.contains('admin-news-qa-only') || dashboard?.style.display === 'block';
+  }
+
+  async function fetchLegacyRowsReadOnly() {
+    if (typeof db === 'undefined' || !db?.from) throw new Error('supabase_client_unavailable');
+    const rows = [];
+    for (let from = 0; from < MAX_ROWS; from += PAGE_SIZE) {
+      const to = Math.min(from + PAGE_SIZE - 1, MAX_ROWS - 1);
+      const { data, error } = await db.from('spots')
+        .select('id,created_at,category,title,comment,address,is_hidden,report_count')
+        .eq('category', 'official')
+        .eq('is_hidden', false)
+        .order('created_at', { ascending: false })
+        .range(from, to);
+      if (error) throw error;
+      const page = Array.isArray(data) ? data.filter(row => Number(row.report_count || 0) < 3) : [];
+      rows.push(...page);
+      if (!Array.isArray(data) || data.length < PAGE_SIZE) break;
+    }
+    return rows;
+  }
+
+  async function loadCandidatesOnce() {
+    if (loadPromise) return loadPromise;
+    const adapter = window.MachimamoNewsCandidateAdapter;
+    if (!adapter) return null;
+    const connection = document.getElementById('adminNewsPublishingConnection');
+    if (connection) connection.textContent = '既存ニュース候補へ読み取り専用で接続しています…';
+    loadPromise = fetchLegacyRowsReadOnly()
+      .then(rows => {
+        candidates = rows.map(adapter.normalizeLegacySpot).filter(Boolean);
+        const section = document.getElementById('adminNewsPublishingSection');
+        if (section) section.dataset.connection = 'legacy-read-only';
+        if (connection) {
+          connection.textContent = `旧official実データ ${candidates.length.toLocaleString()}件を読み取り専用で表示しています。一次ソースURL・verifiedFacts・rights証跡が旧データに無いため全件「要確認」で、生成・公開には使用できません。`;
+        }
+        renderSingleCandidates();
+        renderWeeklyCandidates();
+        return candidates;
+      })
+      .catch(error => {
+        console.error('news candidate read-only load failed', error);
+        if (connection) connection.textContent = 'ニュース候補の読み取りに失敗しました。生成・公開操作は無効のままです。';
+        loadPromise = null;
+        return null;
+      });
+    return loadPromise;
+  }
+
+  function currentFilters() {
+    return {
+      informationKind: document.getElementById('adminNewsTypeFilter')?.value || 'all',
+      prefecture: document.getElementById('adminNewsPrefectureFilter')?.value || '',
+      municipality: document.getElementById('adminNewsMunicipalityFilter')?.value || '',
+      from: document.getElementById('adminNewsFromFilter')?.value || '',
+      to: document.getElementById('adminNewsToFilter')?.value || '',
+      status: document.getElementById('adminNewsStatusFilter')?.value || 'all'
+    };
+  }
+
+  function renderSingleCandidates() {
+    const target = document.getElementById('adminNewsSingleRows');
+    const adapter = window.MachimamoNewsCandidateAdapter;
+    if (!target || !adapter) return;
+    const filtered = adapter.filterCandidates(candidates, currentFilters());
+    if (!filtered.length) {
+      target.innerHTML = '<tr><td colspan="15">条件に一致するニュース候補はありません。検証済みデータが無い場合、候補を作り話で補完しません。</td></tr>';
+      return;
+    }
+    const shown = filtered.slice(0, 100);
+    target.innerHTML = shown.map(item => {
+      const region = [item.prefecture, item.municipality].filter(Boolean).join(' ') || '地域要確認';
+      return `<tr data-candidate-id="${escapeHtml(item.candidateId)}">
+        <td><strong>${escapeHtml(item.title)}</strong><div class="muted" style="font-size:.61rem;margin-top:3px;">旧データ #${Number(item.legacySpotId)}</div></td>
+        <td>${escapeHtml(region)}</td>
+        <td>${escapeHtml(item.prefecture || '要確認')}</td>
+        <td>${escapeHtml(item.municipality || '要確認')}</td>
+        <td>${escapeHtml(item.newsDate || '日付要確認')}</td>
+        <td><span style="color:#92400e;font-weight:800;">要確認</span><div style="font-size:.6rem;">旧official・一次URL未保持</div></td>
+        <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
+        <td><span style="color:#92400e;font-weight:800;">要確認</span></td>
+        <td>不可</td><td>未</td><td>未</td><td>未</td><td>未</td><td>—</td>
+        <td><button type="button" disabled aria-disabled="true">検証待ち</button></td>
+      </tr>`;
+    }).join('');
+    if (filtered.length > shown.length) {
+      target.insertAdjacentHTML('beforeend', `<tr><td colspan="15">${filtered.length.toLocaleString()}件中、最新100件を表示しています。</td></tr>`);
+    }
+  }
+
+  function renderWeeklyCandidates() {
+    const target = document.getElementById('adminWeeklyCandidates');
+    const adapter = window.MachimamoNewsCandidateAdapter;
+    if (!target || !adapter) return;
+    const weekValue = document.getElementById('adminWeeklyWeek')?.value || '';
+    const prefecture = document.getElementById('adminWeeklyPrefecture')?.value || '';
+    const requestedCount = Number(document.getElementById('adminWeeklyCount')?.value || 6);
+    if (!weekValue || !prefecture) {
+      target.textContent = '対象週と都道府県を選ぶと、実データ内の候補件数を読み取り専用で確認できます。';
+      return;
+    }
+    const summary = adapter.weeklySummary(candidates, { weekValue, prefecture, requestedCount });
+    const count = summary.candidates.length;
+    if (!count) {
+      target.textContent = `${prefecture}・${weekValue} に一致する旧ニュース候補はありません。架空ニュースで補完しません。`;
+      return;
+    }
+    const examples = summary.candidates.slice(0, Math.min(6, count)).map(item => item.title);
+    target.innerHTML = `<strong>${escapeHtml(prefecture)} / ${escapeHtml(weekValue)}</strong><br>
+      実候補 ${count.toLocaleString()}件 / Production利用可能 0件。選択希望 ${requestedCount}件に対し、全件でsource・facts・rights確認が必要です。
+      <div style="margin-top:7px;font-size:.68rem;line-height:1.5;">${examples.map(x => '・' + escapeHtml(x)).join('<br>')}</div>`;
+  }
+
+  function bindFilters() {
+    ['adminNewsTypeFilter','adminNewsPrefectureFilter','adminNewsStatusFilter','adminNewsShowPosted']
+      .forEach(id => document.getElementById(id)?.addEventListener('change', renderSingleCandidates));
+    ['adminNewsFromFilter','adminNewsToFilter']
+      .forEach(id => document.getElementById(id)?.addEventListener('change', renderSingleCandidates));
+    document.getElementById('adminNewsMunicipalityFilter')?.addEventListener('input', renderSingleCandidates);
+    ['adminWeeklyWeek','adminWeeklyPrefecture','adminWeeklyCount']
+      .forEach(id => document.getElementById(id)?.addEventListener('change', renderWeeklyCandidates));
+  }
+
   const init = () => {
     const singleFilter = document.getElementById('adminNewsPrefectureFilter');
     const weeklyFilter = document.getElementById('adminWeeklyPrefecture');
@@ -23,22 +160,35 @@
       weeklyFilter.add(new Option(prefecture, prefecture));
     });
 
+    const typeFilter = document.getElementById('adminNewsTypeFilter');
+    if (typeFilter && !typeFilter.querySelector(`option[value="${LEGACY_KIND}"]`)) {
+      typeFilter.add(new Option('旧ニュース候補（要確認）', LEGACY_KIND));
+    }
+
+    const adapter = window.MachimamoNewsCandidateAdapter;
+    const weeklyInput = document.getElementById('adminWeeklyWeek');
+    if (adapter && weeklyInput && !weeklyInput.value) weeklyInput.value = adapter.isoWeekValue(new Date());
+
+    bindFilters();
+
     const dashboard = document.getElementById('adminDashboardArea');
-    const updateAdminAdVisibility = () => {
+    const updateAdminState = () => {
       document.body.classList.toggle('admin-dashboard-open', dashboard?.style.display === 'block');
+      if (isAdminNewsVisible()) loadCandidatesOnce();
     };
-    updateAdminAdVisibility();
+    updateAdminState();
     if (dashboard && typeof MutationObserver !== 'undefined') {
-      new MutationObserver(updateAdminAdVisibility).observe(dashboard, { attributes: true, attributeFilter: ['style'] });
+      new MutationObserver(updateAdminState).observe(dashboard, { attributes: true, attributeFilter: ['style'] });
     }
 
     const state = window.MachimamoNewsPublishingAdmin = Object.freeze({
-      version: 'news-publishing-admin-ui-v1',
+      version: 'news-publishing-admin-ui-v2-readonly-legacy',
       serviceId: SERVICE_ID,
       productionModes: Object.freeze(['SINGLE', 'WEEKLY']),
-      informationKinds: Object.freeze(['LOCAL_ANOMALY', 'POLICE_OFFICIAL']),
+      informationKinds: Object.freeze(['LOCAL_ANOMALY', 'POLICE_OFFICIAL', LEGACY_KIND]),
       prefectureCount: PREFECTURES.length,
-      connected: false,
+      candidateSource: 'public.spots:official(read-only,legacy-unverified)',
+      connected: 'read-only-legacy'
     });
     document.dispatchEvent(new CustomEvent('machimamo:news-publishing-admin-ready', { detail: state }));
   };
