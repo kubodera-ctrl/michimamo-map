@@ -38,6 +38,7 @@ function validateCanonicalCandidate(candidate) {
   if (candidate.service !== SERVICE_ID) errors.push('service must be machimamo');
   if (candidate.schemaVersion !== CANDIDATE_SCHEMA_VERSION) errors.push('schemaVersion mismatch');
   if (!nonEmpty(candidate.candidateId)) errors.push('candidateId is required');
+  if (candidate.informationKind === 'POLICE_OFFICIAL' && !nonEmpty(candidate.sourceEventId)) errors.push('sourceEventId is required for POLICE_OFFICIAL');
   if (!INFORMATION_KINDS.includes(candidate.informationKind)) errors.push('informationKind must be POLICE_OFFICIAL or LOCAL_ANOMALY');
   if (!nonEmpty(candidate.headline)) errors.push('headline is required');
   if (!PREFECTURES.has(candidate.prefecture)) errors.push('prefecture must be one of the 47 prefectures');
