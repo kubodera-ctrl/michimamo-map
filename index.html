@@ -68,6 +68,22 @@
         .ad-banner:active { background: #f9fafb; }
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
+        body.admin-dashboard-open .ad-banner { display: none !important; }
+        .news-publishing-admin { margin: 18px 0; padding: 14px; border: 1px solid #bfdbfe; border-radius: 12px; background: #f8fbff; color: #17212b; }
+        .news-publishing-admin h3 { margin: 0 0 8px; color: #0f4c81; font-size: 1rem; }
+        .news-publishing-admin h4 { margin: 15px 0 8px; color: #164e63; font-size: .9rem; }
+        .news-publishing-admin .news-admin-meta { font-size: .72rem; line-height: 1.55; color: #475569; }
+        .news-publishing-admin .news-admin-filters { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 8px; margin: 10px 0; }
+        .news-publishing-admin label { display: grid; gap: 4px; font-size: .7rem; font-weight: 800; }
+        .news-publishing-admin select, .news-publishing-admin input { min-width: 0; width: 100%; min-height: 42px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; font-size: 16px; }
+        .news-publishing-admin .news-admin-state { display: flex; flex-wrap: wrap; gap: 6px; }
+        .news-publishing-admin .news-admin-state span { padding: 4px 8px; border-radius: 999px; background: #e2e8f0; font-size: .68rem; font-weight: 800; }
+        .news-publishing-admin .news-admin-empty { padding: 12px; border: 1px dashed #94a3b8; border-radius: 8px; background: #fff; font-size: .75rem; line-height: 1.5; }
+        .news-publishing-admin .news-admin-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .news-publishing-admin table { width: 100%; min-width: 1080px; border-collapse: collapse; font-size: .68rem; background: #fff; }
+        .news-publishing-admin th, .news-publishing-admin td { padding: 7px; border: 1px solid #dbe5ef; text-align: left; vertical-align: top; }
+        .news-publishing-admin button[disabled] { opacity: .55; cursor: not-allowed; }
+
 
         nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
@@ -778,6 +794,46 @@
                                     <div id="adminCategoryStats"></div>
                                 </div>
                             </div>
+                            <section id="adminNewsPublishingSection" class="news-publishing-admin" aria-labelledby="adminNewsPublishingTitle" data-connection="unconfigured">
+                                <h3 id="adminNewsPublishingTitle">ニュース投稿管理</h3>
+                                <p class="news-admin-empty" role="status" id="adminNewsPublishingConnection">Production / Publishing接続設定がありません。ニュース情報や投稿状態は表示していません。生成・公開操作はできません。</p>
+                                <div class="news-admin-filters" role="group" aria-label="ニュース投稿管理フィルター">
+                                    <label>情報種別
+                                        <select id="adminNewsTypeFilter"><option value="all">すべて</option><option value="LOCAL_ANOMALY">地域の異変（利用者投稿）</option><option value="POLICE_OFFICIAL">警察情報（公式ソース）</option></select>
+                                    </label>
+                                    <label>都道府県
+                                        <select id="adminNewsPrefectureFilter"><option value="">すべて</option></select>
+                                    </label>
+                                    <label>市区町村<input id="adminNewsMunicipalityFilter" type="search" placeholder="市区町村"></label>
+                                    <label>期間（開始）<input id="adminNewsFromFilter" type="date"></label>
+                                    <label>期間（終了）<input id="adminNewsToFilter" type="date"></label>
+                                    <label>投稿状態
+                                        <select id="adminNewsStatusFilter"><option value="all">すべて</option><option value="unposted">未</option><option value="partial">一部済</option><option value="posted">済</option><option value="failed">失敗</option><option value="processing">投稿処理中</option></select>
+                                    </label>
+                                </div>
+                                <label style="display:flex;align-items:center;gap:7px;margin:8px 0;font-size:.72rem;"><input id="adminNewsShowPosted" type="checkbox" style="width:18px;min-height:18px;">済を表示</label>
+                                <div class="news-admin-state" aria-label="投稿状態"><span>未</span><span>一部済</span><span>済</span><span>失敗</span><span>投稿処理中</span></div>
+                                <h4>単体ニュース / TikTok SHORT・SINGLE（43秒）</h4>
+                                <p class="news-admin-meta">CURRENT SINGLE: TOP 3秒 / MAP 7秒 / NEWS 12秒 / MAP説明 8秒 / ロジック 8秒 / END 5秒。ニュースごとに1本。生成・QC・承認データ待ち。</p>
+                                <div class="news-admin-table-wrap" tabindex="0" aria-label="単体ニュース一覧（横スクロール可能）">
+                                    <table><thead><tr><th>ニュースタイトル</th><th>対象地域</th><th>都道府県</th><th>市区町村</th><th>日付</th><th>source</th><th>facts</th><th>rights</th><th>動画生成</th><th>QC</th><th>承認</th><th>X</th><th>TikTok</th><th>投稿日時</th><th>操作</th></tr></thead>
+                                    <tbody id="adminNewsSingleRows"><tr><td colspan="15">候補ニュース接続待ちです。未確認ニュースを生成候補として表示しません。</td></tr></tbody></table>
+                                </div>
+                                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+                                    <button type="button" disabled aria-disabled="true">Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">Xへ投稿（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button>
+                                </div>
+                                <h4>ウィークリー投稿 / TikTok LONG・WEEKLY（CURRENT尺）</h4>
+                                <div class="news-admin-filters" role="group" aria-label="ウィークリー投稿対象">
+                                    <label>対象週<input id="adminWeeklyWeek" type="week" required></label>
+                                    <label>都道府県（必須）<select id="adminWeeklyPrefecture" required><option value="">選択してください</option></select></label>
+                                    <label>ニュース件数<select id="adminWeeklyCount"><option value="6" selected>6件</option><option value="9">9件</option><option value="12">12件</option></select></label>
+                                </div>
+                                <p class="news-admin-meta">38秒 + 12秒 × ceil(確認済みニュース数 / 3)。1ページ最大3件。最終ページも12秒を保持し、件数不足を作り話で埋めません。現状は候補接続未設定です。</p>
+                                <div class="news-admin-empty" role="status" id="adminWeeklyCandidates">対象週・都道府県のニュース候補を取得する接続がありません。</div>
+                                <div class="news-admin-state" aria-label="都道府県別WEEKLY状態"><span>未</span><span>生成中</span><span>生成済</span><span>QC待ち</span><span>承認済</span><span>投稿準備中</span><span>投稿処理中</span><span>済</span><span>失敗</span><span>接続設定必要</span></div>
+                                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" disabled aria-disabled="true">WEEKLY生成（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTok Preview（接続設定必要）</button><button type="button" disabled aria-disabled="true">TikTokへ投稿（接続設定必要）</button></div>
+                            </section>
+                            
                             <h3 style="font-size:.92rem; color:#0f4c81; margin:16px 0 5px;">SNS投稿素材（直近の公開投稿）</h3>
                             <p class="muted" style="font-size:.7rem;line-height:1.55;margin:0 0 8px;">Xは投稿文入りの作成画面を開き、TikTokは9:16画像と投稿文を生成します。自動投稿はせず、必ず内容を確認してから投稿します。</p>
                             <div id="adminSocialPostArea"><div class="muted" style="font-size:.72rem;">管理画面を読み込むと表示します。</div></div>
@@ -4775,5 +4831,6 @@ function shareSpot(title, address, category, event) {
 <script src="profile-v2.js?v=29-profile3"></script>
 <script src="exchange-service.js?v=31-digital-gift1"></script>
 <script src="point-exchange.js?v=31-digital-gift1"></script>
+<script src="news-publishing-admin.js?v=1" defer></script>
 </body>
 </html>
