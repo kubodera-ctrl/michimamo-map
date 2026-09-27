@@ -169,8 +169,8 @@
 
     async function confirmGuestSave(afterSave) {
       if (state.authId()) return afterSave();
-      showBody('この端末に保存します',
-        '<p>LINE未認証のため、プロフィールはこの端末に保存されます。</p>' +
+      showBody('プロフィール更新しました。',
+        '<p>LINE未承認の為下記機能は行えません。<br>希望の場合は下記よりLINE認証をお願いします。</p>' +
         '<ul class="profile-v2-benefits"><li>別端末でもプロフィールを共有</li><li>ポイントを貯める</li><li>ポイント交換</li></ul>' +
         '<button type="button" id="profileV2LocalSave" class="primary">このまま保存</button>' +
         '<button type="button" id="profileV2LineSave" class="profile-v2-line">LINE認証する</button>');

@@ -10,11 +10,14 @@ if(!view||!video||!controls)return;
 const layer=document.createElement('div');
 layer.className='camera-scope-layer';
 layer.setAttribute('aria-hidden','true');
-view.insertBefore(layer,view.firstChild.nextSibling);
+// Keep the scope in the same coordinate space as the video, but always paint it
+// after the video so Safari cannot place the hardware video layer above it.
+video.insertAdjacentElement('afterend',layer);
 const counter=document.createElement('div');
 counter.className='camera-detection-count';
 counter.setAttribute('role','status');
 counter.setAttribute('aria-live','polite');
+counter.dataset.state='idle';
 counter.innerHTML='<span aria-hidden="true"></span>検知台数 0台';
 view.appendChild(counter);
 
@@ -37,17 +40,18 @@ let heat='normal';
 function syncRunning(){
   const active=view.classList.contains('active');
   document.body.classList.toggle('camera-running',active);
-  if(active){notice.hidden=false;}else{clearScopes();}
+  if(active){notice.hidden=false;requestAnimationFrame(()=>root.dispatchEvent(new Event('resize')));}else{clearScopes();}
 }
 new MutationObserver(syncRunning).observe(view,{attributes:true,attributeFilter:['class']});
 syncRunning();
 
 function displayedVideoRect(sourceWidth,sourceHeight){
   const rect=video.getBoundingClientRect();
+  const viewRect=view.getBoundingClientRect();
   if(!rect.width||!rect.height||!sourceWidth||!sourceHeight)return null;
   const scale=Math.max(rect.width/sourceWidth,rect.height/sourceHeight);
   const width=sourceWidth*scale,height=sourceHeight*scale;
-  return {left:rect.left-view.getBoundingClientRect().left+(rect.width-width)/2,top:rect.top-view.getBoundingClientRect().top+(rect.height-height)/2,scale};
+  return {left:rect.left-viewRect.left+(rect.width-width)/2,top:rect.top-viewRect.top+(rect.height-height)/2,scale};
 }
 function renderScopes(items,sourceWidth,sourceHeight){
   if(!view.classList.contains('active'))return;
@@ -69,10 +73,14 @@ function setDetectionCount(value){
   const count=Math.max(0,Number(value)||0);
   counter.innerHTML=`<span aria-hidden="true"></span>検知台数 ${count}台`;
 }
+function setDetectorState(next){
+  const state=['loading','running','error'].includes(next)?next:'idle';
+  counter.dataset.state=state;
+}
 function setHeatMode(next){
   heat=['medium','strong'].includes(next)?next:'normal';
   document.body.classList.toggle('camera-heat-medium',heat==='medium');
   document.body.classList.toggle('camera-heat-strong',heat==='strong');
 }
-root.MachimamoCameraSafeUi={renderScopes,clearScopes,setDetectionCount,setHeatMode};
+root.MachimamoCameraSafeUi={renderScopes,clearScopes,setDetectionCount,setDetectorState,setHeatMode};
 })(window);
