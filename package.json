@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs && node tests/beta_legacy_asp_gate.test.cjs && node tests/beta_ranking_real_data.test.cjs"
+    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs && node tests/beta_legacy_asp_gate.test.cjs && node tests/beta_ranking_real_data.test.cjs && node tests/beta_legal_runtime_alignment.test.cjs"
   },
   "repository": {
     "type": "git",
