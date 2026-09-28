@@ -158,7 +158,7 @@ language sql
 security definer
 stable
 set search_path=public,pg_temp
-as $
+as $$
   select
     e.id,e.slug,e.title,e.start_date,e.end_date,e.prefecture,e.municipality,e.venue_name,
     e.price_type,e.indoor,
@@ -204,7 +204,7 @@ as $
     )
   order by e.start_date,e.id
   limit least(greatest(coalesce(p_limit,24),1),100);
-$;
+$$;
 
 revoke all on function public.search_public_events_cursor_v2(date,date,text,text,text,text[],text[],boolean,boolean,date,bigint,integer)
   from public;
