@@ -100,6 +100,7 @@ jobs:
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260923073000_event_i18n_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260927062000_machiibe_operational_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928082000_machiibe_media_commit.sql
+          if [ -f supabase/migrations/20260928143000_machiibe_national_ingestion_foundation.sql ]; then psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928143000_machiibe_national_ingestion_foundation.sql; fi
       - name: SQL behavior smoke tests
         working-directory: .
         env:
