@@ -1,5 +1,5 @@
 export const SOURCE_FETCH_METHODS=[
-  'OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL'
+  'OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL','PARTNER'
 ] as const;
 export type SourceFetchMethod=typeof SOURCE_FETCH_METHODS[number];
 

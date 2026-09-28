@@ -5,7 +5,7 @@ begin;
 
 alter table public.regional_sources
   add column if not exists fetch_method text
-    check (fetch_method is null or fetch_method in ('OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL')),
+    check (fetch_method is null or fetch_method in ('OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL','PARTNER')),
   add column if not exists robots_status text not null default 'pending'
     check (robots_status in ('pending','allowed','disallowed','not_applicable')),
   add column if not exists commercial_use_status text not null default 'unknown'

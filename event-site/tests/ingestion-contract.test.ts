@@ -5,7 +5,7 @@ import {
 } from '../../shared/machiibe-ingestion/contracts';
 
 test('ingestion adapter contract contains all planned source methods',()=>{
-  assert.deepEqual(SOURCE_FETCH_METHODS,['OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL']);
+  assert.deepEqual(SOURCE_FETCH_METHODS,['OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL','PARTNER']);
 });
 
 test('source automation fails closed unless compliance gates are approved',()=>{

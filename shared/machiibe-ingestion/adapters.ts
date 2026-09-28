@@ -265,5 +265,6 @@ export function parseSourcePayload(payload:unknown,source:SourcePolicySnapshot):
     if(typeof payload==='string')return parseCsv(payload,source);
     return parseJsonApi(payload,source);
   }
+  if(source.fetchMethod==='PARTNER')return {method:'PARTNER',items:(Array.isArray(payload)?payload:[payload]).map((row,index)=>raw(source,row,index)),warnings:[]};
   return parseManualRows(Array.isArray(payload)?payload:[payload],source);
 }
