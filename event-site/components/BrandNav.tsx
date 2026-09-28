@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import {localePath,type Locale} from '@/lib/i18n-config';
 
 export function BrandNav({locale,tagline}:{locale:Locale;tagline:string}){
   const router=useRouter();
   const tapTimes=useRef<number[]>([]);
+  const [iconFailed,setIconFailed]=useState(false);
 
   const secretTap=()=>{
     const now=Date.now();
@@ -27,8 +28,10 @@ export function BrandNav({locale,tagline}:{locale:Locale;tagline:string}){
         aria-hidden="true"
         tabIndex={-1}
       >
-        <span className="brand-mark brand-icon-wrap">
-          <img className="brand-icon-image" src="/machiibe-icon.svg" alt="" />
+        <span className="brand-mark brand-icon-wrap" aria-hidden="true">
+          {iconFailed
+            ? <span className="brand-icon-fallback">ま</span>
+            : <img className="brand-icon-image" src="/machiibe-icon.svg" alt="" onError={()=>setIconFailed(true)} />}
         </span>
       </button>
       <Link href={localePath('/',locale)} className="brand brand-copy">

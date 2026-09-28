@@ -14,7 +14,8 @@ import {localePath,type Locale} from '@/lib/i18n-config';
 import { PREF_KEYS, getPreviousVisit, readStringArray, setViewed, toggleInArray, wasViewed } from '@/lib/client-prefs';
 import type { EventSummary } from '@/lib/types';
 import { recordMetric } from './MetricPing';
-import {EventVisualFallback} from './EventVisualFallback';
+import {EventMedia} from './EventMedia';
+import {rememberSearchScroll} from './SearchScrollRestorer';
 
 const categoryLabels = {...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
 
@@ -37,6 +38,7 @@ export function EventCard({ event, respectHidden=true, locale='ja', detailBasePa
   const openEvent=()=>{
     setViewed(event.slug);
     setViewedState(true);
+    if(returnTo) rememberSearchScroll(returnTo);
     void recordMetric('event_open',event.slug);
   };
 
@@ -68,11 +70,7 @@ export function EventCard({ event, respectHidden=true, locale='ja', detailBasePa
   return (
     <article className={`event-card ${statusAlert ? 'event-card-status-alert' : ''} ${viewed ? 'event-card-viewed' : ''}`}>
       <Link href={detailHref} className="event-card-link" aria-label={event.title} onClick={openEvent}>
-        {event.image_url ? (
-          <img className="event-card-image" src={event.image_url} alt={`${event.title}のイベント画像`} loading="lazy" />
-        ) : (
-          <EventVisualFallback event={event} />
-        )}
+        <EventMedia event={event} />
         <div className="event-card-body">
           <div className="card-meta-line">
             {qaLabel && <span className="new-badge">{qaLabel}</span>}
@@ -83,16 +81,24 @@ export function EventCard({ event, respectHidden=true, locale='ja', detailBasePa
           <div className="event-date">{formatEventDateLocalized(event.start_date,event.end_date,locale)}</div>
           <h2>{event.title}</h2>
           <p className="event-place">{[event.prefecture, event.municipality, event.venue_name].filter(Boolean).join(' · ')}</p>
-          <div className="tag-row">
-            <span className={`tag ${event.duration_days >= 11 ? 'tag-long' : ''}`}>{formatDurationLocalized(event.duration_days,locale)}</span>
-            {(event.schedule_type==='recurring'||event.schedule_type==='irregular') && <span className="tag tag-recurring">{g.recurring}</span>}
+          <div className="tag-row event-card-tags">
             <span className={`tag tag-price tag-price-${event.price_type}`}>{labels.price[event.price_type] || PRICE_LABELS[event.price_type]}</span>
-            {event.indoor === true && <span className="tag">{g.indoor}</span>}
-            {event.audience_intent === 'child_centered' && <span className="tag tag-family">{g.childCentered}</span>}
-            {event.audience_intent === 'family_friendly' && <span className="tag tag-family">{g.familyFriendly}</span>}
-            {event.accessibility_keys.length > 0 && <span className="tag tag-accessibility">{g.accessibilityAvailable}</span>}
-            {event.fandom_slugs.slice(0,2).map((slug) => <span className="tag tag-oshi" key={slug}>{g.fandom}：{FANDOM_LABELS[slug] || slug}</span>)}
-            {event.category_keys.slice(0,2).map((key) => <span className="tag" key={key}>{labels.category[key] || labels.experience[key] || categoryLabels[key] || key}</span>)}
+            {event.indoor === true
+              ? <span className="tag">{g.indoor}</span>
+              : event.audience_intent === 'child_centered'
+                ? <span className="tag tag-family">{g.childCentered}</span>
+                : event.audience_intent === 'family_friendly'
+                  ? <span className="tag tag-family">{g.familyFriendly}</span>
+                  : event.category_keys[0]
+                    ? <span className="tag">{labels.category[event.category_keys[0]] || labels.experience[event.category_keys[0]] || categoryLabels[event.category_keys[0]] || event.category_keys[0]}</span>
+                    : null}
+            {(event.schedule_type==='recurring'||event.schedule_type==='irregular')
+              ? <span className="tag tag-recurring">{g.recurring}</span>
+              : event.accessibility_keys.length > 0
+                ? <span className="tag tag-accessibility">{g.accessibilityAvailable}</span>
+                : event.category_keys[1]
+                  ? <span className="tag">{labels.category[event.category_keys[1]] || labels.experience[event.category_keys[1]] || categoryLabels[event.category_keys[1]] || event.category_keys[1]}</span>
+                  : null}
           </div>
         </div>
       </Link>

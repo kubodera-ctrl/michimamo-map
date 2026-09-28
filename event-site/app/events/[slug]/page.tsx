@@ -23,7 +23,7 @@ import { getRequestLocale } from '@/lib/i18n-server';
 import { getMessages } from '@/lib/i18n';
 import { localePath,type Locale } from '@/lib/i18n-config';
 import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
-import {EventVisualFallback} from '@/components/EventVisualFallback';
+import {EventMedia} from '@/components/EventMedia';
 
 
 const detailCopy:Record<Locale,{
@@ -42,12 +42,17 @@ const detailCopy:Record<Locale,{
 };
 
 type Params = Promise<{slug:string}>;
+type SearchParams = Promise<Record<string,string|string[]|undefined>>;
 const categoryLabels = Object.fromEntries(CATEGORY_OPTIONS) as Record<string,string>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const locale=await getRequestLocale();
   const labels=eventLabels(locale);
   const { slug } = await params;
+  const query=await searchParams;
+  const rawReturn=Array.isArray(query.return)?query.return[0]||'':query.return||'';
+  const defaultReturn=localePath('/',locale);
+  const returnTo=rawReturn.startsWith(defaultReturn)&&!rawReturn.startsWith('//')?rawReturn:defaultReturn;
   const event = await getEvent(slug,locale);
   if (!event) return {};
   const title = event.title;
@@ -90,7 +95,7 @@ function schemaEventStatus(status:string) {
   return 'https://schema.org/EventScheduled';
 }
 
-export default async function EventPage({ params }: { params: Params }) {
+export default async function EventPage({ params,searchParams }: { params: Params; searchParams:SearchParams }) {
   const locale=await getRequestLocale();
   const messages=getMessages(locale);
   const labels=eventLabels(locale);
@@ -163,13 +168,15 @@ export default async function EventPage({ params }: { params: Params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }} />
       <nav className="breadcrumb" aria-label={t.breadcrumb}>
+        <Link href={returnTo}>← 検索結果へ戻る</Link>
+        <span>›</span>
         <Link href={localePath('/',locale)}>まちイベ</Link>
         {prefSlug && <><span>›</span><Link href={localePath(`/area/${prefSlug}`,locale)}>{event.prefecture}</Link></>}
         <span>›</span><span>{event.title}</span>
       </nav>
 
       <article className="detail-card">
-        {event.image_url ? <img className="detail-image" src={event.image_url} alt={`${event.title}のイベント画像`} /> : <EventVisualFallback event={event} detail />}
+        <EventMedia event={event} detail eager />
         <div className="detail-body">
           {event.event_status !== 'scheduled' && (
             <div className={`detail-status-alert status-${event.event_status}`} role="status">

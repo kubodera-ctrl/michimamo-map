@@ -12,6 +12,7 @@ import { VisitTracker } from '@/components/VisitTracker';
 import { HomePrSlot } from '@/components/HomePrSlot';
 import { FeaturedStories } from '@/components/FeaturedStories';
 import { MachimamoBridge } from '@/components/MachimamoBridge';
+import { SearchScrollRestorer } from '@/components/SearchScrollRestorer';
 import { AspPlacement } from '@/components/AspPlacement';
 import { AGE_OPTIONS, CATEGORY_OPTIONS, EXPERIENCE_LABELS, FANDOM_LABELS, PRICE_LABELS, VENUE_TYPE_LABELS, VENUE_TYPE_OPTIONS, parseExcludeTerms, parsePage, resolveDateRange, searchEventsPage } from '@/lib/events';
 import type { PriceType, VenueTypeKey } from '@/lib/types';
@@ -138,10 +139,18 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
     venueFilter:venueFilterActive?'1':undefined,venue:venueFilterActive?venueTypes:undefined,
     sort:sort!=='recommended'?sort:undefined,since:since||undefined
   };
+  const stateParams=new URLSearchParams();
+  for(const [key,value] of Object.entries(paginationQuery)){
+    if(Array.isArray(value))value.forEach((item)=>{if(item)stateParams.append(key,item);});
+    else if(value)stateParams.set(key,value);
+  }
+  if(page>1)stateParams.set('page',String(page));
+  const currentSearchPath=localePath('/',locale)+(stateParams.toString()?'?'+stateParams.toString():'');
 
   return (
     <main>
       <VisitTracker />
+      <SearchScrollRestorer stateKey={currentSearchPath} />
       {page===1 && hasExplicitSearch && <MetricPing metric="search" searchTerm={searchAnalyticsTerm||undefined} />}
       <section className="hero">
         <div className="hero-inner">
@@ -177,11 +186,11 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
 
         {result.error ? <DataUnavailable locale={locale} /> : result.events.length ? (
           <>
-            {regularEvents.length > 0 && <div className="event-grid">{regularEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} />)}</div>}
+            {regularEvents.length > 0 && <div className="event-grid">{regularEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} returnTo={currentSearchPath} />)}</div>}
             {longRunningEvents.length > 0 && (
               <details className="long-running-group">
                 <summary><span><strong>長期開催のイベント</strong><small>11日以上のイベントは、繰り返し検索の邪魔になりにくいよう分けて表示します。</small></span><b>{longRunningEvents.length}件</b></summary>
-                <div className="event-grid long-running-grid">{longRunningEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} />)}</div>
+                <div className="event-grid long-running-grid">{longRunningEvents.map((event) => <EventCard key={event.id} event={event} locale={locale} returnTo={currentSearchPath} />)}</div>
               </details>
             )}
             <Pagination basePath={localePath('/',locale)} page={result.page} hasPrevious={result.hasPrevious} hasNext={result.hasNext} query={paginationQuery} locale={locale} />
