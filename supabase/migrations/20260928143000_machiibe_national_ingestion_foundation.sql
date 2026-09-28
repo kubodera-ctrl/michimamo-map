@@ -105,6 +105,112 @@ comment on table public.machiibe_event_change_log is 'Source-hash based change d
 comment on view public.machiibe_source_health_summary is 'Operations-facing source freshness and failure summary; not a public search surface.';
 
 
+create extension if not exists pg_trgm;
+
+create index if not exists events_search_cursor_idx
+  on public.events(start_date,id)
+  where publication_status='published' and verification_status='verified';
+create index if not exists events_pref_muni_cursor_idx
+  on public.events(prefecture,municipality,start_date,id)
+  where publication_status='published' and verification_status='verified';
+create index if not exists events_price_cursor_idx
+  on public.events(price_type,start_date,id)
+  where publication_status='published' and verification_status='verified';
+create index if not exists events_indoor_cursor_idx
+  on public.events(indoor,start_date,id)
+  where publication_status='published' and verification_status='verified';
+create index if not exists events_title_trgm_idx
+  on public.events using gin (title gin_trgm_ops);
+create index if not exists events_venue_trgm_idx
+  on public.events using gin (venue_name gin_trgm_ops);
+create index if not exists events_municipality_trgm_idx
+  on public.events using gin (municipality gin_trgm_ops);
+
+create or replace function public.search_public_events_cursor_v2(
+  p_start_date date,
+  p_end_date date,
+  p_prefecture text default null,
+  p_municipality text default null,
+  p_keyword text default null,
+  p_categories text[] default null,
+  p_price_types text[] default null,
+  p_family_only boolean default false,
+  p_indoor_only boolean default false,
+  p_after_start_date date default null,
+  p_after_id bigint default null,
+  p_limit integer default 24
+)
+returns table(
+  id bigint,
+  slug text,
+  title text,
+  start_date date,
+  end_date date,
+  prefecture text,
+  municipality text,
+  venue_name text,
+  price_type text,
+  indoor boolean,
+  audience_intent text,
+  category_keys text[]
+)
+language sql
+security definer
+stable
+set search_path=public,pg_temp
+as $
+  select
+    e.id,e.slug,e.title,e.start_date,e.end_date,e.prefecture,e.municipality,e.venue_name,
+    e.price_type,e.indoor,
+    case when e.audience_intent_verified then e.audience_intent else 'general' end,
+    e.category_keys
+  from public.events e
+  join public.regional_sources s on s.id=e.source_id
+  where e.publication_status='published'
+    and e.verification_status='verified'
+    and s.is_active and s.event_use_allowed
+    and (e.expires_at is null or e.expires_at>now())
+    and (
+      (e.schedule_type in ('single','continuous') and e.start_date<=p_end_date and e.end_date>=p_start_date)
+      or
+      (e.schedule_type in ('recurring','irregular') and exists(
+        select 1
+        from public.event_occurrences eo
+        where eo.event_id=e.id
+          and eo.occurrence_date between p_start_date and p_end_date
+          and eo.status='scheduled'
+      ))
+    )
+    and (p_prefecture is null or e.prefecture=p_prefecture)
+    and (p_municipality is null or e.municipality=p_municipality)
+    and (
+      p_keyword is null or btrim(p_keyword)=''
+      or e.title ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.summary,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.venue_name,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.municipality,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+      or coalesce(e.organizer_name,'') ilike '%'||left(btrim(p_keyword),100)||'%'
+    )
+    and (p_categories is null or cardinality(p_categories)=0 or e.category_keys&&p_categories[1:20])
+    and (p_price_types is null or cardinality(p_price_types)=0 or e.price_type=any(p_price_types[1:10]))
+    and (
+      not p_family_only
+      or (e.audience_intent_verified and e.audience_intent in ('child_centered','family_friendly'))
+    )
+    and (not p_indoor_only or e.indoor is true)
+    and (
+      p_after_start_date is null
+      or (e.start_date,e.id)>(p_after_start_date,coalesce(p_after_id,0))
+    )
+  order by e.start_date,e.id
+  limit least(greatest(coalesce(p_limit,24),1),100);
+$;
+
+revoke all on function public.search_public_events_cursor_v2(date,date,text,text,text,text[],text[],boolean,boolean,date,bigint,integer)
+  from public;
+grant execute on function public.search_public_events_cursor_v2(date,date,text,text,text,text[],text[],boolean,boolean,date,bigint,integer)
+  to anon,authenticated;
+
 create table if not exists public.machiibe_media_assets (
   id uuid primary key default gen_random_uuid(),
   subject_type text not null check (subject_type in ('event','venue','category','generic')),

@@ -116,6 +116,17 @@ jobs:
         env:
           PGPASSWORD: postgres
         run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_production_seed_smoke.sql
+      - name: National search scale smoke (10k / 50k / 100k)
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_scale_smoke.sql
+      - name: Concurrent cursor query smoke
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: |
+          seq 1 8 | xargs -P8 -I{} sh -c "psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -Atqc \"select count(*) from public.search_public_events_cursor_v2(date '2026-10-01',date '2026-12-31','東京都',null,'体験',array['family','experience'],array['free','partly_free'],true,true,null,null,24);\" >/dev/null"
       - name: MAP event deep-link smoke
         working-directory: .
         run: |
