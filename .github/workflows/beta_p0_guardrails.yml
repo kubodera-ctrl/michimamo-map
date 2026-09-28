@@ -1,0 +1,28 @@
+name: Beta P0 Guardrails
+
+on:
+  push:
+    branches:
+      - fix/beta-release-p0-guardrails
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'package.json'
+      - 'tests/beta_release_p0_guardrails.test.cjs'
+      - '.github/workflows/beta_p0_guardrails.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  beta-guardrails:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
