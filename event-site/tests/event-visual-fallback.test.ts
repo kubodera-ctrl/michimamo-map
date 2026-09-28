@@ -11,11 +11,13 @@ test('rights-safe fallback prefers event category and clearly remains a category
   assert.doesNotMatch(source,/公式画像|会場写真/);
 });
 
-test('web cards and details only use category fallback when image_url is absent',()=>{
+test('web cards and details route media through the one-shot image fallback component',()=>{
   const card=fs.readFileSync(new URL('../components/EventCard.tsx',import.meta.url),'utf8');
   const detail=fs.readFileSync(new URL('../app/events/[slug]/page.tsx',import.meta.url),'utf8');
-  assert.match(card,/event\.image_url \?/);
-  assert.match(card,/EventVisualFallback/);
-  assert.match(detail,/event\.image_url \?/);
-  assert.match(detail,/EventVisualFallback/);
+  const media=fs.readFileSync(new URL('../components/EventMedia.tsx',import.meta.url),'utf8');
+  assert.match(card,/EventMedia/);
+  assert.match(detail,/EventMedia/);
+  assert.match(media,/!event\.image_url\|\|failed/);
+  assert.match(media,/EventVisualFallback/);
+  assert.match(media,/onError=\{\(\)=>setFailed\(true\)\}/);
 });
