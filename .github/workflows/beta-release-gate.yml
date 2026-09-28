@@ -1,0 +1,33 @@
+name: Beta Release Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+      - restart/dev34
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  npm-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Show checked out SHA
+        run: |
+          echo "checked_out_sha=$(git rev-parse HEAD)"
+          echo "event_sha=${{ github.event.pull_request.head.sha || github.sha }}"
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run full npm test
+        run: npm test
