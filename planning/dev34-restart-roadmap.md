@@ -330,3 +330,83 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 最終Previewのcache混在回避のため新domain/UI asset versionを更新。
 - 新しいSINGLE/WEEKLY Production/Publishing PreviewのiPhone実機確認は未実施。本人QA待ち。
 - Production / Production DB / migration / OAuth / SNS external request / legacy cronは未変更・未実施。
+## 2026-09-28 開発36｜Identity UI
+
+- ASP工程とは分離し、branch `feat/dev36-identity-ui` を `feat/dev34-current-production-engine@d8faa60b...` から作成。
+- 既存LINE start/callback/exchange/Supabase session/profile mappingは変更しない。
+- identity presentation contractを追加: `provider / linked / verified / linkedAt` のみ。email / provider UID / LINE内部IDは公開DOM/contractへ出さない。
+- 実session + 既存 `machimamo_auth_provider` display hintから表示状態を作るが、権限/RLS/ポイント判定には使用しない。
+- 未LINE: ユーザー名横にcompact `LINE認証` button。LINE接続済み: compact `✓ LINE接続` badge。
+- provider 2件までは個別badge、3件以上は `認証済み N` へ集約可能。Google/Appleを将来追加可能。
+- 自動生成名はlocal source metadata + generator互換判定で `自動設定` 表示。ユーザーがニックネームを確定したらcustomへ切替。
+- 初回チュートリアルに「現在の表示名は自動で設定されています。LINE認証後、マイページからニックネームを設定できます。」を追加。onboarding versionは上げず既存ユーザーへ強制再表示しない。
+- Preview QAは branch alias + `?identityQa=1` だけで有効。未認証 / LINE済み / 自動生成名 / 複数provider fixtureはDOM表示のみでAuth/DB/localStorageを書き換えず、QA中のLINEボタンもOAuthを開始しない。
+- Production Auth変更 / Google OAuth / DB migration / 課金なし。
+
+## 2026-09-28 開発36｜Identity UI final status
+
+- branch: `feat/dev36-identity-ui`
+- base: `feat/dev34-current-production-engine@d8faa60b2da4fc5a592ded98082299f513b62f70`
+- Draft PR: #23「開発36: LINE認証状態・プロフィールIdentity UI」
+- feature/fix commits: `c478cb90...` → `82c27a04...` → `f64f2644...`
+- committed-code targeted validation PASS: identity public contract fields only provider/linked/verified/linkedAt; LINE session display; 2-provider badges; 3-provider summary; generated-name detection; tutorial copy; Preview-only QA gate; email/provider UID非公開; existing signInWithLine / callback+session exchange source unchanged.
+- Vercel Preview for `f64f2644...`: `dpl_G49pFwdfDPCs5iPVLSSLQZ52yhLr` READY / target=null。
+- Preview QA URL: `https://machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app/?identityQa=1`
+- QA fixtures are render-only. 未LINE / LINE接続済み / 自動生成名 / 3-provider summary。QA中のLINE buttonはOAuthを開始しない。
+- Full `npm test` はこのconnector実行環境からGitHubへnetwork cloneできず未実行。package scriptsへ `profile_v2.test.cjs` / `identity_ui.test.cjs` は接続済み。Vercel buildはREADY。
+- Production Auth / DB migration / Google OAuth / Production deploy / 課金は変更なし。
+- 次gate: iPhone Preview実機で名前とのバランス、button tap領域、LINE badge、自動設定、長いnickname、3-provider summary、横崩れを確認。
+
+## 2026-09-28 開発36｜Identity UI iPhone QA follow-up
+
+- 本人iPhone Identity Preview確認: 全体方向性OK。次のプロフィール名/編集導線修正を起点とする。
+- 新規guest自動名は「形容詞＋どうぶつ」に統一。例: げんきなペンギン / やさしいイルカ / のんびりパンダ / すばやいキツネ。
+- 生成は初回1回だけ。既存 `michimamo_name` に保存し、表示ごとの再生成は禁止。
+- 旧Previewで `nameSource=generated` と明示された端末名だけ1回 `generated_v2` へlocal移行可能。source不明の既存名はcustom扱いで保持し、文字列形状だけで自動移行しない。Production一括更新なし。
+- アバター下の「編集」を削除。アバター本体tapは既存avatar editorを維持。名前下に小さい `※ 編集` を配置。
+- 未認証 + generated名で `※ 編集` → 「現在の名前は自動生成されています。名前を変更するにはLINE認証をお願いします。」modal。LINE認証する / 閉じる。
+- QA fixture中のLINE認証buttonはOAuthを開始しない。
+- LINE認証済みの `※ 編集` は直接nickname editorへ。判定はbadge DOMではなくlive session + formal provider情報、既存custom LINE exchange互換時もlive session + linked profile + callback provider markerを全て要求。
+- custom guest nicknameは今回の変更で既存編集機能を奪わない。
+- compact badge labelは `✓ LINE` / `✓ Google`。3 provider以上は `認証済み N`。
+- QA fixture: 未認証＋自動生成名 / LINE認証済み / 長い自動生成名 / custom nickname / 複数provider。
+- Google OAuth設定追加なし。Production Auth / DB migration / Production user data変更なし。
+
+## 2026-09-28 開発36｜Identity UI follow-up final adjustments
+
+- LINE接続済みの場合は、元のnameSourceがgeneratedでも「自動設定」badgeを表示せず、名前 + provider badge + ※編集を基本階層とする。
+- nickname edit decisionをpure contract化: generated + 未LINE => line_required、LINE linked => edit、custom => edit。
+- iPhone Preview cache混在防止のため profile-v2.css / identity-ui.css / identity-ui.js / profile-v2.js を `v=36-identity2` へ更新。
+
+## 2026-09-28 開発36｜Identity UI alignment follow-up
+
+- 本人iPhone確認で、QA枠の表示条件はPreview専用であることを再確認。Production hostnameではidentityQa=1を付けてもQA fixtureを表示しない。
+- プロフィール名ブロックがavatarより上寄りに見えたため、name / provider badge / 補助行を約6〜7px下へ視覚調整。
+- 横幅/折返しcontractは変更せず、長い自動生成名のwrap・tap領域を維持。
+
+## 2026-09-28 開発36｜Identity UI hierarchy follow-up
+
+- 本人iPhone確認後の再調整: 「※ 編集」「自動設定中」を名前の上へ移動。
+- 未認証generated表示の基本階層: 上段「※ 編集 / 自動設定中」、下段「形容詞＋どうぶつ / LINE認証」。
+- LINE接続済み: 上段「※ 編集」、下段「名前 / ✓ LINE」。自動設定中は表示しない。
+- 直前の6〜7px translate補正は撤回し、上段補助行+下段名前行の全体をavatar中央へ自然に揃える。
+- 名前・badge・LINE認証buttonのwrap contractは維持。
+
+## 2026-09-28 開発36｜Identity UI cache version
+
+- iPhone Previewで最新hierarchyを確実に読むため identity/profile assetsを `v=36-identity3` へ更新。
+- 機能仕様変更なし。QA panelのProduction非表示条件も維持。
+
+## 2026-09-28 開発36｜Identity LINE CTA hierarchy
+
+- 本人iPhone確認: 未認証時のLINE認証buttonを「自動設定中」の横まで上げる要望。
+- 未認証generatedの上段を「※ 編集 / 自動設定中 / LINE認証」、下段を自動生成名の主表示とする。
+- LINE接続済みは上段「※ 編集」、下段「名前 / ✓ LINE」を維持。
+- provider badge表示ロジックは変更せず、未認証LINE CTAの描画先だけupper tools/meta rowへ移動。
+- 上段に収まるようLINE CTAをcompact化。狭幅時は既存flex-wrapで折返す。
+
+## 2026-09-28 開発36｜Identity LINE CTA cache
+
+- LINE認証CTA上段移動のiPhone cache混在防止で profile/identity assetsを `v=36-identity4` へ更新。
+- 仕様: 未認証generatedは上段「※ 編集 / 自動設定中 / LINE認証」、下段「名前」。LINE済みは上段「※ 編集」、下段「名前 / ✓ LINE」。
+
