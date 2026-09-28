@@ -7,6 +7,7 @@ declare
   payload jsonb;
   r jsonb;
   first_id bigint;
+  first_payload jsonb;
   i integer;
 begin
   insert into auth.users(id) values(u1),(u2);
@@ -21,7 +22,7 @@ begin
       'title','道路の異変'||i,'comment','fixture','address','東京都テスト','source','map'
     );
     r:=app_private.submit_spot_once(req,payload);
-    if i=1 then first_id:=(r->>'id')::bigint; end if;
+    if i=1 then first_id:=(r->>'id')::bigint; first_payload:=payload; end if;
     if i<=5 and (r->>'awarded')::int<>1 then raise exception 'expected_1pt_% %',i,r; end if;
     if i=6 and (r->>'awarded')::int<>0 then raise exception 'expected_0pt_cap %',r; end if;
   end loop;
@@ -32,10 +33,7 @@ begin
   end if;
 
   req:='10000000-0000-0000-0000-000000000001'::uuid;
-  payload:=jsonb_build_object(
-    'lat',35.6201,'lng',139.77,'category','local_anomaly','anomaly_type','road_damage',
-    'title','道路の異変1','comment','fixture','address','東京都テスト','source','map'
-  );
+  payload:=first_payload;
   r:=app_private.submit_spot_once(req,payload);
   if (r->>'id')::bigint<>first_id or (r->>'replayed')::boolean is not true then
     raise exception 'receipt_replay_failed %',r;
