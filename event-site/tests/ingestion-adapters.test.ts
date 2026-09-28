@@ -10,7 +10,10 @@ function source(patch:Partial<SourcePolicySnapshot>={}):SourcePolicySnapshot{
   return {
     sourceId:1,sourceName:'Official',sourceType:'open_data',prefecture:'東京都',municipality:null,
     baseUrl:'https://official.test/',feedUrl:'https://official.test/events',fetchMethod:'OPEN_DATA',
-    termsStatus:'pending',robotsStatus:'pending',commercialUseStatus:'unknown',attributionRequirement:null,
+    termsStatus:'pending',robotsStatus:'pending',commercialUseStatus:'unknown',
+    reuseStatus:'unknown',redistributionStatus:'unknown',cacheStatus:'unknown',
+    imageUseStatus:'unknown',snsUseStatus:'unknown',attributionRequirement:null,
+    sourceStage:'CANDIDATE',lastTermsCheckedAt:null,
     updateFrequencyMinutes:1440,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,active:true,priority:50,
     automatedFetchAllowed:false,etag:'"abc"',lastModified:'Mon, 28 Sep 2026 00:00:00 GMT',...patch
   };
