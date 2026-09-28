@@ -49,10 +49,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const locale=await getRequestLocale();
   const labels=eventLabels(locale);
   const { slug } = await params;
-  const query=await searchParams;
-  const rawReturn=Array.isArray(query.return)?query.return[0]||'':query.return||'';
-  const defaultReturn=localePath('/',locale);
-  const returnTo=rawReturn.startsWith(defaultReturn)&&!rawReturn.startsWith('//')?rawReturn:defaultReturn;
   const event = await getEvent(slug,locale);
   if (!event) return {};
   const title = event.title;
@@ -102,6 +98,10 @@ export default async function EventPage({ params,searchParams }: { params: Param
   const g=labels.generic;
   const t=detailCopy[locale] || detailCopy.ja;
   const { slug } = await params;
+  const query=await searchParams;
+  const rawReturn=Array.isArray(query.return)?query.return[0]||'':query.return||'';
+  const defaultReturn=localePath('/',locale);
+  const returnTo=rawReturn.startsWith(defaultReturn)&&!rawReturn.startsWith('//')?rawReturn:defaultReturn;
   const event = await getEvent(slug,locale);
   if (!event) notFound();
 
