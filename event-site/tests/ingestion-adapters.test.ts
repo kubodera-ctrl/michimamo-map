@@ -23,7 +23,7 @@ test('dry-run plans are available while actual fetch stays fail-closed until eve
   assert.equal(buildDryRunFetchPlan(source())?.dryRun,true);
   assert.equal(buildApprovedFetchPlan(source()),null);
   assert.equal(buildApprovedFetchPlan(source({
-    termsStatus:'reviewed_allowed',robotsStatus:'allowed',commercialUseStatus:'allowed',automatedFetchAllowed:true
+    termsStatus:'reviewed_allowed',robotsStatus:'allowed',commercialUseStatus:'allowed',reuseStatus:'allowed',sourceStage:'FETCH_ALLOWED',automatedFetchAllowed:true
   }))?.dryRun,false);
 });
 
