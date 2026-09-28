@@ -12,6 +12,7 @@
   const ANIMALS = ['ラッコ','クマ','パンダ','ネコ','リス','ウサギ','コアラ','カワウソ'];
   const EMOJIS = ['🐾','🐶','🐱','🐰','🐻','🐼','🦦','🐨','🐿️','🦊','🐧','🦉'];
   const LEGACY_NAME = '名無しドライバー';
+  const NAME_SOURCE_KEY = 'machimamo_profile_name_source';
 
   function pick(list, random) {
     return list[Math.floor(random() * list.length) % list.length];
@@ -28,6 +29,20 @@
     return Array.from(String(value || '').trim()).slice(0, 10).join('');
   }
 
+  function isGeneratedGuestName(value) {
+    const name = Array.from(String(value || '').trim()).join('');
+    if (!name || name.length > 8) return false;
+    return ADJECTIVES.some(function (adjective) {
+      return ANIMALS.some(function (animal) {
+        const base = adjective + animal;
+        if (Array.from(base).length >= 8) return Array.from(base).slice(0, 8).join('') === name;
+        if (!name.startsWith(base)) return false;
+        const suffix = name.slice(base.length);
+        return /^\\d{1,2}$/.test(suffix) && Number(suffix) >= 1 && Number(suffix) <= 99;
+      });
+    });
+  }
+
   function isImageAvatar(value) {
     return typeof value === 'string' && (value.startsWith('data:image/') || value.startsWith('image:'));
   }
@@ -41,9 +56,18 @@
     function ensureGuestDefaults() {
       let name = win.localStorage.getItem('michimamo_name') || '';
       let avatar = win.localStorage.getItem('michimamo_avatar') || '';
+      let nameSource = win.localStorage.getItem(NAME_SOURCE_KEY) || '';
       if (!name || name === LEGACY_NAME) {
         name = generateGuestName();
+        nameSource = 'generated';
         win.localStorage.setItem('michimamo_name', name);
+        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
+      } else if (!nameSource && isGeneratedGuestName(name)) {
+        nameSource = 'generated';
+        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
+      } else if (!nameSource) {
+        nameSource = 'custom';
+        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
       }
       if (!avatar || avatar === '👤') {
         avatar = pick(EMOJIS, Math.random);
@@ -87,7 +111,11 @@
           '<button type="button" class="profile-v2-edit" onclick="MachimamoProfileV2.openEditor()">編集</button>' +
         '</div>' +
         '<div class="profile-v2-name-wrap">' +
-          '<div class="profile-v2-name" id="myNameDisplay"></div>' +
+          '<div class="profile-v2-name-line">' +
+            '<div class="profile-v2-name" id="myNameDisplay"></div>' +
+            '<div class="profile-identity-badges" id="profileIdentityBadges" aria-label="アカウント接続状態"></div>' +
+          '</div>' +
+          '<div class="profile-name-meta" id="profileNameMeta"></div>' +
           '<input type="hidden" id="myNameInput">' +
         '</div>';
       refresh();
@@ -100,6 +128,10 @@
       if (input) input.value = current.name || '';
       if (name) name.textContent = current.name || generateGuestName();
       renderAvatar(doc.getElementById('myAvatarDisplay'), current.avatar);
+      win.MachimamoIdentityUI?.syncProfile?.({
+        name: current.name || '',
+        nameSource: win.localStorage.getItem(NAME_SOURCE_KEY) || (isGeneratedGuestName(current.name) ? 'generated' : 'custom')
+      });
     }
 
     function ensureModal() {
@@ -170,7 +202,7 @@
     async function confirmGuestSave(afterSave) {
       if (state.authId()) return afterSave();
       showBody('プロフィール更新しました。',
-        '<p>LINE未承認の為下記機能は行えません。<br>希望の場合は下記よりLINE認証をお願いします。</p>' +
+        '<p>LINE未認証のため下記機能は利用できません。<br>希望する場合は下記よりLINE認証をお願いします。</p>' +
         '<ul class="profile-v2-benefits"><li>別端末でもプロフィールを共有</li><li>ポイントを貯める</li><li>ポイント交換</li></ul>' +
         '<button type="button" id="profileV2LocalSave" class="primary">このまま保存</button>' +
         '<button type="button" id="profileV2LineSave" class="profile-v2-line">LINE認証する</button>');
@@ -199,12 +231,20 @@
       if (!value) return win.showToast('ニックネームを入力してください');
       if (hasNgWord(value)) return win.showToast('使用できない言葉が含まれています');
       const previous = state.snapshot();
+      const previousSource = win.localStorage.getItem(NAME_SOURCE_KEY) || '';
       const apply = async function () {
         state.apply({ name: value });
+        win.localStorage.setItem(NAME_SOURCE_KEY, 'custom');
         refresh();
         if (state.authId()) {
           try { await saveAuthenticated({ name: value }); win.showToast('プロフィールを保存しました'); }
-          catch (error) { console.error(error); state.apply(previous); refresh(); win.showToast('保存に失敗しました'); }
+          catch (error) {
+            console.error(error);
+            state.apply(previous);
+            if (previousSource) win.localStorage.setItem(NAME_SOURCE_KEY, previousSource); else win.localStorage.removeItem(NAME_SOURCE_KEY);
+            refresh();
+            win.showToast('保存に失敗しました');
+          }
         } else {
           win.showToast('この端末に保存しました');
         }
@@ -374,6 +414,7 @@
         if (Array.isArray(response.data) && response.data.length) {
           const profile = response.data[0];
           state.apply({ id: profile.id, name: profile.name, point: Number(profile.point || 0), avatar: profile.avatar || '🐾' });
+          win.localStorage.setItem(NAME_SOURCE_KEY, isGeneratedGuestName(profile.name) ? 'generated' : 'custom');
           refresh();
           win.loadQuizStampStatus?.();
           return true;
@@ -408,6 +449,6 @@
     });
   }
 
-  const api = { generateGuestName, normalizeName, isImageAvatar, install };
+  const api = { generateGuestName, normalizeName, isGeneratedGuestName, isImageAvatar, install };
   return api;
 });

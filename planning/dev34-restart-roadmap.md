@@ -330,3 +330,16 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 最終Previewのcache混在回避のため新domain/UI asset versionを更新。
 - 新しいSINGLE/WEEKLY Production/Publishing PreviewのiPhone実機確認は未実施。本人QA待ち。
 - Production / Production DB / migration / OAuth / SNS external request / legacy cronは未変更・未実施。
+## 2026-09-28 開発36｜Identity UI
+
+- ASP工程とは分離し、branch `feat/dev36-identity-ui` を `feat/dev34-current-production-engine@d8faa60b...` から作成。
+- 既存LINE start/callback/exchange/Supabase session/profile mappingは変更しない。
+- identity presentation contractを追加: `provider / linked / verified / linkedAt` のみ。email / provider UID / LINE内部IDは公開DOM/contractへ出さない。
+- 実session + 既存 `machimamo_auth_provider` display hintから表示状態を作るが、権限/RLS/ポイント判定には使用しない。
+- 未LINE: ユーザー名横にcompact `LINE認証` button。LINE接続済み: compact `✓ LINE接続` badge。
+- provider 2件までは個別badge、3件以上は `認証済み N` へ集約可能。Google/Appleを将来追加可能。
+- 自動生成名はlocal source metadata + generator互換判定で `自動設定` 表示。ユーザーがニックネームを確定したらcustomへ切替。
+- 初回チュートリアルに「現在の表示名は自動で設定されています。LINE認証後、マイページからニックネームを設定できます。」を追加。onboarding versionは上げず既存ユーザーへ強制再表示しない。
+- Preview QAは branch alias + `?identityQa=1` だけで有効。未認証 / LINE済み / 自動生成名 / 複数provider fixtureはDOM表示のみでAuth/DB/localStorageを書き換えず、QA中のLINEボタンもOAuthを開始しない。
+- Production Auth変更 / Google OAuth / DB migration / 課金なし。
+
