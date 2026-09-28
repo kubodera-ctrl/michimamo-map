@@ -180,7 +180,7 @@ export function buildQaEvents(anchor:string):QaEvent[]{
 
 export type QaSearchInput=Pick<EventSearchInput,
   'startDate'|'endDate'|'prefecture'|'keyword'|'excludeTerms'|'categories'|'ageGroups'|'durationBuckets'|
-  'accessibilityOnly'|'accessibilityKeys'|'audienceIntents'|'priceTypes'|'excludeAdultOriented'|'indoorOnly'|
+  'accessibilityOnly'|'accessibilityKeys'|'audienceIntents'|'fandomSlugs'|'fandomKeyword'|'priceTypes'|'excludeAdultOriented'|'indoorOnly'|
   'venueTypes'|'venueFilterActive'|'sort'
 >&{municipality?:string};
 
@@ -201,7 +201,7 @@ export function searchQaEvents(events:QaEvent[],input:QaSearchInput){
     if(!dateMatches(item,input.startDate,input.endDate))return false;
     if(input.prefecture&&item.prefecture!==input.prefecture)return false;
     if(input.municipality&&!(item.municipality||'').includes(input.municipality))return false;
-    const hay=[item.title,item.summary,item.venue_name,item.municipality,item.organizer_name,item.price_text].filter(Boolean).join(' ').toLowerCase();
+    const hay=[item.title,item.summary,item.venue_name,item.municipality,item.organizer_name,item.price_text,...item.fandom_slugs].filter(Boolean).join(' ').toLowerCase();
     if(keyword&&!hay.includes(keyword))return false;
     if(excluded.some((term)=>hay.includes(term)))return false;
     if(input.categories&&input.categories.length&&!item.category_keys.some((key)=>input.categories!.includes(key)))return false;
@@ -210,6 +210,8 @@ export function searchQaEvents(events:QaEvent[],input:QaSearchInput){
     if(input.accessibilityOnly&&!item.accessibility_keys.length)return false;
     if(input.accessibilityKeys&&input.accessibilityKeys.length&&!input.accessibilityKeys.every((key)=>item.accessibility_keys.includes(key)))return false;
     if(input.audienceIntents&&input.audienceIntents.length&&!input.audienceIntents.includes(item.audience_intent))return false;
+    if(input.fandomSlugs&&input.fandomSlugs.length&&!item.fandom_slugs.some((slug)=>input.fandomSlugs!.includes(slug)))return false;
+    if(input.fandomKeyword&& !hay.includes(input.fandomKeyword.trim().toLowerCase()))return false;
     if(input.priceTypes&&input.priceTypes.length&&!input.priceTypes.includes(item.price_type as PriceType))return false;
     if(input.excludeAdultOriented&&item.audience_intent==='adult_oriented')return false;
     if(input.indoorOnly&&item.indoor!==true)return false;
