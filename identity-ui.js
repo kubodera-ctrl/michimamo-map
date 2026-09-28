@@ -91,6 +91,11 @@
       .some(function (item) { return item?.provider === 'line' && item.linked === true && item.verified === true; });
   }
 
+  function nicknameEditDecision(nameSource, lineAccess) {
+    if (lineAccess === true) return 'edit';
+    return GENERATED_SOURCES.includes(nameSource) ? 'line_required' : 'edit';
+  }
+
   function qaAllowed(hostname, search) {
     if (hostname !== QA_HOST) return false;
     return /(?:^|[?&])identityQa=1(?:&|$)/.test(String(search || ''));
@@ -246,7 +251,7 @@
         renderBadges(badges, state.identities);
         renderLineAction(badges, state.identities);
       }
-      renderNameSource(source, state.nameSource);
+      renderNameSource(source, isLineLinked(state.identities) ? 'custom' : state.nameSource);
       ensureQaPanel();
     }
 
@@ -306,11 +311,8 @@
 
     function requestNicknameEdit() {
       const state = effective();
-      if (hasFormalLineAccess()) {
-        win.MachimamoProfileV2?.openNameEditor?.();
-        return true;
-      }
-      if (GENERATED_SOURCES.includes(state.nameSource)) {
+      const decision = nicknameEditDecision(state.nameSource, hasFormalLineAccess());
+      if (decision === 'line_required') {
         win.MachimamoProfileV2?.showLineRequiredNameModal?.();
         return true;
       }
@@ -383,6 +385,7 @@
     fixtureState,
     explicitProvidersFromSession,
     formalLineAccessFromState,
+    nicknameEditDecision,
     install
   };
   return api;

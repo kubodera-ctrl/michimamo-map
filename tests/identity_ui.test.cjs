@@ -59,7 +59,7 @@ assert.equal(profile.isGeneratedGuestName('ボス'),false);
 const onboarding=fs.readFileSync(path.join(__dirname,'..','pwa-onboarding.js'),'utf8');
 assert.match(onboarding,/現在の表示名は自動で設定されています。LINE認証後、マイページからニックネームを設定できます。/);
 const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-assert.match(html,/identity-ui\.js\?v=36-identity1/);
+assert.match(html,/identity-ui\\.js\\?v=36-identity2/);
 assert.match(html,/MachimamoIdentityUI\?\.syncSession/);
 console.log('PASS identity UI contract, provider badges, generated-name metadata, safe Preview fixtures and tutorial copy');
 
@@ -79,3 +79,8 @@ assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{},identitie
 assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{},identities:[]}},'line',true),true,'existing custom LINE exchange requires session + linked profile + marker');
 assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{providers:['line']},identities:[]}},null,false),true,'explicit session provider is sufficient');
 assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{providers:['google']},identities:[]}},null,true),false,'Google-only session is not LINE access');
+
+assert.equal(identity.nicknameEditDecision('generated_v2',false),'line_required');
+assert.equal(identity.nicknameEditDecision('generated',false),'line_required');
+assert.equal(identity.nicknameEditDecision('custom',false),'edit');
+assert.equal(identity.nicknameEditDecision('generated_v2',true),'edit');

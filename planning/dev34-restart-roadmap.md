@@ -372,3 +372,9 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - QA fixture: 未認証＋自動生成名 / LINE認証済み / 長い自動生成名 / custom nickname / 複数provider。
 - Google OAuth設定追加なし。Production Auth / DB migration / Production user data変更なし。
 
+## 2026-09-28 開発36｜Identity UI follow-up final adjustments
+
+- LINE接続済みの場合は、元のnameSourceがgeneratedでも「自動設定」badgeを表示せず、名前 + provider badge + ※編集を基本階層とする。
+- nickname edit decisionをpure contract化: generated + 未LINE => line_required、LINE linked => edit、custom => edit。
+- iPhone Preview cache混在防止のため profile-v2.css / identity-ui.css / identity-ui.js / profile-v2.js を `v=36-identity2` へ更新。
+
