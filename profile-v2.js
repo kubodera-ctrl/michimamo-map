@@ -55,6 +55,22 @@
     });
   }
 
+  function resolveGuestNameState(nameValue, sourceValue, random = Math.random) {
+    const name = String(nameValue || '').trim();
+    const source = String(sourceValue || '').trim();
+    if (!name || name === LEGACY_NAME) {
+      return Object.freeze({ name: generateGuestName(random), source: GENERATED_SOURCE, migrated: false });
+    }
+    if (source === 'generated') {
+      return Object.freeze({ name: generateGuestName(random), source: GENERATED_SOURCE, migrated: true });
+    }
+    if (source === GENERATED_SOURCE) {
+      return Object.freeze({ name: name, source: GENERATED_SOURCE, migrated: false });
+    }
+    // Unknown provenance is treated as custom to protect existing user choices.
+    return Object.freeze({ name: name, source: 'custom', migrated: false });
+  }
+
   function isImageAvatar(value) {
     return typeof value === 'string' && (value.startsWith('data:image/') || value.startsWith('image:'));
   }
@@ -69,24 +85,11 @@
       let name = win.localStorage.getItem('michimamo_name') || '';
       let avatar = win.localStorage.getItem('michimamo_avatar') || '';
       let nameSource = win.localStorage.getItem(NAME_SOURCE_KEY) || '';
-      if (!name || name === LEGACY_NAME) {
-        name = generateGuestName();
-        nameSource = GENERATED_SOURCE;
-        win.localStorage.setItem('michimamo_name', name);
-        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
-      } else if (nameSource === 'generated') {
-        // Previous Preview explicitly marked this value as generated, so a one-time local
-        // migration is safe. Unknown legacy names are never renamed automatically.
-        name = generateGuestName();
-        nameSource = GENERATED_SOURCE;
-        win.localStorage.setItem('michimamo_name', name);
-        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
-      } else if (!nameSource) {
-        // Do not infer ownership from name shape alone: an existing custom nickname may
-        // coincidentally resemble an old generated value.
-        nameSource = 'custom';
-        win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
-      }
+      const resolvedName = resolveGuestNameState(name, nameSource);
+      name = resolvedName.name;
+      nameSource = resolvedName.source;
+      win.localStorage.setItem('michimamo_name', name);
+      win.localStorage.setItem(NAME_SOURCE_KEY, nameSource);
       if (!avatar || avatar === '👤') {
         avatar = pick(EMOJIS, Math.random);
         win.localStorage.setItem('michimamo_avatar', avatar);
@@ -485,6 +488,6 @@
     });
   }
 
-  const api = { generateGuestName, normalizeName, isGeneratedGuestName, isLegacyGeneratedGuestName, isImageAvatar, install };
+  const api = { generateGuestName, normalizeName, isGeneratedGuestName, isLegacyGeneratedGuestName, resolveGuestNameState, isImageAvatar, install };
   return api;
 });

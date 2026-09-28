@@ -96,6 +96,31 @@
     return /(?:^|[?&])identityQa=1(?:&|$)/.test(String(search || ''));
   }
 
+  function explicitProvidersFromSession(session) {
+    if (!session?.user) return [];
+    const values = [];
+    const identitiesRaw = Array.isArray(session.user.identities) ? session.user.identities : [];
+    identitiesRaw.forEach(function (item) {
+      const provider = normalizeProvider(item?.provider);
+      if (provider) values.push(provider);
+    });
+    const metadata = session.user.app_metadata || {};
+    const providers = Array.isArray(metadata.providers) ? metadata.providers : [];
+    providers.forEach(function (value) {
+      const provider = normalizeProvider(value);
+      if (provider) values.push(provider);
+    });
+    const primary = normalizeProvider(metadata.provider);
+    if (primary) values.push(primary);
+    return Array.from(new Set(values));
+  }
+
+  function formalLineAccessFromState(session, savedProvider, profileLinked) {
+    if (!session?.user) return false;
+    if (explicitProvidersFromSession(session).includes('line')) return true;
+    return savedProvider === 'line' && profileLinked === true;
+  }
+
   function fixtureState(key) {
     const fixtures = {
       auto: {
@@ -128,7 +153,7 @@
         ]
       }
     };
-    const fixture = fixtures[key] || fixtures.guest;
+    const fixture = fixtures[key] || fixtures.auto;
     return Object.freeze({
       name: fixture.name,
       nameSource: fixture.nameSource,
@@ -225,31 +250,16 @@
       ensureQaPanel();
     }
 
-    function explicitProvidersFromSession(session) {
-      if (!session?.user) return [];
-      const values = [];
-      const identitiesRaw = Array.isArray(session.user.identities) ? session.user.identities : [];
-      identitiesRaw.forEach(function (item) { if (normalizeProvider(item?.provider)) values.push(normalizeProvider(item.provider)); });
-      const metadata = session.user.app_metadata || {};
-      const providers = Array.isArray(metadata.providers) ? metadata.providers : [];
-      providers.forEach(function (provider) { if (normalizeProvider(provider)) values.push(normalizeProvider(provider)); });
-      if (normalizeProvider(metadata.provider)) values.push(normalizeProvider(metadata.provider));
-      return Array.from(new Set(values));
-    }
-
     function hasFormalLineAccess() {
       if (qaKey) return isLineLinked(fixtureState(qaKey).identities);
       if (!currentSession?.user) return false;
-      const explicit = explicitProvidersFromSession(currentSession);
-      if (explicit.includes('line')) return true;
       // Compatibility for the existing custom LINE exchange:
       // the provider marker alone never grants access. A live session and linked
-      // authenticated profile are both required, and LINE is the only active
-      // login route in this release.
+      // authenticated profile are both required.
       let saved = null;
       try { saved = win.localStorage?.getItem('michimamo_auth_provider'); } catch {}
       const profileLinked = !!win.MachimamoProfileState?.authId?.();
-      return saved === 'line' && profileLinked;
+      return formalLineAccessFromState(currentSession, saved, profileLinked);
     }
 
     function syncSession(session) {
@@ -371,6 +381,8 @@
     isLineLinked,
     qaAllowed,
     fixtureState,
+    explicitProvidersFromSession,
+    formalLineAccessFromState,
     install
   };
   return api;

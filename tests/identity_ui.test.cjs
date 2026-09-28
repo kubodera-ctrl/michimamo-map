@@ -72,3 +72,10 @@ assert.match(identitySource,/showLineRequiredNameModal/);
 const profileSource=fs.readFileSync(path.join(__dirname,'..','profile-v2.js'),'utf8');
 assert.match(profileSource,/現在の名前は自動生成されています。名前を変更するにはLINE認証をお願いします。/);
 assert.match(profileSource,/※ 編集/);
+
+assert.equal(identity.fixtureState('unknown').name,'げんきなペンギン');
+assert.equal(identity.formalLineAccessFromState(null,'line',true),false,'provider marker without session cannot grant access');
+assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{},identities:[]}},'line',false),false,'provider marker without linked profile cannot grant access');
+assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{},identities:[]}},'line',true),true,'existing custom LINE exchange requires session + linked profile + marker');
+assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{providers:['line']},identities:[]}},null,false),true,'explicit session provider is sufficient');
+assert.equal(identity.formalLineAccessFromState({user:{app_metadata:{providers:['google']},identities:[]}},null,true),false,'Google-only session is not LINE access');
