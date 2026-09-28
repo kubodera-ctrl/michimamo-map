@@ -17,7 +17,7 @@ import { recordMetric } from './MetricPing';
 
 const categoryLabels = {...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
 
-export function EventCard({ event, respectHidden=true, locale='ja' }: { event: EventSummary; respectHidden?:boolean; locale?:Locale }) {
+export function EventCard({ event, respectHidden=true, locale='ja', detailBasePath='/events', returnTo, qaLabel }: { event: EventSummary; respectHidden?:boolean; locale?:Locale; detailBasePath?:string; returnTo?:string; qaLabel?:string }) {
   const labels=eventLabels(locale);
   const g=labels.generic;
   const statusAlert=event.event_status !== 'scheduled';
@@ -61,9 +61,12 @@ export function EventCard({ event, respectHidden=true, locale='ja' }: { event: E
   }
   if(hidden) return null;
 
+  const detailPath=localePath(detailBasePath+'/'+event.slug,locale);
+  const detailHref=returnTo?detailPath+'?return='+encodeURIComponent(returnTo):detailPath;
+
   return (
     <article className={`event-card ${statusAlert ? 'event-card-status-alert' : ''} ${viewed ? 'event-card-viewed' : ''}`}>
-      <Link href={localePath(`/events/${event.slug}`,locale)} className="event-card-link" aria-label={event.title} onClick={openEvent}>
+      <Link href={detailHref} className="event-card-link" aria-label={event.title} onClick={openEvent}>
         {event.image_url ? (
           <img className="event-card-image" src={event.image_url} alt={`${event.title}のイベント画像`} loading="lazy" />
         ) : (
@@ -74,6 +77,7 @@ export function EventCard({ event, respectHidden=true, locale='ja' }: { event: E
         )}
         <div className="event-card-body">
           <div className="card-meta-line">
+            {qaLabel && <span className="new-badge">{qaLabel}</span>}
             {isNew && <span className="new-badge">{g.new}</span>}
             {viewed && <span className="viewed-badge">{g.viewed}</span>}
           </div>
