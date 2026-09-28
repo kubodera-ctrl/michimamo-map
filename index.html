@@ -63,6 +63,10 @@
         .ad-banner:active { background: #f9fafb; }
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
+        /* Beta RC safety: legacy direct affiliate links remain in source for
+           reconciliation but are not user-visible until ASP2 Runtime gates pass. */
+        .beta-release-legacy-asp { display:none !important; }
+
 
         nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
         nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
@@ -893,7 +897,7 @@
 
                     <div class="card">
                         <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 前月報告数ワースト10</h2>
-                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
+                        <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:6px;">横スワイプでジャンルを切り替えられます</p><p class="muted" style="font-size:0.68rem; margin:0 0 12px;">利用者投稿の実件数のみを表示します。件数が少ない場合も架空データで補完しません。</p>
                         <div class="category-tab-bar">
                             <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('danger', this)">🔵 危険停車</button>
@@ -954,11 +958,11 @@
                     🎁 スキマ時間でお小遣い稼ぎ
                 </h3>
                 <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=4BAITT+7B5NPE+4286+69P02" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
+                    <a class="beta-release-legacy-asp" href="https://px.a8.net/svt/ejp?a8mat=4BAITT+7B5NPE+4286+69P02" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
                         <div>
                             <span style="background:#fce7f3; color:#be185d; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">アンケート</span>
                             <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">アンケートに答えてポイントGET！（Ipsos）</div>
-                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ＋10,000 pt</div>
+                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ポイント還元準備中</div>
                         </div>
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
                     </a>
@@ -969,16 +973,16 @@
                     🎓 子育て・お出かけサポート
                 </h3>
                 <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=4BAITT+6P4MBM+4HHM+ZPD5F&a8ejpredirect=https%3A%2F%2Fwww.qqeng.com%2Flp%2Fjpcampustop_affiliate%2F" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
+                    <a class="beta-release-legacy-asp" href="https://px.a8.net/svt/ejp?a8mat=4BAITT+6P4MBM+4HHM+ZPD5F&a8ejpredirect=https%3A%2F%2Fwww.qqeng.com%2Flp%2Fjpcampustop_affiliate%2F" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
                         <div>
                             <span style="background:#dbeafe; color:#1d4ed8; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">教育・習い事</span>
                             <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">小学生からのオンライン英語【CampusTop】</div>
-                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ＋500,000 pt</div>
+                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ポイント還元準備中</div>
                         </div>
                         <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
                     </a>
 
-                    <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
+                    <a class="beta-release-legacy-asp" href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
                         <div>
                             <span style="background:#fef3c7; color:#b45309; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">駐車場予約</span>
                             <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">お出かけ先の格安駐車場を予約（軒先P）</div>
@@ -991,14 +995,14 @@
 
                 <!-- クレーム防止の注意書き -->
                 <p style="font-size:0.75rem; color:#6b7280; font-weight:bold; text-align:center; margin-top:10px;">
-                    ※ポイントは広告主の承認完了後（翌月〜翌々月）に付与されます。
+                    β版ではASPポイント還元を停止しています。条件確認済みの案件のみ再開します。
                 </p>
             </div>
         </section>
     </main>
 
     <!-- 収益化バナー（特P） -->
-    <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="ad-banner" style="display:flex; text-decoration:none; position:relative; z-index:9999;">
+    <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="ad-banner beta-release-legacy-asp" style="display:flex; text-decoration:none; position:relative; z-index:9999;">
         <div class="ad-banner-title"><i class="fa-solid fa-square-parking" style="color:#2563eb;"></i> 車でお出かけ、付近の駐車場はこちらから予約可！</div>
         <span class="ad-pr-tag">PR</span>
     </a>
@@ -1052,12 +1056,12 @@
             <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-parking" style="color:#2563eb;"></i> 駐車場を予約する</div>
             <button class="close" onclick="closeParkingModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <p class="muted" style="margin-bottom:20px; font-weight:bold;">お出かけ先の格安駐車場を事前に予約できます。</p>
+        <p class="muted" style="margin-bottom:10px; font-weight:bold;">お出かけ先の駐車場予約サービスを準備しています。</p><p class="muted" style="margin-bottom:20px;font-size:.75rem;">β版では掲載条件・正式tracking URL・placement確認済みの広告だけを表示します。現在は確認中です。</p>
 
-        <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#ff7f50; display:block; text-align:center; text-decoration:none;">特P（とくぴー）で探す ➔</a>
+        <a class="beta-release-legacy-asp" href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#ff7f50; display:block; text-align:center; text-decoration:none;">特P（とくぴー）で探す ➔</a>
         <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" alt="" style="display:none;">
 
-        <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#1e90ff; display:block; text-align:center; text-decoration:none; margin-top:10px;">軒先パーキングで探す ➔</a>
+        <a class="beta-release-legacy-asp" href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#1e90ff; display:block; text-align:center; text-decoration:none; margin-top:10px;">軒先パーキングで探す ➔</a>
         <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3779876&pid=892689337" height="1" width="0" border="0" style="display:none;">
     </div>
 </div>
@@ -2045,20 +2049,8 @@
         const prefFilterElement = document.getElementById('prefFilter');
         const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
 
-        let dummies = {};
-        if (selectedPref === 'ALL') {
-            if (currentCategoryRank === 'illegal') { dummies = {'東京都 新宿区':142, '大阪府 大阪市中央区':98, '愛知県 名古屋市中区':76, '福岡県 福岡市博多区':54, '北海道 札幌市中央区':45, '神奈川県 横浜市西区':38, '埼玉県 さいたま市大宮区':31, '千葉県 千葉市中央区':25, '広島県 広島市中区':20, '宮城県 仙台市青葉区':15, '京都府 京都市中京区':12}; }
-            else if (currentCategoryRank === 'danger') { dummies = {'東京都 渋谷区':110, '大阪府 大阪市北区':85, '神奈川県 横浜市中区':62, '愛知県 名古屋市中村区':45, '福岡県 福岡市中央区':40, '北海道 札幌市北区':30, '埼玉県 川口市':25, '千葉県 船橋市':20, '兵庫県 神戸市中央区':18, '京都府 京都市下京区':14}; }
-            else if (currentCategoryRank === 'patrol') { dummies = {'東京都 千代田区':88, '大阪府 堺市堺区':70, '北海道 旭川市':45, '神奈川県 川崎市川崎区':40, '愛知県 豊田市':35, '福岡県 北九州市小倉北区':30, '埼玉県 川越市':25, '千葉県 松戸市':20, '広島県 福山市':15, '静岡県 浜松市中区':10}; }
-            else if (currentCategoryRank === 'abandoned') { dummies = {'東京都 足立区':65, '大阪府 大阪市淀川区':58, '埼玉県 所沢市':39, '神奈川県 相模原市':35, '千葉県 市川市':30, '愛知県 岡崎市':25, '福岡県 久留米市':20, '北海道 函館市':15, '兵庫県 姫路市':10, '茨城県 水戸市':8}; }
-        } else {
-            const baseCount = currentCategoryRank === 'illegal' ? 50 : currentCategoryRank === 'danger' ? 40 : 30;
-            const dummyCities = prefCities[selectedPref] || [];
-            dummyCities.forEach((city, i) => {
-                dummies[`${selectedPref} ${city}`] = baseCount - (i * 3) + Math.floor(Math.random()*5);
-            });
-        }
-
+        // Beta release: rankings use only actual user reports. Never synthesize
+        // or pad safety counts when the sample is small.
         const now = new Date();
         const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
         const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
@@ -2084,15 +2076,7 @@
             }
         } catch (e) { console.log("DBエリアランキング取得スキップ"); }
 
-        let areaCount = {};
-        if (totalRealCount >= 10) {
-            areaCount = realDataCount;
-        } else {
-            areaCount = dummies;
-            for(let k in realDataCount) {
-                areaCount[k] = (areaCount[k] || 0) + realDataCount[k];
-            }
-        }
+        const areaCount = realDataCount;
 
         let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
