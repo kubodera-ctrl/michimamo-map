@@ -14,8 +14,12 @@
     "prefecture_coverage": 47,
     "prefecture_total": 47,
     "source_candidates": 47,
-    "rights_or_terms_explicitly_reviewed": 5,
-    "automation_approved": 0
+    "rights_or_terms_explicitly_reviewed": 6,
+    "automation_approved": 0,
+    "stage_counts": {
+      "CANDIDATE": 41,
+      "TERMS_REVIEWED": 6
+    }
   },
   "sources": [
     {
@@ -37,7 +41,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "青森県",
@@ -58,7 +65,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "岩手県",
@@ -79,7 +89,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "宮城県",
@@ -100,7 +113,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "秋田県",
@@ -121,7 +137,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "山形県",
@@ -142,7 +161,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "福島県",
@@ -163,7 +185,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "茨城県",
@@ -184,7 +209,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "栃木県",
@@ -205,7 +233,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "群馬県",
@@ -226,7 +257,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "埼玉県",
@@ -247,7 +281,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "千葉県",
@@ -268,7 +305,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "東京都",
@@ -290,7 +330,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "利用規約はCC BY 4.0を基本とする。イベント系dataset自体のresource/licenseをfetch前に再確認。"
+      "notes": "利用規約はCC BY 4.0を基本とする。イベント系dataset自体のresource/licenseをfetch前に再確認。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-28",
+      "reuse_status": "allowed"
     },
     {
       "prefecture": "神奈川県",
@@ -312,7 +355,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "catalog/API自体をsource-of-sourcesとして使用。イベントdatasetの選定は別review。"
+      "notes": "catalog/API自体をsource-of-sourcesとして使用。イベントdatasetの選定は別review。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-28",
+      "reuse_status": "allowed"
     },
     {
       "prefecture": "新潟県",
@@ -333,7 +379,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "富山県",
@@ -354,7 +403,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "石川県",
@@ -375,7 +427,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "福井県",
@@ -397,7 +452,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "CSV/RDF候補。resource license/attributionを自動fetch前に再確認。"
+      "notes": "CSV/RDF候補。resource license/attributionを自動fetch前に再確認。",
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "山梨県",
@@ -418,7 +476,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "長野県",
@@ -439,7 +500,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "岐阜県",
@@ -460,7 +524,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "静岡県",
@@ -481,7 +548,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "愛知県",
@@ -502,7 +572,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "三重県",
@@ -523,7 +596,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "滋賀県",
@@ -544,7 +620,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "京都府",
@@ -565,7 +644,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "大阪府",
@@ -586,7 +668,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "兵庫県",
@@ -607,7 +692,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "奈良県",
@@ -628,7 +716,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "和歌山県",
@@ -649,7 +740,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "鳥取県",
@@ -659,7 +753,7 @@
       "source_kind": "open_data",
       "fetch_method": "OPEN_DATA",
       "terms_status": "reviewed_allowed",
-      "terms_url": null,
+      "terms_url": "https://odp-pref-tottori.tori-info.co.jp/agreement.html",
       "robots_status": "pending",
       "commercial_use_status": "allowed",
       "redistribution_status": "allowed_with_attribution",
@@ -668,10 +762,14 @@
       "sns_use_status": "factual_data_only",
       "attribution_requirement": "CC BY。鳥取県/データ作成者とライセンス表示",
       "update_frequency": "live platform + periodic dataset",
-      "last_checked_at": "2026-09-28",
+      "last_checked_at": "2026-09-29",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "CSV/XLSX/APIあり。自治体標準オープンデータセット準拠。"
+      "notes": "イベントCSV/XLSX/API・自治体標準ODS準拠、公開resourceはCC BY表示。利用規約上原則自由利用だが第三者権利は別確認。robots未確認のため自動fetchは許可しない。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-29",
+      "reuse_status": "allowed",
+      "license_url": "https://odp-pref-tottori.tori-info.co.jp/license.html"
     },
     {
       "prefecture": "島根県",
@@ -693,7 +791,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "2026年度XLSX。将来年度resourceをregistryで差替える。"
+      "notes": "2026年度XLSX。将来年度resourceをregistryで差替える。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-28",
+      "reuse_status": "allowed"
     },
     {
       "prefecture": "岡山県",
@@ -714,7 +815,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "広島県",
@@ -735,7 +839,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "山口県",
@@ -756,7 +863,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "徳島県",
@@ -777,7 +887,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "香川県",
@@ -786,20 +899,23 @@
       "source_url": "https://opendata.pref.kagawa.lg.jp/event/",
       "source_kind": "open_data",
       "fetch_method": "OPEN_DATA",
-      "terms_status": "pending",
-      "terms_url": null,
+      "terms_status": "reviewed_allowed",
+      "terms_url": "https://opendata.pref.kagawa.lg.jp/privacy.html",
       "robots_status": "pending",
-      "commercial_use_status": "unknown",
-      "redistribution_status": "unknown",
-      "cache_status": "unknown",
-      "image_use_status": "unknown",
-      "sns_use_status": "unknown",
-      "attribution_requirement": null,
+      "commercial_use_status": "allowed",
+      "redistribution_status": "allowed_with_attribution",
+      "cache_status": "allowed_with_attribution",
+      "image_use_status": "dataset_specific",
+      "sns_use_status": "factual_data_only",
+      "attribution_requirement": "原則CC BY 4.0。出典表記が必要。第三者権利を含む部分は別途権利確認。",
       "update_frequency": "unknown",
-      "last_checked_at": "2026-09-28",
+      "last_checked_at": "2026-09-29",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "公式Open Data候補。license/commercial/cache条件をresource単位で確認するまでautomation禁止。"
+      "notes": "香川県オープンデータ利用規約は原則CC BY 4.0。三豊市イベント一覧が自治体標準ODS/CSV・CC BY 4.0として配信されていることを確認。ただしrobotsと実resource URLの取得方式を確定するまでFETCH_ALLOWEDへ上げない。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-29",
+      "reuse_status": "allowed"
     },
     {
       "prefecture": "愛媛県",
@@ -820,7 +936,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "高知県",
@@ -842,7 +961,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "サイト掲載写真・情報の無断転載禁止を確認。自動fetch/転載素材としては使用しない。事実確認用source候補。"
+      "notes": "サイト掲載写真・情報の無断転載禁止を確認。自動fetch/転載素材としては使用しない。事実確認用source候補。",
+      "source_stage": "TERMS_REVIEWED",
+      "last_terms_checked_at": "2026-09-28",
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "福岡県",
@@ -863,7 +985,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "佐賀県",
@@ -884,7 +1009,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "長崎県",
@@ -905,7 +1033,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "熊本県",
@@ -927,7 +1058,10 @@
       "last_checked_at": "2026-09-28",
       "active": true,
       "automated_fetch_allowed": false,
-      "notes": "熊本県観光文化部スポーツ交流企画課運営。スポーツ中心のため県内全イベントcoverageではない。"
+      "notes": "熊本県観光文化部スポーツ交流企画課運営。スポーツ中心のため県内全イベントcoverageではない。",
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "大分県",
@@ -948,7 +1082,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "宮崎県",
@@ -969,7 +1106,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "鹿児島県",
@@ -990,7 +1130,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     },
     {
       "prefecture": "沖縄県",
@@ -1011,7 +1154,10 @@
       "update_frequency": "unknown",
       "last_checked_at": "2026-09-28",
       "active": true,
-      "automated_fetch_allowed": false
+      "automated_fetch_allowed": false,
+      "source_stage": "CANDIDATE",
+      "last_terms_checked_at": null,
+      "reuse_status": "unknown"
     }
   ]
 }

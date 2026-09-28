@@ -27,3 +27,13 @@ test('each source records rights and provenance review fields without secrets',(
     assert.equal('secret' in row,false);
   }
 });
+
+test('source candidates expose promotion stage and never skip from candidate review to automation',()=>{
+  const allowed=new Set(['CANDIDATE','TERMS_REVIEWED','FETCH_ALLOWED','DRY_RUN_PASS','PREVIEW_ENABLED','PRODUCTION_REVIEW']);
+  for(const row of registry.sources){
+    assert.ok(allowed.has(row.source_stage),row.prefecture+' invalid source_stage');
+    if(row.source_stage==='CANDIDATE') assert.equal(row.automated_fetch_allowed,false);
+    if(row.source_stage==='TERMS_REVIEWED') assert.equal(row.automated_fetch_allowed,false);
+  }
+  assert.equal(registry.summary.automation_approved,0);
+});
