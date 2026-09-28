@@ -14,6 +14,7 @@ import {localePath,type Locale} from '@/lib/i18n-config';
 import { PREF_KEYS, getPreviousVisit, readStringArray, setViewed, toggleInArray, wasViewed } from '@/lib/client-prefs';
 import type { EventSummary } from '@/lib/types';
 import { recordMetric } from './MetricPing';
+import {EventVisualFallback} from './EventVisualFallback';
 
 const categoryLabels = {...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
 
@@ -70,10 +71,7 @@ export function EventCard({ event, respectHidden=true, locale='ja', detailBasePa
         {event.image_url ? (
           <img className="event-card-image" src={event.image_url} alt={`${event.title}のイベント画像`} loading="lazy" />
         ) : (
-          <div className="event-card-image event-card-fallback">
-            <span>まちイベ</span>
-            <strong>EVENT</strong>
-          </div>
+          <EventVisualFallback event={event} />
         )}
         <div className="event-card-body">
           <div className="card-meta-line">

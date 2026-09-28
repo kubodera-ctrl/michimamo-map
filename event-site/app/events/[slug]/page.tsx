@@ -23,6 +23,7 @@ import { getRequestLocale } from '@/lib/i18n-server';
 import { getMessages } from '@/lib/i18n';
 import { localePath,type Locale } from '@/lib/i18n-config';
 import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
+import {EventVisualFallback} from '@/components/EventVisualFallback';
 
 
 const detailCopy:Record<Locale,{
@@ -168,7 +169,7 @@ export default async function EventPage({ params }: { params: Params }) {
       </nav>
 
       <article className="detail-card">
-        {event.image_url ? <img className="detail-image" src={event.image_url} alt={`${event.title}のイベント画像`} /> : <div className="detail-image detail-fallback">MACHI IBE</div>}
+        {event.image_url ? <img className="detail-image" src={event.image_url} alt={`${event.title}のイベント画像`} /> : <EventVisualFallback event={event} detail />}
         <div className="detail-body">
           {event.event_status !== 'scheduled' && (
             <div className={`detail-status-alert status-${event.event_status}`} role="status">
