@@ -435,7 +435,7 @@
 
                 <div class="search-box">
                     <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
-                    <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button onclick="searchLocation()" aria-label="場所を検索"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
                 <div class="filter-wrapper" id="filterWrapper">
@@ -473,7 +473,7 @@
                 </div>
 
 
-                <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button id="currentLocationBtn" onclick="goToCurrentLocation()" aria-label="現在地へ移動"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button id="mapMenuBtn" class="fab" type="button" onclick="openMapMenu()" aria-haspopup="dialog" aria-controls="mapMenuModal" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i> メニュー</button>
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
@@ -929,7 +929,7 @@
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
                         </div>
                         <div style="margin-bottom:12px;">
-                            <select id="prefFilter" onchange="loadAreaRanking()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #d9dee4; font-weight:bold; background:#f9fafb; color:#17212b;">
+                            <select id="prefFilter" aria-label="地域ランキングの都道府県" onchange="loadAreaRanking()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #d9dee4; font-weight:bold; background:#f9fafb; color:#17212b;">
                                 <option value="ALL">🗾 全国すべて</option>
                                 <!-- JSで47都道府県が自動追加されます -->
                             </select>
@@ -1027,7 +1027,7 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:18px; font-weight:900;">アバターを選択</div>
-            <button class="close" onclick="closeAvatarModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closeAvatarModal()" aria-label="アバター選択を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="emoji-grid" id="emojiGrid"></div>
     </div>
@@ -1038,7 +1038,7 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-parking" style="color:#2563eb;"></i> 駐車場を予約する</div>
-            <button class="close" onclick="closeParkingModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closeParkingModal()" aria-label="駐車場案内を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div role="status" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px;">
             <div style="font-weight:900;color:#334155;margin-bottom:6px;">β版では準備中です</div>
@@ -1066,13 +1066,13 @@
         </div>
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 地域の安全情報を共有</div>
-            <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closePostModal()" aria-label="投稿画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
             <div id="localAnomalyArea" style="display:none; margin-bottom:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
-                <select id="localAnomalyType" onchange="syncLocalAnomalyTitle()">
+                <select id="localAnomalyType" aria-label="地域の異変の種類" onchange="syncLocalAnomalyTitle()">
                     <option value="">選択してください</option>
                     <option value="illegal_dumping">不法投棄・ごみ</option>
                     <option value="abandoned_object_vehicle">放置物・放置車両</option>
@@ -1096,7 +1096,7 @@
 
 
            <label>種類</label>
-           <select id="postCategory" required onchange="toggleImageUpload()">
+           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
                 <option value="illegal">🔴 違法駐車</option>
                 <option value="danger">🔵 危険な路上停車</option>
                 <option value="reckless">🟡 暴走・騒音車両</option>
@@ -1105,8 +1105,8 @@
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
                 <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
             </select>
-            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
-            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
+            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" aria-label="投稿タイトル" required maxlength="160">
+            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" aria-label="投稿コメント" rows="3" maxlength="500"></textarea>
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
@@ -1148,7 +1148,7 @@
                 <div style="font-size:18px;font-weight:900;"><i class="fa-solid fa-photo-film" style="color:#0891b2;"></i> まちまもSNS投稿素材</div>
                 <div id="adminSocialAssetSubtitle" class="muted" style="font-size:.72rem;margin-top:4px;"></div>
             </div>
-            <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" type="button" onclick="closeAdminSocialAsset()" aria-label="SNS素材画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="adminSocialAssetBody">
             <div>
@@ -1174,7 +1174,7 @@
     <div class="sheet" style="padding-top: 30px;">
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-file-contract" style="color:#ef4444;"></i> 利用規約・安全の約束</div>
-            <button class="close" onclick="document.getElementById('termsModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="document.getElementById('termsModal').classList.remove('open')" aria-label="利用規約を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <ul style="font-size:0.85rem; color:#4b5563; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>運転中の操作禁止：</strong> 投稿や閲覧は安全な場所に停車後に行ってください。</li>
@@ -1193,7 +1193,7 @@
     <div class="sheet" style="padding-top: 30px;">
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> プライバシーと安全対策</div>
-            <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closePrivacyModal()" aria-label="プライバシーポリシーを閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
             まちまもMAPは、皆さまに安心してご利用いただけるよう、以下のプライバシー保護対策と機能強化を進めています。
@@ -1215,7 +1215,7 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:1.1rem; font-weight:900;"><i class="fa-solid fa-store" style="color:#f59e0b;"></i> 地域スポンサー募集</div>
-            <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')" aria-label="広告掲載案内を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
             まちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
@@ -2830,7 +2830,7 @@ function shareSpot(title, address, category, event) {
 
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
-        const imgTag = spot.image_url ? `<img src="${escapeHtml(spot.image_url)}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
+        const imgTag = spot.image_url ? `<img src="${escapeHtml(spot.image_url)}" alt="投稿画像" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
         const anomalyBadge = spot.category === 'local_anomaly'
