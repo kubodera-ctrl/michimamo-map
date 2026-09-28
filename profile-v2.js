@@ -38,7 +38,7 @@
         if (Array.from(base).length >= 8) return Array.from(base).slice(0, 8).join('') === name;
         if (!name.startsWith(base)) return false;
         const suffix = name.slice(base.length);
-        return /^\\d{1,2}$/.test(suffix) && Number(suffix) >= 1 && Number(suffix) <= 99;
+        return /^\d{1,2}$/.test(suffix) && Number(suffix) >= 1 && Number(suffix) <= 99;
       });
     });
   }
