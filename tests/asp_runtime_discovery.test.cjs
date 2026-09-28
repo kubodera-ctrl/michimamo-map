@@ -29,3 +29,8 @@ assert.equal(caps.recommended,true);
 assert.equal(caps.points,true);
 assert.equal(caps.availability,true);
 console.log('PASS: ASP discovery uses source-backed metadata, composable filters/sorts, and hides unapproved point values');
+
+const emptyCaps=d.capabilities([]);
+assert.equal(emptyCaps.points,false);
+assert.equal(emptyCaps.recommended,false);
+assert.equal(emptyCaps.popular,false);

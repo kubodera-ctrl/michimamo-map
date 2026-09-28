@@ -128,3 +128,9 @@
 - 「新着」presetはsource_added_at確認済み案件だけに絞り、追加：新しい順へ切替。
 - カテゴリfilterは独立して併用可能。
 
+## 2026-09-28 ASP Discovery empty-state follow-up
+
+- ASP2 CURRENTで本番掲載可能0件・還元有効0件のため、架空fixture案件は公開UIへ投入しない。
+- Discovery RPCが0件または未接続でも、分類/カテゴリ/sortのUI shellを表示してレイアウト確認可能にする。
+- 案件リストは0件のまま。Runtime未接続時は「fail-closed」を明示し、既存/推測案件へfallbackしない。
+

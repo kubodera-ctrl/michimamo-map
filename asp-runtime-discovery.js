@@ -275,9 +275,8 @@
     container.classList.add('asp-discovery');
     container.innerHTML='<p class="asp-discovery-status">公開条件を満たした案件を確認しています…</p>';
     const {data,error}=await client.rpc('get_asp_offers_for_discovery',{p_service_key:serviceKey,p_placement_id:placementId});
-    if(error){container.innerHTML='<p class="asp-discovery-status">現在、案件を読み込めません。</p>';return;}
-    const rows=Array.isArray(data)?data:[];
-    if(!rows.length){container.innerHTML='<p class="asp-discovery-status">現在、公開条件を満たした案件はありません。</p>';return;}
+    const loadError=!!error;
+    const rows=!loadError&&Array.isArray(data)?data:[];
     const caps=capabilities(rows);
     const normalized=rows.map(normalizeOffer);
     const categories=Array.from(new Set(normalized.map(x=>x.category).filter(Boolean))).sort((a,b)=>a.localeCompare(b,'ja'));
@@ -312,8 +311,11 @@
       const result=queryOffers(rows,state);
       const list=container.querySelector('[data-asp-list]');
       const status=container.querySelector('[data-asp-status]');
-      status.textContent=result.length+'件表示。確認できない報酬額・反映日数は表示・並び替えに使用しません。';
-      list.innerHTML=result.length?result.map(x=>renderCard(x,client,serviceKey,placementId)).join(''):'<p class="asp-discovery-status">条件に一致する公開案件はありません。</p>';
+      status.textContent=loadError
+        ? 'Runtime公開データは未接続です。案件は表示しません（fail-closed）。'
+        : result.length+'件表示。確認できない報酬額・反映日数は表示・並び替えに使用しません。';
+      list.innerHTML=result.length?result.map(x=>renderCard(x,client,serviceKey,placementId)).join('')
+        : '<p class="asp-discovery-status">'+(loadError?'公開データ接続後に、公開gateを通過した案件だけ表示します。':'現在、条件に一致する公開案件はありません。')+'</p>';
       list.querySelectorAll('.asp-discovery-link').forEach(link=>link.addEventListener('click',()=>{
         const card=link.closest('[data-asp-offer-id]');
         const offer=normalized.find(x=>x.offer_id===card?.dataset.aspOfferId);
