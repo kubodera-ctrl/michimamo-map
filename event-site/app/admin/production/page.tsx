@@ -99,6 +99,9 @@ export default async function ProductionPage({searchParams}:{searchParams:Search
           <div className="admin-quick-links">
             <Link href="/admin/production/new">新しいCAROUSELを作成 →</Link>
             <Link href="/admin/social-master">CURRENT Master確認 →</Link>
+            <Link href="/preview/carousel-golden-fixtures/normal-5p">Golden NORMAL 5P →</Link>
+            <Link href="/preview/carousel-golden-fixtures/extended-7p">Golden EXTENDED 7P →</Link>
+            <Link href="/preview/carousel-golden-fixtures/holiday-8p">Golden HOLIDAY 8P →</Link>
             <Link href="/admin">ダッシュボードへ →</Link>
           </div>
         </div>
