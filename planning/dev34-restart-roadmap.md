@@ -343,3 +343,17 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - Preview QAは branch alias + `?identityQa=1` だけで有効。未認証 / LINE済み / 自動生成名 / 複数provider fixtureはDOM表示のみでAuth/DB/localStorageを書き換えず、QA中のLINEボタンもOAuthを開始しない。
 - Production Auth変更 / Google OAuth / DB migration / 課金なし。
 
+## 2026-09-28 開発36｜Identity UI final status
+
+- branch: `feat/dev36-identity-ui`
+- base: `feat/dev34-current-production-engine@d8faa60b2da4fc5a592ded98082299f513b62f70`
+- Draft PR: #23「開発36: LINE認証状態・プロフィールIdentity UI」
+- feature/fix commits: `c478cb90...` → `82c27a04...` → `f64f2644...`
+- committed-code targeted validation PASS: identity public contract fields only provider/linked/verified/linkedAt; LINE session display; 2-provider badges; 3-provider summary; generated-name detection; tutorial copy; Preview-only QA gate; email/provider UID非公開; existing signInWithLine / callback+session exchange source unchanged.
+- Vercel Preview for `f64f2644...`: `dpl_G49pFwdfDPCs5iPVLSSLQZ52yhLr` READY / target=null。
+- Preview QA URL: `https://machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app/?identityQa=1`
+- QA fixtures are render-only. 未LINE / LINE接続済み / 自動生成名 / 3-provider summary。QA中のLINE buttonはOAuthを開始しない。
+- Full `npm test` はこのconnector実行環境からGitHubへnetwork cloneできず未実行。package scriptsへ `profile_v2.test.cjs` / `identity_ui.test.cjs` は接続済み。Vercel buildはREADY。
+- Production Auth / DB migration / Google OAuth / Production deploy / 課金は変更なし。
+- 次gate: iPhone Preview実機で名前とのバランス、button tap領域、LINE badge、自動設定、長いnickname、3-provider summary、横崩れを確認。
+
