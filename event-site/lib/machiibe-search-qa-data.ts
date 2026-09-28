@@ -1,4 +1,5 @@
 import type {EventDetail,EventSearchInput,PriceType,VenueTypeKey} from './types';
+import {QA_VERIFIED_SEED_SNAPSHOTS} from './machiibe-search-qa-seed.generated';
 
 export type QaEvent=EventDetail&{
   fixtureOnly:true;
@@ -35,79 +36,16 @@ function makeEvent(input:Partial<QaEvent>&Pick<QaEvent,'id'|'slug'|'title'|'star
 }
 
 export function buildQaEvents(anchor:string):QaEvent[]{
-  const verified:QaEvent[]=[
-    makeEvent({
-      id:90001,slug:'qa-real-littleplanet-halloween-2026',title:'リトルプラネット ハロウィン2026',
-      start_date:'2026-09-17',end_date:'2026-11-01',prefecture:'東京都',municipality:'江東区',
-      venue_name:'リトルプラネット ダイバーシティ東京プラザ',venue_type_keys:['mall','amusement','event_venue_indoor'],
-      price_text:'パーク入場料が必要（料金は公式サイト参照）',price_type:'paid',is_free:false,
-      category_keys:['family','entertainment'],age_group_keys:['family'],indoor:true,audience_intent:'family_friendly',
-      official_url:'https://www.litpla.com/news/press/halloween2026-info/',source_name:'リトルプラネット',source_url:'https://www.litpla.com/news/press/halloween2026-info/',
-      qaKind:'verified_ci',qaNote:'CI verified factual fixture / image not used'
-    }),
-    makeEvent({
-      id:90002,slug:'qa-real-ariake-quizknock-2026',title:'有明ガーデン周遊謎解き「神の使いと叶えられない願い事」',
-      start_date:'2026-08-29',end_date:'2026-10-04',start_time:'10:00',end_time:'21:00',all_day:false,
-      prefecture:'東京都',municipality:'江東区',venue_name:'有明ガーデン各所',venue_type_keys:['mall'],
-      price_text:'販売価格2,500円（税込）',price_type:'paid',is_free:false,
-      category_keys:['learning','entertainment'],fandom_slugs:['quizknock'],
-      official_url:'https://ariake.shopping-sumitomo-rd.com/event/3843/',source_name:'有明ガーデン',source_url:'https://ariake.shopping-sumitomo-rd.com/event/3843/',
-      qaKind:'verified_ci',qaNote:'CI verified factual fixture / image not used'
-    }),
-    makeEvent({
-      id:90003,slug:'qa-real-joypolis-sidem-2026',title:'アイドルマスター SideM in JOYPOLIS 3',
-      start_date:'2026-09-12',end_date:'2026-12-06',prefecture:'東京都',municipality:'港区',
-      venue_name:'東京ジョイポリス',address:'台場1丁目6番1号 DECKS Tokyo Beach 3F～5F',venue_type_keys:['amusement','event_venue_indoor'],
-      location_precision:'exact_address',location_verified:true,postal_code:'135-0091',
-      price_text:'スペシャルショーは無料。東京ジョイポリス入場料が必要で、ほか有料コンテンツあり',price_type:'partly_free',
-      category_keys:['entertainment'],indoor:true,fandom_slugs:['idolmaster-sidem'],
-      official_url:'https://tokyo-joypolis.com/event/sidem_jp2026/index.html',source_name:'東京ジョイポリス',source_url:'https://tokyo-joypolis.com/event/sidem_jp2026/index.html',
-      qaKind:'verified_ci',qaNote:'CI verified factual fixture / image not used'
-    }),
-    makeEvent({
-      id:90004,slug:'qa-real-toyosu-kamimaro-2026',title:'紙磨呂（かみまろ）マジックショー',
-      start_date:'2026-09-23',end_date:'2026-09-30',schedule_type:'irregular',prefecture:'東京都',municipality:'江東区',
-      venue_name:'豊洲 千客万来 二階 時の鐘広場',venue_type_keys:['mall','event_venue_outdoor'],
-      price_text:'観覧無料',price_type:'free',is_free:true,age_group_keys:['family'],category_keys:['entertainment'],
-      occurrences:[{date:'2026-09-30',start_time:'12:00',end_time:null,status:'scheduled',source_note:'official schedule'},{date:'2026-09-30',start_time:'14:00',end_time:null,status:'scheduled',source_note:'official schedule'}],
-      official_url:'https://www.toyosu-senkyakubanrai.jp/eventnews/0729',source_name:'豊洲 千客万来',source_url:'https://www.toyosu-senkyakubanrai.jp/eventnews/0729',
-      qaKind:'verified_ci',qaNote:'CI verified factual fixture / irregular occurrence'
-    }),
-    makeEvent({
-      id:90005,slug:'qa-real-solamachi-oktoberfest-2026',title:'オクトーバーフェストin東京スカイツリータウン®2026',
-      start_date:'2026-09-19',end_date:'2026-10-26',start_time:'11:00',end_time:'21:00',all_day:false,
-      prefecture:'東京都',municipality:'墨田区',venue_name:'東京ソラマチ 4F スカイアリーナ',address:'押上1-1-2',
-      venue_type_keys:['mall','event_venue_outdoor'],price_type:'unknown',category_keys:['food','festival'],indoor:false,
-      official_url:'https://www.tokyo-solamachi.jp/event/2811/',source_name:'東京ソラマチ',source_url:'https://www.tokyo-solamachi.jp/event/2811/',
-      qaKind:'verified_ci',qaNote:'verified production seed factual snapshot'
-    }),
-    makeEvent({
-      id:90006,slug:'qa-real-sogo-art-2026',title:'カラフルパレット 鈴木信太郎',
-      start_date:'2026-09-12',end_date:'2026-10-12',start_time:'10:00',end_time:'20:00',all_day:false,
-      prefecture:'神奈川県',municipality:'横浜市',venue_name:'そごう美術館（そごう横浜店 6階）',address:'西区高島2-18-1',
-      venue_type_keys:['mall','culture_public','event_venue_indoor'],price_type:'partly_free',
-      price_text:'一般1,200円／大学・高校生1,000円／中学生以下無料。障がい者手帳各種所持者と同伴者1名は無料',
-      category_keys:['art'],indoor:true,accessibility_keys:['disability_discount','companion_support'],
-      accessibility_notes:'障がい者手帳各種所持者と同伴者1名は入館無料。',
-      official_url:'https://www.sogo-seibu.jp/yokohama/topics/sogo-museum-suzuki-shintaro',source_name:'そごう横浜店・そごう美術館',source_url:'https://www.sogo-seibu.jp/yokohama/topics/sogo-museum-suzuki-shintaro',
-      qaKind:'verified_ci',qaNote:'verified production seed factual snapshot'
-    }),
-    makeEvent({
-      id:90007,slug:'qa-real-kawasaki-port-2026',title:'川崎港開港75周年記念 第53回川崎みなと祭り',
-      start_date:'2026-10-10',end_date:'2026-10-11',prefecture:'神奈川県',municipality:'川崎市',
-      venue_name:'川崎マリエン周辺・東扇島東公園',venue_type_keys:['park_plaza','culture_public','event_venue_outdoor'],
-      category_keys:['festival','learning','experience'],audience_intent:'family_friendly',
-      official_url:'https://kawasakiminato.com/',source_name:'川崎みなと祭り実行委員会',source_url:'https://kawasakiminato.com/',
-      qaKind:'verified_ci',qaNote:'verified production seed factual snapshot'
-    }),
-    makeEvent({
-      id:90008,slug:'qa-real-seibuen-sidem-2026',title:'アイドルマスター SideM 超!!レトローズパーティ',
-      start_date:'2026-10-30',end_date:'2026-12-01',prefecture:'埼玉県',municipality:'所沢市',
-      venue_name:'西武園ゆうえんち',venue_type_keys:['amusement'],category_keys:['entertainment'],fandom_slugs:['idolmaster-sidem'],
-      official_url:'https://www.seibuen-amusement-park.jp/event/index.html',source_name:'西武園ゆうえんち',source_url:'https://www.seibuen-amusement-park.jp/event/index.html',
-      qaKind:'verified_ci',qaNote:'verified production seed factual snapshot'
-    })
-  ];
+  const verified:QaEvent[]=QA_VERIFIED_SEED_SNAPSHOTS.map((snapshot)=>makeEvent({
+    ...snapshot,
+    venue_type_keys:[...snapshot.venue_type_keys] as VenueTypeKey[],
+    category_keys:[...snapshot.category_keys],
+    age_group_keys:[...snapshot.age_group_keys],
+    accessibility_keys:[...snapshot.accessibility_keys],
+    fandom_slugs:[...snapshot.fandom_slugs],
+    qaKind:'verified_ci',
+    qaNote:'verified production seed factual snapshot / fixtureOnly=true / image not used'
+  }));
 
   const synthetic:QaEvent[]=[
     makeEvent({
