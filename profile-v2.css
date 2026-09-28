@@ -22,8 +22,8 @@
 
 .profile-v2-avatar-button{padding:0;cursor:pointer;font:inherit;color:inherit}
 .profile-v2-avatar-button:focus-visible{outline:3px solid rgba(37,99,235,.28);outline-offset:2px}
-.profile-v2-name-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-height:30px}
-.profile-v2-name-edit{min-height:32px;padding:4px 3px;border:0;background:transparent;color:#64748b;font-size:.68rem;font-weight:800;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;touch-action:manipulation}
+.profile-v2-name-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-height:26px}
+.profile-v2-name-edit{min-height:28px;padding:3px 3px;border:0;background:transparent;color:#64748b;font-size:.68rem;font-weight:800;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;touch-action:manipulation}
 .profile-v2-name-edit:active{color:#1d4ed8}
 .profile-v2-name-auth-note{margin:8px 0 14px;color:#334155;font-size:.88rem;line-height:1.7}
 .profile-v2-close-secondary{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#475569;font-weight:900;cursor:pointer}

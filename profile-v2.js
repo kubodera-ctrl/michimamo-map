@@ -131,13 +131,13 @@
           '<button type="button" class="avatar-circle profile-v2-avatar-button" id="myAvatarDisplay" aria-label="プロフィール画像を編集" onclick="MachimamoProfileV2.openAvatarEditor()"></button>' +
         '</div>' +
         '<div class="profile-v2-name-wrap">' +
-          '<div class="profile-v2-name-line">' +
-            '<div class="profile-v2-name" id="myNameDisplay"></div>' +
-            '<div class="profile-identity-badges" id="profileIdentityBadges" aria-label="アカウント接続状態"></div>' +
-          '</div>' +
           '<div class="profile-v2-name-tools">' +
             '<button type="button" class="profile-v2-name-edit" id="profileNameEditLink" onclick="MachimamoProfileV2.requestNameEdit()">※ 編集</button>' +
             '<div class="profile-name-meta" id="profileNameMeta"></div>' +
+          '</div>' +
+          '<div class="profile-v2-name-line">' +
+            '<div class="profile-v2-name" id="myNameDisplay"></div>' +
+            '<div class="profile-identity-badges" id="profileIdentityBadges" aria-label="アカウント接続状態"></div>' +
           '</div>' +
           '<input type="hidden" id="myNameInput">' +
         '</div>';

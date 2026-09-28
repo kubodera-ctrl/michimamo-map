@@ -84,3 +84,9 @@ assert.equal(identity.nicknameEditDecision('generated_v2',false),'line_required'
 assert.equal(identity.nicknameEditDecision('generated',false),'line_required');
 assert.equal(identity.nicknameEditDecision('custom',false),'edit');
 assert.equal(identity.nicknameEditDecision('generated_v2',true),'edit');
+
+const profileLayoutSource=fs.readFileSync(path.join(__dirname,'..','profile-v2.js'),'utf8');
+const toolsIndex=profileLayoutSource.indexOf('profile-v2-name-tools');
+const nameLineIndex=profileLayoutSource.indexOf('profile-v2-name-line');
+assert.ok(toolsIndex>=0 && nameLineIndex>=0 && toolsIndex<nameLineIndex,'edit/auto metadata is rendered above the profile name');
+assert.match(identitySource,/自動設定中/);

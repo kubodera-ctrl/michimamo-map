@@ -384,3 +384,11 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - プロフィール名ブロックがavatarより上寄りに見えたため、name / provider badge / 補助行を約6〜7px下へ視覚調整。
 - 横幅/折返しcontractは変更せず、長い自動生成名のwrap・tap領域を維持。
 
+## 2026-09-28 開発36｜Identity UI hierarchy follow-up
+
+- 本人iPhone確認後の再調整: 「※ 編集」「自動設定中」を名前の上へ移動。
+- 未認証generated表示の基本階層: 上段「※ 編集 / 自動設定中」、下段「形容詞＋どうぶつ / LINE認証」。
+- LINE接続済み: 上段「※ 編集」、下段「名前 / ✓ LINE」。自動設定中は表示しない。
+- 直前の6〜7px translate補正は撤回し、上段補助行+下段名前行の全体をavatar中央へ自然に揃える。
+- 名前・badge・LINE認証buttonのwrap contractは維持。
+

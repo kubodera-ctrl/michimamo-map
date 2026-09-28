@@ -225,7 +225,7 @@
       if (!GENERATED_SOURCES.includes(source)) return;
       const badge = doc.createElement('span');
       badge.className = 'identity-name-source';
-      badge.textContent = '自動設定';
+      badge.textContent = '自動設定中';
       badge.title = '現在の表示名は自動で設定されています';
       target.appendChild(badge);
     }
