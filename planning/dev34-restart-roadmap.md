@@ -392,3 +392,8 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - 直前の6〜7px translate補正は撤回し、上段補助行+下段名前行の全体をavatar中央へ自然に揃える。
 - 名前・badge・LINE認証buttonのwrap contractは維持。
 
+## 2026-09-28 開発36｜Identity UI cache version
+
+- iPhone Previewで最新hierarchyを確実に読むため identity/profile assetsを `v=36-identity3` へ更新。
+- 機能仕様変更なし。QA panelのProduction非表示条件も維持。
+
