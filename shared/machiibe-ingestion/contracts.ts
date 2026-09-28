@@ -3,6 +3,11 @@ export const SOURCE_FETCH_METHODS=[
 ] as const;
 export type SourceFetchMethod=typeof SOURCE_FETCH_METHODS[number];
 
+export const SOURCE_STAGES=[
+  'CANDIDATE','TERMS_REVIEWED','FETCH_ALLOWED','DRY_RUN_PASS','PREVIEW_ENABLED','PRODUCTION_REVIEW'
+] as const;
+export type SourceStage=typeof SOURCE_STAGES[number];
+
 export type SourcePolicySnapshot={
   sourceId:number;
   sourceName:string;
@@ -15,7 +20,14 @@ export type SourcePolicySnapshot={
   termsStatus:'pending'|'reviewed_facts_only'|'reviewed_allowed'|'reviewed_restricted'|'contact_required';
   robotsStatus:'pending'|'allowed'|'disallowed'|'not_applicable';
   commercialUseStatus:'unknown'|'allowed'|'conditional'|'disallowed';
+  reuseStatus:'unknown'|'allowed'|'conditional'|'disallowed';
+  redistributionStatus:'unknown'|'allowed'|'conditional'|'disallowed';
+  cacheStatus:'unknown'|'allowed'|'conditional'|'disallowed';
+  imageUseStatus:'unknown'|'allowed'|'conditional'|'disallowed'|'not_applicable';
+  snsUseStatus:'unknown'|'allowed'|'conditional'|'disallowed'|'not_applicable';
   attributionRequirement:string|null;
+  sourceStage:SourceStage;
+  lastTermsCheckedAt:string|null;
   updateFrequencyMinutes:number;
   lastCheckedAt:string|null;
   lastSuccessAt:string|null;
@@ -108,10 +120,27 @@ export interface SourceAdapter{
 export function sourceAutomationAllowed(source:SourcePolicySnapshot){
   return source.active
     && source.automatedFetchAllowed
+    && ['FETCH_ALLOWED','DRY_RUN_PASS','PREVIEW_ENABLED','PRODUCTION_REVIEW'].includes(source.sourceStage)
     && source.termsStatus==='reviewed_allowed'
-    && source.robotsStatus!=='disallowed'
-    && source.commercialUseStatus!=='disallowed'
+    && (source.robotsStatus==='allowed'||source.robotsStatus==='not_applicable')
+    && source.commercialUseStatus==='allowed'
+    && source.reuseStatus==='allowed'
+    && source.redistributionStatus!=='disallowed'
     && source.fetchMethod!=='MANUAL';
+}
+
+export function sourceStageReadiness(source:SourcePolicySnapshot){
+  const missing:string[]=[];
+  if(source.termsStatus!=='reviewed_allowed')missing.push('terms');
+  if(source.robotsStatus!=='allowed'&&source.robotsStatus!=='not_applicable')missing.push('robots');
+  if(source.commercialUseStatus!=='allowed')missing.push('commercial_use');
+  if(source.reuseStatus!=='allowed')missing.push('reuse');
+  if(source.redistributionStatus==='unknown')missing.push('redistribution');
+  if(source.cacheStatus==='unknown')missing.push('cache');
+  if(source.imageUseStatus==='unknown')missing.push('image_use');
+  if(source.snsUseStatus==='unknown')missing.push('sns_use');
+  if(!source.lastTermsCheckedAt)missing.push('last_terms_checked_at');
+  return {readyForFetch:missing.length===0,missing};
 }
 
 export function conditionalHeaders(state:ConditionalFetchState){

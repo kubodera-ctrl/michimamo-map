@@ -1,11 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCE_FETCH_METHODS,conditionalHeaders,duplicateReviewRequired,sourceAutomationAllowed,validateNormalizedCandidate
+  SOURCE_FETCH_METHODS,SOURCE_STAGES,conditionalHeaders,duplicateReviewRequired,sourceAutomationAllowed,sourceStageReadiness,validateNormalizedCandidate
 } from '../../shared/machiibe-ingestion/contracts';
 
 test('ingestion adapter contract contains all planned source methods',()=>{
   assert.deepEqual(SOURCE_FETCH_METHODS,['OPEN_DATA','RSS','ICS','JSON_API','JSON_LD','HTML_STRUCTURED','MANUAL','PARTNER']);
+  assert.deepEqual(SOURCE_STAGES,['CANDIDATE','TERMS_REVIEWED','FETCH_ALLOWED','DRY_RUN_PASS','PREVIEW_ENABLED','PRODUCTION_REVIEW']);
 });
 
 test('source automation fails closed unless compliance gates are approved',()=>{
@@ -13,11 +14,16 @@ test('source automation fails closed unless compliance gates are approved',()=>{
     sourceId:1,sourceName:'x',sourceType:'open_data',prefecture:null,municipality:null,
     baseUrl:'https://example.test',feedUrl:'https://example.test/feed',fetchMethod:'OPEN_DATA' as const,
     termsStatus:'reviewed_allowed' as const,robotsStatus:'allowed' as const,commercialUseStatus:'allowed' as const,
-    attributionRequirement:null,updateFrequencyMinutes:60,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,
+    reuseStatus:'allowed' as const,redistributionStatus:'allowed' as const,cacheStatus:'allowed' as const,
+    imageUseStatus:'not_applicable' as const,snsUseStatus:'not_applicable' as const,
+    attributionRequirement:null,sourceStage:'FETCH_ALLOWED' as const,lastTermsCheckedAt:'2026-09-28T00:00:00Z',
+    updateFrequencyMinutes:60,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,
     active:true,priority:50,automatedFetchAllowed:true,etag:null,lastModified:null
   };
   assert.equal(sourceAutomationAllowed(source),true);
   assert.equal(sourceAutomationAllowed({...source,robotsStatus:'disallowed'}),false);
+  assert.equal(sourceAutomationAllowed({...source,robotsStatus:'pending'}),false);
+  assert.equal(sourceAutomationAllowed({...source,sourceStage:'TERMS_REVIEWED'}),false);
   assert.equal(sourceAutomationAllowed({...source,termsStatus:'pending'}),false);
   assert.equal(sourceAutomationAllowed({...source,commercialUseStatus:'disallowed'}),false);
 });
@@ -42,4 +48,22 @@ test('canonical validation rejects partial coordinates and unverified remote ima
   assert.ok(validateNormalizedCandidate({...base,imageUrl:'https://example.test/a.jpg'}).errors.includes('image_rights_unverified'));
   assert.equal(duplicateReviewRequired(.96),true);
   assert.equal(duplicateReviewRequired(.98),false);
+});
+
+test('source promotion readiness keeps unknown rights as blockers',()=>{
+  const source:any={
+    sourceId:2,sourceName:'candidate',sourceType:'open_data',prefecture:'鳥取県',municipality:null,
+    baseUrl:'https://example.test',feedUrl:'https://example.test/data.csv',fetchMethod:'OPEN_DATA',
+    termsStatus:'reviewed_allowed',robotsStatus:'pending',commercialUseStatus:'allowed',
+    reuseStatus:'allowed',redistributionStatus:'allowed',cacheStatus:'allowed',
+    imageUseStatus:'not_applicable',snsUseStatus:'not_applicable',
+    attributionRequirement:'CC BY',sourceStage:'TERMS_REVIEWED',lastTermsCheckedAt:'2026-09-28T00:00:00Z',
+    updateFrequencyMinutes:1440,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,active:true,priority:90,
+    automatedFetchAllowed:false,etag:null,lastModified:null
+  };
+  const pending=sourceStageReadiness(source);
+  assert.equal(pending.readyForFetch,false);
+  assert.ok(pending.missing.includes('robots'));
+  const ready=sourceStageReadiness({...source,robotsStatus:'not_applicable'});
+  assert.equal(ready.readyForFetch,true);
 });

@@ -10,6 +10,19 @@ alter table public.regional_sources
     check (robots_status in ('pending','allowed','disallowed','not_applicable')),
   add column if not exists commercial_use_status text not null default 'unknown'
     check (commercial_use_status in ('unknown','allowed','conditional','disallowed')),
+  add column if not exists reuse_status text not null default 'unknown'
+    check (reuse_status in ('unknown','allowed','conditional','disallowed')),
+  add column if not exists redistribution_status text not null default 'unknown'
+    check (redistribution_status in ('unknown','allowed','conditional','disallowed')),
+  add column if not exists cache_status text not null default 'unknown'
+    check (cache_status in ('unknown','allowed','conditional','disallowed')),
+  add column if not exists image_use_status_source text not null default 'unknown'
+    check (image_use_status_source in ('unknown','allowed','conditional','disallowed','not_applicable')),
+  add column if not exists sns_use_status text not null default 'unknown'
+    check (sns_use_status in ('unknown','allowed','conditional','disallowed','not_applicable')),
+  add column if not exists source_stage text not null default 'CANDIDATE'
+    check (source_stage in ('CANDIDATE','TERMS_REVIEWED','FETCH_ALLOWED','DRY_RUN_PASS','PREVIEW_ENABLED','PRODUCTION_REVIEW')),
+  add column if not exists last_terms_checked_at timestamptz,
   add column if not exists attribution_requirement text,
   add column if not exists update_frequency_minutes integer
     check (update_frequency_minutes is null or update_frequency_minutes between 15 and 525600),
@@ -77,6 +90,7 @@ select
   rs.prefecture,
   rs.municipality,
   rs.fetch_method,
+  rs.source_stage,
   rs.fetch_status,
   rs.is_active as active,
   rs.priority,
