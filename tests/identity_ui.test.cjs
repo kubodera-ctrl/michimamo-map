@@ -90,3 +90,8 @@ const toolsIndex=profileLayoutSource.indexOf('profile-v2-name-tools');
 const nameLineIndex=profileLayoutSource.indexOf('profile-v2-name-line');
 assert.ok(toolsIndex>=0 && nameLineIndex>=0 && toolsIndex<nameLineIndex,'edit/auto metadata is rendered above the profile name');
 assert.match(identitySource,/自動設定中/);
+
+const sourceRenderIndex=identitySource.indexOf("renderNameSource(source");
+const lineRenderIndex=identitySource.indexOf("renderLineAction(source");
+assert.ok(sourceRenderIndex>=0 && lineRenderIndex>sourceRenderIndex,'LINE CTA is rendered in the upper name-tools/meta row after auto-setting label');
+assert.ok(!identitySource.includes('renderLineAction(badges'),'unauthenticated LINE CTA is no longer rendered beside the profile name');

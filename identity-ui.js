@@ -221,7 +221,6 @@
 
     function renderNameSource(target, source) {
       if (!target) return;
-      target.replaceChildren();
       if (!GENERATED_SOURCES.includes(source)) return;
       const badge = doc.createElement('span');
       badge.className = 'identity-name-source';
@@ -249,9 +248,12 @@
       if (badges) {
         badges.replaceChildren();
         renderBadges(badges, state.identities);
-        renderLineAction(badges, state.identities);
       }
-      renderNameSource(source, isLineLinked(state.identities) ? 'custom' : state.nameSource);
+      if (source) {
+        source.replaceChildren();
+        renderNameSource(source, isLineLinked(state.identities) ? 'custom' : state.nameSource);
+        renderLineAction(source, state.identities);
+      }
       ensureQaPanel();
     }
 

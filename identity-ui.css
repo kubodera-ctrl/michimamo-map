@@ -30,3 +30,5 @@
   .profile-v2-name-line{align-items:flex-start}
   .profile-identity-badges{width:100%}
 }
+
+.profile-v2-name-tools .identity-line-link-button{min-height:28px;padding:4px 9px;font-size:.65rem}

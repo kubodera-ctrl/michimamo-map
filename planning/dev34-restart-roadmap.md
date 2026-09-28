@@ -397,3 +397,11 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - iPhone Previewで最新hierarchyを確実に読むため identity/profile assetsを `v=36-identity3` へ更新。
 - 機能仕様変更なし。QA panelのProduction非表示条件も維持。
 
+## 2026-09-28 開発36｜Identity LINE CTA hierarchy
+
+- 本人iPhone確認: 未認証時のLINE認証buttonを「自動設定中」の横まで上げる要望。
+- 未認証generatedの上段を「※ 編集 / 自動設定中 / LINE認証」、下段を自動生成名の主表示とする。
+- LINE接続済みは上段「※ 編集」、下段「名前 / ✓ LINE」を維持。
+- provider badge表示ロジックは変更せず、未認証LINE CTAの描画先だけupper tools/meta rowへ移動。
+- 上段に収まるようLINE CTAをcompact化。狭幅時は既存flex-wrapで折返す。
+
