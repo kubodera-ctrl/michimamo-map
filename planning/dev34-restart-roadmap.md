@@ -104,3 +104,19 @@
 - P4別branch feat/dev34-current-production-engine @42549914a67bfe4111e703805af46cafb7f07e7f。CURRENT timeline実装/テストのみ、Renderer/MP4 QC未完了。
 - P5はまちイベ既存共通schemaを再利用する方針。同名DDL追加なし。
 - 詳細/検証限界/次工程: planning/dev34-validation-20260927.md。
+
+## 2026-09-28 ASP Discovery / sort・filter
+
+- 正本: Drive「まちまも・まちイベ ASP案件マスター」/ ASP実装連携仕様 CURRENT（schema_version=asp_master_v1）。本番掲載可能0件・還元有効0件を維持し、推測データは作らない。
+- PR #21専用branch feat/dev34-asp-runtime-master上で実装。P4 news branchへ混在させない。
+- Runtime discovery metadataを追加: media_conditions_verified / link_verified / reward_permission / reward_enabled / reward_fixed_points / action_type / cost_type / purchase_required / estimated_available_days / source_added_at / recommendation_rank / recommendation_note / conversion_conditions。
+- Public gateを強化: partnership + source_listing + media approval + production listing + media_conditions_verified + link_verified + Web approval + exact tracking URL + active/listing_enabled + approved placement + valid windows。
+- ユーザー分類: すべて / 反映が早い / 高ポイント / かんたん / 無料でできる / 購入不要 / おすすめ / 新着。確認済みmetadataだけで判定。
+- sort: おすすめ / ポイント高低 / 反映早遅 / 追加新旧。popularは実usageがある場合のみ将来enableするcontract。
+- 「反映が早い」はASP成果発生/承認ではなくestimated_available_days（ポイントavailableまで）の確認済み数値だけを使用。正式値なしは表示・sort対象外。
+- 「かんたん」はaction_typeの free_registration / app_install / document_request のみ。曖昧条件はnull。
+- reward表示はreward_permission=allowed + point_reward_allowed + reward_rule_confirmed + reward_enabled + confirmed value/ruleを満たす場合のみ。
+- discovery UIはcategory filterとspecial filter/sortを併用可能。詳細条件はdetailsへ分離。
+- 人気順は架空生成しない。実click usageが正に存在し、明示enableされた場合のみ表示可能。
+- migration codeは追加するがProduction DBへは未適用。ASP tracking URLの自動巡回/クリックテストなし。
+

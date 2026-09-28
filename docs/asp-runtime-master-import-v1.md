@@ -71,3 +71,37 @@ Click recording is separate from navigation. It creates an internal `click_id`, 
 ## Current master findings (read-only)
 
 The sheet currently contains media-specific website and tag data, but approval for App/SNS/LINE is not implied by Web approval. The current `本番掲載準備` sheet lists the two Lepton records as `掲載不可` because production URL/Web-PWA-app conditions and final placements remain unconfirmed. Lepton Bridge (`ofr_000002`) also has points explicitly NG. Those rows may be synchronized as drafts using their stable IDs and exact mM tracking URLs, but must remain unpublished and non-point-bearing until ASP2 updates the source approval fields. Never reuse the mM link for mI. Current runtime has no ASP tables in production; this migration is on a Draft PR and has not been applied.
+
+## Discovery metadata / filter & sort contract
+
+User-facing discovery is a projection of publishable Runtime rows, not a second business master. Google Sheets ASP2 CURRENT remains authoritative. Unknown values remain NULL/absent and do not participate in labels, filters, or numeric/date sorts.
+
+New nullable Runtime metadata:
+- `media_conditions_verified`: exact media/channel conditions were checked. Required for public RPC.
+- `link_verified`: exact approved tracking link was verified against the source. Required for public RPC.
+- `reward_permission`: `allowed | denied | unknown`. Reward display requires `allowed`.
+- `reward_enabled`: business decision from ASP2. Must remain false unless permission/rule/value gates pass.
+- `reward_fixed_points`: confirmed user-facing integer points only. Do not derive from ASP commission.
+- `action_type`: `free_registration | app_install | document_request | bank_account_opening | purchase | service_contract | reservation | application | other`.
+- `cost_type`: `free | paid` only when source-backed.
+- `purchase_required`: boolean only when source-backed or deterministically implied by a confirmed non-purchase action.
+- `estimated_available_days`: points becoming available, not ASP occurrence/approval timing. Store only an explicit numeric estimate; otherwise NULL.
+- `source_added_at`: actual source/master added date only. Do not use Runtime import time as “new”.
+- `recommendation_rank`: optional source/admin-curated order. It is not exposed as a score and must not be synthesized from payout alone.
+- `recommendation_note`: source-backed explanation.
+- `conversion_conditions`: user-facing confirmed success conditions.
+
+Discovery filters:
+- all
+- fast: only rows with a confirmed `estimated_available_days`; display sorted early-to-late when that sort is selected. No arbitrary day estimate is invented.
+- high_points: only rows with visible confirmed fixed points.
+- easy: deterministic action types `free_registration/app_install/document_request`.
+- free: `cost_type=free`.
+- no_purchase: `purchase_required=false` (or deterministic confirmed non-purchase action).
+- recommended: only rows with explicit `recommendation_rank`.
+- new: only rows with explicit `source_added_at`.
+
+Sort options are recommended, points high/low, availability early/late, added new/old. Popular is a future contract using actual recorded usage only and is not shown unless explicitly enabled and real positive usage exists.
+
+The public RPC still requires partnership approval, source listing permission, media approval, production listing approval, `media_conditions_verified=true`, `link_verified=true`, Web approval, exact tracking URL, Runtime active/listing enabled, approved placement enabled, and service/placement validity windows. Reward fields are nulled unless reward permission and reward gates pass.
+

@@ -821,10 +821,11 @@
                 <!-- 【タブ1：活動履歴】 -->
                 <div id="activityTab" class="tab-content active">
                     <section class="card" aria-labelledby="aspOfferListHeading" style="margin-bottom:14px;background:#fff;border:1px solid #dbeafe;">
-                        <h3 id="aspOfferListHeading" style="font-size:.9rem;margin:0 0 6px;color:#334155;">暮らしに役立つPR</h3>
-                        <div data-asp-service="machimamo" data-asp-placement="mypage_asp_offers" aria-live="polite"></div>
+                        <h3 id="aspOfferListHeading" style="font-size:.9rem;margin:0 0 6px;color:#334155;">暮らしに役立つPR・ポイント</h3>
+                        <p class="muted" style="font-size:.68rem;line-height:1.5;margin:0 0 8px;">公開条件を満たした案件だけ表示します。報酬額・反映目安など未確認の情報は推測表示しません。</p>
+                        <div data-asp-discovery-service="machimamo" data-asp-discovery-placement="asp_feature" aria-live="polite"></div>
                     </section>
-                    <div class="card" style="background:#f8fafc;">
+                                        <div class="card" style="background:#f8fafc;">
                         <div class="profile-edit">
                             <div class="avatar-circle" id="myAvatarDisplay" onclick="openAvatarModal()">👤</div>
                             <div style="flex:1;">
@@ -4791,7 +4792,8 @@ function shareSpot(title, address, category, event) {
 <script src="profile-v2.js?v=29-profile3"></script>
 <script src="exchange-service.js?v=31-digital-gift1"></script>
 <script src="point-exchange.js?v=31-digital-gift1"></script>
-<script src="asp-runtime-admin.js?v=34-asp1"></script>
+<script src="asp-runtime-admin.js?v=34-asp2-discovery"></script>
 <script src="asp-runtime-public.js?v=34-asp1"></script>
+<script src="asp-runtime-discovery.js?v=34-asp2-discovery"></script>
 </body>
 </html>

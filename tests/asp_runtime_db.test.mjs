@@ -3,10 +3,12 @@ import {readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 const db = new PGlite();
 await db.exec(`create role anon; create role authenticated; create schema auth; create table auth.users(id uuid primary key); create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$; create function public.admin_validate(text) returns void language plpgsql as $$begin if auth.uid() is null then raise exception 'authentication_required' using errcode='28000'; end if; if $1 <> 'test-only' then raise exception 'admin_required' using errcode='42501'; end if; end$$; create table public.admin_audit_log(id bigint generated always as identity,action text,target_type text,target_id text,detail jsonb,created_at timestamptz default now(),actor_user_id uuid);`);
-await db.exec(readFileSync(new URL('../supabase/migrations/20260927150000_asp_runtime_master.sql', import.meta.url),'utf8'));
+for (const file of ['../supabase/migrations/20260927150000_asp_runtime_master.sql','../supabase/migrations/20260928091500_asp_runtime_discovery.sql']) {
+  await db.exec(readFileSync(new URL(file, import.meta.url),'utf8'));
+}
 console.log('PASS migration syntax and dependency signatures');
 const q=async(sql,args=[]) => (await db.query(sql,args)).rows;
-const offer={offer_id:'fixture_1',asp:'fixture',program_id:'fixture',advertiser_name:'TEST ONLY',offer_name:'TEST ONLY',approval_status:'approved',services:{machimamo:{source_listing_allowed:true,source_media_approved:true,production_listing_approved:true,web_approval_status:'approved',tracking_url:'https://example.invalid/ad',point_reward_allowed:false}}};
+const offer={offer_id:'fixture_1',asp:'fixture',program_id:'fixture',advertiser_name:'TEST ONLY',offer_name:'TEST ONLY',approval_status:'approved',services:{machimamo:{source_listing_allowed:true,source_media_approved:true,production_listing_approved:true,media_conditions_verified:true,link_verified:true,web_approval_status:'approved',tracking_url:'https://example.invalid/ad',point_reward_allowed:false,reward_permission:'unknown',reward_enabled:false,action_type:'free_registration',cost_type:'free',purchase_required:false,estimated_available_days:3,source_added_at:'2026-09-27',recommendation_rank:1,recommendation_note:'fixture',conversion_conditions:'無料会員登録'}}};
 await assert.rejects(q('select admin_import_asp_runtime($1,now(),$2::jsonb)',['test-only',JSON.stringify([offer])]),/authentication_required/);
 await db.exec(`insert into auth.users values ('00000000-0000-4000-8000-000000000001'); set request.jwt.claim.sub='00000000-0000-4000-8000-000000000001';`);
 await q('select admin_import_asp_runtime($1,now(),$2::jsonb)',['test-only',JSON.stringify([offer])]);
@@ -15,6 +17,13 @@ assert.equal((await q('select count(*)::int n from asp_runtime_offers'))[0].n,1)
 assert.equal((await q("select * from get_asp_offers_for_placement('machimamo','mypage')")).length,0);
 await q("select admin_set_asp_publication('test-only','fixture_1','machimamo','active',true,$1::jsonb)",[JSON.stringify([{placement_id:'mypage',enabled:true}])]);
 assert.equal((await q("select * from get_asp_offers_for_placement('machimamo','mypage')")).length,1);
+const discovery=(await q("select * from get_asp_offers_for_discovery('machimamo','mypage')"))[0];
+assert.equal(discovery.action_type,'free_registration');
+assert.equal(discovery.cost_type,'free');
+assert.equal(discovery.purchase_required,false);
+assert.equal(discovery.estimated_available_days,3);
+assert.equal(discovery.reward_enabled,false);
+assert.equal(discovery.reward_fixed_points,null);
 assert.equal((await q("select * from get_asp_offers_for_placement('machiibe','mypage')")).length,0);
 await q("select record_asp_offer_click('fixture_1','machimamo','mypage','test')");
 await q("select * from admin_list_asp_runtime('test-only')");

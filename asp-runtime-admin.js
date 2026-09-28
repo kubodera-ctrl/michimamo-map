@@ -29,6 +29,30 @@
         if (parsed.protocol !== 'https:' || parsed.username || parsed.password) throw new Error(label + 'は認証情報を含まないHTTPS URLにしてください');
     }
 
+
+    const DISCOVERY_ACTION_TYPES = new Set(['free_registration','app_install','document_request','bank_account_opening','purchase','service_contract','reservation','application','other']);
+    const DISCOVERY_COST_TYPES = new Set(['free','paid']);
+    const REWARD_PERMISSIONS = new Set(['allowed','denied','unknown']);
+
+    function validateDiscoveryMetadata(service) {
+        if (service.action_type != null && service.action_type !== '' && !DISCOVERY_ACTION_TYPES.has(service.action_type)) throw new Error('action_typeが未定義です');
+        if (service.cost_type != null && service.cost_type !== '' && !DISCOVERY_COST_TYPES.has(service.cost_type)) throw new Error('cost_typeが未定義です');
+        if (service.reward_permission != null && service.reward_permission !== '' && !REWARD_PERMISSIONS.has(service.reward_permission)) throw new Error('reward_permissionが未定義です');
+        for (const key of ['estimated_available_days','recommendation_rank','reward_fixed_points']) {
+            if (service[key] == null || service[key] === '') continue;
+            const n = Number(service[key]);
+            if (!Number.isSafeInteger(n) || n < 0 || (key === 'recommendation_rank' && n < 1)) throw new Error(key + 'は確認済みの0以上の整数値のみ指定できます');
+        }
+        if (service.source_added_at != null && service.source_added_at !== '' && !/^\d{4}-\d{2}-\d{2}$/.test(String(service.source_added_at))) throw new Error('source_added_atは確認済みのYYYY-MM-DDのみ指定できます');
+        if (service.reward_enabled === true) {
+            if (service.reward_permission !== 'allowed' || service.point_reward_allowed !== true || service.reward_rule_confirmed !== true) throw new Error('reward_enabledにはreward_permission=allowed・point_reward_allowed=true・reward_rule_confirmed=trueが必要です');
+            const hasFixed = Number.isSafeInteger(Number(service.reward_fixed_points)) && Number(service.reward_fixed_points) >= 0;
+            const hasRate = service.reward_rate != null && service.reward_rate !== '' && Number.isFinite(Number(service.reward_rate)) && Number(service.reward_rate) >= 0;
+            if (!hasFixed && !hasRate) throw new Error('reward_enabledには確認済みreward_fixed_pointsまたはreward_rateが必要です');
+            if (!service.reward_rule || typeof service.reward_rule !== 'object' || Array.isArray(service.reward_rule) || Object.keys(service.reward_rule).length === 0) throw new Error('reward_enabledには空でないreward_ruleが必要です');
+        }
+    }
+
     function parseOffers(raw) {
         let offers;
         try { offers = JSON.parse(raw); } catch { throw new Error('JSONを読み取れません'); }
@@ -40,6 +64,7 @@
                 validHttps(service.tracking_url, 'tracking_url');
                 validHttps(service.creative_url, 'creative_url');
                 validHttps(service.impression_tracking_url, 'impression_tracking_url');
+                validateDiscoveryMetadata(service);
             }
         }
         return offers;

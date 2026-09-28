@@ -2,8 +2,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const migrationPath = path.join(__dirname, '../supabase/migrations/20260927150000_asp_runtime_master.sql');
-const sql = fs.readFileSync(migrationPath, 'utf8').toLowerCase();
+const migrationPaths = [
+  path.join(__dirname, '../supabase/migrations/20260927150000_asp_runtime_master.sql'),
+  path.join(__dirname, '../supabase/migrations/20260928091500_asp_runtime_discovery.sql')
+];
+const sql = migrationPaths.map((p) => fs.readFileSync(p, 'utf8')).join('\n').toLowerCase();
 
 for (const table of ['asp_runtime_offers', 'asp_runtime_service_offers', 'asp_runtime_placements', 'asp_runtime_clicks']) {
   assert.match(sql, new RegExp(`create table if not exists public\\.${table}\\s*\\(`), `${table} table exists`);
@@ -23,6 +26,15 @@ assert.match(sql, /web_approval_status = 'approved'/);
 assert.match(sql, /source_listing_allowed/);
 assert.match(sql, /source_media_approved/);
 assert.match(sql, /and s\.production_listing_approved/);
+assert.match(sql, /and s\.media_conditions_verified/);
+assert.match(sql, /and s\.link_verified/);
+assert.match(sql, /get_asp_offers_for_discovery/);
+assert.match(sql, /estimated_available_days integer/);
+assert.match(sql, /reward_permission text not null default 'unknown'/);
+assert.match(sql, /reward_enabled boolean not null default false/);
+assert.match(sql, /reward_fixed_points integer/);
+assert.match(sql, /recommendation_rank integer/);
+assert.match(sql, /source_added_at date/);
 assert.match(sql, /s\.tracking_url is not null/);
 assert.match(sql, /s\.publish_status = 'active'/);
 assert.match(sql, /and p\.enabled/);
