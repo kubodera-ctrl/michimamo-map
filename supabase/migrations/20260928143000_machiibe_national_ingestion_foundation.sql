@@ -104,4 +104,45 @@ comment on table public.machiibe_duplicate_candidates is 'Cross-source duplicate
 comment on table public.machiibe_event_change_log is 'Source-hash based change detection history for updates/cancellations/postponements/expiry.';
 comment on view public.machiibe_source_health_summary is 'Operations-facing source freshness and failure summary; not a public search surface.';
 
+
+create table if not exists public.machiibe_media_assets (
+  id uuid primary key default gen_random_uuid(),
+  subject_type text not null check (subject_type in ('event','venue','category','generic')),
+  subject_ref text not null,
+  media_role text not null check (media_role in ('event_official','venue_official','place_photo','category_visual','generic_fallback')),
+  media_url text check (media_url is null or media_url ~* '^https?://'),
+  source_url text check (source_url is null or source_url ~* '^https?://'),
+  display_allowed boolean,
+  cache_allowed boolean,
+  commercial_allowed boolean,
+  sns_allowed boolean,
+  attribution_required boolean,
+  attribution_text text,
+  rights_status text not null default 'unknown'
+    check (rights_status in ('unknown','reviewed_allowed','reviewed_restricted','permission_required','blocked','machiibe_owned')),
+  rights_reviewed_at timestamptz,
+  cache_object_key text,
+  active boolean not null default true,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint machiibe_media_cache_gate_ck check (
+    cache_object_key is null or cache_allowed is true or rights_status='machiibe_owned'
+  ),
+  constraint machiibe_media_sns_gate_ck check (
+    coalesce(sns_allowed,false)=false
+    or (
+      display_allowed is true
+      and commercial_allowed is true
+      and rights_status in ('reviewed_allowed','machiibe_owned')
+    )
+  )
+);
+
+create index if not exists machiibe_media_assets_subject_idx
+  on public.machiibe_media_assets(subject_type,subject_ref,active,media_role);
+
+alter table public.machiibe_media_assets enable row level security;
+revoke all on table public.machiibe_media_assets from anon,authenticated;
+comment on table public.machiibe_media_assets is 'Rights-aware event/venue/place/category media candidates. Unknown rights never imply display/cache/SNS permission.';
+
 commit;
