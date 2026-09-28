@@ -378,3 +378,9 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - nickname edit decisionをpure contract化: generated + 未LINE => line_required、LINE linked => edit、custom => edit。
 - iPhone Preview cache混在防止のため profile-v2.css / identity-ui.css / identity-ui.js / profile-v2.js を `v=36-identity2` へ更新。
 
+## 2026-09-28 開発36｜Identity UI alignment follow-up
+
+- 本人iPhone確認で、QA枠の表示条件はPreview専用であることを再確認。Production hostnameではidentityQa=1を付けてもQA fixtureを表示しない。
+- プロフィール名ブロックがavatarより上寄りに見えたため、name / provider badge / 補助行を約6〜7px下へ視覚調整。
+- 横幅/折返しcontractは変更せず、長い自動生成名のwrap・tap領域を維持。
+
