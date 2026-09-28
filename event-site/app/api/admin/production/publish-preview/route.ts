@@ -54,7 +54,8 @@ export async function POST(request:Request){
     credentialsConfigured:false,
     publicMediaReady:false,
     verifiedMediaDomain:false,
-    xMultiPostStrategyApproved:false
+    xMultiPostStrategyApproved:false,
+    tiktokContentGuidelineApproved:false
   });
 
   return NextResponse.json({

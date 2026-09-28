@@ -10,6 +10,7 @@ export type PublishingReadinessInput={
   publicMediaReady:boolean;
   verifiedMediaDomain:boolean;
   xMultiPostStrategyApproved?:boolean;
+  tiktokContentGuidelineApproved?:boolean;
 };
 
 export type PublishingReadiness={
@@ -37,7 +38,9 @@ export const CURRENT_PUBLISHING_CAPABILITIES={
     statusEndpoint:'https://open.tiktokapis.com/v2/post/publish/status/fetch/',
     requiredDirectPostScope:'video.publish',
     photoSource:'PULL_FROM_URL',
-    requiresVerifiedMediaDomain:true
+    requiresVerifiedMediaDomain:true,
+    contentSharingGuidelineReviewedAt:'2026-09-28',
+    brandingOverlayRequiresReview:true
   }
 } as const;
 
@@ -63,6 +66,7 @@ export function planPublishingReadiness(input:PublishingReadinessInput):Publishi
   }
 
   if(!input.credentialsConfigured) blockers.push('tiktok_oauth_not_configured');
+  if(!input.tiktokContentGuidelineApproved) blockers.push('tiktok_content_sharing_guideline_review_required');
   if(input.productionType==='CAROUSEL'){
     if(input.mediaCount>CURRENT_PUBLISHING_CAPABILITIES.tiktok.maxPhotosPerPost) blockers.push('tiktok_photo_count_exceeded');
     if(!input.publicMediaReady) blockers.push('tiktok_public_media_urls_not_ready');

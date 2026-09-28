@@ -148,7 +148,7 @@ export default async function ProductionDetailPage({params}:{params:Params}){
               {post?.external_status&&<small>{post.external_status}</small>}
               {platform==='x'&&pageCount>CURRENT_PUBLISHING_CAPABILITIES.x.maxPhotosPerPost&&
                 <small>CURRENT {pageCount}枚はX 1投稿の画像上限4枚を超えるため、multi-post方針承認まで投稿禁止</small>}
-              {platform==='tiktok'&&<small>Photo Postは公開可能なverified media URLとOAuth接続後に有効化</small>}
+              {platform==='tiktok'&&<small>Photo Postはverified media URL / OAuthに加え、現行ロゴ・CTAを含むcreativeがTikTok Content Sharing Guidelinesへ適合するか確認完了後のみ有効化</small>}
             </div>;
           })}
         </div>

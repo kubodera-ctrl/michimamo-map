@@ -105,7 +105,10 @@
 - [x] preview APIは `externalRequestSent=false` 固定
 - [x] XはCAROUSEL 5〜8枚を4枚へ勝手に削らずfail-closed
 - [x] TikTok Photo PostはOAuth / public media / verified domain gateを分離
+- [x] TikTok Content Sharing Guidelinesのbranding/promotional overlay条件を独立gate化（未確認時fail-closed）
+- [x] X/TikTok外部通信前のpure request planを実装し、tokenや実HTTP送信を含めない
 - [ ] X multi-post strategyを本人確定
+- [ ] TikTok現行CAROUSELのロゴ/CTAをContent Sharing Guidelinesに照らして運用方針確定
 - [ ] TikTok OAuth / audit / verified media domain
 - [ ] X API費用承認 / credentials
 - [ ] 実SNS投稿（本人判断後のみ）

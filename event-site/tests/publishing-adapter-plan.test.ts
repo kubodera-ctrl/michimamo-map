@@ -14,12 +14,14 @@ test('TikTok CURRENT photo path accepts 5-8 page CAROUSEL only when media and OA
     approvalStatus:'approved',
     credentialsConfigured:false,
     publicMediaReady:false,
-    verifiedMediaDomain:false
+    verifiedMediaDomain:false,
+    tiktokContentGuidelineApproved:false
   });
   assert.equal(blocked.allowed,false);
   assert.ok(blocked.blockers.includes('tiktok_oauth_not_configured'));
   assert.ok(blocked.blockers.includes('tiktok_public_media_urls_not_ready'));
   assert.ok(blocked.blockers.includes('tiktok_media_domain_not_verified'));
+  assert.ok(blocked.blockers.includes('tiktok_content_sharing_guideline_review_required'));
 
   const ready=planPublishingReadiness({
     platform:'tiktok',
@@ -29,7 +31,8 @@ test('TikTok CURRENT photo path accepts 5-8 page CAROUSEL only when media and OA
     approvalStatus:'approved',
     credentialsConfigured:true,
     publicMediaReady:true,
-    verifiedMediaDomain:true
+    verifiedMediaDomain:true,
+    tiktokContentGuidelineApproved:true
   });
   assert.equal(ready.allowed,true);
   assert.equal(ready.mode,'tiktok_photo_direct');
@@ -62,9 +65,27 @@ test('publishing gate remains fail-closed before QC and admin approval',()=>{
     approvalStatus:'pending',
     credentialsConfigured:true,
     publicMediaReady:true,
-    verifiedMediaDomain:true
+    verifiedMediaDomain:true,
+    tiktokContentGuidelineApproved:true
   });
   assert.equal(plan.allowed,false);
   assert.ok(plan.blockers.includes('revision_not_publish_eligible'));
   assert.ok(plan.blockers.includes('revision_not_admin_approved'));
+});
+
+
+test('TikTok remains blocked when current branded creative has not passed Content Sharing guideline review',()=>{
+  const plan=planPublishingReadiness({
+    platform:'tiktok',
+    productionType:'CAROUSEL',
+    mediaCount:5,
+    publishEligible:true,
+    approvalStatus:'approved',
+    credentialsConfigured:true,
+    publicMediaReady:true,
+    verifiedMediaDomain:true,
+    tiktokContentGuidelineApproved:false
+  });
+  assert.equal(plan.allowed,false);
+  assert.ok(plan.blockers.includes('tiktok_content_sharing_guideline_review_required'));
 });
