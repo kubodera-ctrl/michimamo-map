@@ -24,7 +24,7 @@ state=identity.identityStateFromSession({user:{
 assert.equal(state.length,2);
 let badges=identity.badgeModel(state);
 assert.equal(badges.mode,'individual');
-assert.deepEqual(badges.badges.map(x=>x.label),['✓ Google接続','✓ LINE接続']);
+assert.deepEqual(badges.badges.map(x=>x.label),['✓ Google','✓ LINE']);
 assert.equal(identity.isLineLinked(state),true);
 
 badges=identity.badgeModel([
@@ -39,11 +39,14 @@ assert.equal(identity.qaAllowed('machimamo-map-git-feat-dev36-identity-ui-miti4.
 assert.equal(identity.qaAllowed('machimamo-map.vercel.app','?identityQa=1'),false);
 assert.equal(identity.qaAllowed('machimamo-iuc2di1cu-miti4.vercel.app','?identityQa=1'),false);
 
-for(const key of ['guest','line','auto','multi']){
+for(const key of ['auto','line','longauto','custom','multi']){
   const fixture=identity.fixtureState(key);
   assert.ok(fixture.name);
 }
-assert.equal(identity.fixtureState('auto').nameSource,'generated');
+assert.equal(identity.fixtureState('auto').nameSource,'generated_v2');
+assert.equal(identity.fixtureState('auto').name,'げんきなペンギン');
+assert.equal(identity.fixtureState('longauto').name,'おだやかなカワウソ');
+assert.equal(identity.fixtureState('custom').nameSource,'custom');
 assert.equal(identity.fixtureState('multi').identities.length,3);
 
 for(let i=0;i<80;i++){
@@ -59,3 +62,13 @@ const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 assert.match(html,/identity-ui\.js\?v=36-identity1/);
 assert.match(html,/MachimamoIdentityUI\?\.syncSession/);
 console.log('PASS identity UI contract, provider badges, generated-name metadata, safe Preview fixtures and tutorial copy');
+
+const identitySource=fs.readFileSync(path.join(__dirname,'..','identity-ui.js'),'utf8');
+assert.match(identitySource,/live session and linked/);
+assert.match(identitySource,/未認証＋自動生成名/);
+assert.match(identitySource,/長い自動生成名/);
+assert.match(identitySource,/custom nickname/);
+assert.match(identitySource,/showLineRequiredNameModal/);
+const profileSource=fs.readFileSync(path.join(__dirname,'..','profile-v2.js'),'utf8');
+assert.match(profileSource,/現在の名前は自動生成されています。名前を変更するにはLINE認証をお願いします。/);
+assert.match(profileSource,/※ 編集/);

@@ -357,3 +357,18 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - Production Auth / DB migration / Google OAuth / Production deploy / 課金は変更なし。
 - 次gate: iPhone Preview実機で名前とのバランス、button tap領域、LINE badge、自動設定、長いnickname、3-provider summary、横崩れを確認。
 
+## 2026-09-28 開発36｜Identity UI iPhone QA follow-up
+
+- 本人iPhone Identity Preview確認: 全体方向性OK。次のプロフィール名/編集導線修正を起点とする。
+- 新規guest自動名は「形容詞＋どうぶつ」に統一。例: げんきなペンギン / やさしいイルカ / のんびりパンダ / すばやいキツネ。
+- 生成は初回1回だけ。既存 `michimamo_name` に保存し、表示ごとの再生成は禁止。
+- 旧Previewで `nameSource=generated` と明示された端末名だけ1回 `generated_v2` へlocal移行可能。source不明の既存名はcustom扱いで保持し、文字列形状だけで自動移行しない。Production一括更新なし。
+- アバター下の「編集」を削除。アバター本体tapは既存avatar editorを維持。名前下に小さい `※ 編集` を配置。
+- 未認証 + generated名で `※ 編集` → 「現在の名前は自動生成されています。名前を変更するにはLINE認証をお願いします。」modal。LINE認証する / 閉じる。
+- QA fixture中のLINE認証buttonはOAuthを開始しない。
+- LINE認証済みの `※ 編集` は直接nickname editorへ。判定はbadge DOMではなくlive session + formal provider情報、既存custom LINE exchange互換時もlive session + linked profile + callback provider markerを全て要求。
+- custom guest nicknameは今回の変更で既存編集機能を奪わない。
+- compact badge labelは `✓ LINE` / `✓ Google`。3 provider以上は `認証済み N`。
+- QA fixture: 未認証＋自動生成名 / LINE認証済み / 長い自動生成名 / custom nickname / 複数provider。
+- Google OAuth設定追加なし。Production Auth / DB migration / Production user data変更なし。
+

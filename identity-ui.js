@@ -16,6 +16,7 @@
   });
   const MAX_INDIVIDUAL_BADGES = 2;
   const QA_HOST = 'machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app';
+  const GENERATED_SOURCES = Object.freeze(['generated','generated_v2']);
 
   function normalizeProvider(value) {
     const key = String(value || '').trim().toLowerCase();
@@ -78,7 +79,7 @@
       badges: Object.freeze(linked.map(function (item) {
         return Object.freeze({
           provider: item.provider,
-          label: '✓ ' + PROVIDER_LABELS[item.provider] + '接続',
+          label: '✓ ' + PROVIDER_LABELS[item.provider],
           title: 'このまちまもアカウントに' + PROVIDER_LABELS[item.provider] + 'が接続済み'
         });
       }))
@@ -97,19 +98,24 @@
 
   function fixtureState(key) {
     const fixtures = {
-      guest: {
-        name: 'テストユーザー',
-        nameSource: 'custom',
+      auto: {
+        name: 'げんきなペンギン',
+        nameSource: 'generated_v2',
         identities: []
       },
       line: {
-        name: 'まちまも太郎',
-        nameSource: 'custom',
+        name: 'げんきなペンギン',
+        nameSource: 'generated_v2',
         identities: [{provider:'line',linked:true,verified:true,linkedAt:'2026-09-28T00:00:00Z'}]
       },
-      auto: {
-        name: '青空ネコ12',
-        nameSource: 'generated',
+      longauto: {
+        name: 'おだやかなカワウソ',
+        nameSource: 'generated_v2',
+        identities: []
+      },
+      custom: {
+        name: 'まちまも太郎',
+        nameSource: 'custom',
         identities: []
       },
       multi: {
@@ -134,6 +140,7 @@
     if (!win.document) return;
     const doc = win.document;
     let identities = Object.freeze([]);
+    let currentSession = null;
     let profileMeta = {name:'',nameSource:'unknown'};
     let qaKey = null;
     const isQa = qaAllowed(win.location?.hostname || '', win.location?.search || '');
@@ -185,7 +192,7 @@
     function renderNameSource(target, source) {
       if (!target) return;
       target.replaceChildren();
-      if (source !== 'generated') return;
+      if (!GENERATED_SOURCES.includes(source)) return;
       const badge = doc.createElement('span');
       badge.className = 'identity-name-source';
       badge.textContent = '自動設定';
@@ -218,7 +225,35 @@
       ensureQaPanel();
     }
 
+    function explicitProvidersFromSession(session) {
+      if (!session?.user) return [];
+      const values = [];
+      const identitiesRaw = Array.isArray(session.user.identities) ? session.user.identities : [];
+      identitiesRaw.forEach(function (item) { if (normalizeProvider(item?.provider)) values.push(normalizeProvider(item.provider)); });
+      const metadata = session.user.app_metadata || {};
+      const providers = Array.isArray(metadata.providers) ? metadata.providers : [];
+      providers.forEach(function (provider) { if (normalizeProvider(provider)) values.push(normalizeProvider(provider)); });
+      if (normalizeProvider(metadata.provider)) values.push(normalizeProvider(metadata.provider));
+      return Array.from(new Set(values));
+    }
+
+    function hasFormalLineAccess() {
+      if (qaKey) return isLineLinked(fixtureState(qaKey).identities);
+      if (!currentSession?.user) return false;
+      const explicit = explicitProvidersFromSession(currentSession);
+      if (explicit.includes('line')) return true;
+      // Compatibility for the existing custom LINE exchange:
+      // the provider marker alone never grants access. A live session and linked
+      // authenticated profile are both required, and LINE is the only active
+      // login route in this release.
+      let saved = null;
+      try { saved = win.localStorage?.getItem('michimamo_auth_provider'); } catch {}
+      const profileLinked = !!win.MachimamoProfileState?.authId?.();
+      return saved === 'line' && profileLinked;
+    }
+
     function syncSession(session) {
+      currentSession = session || null;
       let saved = null;
       try { saved = win.localStorage?.getItem('michimamo_auth_provider'); } catch {}
       identities = identityStateFromSession(session, saved);
@@ -229,7 +264,7 @@
     function syncProfile(meta) {
       profileMeta = {
         name: String(meta?.name || ''),
-        nameSource: ['generated','custom'].includes(meta?.nameSource) ? meta.nameSource : 'unknown'
+        nameSource: ['generated','generated_v2','custom'].includes(meta?.nameSource) ? meta.nameSource : 'unknown'
       };
       if (!qaKey) {
         const name = doc.getElementById('myNameDisplay');
@@ -245,6 +280,34 @@
       } catch {
         syncSession(null);
       }
+    }
+
+    function startLineLink() {
+      if (qaKey) {
+        win.showToast?.('QA表示のため実際のLINE認証は開始しません');
+        return false;
+      }
+      if (typeof win.signInWithLine === 'function') {
+        win.signInWithLine();
+        return true;
+      }
+      return false;
+    }
+
+    function requestNicknameEdit() {
+      const state = effective();
+      if (hasFormalLineAccess()) {
+        win.MachimamoProfileV2?.openNameEditor?.();
+        return true;
+      }
+      if (GENERATED_SOURCES.includes(state.nameSource)) {
+        win.MachimamoProfileV2?.showLineRequiredNameModal?.();
+        return true;
+      }
+      // Preserve existing custom guest nickname editing. Only auto-generated
+      // guest names are gated by LINE in this change.
+      win.MachimamoProfileV2?.openNameEditor?.();
+      return true;
     }
 
     function applyQaFixture(key) {
@@ -268,9 +331,10 @@
       panel.innerHTML =
         '<strong>Identity Preview QA</strong><small>表示fixtureのみ。Auth/DBは変更しません。</small>' +
         '<div class="identity-qa-buttons">' +
-          '<button type="button" data-identity-fixture="guest">未LINE認証</button>' +
+          '<button type="button" data-identity-fixture="auto">未認証＋自動生成名</button>' +
           '<button type="button" data-identity-fixture="line">LINE認証済み</button>' +
-          '<button type="button" data-identity-fixture="auto">自動生成名</button>' +
+          '<button type="button" data-identity-fixture="longauto">長い自動生成名</button>' +
+          '<button type="button" data-identity-fixture="custom">custom nickname</button>' +
           '<button type="button" data-identity-fixture="multi">複数provider</button>' +
         '</div>';
       panel.addEventListener('click', function (event) {
@@ -278,7 +342,7 @@
         if (button) applyQaFixture(button.dataset.identityFixture);
       });
       row.parentElement.insertBefore(panel, row);
-      applyQaFixture(qaKey || 'guest');
+      applyQaFixture(qaKey || 'auto');
     }
 
     doc.addEventListener('DOMContentLoaded', function () {
@@ -291,6 +355,9 @@
       syncSession,
       syncProfile,
       refreshFromAuth,
+      startLineLink,
+      requestNicknameEdit,
+      hasFormalLineAccess,
       applyQaFixture,
       render
     });
