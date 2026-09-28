@@ -18,15 +18,17 @@ import {localePath,type Locale} from '@/lib/i18n-config';
 
 type Props = {
   locale?:Locale;
+  actionPath?:string;
+  showSaveSearch?:boolean;
   values: {
-    dateMode: string; customStart:string; customEnd:string; prefecture: string; keyword: string; excludeWords: string;
+    dateMode: string; customStart:string; customEnd:string; prefecture: string; municipality?:string; keyword: string; excludeWords: string;
     category: string; experience:string; age: string; duration: string; fandom: string; fandomKeyword: string; price: string;
     accessibilityOnly: boolean; accessibilityFeature: string; childFocusOnly: boolean;
     familyFriendlyOnly: boolean; rainyDayOnly:boolean; excludeAdultOriented: boolean; indoorOnly: boolean; venueTypes:VenueTypeKey[]; venueFilterActive:boolean; sort: string;
   };
 };
 
-export function EventFilters({ values, locale='ja' }: Props) {
+export function EventFilters({ values, locale='ja', actionPath, showSaveSearch=true }: Props) {
   const labels=eventLabels(locale);
   const g=labels.generic;
   const advancedCount=[
@@ -37,7 +39,7 @@ export function EventFilters({ values, locale='ja' }: Props) {
   const advancedOpen=advancedCount>0;
 
   return (
-    <form className="search-panel" action={localePath('/',locale)} method="get">
+    <form className="search-panel" action={actionPath || localePath('/',locale)} method="get">
       <div className="date-tabs" role="radiogroup" aria-label={g.date}>
         {[
           ['today',g.today],['tomorrow',g.tomorrow],['weekend',g.weekend],['30days',g.within30],['custom',g.customDate]
@@ -65,6 +67,7 @@ export function EventFilters({ values, locale='ja' }: Props) {
         <label><span>{g.area}</span><select name="prefecture" defaultValue={values.prefecture}>
           <option value="">{g.nationwide}</option>{PREFECTURES.map(([slug,name]) => <option key={slug} value={name}>{name}</option>)}
         </select></label>
+        {values.municipality!==undefined && <label><span>{g.municipality || '市区郡'}</span><input name="municipality" defaultValue={values.municipality} maxLength={40} placeholder={locale==='ja'?'例：港区、江東区':'Municipality'} /></label>}
         <label className="keyword-field"><span>{g.keyword}</span><input name="q" defaultValue={values.keyword} maxLength={100} placeholder={g.keywordPlaceholder} /></label>
         <label><span>{g.category}</span><select name="category" defaultValue={values.category}>
           <option value="">{g.all}</option>{CATEGORY_OPTIONS.map(([key,label]) => <option key={key} value={key}>{labels.category[key] || label}</option>)}
@@ -131,10 +134,10 @@ export function EventFilters({ values, locale='ja' }: Props) {
       </details>
 
       <div className="search-submit-row">
-        <Link className="clear-search-link" href={localePath('/',locale)}>{g.clearConditions}</Link>
+        <Link className="clear-search-link" href={actionPath || localePath('/',locale)}>{g.clearConditions}</Link>
         <button className="search-button" type="submit">{g.search}</button>
       </div>
-      <SaveSearchButton locale={locale} />
+      {showSaveSearch && <SaveSearchButton locale={locale} />}
     </form>
   );
 }
