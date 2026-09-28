@@ -405,3 +405,8 @@ This section supersedes the earlier statement that v16.1 foundation code and the
 - provider badge表示ロジックは変更せず、未認証LINE CTAの描画先だけupper tools/meta rowへ移動。
 - 上段に収まるようLINE CTAをcompact化。狭幅時は既存flex-wrapで折返す。
 
+## 2026-09-28 開発36｜Identity LINE CTA cache
+
+- LINE認証CTA上段移動のiPhone cache混在防止で profile/identity assetsを `v=36-identity4` へ更新。
+- 仕様: 未認証generatedは上段「※ 編集 / 自動設定中 / LINE認証」、下段「名前」。LINE済みは上段「※ 編集」、下段「名前 / ✓ LINE」。
+
