@@ -92,8 +92,7 @@
 
   function qaAllowed(hostname, search) {
     if (hostname !== QA_HOST) return false;
-    try { return new URLSearchParams(search || '').get('identityQa') === '1'; }
-    catch { return false; }
+    return /(?:^|[?&])identityQa=1(?:&|$)/.test(String(search || ''));
   }
 
   function fixtureState(key) {
