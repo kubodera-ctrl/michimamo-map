@@ -120,3 +120,11 @@
 - 人気順は架空生成しない。実click usageが正に存在し、明示enableされた場合のみ表示可能。
 - migration codeは追加するがProduction DBへは未適用。ASP tracking URLの自動巡回/クリックテストなし。
 
+## 2026-09-28 ASP Discovery UX follow-up
+
+- recommendation_rankが無い状態で「おすすめ順」を捏造しない。sortには常時「掲載順」を用意し、recommendation_rankが実データに存在する場合のみ「おすすめ順」を表示。
+- 「反映が早い」presetはestimated_available_days確認済み案件だけに絞り、反映：早い順へ切替。
+- 「高ポイント」presetは公開可能な確認済み固定ポイント案件だけに絞り、ポイント：高い順へ切替。
+- 「新着」presetはsource_added_at確認済み案件だけに絞り、追加：新しい順へ切替。
+- カテゴリfilterは独立して併用可能。
+

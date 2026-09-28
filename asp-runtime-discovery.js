@@ -7,7 +7,7 @@
   'use strict';
 
   const FILTERS = Object.freeze(['all','fast','high_points','easy','free','no_purchase','recommended','new']);
-  const SORTS = Object.freeze(['recommended','points_high','points_low','availability_fast','availability_slow','added_new','added_old','popular']);
+  const SORTS = Object.freeze(['placement','recommended','points_high','points_low','availability_fast','availability_slow','added_new','added_old','popular']);
   const EASY_ACTION_TYPES = Object.freeze(['free_registration','app_install','document_request']);
   const NON_PURCHASE_ACTION_TYPES = Object.freeze(['free_registration','app_install','document_request','bank_account_opening']);
   const ACTION_LABELS = Object.freeze({
@@ -169,8 +169,11 @@
           result = nullLastNumber(a.popularity_count > 0 ? a.popularity_count : null, b.popularity_count > 0 ? b.popularity_count : null, -1);
           break;
         case 'recommended':
-        default:
           result = nullLastNumber(a.recommendation_rank, b.recommendation_rank, 1);
+          break;
+        case 'placement':
+        default:
+          result = 0;
           break;
       }
       return result || stableFallback(a,b);
@@ -178,7 +181,7 @@
     return rows;
   }
 
-  function queryOffers(rawOffers, { filterKey='all', category='', sortKey='recommended' } = {}) {
+  function queryOffers(rawOffers, { filterKey='all', category='', sortKey='placement' } = {}) {
     if (!FILTERS.includes(filterKey)) filterKey = 'all';
     if (!SORTS.includes(sortKey)) sortKey = 'recommended';
     const normalized = (Array.isArray(rawOffers) ? rawOffers : []).map(normalizeOffer).filter(x => x.tracking_url);
@@ -289,7 +292,8 @@
       ['new','新着',caps.addedAt]
     ];
     const sortOptions=[
-      ['recommended','おすすめ順',true],
+      ['placement','掲載順',true],
+      ['recommended','おすすめ順',caps.recommended],
       ['points_high','ポイント：高い順',caps.points],
       ['points_low','ポイント：低い順',caps.points],
       ['availability_fast','反映：早い順',caps.availability],
@@ -301,9 +305,9 @@
     container.innerHTML='<div class="asp-discovery-toolbar">'+
       '<div class="asp-discovery-chips" role="group" aria-label="案件の見つけ方">'+chips.map(([k,l,en])=>'<button type="button" data-asp-filter="'+k+'" aria-pressed="'+(k==='all'?'true':'false')+'" '+(en?'':'disabled aria-disabled="true"')+'>'+l+'</button>').join('')+'</div>'+
       '<div class="asp-discovery-controls"><label>サービスカテゴリ<select data-asp-category><option value="">すべて</option>'+categories.map(x=>'<option value="'+escapeHtml(x)+'">'+escapeHtml(x)+'</option>').join('')+'</select></label>'+
-      '<label>並び替え<select data-asp-sort>'+sortOptions.map(([k,l])=>'<option value="'+k+'">'+l+'</option>').join('')+'</select></label></div>'+
+      '<label>並び替え<select data-asp-sort>'+sortOptions.map(([k,l])=>'<option value="'+k+'" '+(k===(caps.recommended?'recommended':'placement')?'selected':'')+'>'+l+'</option>').join('')+'</select></label></div>'+
       '<div class="asp-discovery-status" data-asp-status></div></div><div class="asp-discovery-list" data-asp-list></div>';
-    let state={filterKey:'all',category:'',sortKey:'recommended'};
+    let state={filterKey:'all',category:'',sortKey:caps.recommended?'recommended':'placement'};
     const render=()=>{
       const result=queryOffers(rows,state);
       const list=container.querySelector('[data-asp-list]');
@@ -319,6 +323,11 @@
     container.querySelectorAll('[data-asp-filter]').forEach(btn=>btn.addEventListener('click',()=>{
       if(btn.disabled)return;
       state.filterKey=btn.dataset.aspFilter;
+      const presetSort={fast:'availability_fast',high_points:'points_high',recommended:'recommended',new:'added_new'}[state.filterKey];
+      if(presetSort && sortOptions.some(x=>x[0]===presetSort)){
+        state.sortKey=presetSort;
+        container.querySelector('[data-asp-sort]').value=presetSort;
+      }
       container.querySelectorAll('[data-asp-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));
       render();
     }));
