@@ -5,10 +5,10 @@ import {buildQaEvents,searchQaEvents} from '../lib/machiibe-search-qa-data';
 
 test('search QA data is fixture-only and separates verified factual snapshots from synthetic coverage',()=>{
   const rows=buildQaEvents('2026-09-28');
-  assert.ok(rows.length>=16);
+  assert.equal(rows.filter((row)=>row.qaKind==='verified_ci').length,45);
+  assert.equal(rows.filter((row)=>row.qaKind==='synthetic').length,8);
+  assert.equal(rows.length,53);
   assert.ok(rows.every((row)=>row.fixtureOnly===true));
-  assert.ok(rows.some((row)=>row.qaKind==='verified_ci'));
-  assert.ok(rows.some((row)=>row.qaKind==='synthetic'));
 });
 
 test('search QA covers municipality, price, indoor, family, venue and experience filters',()=>{
