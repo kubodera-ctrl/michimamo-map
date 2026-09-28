@@ -1,0 +1,49 @@
+name: P0 PR20 Isolated Write E2E
+
+on:
+  push:
+    branches:
+      - fix/beta-point-exchange-contract
+    paths:
+      - 'tests/pr20_local_anomaly_isolated_setup.sql'
+      - 'tests/pr20_local_anomaly_isolated_behavior.sql'
+      - '.github/workflows/p0_pr20_isolated_write.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-anomaly-isolated-write:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGPASSWORD: postgres
+    steps:
+      - name: Checkout beta test harness
+        uses: actions/checkout@v4
+      - name: Checkout exact PR20 source
+        uses: actions/checkout@v4
+        with:
+          ref: restart/dev34
+          path: pr20
+      - name: Assert PR20 SHA
+        run: test "$(git -C pr20 rev-parse HEAD)" = "52f213b8ceb451eec5d865db5037ea29f45e144f"
+      - name: Build disposable DB fixture
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/pr20_local_anomaly_isolated_setup.sql
+      - name: Apply exact PR20 local-anomaly migration
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f pr20/supabase/migrations/20260919114859_local_anomaly_reporting.sql
+      - name: Run write behavior in rollback transaction
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/pr20_local_anomaly_isolated_behavior.sql
