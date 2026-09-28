@@ -1,0 +1,64 @@
+name: Point Exchange Isolated DB
+
+on:
+  push:
+    branches:
+      - fix/beta-point-exchange-contract
+    paths:
+      - 'supabase/migrations/20260920100000_point_exchange_digital_gift.sql'
+      - 'supabase/migrations/20260920101500_point_exchange_security_hardening.sql'
+      - 'supabase/migrations/20260928143000_point_exchange_reason_contract.sql'
+      - 'tests/point_exchange_isolated_setup.sql'
+      - 'tests/point_exchange_behavior_isolated.sql'
+      - 'tests/point_reason_contract.test.cjs'
+      - 'tools/points/point-reason-contract.cjs'
+      - '.github/workflows/point_exchange_isolated.yml'
+  pull_request:
+    paths:
+      - 'supabase/migrations/20260920100000_point_exchange_digital_gift.sql'
+      - 'supabase/migrations/20260920101500_point_exchange_security_hardening.sql'
+      - 'supabase/migrations/20260928143000_point_exchange_reason_contract.sql'
+      - 'tests/point_exchange_isolated_setup.sql'
+      - 'tests/point_exchange_behavior_isolated.sql'
+      - 'tests/point_reason_contract.test.cjs'
+      - 'tools/points/point-reason-contract.cjs'
+      - '.github/workflows/point_exchange_isolated.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  point-exchange-isolated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Point reason JS contract
+        run: node tests/point_reason_contract.test.cjs
+      - name: Build isolated Production-compatible fixture
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/point_exchange_isolated_setup.sql
+      - name: Apply existing exchange migrations
+        run: |
+          psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260920100000_point_exchange_digital_gift.sql
+          psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260920101500_point_exchange_security_hardening.sql
+      - name: Apply additive point reason and balance contract
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928143000_point_exchange_reason_contract.sql
+      - name: Exchange state-machine behavior
+        run: psql -h 127.0.0.1 -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/point_exchange_behavior_isolated.sql
