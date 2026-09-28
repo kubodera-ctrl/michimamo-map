@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {
-  ACCESSIBILITY_LABELS,CATEGORY_OPTIONS,EXPERIENCE_LABELS,LOCATION_PRECISION_LABELS,PRICE_LABELS,
+  ACCESSIBILITY_LABELS,AGE_OPTIONS,CATEGORY_OPTIONS,EXPERIENCE_LABELS,LOCATION_PRECISION_LABELS,PRICE_LABELS,
   japanToday,isTrustedLocation
 } from '@/lib/events';
 import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
@@ -13,6 +13,7 @@ export const metadata:Metadata={title:'イベント詳細 QA',robots:{index:fals
 type Params=Promise<{slug:string}>;
 type SearchParams=Promise<Record<string,string|string[]|undefined>>;
 const categoryLabels={...Object.fromEntries(CATEGORY_OPTIONS),...EXPERIENCE_LABELS} as Record<string,string>;
+const ageLabels=Object.fromEntries(AGE_OPTIONS) as Record<string,string>;
 
 export default async function QaEventDetail({params,searchParams}:{params:Params;searchParams:SearchParams}){
   if(process.env.NEXT_PUBLIC_ALLOW_INDEXING==='true')notFound();
@@ -58,12 +59,12 @@ export default async function QaEventDetail({params,searchParams}:{params:Params
             <div><dt>会場</dt><dd>{event.venue_name||'公式情報を確認'}</dd></div>
             <div><dt>場所</dt><dd>{address||'未確認'}<br/><small>{LOCATION_PRECISION_LABELS[event.location_precision]}</small></dd></div>
             <div><dt>料金</dt><dd>{PRICE_LABELS[event.price_type]}{event.price_text?<><br/>{event.price_text}</>:null}</dd></div>
-            <div><dt>対象年齢</dt><dd>{event.age_group_keys.length?event.age_group_keys.join(' / '):'未確認'}</dd></div>
-            <div><dt>カテゴリ / タグ</dt><dd>{event.category_keys.length?event.category_keys.join(' / '):'未確認'}</dd></div>
+            <div><dt>対象年齢</dt><dd>{event.age_group_keys.length?event.age_group_keys.map((key)=>ageLabels[key]||key).join('・'):'未確認'}</dd></div>
+            <div><dt>カテゴリ / タグ</dt><dd>{event.category_keys.length?event.category_keys.map((key)=>labels.category[key]||labels.experience[key]||categoryLabels[key]||key).join('・'):'未確認'}</dd></div>
             <div><dt>屋内 / 屋外</dt><dd>{event.indoor===true?'屋内':event.indoor===false?'屋外':'未確認'}</dd></div>
-            <div><dt>雨天情報</dt><dd>{event.indoor===true?'屋内開催として検索可能。個別の雨天条件は公式確認。':'未確認'}</dd></div>
+            <div><dt>雨天情報</dt><dd>{event.qaKind==='synthetic'&&event.slug==='qa-synthetic-tomorrow-mall-rain'?'synthetic QA: 雨の日・屋内条件確認用':'未確認（屋内/屋外だけから雨天可否を推測しません）'}</dd></div>
             <div><dt>障害者配慮</dt><dd>{event.accessibility_keys.length?event.accessibility_keys.map((key)=>ACCESSIBILITY_LABELS[key]||key).join('・'):'未確認'}{event.accessibility_notes?<><br/>{event.accessibility_notes}</>:null}</dd></div>
-            <div><dt>Source</dt><dd>{event.source_name}<br/><small>{event.qaNote}</small></dd></div>
+            <div><dt>Source</dt><dd>{event.qaKind==='verified_ci'?<a href={event.source_url} target="_blank" rel="noreferrer">{event.source_name}</a>:event.source_name}<br/><small>{event.qaNote}</small></dd></div>
           </dl>
 
           <section className="machimamo-day-support">
