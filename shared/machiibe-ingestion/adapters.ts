@@ -66,7 +66,7 @@ function xmlTag(block:string,name:string){
   return match?decodeXml(match[1].trim()):null;
 }
 function xmlAttr(block:string,tag:string,attr:string){
-  const pattern="<"+tag+"\\\\b[^>]*\\\\b"+attr+"=[\\\"']([^\\\"']+)[\\\"'][^>]*>";
+  const pattern="<"+tag+"\\b[^>]*\\b"+attr+"=[\"']([^\"']+)[\"'][^>]*>";
   const match=block.match(new RegExp(pattern,'i'));
   return match?decodeXml(match[1]):null;
 }
