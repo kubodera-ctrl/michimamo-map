@@ -34,3 +34,12 @@ test('QA labels stay outside the final Canvas renderer',()=>{
   assert.match(detailSource,/fact chip/);
   assert.doesNotMatch(rendererSource,/GOLDEN確認用|文字切れ|文字重なり|safe area/);
 });
+
+test('cover period pill is width-aware and keeps a fixed right safe area',()=>{
+  assert.match(rendererSource,/function periodPill/);
+  assert.match(rendererSource,/maxWidth=500/);
+  assert.match(rendererSource,/minSize=18/);
+  assert.match(rendererSource,/const x=W-right-width/);
+  assert.match(rendererSource,/periodPill\(ctx,input\.period\.periodLabel\)/);
+  assert.doesNotMatch(rendererSource,/rounded\(ctx,650,105,360,82/);
+});

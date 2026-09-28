@@ -47,6 +47,23 @@ function outlinedWrapped(ctx:CanvasRenderingContext2D,value:string,x:number,y:nu
   if(line&&lines.length<maxLines)lines.push(line);
   lines.forEach((row,index)=>{ctx.strokeStyle=stroke;ctx.strokeText(row,x,y+index*lineHeight);ctx.fillStyle=fill;ctx.fillText(row,x,y+index*lineHeight);});
 }
+function periodPill(ctx:CanvasRenderingContext2D,value:string){
+  const right=70,maxWidth=500,minWidth=280,padding=56,maxSize=26,minSize=18;
+  let size=maxSize;
+  const measure=()=>{
+    ctx.font=String(850)+' '+size+'px '+FONT;
+    return ctx.measureText(value).width;
+  };
+  let textWidth=measure();
+  while(size>minSize&&textWidth>maxWidth-padding){
+    size-=1;
+    textWidth=measure();
+  }
+  const width=Math.min(maxWidth,Math.max(minWidth,Math.ceil(textWidth+padding)));
+  const x=W-right-width;
+  rounded(ctx,x,105,width,82,38,'rgba(255,255,255,.92)');
+  label(ctx,value,x+width/2,128,size,850,NAVY,'center');
+}
 function accentRays(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
   ctx.save();ctx.strokeStyle=YELLOW;ctx.lineWidth=10*scale;ctx.lineCap='round';
   [[-52,-15,-90,-30],[-45,12,-84,18],[-22,38,-46,74],[52,-15,90,-30],[45,12,84,18],[22,38,46,74]].forEach(([x1,y1,x2,y2])=>{ctx.beginPath();ctx.moveTo(x+x1*scale,y+y1*scale);ctx.lineTo(x+x2*scale,y+y2*scale);ctx.stroke();});
@@ -121,8 +138,7 @@ async function drawCover(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,in
   const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(13,53,86,.03)');g.addColorStop(.52,'rgba(13,53,86,.08)');g.addColorStop(1,'rgba(13,53,86,.68)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
   pageBadge(ctx,page);
 
-  rounded(ctx,650,105,360,82,38,'rgba(255,255,255,.92)');
-  label(ctx,input.period.periodLabel,830,128,26,850,NAVY,'center');
+  periodPill(ctx,input.period.periodLabel);
 
   accentRays(ctx,98,300,.75);
   outlinedWrapped(ctx,'今週どこ行く？\n'+input.area.prefecture+'で\nおでかけ発見',62,235,890,78,94,4,900,'#fff',NAVY);
