@@ -250,23 +250,34 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
   const description=pick(obj,['description','summary','概要','内容']);
   const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']);
   const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']);
-  const explicitOfficialUrl=pick(obj,['url','official_url','公式URL','link']);
+  const explicitOfficialUrl=pick(obj,['url','official_url','公式URL','URL','コンテンツURL','link']);
   const itemUrlIsFeed=item.sourceUrl===source.feedUrl||item.sourceUrl===source.baseUrl;
   const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?item.sourceUrl:null);
-  const priceRaw=pick(obj,['price_type','料金区分']);
-  const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'?priceRaw:'unknown';
-  const latRaw=obj.latitude??record(obj.geo)?.latitude;
-  const lngRaw=obj.longitude??record(obj.geo)?.longitude;
-  const lat=typeof latRaw==='number'?latRaw:null,lng=typeof lngRaw==='number'?lngRaw:null;
+  const priceRaw=pick(obj,['price_type','料金区分','料金種別']);
+  const normalizedPrice=(priceRaw||'').normalize('NFKC').toLowerCase();
+  const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'
+    ?priceRaw
+    :/一部.*有料|一部.*無料/.test(normalizedPrice)?'partly_free'
+    :/無料|なし|free/.test(normalizedPrice)?'free'
+    :/有料|paid/.test(normalizedPrice)?'paid'
+    :'unknown';
+  const latRaw=obj.latitude??obj['緯度']??record(obj.geo)?.latitude;
+  const lngRaw=obj.longitude??obj['経度']??record(obj.geo)?.longitude;
+  const numeric=(value:unknown)=>{
+    if(typeof value==='number'&&Number.isFinite(value))return value;
+    if(typeof value==='string'&&value.trim()&&Number.isFinite(Number(value.trim())))return Number(value.trim());
+    return null;
+  };
+  const lat=numeric(latRaw),lng=numeric(lngRaw);
   return {
     sourceId:item.sourceId,sourceEventId:item.sourceEventId,sourceUrl:item.sourceUrl,
     sourceUpdatedAt:item.sourceUpdatedAt,sourceHash:item.sourceHash,
     title,description,startAt,endAt,timezone:'Asia/Tokyo',
-    prefecture:place.prefecture||pick(obj,['prefecture','都道府県']),
-    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町']),
-    address:place.address||pick(obj,['address','住所']),lat,lng,
-    venueName:place.venueName||pick(obj,['venue_name','会場','場所']),
-    venueType:pick(obj,['venue_type']),category:pick(obj,['category','カテゴリ']),
+    prefecture:place.prefecture||pick(obj,['prefecture','都道府県','所在地_都道府県']),
+    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町','所在地_市区町村']),
+    address:place.address||pick(obj,['address','住所','所在地_連結表記']),lat,lng,
+    venueName:place.venueName||pick(obj,['venue_name','会場','場所','場所名称']),
+    venueType:pick(obj,['venue_type']),category:pick(obj,['category','カテゴリ','イベント種類']),
     tags:stringArray(obj.tags),ageMin:typeof obj.age_min==='number'?obj.age_min:null,
     ageMax:typeof obj.age_max==='number'?obj.age_max:null,
     family:typeof obj.family==='boolean'?obj.family:null,
