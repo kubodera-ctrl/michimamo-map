@@ -60,7 +60,7 @@ assert.equal(profile.isGeneratedGuestName('ボス'),false);
 const onboarding=fs.readFileSync(path.join(__dirname,'..','pwa-onboarding.js'),'utf8');
 assert.match(onboarding,/現在の表示名は自動で設定されています。LINE認証後、マイページからニックネームを設定できます。/);
 const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-assert.match(html,/identity-ui\\.js\\?v=36-identity4/);
+assert.match(html,/identity-ui\.js\?v=36-identity4/);
 assert.match(html,/MachimamoIdentityUI\?\.syncSession/);
 console.log('PASS identity UI contract, provider badges, generated-name metadata, safe Preview fixtures and tutorial copy');
 
