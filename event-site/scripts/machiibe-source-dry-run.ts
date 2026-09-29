@@ -88,6 +88,25 @@ function canonicalDate(value:string|null){
   return match[1]+'-'+month+'-'+day;
 }
 
+function decodeCsvBytes(bytes:Uint8Array,preferred?:string){
+  const encodings=preferred?[preferred]:['utf-8','shift_jis'];
+  const anchors=['イベント名','記事タイトル','開始日','イベント開始日','終了日','イベント終了日','場所','市町','ID','URL'];
+  const candidates=encodings.map((encoding,index)=>{
+    try{
+      const body=new TextDecoder(encoding).decode(bytes);
+      const head=body.slice(0,4000);
+      const replacementCount=(body.match(/\uFFFD/g)||[]).length;
+      const anchorHits=anchors.filter((anchor)=>head.includes(anchor)).length;
+      return {encoding,body,replacementCount,anchorHits,score:anchorHits*100-replacementCount*10-index};
+    }catch{
+      return {encoding,body:'',replacementCount:Number.MAX_SAFE_INTEGER,anchorHits:0,score:Number.MIN_SAFE_INTEGER};
+    }
+  });
+  const best=candidates.slice().sort((a,b)=>b.score-a.score)[0];
+  if(!best||best.score===Number.MIN_SAFE_INTEGER)throw new Error('unable to decode source bytes');
+  return best;
+}
+
 async function main(){
   const sourceKey=process.argv[2];
   if(!sourceKey) throw new Error('usage: npm run source:dry-run -- <source_key>');
@@ -129,10 +148,9 @@ async function main(){
   const bytes=new Uint8Array(await response.arrayBuffer());
   const max=row.max_fetch_bytes||10_000_000;
   if(bytes.byteLength>max) throw new Error('fetch exceeds byte limit');
-  const encoding=(row.encoding||'utf-8').toLowerCase();
-  let body:string;
-  try{body=new TextDecoder(encoding).decode(bytes);}
-  catch{throw new Error('unsupported or invalid text encoding: '+encoding);}
+  const decoded=decodeCsvBytes(bytes,row.encoding?.toLowerCase());
+  const encoding=decoded.encoding;
+  const body=decoded.body;
 
   const parsed=parseCsv(body,source);
   const normalized=parsed.items.map((item)=>normalizeCommonItem(item,source));
@@ -186,7 +204,13 @@ async function main(){
       lastModified:response.headers.get('last-modified')
     },
     bytes:{received:bytes.byteLength,limit:max,withinLimit:bytes.byteLength<=max},
-    encoding:{requested:encoding,decoded:true},
+    encoding:{
+      requested:row.encoding?.toLowerCase()||'auto',
+      detected:encoding,
+      decoded:true,
+      replacementCount:decoded.replacementCount,
+      headerAnchorHits:decoded.anchorHits
+    },
     schema,
     quality:{
       parserWarnings:parsed.warnings,
