@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <script>
-        // Some phone browsers retain a wide desktop layout viewport.
-        // Set an explicit CSS-pixel width before the first layout, without CSS zoom.
+        // Safari Private Browsing may mask device metrics. iPhone uses the standard
+        // responsive viewport; never infer its width from screen/outerWidth.
         (function configurePhoneViewport() {
-            const phoneScreen = Math.min(screen.width, screen.height) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /iPhone|Android.*Mobile/i.test(navigator.userAgent);
-            if (!phoneScreen || !touchDevice) return;
             const viewport = document.querySelector('meta[name="viewport"]');
+            const ua = navigator.userAgent || '';
+            if (/iPhone|iPod/i.test(ua)) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+                return;
+            }
+            const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
+            const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
+            if (!phoneScreen || !touchDevice) return;
             function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width, screen.height);
-                const longSide = Math.max(screen.width, screen.height);
+                const shortSide = Math.min(screen.width || 0, screen.height || 0);
+                const longSide = Math.max(screen.width || 0, screen.height || 0);
                 const landscape = window.matchMedia('(orientation: landscape)').matches;
                 const width = landscape ? longSide : shortSide;
                 if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
@@ -158,6 +163,26 @@
         .modal.open .sheet { transform: translateY(0); }
         body.post-modal-open .ad-banner { display: none !important; }
         #postModal .sheet { scroll-behavior: smooth; }
+        /* SNS assets: keep the close button visible and scroll the content,
+           including gestures that start on the large canvas, above the ad. */
+        #adminSocialAssetModal { z-index: 10000; padding: env(safe-area-inset-top) 0 0; }
+        #adminSocialAssetModal .sheet {
+            display: flex; flex-direction: column; min-height: 0;
+            height: 90vh; height: 90dvh; max-height: 100%;
+            overflow: hidden; padding-bottom: 0;
+        }
+        #adminSocialAssetModal .sheet > .row { flex: 0 0 auto; }
+        #adminSocialAssetModal .close { flex-shrink: 0; }
+        #adminSocialAssetBody {
+            flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain;
+            touch-action: pan-y; padding-bottom: calc(24px + env(safe-area-inset-bottom));
+            display: grid; grid-template-columns: repeat(auto-fit,minmax(min(240px,100%),1fr));
+            gap: 14px; align-items: start;
+        }
+        #adminSocialAssetBody > div { min-width: 0; }
+        #adminSocialCanvas { touch-action: pan-y; }
+
         .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .close { border: 0; background: #eef1f4; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; display: grid; place-items: center; cursor: pointer; color: #6b7280; }
 
@@ -357,6 +382,9 @@
             nav button i { font-size: 21px; }
             .leaflet-control-zoom a { width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 22px !important; }
         .leaflet-popup-content { font-size: 16px; }
+        .leaflet-popup-content.no-image-post { width: min(82vw, 430px) !important; max-width: 82vw !important; }
+        .leaflet-popup-content.no-image-post .spot-popup-title { font-size: 1.18rem; line-height: 1.4; }
+        .leaflet-popup-content.no-image-post .spot-popup-comment { font-size: 1rem; line-height: 1.55; overflow-wrap: anywhere; }
         /* Let map drags start from popup text/background. Keep only actual
            controls clickable so close, navigation, phone and source links work. */
         .leaflet-popup-content-wrapper,
@@ -1084,23 +1112,10 @@
             <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
-           <label>種類</label>
-           <select id="postCategory" required onchange="toggleImageUpload()">
-                <option value="illegal">🔴 違法駐車</option>
-                <option value="danger">🔵 危険な路上停車</option>
-                <option value="reckless">🟡 暴走・騒音車両</option>
-                <option value="abandoned">🟣 不法放置 (写真必須)</option>
-                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
-                <option value="patrol">🟢 巡回・取り締まり情報</option>
-                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
-            </select>
-            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
-            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
-
-            <div id="localAnomalyArea" style="display:none; margin-top:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
+            <div id="localAnomalyArea" style="display:none; margin-bottom:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
-                <select id="localAnomalyType">
+                <select id="localAnomalyType" onchange="syncLocalAnomalyTitle()">
                     <option value="">選択してください</option>
                     <option value="illegal_dumping">不法投棄・ごみ</option>
                     <option value="abandoned_object_vehicle">放置物・放置車両</option>
@@ -1121,6 +1136,20 @@
                 </label>
                 <div style="font-size:.72rem;color:#0e7490;margin-top:8px;line-height:1.5;">写真は任意です。緊急の事故・犯罪・災害は、この投稿より110・119や自治体への連絡を優先してください。</div>
             </div>
+
+
+           <label>種類</label>
+           <select id="postCategory" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
+                <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
+            </select>
+            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
+            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
@@ -1164,7 +1193,7 @@
             </div>
             <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;align-items:start;">
+        <div id="adminSocialAssetBody">
             <div>
                 <div style="font-size:.72rem;font-weight:900;color:#0f4c81;margin-bottom:7px;">TikTok 9:16 / 1080×1920</div>
                 <div style="max-width:350px;margin:auto;border-radius:18px;overflow:hidden;background:#e0f2fe;box-shadow:0 12px 30px rgba(15,76,129,.16);aspect-ratio:9/16;">
@@ -2716,13 +2745,15 @@ function shareSpot(title, address, category, event) {
         });
         return { rect, viewport, bounds, scaleX: scaleX || 1, scaleY: scaleY || 1 };
     }
-    function getMapPopupOptions() {
+    function getMapPopupOptions({ noImage = false } = {}) {
         const g = renderedMapGeometry();
+        const clientWidth = document.documentElement.clientWidth || window.innerWidth || 300;
+        const viewportHeight = window.visualViewport?.height || window.innerHeight || 600;
         return {
             autoPan: false, keepInView: false, closeOnClick: false,
-            maxWidth: Math.max(120, Math.min(300, (g.bounds.right - g.bounds.left) / g.scaleX - 40)),
+            maxWidth: Math.max(120, Math.min(noImage ? 430 : 300, noImage ? clientWidth * 0.82 : (g.bounds.right - g.bounds.left) / g.scaleX - 40)),
             minWidth: 100,
-            maxHeight: Math.max(60, Math.min(430, (g.bounds.bottom - g.bounds.top) / g.scaleY - 65))
+            maxHeight: Math.max(60, Math.min(noImage ? 650 : 430, noImage ? viewportHeight * 0.74 - 65 : (g.bounds.bottom - g.bounds.top) / g.scaleY - 65))
         };
     }
     function focusSelectedPopup(marker, popup) {
@@ -2730,7 +2761,7 @@ function shareSpot(title, address, category, event) {
         popupFocusPanUntil = performance.now() + 800;
         requestAnimationFrame(() => requestAnimationFrame(() => {
             if (map._popup !== popup || !popup.isOpen()) return;
-            Object.assign(popup.options, getMapPopupOptions());
+            Object.assign(popup.options, getMapPopupOptions({ noImage: marker._machimamoSpot?.hasImage === false }));
             popup.update();
             const el = popup.getElement();
             if (!el) return;
@@ -2923,7 +2954,7 @@ function shareSpot(title, address, category, event) {
 
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
-        const imgTag = spot.image_url ? `<img src="${spot.image_url}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
+        const imgTag = spot.image_url ? `<img src="${escapeHtml(spot.image_url)}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
         const anomalyBadge = spot.category === 'local_anomaly'
@@ -2939,6 +2970,7 @@ function shareSpot(title, address, category, event) {
                </div>`;
 
         const m = L.marker([spot.lat, spot.lng], { icon: pin });
+        m._machimamoSpot = { createdBy: spot.created_by || null, hasImage: !!spot.image_url };
         if (isCategoryVisible(spot.category)) m.addTo(map);
         else if (hc) map.removeLayer(hc);
         let popupContent = "";
@@ -2954,11 +2986,11 @@ function shareSpot(title, address, category, event) {
             `;
         } else {
             popupContent = `
-                <div style="min-width:210px;">
+                <div class="spot-popup-card ${spot.image_url ? 'has-image' : 'no-image'}" data-spot-id="${Number(spot.id)}" style="min-width:210px;">
                     <div style="font-size:0.75rem; color:#6b7280;">${new Date(spot.created_at).toLocaleDateString()} ${new Date(spot.created_at).toLocaleTimeString().slice(0,5)}</div>
                     ${anomalyBadge}
-                    <div style="font-weight:900; font-size:1rem; margin:4px 0;">${spot.title}</div>
-                    <div style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${spot.comment}</div>
+                    <div class="spot-popup-title" style="font-weight:900; font-size:1rem; margin:4px 0;">${escapeHtml(spot.title || '')}</div>
+                    <div class="spot-popup-comment" style="font-size:0.85rem; color:#374151; margin-bottom:12px;">${escapeHtml(spot.comment || '')}</div>
                     ${imgTag}
                     <div style="display:flex; gap:6px; margin-bottom:10px;">
                         <button onclick="likeSpot(${spot.id}, ${likeCount}, '${spot.created_by || ''}')" class="popup-action-btn btn-like" style="flex:2; margin:0;"><i class="fa-solid fa-thumbs-up"></i> 助かった！ (${likeCount})</button>
@@ -2969,15 +3001,25 @@ function shareSpot(title, address, category, event) {
                         <div style="font-size:0.75rem; font-weight:bold; color:#4b5563; text-align:center; margin-bottom:8px;">❓ まだ情報通りですか？</div>
                         <div style="display:flex; gap:8px;">
                             <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
-                            ${spot.created_by && spot.created_by === currentAuthUserId ? `<button onclick="deleteSpot(${spot.id})" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">自分の投稿を削除</button>` : ''}
+                            <button class="spot-owner-delete" onclick="deleteSpot(${Number(spot.id)})" style="${spot.created_by && spot.created_by === currentAuthUserId ? '' : 'display:none;'}flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">自分の投稿を削除</button>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        m.bindPopup(popupContent, getMapPopupOptions());
-        activeMarkers.push({ id: spot.id, category: spot.category, instance: m, circle: hc });
+        m.bindPopup(popupContent, getMapPopupOptions({ noImage: !spot.image_url }));
+        m.on('popupopen', () => syncSpotPopupControls(m));
+        activeMarkers.push({ id: spot.id, category: spot.category, createdBy: spot.created_by || null, hasImage: !!spot.image_url, instance: m, circle: hc });
+    }
+
+    function syncSpotPopupControls(marker) {
+        const popup = marker && marker.getPopup && marker.getPopup();
+        const content = popup && popup.getElement && popup.getElement()?.querySelector('.leaflet-popup-content');
+        if (!content || !marker._machimamoSpot) return;
+        content.classList.toggle('no-image-post', !marker._machimamoSpot.hasImage);
+        const deleteButton = content.querySelector('.spot-owner-delete');
+        if (deleteButton) deleteButton.style.display = currentAuthUserId && currentAuthUserId === marker._machimamoSpot.createdBy ? '' : 'none';
     }
 
     async function loadSafetySpots() {
@@ -3324,6 +3366,20 @@ function shareSpot(title, address, category, event) {
         setTimeout(sizePostModal, 180);
     }
 
+    function syncLocalAnomalyTitle() {
+        const isLocalAnomaly = document.getElementById('postCategory').value === 'local_anomaly';
+        const needsText = !isLocalAnomaly || document.getElementById('localAnomalyType').value === 'other';
+        const input = document.getElementById('postTitle');
+        input.required = needsText;
+        input.disabled = !needsText;
+        input.style.display = needsText ? '' : 'none';
+        document.getElementById('postTitleLabel').style.display = needsText ? '' : 'none';
+    }
+
+    function resolveLocalAnomalyTitle(type, text) {
+        return type === 'other' ? text.trim() : (localAnomalyLabels[type] || '');
+    }
+
     function toggleImageUpload() {
         const cat = document.getElementById('postCategory').value;
         const area = document.getElementById('imageUploadArea');
@@ -3359,7 +3415,8 @@ function shareSpot(title, address, category, event) {
         document.getElementById('localAnomalyType').required = isLocalAnomaly;
         document.getElementById('localAnomalyFactOnly').required = isLocalAnomaly;
         aedArea.style.display = isAed ? 'block' : 'none';
-        titleLabel.textContent = isAed ? '施設名' : isLocalAnomaly ? '見つけた異変（事実のみ）' : 'タイトル';
+        titleLabel.textContent = isAed ? '施設名' : isLocalAnomaly ? 'その他の内容' : 'タイトル';
+        syncLocalAnomalyTitle();
         commentLabel.textContent = isAed ? 'AEDの設置場所（階・入口・受付横など）' : isLocalAnomaly ? '状況（見たこと・場所・時間帯）' : '状況コメント';
         document.getElementById('postTitle').placeholder = isLocalAnomaly ? '例：県道沿いに倒木で片側が通りにくい' : '';
         document.getElementById('postComment').placeholder = isLocalAnomaly ? '人物の特徴・氏名・顔・ナンバーなどは書かず、確認できた状況だけ記載してください。' : '';
@@ -3584,6 +3641,8 @@ function shareSpot(title, address, category, event) {
         const anomalyType = cat === 'local_anomaly' ? document.getElementById('localAnomalyType').value : null;
         if (cat === 'local_anomaly') {
             if (!localAnomalyLabels[anomalyType]) { alert('地域の異変の種類を選択してください。'); return; }
+            title = resolveLocalAnomalyTitle(anomalyType, title);
+            if (!title) { alert('その他の内容を入力してください。'); return; }
             if (!document.getElementById('localAnomalyFactOnly').checked) { alert('見た事実だけを投稿し、個人を特定・追跡しないことを確認してください。'); return; }
         }
 
@@ -4419,6 +4478,9 @@ function shareSpot(title, address, category, event) {
                             document.getElementById('myAedHistoryArea').textContent = '';
                         }
                         currentAuthUserId = nextUserId;
+                        activeMarkers.forEach(marker => {
+                            if (marker.instance?._popup?.isOpen?.()) syncSpotPopupControls(marker.instance);
+                        });
 
                         // Sessionが無くなった場合は
                         // 表示情報も消す
@@ -4581,76 +4643,32 @@ function shareSpot(title, address, category, event) {
 
 <script id="iosViewportCompensation">
 (function () {
-    var compensatedOrientation = null;
-    function applyFix() {
-        // Keep a detected desktop-view compensation through focus/keyboard zoom changes.
-        var orientation = window.matchMedia('(orientation: landscape)').matches ? 'landscape' : 'portrait';
-        if (compensatedOrientation === orientation) return;
-        var vv = window.visualViewport;
-        var outer = window.outerWidth || 0;
-        var inner = window.innerWidth || 0;
-        var scale = vv && vv.scale ? vv.scale : 1;
-        var phoneOuter = outer > 0 && outer <= 600;
-        var doubledLayout = inner >= outer * 1.8 && inner <= outer * 2.2;
-        var halfScale = scale >= 0.45 && scale <= 0.55;
-        var root = document.documentElement;
-        var body = document.body;
-        var app = document.getElementById('app');
-
-        if (phoneOuter && doubledLayout && halfScale && body && app) {
-            compensatedOrientation = orientation;
-            root.classList.add('ios-desktop-viewport');
-            body.style.width = outer + 'px';
-            body.style.maxWidth = outer + 'px';
-            app.style.width = outer + 'px';
-            app.style.maxWidth = outer + 'px';
-            root.style.width = outer + 'px';
-            root.style.maxWidth = outer + 'px';
-            // Force the rendered CSS viewport back to the physical phone width.
-            var zoomFactor = 1 / scale;
-            root.style.zoom = String(zoomFactor);
-            root.style.overflow = 'hidden';
-            body.style.overflow = 'hidden';
-
-            // CSS zoom also magnifies the layout height. Counter it so the fixed bottom nav
-            // still fits inside the visible iPhone viewport instead of being pushed below screen.
-            var visibleVh = 100 / zoomFactor;
-            root.style.height = visibleVh + 'dvh';
-            body.style.height = visibleVh + 'dvh';
-            app.style.height = visibleVh + 'dvh';
-            app.style.minHeight = visibleVh + 'dvh';
-            app.style.maxHeight = visibleVh + 'dvh';
-
-            // Leaflet needs a size refresh after viewport compensation.
-            setTimeout(function () {
-                if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
-            }, 150);
-        } else {
-            compensatedOrientation = null;
-            root.classList.remove('ios-desktop-viewport');
-            root.style.zoom = '';
-            root.style.width = '';
-            root.style.maxWidth = '';
-            root.style.height = '';
-            if (body) {
-                body.style.width = '';
-                body.style.maxWidth = '';
-                body.style.height = '';
-            }
-            if (app) {
-                app.style.width = '';
-                app.style.maxWidth = '';
-                app.style.height = '';
-                app.style.minHeight = '';
-                app.style.maxHeight = '';
-            }
-        }
+    if (!/iPhone|iPod/i.test(navigator.userAgent || '')) return;
+    var root = document.documentElement;
+    var body = document.body;
+    var app = document.getElementById('app');
+    root.classList.remove('ios-desktop-viewport');
+    root.style.zoom = '';
+    root.style.width = '';
+    root.style.maxWidth = '';
+    root.style.height = '';
+    root.style.overflow = '';
+    if (body) {
+        body.style.width = '';
+        body.style.maxWidth = '';
+        body.style.height = '';
+        body.style.overflow = '';
     }
-
-    applyFix();
-    window.addEventListener('pageshow', function () { setTimeout(applyFix, 50); });
-    window.addEventListener('resize', function () { setTimeout(applyFix, 50); });
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { setTimeout(applyFix, 50); });
+    if (app) {
+        app.style.width = '';
+        app.style.maxWidth = '';
+        app.style.height = '';
+        app.style.minHeight = '';
+        app.style.maxHeight = '';
+    }
+    setTimeout(function () {
+        if (typeof window.refreshMapLayout === 'function') window.refreshMapLayout();
+    }, 150);
 })();
 </script>
 
@@ -4663,7 +4681,7 @@ function shareSpot(title, address, category, event) {
 
 <script id="mobileFilterTouchScrollV2">
 (function () {
-    var state = { active:false, el:null, lastY:0 };
+    var state = { active:false, el:null, lastY:0, mode:null };
 
     function getFilterList() {
         return document.querySelector('.filter-content');
@@ -4706,15 +4724,33 @@ function shareSpot(title, address, category, event) {
     }
 
     function begin(e) {
-        var el = getFilterList();
-        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
-        var t = e.target && e.target.closest ? e.target.closest('.filter-content') : null;
-        if (!t) return;
         var touch = e.touches && e.touches[0];
         if (!touch) return;
+
+        // The page shell is intentionally non-scrollable. On iOS, native momentum
+        // scrolling can fail for this nested modal, especially when a swipe begins
+        // on the large canvas. Route that gesture directly to the modal body.
+        var target = e.target;
+        var socialBody = target && target.closest ? target.closest('#adminSocialAssetBody') : null;
+        var socialModal = document.getElementById('adminSocialAssetModal');
+        if (socialBody && socialModal && socialModal.classList.contains('open')) {
+            if (target.closest('button,a,input,textarea,select,[contenteditable="true"]')) return;
+            state.active = true;
+            state.el = socialBody;
+            state.lastY = touch.clientY;
+            state.mode = 'admin-social';
+            e.stopPropagation();
+            return;
+        }
+
+        var el = getFilterList();
+        if (!el || getComputedStyle(el).flexDirection !== 'column' || !document.getElementById('filterWrapper')?.classList.contains('open')) return;
+        var t = target && target.closest ? target.closest('.filter-content') : null;
+        if (!t) return;
         state.active = true;
         state.el = el;
         state.lastY = touch.clientY;
+        state.mode = 'filter';
         e.stopPropagation();
     }
 
@@ -4728,8 +4764,7 @@ function shareSpot(title, address, category, event) {
         state.lastY = y;
 
         if (Math.abs(delta) >= 1) {
-            // getBoundingClientRect / touch coordinates are after CSS zoom, whereas
-            // scrollTop is in layout pixels, so divide by the zoom factor.
+            // Touch coordinates are visual CSS pixels; scrollTop uses layout pixels.
             var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
             state.el.scrollTop += delta / zoom;
             e.preventDefault();
@@ -4741,6 +4776,7 @@ function shareSpot(title, address, category, event) {
         if (!state.active) return;
         state.active = false;
         state.el = null;
+        state.mode = null;
         if (e) e.stopPropagation();
     }
 

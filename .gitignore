@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 build/
 node_modules/
+tools/news-studio/.cache/
+tools/news-studio/__pycache__/
