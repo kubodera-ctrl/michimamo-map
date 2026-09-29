@@ -9,7 +9,7 @@
     "total_inventory_or_discovery_candidates": 80,
     "concrete_prefecture_coverage_from_all_inventories": 23,
     "preflight_or_better": 41,
-    "terms_reviewed_or_better": 16,
+    "terms_reviewed_or_better": 17,
     "ready": 0,
     "active": 0
   },
@@ -929,13 +929,13 @@
       "base_url": "https://www.kankomie.or.jp/event",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "reviewed_restricted",
       "robots_status": "pending",
-      "commercial_use_status": "unknown",
+      "commercial_use_status": "restricted_or_permission_required",
       "attribution_requirement": null,
       "automated_fetch_allowed": false,
       "priority": 99,
-      "review_state": "PREFLIGHT",
+      "review_state": "TERMS_REVIEWED",
       "yield_class": "very_high",
       "observed_current_items_min": 281,
       "expected_update_frequency": "continuous/editorial",
@@ -943,9 +943,9 @@
       "category_breadth": "very_high",
       "family_relevance": "high",
       "acquisition_difficulty": "medium",
-      "terms_difficulty": "unknown",
+      "terms_difficulty": "high",
       "maintenance_cost": "medium",
-      "notes": "2026-09-29時点で公式一覧281件。開催中のみ/地域/開催順・更新順等を確認。規約/robots未確認。"
+      "notes": "公式一覧281件を確認。ただしサイトポリシーは掲載情報の無断複製・転用等を原則禁止。画像だけでなく本文利用もREADYへ進めず、自治体Open Data/施設公式/別公式sourceを優先探索する。"
     },
     {
       "source_key": "hyogo-tourism-events",
