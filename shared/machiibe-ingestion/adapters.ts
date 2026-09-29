@@ -11,6 +11,14 @@ function record(value:unknown):UnknownRecord|null{
 function text(value:unknown){
   return typeof value==='string'&&value.trim()?value.trim():null;
 }
+function webUrl(value:unknown){
+  const candidate=text(value);
+  return candidate&&/^https?:\/\//i.test(candidate)?candidate:null;
+}
+function httpsUrl(value:unknown){
+  const candidate=text(value);
+  return candidate&&/^https:\/\//i.test(candidate)?candidate:null;
+}
 function stringArray(value:unknown){
   if(Array.isArray(value))return value.map(text).filter((v):v is string=>Boolean(v));
   const one=text(value);return one?[one]:[];
@@ -184,7 +192,7 @@ export function parseCsv(body:string,source:SourcePolicySnapshot):AdapterParseRe
     if(values.length!==headers.length)mismatchedRows++;
     const payload=Object.fromEntries(headers.map((h,i)=>[h,values[i]??'']));
     const id=text(payload['event_id'])||text(payload['イベントID'])||text(payload['ID']);
-    const url=text(payload['official_url'])||text(payload['URL'])||text(payload['url'])||source.feedUrl||source.baseUrl;
+    const url=httpsUrl(payload['official_url'])||httpsUrl(payload['URL'])||httpsUrl(payload['コンテンツURL'])||httpsUrl(payload['url'])||source.feedUrl||source.baseUrl;
     const updated=text(payload['source_updated_at'])||text(payload['更新日']);
     return raw(source,payload,index,id,url,updated);
   });
@@ -250,9 +258,11 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
   const description=pick(obj,['description','summary','概要','内容']);
   const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']);
   const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']);
-  const explicitOfficialUrl=pick(obj,['url','official_url','公式URL','URL','コンテンツURL','link']);
+  const explicitOfficialUrl=
+    webUrl(obj.url)||webUrl(obj.official_url)||webUrl(obj['公式URL'])||webUrl(obj['URL'])||
+    webUrl(obj['コンテンツURL'])||webUrl(obj.link);
   const itemUrlIsFeed=item.sourceUrl===source.feedUrl||item.sourceUrl===source.baseUrl;
-  const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?item.sourceUrl:null);
+  const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?webUrl(item.sourceUrl):null);
   const priceRaw=pick(obj,['price_type','料金区分','料金種別']);
   const normalizedPrice=(priceRaw||'').normalize('NFKC').toLowerCase();
   const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'
