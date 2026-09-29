@@ -137,8 +137,8 @@ async function main(){
     titleField:hasAny(headers,['name','title','イベント名','名称','記事タイトル']),
     startField:hasAny(headers,['startDate','start_at','start','開始日時','開始日','イベント開始日']),
     endField:hasAny(headers,['endDate','end_at','end','終了日時','終了日','イベント終了日']),
-    locationField:hasAny(headers,['venue_name','会場','場所','address','住所','municipality','市区町村','市区郡','市町']),
-    officialUrlField:hasAny(headers,['url','official_url','公式URL','URL','link'])
+    locationField:hasAny(headers,['venue_name','会場','場所','場所名称','address','住所','所在地_連結表記','municipality','市区町村','市区郡','市町','所在地_市区町村']),
+    officialUrlField:hasAny(headers,['url','official_url','公式URL','URL','コンテンツURL','link'])
   };
   if(!schema.titleField||!schema.startField)throw new Error('required CSV schema fields are missing');
 
