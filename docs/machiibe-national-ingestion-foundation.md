@@ -152,12 +152,12 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 2026-09-29時点の調査inventory:
 - Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
 - National venue discovery series: 12
-- national_source_discovery_v1.json: 42 entries
-- 総inventory/discovery候補: 80
+- national_source_discovery_v1.json: 43 entries
+- 総inventory/discovery候補: 81
 - 全inventoryで具体sourceが確認できている都道府県: 23
 - 今回追加の地方空白対策: 宮城県（県イベント一覧 + 柴田町）、静岡県（県イベント一覧CSV/WEBAPI）、滋賀県（大津市月次イベント一覧）、石川県（かほく市標準ODS）、香川県（三豊市標準ODS）
-- discovery file内 PREFLIGHT以上: 41
-- discovery file内 TERMS_REVIEWED以上: 16
+- discovery file内 PREFLIGHT以上: 42
+- discovery file内 TERMS_REVIEWED以上: 18
 - READY: 0
 - ACTIVE: 0
 
@@ -305,3 +305,23 @@ shared/machiibe-ingestion/priority.ts で以下を独立評価できるように
 
 data/machiibe/facility_source_instances_v1.jsonで施設単位sourceをnetwork親sourceと分離して管理する。
 shared/machiibe-ingestion/discovery.tsのfacility event-page discoveryはHTMLから候補URLを発見するだけで、fetch/公開許可は行わない。
+
+
+## 16. First READY source
+
+2026-09-29、三重県公式「お知らせ・イベント情報一覧 Open Data CSV」を最初のREADY sourceとした。
+
+- landing: https://www.pref.mie.lg.jp/EVENTS/opendata.htm
+- CSV: https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv
+- license: CC BY 4.0
+- update: 毎日午前7時ごろ
+- discovery state: READY
+- ingestion stage: FETCH_ALLOWED
+- automated_fetch_allowed: true
+- image: dataset側の再利用画像契約なし。event factsとmedia rightsを分離し、画像はfail-closed。
+- Potential: 公式イベント検索で「これから開催」66件を観測
+- Fetched / Normalized / Deduped / Valid / Publishable / Active: まだ0。runtimeでCSV bytesを取得できた時点から計測する。
+
+既存の観光三重はイベント数が多いが、サイトポリシー上の再利用制限が強いため自動取得sourceとして使わず、県公式Open Dataを優先する。
+
+SourcePolicyのREADY判定も修正し、event fact取得可否とimage/SNS二次利用権を分離した。画像権利unknownはmediaをfail-closedにするが、合法なevent facts自体は捨てない。
