@@ -14,7 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 const enforcementLayer=L.layerGroup().addTo(map);
 const accidentLayer=L.layerGroup().addTo(map);
 const zoneLines=new Map();
-let enforcementVisible=true,accidentVisible=true,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
+let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
 let accidentRequest=0,lastAlert={id:null,at:0};
 
 const enforcementToggle=document.getElementById('enforcementToggle');
@@ -55,7 +55,13 @@ function renderEnforcement(){
       dashArray:active?null:'10 8',
       lineCap:'round'
     }).bindPopup(zonePopup(zone),{autoClose:false,closeOnClick:false});
-    line.addTo(enforcementLayer);zoneLines.set(zone.id,{zone,line});
+    line.addTo(enforcementLayer);
+    line.bindTooltip(
+      '<div class="zone-label-title">'+esc(zone.route)+'</div>'+
+      '<div class="zone-label-time">'+(active?'現在重点 '+esc(zonesApi.formatWindow(zone)):esc(zonesApi.formatWindow(zone)))+'</div>',
+      {permanent:true,direction:'center',className:active?'drive-zone-label active':'drive-zone-label',opacity:1}
+    );
+    zoneLines.set(zone.id,{zone,line});
   }
   updateStatus();
 }
@@ -159,6 +165,7 @@ enforcementToggle.addEventListener('click',()=>{
 accidentToggle.addEventListener('click',()=>{
   accidentVisible=!accidentVisible;
   accidentToggle.setAttribute('aria-pressed',String(accidentVisible));
+  accidentToggle.textContent=accidentVisible?'⚠️ 事故多発 ON':'⚠️ 事故多発 OFF';
   if(accidentVisible){accidentLayer.addTo(map);loadAccidents();}else accidentLayer.clearLayers();
 });
 locationBtn.addEventListener('click',()=>{
@@ -169,7 +176,7 @@ document.getElementById('alertClose').addEventListener('click',()=>alertBox.clas
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 
 renderEnforcement();
-loadAccidents();
+accidentLayer.clearLayers();
 startLocation();
 updateStatus();
 setInterval(()=>{renderEnforcement();checkProximity();},60000);
