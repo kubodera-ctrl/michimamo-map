@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="beta-error-bootstrap.js?v=38-errors1"></script>
     <style>
         html { width: 100%; overflow: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         html, body { margin:0; height:100%; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background:#f4f6f8; color:#17212b; }
@@ -1299,6 +1300,28 @@
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     window.db = db;
 
+    const nativeDbRpc = db.rpc.bind(db);
+    db.rpc = async function(functionName, args, options) {
+        try {
+            const result = await nativeDbRpc(functionName, args, options);
+            if (result?.error) {
+                window.MachimamoBetaError?.capture({
+                    kind: 'rpc_failure',
+                    code: 'supabase_rpc_error',
+                    detail: String(functionName || 'unknown')
+                });
+            }
+            return result;
+        } catch (error) {
+            window.MachimamoBetaError?.capture({
+                kind: 'rpc_failure',
+                code: 'supabase_rpc_throw',
+                detail: String(functionName || 'unknown')
+            });
+            throw error;
+        }
+    };
+
     async function requireAuthenticatedUser() {
         const { data, error } = await db.auth.getUser();
         const user = data && data.user;
@@ -2528,9 +2551,11 @@ function shareSpot(title, address, category, event) {
         showToast("ダウンロードが完了しました");
     }
 
+    window.MachimamoBetaError?.setPhase('map_init');
     const map = L.map('map', { attributionControl: false, zoomControl: false, trackResize: false }).setView([35.681236, 139.767125], 13);
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    window.MachimamoBetaError?.clearPhase('map_init');
 
     // Accident hotspot UI is intentionally disabled for beta while the official-year aggregate is rebuilt.
 
@@ -4041,6 +4066,11 @@ function shareSpot(title, address, category, event) {
                 "LINE auth start failed",
                 e
             );
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'start_failed',
+                detail: 'line_auth'
+            });
 
             showToast(
                 "ログインの開始に失敗しました"
@@ -4203,6 +4233,12 @@ function shareSpot(title, address, category, event) {
 
             if (!exchangeVerifier) {
 
+                window.MachimamoBetaError?.capture({
+                    kind: 'line_auth_failure',
+                    code: 'missing_exchange_verifier',
+                    detail: 'line_auth'
+                });
+
                 showToast(
                     "ログイン情報の確認に失敗しました。もう一度LINEログインをお試しください"
                 );
@@ -4285,6 +4321,11 @@ function shareSpot(title, address, category, event) {
                         "Session exchange failed",
                         e
                     );
+                    window.MachimamoBetaError?.capture({
+                        kind: 'line_auth_failure',
+                        code: 'exchange_failed',
+                        detail: 'line_auth'
+                    });
 
                     showToast(
                         "ログイン処理中にエラーが発生しました"
@@ -4294,6 +4335,12 @@ function shareSpot(title, address, category, event) {
 
 
         } else if (errorMsg) {
+
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'callback_error',
+                detail: 'line_auth'
+            });
 
             // LINE認証をキャンセルした場合など
             localStorage.removeItem(
@@ -4322,6 +4369,11 @@ function shareSpot(title, address, category, event) {
             console.error(
                 "Session check failed"
             );
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'session_check_failed',
+                detail: 'supabase_auth'
+            });
         }
 
 
