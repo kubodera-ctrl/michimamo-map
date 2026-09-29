@@ -55,6 +55,39 @@ function checkRateLimit(ip: string): boolean {
 }
 
 
+async function checkPersistentRateLimit(
+  supabaseAdmin: any,
+  ip: string
+): Promise<{ allowed: boolean; retryAfterSeconds: number }> {
+  // Store only a keyed hash in Postgres. Never persist the raw client IP.
+  const subjectHash = await sha256Hex(
+    'line-auth-rate-limit:' + LINE_CHANNEL_SECRET + ':' + ip
+  )
+
+  const { data, error } = await supabaseAdmin.rpc(
+    'consume_edge_rate_limit',
+    {
+      p_scope: 'line-auth',
+      p_subject_hash: subjectHash,
+      p_limit: 10,
+      p_window_seconds: 60,
+    }
+  )
+
+  if (error || !Array.isArray(data) || !data[0]) {
+    throw new Error('Persistent rate limit unavailable')
+  }
+
+  return {
+    allowed: data[0].allowed === true,
+    retryAfterSeconds: Math.max(
+      1,
+      Number(data[0].retry_after_seconds || 60)
+    ),
+  }
+}
+
+
 // ==========================================
 // 暗号ユーティリティ
 // ==========================================
@@ -214,6 +247,37 @@ export default {
 
 
       try {
+
+        // ====================================
+        // Shared persistent Rate Limit
+        // ====================================
+
+        const persistentRateLimit =
+          await checkPersistentRateLimit(
+            supabaseAdmin,
+            ip
+          )
+
+        if (!persistentRateLimit.allowed) {
+
+          return new Response(
+            JSON.stringify({
+              error: 'Too Many Requests',
+            }),
+            {
+              status: 429,
+              headers: {
+                ...corsHeaders,
+                'Retry-After':
+                  String(
+                    persistentRateLimit
+                      .retryAfterSeconds
+                  ),
+              },
+            }
+          )
+        }
+
 
         // ====================================
         // [1] /start
@@ -1053,6 +1117,10 @@ export default {
 
 
       } catch (_error) {
+
+        // Central Supabase Edge logs: emit only a fixed safe code.
+        // Never include tokens, OAuth codes, state, user IDs, or raw IPs.
+        console.error('line_auth_internal_error')
 
         // Secret / token / code等を
         // エラーメッセージへ出さない
