@@ -1,0 +1,86 @@
+{
+  "captured_at": "2026-09-30T08:20:00+09:00",
+  "project_ref": "ckftozjhdszlwqnylmxv",
+  "parent_main_sha": "f7f14c87feaf81f335f6ab462df9675102ddf4fd",
+  "purpose": "Rollback archive before disabling beta-unused Production Edge Functions",
+  "functions": [
+    {
+      "slug": "poc-session",
+      "id": "a405ca83-b975-4f4d-99f1-eddac12982ae",
+      "version": 4,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 1865
+        }
+      ]
+    },
+    {
+      "slug": "machimamo-video-asset-test",
+      "id": "8bee85d9-c370-48b5-a9ce-93c21c5a1082",
+      "version": 1,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 39425
+        }
+      ]
+    },
+    {
+      "slug": "machimamo-video-overlay-v1",
+      "id": "eaf5f0ad-7a32-4472-8e8b-70d988fcdcd7",
+      "version": 1,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 935202
+        }
+      ]
+    },
+    {
+      "slug": "machimamo-video-final-v1",
+      "id": "70b1d340-3604-4f82-97f4-f93d948bf60c",
+      "version": 2,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 1138
+        }
+      ]
+    },
+    {
+      "slug": "machimamo-video-download-page",
+      "id": "08566a9c-d790-4229-a17a-bfcbea4850fb",
+      "version": 1,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 318
+        }
+      ]
+    },
+    {
+      "slug": "machimamo-video-save-final",
+      "id": "dde4117e-1c3b-4ba8-9070-09685794a276",
+      "version": 2,
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "files": [
+        {
+          "name": "index.ts",
+          "chars": 2852
+        }
+      ]
+    }
+  ]
+}
