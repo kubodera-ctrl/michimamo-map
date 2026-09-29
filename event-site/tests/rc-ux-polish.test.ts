@@ -29,3 +29,16 @@ test('event cards preserve search return state and keep the list hierarchy conci
   assert.match(card,/event-card-tags/);
   assert.doesNotMatch(card,/fandom_slugs\.slice\(0,2\)\.map/);
 });
+
+test('Preview QA can show licensed venue/place photos without confusing them with event artwork',()=>{
+  const seed=fs.readFileSync(new URL('../lib/machiibe-search-qa-seed.generated.ts',import.meta.url),'utf8');
+  const media=fs.readFileSync(new URL('../components/EventMedia.tsx',import.meta.url),'utf8');
+  assert.match(seed,/Tokyo%20Joypolis%20entrance\.jpg/);
+  assert.match(seed,/Tokyo%20Skytree%20%26%20Soramachi\.jpg/);
+  assert.match(seed,/Sogo%20Yokohama\.jpg/);
+  assert.match(seed,/CC BY 2\.5/);
+  assert.match(seed,/CC BY-SA 4\.0/);
+  assert.match(media,/会場イメージ/);
+  assert.match(media,/場所イメージ/);
+  assert.match(media,/event-media-credit/);
+});

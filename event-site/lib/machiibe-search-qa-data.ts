@@ -26,7 +26,7 @@ function makeEvent(input:Partial<QaEvent>&Pick<QaEvent,'id'|'slug'|'title'|'star
     latitude:null,longitude:null,location_precision:'unknown',location_verified:false,
     price_text:null,price_type:'unknown',is_free:null,reservation_required:null,organizer_name:null,
     official_url:input.official_url,category_keys:[],age_group_keys:[],indoor:null,audience_intent:'general',
-    fandom_slugs:[],accessibility_keys:[],accessibility_notes:null,image_url:null,
+    fandom_slugs:[],accessibility_keys:[],accessibility_notes:null,image_url:null,image_role:null,image_attribution:null,image_license_url:null,
     source_name:input.source_name,source_url:input.source_url,source_updated_at:null,last_verified_at:now,
     created_at:now,updated_at:now,timezone:'Asia/Tokyo',postal_code:null,status_updated_at:null,
     occurrences:[],place_external_id:null,reservation_text:null,ticket_url:null,image_source_url:null,image_license:null,

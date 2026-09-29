@@ -1192,3 +1192,19 @@ body::before{
   .event-card h2{font-size:17px;line-height:1.38}
   .event-place{font-size:12px}
 }
+
+/* Photo-first β list visual hierarchy. */
+.event-media-shell{position:relative;margin:0;overflow:hidden;background:#eef4f8}
+.event-media-shell .event-card-image{margin:0}
+.event-media-role{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;min-height:25px;padding:4px 9px;border-radius:999px;background:rgba(10,34,56,.78);color:#fff;font-size:10px;font-weight:900;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.event-media-detail{overflow:visible}
+.event-media-detail .event-media-role{bottom:34px}
+.event-media-credit{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:7px 10px;background:#f8fafc;color:#64748b;font-size:10px;line-height:1.4}
+.event-media-credit a{color:#256b9a;font-weight:800}
+@media(max-width:600px){
+  .event-media-shell:not(.event-media-detail) .event-card-image{aspect-ratio:4/3}
+  .event-card{box-shadow:0 12px 32px rgba(20,57,83,.10)}
+  .event-date{font-size:13px}
+  .event-card h2{font-size:18px;line-height:1.35}
+  .event-card-tags{gap:5px}
+}

@@ -63,6 +63,11 @@ export type EventSummary = {
   accessibility_keys: string[];
   accessibility_notes: string | null;
   image_url: string | null;
+  image_role?: 'event_official' | 'venue_official' | 'place_photo' | null;
+  image_attribution?: string | null;
+  image_source_url?: string | null;
+  image_license?: string | null;
+  image_license_url?: string | null;
   source_name: string;
   source_url: string;
   source_updated_at: string | null;
