@@ -81,6 +81,14 @@ test('municipal ODS placeholder URL falls back to feed provenance without becomi
   assert.equal(normalized.officialUrl,null);
 });
 
+test('municipal ODS slash dates canonicalize for range and freshness comparisons',()=>{
+  const s=source();
+  const parsed=parseCsv('ID,イベント名,開始日,終了日,場所名称,URL\n1,体験会,2026/09/01,2026/09/02,中央公園,https://official.test/e/1',s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.startAt,'2026-09-01');
+  assert.equal(normalized.endAt,'2026-09-02');
+});
+
 test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records without network access',()=>{
   const json=parseJsonApi({events:[{id:'a',name:'JSON event',url:'https://official.test/a'}]},source({fetchMethod:'JSON_API'}));
   assert.equal(json.items.length,1);
