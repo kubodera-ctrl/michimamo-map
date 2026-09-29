@@ -370,7 +370,7 @@ export const QA_VERIFIED_SEED_SNAPSHOTS=[
     "fandom_slugs": [
       "idolmaster-sidem"
     ],
-    "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20Joypolis%20entrance.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Tokyo_Joypolis_entrance.jpg",
     "image_role": "venue_official",
     "image_attribution": "Davepape at English Wikipedia / Wikimedia Commons",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Tokyo_Joypolis_entrance.jpg",
@@ -831,7 +831,7 @@ export const QA_VERIFIED_SEED_SNAPSHOTS=[
     "accessibility_keys": [],
     "accessibility_notes": null,
     "fandom_slugs": [],
-    "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20Skytree%20%26%20Soramachi.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Tokyo_Skytree_%26_Soramachi.jpg",
     "image_role": "place_photo",
     "image_attribution": "Kakidai / Wikimedia Commons",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_%26_Soramachi.jpg",
@@ -1709,7 +1709,7 @@ export const QA_VERIFIED_SEED_SNAPSHOTS=[
     ],
     "accessibility_notes": "障がい者手帳各種所持者と同伴者1名は入館無料。",
     "fandom_slugs": [],
-    "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sogo%20Yokohama.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Sogo_Yokohama.jpg",
     "image_role": "venue_official",
     "image_attribution": "Sakura Torch / Wikimedia Commons",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Sogo_Yokohama.jpg",
