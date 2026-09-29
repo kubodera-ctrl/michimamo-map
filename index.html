@@ -1128,6 +1128,7 @@
                     <option value="wildlife">熊・猪など害獣</option>
                     <option value="theft_warning">盗難・荒らし注意</option>
                     <option value="snow_ice_disaster">積雪・凍結・災害影響</option>
+                    <option value="police_safety">警察・防犯に関する情報</option>
                     <option value="other">その他</option>
                 </select>
                 <label style="display:flex; gap:8px; align-items:flex-start; margin-top:12px; line-height:1.5;">
@@ -2136,7 +2137,7 @@
         });
     }
 
-function shareSpot(title, address, category, event) {
+function shareSpot(title, address, category, event, anomalyType = null) {
         if(event) event.stopPropagation();
         let catStr = "危険箇所";
         if (category === 'illegal') catStr = "🔴違法駐車";
@@ -2144,7 +2145,9 @@ function shareSpot(title, address, category, event) {
         else if (category === 'reckless') catStr = "🟡暴走・騒音";
         else if (category === 'patrol') catStr = "🟢巡回情報";
         else if (category === 'abandoned') catStr = "🟣不法放置";
-        else if (category === 'local_anomaly') catStr = "🟦地域の異変";
+        else if (category === 'local_anomaly') catStr = anomalyType === 'police_safety'
+            ? "🟦地域の異変（利用者投稿：警察・防犯に関する情報）"
+            : "🟦地域の異変";
 
         const text = `📍【まちまもMAP安全情報】\n${address} 近辺で「${catStr}: ${title}」の報告があります。\n地域の安全のために確認しよう！`;
         const url = window.location.href;
@@ -2232,7 +2235,9 @@ function shareSpot(title, address, category, event) {
         const base=adminSocialCategoryLabels[spot?.category] || '地域安全情報';
         if (spot?.category==='local_anomaly') {
             const detail=localAnomalyLabels[spot.anomaly_type] || 'その他';
-            return `${base}（${detail}）`;
+            return spot.anomaly_type === 'police_safety'
+                ? `利用者投稿 · ${base}（${detail}）`
+                : `${base}（${detail}）`;
         }
         return base;
     }
@@ -2689,6 +2694,7 @@ function shareSpot(title, address, category, event) {
         wildlife:'熊・猪など害獣',
         theft_warning:'盗難・荒らし注意',
         snow_ice_disaster:'積雪・凍結・災害影響',
+        police_safety:'警察・防犯に関する情報',
         other:'その他'
     };
     const defaultVisibleCategories = [...reportCategories, 'police_station', 'koban', 'chuzaisho', 'aed'];
@@ -2958,11 +2964,11 @@ function shareSpot(title, address, category, event) {
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
         const anomalyBadge = spot.category === 'local_anomaly'
-            ? `<div style="display:inline-flex;align-items:center;gap:5px;margin:5px 0 7px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0e7490;font-size:.72rem;font-weight:900;"><i class="fa-solid fa-eye"></i>${escapeHtml(localAnomalyLabels[spot.anomaly_type] || 'その他')}</div>`
+            ? `<div style="display:inline-flex;align-items:center;gap:5px;margin:5px 0 7px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0e7490;font-size:.72rem;font-weight:900;"><i class="fa-solid fa-eye"></i>${spot.anomaly_type === 'police_safety' ? '利用者投稿 · 地域の異変（警察・防犯に関する情報）' : escapeHtml(localAnomalyLabels[spot.anomaly_type] || 'その他')}</div>`
             : '';
         const contactActions = spot.category === 'local_anomaly'
             ? `<div style="padding:8px 10px;margin-bottom:10px;border-radius:9px;background:#ecfeff;color:#155e75;font-size:.72rem;line-height:1.5;">緊急の事故・犯罪・災害は110・119へ。道路設備や生活環境の異常は自治体・道路管理者への連絡も検討してください。</div>
-               <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event)" class="popup-action-btn" style="width:100%;margin:0 0 10px;padding:8px;background:#17212b;color:white;border:none;"><i class="fa-solid fa-share-nodes"></i> 地域へ共有</button>`
+               <button onclick="shareSpot('${safeTitle}', '${safeAddress}', '${spot.category}', event, '${spot.anomaly_type || ''}')" class="popup-action-btn" style="width:100%;margin:0 0 10px;padding:8px;background:#17212b;color:white;border:none;"><i class="fa-solid fa-share-nodes"></i> 地域へ共有</button>`
             : `<div style="display:flex; gap:6px; margin-bottom:10px;">
                  <a href="tel:110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#dc2626; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-phone"></i> 110通報</a>
                  <a href="tel:#9110" class="popup-action-btn" style="flex:1; margin:0; padding:6px; background:#2563eb; color:white; border:none; text-decoration:none;"><i class="fa-solid fa-headset"></i> 相談(#9110)</a>
