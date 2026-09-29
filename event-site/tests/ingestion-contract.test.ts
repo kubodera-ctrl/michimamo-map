@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SOURCE_FETCH_METHODS,SOURCE_STAGES,conditionalHeaders,duplicateReviewRequired,sourceAutomationAllowed,sourceStageReadiness,validateNormalizedCandidate
+  SOURCE_FETCH_METHODS,SOURCE_STAGES,conditionalHeaders,duplicateReviewRequired,sourceAutomationAllowed,sourceMediaRightsReadiness,sourceStageReadiness,validateNormalizedCandidate
 } from '../../shared/machiibe-ingestion/contracts';
 
 test('ingestion adapter contract contains all planned source methods',()=>{
@@ -66,4 +66,23 @@ test('source promotion readiness keeps unknown rights as blockers',()=>{
   assert.ok(pending.missing.includes('robots'));
   const ready=sourceStageReadiness({...source,robotsStatus:'not_applicable'});
   assert.equal(ready.readyForFetch,true);
+});
+
+
+test('unknown media rights do not block lawful event facts but media stays fail closed',()=>{
+  const source:any={
+    sourceId:3,sourceName:'facts-only',sourceType:'open_data',prefecture:'三重県',municipality:null,
+    baseUrl:'https://example.test',feedUrl:'https://example.test/events.csv',fetchMethod:'OPEN_DATA',
+    termsStatus:'reviewed_allowed',robotsStatus:'not_applicable',commercialUseStatus:'allowed',
+    reuseStatus:'allowed',redistributionStatus:'allowed',cacheStatus:'allowed',
+    imageUseStatus:'unknown',snsUseStatus:'unknown',
+    attributionRequirement:'CC BY',sourceStage:'FETCH_ALLOWED',lastTermsCheckedAt:'2026-09-29T00:00:00Z',
+    updateFrequencyMinutes:1440,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,active:true,priority:100,
+    automatedFetchAllowed:true,etag:null,lastModified:null
+  };
+  assert.equal(sourceStageReadiness(source).readyForFetch,true);
+  assert.equal(sourceAutomationAllowed(source),true);
+  assert.deepEqual(sourceMediaRightsReadiness(source),{
+    displayKnown:false,cacheKnown:false,snsKnown:false,snsAllowed:false
+  });
 });
