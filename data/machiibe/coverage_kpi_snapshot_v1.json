@@ -1,46 +1,48 @@
 {
-  "version": "coverage-kpi-v1",
-  "status": "research_preview_only",
+  "version": "coverage-kpi-v2",
+  "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
-    "concretePrefectureCoverage": 26,
-    "inventoryOrDiscoveryCandidates": 84,
-    "preflightOrBetter": 45,
+    "concretePrefectureCoverage": 28,
+    "inventoryOrDiscoveryCandidates": 86,
+    "preflightOrBetter": 47,
     "termsReviewedOrBetter": 18,
     "ready": 1,
     "active": 0
   },
   "supplyFunnel": {
     "potential": {
-      "nationalDiscoveryLowerBound": 2996,
+      "nationalDiscoveryLowerBound": 3337,
       "facilityPilotLowerBound": 58,
       "oshiSourceLowerBound": 39,
       "note": "Do not sum as a publishable total because sources can overlap."
     },
-    "fetched": 0,
-    "normalized": 0,
-    "deduped": 0,
+    "fetched": 45,
+    "normalized": 45,
+    "deduped": 45,
     "valid": 0,
     "publishable": 0,
-    "active": 0
+    "active": 0,
+    "evidence": "Mie READY live dry-run / Event Site Check #729; no DB or Active writes."
   },
   "lanes": {
     "facilitySourceInstances": 2,
     "oshiSourceCandidates": 6,
     "readySourceKeys": [
       "mie-pref-events-open-data"
-    ]
+    ],
+    "oshiRealEventFixtures": 4
   },
   "blockerClasses": {
-    "userAction": [],
-    "externalWait": [
-      "latest PR24 CI/Cloudflare Preview may be in progress"
+    "userAction": [
+      "PR #1 5P / 7P / 8P / Web QA and merge decision"
     ],
+    "externalWait": [],
     "selfResolvable": [
-      "continue terms/robots/resource/freshness reviews",
-      "run READY source dry-run when network path can retrieve distributed CSV bytes",
-      "expand zero/low coverage prefecture and oshi source discovery"
+      "promote additional official CSV/JSON/API sources through full READY audit",
+      "prove at least one source through Publishable without relaxing officialUrl or rights gates",
+      "expand prefecture depth, facility instances and oshi source/fixture coverage"
     ]
   }
 }
