@@ -85,5 +85,7 @@ test('Mie documented open-data headers normalize without inventing rights or pri
   assert.equal(normalized.priceType,'unknown');
   assert.equal(normalized.imageUrl,null);
   assert.equal(normalized.imageRightsStatus,'unknown');
+  // The feed URL is a source URL, not an event-specific official URL.
+  assert.equal(normalized.officialUrl,null);
   assert.equal(buildApprovedFetchPlan(s)?.url,'https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv');
 });
