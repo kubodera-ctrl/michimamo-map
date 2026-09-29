@@ -39,16 +39,21 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   const allowed=new Set(['DISCOVERED','PREFLIGHT','TERMS_REVIEWED','ROBOTS_REVIEWED','READY','ACTIVE','BLOCKED']);
   assert.ok(registry.sources.length>=26);
   assert.ok(registry.sources.every((row:any)=>allowed.has(row.review_state)));
-  assert.ok(registry.sources.every((row:any)=>row.automated_fetch_allowed===false));
-  assert.equal(registry.counts.ready,0);
+  assert.ok(registry.sources
+    .filter((row:any)=>!['READY','ACTIVE'].includes(row.review_state))
+    .every((row:any)=>row.automated_fetch_allowed===false));
+  assert.equal(registry.counts.ready,1);
   assert.equal(registry.counts.active,0);
+  const mie=registry.sources.find((row:any)=>row.source_key==='mie-pref-events-open-data');
+  assert.equal(mie?.review_state,'READY');
+  assert.equal(mie?.automated_fetch_allowed,true);
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-odcs-national-catalog'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='mitsui-shopping-park-lalaport-network'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='ario-event-network'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='shizuoka-pref-events-open-data'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='miyagi-pref-events-dataeye'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-otsu-events'));
-  assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=17);
+  assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=23);
 });
 
 
