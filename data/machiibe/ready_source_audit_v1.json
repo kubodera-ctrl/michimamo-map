@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v3",
+  "version": "2026-09-30-ready-audit-v4",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -120,6 +120,29 @@
         "city_terms": "岡崎市オープンデータ利用規約: 営利・非営利を問わず利用・改変可、岡崎市のデータ利用である旨を表示",
         "observed_resource_update": "2026-09-02 (catalog search observation; provider pages may show older cached metadata)",
         "note": "BODIK公式API案内が当該イベントresource_idのDataStore API例を明示。画像・第三者素材はevent factsと分離しfail-closed。"
+      }
+    },
+    {
+      "source_key": "bodik-osaka-pref-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/ja/dataset/270008_event",
+        "resource_page": "https://data.bodik.jp/dataset/270008_event/resource/a6f32430-9e39-49f7-b429-6e4eadcc96de",
+        "csv": "https://data.bodik.jp/dataset/388c34d1-f97a-4865-a547-8e89c53a364a/resource/a6f32430-9e39-49f7-b429-6e4eadcc96de/download/270008_event.csv",
+        "terms": "https://odcs.bodik.jp/270008/tos/",
+        "license": "CC BY 4.0",
+        "observed_portal_update": "2026-09-07 event list shown as new/updated on Osaka portal",
+        "note": "Direct official CSV distribution. Third-party rights clause is preserved as a separate media/content gate; no image reuse is inferred."
       }
     }
   ]
