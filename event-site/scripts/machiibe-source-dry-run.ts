@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {parseCsv,normalizeCommonItem} from '../../shared/machiibe-ingestion/adapters';
-import type {SourcePolicySnapshot} from '../../shared/machiibe-ingestion/contracts';
+import type {RawSourceItem,SourcePolicySnapshot} from '../../shared/machiibe-ingestion/contracts';
 import {assessSupplyCandidate} from '../../shared/machiibe-ingestion/supply-quality';
 
 type RegistryRow={
@@ -26,7 +26,10 @@ type RegistryRow={
   automated_fetch_allowed:boolean;
   encoding?:string;
   max_fetch_bytes?:number;
+  content_type_expected?:string[];
   observed_current_items_min?:number|null;
+  expected_update_frequency?:string|null;
+  freshness_confidence?:string|null;
 };
 
 function sourceSnapshot(row:RegistryRow):SourcePolicySnapshot{
@@ -69,6 +72,22 @@ function exactIdentity(candidate:ReturnType<typeof normalizeCommonItem>){
   ].join('|');
 }
 
+function payloadHeaders(item:RawSourceItem|undefined){
+  if(!item||item.payload===null||typeof item.payload!=='object'||Array.isArray(item.payload))return [] as string[];
+  return Object.keys(item.payload as Record<string,unknown>);
+}
+function hasAny(headers:string[],candidates:string[]){
+  return candidates.some((name)=>headers.includes(name));
+}
+function canonicalDate(value:string|null){
+  if(!value)return null;
+  const match=value.trim().match(/^(\d{4})[-\/.年](\d{1,2})[-\/.月](\d{1,2})(?:日)?/);
+  if(!match)return null;
+  const month=String(Number(match[2])).padStart(2,'0');
+  const day=String(Number(match[3])).padStart(2,'0');
+  return match[1]+'-'+month+'-'+day;
+}
+
 async function main(){
   const sourceKey=process.argv[2];
   if(!sourceKey) throw new Error('usage: npm run source:dry-run -- <source_key>');
@@ -77,18 +96,28 @@ async function main(){
   const row=registry.sources.find((item)=>item.source_key===sourceKey);
   if(!row) throw new Error('source not found: '+sourceKey);
   const source=sourceSnapshot(row);
+
   const response=await fetch(source.feedUrl!,{
     method:'GET',
-    headers:{accept:'text/csv,*/*;q=0.8'},
+    headers:{accept:'text/csv,application/octet-stream,*/*;q=0.8'},
     redirect:'follow',
     signal:AbortSignal.timeout(30_000)
   });
   if(!response.ok) throw new Error('fetch failed: '+response.status);
+  const contentType=(response.headers.get('content-type')||'').split(';')[0].trim().toLowerCase();
+  const expectedTypes=(row.content_type_expected||[]).map((value)=>value.toLowerCase());
+  if(expectedTypes.length&&contentType&&!expectedTypes.includes(contentType)){
+    throw new Error('unexpected content-type: '+contentType);
+  }
+
   const bytes=new Uint8Array(await response.arrayBuffer());
   const max=row.max_fetch_bytes||10_000_000;
   if(bytes.byteLength>max) throw new Error('fetch exceeds byte limit');
-  const decoder=new TextDecoder(row.encoding||'utf-8');
-  const body=decoder.decode(bytes);
+  const encoding=(row.encoding||'utf-8').toLowerCase();
+  let body:string;
+  try{body=new TextDecoder(encoding).decode(bytes);}
+  catch{throw new Error('unsupported or invalid text encoding: '+encoding);}
+
   const parsed=parseCsv(body,source);
   const normalized=parsed.items.map((item)=>normalizeCommonItem(item,source));
   const exact=new Map<string,(typeof normalized)[number]>();
@@ -101,25 +130,76 @@ async function main(){
     timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'
   }).format(new Date());
   const assessed=deduped.map((item)=>assessSupplyCandidate(item,source,today));
+
+  const headers=payloadHeaders(parsed.items[0]);
+  const schema={
+    headers,
+    titleField:hasAny(headers,['name','title','イベント名','名称','記事タイトル']),
+    startField:hasAny(headers,['startDate','start_at','start','開始日時','開始日','イベント開始日']),
+    endField:hasAny(headers,['endDate','end_at','end','終了日時','終了日','イベント終了日']),
+    locationField:hasAny(headers,['venue_name','会場','場所','address','住所','municipality','市区町村','市区郡','市町']),
+    officialUrlField:hasAny(headers,['url','official_url','公式URL','URL','link'])
+  };
+  if(!schema.titleField||!schema.startField)throw new Error('required CSV schema fields are missing');
+
+  const startDateParseable=normalized.filter((item)=>canonicalDate(item.startAt)!==null).length;
+  const endDateParseable=normalized.filter((item)=>!item.endAt||canonicalDate(item.endAt)!==null).length;
+  const withLocation=normalized.filter((item)=>Boolean(item.venueName||item.address||item.municipality||(item.lat!==null&&item.lng!==null))).length;
+  const withOfficialUrl=normalized.filter((item)=>Boolean(item.officialUrl)).length;
+  const ended=normalized.filter((item)=>{
+    const key=canonicalDate(item.endAt||item.startAt);
+    return Boolean(key&&key<today);
+  }).length;
+  const normalizedCount=assessed.filter((item)=>item.normalized).length;
+  const invalidReasons=Object.entries(
+    assessed.flatMap((item)=>item.errors).reduce<Record<string,number>>((acc,key)=>{
+      acc[key]=(acc[key]||0)+1;return acc;
+    },{})
+  ).sort((a,b)=>b[1]-a[1]);
+
   const output={
     sourceKey,
     dryRun:true,
     databaseWrite:false,
     activeWrite:false,
-    potential:Number(row.observed_current_items_min)||0,
-    fetched:parsed.items.length,
-    normalized:normalized.filter((item)=>Boolean(item.title&&item.sourceUrl)).length,
-    deduped:deduped.length,
-    valid:assessed.filter((item)=>item.valid).length,
-    publishable:assessed.filter((item)=>item.publishable).length,
-    active:0,
-    bytes:bytes.byteLength,
-    warnings:parsed.warnings,
-    invalidReasons:Object.entries(
-      assessed.flatMap((item)=>item.errors).reduce<Record<string,number>>((acc,key)=>{
-        acc[key]=(acc[key]||0)+1;return acc;
-      },{})
-    ).sort((a,b)=>b[1]-a[1])
+    http:{
+      status:response.status,
+      contentType,
+      contentTypeAccepted:expectedTypes.length===0||!contentType||expectedTypes.includes(contentType),
+      etag:response.headers.get('etag'),
+      lastModified:response.headers.get('last-modified')
+    },
+    bytes:{received:bytes.byteLength,limit:max,withinLimit:bytes.byteLength<=max},
+    encoding:{requested:encoding,decoded:true},
+    schema,
+    quality:{
+      parserWarnings:parsed.warnings,
+      dateParse:{startParseable:startDateParseable,totalWithStart:normalized.filter((item)=>Boolean(item.startAt)).length,endParseable:endDateParseable,total:normalized.length},
+      location:{withLocation,total:normalized.length},
+      officialUrl:{withOfficialUrl,total:normalized.length,feedUrlUsedAsOfficialUrl:false},
+      identity:{unique:deduped.length,duplicatesRemoved:normalized.length-deduped.length},
+      ended:{count:ended,today}
+    },
+    policy:{
+      sourceStage:source.sourceStage,
+      attribution:source.attributionRequirement,
+      expectedUpdateFrequency:row.expected_update_frequency||null,
+      freshnessConfidence:row.freshness_confidence||null,
+      eventFactsAllowed:true,
+      mediaRightsSeparated:true,
+      imageMode:'none',
+      imageRights:'unknown'
+    },
+    funnel:{
+      potential:Number(row.observed_current_items_min)||0,
+      fetched:parsed.items.length,
+      normalized:normalizedCount,
+      deduped:deduped.length,
+      valid:assessed.filter((item)=>item.valid).length,
+      publishable:assessed.filter((item)=>item.publishable).length,
+      active:0
+    },
+    invalidReasons
   };
   process.stdout.write(JSON.stringify(output,null,2)+'\n');
 }
