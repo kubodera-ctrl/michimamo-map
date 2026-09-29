@@ -39,6 +39,18 @@ test('OPEN_DATA CSV adapter keeps source facts and does not infer missing canoni
   assert.equal(normalized.imageUrl,null);
 });
 
+test('OPEN_DATA CSV adapter tolerates quoted commas and embedded newlines',()=>{
+  const s=source();
+  const csv='event_id,イベント名,内容,開始日,終了日,市区郡,URL\\n1,"親子,体験","1行目\\n2行目",2026-10-01,2026-10-01,港区,https://official.test/e/1';
+  const parsed=parseCsv(csv,s);
+  assert.equal(parsed.items.length,1);
+  assert.deepEqual(parsed.warnings,[]);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'親子,体験');
+  assert.equal(normalized.description,'1行目\\n2行目');
+  assert.equal(normalized.officialUrl,'https://official.test/e/1');
+});
+
 test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records without network access',()=>{
   const json=parseJsonApi({events:[{id:'a',name:'JSON event',url:'https://official.test/a'}]},source({fetchMethod:'JSON_API'}));
   assert.equal(json.items.length,1);
