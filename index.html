@@ -410,7 +410,7 @@
     <link rel="stylesheet" href="nearby-safety.css">
     <link rel="stylesheet" href="aed-review.css">
     <link rel="stylesheet" href="map-menu.css">
-    <link rel="stylesheet" href="profile-v2.css?v=29-profile3">
+    <link rel="stylesheet" href="profile-v2.css?v=36-identity4">\n    <link rel="stylesheet" href="identity-ui.css?v=36-identity4">
     <link rel="stylesheet" href="point-exchange.css?v=31-digital-gift1">
 </head>
 <body>
@@ -4641,6 +4641,9 @@ function shareSpot(title, address, category, event, anomalyType = null) {
             if (adminAedReview) adminAedReview.clear();
             loadLineOfficialSettings();
         }
+
+        // Presentation-only identity state. Never used for Auth/RLS/points.
+        window.MachimamoIdentityUI?.syncSession?.(session);
     }
 
 </script>
@@ -4816,7 +4819,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
-<script src="profile-v2.js?v=29-profile3"></script>
+<script src="identity-ui.js?v=36-identity4"></script>\n<script src="profile-v2.js?v=36-identity4"></script>
 <script src="exchange-service.js?v=31-digital-gift1"></script>
 <script src="point-exchange.js?v=31-digital-gift1"></script>
 </body>
