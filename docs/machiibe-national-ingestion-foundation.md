@@ -149,20 +149,51 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 
 ## 9. Inventory current
 
-既存:
+2026-09-29時点の調査inventory:
 - Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
 - National venue discovery series: 12
+- national_source_discovery_v1.json: 23 entries
+- 総inventory/discovery候補: 61
+- 全inventoryで具体sourceが確認できている都道府県: 8（Kanto 4 + 福島/愛知/大阪/沖縄）
+- discovery file内 TERMS_REVIEWED以上: 9
+- READY: 0
+- ACTIVE: 0
 
-今回追加research:
-- Digital Agency municipal ODS event standard
-- Digital Agency municipality open-data registry
-- Tokyo Open Data: Minato/Koto/Chuo/Itabashi event CSV candidates
-- Kanagawa CKAN catalog API
+高効率source-of-sources:
+- デジタル庁 自治体標準オープンデータセット / 取組済自治体一覧
+- BODIK ODCS / CKAN
+- 東京都オープンデータ CKAN
+- 神奈川県オープンデータ CKAN
 
-Inventory/discovery候補総数: 45。
-ただし「47都道府県のイベントfeed確認済み」ではない。
-現在の具体的event-source prefecture coverageは4/47。
-デジタル庁の自治体一覧をsource-of-sourcesとして47都道府県の探索経路を作り、各自治体datasetのlicense/更新/実在を個別に確認する。
+BODIKで具体的に確認済みのイベントdataset候補:
+- 大阪府
+- 沖縄県
+- 岡崎市
+- 豊中市
+- 須賀川市
+
+施設networkの高yield候補:
+- イオンモール
+- 三井ショッピングパーク / ららぽーと
+- アリオ
+- PARCO
+
+単独施設pilot候補:
+- 東京ドームシティ
+- よみうりランド
+- 東京ソラマチ
+- 東京ジョイポリス
+- 東京スカイツリー
+- すみだ水族館
+
+これらは候補発見/Preflightであり、自動取得許可を意味しない。
+各sourceはterms/robots/resource/licenseを個別確認し、イベント本文と画像利用権を分離する。
+
+sourceを増やすだけでなく、shared/machiibe-ingestion/discovery.tsでHTML内のJSON-LD Event、RSS/Atom、ICS、CSV/XLSX、sitemap候補をpure preflightとして検出する。ネットワークアクセスやfetch許可判定は行わない。
+
+都道府県別coverageはshared/machiibe-ingestion/coverage.tsで、
+candidateSources / readySources / activeSources / activeEvents / next30DaysEvents / imageUsableEvents / imageMissingEvents / sourceFailures / duplicateMerged
+を集計可能にした。0件地域→少数地域→大都市追加の順でgapを優先できる。
 
 ## 10. Rollout
 
