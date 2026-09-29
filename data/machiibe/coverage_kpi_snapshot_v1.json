@@ -1,0 +1,46 @@
+{
+  "version": "coverage-kpi-v1",
+  "status": "research_preview_only",
+  "sourceCoverage": {
+    "prefectureCandidateCoverage": 47,
+    "prefectureTotal": 47,
+    "concretePrefectureCoverage": 26,
+    "inventoryOrDiscoveryCandidates": 84,
+    "preflightOrBetter": 45,
+    "termsReviewedOrBetter": 18,
+    "ready": 1,
+    "active": 0
+  },
+  "supplyFunnel": {
+    "potential": {
+      "nationalDiscoveryLowerBound": 2996,
+      "facilityPilotLowerBound": 58,
+      "oshiSourceLowerBound": 39,
+      "note": "Do not sum as a publishable total because sources can overlap."
+    },
+    "fetched": 0,
+    "normalized": 0,
+    "deduped": 0,
+    "valid": 0,
+    "publishable": 0,
+    "active": 0
+  },
+  "lanes": {
+    "facilitySourceInstances": 2,
+    "oshiSourceCandidates": 6,
+    "readySourceKeys": [
+      "mie-pref-events-open-data"
+    ]
+  },
+  "blockerClasses": {
+    "userAction": [],
+    "externalWait": [
+      "latest PR24 CI/Cloudflare Preview may be in progress"
+    ],
+    "selfResolvable": [
+      "continue terms/robots/resource/freshness reviews",
+      "run READY source dry-run when network path can retrieve distributed CSV bytes",
+      "expand zero/low coverage prefecture and oshi source discovery"
+    ]
+  }
+}
