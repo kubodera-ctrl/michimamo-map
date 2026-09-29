@@ -1,0 +1,173 @@
+{
+  "version": "2026-09-29-oshi-discovery-v1",
+  "status": "research_only_no_automated_fetch",
+  "rules": {
+    "automated_fetch_default": false,
+    "official_page_confirmation_required": true,
+    "social_media_discovery_only": true,
+    "image_reuse_default": false,
+    "ordinary_sale_excluded": true,
+    "limited_destination_retail_may_be_event": true
+  },
+  "sources": [
+    {
+      "source_key": "animate-only-shop",
+      "source_name": "アニメイト オンリーショップ",
+      "operator": "株式会社アニメイト",
+      "source_type": "official_retail_event",
+      "base_url": "https://www.animate.co.jp/onlyshop/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "creator"
+      ],
+      "region_coverage": "national_store_network",
+      "observed_current_items_min": 8,
+      "family_relevance": "medium",
+      "notes": "期間限定POPUP/オンリーショップ。開催期間・対象店舗・作品名が一覧化されている。"
+    },
+    {
+      "source_key": "animate-gratte",
+      "source_name": "アニメイト Gratte",
+      "operator": "株式会社アニメイト",
+      "source_type": "official_collab_cafe",
+      "base_url": "https://www.animate.co.jp/gratte/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "collab_cafe",
+        "collab_food",
+        "limited_shop"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "creator",
+        "vtuber"
+      ],
+      "region_coverage": "multi_store",
+      "observed_current_items_min": 10,
+      "family_relevance": "medium",
+      "notes": "作品・VTuber等の期間限定コラボ飲食。開催期間・店舗を公式一覧で確認。"
+    },
+    {
+      "source_key": "tower-records-store-events",
+      "source_name": "タワーレコード 店舗イベント",
+      "operator": "タワーレコード株式会社",
+      "source_type": "official_retail_event",
+      "base_url": "https://tower.jp/store/event",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "mini_live",
+        "talk_show",
+        "signing",
+        "photo_session",
+        "handover"
+      ],
+      "entity_types": [
+        "talent",
+        "idol",
+        "creator",
+        "group"
+      ],
+      "region_coverage": "national_store_network",
+      "observed_current_items_min": 4,
+      "family_relevance": "low",
+      "notes": "開催日時・店舗・出演・イベント種別・参加方法を個別公式ページで確認可能。"
+    },
+    {
+      "source_key": "bandainamco-amusement-events",
+      "source_name": "バンダイナムコアミューズメント イベント・キャンペーン",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_amusement_event",
+      "base_url": "https://bandainamco-am.co.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "experience",
+        "character_show",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 5,
+      "family_relevance": "high",
+      "notes": "ポケモン・プリキュア・アイドル作品等の期間イベントを確認。通常キャンペーンと来場目的イベントを分類する。"
+    },
+    {
+      "source_key": "namjatown-collab-events",
+      "source_name": "ナンジャタウン コラボ・催事",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_theme_park_event",
+      "base_url": "https://bandainamco-am.co.jp/tp/namja/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "collab_food",
+        "experience",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 8,
+      "family_relevance": "high",
+      "notes": "作品コラボの開催期間が一覧化されている。終了/開催中判定に向く。"
+    },
+    {
+      "source_key": "bandainamco-crossstore-events",
+      "source_name": "バンダイナムコ Cross Store イベント",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_retail_amusement_event",
+      "base_url": "https://bandainamco-am.co.jp/crossstore/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "experience",
+        "limited_shop",
+        "exhibition",
+        "collab_food"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "multi_facility",
+      "observed_current_items_min": 4,
+      "family_relevance": "high",
+      "notes": "東京・横浜・京都・大阪梅田・博多等を横断。月別/施設別の導線を確認。"
+    }
+  ]
+}
