@@ -72,3 +72,51 @@ export function discoverSourceHintsFromHtml(html:string,baseUrl:string):SourceDi
 
   return unique(hints);
 }
+
+
+export type EventPageCandidate={
+  url:string;
+  label:string;
+  confidence:'high'|'medium';
+};
+
+/**
+ * Pure discovery helper for facility/network homepages. It only identifies
+ * same-network event/calendar/campaign links from supplied HTML. It never
+ * fetches them and never marks them approved for ingestion.
+ */
+export function discoverEventPageCandidatesFromHtml(
+  html:string,
+  baseUrl:string,
+  allowedHostSuffixes:string[]=[]
+):EventPageCandidate[]{
+  let base:URL;
+  try{base=new URL(baseUrl);}catch{return [];}
+  const allowed=(host:string)=>host===base.hostname
+    || allowedHostSuffixes.some((suffix)=>host===suffix||host.endsWith('.'+suffix));
+  const out:EventPageCandidate[]=[];
+  for(const match of html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)){
+    const attrs=match[1];
+    const href=attrs.match(/\bhref=["']([^"']+)["']/i)?.[1];
+    if(!href) continue;
+    const absolute=absoluteUrl(href,baseUrl);
+    if(!absolute) continue;
+    let url:URL;
+    try{url=new URL(absolute);}catch{continue;}
+    if(!allowed(url.hostname)) continue;
+    const label=match[2].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,160);
+    const hay=(label+' '+url.pathname+' '+url.search).toLowerCase();
+    if(/login|member|account|mypage|recruit/.test(hay)) continue;
+    const high=/(event|events|イベント|催事|popup|ポップアップ|calendar|カレンダー)/i.test(hay);
+    const medium=/(campaign|キャンペーン|show|live|workshop|ワークショップ)/i.test(hay);
+    if(!high&&!medium) continue;
+    out.push({url:url.toString(),label,confidence:high?'high':'medium'});
+  }
+  const seen=new Set<string>();
+  return out.filter((item)=>{
+    const key=item.url.replace(/#.*$/,'');
+    if(seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
