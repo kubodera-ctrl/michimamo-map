@@ -13,6 +13,8 @@ assert.equal(zones.isMinuteInWindow(19*60+59,kan2.startMinute,kan2.endMinute),fa
 assert.equal(zones.formatWindow(kan2),'20:00〜24:00');
 assert.equal(kan2.geometryQuality,'approximate_beta');
 assert.equal(miyako.geometryQuality,'approximate_beta');
+const segDistance=zones.distanceToPolylineMeters([35.64115,139.7902],[[35.6400,139.7900],[35.6423,139.7904]]);
+assert.ok(segDistance<50,'proximity must measure to the road segment, not only vertices');
 for(const zone of zones.TOKYO_WANGAN_ZONES){
   assert.equal(zone.agency,'警視庁');
   assert.ok(zone.route&&zone.startLabel&&zone.endLabel&&zone.sourcePdf);
