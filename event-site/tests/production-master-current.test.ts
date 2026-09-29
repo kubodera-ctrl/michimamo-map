@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {
   MACHIIBE_CAROUSEL_MASTER_VERSION,
   MACHIIBE_CAROUSEL_TEMPLATE_VERSION,
@@ -101,4 +102,14 @@ test('publishEligible requires every QC gate plus admin approval',()=>{
 test('Machiibe VIDEO stays inactive until a formal Machiibe VIDEO CURRENT exists',()=>{
   assert.equal(MACHIIBE_VIDEO_CURRENT.active,false);
   assert.match(MACHIIBE_VIDEO_CURRENT.reason,/Do not substitute/);
+});
+
+
+test('production create does not promote Web-only image permission to SNS media rights',()=>{
+  const route=fs.readFileSync(new URL('../app/api/admin/production/create/route.ts',import.meta.url),'utf8');
+  assert.match(route,/only proves Web display permission/);
+  assert.match(route,/mediaUrl:null/);
+  assert.match(route,/mediaRightsStatus:'unknown'/);
+  assert.match(route,/imageMode:'none'/);
+  assert.doesNotMatch(route,/mediaRightsStatus:event\.image_url\?'approved':'unknown'/);
 });
