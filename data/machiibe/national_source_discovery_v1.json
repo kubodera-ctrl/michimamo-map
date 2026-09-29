@@ -1009,7 +1009,14 @@
       "terms_difficulty": "low",
       "maintenance_cost": "low",
       "freshness_confidence": "high",
-      "notes": "県公式がCSV直リンクをデータファイルとして明示配布。毎日午前7時ごろ更新予定。CC BY 4.0。画像項目はなく、第三者権利は本文/個別内容で別gate。2026-09-29公式イベント検索ではこれから開催66件を確認。"
+      "notes": "県公式がCSV直リンクをデータファイルとして明示配布。毎日午前7時ごろ更新予定。CC BY 4.0。画像項目はなく、第三者権利は本文/個別内容で別gate。2026-09-29公式イベント検索ではこれから開催66件を確認。",
+      "encoding": "shift_jis",
+      "max_fetch_bytes": 10000000,
+      "content_type_expected": [
+        "text/csv",
+        "application/octet-stream"
+      ],
+      "fetch_notes": "application/octet-stream配信を許容し、bytes上限確認後にShift-JISでdecodeする。"
     }
   ]
 }
