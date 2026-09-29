@@ -19,3 +19,8 @@ Operational rules:
 - display permission does not imply R2/SNS permission.
 - although these licenses allow reuse, actual R2 caching and SNS publishing remain separate gates.
 - no Production write from this file.
+
+URL handling:
+- display media uses the stable upload.wikimedia.org file URL.
+- attribution/source continues to link to the Wikimedia Commons file-description page.
+- license URL is stored separately.
