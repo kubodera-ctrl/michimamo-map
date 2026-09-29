@@ -152,10 +152,10 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 2026-09-29時点の調査inventory:
 - Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
 - National venue discovery series: 12
-- national_source_discovery_v1.json: 27 entries
-- 総inventory/discovery候補: 65
-- 全inventoryで具体sourceが確認できている都道府県: 10（Kanto 4 + 福島/愛知/大阪/沖縄/長崎/宮崎）
-- discovery file内 TERMS_REVIEWED以上: 11
+- national_source_discovery_v1.json: 29 entries
+- 総inventory/discovery候補: 67
+- 全inventoryで具体sourceが確認できている都道府県: 12（Kanto 4 + 福島/愛知/大阪/沖縄/長崎/宮崎/大分/鹿児島）
+- discovery file内 TERMS_REVIEWED以上: 13
 - READY: 0
 - ACTIVE: 0
 
@@ -173,6 +173,8 @@ BODIKで具体的に確認済みのイベントdataset候補:
 - 須賀川市
 - 長崎市（月別行事予定）
 - 宮崎市
+- 竹田市
+- 奄美市
 
 施設networkの高yield候補:
 - イオンモール
