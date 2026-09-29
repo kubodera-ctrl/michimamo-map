@@ -191,7 +191,7 @@ async function main(){
       imageRights:'unknown'
     },
     funnel:{
-      potential:Number(row.observed_current_items_min)||0,
+      potential:Math.max(Number(row.observed_current_items_min)||0,parsed.items.length),
       fetched:parsed.items.length,
       normalized:normalizedCount,
       deduped:deduped.length,
