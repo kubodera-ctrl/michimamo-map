@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {
   buildApprovedFetchPlan,buildDryRunFetchPlan,normalizeCommonItem,parseCsv,parseHtmlStructured,
   parseIcs,parseJsonApi,parseRssAtom
@@ -70,10 +71,7 @@ test('Mie documented open-data headers normalize without inventing rights or pri
     sourceStage:'FETCH_ALLOWED',lastTermsCheckedAt:'2026-09-29',
     automatedFetchAllowed:true
   });
-  const csv=[
-    'カテゴリ,エリア,市町,記事タイトル,日時,場所,申し込み,料金,問い合わせ先,内容,イベント開始日,イベント終了日',
-    '文化,中勢,津市,テストイベント,2026年10月10日,テスト会場,不要,詳細は公式情報を確認,担当課,テスト本文,2026-10-10,2026-10-10'
-  ].join('\n');
+  const csv=fs.readFileSync(new URL('../../data/machiibe/fixtures/mie_open_data_schema_fixture.csv',import.meta.url),'utf8');
   const parsed=parseCsv(csv,s);
   assert.equal(parsed.items.length,1);
   const normalized=normalizeCommonItem(parsed.items[0],s);
