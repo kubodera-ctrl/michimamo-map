@@ -8,10 +8,10 @@ import {
 } from '../../shared/machiibe-ingestion/coverage';
 
 const sources:CoverageSource[]=[
-  {sourceId:'a',prefecture:'東京都',reviewState:'ACTIVE',failureCount:1},
-  {sourceId:'b',prefecture:'東京都',reviewState:'READY',failureCount:0},
-  {sourceId:'c',prefecture:'鳥取県',reviewState:'TERMS_REVIEWED',failureCount:2},
-  {sourceId:'d',prefecture:'沖縄県',reviewState:'PREFLIGHT',failureCount:0}
+  {sourceId:'a',prefecture:'東京都',reviewState:'ACTIVE',failureCount:1,observedCurrentItemsMin:12},
+  {sourceId:'b',prefecture:'東京都',reviewState:'READY',failureCount:0,observedCurrentItemsMin:5},
+  {sourceId:'c',prefecture:'鳥取県',reviewState:'TERMS_REVIEWED',failureCount:2,observedCurrentItemsMin:20},
+  {sourceId:'d',prefecture:'沖縄県',reviewState:'PREFLIGHT',failureCount:0,observedCurrentItemsMin:null}
 ];
 
 const events:CoverageEvent[]=[
@@ -34,7 +34,8 @@ test('coverage summary separates source readiness, live events, images and dedup
     imageUsableEvents:1,
     imageMissingEvents:1,
     sourceFailures:1,
-    duplicateMerged:1
+    duplicateMerged:1,
+    observedPotentialEventsMin:17
   });
   assert.equal(rows[1].activeEvents,0);
   assert.equal(rows[1].sourceFailures,2);
@@ -46,4 +47,11 @@ test('coverage gap ranking prioritizes zero-event prefectures before dense areas
   const ranked=rankCoverageGaps(rows);
   assert.deepEqual(ranked.slice(0,2).map((row)=>row.prefecture),['沖縄県','鳥取県']);
   assert.equal(ranked[2].prefecture,'東京都');
+});
+
+
+test('research yield stays separate from active event counts',()=>{
+  const rows=summarizePrefectureCoverage(['鳥取県'],sources,events,'2026-09-29');
+  assert.equal(rows[0].activeEvents,0);
+  assert.equal(rows[0].observedPotentialEventsMin,20);
 });
