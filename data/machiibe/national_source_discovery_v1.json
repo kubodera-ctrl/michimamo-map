@@ -4,9 +4,10 @@
   "counts": {
     "existing_kanto_registry": 26,
     "existing_national_venue_series": 12,
+    "discovery_file_sources": 23,
     "newly_researched_official_open_data": 10,
-    "total_inventory_or_discovery_candidates": 23,
-    "concrete_existing_prefecture_coverage": 4,
+    "total_inventory_or_discovery_candidates": 61,
+    "concrete_prefecture_coverage_from_all_inventories": 8,
     "preflight_or_better": 22,
     "terms_reviewed_or_better": 9,
     "ready": 0,
