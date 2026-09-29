@@ -63,9 +63,14 @@ function eventToInput(event:EventDetail){
     officialUrl:event.official_url,
     sourceName:event.source_name,
     sourceCheckedAt:event.last_verified_at,
-    mediaUrl:event.image_url,
-    mediaRightsStatus:event.image_url?'approved':'unknown',
-    imageMode:event.image_url?'official':'none',
+    // PR #1's public event contract only proves Web display permission
+    // (image_usage_status='allowed'). It does not expose the separate
+    // cache/commercial/SNS rights needed to reuse that image in generated media.
+    // Keep CAROUSEL media fail-closed until an explicit SNS rights contract is
+    // surfaced by the ingestion layer.
+    mediaUrl:null,
+    mediaRightsStatus:'unknown',
+    imageMode:'none',
     imageDisclaimer:null,
     isCancelled:event.event_status==='cancelled',
     isPostponed:event.event_status==='postponed',
