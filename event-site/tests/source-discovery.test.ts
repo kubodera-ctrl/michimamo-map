@@ -42,11 +42,15 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   assert.ok(registry.sources
     .filter((row:any)=>!['READY','ACTIVE'].includes(row.review_state))
     .every((row:any)=>row.automated_fetch_allowed===false));
-  assert.equal(registry.counts.ready,1);
+  assert.equal(registry.counts.ready,registry.sources.filter((row:any)=>row.review_state==='READY').length);
+  assert.ok(registry.counts.ready>=2);
   assert.equal(registry.counts.active,0);
   const mie=registry.sources.find((row:any)=>row.source_key==='mie-pref-events-open-data');
+  const okazaki=registry.sources.find((row:any)=>row.source_key==='bodik-okazaki-events');
   assert.equal(mie?.review_state,'READY');
   assert.equal(mie?.automated_fetch_allowed,true);
+  assert.equal(okazaki?.review_state,'READY');
+  assert.equal(okazaki?.automated_fetch_allowed,true);
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-odcs-national-catalog'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='mitsui-shopping-park-lalaport-network'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='ario-event-network'));
