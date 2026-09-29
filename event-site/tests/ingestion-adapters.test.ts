@@ -55,3 +55,37 @@ test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records withou
   assert.equal(normalized.startAt,'2026-10-01');
   assert.equal(normalized.imageRightsStatus,'unknown');
 });
+
+
+test('Mie documented open-data headers normalize without inventing rights or price facts',()=>{
+  const s=source({
+    sourceName:'三重県 お知らせ・イベント情報一覧 Open Data CSV',
+    prefecture:'三重県',
+    baseUrl:'https://www.pref.mie.lg.jp/EVENTS/opendata.htm',
+    feedUrl:'https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv',
+    termsStatus:'reviewed_allowed',robotsStatus:'not_applicable',
+    commercialUseStatus:'allowed',reuseStatus:'allowed',
+    redistributionStatus:'allowed',cacheStatus:'allowed',
+    imageUseStatus:'not_applicable',snsUseStatus:'allowed',
+    sourceStage:'FETCH_ALLOWED',lastTermsCheckedAt:'2026-09-29',
+    automatedFetchAllowed:true
+  });
+  const csv=[
+    'カテゴリ,エリア,市町,記事タイトル,日時,場所,申し込み,料金,問い合わせ先,内容,イベント開始日,イベント終了日',
+    '文化,中勢,津市,テストイベント,2026年10月10日,テスト会場,不要,詳細は公式情報を確認,担当課,テスト本文,2026-10-10,2026-10-10'
+  ].join('\n');
+  const parsed=parseCsv(csv,s);
+  assert.equal(parsed.items.length,1);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'テストイベント');
+  assert.equal(normalized.description,'テスト本文');
+  assert.equal(normalized.startAt,'2026-10-10');
+  assert.equal(normalized.endAt,'2026-10-10');
+  assert.equal(normalized.municipality,'津市');
+  assert.equal(normalized.venueName,'テスト会場');
+  assert.equal(normalized.category,'文化');
+  assert.equal(normalized.priceType,'unknown');
+  assert.equal(normalized.imageUrl,null);
+  assert.equal(normalized.imageRightsStatus,'unknown');
+  assert.equal(buildApprovedFetchPlan(s)?.url,'https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv');
+});
