@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-09-30T08:30:00+09:00",
+  "project_ref": "ckftozjhdszlwqnylmxv",
+  "slug": "line-auth",
+  "id": "cc617666-1c15-4df7-b55f-91a4b32450da",
+  "version": 3,
+  "status": "ACTIVE",
+  "verify_jwt": false,
+  "files": [
+    {
+      "name": "index.ts",
+      "chars": 22123
+    }
+  ],
+  "purpose": "Rollback source before enabling shared persistent rate limit"
+}
