@@ -12,6 +12,7 @@ export type CoverageSource = {
   prefecture:string|null;
   reviewState:SourceReviewState;
   failureCount:number;
+  observedCurrentItemsMin?:number|null;
 };
 
 export type CoverageEvent = {
@@ -35,6 +36,7 @@ export type PrefectureCoverageRow = {
   imageMissingEvents:number;
   sourceFailures:number;
   duplicateMerged:number;
+  observedPotentialEventsMin:number;
 };
 
 const DAY=86_400_000;
@@ -79,7 +81,13 @@ export function summarizePrefectureCoverage(
       imageUsableEvents:live.filter((event)=>event.imageUsable).length,
       imageMissingEvents:live.filter((event)=>!event.imageUsable).length,
       sourceFailures:sourceRows.reduce((sum,source)=>sum+Math.max(0,source.failureCount||0),0),
-      duplicateMerged:eventRows.reduce((sum,event)=>sum+Math.max(0,new Set(event.sourceIds).size-1),0)
+      duplicateMerged:eventRows.reduce((sum,event)=>sum+Math.max(0,new Set(event.sourceIds).size-1),0),
+      // Research-only lower bound from source pages. This is NOT an ingested,
+      // deduplicated or currently valid event count and must never be reported
+      // as activeEvents/next30DaysEvents.
+      observedPotentialEventsMin:sourceRows
+        .filter((source)=>source.reviewState!=='BLOCKED')
+        .reduce((sum,source)=>sum+Math.max(0,source.observedCurrentItemsMin||0),0)
     };
   });
 }
