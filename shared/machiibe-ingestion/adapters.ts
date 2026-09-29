@@ -222,10 +222,10 @@ function schemaPlace(obj:UnknownRecord){
 export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapshot):NormalizedEventCandidate{
   const obj=record(item.payload)||{};
   const place=schemaPlace(obj);
-  const title=pick(obj,['name','title','イベント名','名称']);
-  const description=pick(obj,['description','summary','概要']);
-  const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日']);
-  const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日']);
+  const title=pick(obj,['name','title','イベント名','名称','記事タイトル']);
+  const description=pick(obj,['description','summary','概要','内容']);
+  const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']);
+  const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']);
   const officialUrl=pick(obj,['url','official_url','公式URL'])||item.sourceUrl;
   const priceRaw=pick(obj,['price_type','料金区分']);
   const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'?priceRaw:'unknown';
@@ -237,7 +237,7 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
     sourceUpdatedAt:item.sourceUpdatedAt,sourceHash:item.sourceHash,
     title,description,startAt,endAt,timezone:'Asia/Tokyo',
     prefecture:place.prefecture||pick(obj,['prefecture','都道府県']),
-    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡']),
+    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町']),
     address:place.address||pick(obj,['address','住所']),lat,lng,
     venueName:place.venueName||pick(obj,['venue_name','会場','場所']),
     venueType:pick(obj,['venue_type']),category:pick(obj,['category','カテゴリ']),
