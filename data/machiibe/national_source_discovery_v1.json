@@ -4,12 +4,12 @@
   "counts": {
     "existing_kanto_registry": 26,
     "existing_national_venue_series": 12,
-    "discovery_file_sources": 26,
-    "newly_researched_official_open_data": 11,
-    "total_inventory_or_discovery_candidates": 64,
-    "concrete_prefecture_coverage_from_all_inventories": 9,
-    "preflight_or_better": 25,
-    "terms_reviewed_or_better": 10,
+    "discovery_file_sources": 27,
+    "newly_researched_official_open_data": 12,
+    "total_inventory_or_discovery_candidates": 65,
+    "concrete_prefecture_coverage_from_all_inventories": 10,
+    "preflight_or_better": 26,
+    "terms_reviewed_or_better": 11,
     "ready": 0,
     "active": 0
   },
@@ -574,6 +574,28 @@
       "yield_class": "high",
       "observed_current_items_min": 10,
       "notes": "あべのキューズモールでキッズ/芸能/体験/POPUPの今後イベント一覧を確認。施設別source展開候補。"
+    },
+    {
+      "source_key": "bodik-miyazaki-city-events",
+      "source_name": "宮崎市のイベント一覧（BODIK ODCS）",
+      "role": "event_feed_candidate",
+      "source_type": "open_data",
+      "prefecture": "宮崎県",
+      "municipality": "宮崎市",
+      "coverage": "宮崎市",
+      "base_url": "https://data.bodik.jp/dataset/452017_event",
+      "feed_url": null,
+      "fetch_method": "OPEN_DATA",
+      "terms_status": "license_identified_cc_by_4_0",
+      "robots_status": "pending",
+      "commercial_use_status": "allowed_with_attribution",
+      "attribution_requirement": "CC BY 4.0 / 宮崎市・データセット表示",
+      "automated_fetch_allowed": false,
+      "priority": 96,
+      "review_state": "TERMS_REVIEWED",
+      "yield_class": "medium",
+      "observed_current_items_min": null,
+      "notes": "公式イベント一覧CSV。2026-03-17最終更新、frequency=随時を確認。robots/resource URL確認前にREADYへ上げない。画像権利はイベント本文とは別。"
     }
   ]
 }
