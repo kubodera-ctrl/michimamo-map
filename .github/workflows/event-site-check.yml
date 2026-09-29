@@ -65,6 +65,10 @@ jobs:
         run: npm run typecheck
       - name: Unit tests
         run: npm test
+      - name: Live READY source dry-run (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- mie-pref-events-open-data
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
