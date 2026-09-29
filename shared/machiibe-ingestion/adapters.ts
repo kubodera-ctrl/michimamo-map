@@ -250,14 +250,22 @@ function schemaPlace(obj:UnknownRecord){
     prefecture:address?pick(address,['addressRegion']):null
   };
 }
+function canonicalDateOnly(value:string|null){
+  if(!value)return null;
+  const match=value.trim().match(/^(\d{4})[-\/.年](\d{1,2})[-\/.月](\d{1,2})(?:日)?$/);
+  if(!match)return value;
+  const month=String(Number(match[2])).padStart(2,'0');
+  const day=String(Number(match[3])).padStart(2,'0');
+  return match[1]+'-'+month+'-'+day;
+}
 
 export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapshot):NormalizedEventCandidate{
   const obj=record(item.payload)||{};
   const place=schemaPlace(obj);
   const title=pick(obj,['name','title','イベント名','名称','記事タイトル']);
   const description=pick(obj,['description','summary','概要','内容']);
-  const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']);
-  const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']);
+  const startAt=canonicalDateOnly(pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']));
+  const endAt=canonicalDateOnly(pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']));
   const explicitOfficialUrl=
     webUrl(obj.url)||webUrl(obj.official_url)||webUrl(obj['公式URL'])||webUrl(obj['URL'])||
     webUrl(obj['コンテンツURL'])||webUrl(obj.link);
