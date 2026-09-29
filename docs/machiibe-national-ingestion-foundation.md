@@ -325,3 +325,41 @@ shared/machiibe-ingestion/discovery.tsのfacility event-page discoveryはHTMLか
 既存の観光三重はイベント数が多いが、サイトポリシー上の再利用制限が強いため自動取得sourceとして使わず、県公式Open Dataを優先する。
 
 SourcePolicyのREADY判定も修正し、event fact取得可否とimage/SNS二次利用権を分離した。画像権利unknownはmediaをfail-closedにするが、合法なevent facts自体は捨てない。
+
+
+## 17. Oshi / discovery foundation
+
+Drive CURRENTの「まちイベ完成形ロードマップ｜全国網羅・推し活・再訪UX（正式方針）」を正式基準として、β RCを変更せずPR #24側で将来データ構造を準備する。
+
+推し活entity:
+- work / franchise / character
+- talent / idol / voice_actor
+- youtuber / tiktoker / vtuber / influencer / creator / group
+- canonical name + aliases + parent/related entity
+- eventとのrelationは featured / appearing / collaboration / subject / host
+
+推し活event type:
+talk_show / stage_greeting / fan_meeting / live / mini_live / greeting / character_show / popup_store / limited_shop / collab_cafe / collab_food / exhibition / original_art_exhibition / handover / signing / photo_session / workshop / experience
+
+期間限定物販は、来場自体が目的になるPOPUP・展示・体験等をevent候補に含める。通常sale/point campaignは除外する。
+
+公式source PREFLIGHT:
+- animate Only Shop
+- animate Gratte
+- Tower Records store events
+- Bandai Namco Amusement events
+- NAMJATOWN collaboration events
+- Bandai Namco Cross Store events
+
+いずれも自動fetch/公開許可を意味せず、terms/robots/resource確認前はPREFLIGHTのまま。
+
+予約:
+unknown / not_required / required / lottery / first_come / same_day と、
+unknown / upcoming / open / closed / full / cancelled を分離する。
+
+検索0件自己改善:
+raw queryを保存せず、prefecture/municipality/entity/event type/date modeの構造化dimensionでgap signalを集計する。zero/low resultと検索回数からsource discovery優先度へ戻す。
+
+β直後Discovery lane:
+for_you / oshi_new / today / tomorrow / weekend / nearby / ending_soon / free / rainy_day / limited_shop / collab_cafe / character_anime / appearance。
+現PR #1 UIには追加せず、データ契約とテストのみ先行する。
