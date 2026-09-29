@@ -33,9 +33,9 @@ test('event cards preserve search return state and keep the list hierarchy conci
 test('Preview QA can show licensed venue/place photos without confusing them with event artwork',()=>{
   const seed=fs.readFileSync(new URL('../lib/machiibe-search-qa-seed.generated.ts',import.meta.url),'utf8');
   const media=fs.readFileSync(new URL('../components/EventMedia.tsx',import.meta.url),'utf8');
-  assert.match(seed,/Tokyo%20Joypolis%20entrance\.jpg/);
-  assert.match(seed,/Tokyo%20Skytree%20%26%20Soramachi\.jpg/);
-  assert.match(seed,/Sogo%20Yokohama\.jpg/);
+  assert.match(seed,/Tokyo_Joypolis_entrance\\.jpg/);
+  assert.match(seed,/Tokyo_Skytree_%26_Soramachi\\.jpg/);
+  assert.match(seed,/Sogo_Yokohama\\.jpg/);
   assert.match(seed,/CC BY 2\.5/);
   assert.match(seed,/CC BY-SA 4\.0/);
   assert.match(media,/会場イメージ/);
