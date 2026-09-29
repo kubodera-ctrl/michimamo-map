@@ -7,6 +7,7 @@ import {
 } from '@/lib/events';
 import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
 import {buildQaEvents,qaEventBySlug} from '@/lib/machiibe-search-qa-data';
+import {EventMedia} from '@/components/EventMedia';
 import {machimamoMapUrl} from '@/lib/url-config';
 
 export const metadata:Metadata={title:'イベント詳細 QA',robots:{index:false,follow:false}};
@@ -40,7 +41,7 @@ export default async function QaEventDetail({params,searchParams}:{params:Params
       <nav className="breadcrumb"><Link href={returnTo}>← 同じ検索条件へ戻る</Link><span>›</span><span>{event.title}</span></nav>
       <div className="admin-warning">fixtureOnly=true / {event.qaKind==='verified_ci'?'CI verified factual fixture':'synthetic QA fixture'}。Production・SNS・ASP・SEOには入りません。</div>
       <article className="detail-card">
-        {event.image_url?<img className="detail-image" src={event.image_url} alt={event.title}/>:<div className="detail-image detail-fallback">画像権利未確認のためQAでは未使用</div>}
+        <EventMedia event={event} detail eager />
         <div className="detail-body">
           <div className="tag-row">
             <span className="tag">{formatDurationLocalized(event.duration_days,'ja')}</span>
