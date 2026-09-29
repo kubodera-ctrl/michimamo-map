@@ -68,7 +68,9 @@ jobs:
       - name: Live READY source dry-run (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
-        run: npm run source:dry-run -- mie-pref-events-open-data
+        run: |
+          npm run source:dry-run -- mie-pref-events-open-data
+          npm run source:dry-run -- bodik-okazaki-events
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
