@@ -15,7 +15,10 @@
     apple: 'Apple'
   });
   const MAX_INDIVIDUAL_BADGES = 2;
-  const QA_HOSTS = new Set([\n    'machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app',\n    'machimamo-map-git-feat-dev38-identity-only-miti4.vercel.app'\n  ]);
+  const QA_HOSTS = new Set([
+    'machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app',
+    'machimamo-map-git-feat-dev38-identity-only-miti4.vercel.app'
+  ]);
   const GENERATED_SOURCES = Object.freeze(['generated','generated_v2']);
 
   function normalizeProvider(value) {
