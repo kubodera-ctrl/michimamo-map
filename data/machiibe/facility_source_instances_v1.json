@@ -1,0 +1,63 @@
+{
+  "version": "2026-09-29-facility-instances-v1",
+  "status": "research_only_no_automated_fetch",
+  "rules": {
+    "automated_fetch_default": false,
+    "event_page_discovery_does_not_imply_publishable": true,
+    "image_reuse_default": false,
+    "individual_facility_confirmation_required": true
+  },
+  "instances": [
+    {
+      "source_key": "lalaport-tokyo-bay-events",
+      "network_key": "mitsui-shopping-park-lalaport-network",
+      "facility_name": "ららぽーとTOKYO-BAY",
+      "prefecture": "千葉県",
+      "municipality": "船橋市",
+      "homepage_url": "https://mitsui-shopping-park.com/lalaport/tokyo-bay/",
+      "event_url": "https://mitsui-shopping-park.com/lalaport/tokyo-bay/event/index.html",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 38,
+      "event_categories": [
+        "show",
+        "music_live",
+        "workshop",
+        "exhibition",
+        "sports",
+        "gourmet",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-09-29公式イベント・キャンペーン一覧で全38件。講演・ショー/音楽・ライブ/ワークショップ等の分類あり。キャンペーンとイベントはnormalize時に分離する。"
+    },
+    {
+      "source_key": "qs-amagasaki-events",
+      "network_key": "qs-mall-event-network",
+      "facility_name": "あまがさきキューズモール",
+      "prefecture": "兵庫県",
+      "municipality": "尼崎市",
+      "homepage_url": "https://qs-mall.jp/amagasaki/",
+      "event_url": "https://qs-mall.jp/amagasaki/event/",
+      "calendar_url": "https://qs-mall.jp/amagasaki/event/calendar/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 20,
+      "event_categories": [
+        "character",
+        "entertainment",
+        "family",
+        "workshop",
+        "seasonal",
+        "exhibition",
+        "campaign"
+      ],
+      "family_relevance": "very_high",
+      "notes": "2026-09-29公式EVENT・POPUPで仮面ライダー、親子ひろば、体験型、芸能等を確認。カレンダー導線あり。販促/物販催事と体験イベントを分類する。"
+    }
+  ]
+}
