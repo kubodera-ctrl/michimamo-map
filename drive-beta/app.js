@@ -14,6 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 const enforcementLayer=L.layerGroup().addTo(map);
 const accidentLayer=L.layerGroup().addTo(map);
 const zoneLines=new Map();
+const resolvedGeometries=new Map();
 let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
 let accidentRequest=0,lastAlert={id:null,at:0};
 
@@ -33,11 +34,12 @@ function activeZones(){return zonesApi.TOKYO_WANGAN_ZONES.filter(z=>zonesApi.isZ
 
 function zonePopup(zone){
   const active=zonesApi.isZoneActive(zone);
+  const routed=resolvedGeometries.has(zone.id);
   return '<div class="popup-title">🚓 '+esc(zone.route)+'</div>'+
     '<div class="popup-status '+(active?'on':'off')+'">'+(active?'現在、重点時間帯':'重点時間帯外')+'</div>'+
     '<div class="popup-line">'+esc(zone.startLabel)+' 〜 '+esc(zone.endLabel)+'</div>'+
     '<div class="popup-line">重点時間 '+esc(zonesApi.formatWindow(zone))+' ／ 規制速度 '+esc(zone.speedKmh)+'km/h</div>'+
-    (zone.geometryQuality?'<div class="popup-note">道路線形はβ用の概略表示です。</div>':'')+
+    (routed?'<div class="popup-note">道路表示は実道路ルーティングに沿ったβ表示です。</div>':'')+
     '<div class="popup-note">警視庁が公表する速度取締重点路線・重点時間帯です。現在その場所で取締りを実施中であることを示すものではありません。</div>'+
     '<a class="popup-source" href="'+esc(zone.sourcePdf)+'" target="_blank" rel="noopener noreferrer">出典：警視庁 東京湾岸警察署速度取締指針</a>';
 }
@@ -46,9 +48,10 @@ function renderEnforcement(){
   enforcementLayer.clearLayers();zoneLines.clear();
   if(!enforcementVisible)return;
   for(const zone of zonesApi.TOKYO_WANGAN_ZONES){
-    if(!zone.geometry)continue;
+    const geometry=resolvedGeometries.get(zone.id);
+    if(!geometry)continue;
     const active=zonesApi.isZoneActive(zone);
-    const line=L.polyline(zone.geometry,{
+    const line=L.polyline(geometry,{
       color:active?'#dc2626':'#f59e0b',
       weight:active?10:7,
       opacity:active?.9:.72,
@@ -66,12 +69,41 @@ function renderEnforcement(){
   updateStatus();
 }
 
+async function resolveRoadGeometry(zone){
+  if(!zone.routeEndpoints||zone.routeEndpoints.length!==2)return null;
+  const [[lat1,lng1],[lat2,lng2]]=zone.routeEndpoints;
+  const url='https://router.project-osrm.org/route/v1/driving/'+
+    encodeURIComponent(lng1+','+lat1+';'+lng2+','+lat2)+
+    '?overview=full&geometries=geojson&steps=false';
+  try{
+    const response=await fetch(url,{headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('route_http_'+response.status);
+    const payload=await response.json();
+    const coords=payload?.routes?.[0]?.geometry?.coordinates;
+    if(!Array.isArray(coords)||coords.length<2)throw new Error('route_geometry_missing');
+    return coords.map(([lng,lat])=>[lat,lng]);
+  }catch(error){
+    console.warn('DRIVE beta road routing failed',zone.id,error);
+    return null;
+  }
+}
+
+async function hydrateRoadGeometries(){
+  const routable=zonesApi.TOKYO_WANGAN_ZONES.filter(z=>Array.isArray(z.routeEndpoints));
+  const results=await Promise.all(routable.map(async zone=>[zone.id,await resolveRoadGeometry(zone)]));
+  for(const [id,geometry] of results){
+    if(Array.isArray(geometry)&&geometry.length>1)resolvedGeometries.set(id,geometry);
+  }
+  renderEnforcement();
+  checkProximity();
+}
+
 function updateStatus(){
   const now=new Date();
   const fmt=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hour12:false});
   jstClock.textContent=fmt.format(now)+' JST';
   const active=activeZones();
-  const mappedActive=active.filter(z=>z.geometry);
+  const mappedActive=active.filter(z=>resolvedGeometries.has(z.id));
   enforcementToggle.classList.toggle('active-now',mappedActive.length>0);
   stateDot.classList.toggle('live',active.length>0);
   if(active.length){
@@ -102,8 +134,8 @@ function renderUserPosition(coords){
 function checkProximity(){
   if(!lastPosition||!enforcementVisible)return;
   const candidates=zonesApi.TOKYO_WANGAN_ZONES
-    .filter(z=>z.geometry&&zonesApi.isZoneActive(z))
-    .map(z=>({zone:z,d:zonesApi.distanceToPolylineMeters(lastPosition,z.geometry)}))
+    .filter(z=>resolvedGeometries.has(z.id)&&zonesApi.isZoneActive(z))
+    .map(z=>({zone:z,d:zonesApi.distanceToPolylineMeters(lastPosition,resolvedGeometries.get(z.id))}))
     .filter(x=>x.d<=500)
     .sort((a,b)=>a.d-b.d);
   if(!candidates.length)return;
@@ -176,6 +208,7 @@ document.getElementById('alertClose').addEventListener('click',()=>alertBox.clas
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 
 renderEnforcement();
+hydrateRoadGeometries();
 accidentLayer.clearLayers();
 startLocation();
 updateStatus();
