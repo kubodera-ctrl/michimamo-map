@@ -6,10 +6,9 @@ import {
   CATEGORY_OPTIONS,
   EVENT_STATUS_LABELS,
   EXPERIENCE_LABELS,
-  FANDOM_LABELS,
   PRICE_LABELS
 } from '@/lib/events';
-import {eventLabels,formatDurationLocalized,formatEventDateLocalized} from '@/lib/event-labels';
+import {eventLabels,formatEventDateLocalized} from '@/lib/event-labels';
 import {localePath,type Locale} from '@/lib/i18n-config';
 import { PREF_KEYS, getPreviousVisit, readStringArray, setViewed, toggleInArray, wasViewed } from '@/lib/client-prefs';
 import type { EventSummary } from '@/lib/types';
