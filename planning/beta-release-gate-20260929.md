@@ -4,6 +4,7 @@
 
 基準upstream: PR #27 `1a86bdaec0b576e61ced875372f2257627b5087f`（base: `restart/dev34`）。
 開発38準備branch: `prep/dev38-beta-release-blockers`。
+Draft PR: #28 `開発38: β Release blocker preparation`。最終baseはPR #27 branch `fix/beta-legacy-asp-gate` を維持する。
 禁止継続: Production Migration / Production deploy / PR merge / Vercel Production promotion / Production Edge Function停止・再deploy / ASP実広告公開 / tracking URL自動click / Point Exchange ON / processing ON / OAuth追加 / SNS実投稿 / 新規費用・契約。
 
 ## Gate
