@@ -45,4 +45,8 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-odcs-national-catalog'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='mitsui-shopping-park-lalaport-network'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='ario-event-network'));
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='shizuoka-pref-events-open-data'));
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='miyagi-pref-events-dataeye'));
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-otsu-events'));
+  assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=17);
 });
