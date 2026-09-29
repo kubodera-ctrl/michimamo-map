@@ -1,0 +1,35 @@
+name: Beta Edge Functions Check
+
+on:
+  push:
+    branches:
+      - prep/dev38-beta-release-blockers
+    paths:
+      - 'supabase/functions/line-auth/**'
+      - 'supabase/functions/client-error-log/**'
+      - '.github/workflows/beta-edge-functions-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deno-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Show exact SHA
+        run: |
+          echo "checked_out_sha=$(git rev-parse HEAD)"
+          echo "event_sha=${{ github.sha }}"
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Type-check Edge Functions
+        run: |
+          deno check supabase/functions/line-auth/index.ts
+          deno check supabase/functions/client-error-log/index.ts

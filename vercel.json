@@ -13,5 +13,12 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "main": false,
+      "prep/dev38-beta-release-blockers": false
+    }
+  }
 }
