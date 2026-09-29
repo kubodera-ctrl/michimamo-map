@@ -92,10 +92,12 @@ async function checkPersistentRateLimit(
 // 暗号ユーティリティ
 // ==========================================
 
-function base64UrlEncodeBuf(buffer: ArrayBuffer): string {
+function base64UrlEncodeBuf(buffer: ArrayBuffer | Uint8Array): string {
   let binary = ''
 
-  const bytes = new Uint8Array(buffer)
+  const bytes = buffer instanceof Uint8Array
+    ? buffer
+    : new Uint8Array(buffer)
 
   for (let i = 0; i < bytes.byteLength; i++) {
     binary += String.fromCharCode(bytes[i])
