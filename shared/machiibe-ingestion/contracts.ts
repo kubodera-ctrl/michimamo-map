@@ -174,6 +174,8 @@ export type ImageRightsContract={
   snsAllowed:boolean|null;
   attributionRequired:boolean|null;
   attributionText:string|null;
+  licenseName:string|null;
+  licenseUrl:string|null;
   rightsSourceUrl:string|null;
   reviewedAt:string|null;
 };

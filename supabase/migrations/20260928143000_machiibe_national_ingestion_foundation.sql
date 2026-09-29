@@ -238,6 +238,8 @@ create table if not exists public.machiibe_media_assets (
   sns_allowed boolean,
   attribution_required boolean,
   attribution_text text,
+  license_name text,
+  license_url text check (license_url is null or license_url ~* '^https?://'),
   rights_status text not null default 'unknown'
     check (rights_status in ('unknown','reviewed_allowed','reviewed_restricted','permission_required','blocked','machiibe_owned')),
   rights_reviewed_at timestamptz,
