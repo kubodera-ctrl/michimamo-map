@@ -35,7 +35,8 @@ badges=identity.badgeModel([
 assert.equal(badges.mode,'summary');
 assert.equal(badges.label,'認証済み 3');
 
-assert.equal(identity.qaAllowed('machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app','?identityQa=1'),true);\nassert.equal(identity.qaAllowed('machimamo-map-git-feat-dev38-identity-only-miti4.vercel.app','?identityQa=1'),true);
+assert.equal(identity.qaAllowed('machimamo-map-git-feat-dev36-identity-ui-miti4.vercel.app','?identityQa=1'),true);
+assert.equal(identity.qaAllowed('machimamo-map-git-feat-dev38-identity-only-miti4.vercel.app','?identityQa=1'),true);
 assert.equal(identity.qaAllowed('machimamo-map.vercel.app','?identityQa=1'),false);
 assert.equal(identity.qaAllowed('machimamo-iuc2di1cu-miti4.vercel.app','?identityQa=1'),false);
 
