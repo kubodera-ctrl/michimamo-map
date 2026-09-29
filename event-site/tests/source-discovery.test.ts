@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {discoverSourceHintsFromHtml} from '../../shared/machiibe-ingestion/discovery';
 
 test('source discovery finds JSON-LD Event and alternate feeds without fetching',()=>{
@@ -30,4 +31,18 @@ test('source discovery deduplicates repeated feed links and ignores invalid JSON
   const hints=discoverSourceHintsFromHtml(html,'https://example.jp/');
   assert.equal(hints.filter((hint)=>hint.kind==='RSS').length,1);
   assert.equal(hints.some((hint)=>hint.kind==='JSON_LD_EVENT'),false);
+});
+
+
+test('expanded discovery inventory keeps fetch fail-closed and explicit review states',()=>{
+  const registry=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/national_source_discovery_v1.json',import.meta.url),'utf8'));
+  const allowed=new Set(['DISCOVERED','PREFLIGHT','TERMS_REVIEWED','ROBOTS_REVIEWED','READY','ACTIVE','BLOCKED']);
+  assert.ok(registry.sources.length>=26);
+  assert.ok(registry.sources.every((row:any)=>allowed.has(row.review_state)));
+  assert.ok(registry.sources.every((row:any)=>row.automated_fetch_allowed===false));
+  assert.equal(registry.counts.ready,0);
+  assert.equal(registry.counts.active,0);
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-odcs-national-catalog'));
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='mitsui-shopping-park-lalaport-network'));
+  assert.ok(registry.sources.some((row:any)=>row.source_key==='ario-event-network'));
 });
