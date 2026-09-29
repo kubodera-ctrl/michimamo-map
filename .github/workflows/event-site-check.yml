@@ -71,6 +71,7 @@ jobs:
         run: |
           npm run source:dry-run -- mie-pref-events-open-data
           npm run source:dry-run -- bodik-okazaki-events
+          npm run source:dry-run -- bodik-osaka-pref-events
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
