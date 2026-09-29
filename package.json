@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs && node tests/beta_legacy_asp_gate.test.cjs && node tests/beta_ranking_real_data.test.cjs && node tests/beta_legal_runtime_alignment.test.cjs && node tests/beta_accessibility_static.test.cjs && node tests/beta_seo_pwa_metadata.test.cjs && node tests/beta_static_performance_budget.test.cjs && node tests/beta_security_prep_contract.test.cjs"
+    "test": "node scripts/check_sign_assets.mjs && node tests/safari_private_viewport.test.cjs && node tests/local_anomaly_owner_popup.test.cjs && node tests/local_anomaly_form.test.cjs && node tests/ios_viewport_stability.test.cjs && node tests/unlimited_posts_point_cap.test.cjs && node tests/point_exchange_digital_gift.test.cjs && node tests/beta_legacy_asp_gate.test.cjs && node tests/beta_ranking_real_data.test.cjs && node tests/beta_legal_runtime_alignment.test.cjs && node tests/beta_accessibility_static.test.cjs && node tests/beta_seo_pwa_metadata.test.cjs && node tests/beta_static_performance_budget.test.cjs && node tests/beta_security_prep_contract.test.cjs && node tests/beta_error_logging_contract.test.cjs"
   },
   "repository": {
     "type": "git",
