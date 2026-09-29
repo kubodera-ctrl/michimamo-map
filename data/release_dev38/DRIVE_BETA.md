@@ -13,7 +13,7 @@
 
 ## 重要な表示境界
 このβは「検問中」「速度取締実施中」を断定しない。
-警視庁の速度取締指針は重点的に警察活動を実施する路線・時間帯を示すもので、実際の取締りは指定時間外にもランダムに行われる。
+警視庁の速度取締指針は重点的に警察活動を実施する路線・時間帯を示すもので、実際の取締りは指定時間外にも行われる場合がある。
 
 表示文言:
 - OK: 「現在、取締重点時間帯」
@@ -24,20 +24,30 @@
 https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html
 
 東京湾岸警察署:
-https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf
+https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf
 
-一覧ページ更新日: 2026-07-30
+2026-09-29時点で東京湾岸署の重点路線は9件。
+旧試作に入っていた7件・旧時間帯は破棄し、現行PDFに合わせて更新した。
 
-東京湾岸署の7重点路線を構造化済み。
-地図線形は初回実走UI確認のため、環二通り・都橋通りの2区間のみ概略線形を付与している。本番公開前に正確な道路LineStringへ置換する。
+## 道路線形
+手作業で数点を結んだ概略LineStringは撤去。
+誤った道路形状を表示しないことを優先し、検証済み起終点がある区間だけOSRM/OpenStreetMap系の道路ルーティング結果をβ表示する。
+
+先行対象:
+- 環二通り：有明北橋上 → 有明中央橋南交差点
+- 国道357号：荒川河口橋上 → 京浜大橋上
+
+残り路線は起終点検証が完了するまで「時間帯情報のみ」とし、推測した線は描かない。
 
 ## 事故多発エリア
 新規DBは作らず既存RPC `accident_hotspots_in_view` を利用。
 警察庁2022〜2024年公開データを約250m区画で集計した既存まちまもデータをそのまま共有する。
+初期表示はOFF。
 
 ## 現時点の技術構成
 - Web/PWA先行β
 - Leaflet + OpenStreetMap
+- 実道路ルーティング: OSRM beta
 - Geolocation watchPosition
 - Supabase既存公開RPC
 - DB Migrationなし
@@ -53,11 +63,10 @@ Google Mapsアプリそのものへのプラグインではない。
 のネイティブ車載版へ移し、ターンバイターンナビ画面上へ同じ安全レイヤーを重ねる。
 
 ## 次工程
-1. Previewでスマホ表示確認
-2. お台場〜有明周辺で実走QA
-3. 概略LineStringを正確な道路形状へ置換
-4. 東京湾岸署7路線を全て地図化
-5. 99署＋高速隊の取締指針を自動構造化
-6. 車線規制など公式道路情報を追加
-7. ネイティブNavigation SDK版
-8. AIカメラ検出（事故・車線規制等）を後付け
+1. 実道路ルーティング版をPreviewで本人QA
+2. 環二通り・国道357号の道路追従を確認
+3. 東京湾岸署9路線の起終点を順次検証して全線地図化
+4. 99署＋高速隊の取締指針を構造化
+5. 車線規制など公式道路情報を追加
+6. ネイティブNavigation SDK版
+7. AIカメラ検出（事故・車線規制等）を後付け
