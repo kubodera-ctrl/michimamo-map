@@ -54,6 +54,25 @@ test('OPEN_DATA CSV adapter tolerates quoted commas and embedded newlines',()=>{
   assert.equal(normalized.officialUrl,'https://official.test/e/1');
 });
 
+test('current municipal ODS event fields normalize without weakening rights gates',()=>{
+  const s=source();
+  const csv='ID,地方公共団体名,イベント名,コンテンツURL,開始日,終了日,場所名称,所在地_連結表記,所在地_都道府県,所在地_市区町村,緯度,経度,イベント種類,料金種別,URL\n1,岡崎市,親子体験,https://official.test/content/1,2026/10/10,2026/10/10,中央公園,愛知県岡崎市,愛知県,岡崎市,34.95,137.17,体験,無料,https://official.test/event/1';
+  const parsed=parseCsv(csv,s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'親子体験');
+  assert.equal(normalized.officialUrl,'https://official.test/event/1');
+  assert.equal(normalized.venueName,'中央公園');
+  assert.equal(normalized.address,'愛知県岡崎市');
+  assert.equal(normalized.prefecture,'愛知県');
+  assert.equal(normalized.municipality,'岡崎市');
+  assert.equal(normalized.lat,34.95);
+  assert.equal(normalized.lng,137.17);
+  assert.equal(normalized.category,'体験');
+  assert.equal(normalized.priceType,'free');
+  assert.equal(normalized.imageUrl,null);
+  assert.equal(normalized.imageRightsStatus,'unknown');
+});
+
 test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records without network access',()=>{
   const json=parseJsonApi({events:[{id:'a',name:'JSON event',url:'https://official.test/a'}]},source({fetchMethod:'JSON_API'}));
   assert.equal(json.items.length,1);
