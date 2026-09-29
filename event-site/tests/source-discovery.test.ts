@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {discoverSourceHintsFromHtml} from '../../shared/machiibe-ingestion/discovery';
+import {discoverEventPageCandidatesFromHtml,discoverSourceHintsFromHtml} from '../../shared/machiibe-ingestion/discovery';
 
 test('source discovery finds JSON-LD Event and alternate feeds without fetching',()=>{
   const html=`
@@ -49,4 +49,22 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   assert.ok(registry.sources.some((row:any)=>row.source_key==='miyagi-pref-events-dataeye'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-otsu-events'));
   assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=17);
+});
+
+
+test('facility discovery finds event pages without treating discovery as approval',()=>{
+  const html=`
+    <a href="/shop/">Shop</a>
+    <a href="/event/">EVENT・POPUP</a>
+    <a href="/event/calendar/">イベントカレンダー</a>
+    <a href="https://members.example.jp/login">Login</a>
+    <a href="https://other.example.net/event/">external event</a>
+  `;
+  const rows=discoverEventPageCandidatesFromHtml(html,'https://mall.example.jp/',[
+    'example.jp'
+  ]);
+  assert.ok(rows.some((row)=>row.url==='https://mall.example.jp/event/'&&row.confidence==='high'));
+  assert.ok(rows.some((row)=>row.url==='https://mall.example.jp/event/calendar/'));
+  assert.equal(rows.some((row)=>row.url.includes('login')),false);
+  assert.equal(rows.some((row)=>row.url.includes('other.example.net')),false);
 });
