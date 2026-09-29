@@ -1942,11 +1942,15 @@
 
         try {
             const { data: profiles } = await db.rpc('get_profile_ranking', { p_limit: 50 });
-            if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
+            if (profiles) profiles.forEach(p => allUsers.push({
+                isMe: p.is_me === true,
+                name: p.name || '名無しドライバー',
+                avatar: p.avatar || '👤',
+                point: p.point
+            }));
         } catch(e) { console.log("DBランキング取得スキップ"); }
 
-        const uniqueUsers = []; const map = new Map();
-        for (const item of allUsers) { if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); } }
+        const uniqueUsers = allUsers.slice();
         uniqueUsers.sort((a, b) => b.point - a.point);
 
         const rankingArea = document.getElementById('nationalRankingArea');
@@ -1957,7 +1961,7 @@
         }
 
         uniqueUsers.forEach((u, idx) => {
-            if (u.id === myUserId) myRankPos = `${idx + 1}位`;
+            if (u.isMe) myRankPos = `${idx + 1}位`;
             if (idx >= 10) return;
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
@@ -1965,7 +1969,7 @@
             else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
             else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
 
-            const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
+            const bg = u.isMe ? 'background:#eff6ff;' : '';
             const point = Number(u.point || 0);
             rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold; color:#1f6feb;">${point.toLocaleString()} pt</div></div>`;
         });
