@@ -10,7 +10,8 @@
     "test": "node --test --import=tsx tests/*.test.ts",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "source:dry-run": "tsx scripts/machiibe-source-dry-run.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
