@@ -152,10 +152,11 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 2026-09-29時点の調査inventory:
 - Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
 - National venue discovery series: 12
-- national_source_discovery_v1.json: 35 entries
-- 総inventory/discovery候補: 73
-- 全inventoryで具体sourceが確認できている都道府県: 17
+- national_source_discovery_v1.json: 42 entries
+- 総inventory/discovery候補: 80
+- 全inventoryで具体sourceが確認できている都道府県: 23
 - 今回追加の地方空白対策: 宮城県（県イベント一覧 + 柴田町）、静岡県（県イベント一覧CSV/WEBAPI）、滋賀県（大津市月次イベント一覧）、石川県（かほく市標準ODS）、香川県（三豊市標準ODS）
+- discovery file内 PREFLIGHT以上: 41
 - discovery file内 TERMS_REVIEWED以上: 16
 - READY: 0
 - ACTIVE: 0
@@ -251,3 +252,56 @@ Source Registry schema / adapter contract / dry-run / normalize / dedup / valida
 
 禁止:
 Production migration / bulk seed / actual R2 resource / paid provider contract / OAuth / index release / real SNS post.
+
+
+## 13. Event supply funnel
+
+イベント件数は必ず段階を分離する。
+
+Potential → Fetched → Normalized → Deduped → Valid → Publishable → Active
+
+- Potential: source一覧で観測した潜在量。取得済み件数ではない。
+- Fetched: 実resource/APIから取得できたraw件数。
+- Normalized: canonical contractへ変換できた件数。
+- Deduped: event identityで重複統合した後の件数。
+- Valid: 開催日・場所・公式URL等の最低条件を満たす件数。
+- Publishable: source/rights/freshness等の公開gateを満たす件数。
+- Active: 実際にPreview/Production検索対象へ有効化された件数。
+
+shared/machiibe-ingestion/funnel.ts が段階の単調減少とdropoffを検証する。
+Potentialだけ増えた時にFetched/Activeへ自動転記しない。
+
+## 14. Source priority
+
+sourceの期待供給量と運用コストを比較するため、
+shared/machiibe-ingestion/priority.ts で以下を独立評価できるようにした。
+
+- observedPotentialEventsMin
+- prefecture gap解消
+- region coverage
+- category breadth
+- family relevance
+- freshness confidence
+- acquisition difficulty
+- terms difficulty
+- maintenance cost
+
+高得点でもterms/robotsを飛ばしてREADYへ上げない。priorityは調査順を決めるだけで公開許可ではない。
+
+## 15. Regional high-yield preflight
+
+2026-09-29追加preflight:
+- 北海道 HOKKAIDO LOVE!: 公式一覧で185件観測
+- 富山県 とやま観光ナビ: 公式一覧で428件観測
+- 三重県 観光三重: 公式一覧で281件観測
+- 兵庫県 兵庫観光ナビ: 公式一覧で73件観測
+- 新潟県/石川県/山梨県: 現行2026イベント一覧を確認、件数下限は未固定
+
+これらはPREFLIGHTであり、規約・robots未確認のため自動fetch不可。
+
+施設network pilot:
+- ららぽーとTOKYO-BAY: 公式イベント/キャンペーン一覧38件
+- あまがさきキューズモール: EVENT・POPUP / calendar導線、親子・キャラクター・芸能・体験型を確認
+
+data/machiibe/facility_source_instances_v1.jsonで施設単位sourceをnetwork親sourceと分離して管理する。
+shared/machiibe-ingestion/discovery.tsのfacility event-page discoveryはHTMLから候補URLを発見するだけで、fetch/公開許可は行わない。
