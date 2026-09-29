@@ -152,10 +152,11 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 2026-09-29時点の調査inventory:
 - Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
 - National venue discovery series: 12
-- national_source_discovery_v1.json: 29 entries
-- 総inventory/discovery候補: 67
-- 全inventoryで具体sourceが確認できている都道府県: 12（Kanto 4 + 福島/愛知/大阪/沖縄/長崎/宮崎/大分/鹿児島）
-- discovery file内 TERMS_REVIEWED以上: 13
+- national_source_discovery_v1.json: 35 entries
+- 総inventory/discovery候補: 73
+- 全inventoryで具体sourceが確認できている都道府県: 17
+- 今回追加の地方空白対策: 宮城県（県イベント一覧 + 柴田町）、静岡県（県イベント一覧CSV/WEBAPI）、滋賀県（大津市月次イベント一覧）、石川県（かほく市標準ODS）、香川県（三豊市標準ODS）
+- discovery file内 TERMS_REVIEWED以上: 16
 - READY: 0
 - ACTIVE: 0
 
@@ -164,6 +165,14 @@ Production検索はDB/API側filter + pagination/cursorを維持。
 - BODIK ODCS / CKAN
 - 東京都オープンデータ CKAN
 - 神奈川県オープンデータ CKAN
+
+追加で確認した地域source:
+- 宮城県及び市町村共同オープンデータ: 宮城県イベント一覧CSV、柴田町イベント一覧
+- 静岡県オープンデータ: 県イベント一覧CSV + WEBAPI
+- 大津市/BODIK: 月次イベント一覧（CSV/JSON/RDF）
+- かほく市: 自治体標準ODSイベント一覧
+- 三豊市/香川県オープンデータ: イベント一覧CSV/KML
+いずれもrobotsやresource freshness等の未確認項目が残るものはREADYへ上げない。
 
 BODIKで具体的に確認済みのイベントdataset候補:
 - 大阪府
@@ -198,8 +207,8 @@ BODIKで具体的に確認済みのイベントdataset候補:
 sourceを増やすだけでなく、shared/machiibe-ingestion/discovery.tsでHTML内のJSON-LD Event、RSS/Atom、ICS、CSV/XLSX、sitemap候補をpure preflightとして検出する。ネットワークアクセスやfetch許可判定は行わない。
 
 都道府県別coverageはshared/machiibe-ingestion/coverage.tsで、
-candidateSources / readySources / activeSources / activeEvents / next30DaysEvents / imageUsableEvents / imageMissingEvents / sourceFailures / duplicateMerged
-を集計可能にした。0件地域→少数地域→大都市追加の順でgapを優先できる。
+candidateSources / readySources / activeSources / activeEvents / next30DaysEvents / imageUsableEvents / imageMissingEvents / sourceFailures / duplicateMerged / observedPotentialEventsMin
+を集計可能にした。observedPotentialEventsMinは調査時にsourceページで観測した下限値であり、取得済み・重複除去済み・現在有効なイベント数とは別指標。activeEvents / next30DaysEventsへ混ぜない。0件地域→少数地域→大都市追加の順でgapを優先できる。
 
 ## 10. Rollout
 
