@@ -10,7 +10,7 @@
     "concrete_prefecture_coverage_from_all_inventories": 28,
     "preflight_or_better": 47,
     "terms_reviewed_or_better": 18,
-    "ready": 2,
+    "ready": 3,
     "active": 0
   },
   "rules": {
@@ -200,18 +200,31 @@
       "municipality": null,
       "coverage": "大阪府",
       "base_url": "https://data.bodik.jp/ja/dataset/270008_event",
-      "feed_url": null,
+      "feed_url": "https://data.bodik.jp/dataset/388c34d1-f97a-4865-a547-8e89c53a364a/resource/a6f32430-9e39-49f7-b429-6e4eadcc96de/download/270008_event.csv",
       "fetch_method": "OPEN_DATA",
-      "terms_status": "license_identified_cc_by_4_0",
-      "robots_status": "pending",
-      "commercial_use_status": "allowed_with_attribution",
-      "attribution_requirement": "CC BY 4.0 / 大阪府・データセット表示",
-      "automated_fetch_allowed": false,
+      "terms_status": "reviewed_allowed",
+      "robots_status": "not_applicable",
+      "commercial_use_status": "allowed",
+      "attribution_requirement": "CC BY 4.0 / 大阪府・出典表示",
+      "automated_fetch_allowed": true,
       "priority": 98,
-      "review_state": "TERMS_REVIEWED",
+      "review_state": "READY",
       "yield_class": "high",
       "observed_current_items_min": null,
-      "notes": "CSVリソース・自治体標準ODS。2026-08-10更新を確認。robots/resource URL確定後に次段階へ。画像権利はイベント本文とは別。"
+      "notes": "大阪府公式BODIK dataset。CC BY 4.0。大阪府利用規約は府が権利を持つ内容をCC BY 4.0で許諾し、第三者権利は別扱い。公式ポータルで2026-09にイベント一覧更新を確認。非Production dry-run対象。",
+      "reuse_status": "allowed",
+      "redistribution_status": "allowed_with_attribution",
+      "cache_status": "allowed_with_attribution",
+      "image_use_status": "not_in_dataset",
+      "sns_use_status": "factual_data_only",
+      "expected_update_frequency": "frequent / portal observed event dataset update in 2026-09",
+      "freshness_confidence": "high",
+      "max_fetch_bytes": 2000000,
+      "content_type_expected": [
+        "text/csv",
+        "application/octet-stream"
+      ],
+      "fetch_notes": "Use the official BODIK-hosted CSV distribution directly; no HTML crawling. Charset is verified by live dry-run before any later stage. Media/third-party rights remain separate and fail-closed."
     },
     {
       "source_key": "bodik-okinawa-pref-events",
