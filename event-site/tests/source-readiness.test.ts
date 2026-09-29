@@ -18,8 +18,9 @@ test('current READY audit promotes only sources with every gate cleared',()=>{
   assert.ok(data.sources.length>=4);
   const ready=data.sources.filter((row:any)=>row.decision==='READY');
   const hold=data.sources.filter((row:any)=>row.decision!=='READY');
-  assert.equal(ready.length,1);
-  assert.equal(ready[0].source_key,'mie-pref-events-open-data');
-  assert.deepEqual(ready[0].blockers,[]);
+  assert.ok(ready.length>=2);
+  assert.ok(ready.some((row:any)=>row.source_key==='mie-pref-events-open-data'));
+  assert.ok(ready.some((row:any)=>row.source_key==='bodik-okazaki-events'));
+  assert.ok(ready.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length===0));
   assert.ok(hold.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length>0));
 });
