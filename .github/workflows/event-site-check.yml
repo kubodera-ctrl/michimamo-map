@@ -65,13 +65,18 @@ jobs:
         run: npm run typecheck
       - name: Unit tests
         run: npm test
-      - name: Live READY source dry-run (PR #24 only)
+      - name: Live READY dry-run - Mie (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
-        run: |
-          npm run source:dry-run -- mie-pref-events-open-data
-          npm run source:dry-run -- bodik-okazaki-events
-          npm run source:dry-run -- bodik-osaka-pref-events
+        run: npm run source:dry-run -- mie-pref-events-open-data
+      - name: Live READY dry-run - Okazaki (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-okazaki-events
+      - name: Live READY dry-run - Osaka (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-osaka-pref-events
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
