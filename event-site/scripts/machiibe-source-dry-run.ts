@@ -97,12 +97,28 @@ async function main(){
   if(!row) throw new Error('source not found: '+sourceKey);
   const source=sourceSnapshot(row);
 
-  const response=await fetch(source.feedUrl!,{
-    method:'GET',
-    headers:{accept:'text/csv,application/octet-stream,*/*;q=0.8'},
-    redirect:'follow',
-    signal:AbortSignal.timeout(30_000)
-  });
+  let response:Response|null=null;
+  let transportError:unknown=null;
+  for(let attempt=1;attempt<=2;attempt++){
+    try{
+      response=await fetch(source.feedUrl!,{
+        method:'GET',
+        headers:{accept:'text/csv,application/octet-stream,*/*;q=0.8'},
+        redirect:'follow',
+        signal:AbortSignal.timeout(30_000)
+      });
+      break;
+    }catch(error){
+      transportError=error;
+      if(attempt===1)await new Promise((resolve)=>setTimeout(resolve,1500));
+    }
+  }
+  if(!response){
+    const cause=transportError instanceof Error
+      ? String((transportError as Error&{cause?:unknown}).cause||transportError.message)
+      : String(transportError);
+    throw new Error('network fetch failed after one retry: '+cause);
+  }
   if(!response.ok) throw new Error('fetch failed: '+response.status);
   const contentType=(response.headers.get('content-type')||'').split(';')[0].trim().toLowerCase();
   const expectedTypes=(row.content_type_expected||[]).map((value)=>value.toLowerCase());
