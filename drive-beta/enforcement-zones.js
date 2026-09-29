@@ -6,32 +6,39 @@
   'use strict';
 
   const SOURCE_INDEX='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html';
-  const SOURCE_PDF='https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf';
+  const SOURCE_PDF='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf';
 
+  // 2026-09-29 verified against the current Tokyo Wangan Police Station speed-enforcement guideline.
+  // Only zones with verified endpoints are routed on the beta map. We deliberately do not draw guessed geometry.
   const TOKYO_WANGAN_ZONES=[
-    {id:'wangan-r357',route:'国道357号',kind:'metropolitan',speedKmh:60,startLabel:'荒川河口橋上',endLabel:'京浜大橋上',startMinute:360,endMinute:1440},
-    {id:'wangan-harumi',route:'晴海通り',kind:'metropolitan',speedKmh:50,startLabel:'東雲交差点',endLabel:'東雲橋上',startMinute:840,endMinute:1320},
-    {id:'wangan-meiji',route:'明治通り',kind:'metropolitan',speedKmh:50,startLabel:'夢の島交差点',endLabel:'夢の島大橋上',startMinute:720,endMinute:960},
-    {id:'wangan-mitsume',route:'三ツ目通り',kind:'metropolitan',speedKmh:50,startLabel:'辰巳交差点',endLabel:'七枝橋上',startMinute:840,endMinute:1080},
     {
-      id:'wangan-kan2',route:'環二通り',kind:'metropolitan',speedKmh:60,startLabel:'有明北橋上',endLabel:'有明中央橋南交差点',startMinute:1200,endMinute:1440,
-      geometryQuality:'approximate_beta',
-      geometry:[
-        [35.6443,139.7859],[35.6424,139.7886],[35.6399,139.7918],[35.6372,139.7939],[35.6346,139.7954]
-      ]
+      id:'wangan-r357',route:'国道357号',kind:'metropolitan',speedKmh:60,
+      startLabel:'荒川河口橋上',endLabel:'京浜大橋上',startMinute:360,endMinute:1320,
+      routeEndpoints:[[35.647526,139.845068],[35.575405,139.748282]],
+      geometryQuality:'road_routed_beta'
     },
-    {id:'wangan-rinko',route:'臨港道路',kind:'metropolitan',speedKmh:50,startLabel:'京浜大橋北交差点',endLabel:'中央防波堤交差点',startMinute:360,endMinute:1200,note:'東京ゲートブリッジ上は60km/h表記あり'},
+    {id:'wangan-harumi',route:'晴海通り',kind:'metropolitan',speedKmh:60,startLabel:'東雲交差点',endLabel:'東雲橋上',startMinute:960,endMinute:1080},
+    {id:'wangan-meiji',route:'明治通り',kind:'metropolitan',speedKmh:60,startLabel:'夢の島交差点',endLabel:'夢の島大橋上',startMinute:360,endMinute:600},
+    {id:'wangan-mitsume',route:'三ツ目通り',kind:'metropolitan',speedKmh:50,startLabel:'辰巳交差点',endLabel:'七枝橋上',startMinute:960,endMinute:1200},
     {
-      id:'wangan-miyako',route:'都橋通り',kind:'station',speedKmh:50,startLabel:'東雲1丁目交差点',endLabel:'台場駅前交差点',startMinute:420,endMinute:960,
-      geometryQuality:'approximate_beta',
-      geometry:[
-        [35.6454,139.8027],[35.6423,139.7984],[35.6381,139.7936],[35.6340,139.7877],[35.6301,139.7815],[35.6268,139.7768]
-      ]
-    }
+      id:'wangan-kan2',route:'環二通り',kind:'metropolitan',speedKmh:60,
+      startLabel:'有明北橋上',endLabel:'有明中央橋南交差点',startMinute:1200,endMinute:1440,
+      routeEndpoints:[[35.642054,139.787168],[35.6352293,139.7926317]],
+      geometryQuality:'road_routed_beta'
+    },
+    {
+      id:'wangan-rinko',route:'臨港道路',kind:'metropolitan',speedKmh:50,
+      startLabel:'京浜大橋北交差点（中央防波堤交差点）',
+      endLabel:'中央防波堤交差点（新木場交差点）',
+      startMinute:360,endMinute:1200,note:'東京ゲートブリッジ上は60km/h表記あり'
+    },
+    {id:'wangan-aomi',route:'臨港道路（青海縦貫線）',kind:'metropolitan_station',speedKmh:50,startLabel:'青海3丁目交差点',endLabel:'中央防波堤交差点',startMinute:1080,endMinute:1320},
+    {id:'wangan-under',route:'臨港道路（東京湾岸アンダー線）',kind:'metropolitan_station',speedKmh:50,startLabel:'港区台場2丁目1番先',endLabel:'湾岸アンダー出口交差点',startMinute:420,endMinute:660},
+    {id:'wangan-miyako',route:'都橋通り',kind:'station',speedKmh:50,startLabel:'港区台場1丁目9番先',endLabel:'東雲1丁目交差点',startMinute:420,endMinute:960}
   ].map(zone=>Object.freeze({
     agency:'警視庁',
     policeStation:'東京湾岸警察署',
-    sourceIndexUpdatedAt:'2026-07-30',
+    sourceVerifiedAt:'2026-09-29',
     sourceIndex:SOURCE_INDEX,
     sourcePdf:SOURCE_PDF,
     ...zone
