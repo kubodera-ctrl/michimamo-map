@@ -137,10 +137,20 @@ export function sourceStageReadiness(source:SourcePolicySnapshot){
   if(source.reuseStatus!=='allowed')missing.push('reuse');
   if(source.redistributionStatus==='unknown')missing.push('redistribution');
   if(source.cacheStatus==='unknown')missing.push('cache');
-  if(source.imageUseStatus==='unknown')missing.push('image_use');
-  if(source.snsUseStatus==='unknown')missing.push('sns_use');
+  // Event-fact ingestion and media reuse are separate contracts.
+  // Unknown image/SNS rights must keep media fail-closed, but must not discard
+  // otherwise lawful event facts from the ingestion pipeline.
   if(!source.lastTermsCheckedAt)missing.push('last_terms_checked_at');
   return {readyForFetch:missing.length===0,missing};
+}
+
+export function sourceMediaRightsReadiness(source:SourcePolicySnapshot){
+  return {
+    displayKnown:source.imageUseStatus!=='unknown',
+    cacheKnown:source.imageUseStatus==='not_applicable'||source.imageUseStatus==='allowed',
+    snsKnown:source.snsUseStatus!=='unknown',
+    snsAllowed:source.snsUseStatus==='allowed'&&source.commercialUseStatus==='allowed'
+  };
 }
 
 export function conditionalHeaders(state:ConditionalFetchState){
