@@ -226,7 +226,9 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
   const description=pick(obj,['description','summary','概要','内容']);
   const startAt=pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']);
   const endAt=pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']);
-  const officialUrl=pick(obj,['url','official_url','公式URL'])||item.sourceUrl;
+  const explicitOfficialUrl=pick(obj,['url','official_url','公式URL','link']);
+  const itemUrlIsFeed=item.sourceUrl===source.feedUrl||item.sourceUrl===source.baseUrl;
+  const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?item.sourceUrl:null);
   const priceRaw=pick(obj,['price_type','料金区分']);
   const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'?priceRaw:'unknown';
   const latRaw=obj.latitude??record(obj.geo)?.latitude;
