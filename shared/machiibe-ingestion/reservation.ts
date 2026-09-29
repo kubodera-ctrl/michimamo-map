@@ -15,6 +15,8 @@ export type ReservationSnapshot={
   closesAt:string|null;
   checkedAt:string|null;
   sourceUrl:string|null;
+  reservationUrl:string|null;
+  stateUpdatedAt:string|null;
 };
 
 export function inferReservationSnapshot(text:string):Pick<ReservationSnapshot,'mode'|'state'>{
@@ -27,7 +29,8 @@ export function inferReservationSnapshot(text:string):Pick<ReservationSnapshot,'
   else if(/当日券|当日受付|当日整理券/.test(value))mode='same_day';
   else if(/要予約|事前予約|予約が必要|申込が必要/.test(value))mode='required';
 
-  if(/受付終了|申込終了|募集終了/.test(value))state='closed';
+  if(/中止|開催中止|受付中止|予約中止/.test(value))state='cancelled';
+  else if(/受付終了|申込終了|募集終了/.test(value))state='closed';
   else if(/完売|満席|定員に達/.test(value))state='full';
   else if(/受付中|申込受付中|予約受付中/.test(value))state='open';
   else if(/受付開始|予約開始/.test(value))state='upcoming';
