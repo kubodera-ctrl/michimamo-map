@@ -11,9 +11,15 @@ test('national source candidate registry covers all 47 prefectures exactly once'
   assert.equal(registry.summary.prefecture_total,47);
 });
 
-test('candidate coverage never implies automation approval',()=>{
+test('candidate coverage does not imply automation approval unless a source reaches FETCH_ALLOWED',()=>{
   assert.ok(registry.sources.every((row:any)=>row.active===true));
-  assert.ok(registry.sources.every((row:any)=>row.automated_fetch_allowed===false));
+  assert.ok(registry.sources
+    .filter((row:any)=>['CANDIDATE','TERMS_REVIEWED'].includes(row.source_stage))
+    .every((row:any)=>row.automated_fetch_allowed===false));
+  const approved=registry.sources.filter((row:any)=>row.automated_fetch_allowed===true);
+  assert.equal(approved.length,1);
+  assert.equal(approved[0].prefecture,'三重県');
+  assert.equal(approved[0].source_stage,'FETCH_ALLOWED');
   assert.ok(registry.sources.every((row:any)=>row.terms_status!=='pending'||row.commercial_use_status==='unknown'));
 });
 
@@ -35,5 +41,6 @@ test('source candidates expose promotion stage and never skip from candidate rev
     if(row.source_stage==='CANDIDATE') assert.equal(row.automated_fetch_allowed,false);
     if(row.source_stage==='TERMS_REVIEWED') assert.equal(row.automated_fetch_allowed,false);
   }
-  assert.equal(registry.summary.automation_approved,0);
+  assert.equal(registry.summary.automation_approved,1);
+  assert.equal(registry.summary.stage_counts.FETCH_ALLOWED,1);
 });
