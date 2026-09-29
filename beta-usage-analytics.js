@@ -10,6 +10,26 @@ const client=root.machimamoBetaAnalyticsDb||root.supabase.createClient(SUPABASE_
 });
 root.machimamoBetaAnalyticsDb=client;
 
+const ERROR_LOG_URL=SUPABASE_URL+'/functions/v1/client-error-log';
+function reportClientError(event){
+  const payload={
+    kind:event?.kind,
+    code:event?.code,
+    detail:event?.detail,
+    phase:event?.phase,
+    source:event?.source,
+    line:event?.line,
+    path:event?.path
+  };
+  fetch(ERROR_LOG_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY},
+    body:JSON.stringify(payload),
+    keepalive:true
+  }).catch(()=>{});
+}
+root.MachimamoBetaError?.attachReporter(reportClientError);
+
 let lastTouchAt=0;
 let touching=false;
 let adminRefreshing=false;
