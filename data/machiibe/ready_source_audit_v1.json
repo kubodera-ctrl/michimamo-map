@@ -1,0 +1,80 @@
+{
+  "version": "2026-09-29-ready-audit-v1",
+  "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
+  "sources": [
+    {
+      "source_key": "tottori-pref-event-open-data",
+      "prefecture": "鳥取県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://odp-pref-tottori.tori-info.co.jp/dataset/1879.html",
+        "api": "https://odp-pref-tottori.tori-info.co.jp/api/package_show?id=db14b1ba-9705-413f-8ffe-715379a54062",
+        "csv": "https://odp-pref-tottori.tori-info.co.jp/dataset/1879/resource/9594/310000_event.csv",
+        "license": "CC BY",
+        "dataset_updated_at": "2026-06-23",
+        "note": "掲載datasetは2026-03-23〜03-31の年度アーカイブ。リアルタイムデータは鳥取県データ連携基盤へ案内されており、そちらの安定取得経路/access policyを別確認する。"
+      }
+    },
+    {
+      "source_key": "shimane-pref-events-2026",
+      "prefecture": "島根県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "resource_page": "https://shimane-opendata.jp/resources/75904",
+        "file_name": "shimane_event2026.xlsx",
+        "license": "CC BY",
+        "published_at": "2026-03-24",
+        "updated_at": "2026-03-24",
+        "note": "令和8年3月16日取りまとめの年次snapshot。最新情報は各所管課確認と明記されるため、単独sourceでActive freshnessを担保しない。"
+      }
+    },
+    {
+      "source_key": "kagawa-mitoyo-events",
+      "prefecture": "香川県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "file_name": "372081_event.csv",
+        "license": "CC BY 4.0",
+        "update_frequency": "原則1年に1回",
+        "last_observed_dataset_update": "2024-03-22",
+        "note": "自治体標準ODSとして有用だがイベント供給の鮮度が低い。観光/施設sourceの補助・identity補完用途を優先。"
+      }
+    }
+  ]
+}
