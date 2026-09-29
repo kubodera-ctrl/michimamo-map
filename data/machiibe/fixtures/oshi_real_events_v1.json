@@ -1,0 +1,115 @@
+{
+  "version": "2026-09-29-oshi-real-events-v1",
+  "status": "fixture_only_verified_from_official_pages",
+  "checked_at": "2026-09-29",
+  "rules": {
+    "entity_relation_requires_official_evidence": true,
+    "no_auto_inference_from_alias_only": true,
+    "media_reuse": false
+  },
+  "events": [
+    {
+      "id": "sanrio-cinnamoroll-park-2026",
+      "title": "ふわふわんだーシナモロールパーク",
+      "source_url": "https://corporate.sanrio.co.jp/news/20260917.html",
+      "source_kind": "organizer_official",
+      "starts_on": "2026-11-20",
+      "ends_on": "2027-01-17",
+      "venue_name": "Gallery AaMo（東京ドームシティ）",
+      "prefecture": "東京都",
+      "classification_text": "シナモロールの大型体験イベント。XR体験・フォトスポット・巨大すべり台を実施。",
+      "expected_event_types": [
+        "experience"
+      ],
+      "verified_entities": [
+        {
+          "type": "character",
+          "canonical_name": "シナモロール",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "animate-kimishinu-onlyshop-2026",
+      "title": "TVアニメ『きみが死ぬまで恋がしたい』アニメイトオンリーショップ",
+      "source_url": "https://www.animate.co.jp/onlyshop/48420/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-03",
+      "ends_on": "2026-10-25",
+      "venue_name": "アニメイト秋葉原2号館7F",
+      "prefecture": "東京都",
+      "classification_text": "TVアニメ『きみが死ぬまで恋がしたい』アニメイトオンリーショップ。等身大スタンディ展示。",
+      "expected_event_types": [
+        "limited_shop"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "きみが死ぬまで恋がしたい",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "tower-asaka-song-of-life-2026",
+      "title": "亜咲花「Song of LIFE」発売記念イベント ミニライブ＆特典会",
+      "source_url": "https://cdfront.tower.jp/store/event/2026/10/116001",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-31",
+      "ends_on": "2026-10-31",
+      "venue_name": "イオンモール大高1Fグリーンコート",
+      "prefecture": "愛知県",
+      "classification_text": "亜咲花 ミニライブ＆特典会。2部特典会はサイン会。",
+      "expected_event_types": [
+        "mini_live",
+        "live",
+        "signing"
+      ],
+      "verified_entities": [
+        {
+          "type": "talent",
+          "canonical_name": "亜咲花",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "tower-violet-eternal-2026",
+      "title": "VIOLET ETERNAL サイン会・撮影会 リリースイベント",
+      "source_url": "https://cdfront.tower.jp/store/event/2026/10/096014",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-08",
+      "ends_on": "2026-10-08",
+      "venue_name": "タワーレコード梅田NU茶屋町店6Fイベントスペース",
+      "prefecture": "大阪府",
+      "classification_text": "VIOLET ETERNAL サイン会・撮影会",
+      "expected_event_types": [
+        "signing",
+        "photo_session"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "VIOLET ETERNAL",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    }
+  ]
+}
