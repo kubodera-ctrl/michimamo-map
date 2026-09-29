@@ -33,6 +33,11 @@ function sourceSnapshot(row:RegistryRow):SourcePolicySnapshot{
   if(row.review_state!=='READY'||row.automated_fetch_allowed!==true){
     throw new Error('source is not READY for automated dry-run fetch');
   }
+  if(row.terms_status!=='reviewed_allowed') throw new Error('READY source terms are not approved');
+  if(!['allowed','not_applicable'].includes(row.robots_status)) throw new Error('READY source access policy is not clear');
+  if(row.commercial_use_status!=='allowed'||row.reuse_status!=='allowed'){
+    throw new Error('READY source commercial/reuse gates are not approved');
+  }
   if(row.fetch_method!=='OPEN_DATA') throw new Error('dry-run CLI currently supports OPEN_DATA CSV only');
   const feed=row.feed_url||'';
   if(!feed.startsWith('https://')) throw new Error('READY source requires an HTTPS feed URL');
@@ -41,7 +46,7 @@ function sourceSnapshot(row:RegistryRow):SourcePolicySnapshot{
     prefecture:row.prefecture||null,municipality:row.municipality||null,
     baseUrl:row.base_url,feedUrl:feed,fetchMethod:'OPEN_DATA',
     termsStatus:'reviewed_allowed',
-    robotsStatus:row.robots_status==='not_applicable'?'not_applicable':'allowed',
+    robotsStatus:row.robots_status as 'allowed'|'not_applicable',
     commercialUseStatus:'allowed',reuseStatus:'allowed',
     redistributionStatus:row.redistribution_status==='conditional'?'conditional':'allowed',
     cacheStatus:row.cache_status==='conditional'?'conditional':'allowed',
