@@ -29,3 +29,12 @@ assert.match(app,/watchPosition/);
 assert.doesNotMatch(html,/AED|交番/);
 assert.doesNotMatch(app,/検問中/);
 console.log('drive beta static contract: PASS');
+
+const driveHtml=fs.readFileSync(path.join(root,'drive-beta/index.html'),'utf8');
+assert.match(driveHtml,/href="\/drive-beta\/drive\.css"/);
+assert.match(driveHtml,/src="\/drive-beta\/enforcement-zones\.js"/);
+assert.match(driveHtml,/src="\/drive-beta\/app\.js"/);
+assert.match(driveHtml,/id="accidentToggle" aria-pressed="false"/);
+const driveApp=fs.readFileSync(path.join(root,'drive-beta/app.js'),'utf8');
+assert.match(driveApp,/bindTooltip/);
+assert.match(driveApp,/accidentVisible=false/);
