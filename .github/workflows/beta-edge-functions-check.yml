@@ -31,5 +31,5 @@ jobs:
           deno-version: v2.x
       - name: Type-check Edge Functions
         run: |
-          deno check supabase/functions/line-auth/index.ts
-          deno check supabase/functions/client-error-log/index.ts
+          deno check --node-modules-dir=auto supabase/functions/line-auth/index.ts
+          deno check --node-modules-dir=auto supabase/functions/client-error-log/index.ts
