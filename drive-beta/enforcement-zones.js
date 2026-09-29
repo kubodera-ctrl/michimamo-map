@@ -75,16 +75,33 @@
     return 2*R*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
   }
 
+  function distancePointToSegmentMeters(point,a,b){
+    const R=6371000;
+    const originLat=((point[0]+a[0]+b[0])/3)*Math.PI/180;
+    const project=p=>[
+      p[1]*Math.PI/180*R*Math.cos(originLat),
+      p[0]*Math.PI/180*R
+    ];
+    const p=project(point),pa=project(a),pb=project(b);
+    const vx=pb[0]-pa[0],vy=pb[1]-pa[1],wx=p[0]-pa[0],wy=p[1]-pa[1];
+    const len2=vx*vx+vy*vy;
+    if(len2===0)return Math.hypot(wx,wy);
+    const t=Math.max(0,Math.min(1,(wx*vx+wy*vy)/len2));
+    return Math.hypot(p[0]-(pa[0]+t*vx),p[1]-(pa[1]+t*vy));
+  }
+
   function distanceToPolylineMeters(point,geometry){
     if(!Array.isArray(geometry)||geometry.length===0)return Infinity;
-    // Short beta segments: vertex distance is intentionally conservative/simple.
+    if(geometry.length===1)return distanceMeters(point,geometry[0]);
     let best=Infinity;
-    for(const vertex of geometry)best=Math.min(best,distanceMeters(point,vertex));
+    for(let i=1;i<geometry.length;i++){
+      best=Math.min(best,distancePointToSegmentMeters(point,geometry[i-1],geometry[i]));
+    }
     return best;
   }
 
   return Object.freeze({
     SOURCE_INDEX,SOURCE_PDF,TOKYO_WANGAN_ZONES,
-    minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,distanceMeters,distanceToPolylineMeters
+    minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
   });
 });
