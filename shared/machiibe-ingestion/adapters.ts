@@ -144,30 +144,54 @@ export function parseJsonApi(body:unknown,source:SourcePolicySnapshot):AdapterPa
   return {method:source.fetchMethod==='OPEN_DATA'?'OPEN_DATA':'JSON_API',items,warnings:items.length?[]:['no_json_items']};
 }
 
-function splitCsvLine(line:string){
-  const out:string[]=[];let value='',quoted=false;
-  for(let i=0;i<line.length;i++){
-    const ch=line[i];
+function parseCsvTable(body:string){
+  const rows:string[][]=[];let row:string[]=[],value='',quoted=false,unclosedQuote=false;
+  const input=body.replace(/^\uFEFF/,'');
+  for(let i=0;i<input.length;i++){
+    const ch=input[i];
     if(ch==='"'){
-      if(quoted&&line[i+1]==='"'){value+='"';i++;}else quoted=!quoted;
-    }else if(ch===','&&!quoted){out.push(value);value='';}
-    else value+=ch;
+      if(quoted&&input[i+1]==='"'){value+='"';i++;}
+      else quoted=!quoted;
+      continue;
+    }
+    if(ch===','&&!quoted){row.push(value);value='';continue;}
+    if((ch==='\n'||ch==='\r')&&!quoted){
+      if(ch==='\r'&&input[i+1]==='\n')i++;
+      row.push(value);value='';
+      if(row.some((cell)=>cell.trim()))rows.push(row);
+      row=[];
+      continue;
+    }
+    if(ch==='\r'&&quoted){
+      if(input[i+1]==='\n')i++;
+      value+='\n';
+      continue;
+    }
+    value+=ch;
   }
-  out.push(value);return out;
+  if(quoted)unclosedQuote=true;
+  if(value.length||row.length){row.push(value);if(row.some((cell)=>cell.trim()))rows.push(row);}
+  return {rows,unclosedQuote};
 }
 export function parseCsv(body:string,source:SourcePolicySnapshot):AdapterParseResult{
-  const lines=body.replace(/^\uFEFF/,'').split(/\r?\n/).filter((line)=>line.trim());
-  if(lines.length<2)return {method:'OPEN_DATA',items:[],warnings:['no_csv_rows']};
-  const headers=splitCsvLine(lines[0]).map((h)=>h.trim());
-  const items=lines.slice(1).map((line,index)=>{
-    const values=splitCsvLine(line);
+  const table=parseCsvTable(body);
+  if(table.rows.length<2){
+    return {method:'OPEN_DATA',items:[],warnings:[...(table.unclosedQuote?['csv_unclosed_quote']:[]),'no_csv_rows']};
+  }
+  const headers=table.rows[0].map((h)=>h.trim());
+  let mismatchedRows=0;
+  const items=table.rows.slice(1).map((values,index)=>{
+    if(values.length!==headers.length)mismatchedRows++;
     const payload=Object.fromEntries(headers.map((h,i)=>[h,values[i]??'']));
     const id=text(payload['event_id'])||text(payload['イベントID'])||text(payload['ID']);
     const url=text(payload['official_url'])||text(payload['URL'])||text(payload['url'])||source.feedUrl||source.baseUrl;
     const updated=text(payload['source_updated_at'])||text(payload['更新日']);
     return raw(source,payload,index,id,url,updated);
   });
-  return {method:'OPEN_DATA',items,warnings:[]};
+  const warnings:string[]=[];
+  if(table.unclosedQuote)warnings.push('csv_unclosed_quote');
+  if(mismatchedRows)warnings.push('csv_column_mismatch:'+mismatchedRows);
+  return {method:'OPEN_DATA',items,warnings};
 }
 
 function jsonLdNodes(value:unknown):UnknownRecord[]{
