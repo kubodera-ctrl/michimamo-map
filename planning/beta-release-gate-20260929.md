@@ -1,87 +1,177 @@
 # まちまも β Release Gate — 2026-09-29
 
 対象: β Release Candidate。Production変更前の判定。
-基準HEAD: `02ed000e52807f2d69614ba49aa286e92f1c3555`（PR #27 stacked on PR #20）
-禁止継続: Production Migration / Production deploy / PR merge / ASP実広告公開 / tracking URL自動click / Point Exchange ON / OAuth追加 / SNS実投稿。
+
+基準upstream: PR #27 `1a86bdaec0b576e61ced875372f2257627b5087f`（base: `restart/dev34`）。
+開発38準備branch: `prep/dev38-beta-release-blockers`。
+禁止継続: Production Migration / Production deploy / PR merge / Vercel Production promotion / Production Edge Function停止・再deploy / ASP実広告公開 / tracking URL自動click / Point Exchange ON / processing ON / OAuth追加 / SNS実投稿 / 新規費用・契約。
 
 ## Gate
 
 | 領域 | 状態 | 根拠 / 残件 |
 | --- | --- | --- |
-| Security | FAIL | Production Supabaseで不要な動画テスト/出力Edge FunctionsがACTIVE。特に `machimamo-video-save-final` は `verify_jwt=false` かつ service role でpublic Storage bucket作成・upsert可能。直近24h invocation 0、bucket/object 0だがβ公開前に停止または認証付き再deployが必要。 |
-| Auth | PASS | LINE authはstate hash、OIDC nonce、LINE PKCE、5分challenge、1分exchange code、DBのatomic single-use consumeを確認。start/exchangeはFrontend originを制限。 |
-| RLS | PASS | Production public tableは全件RLS enabled。RLS policy 0の表はread-only監査上anon/auth direct grantsなしのRPC-only/private設計を確認。 |
-| Privacy | PASS | PR #27でβ利用状況（利用日/最終利用/直近2分online集計）、外部サービス、広告ポイント還元OFFを実装に合わせて明記。 |
-| Terms | PASS | PR #27でPoint Exchange受付/承認/発行停止、広告ポイント還元OFFを明記。 |
-| UI | 未確認 | PR #20の本人iPhone QAはPASS。PR #27は広告/ランキング/legal/a11y/meta差分のみだが、最新Previewの本人画面QAは未実施。 |
-| Safari | PASS | PR #20本人QAで通常Safari基本表示・サイズ・下部menu・modal確認済み。 |
-| Private Safari | PASS | PR #20本人QAで基本表示確認済み。 |
-| Android | 未確認 | 実機QAなし。 |
-| Performance | 未確認 | `index.html` 約703k chars、inline script約176k chars。定量Lighthouse/低速回線計測は未実施。 |
-| MAP | PASS | PR #20系で地図・下部menu・警察/AED導線を維持。PR #27はMAPロジック変更なし。 |
-| DB | PASS | Production read-only監査実施。Point ledger mismatch 0 / negative 0 / duplicate key 0（前工程）を維持。 |
-| Points | PASS | 通常投稿等の既存ポイントはserver-side contract/isolated write E2E PASS。Point ExchangeはOFFとして別扱い。 |
-| Point Exchange | N/A | β初期OFF。Production `exchange_enabled=false` / `processing_enabled=false` / requests=0。ON前にPR #25 migrationとavailable projectionが必要。 |
-| ASP | PASS | β fail-closed。ASP2 CURRENTのpublishable 0 / reward 0を維持。 |
-| Ads | PASS | PR #27でA8/ValueCommerce実リンク、1px tracking、旧Ipsos/CampusTopポイント断定、特P/軒先hardcodeを撤去。再混入テストPASS。 |
-| Analytics | PASS | 認証済みβ利用状況のpresence/管理集計あり。Privacy説明もPR #27で整合。 |
-| Error logging | FAIL | Central error logging未導入。console.error中心。βでの最低限の障害把握方法を別途決める必要あり。 |
-| Backup | 未確認 | Production DB backupの復旧可能時点/RPO/RTOを現connectorでは未確認。 |
-| Rollback | 未確認 | 現Production `dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4` は既知正常。Vercelは既存deploymentのpromote/rollback手段あり。ただし実Production rollback試験は未実施。 |
-| Production deploy | FAIL | Git接続後Previewは自動作成。main push/merge時のProduction自動deploy設定をconnectorで完全取得できず、安全上auto deployの可能性ありとしてmerge禁止継続。 |
-| Domain | 未確認 | 現ProductionはVercel aliasesを確認。正式custom domain最終判定は未完。 |
-| SEO/noindex/index | 未確認 | PR #27でdescription/theme-color/manifest追加。canonical/robotsは正式domain確定前のため未設定。 |
-| Accessibility | PASS | PR #27静的gateで全img alt必須、icon-only buttonのaccessible name必須。主要投稿/select controlsへaria-label追加。実スクリーンリーダーQAは未実施。 |
-| SNS | N/A | β初期Production投稿OFF。実SNS送信なし。 |
-| Admin | PASS | Production admin RPCはauth user + active user + admin_users + 第二パスワードの `admin_validate` を確認。 |
-| Rate limit | FAIL | LINE authは補助in-memory 10/minのみで複数instance共有なし。汎用の永続rate-limit objectは未確認/未実装。 |
-| Abuse prevention | PASS | 投稿ポイント上限、idempotency、payload mismatch拒否、所有者削除、exchange reservation/idempotency等のisolated behavior test PASS。 |
+| Security | FAIL | Productionでβ初期不要のPOC/video Edge Functions 6件がACTIVE。特に `machimamo-video-save-final` は認証なし・service role使用・public bucket作成・Storage upsert可能。停止/保護は本人承認待ち。加えてpublic rankingのraw UUID除去はprep branchで修正準備済み、Production未適用。 |
+| Auth | PASS | LINE authはstate hash、OIDC nonce、LINE PKCE、5分challenge、1分exchange code、DB atomic single-use consume、origin checkを確認。 |
+| RLS | PASS | Production public tablesは全件RLS enabled。 |
+| Privacy | PASS / prep更新あり | PR #27のβ利用状況説明に加え、prep branchではprivacy-minimalなβ障害情報の説明も追加。Production未反映。 |
+| Terms | PASS | β版Point Exchange受付/承認/発行停止、広告ポイント還元OFFを明記。 |
+| UI | 未確認 | PR #27最新Previewの本人iPhone QA待ち。 |
+| Safari | PASS | PR #20本人QA済み。 |
+| Private Safari | PASS | PR #20本人QA済み。 |
+| Android | 未確認 | β公開前に最低1台の実機QAが必要。 |
+| Performance | 未確認 | 静的budgetはPASS。Lighthouse / mobile / first map display / waterfallは未実測。 |
+| MAP | PASS | PR #27でMAPロジックの意図しない変更なし。 |
+| DB | PASS | Production read-only監査済み。 |
+| Points | PASS | βで有効な通常ポイント系は既存server-side contract/isolated write E2Eを維持。 |
+| Point Exchange | N/A | β初期OFF。Production `exchange_enabled=false` / `processing_enabled=false`。PR #25はON直前までProduction適用しない。 |
+| ASP | PASS | fail-closed。publishable案件0に整合。 |
+| Ads | PASS | legacy hardcoded広告・tracking pixel・未承認ポイント断定を撤去。 |
+| Analytics | PASS | 認証済みpresence/管理集計あり。 |
+| Error logging | FAIL（準備済み） | prep branchでglobal JS error / unhandled rejection / RPC failure / LINE auth failure / map init phaseをSupabase Edge logへprivacy-minimalに送る構成を実装。新Edge Function deployとpersistent limiter migrationはProduction未適用。 |
+| Backup | FAIL（手順確定） | Supabase Free planのため自動日次backupを前提にしない。DB約116 MB、Storage約11 MB。Release直前のmanual DB dump + Storage退避runbook作成済み。実snapshot未取得。 |
+| Rollback | PREP | 既知正常Vercel Production `dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4` と公式rollback/promote手段を確認。Production実rollbackは未実施。disposable restore drill未実施のためRTO未実測。 |
+| Production deploy | FAIL | 既知ProductionはCLI起点、PR PreviewはGit起点target=null。main更新時のGit起点Productionは確認されていないが、Vercel Projectの現設定をconnector不整合で完全取得できず、auto deploy無効を断定できない。merge禁止継続。 |
+| Domain | 未確認 | Vercel aliasesは確認済み。正式domain最終決定は未完。 |
+| SEO/noindex/index | 未確認 | description/theme-color/manifestあり。canonical/robotsは正式domain確定後。 |
+| Accessibility | PASS | 静的gate PASS。スクリーンリーダー実機QAは未実施。 |
+| SNS | N/A | β初期Production投稿OFF。 |
+| Admin | PASS | admin RPCはauthenticated + active user + admin_users + 第二パスワード + admin_validate。 |
+| Rate limit | FAIL（準備済み） | 個別write RPCには日次上限・idempotency・advisory lock等あり。残blockerは認証前Edgeの共有永続limiter。prep branchでservice-role-only DB limiterとLINE auth 10/min/IP相当を実装、Production未適用。 |
+| Abuse prevention | PASS | 既存の投稿/ポイント/画像/appeal/quiz等に個別abuse guardあり。 |
 
-## CI
+## PR #27 current CI
 
-PR #27 exact HEAD `02ed000e52807f2d69614ba49aa286e92f1c3555`
+PR #27 exact HEAD `1a86bdaec0b576e61ced875372f2257627b5087f`
 
-- Beta Release Gate run 36495725450: PASS
+- Beta Release Gate run 36496337009: PASS
+- Event Site Check run 36496337080: PASS
 - checkout SHA == event head SHA: PASS
-- full `npm ci -> npm test`: PASS
-- beta legacy ASP gate: PASS
-- beta real-data-only ranking gate: PASS
-- beta legal/runtime alignment gate: PASS
-- beta accessibility static gate: PASS
-- beta SEO/PWA metadata gate: PASS
-- Event Site Check run 36495725451: PASS
-- Cloudflare Workers Builds (michimamo-map / machiibe-preview): failure継続。mainや無関係branchでも同様に即failure、GitHub required checkではない。
+- full `npm test`: PASS
+- legacy ASP / real-data-only ranking / legal-runtime / accessibility / SEO-PWA / static performance gates: PASS
+
+開発38 prep branchは上記upstreamを動かさず別branchで準備中。prep branch自身のCIはDraft PR作成後に記録する。
+
+## Cloudflare Workers Builds
+
+コード側から確認できる範囲を切り分け済み。
+
+- PR #27:
+  - machiibe-preview: `5d2a3344-f329-40e8-b27b-0e3015053507`
+  - michimamo-map: `3b624ed6-a52f-471d-bf80-07070391d450`
+- main:
+  - machiibe-preview: `d957845f-73c9-4acf-ae76-e9750b8f09cb`
+  - michimamo-map: `dc761d41-ffe8-4c54-9f41-04f42834e2bb`
+- PR #20:
+  - machiibe-preview: `4e2277a2-3b1e-4e69-8d95-22dcdf433370`
+  - michimamo-map: `9f5529a9-3819-4b23-beba-e02995f4edcf`
+
+共通事項:
+- 同型failureがmain/PR20/PR27に発生。
+- GitHub required checkではない。
+- repoにwrangler.toml / wrangler.json / wrangler.jsonc等のCloudflare build設定なし。
+- Event Site Check内のCloudflare adapter buildは別経路でPASS。
+- PR #27コード固有regressionを示す証拠は現在ない。
+- 根本原因確定にはCloudflare Dashboardの該当build logが必要。Dashboard操作・設定変更は本人側の確認境界。
+
+## Vercel deploy境界
+
+- 既知正常Production `dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4`: target=production / source=cli / Git metaなし。
+- PR #27 Preview `dpl_6CnL2cUVGsvK3CZ8dHohQXon4359`: target=null / source=git / branch・SHA metaあり。
+- 確認できた既知Production 3件はいずれもCLI起点。
+- Vercel公式仕様では `git.deploymentEnabled.main=false` でmain Git deploymentを無効化可能。
+- ただしProject current settingを完全取得できていないため、設定変更・mergeは本人承認前に実行しない。
 
 ## Production Edge Function findings
 
 ### β公開前に停止/保護が必要
-- `poc-session`: POC function。ACTIVE。service-role admin user create/deleteを行う。auth:'secret'だがβ運用には不要。
-- `machimamo-video-asset-test`: ACTIVE / verify_jwt=false / public media endpoint。
-- `machimamo-video-overlay-v1`: ACTIVE / verify_jwt=false / public media endpoint。
-- `machimamo-video-final-v1`: ACTIVE / verify_jwt=false / public proxy endpoint。
-- `machimamo-video-download-page`: ACTIVE / verify_jwt=false / public HTML endpoint。
-- `machimamo-video-save-final`: ACTIVE / verify_jwt=false / service-role / public CORS / Storage bucket create + upsert。最優先。
+- `poc-session`: POC。service-roleでAuth user create/delete。
+- `machimamo-video-asset-test`: public media endpoint。
+- `machimamo-video-overlay-v1`: public media endpoint。
+- `machimamo-video-final-v1`: public proxy endpoint。
+- `machimamo-video-download-page`: public HTML endpoint。
+- `machimamo-video-save-final`: 認証なし / service-role / public Storage bucket create + upsert。最優先。
 
-上記video 5 functionとpoc-sessionは、直近24hのfunction invocation 0を確認。video storage bucket/objectも0。
+前工程で上記6件の直近24h invocation 0、video bucket/object 0を確認。停止はProduction変更のため未実行。
 
 ### verify_jwt=falseだが内部防御あり
-- `line-auth`: OAuth callbackのためJWT無し。state/nonce/PKCE/short-lived code/origin checkあり。rate limiterは補助。
-- `account-deletion`: Bearer user検証 + admin RPC + password。
-- `camera-evidence-retention`: scheduler single-use tokenまたはBearer user。
-- `aed-retention`: scheduler single-use token。
-- `aed-image-check`: Bearer/internal checksあり（別途既存検証済み）。
+- `line-auth`: OAuth callback用途。内部認証あり。
+- `account-deletion`: Bearer user + admin RPC + password。
+- `camera-evidence-retention`: scheduler token またはBearer user。
+- `aed-retention`: scheduler token。
+- `aed-image-check`: Bearer/internal checks。
+
+開発38でProductionにのみ存在していた `line-auth` current sourceをprep branchへ正本化済み。
+
+## 開発38 security prep
+
+Productionには未適用。
+
+- `20260929130000_beta_edge_rate_limit.sql`
+  - private bucket table
+  - raw IPを保存せずkeyed hashのみ
+  - service_role-only consume RPC
+  - LINE auth 10 requests / 60 sec
+  - client error logger 20 requests / 60 sec
+- `20260929130500_safe_profile_ranking.sql`
+  - public rankingからraw profile UUIDを除去
+  - `is_me` をserver-sideで返す
+- `supabase/functions/line-auth/index.ts`
+  - current Production sourceをGitへ正本化
+  - shared persistent limiter準備
+  - secret/token/raw IPを含まない固定error log
+- `supabase/functions/client-error-log/index.ts`
+  - origin allowlist
+  - fixed event schema
+  - secret/user payloadを受けない
+  - persistent rate limit
+  - Supabase Edge structured logへ出力
+- `beta-error-bootstrap.js`
+  - app起動前のglobal error / unhandled rejection queue
+- browser runtime
+  - RPC failure central capture
+  - LINE auth start/exchange/session failure capture
+  - map init phase識別
+- Privacy
+  - β障害情報の最小収集内容と非収集項目を明文化
+
+deploy sequencing:
+1. persistent limiter migration
+2. `client-error-log` deploy
+3. `line-auth` redeploy
+4. Release Candidate browser code
+の順を守る。1〜3はProduction変更なので本人承認まで実行しない。
+
+## Backup / Rollback
+
+詳細: `planning/beta-backup-rollback-runbook-20260929.md`
+
+β公開前Backup PASS条件:
+1. roles/schema/data dump取得
+2. Storage全object退避
+3. count / size / checksum確認
+4. Git SHA / Vercel deployment / Edge Function inventory固定
+5. snapshot後にProduction変更
+
+RTOはrestore drill未実施のため未実測と明記する。
 
 ## Merge前の必須blocker
 
-1. Productionの不要Edge Functions停止/保護（特に `machimamo-video-save-final`）。
-2. main merge時のVercel Production自動deployを停止または挙動確定。
-3. PR #20 → #22 → Identity-only → PR #27 の順序を維持。
-4. Production Migration / PR merge / Production deployは本人承認まで実行しない。
+1. Production不要Edge Functions停止/保護。
+2. Vercel main→Production deploy境界の確定。
+3. Error logging / shared rate limitのProduction適用判断。
+4. Release直前manual backup取得。
+5. PR #20 → #22 → Identity-only → PR #27 の統合順維持。
+6. Production Migration / PR merge / Production deployは本人承認まで実行しない。
+
+## 本人QA待ち
+
+- PR #27 iPhone関連箇所QA。
+- Android実機QA。
+- Cloudflare Dashboard build log確認（root cause確定用）。
 
 ## 次に本人操作なしで進める項目
 
-- Error loggingのβ最小構成をコード側で設計/準備。
-- Rate limitの現行write RPCごとの既存abuse guardを棚卸し。
-- Performanceの静的予算/回帰gate作成。
-- PR #22 / Identity-only再構成に必要なdiffを事前整理（merge/rebase実行は順序到達後）。
-- Cloudflare failureをコード起因ではない範囲まで証拠化。
+- prep branchのCI / Previewでsecurity prepの構文・既存回帰を確認。
+- Identity-only再構成diffの事前準備。
+- PR20→PR22→Identity-only→PR27の統合conflictをread-onlyで事前監査。
+- Lighthouse等の実測PerformanceをPreviewで可能な範囲まで確認。
