@@ -13,6 +13,7 @@ export type DedupePair={
   leftSourceId:number;
   rightSourceId:number;
   confidence:number;
+  reviewReason?:'ambiguous_confidence'|'source_cluster_conflict';
 };
 
 export type CrossSourceDedupeResult={
@@ -25,16 +26,40 @@ export type CrossSourceDedupeResult={
 
 class UnionFind{
   private parent=new Map<string,string>();
-  add(id:string){if(!this.parent.has(id))this.parent.set(id,id);}
+  private sources=new Map<string,Set<number>>();
+
+  add(id:string,sourceId:number){
+    if(this.parent.has(id))return;
+    this.parent.set(id,id);
+    this.sources.set(id,new Set([sourceId]));
+  }
+
   find(id:string):string{
     const p=this.parent.get(id);
-    if(!p){this.parent.set(id,id);return id;}
+    if(!p)throw new Error('unknown union-find node: '+id);
     if(p===id)return id;
     const root=this.find(p);this.parent.set(id,root);return root;
   }
+
+  canUnion(a:string,b:string){
+    const ra=this.find(a),rb=this.find(b);
+    if(ra===rb)return true;
+    const left=this.sources.get(ra)||new Set<number>();
+    const right=this.sources.get(rb)||new Set<number>();
+    for(const sourceId of left)if(right.has(sourceId))return false;
+    return true;
+  }
+
   union(a:string,b:string){
     const ra=this.find(a),rb=this.find(b);
-    if(ra!==rb)this.parent.set(rb,ra);
+    if(ra===rb)return true;
+    if(!this.canUnion(a,b))return false;
+    const left=this.sources.get(ra)||new Set<number>();
+    const right=this.sources.get(rb)||new Set<number>();
+    this.parent.set(rb,ra);
+    this.sources.set(ra,new Set([...left,...right]));
+    this.sources.delete(rb);
+    return true;
   }
 }
 
@@ -53,7 +78,7 @@ export function dedupeCrossSourceCandidates(
   }
 
   const uf=new UnionFind();
-  for(const row of candidates)uf.add(row.candidateId);
+  for(const row of candidates)uf.add(row.candidateId,row.sourceId);
   const autoMergePairs:DedupePair[]=[];
   const reviewPairs:DedupePair[]=[];
 
@@ -73,10 +98,13 @@ export function dedupeCrossSourceCandidates(
         confidence
       };
       if(confidence>=autoMergeThreshold&&!duplicateReviewRequired(confidence)){
-        autoMergePairs.push(pair);
-        uf.union(left.candidateId,right.candidateId);
+        if(uf.union(left.candidateId,right.candidateId)){
+          autoMergePairs.push(pair);
+        }else{
+          reviewPairs.push({...pair,reviewReason:'source_cluster_conflict'});
+        }
       }else{
-        reviewPairs.push(pair);
+        reviewPairs.push({...pair,reviewReason:'ambiguous_confidence'});
       }
     }
   }
