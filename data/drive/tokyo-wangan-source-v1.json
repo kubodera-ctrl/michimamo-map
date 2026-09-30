@@ -6,14 +6,14 @@
     "policeOrg": "警視庁",
     "stationName": "東京湾岸警察署",
     "sourceFamily": "SPEED_GUIDELINE",
-    "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf",
+    "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
     "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
     "sourceVersionDate": "2026-07-30",
     "verifiedAt": "2026-09-30",
     "freshnessStatus": "CURRENT",
     "termsStatus": "PENDING",
     "cadenceType": "ANNUAL_CHANGE_DETECT",
-    "parserVersion": "tokyo_wangan_official_table_v2"
+    "parserVersion": "tokyo_wangan_official_table_v3"
   },
   "records": [
     {
@@ -24,29 +24,29 @@
       "segmentStartText": "荒川河口橋上",
       "segmentEndText": "京浜大橋上",
       "timeStart": "06:00",
-      "timeEnd": "24:00",
+      "timeEnd": "22:00",
       "roadScope": "SEGMENT"
     },
     {
       "externalId": "wangan-harumi",
       "routeName": "晴海通り",
       "focusType": "METROPOLITAN_FOCUS",
-      "speedLimitText": "50",
+      "speedLimitText": "60",
       "segmentStartText": "東雲交差点",
       "segmentEndText": "東雲橋上",
-      "timeStart": "14:00",
-      "timeEnd": "22:00",
+      "timeStart": "16:00",
+      "timeEnd": "18:00",
       "roadScope": "SEGMENT"
     },
     {
       "externalId": "wangan-meiji",
       "routeName": "明治通り",
       "focusType": "METROPOLITAN_FOCUS",
-      "speedLimitText": "50",
+      "speedLimitText": "60",
       "segmentStartText": "夢の島交差点",
       "segmentEndText": "夢の島大橋上",
-      "timeStart": "12:00",
-      "timeEnd": "16:00",
+      "timeStart": "06:00",
+      "timeEnd": "10:00",
       "roadScope": "SEGMENT"
     },
     {
@@ -56,8 +56,8 @@
       "speedLimitText": "50",
       "segmentStartText": "辰巳交差点",
       "segmentEndText": "七枝橋上",
-      "timeStart": "14:00",
-      "timeEnd": "18:00",
+      "timeStart": "16:00",
+      "timeEnd": "20:00",
       "roadScope": "SEGMENT"
     },
     {
@@ -76,10 +76,32 @@
       "routeName": "臨港道路",
       "focusType": "METROPOLITAN_FOCUS",
       "speedLimitText": "50（東京ゲートブリッジ上60）",
-      "segmentStartText": "京浜大橋北交差点",
-      "segmentEndText": "中央防波堤交差点",
+      "segmentStartText": "京浜大橋北交差点（中央防波堤交差点）",
+      "segmentEndText": "中央防波堤交差点（新木場交差点）",
       "timeStart": "06:00",
       "timeEnd": "20:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-aomi",
+      "routeName": "臨港道路（青海縦貫線）",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "青海3丁目交差点",
+      "segmentEndText": "中央防波堤交差点",
+      "timeStart": "18:00",
+      "timeEnd": "22:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-under",
+      "routeName": "臨港道路（東京湾岸アンダー線）",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "港区台場2丁目1番先",
+      "segmentEndText": "湾岸アンダー出口交差点",
+      "timeStart": "07:00",
+      "timeEnd": "11:00",
       "roadScope": "SEGMENT"
     },
     {
@@ -87,8 +109,8 @@
       "routeName": "都橋通り",
       "focusType": "STATION_FOCUS",
       "speedLimitText": "50",
-      "segmentStartText": "東雲1丁目交差点",
-      "segmentEndText": "台場駅前交差点",
+      "segmentStartText": "港区台場1丁目9番先",
+      "segmentEndText": "東雲1丁目交差点",
       "timeStart": "07:00",
       "timeEnd": "16:00",
       "roadScope": "SEGMENT"
@@ -96,13 +118,25 @@
   ],
   "geometryCandidates": {
     "wangan-r357": {
-      "start": [35.647526, 139.845068],
-      "end": [35.575405, 139.748282],
+      "start": [
+        35.647526,
+        139.845068
+      ],
+      "end": [
+        35.575405,
+        139.748282
+      ],
       "verification": "beta_candidate_endpoint_pair"
     },
     "wangan-kan2": {
-      "start": [35.642054, 139.787168],
-      "end": [35.6352293, 139.7926317],
+      "start": [
+        35.642054,
+        139.787168
+      ],
+      "end": [
+        35.6352293,
+        139.7926317
+      ],
       "verification": "beta_candidate_endpoint_pair"
     }
   }
