@@ -165,7 +165,7 @@ assert.match(app,/scheduleFocusTab\.addEventListener/);
 assert.match(app,/fillColor:'#16a34a'/);
 assert.match(app,/publicTodayMarkers/);
 assert.match(app,/marker\.setStyle\(\{opacity:flashOn\?1:\.35,fillOpacity:flashOn\?\.96:\.18\}\)/);
-assert.match(app,/現在の取締実施を示すリアルタイム情報ではありません/);
+assert.match(app,/現在その場所で取締りを実施中であることを示すものではありません/);
 assert.doesNotMatch(app,/\/data\/drive\/tokyo-wangan-source-v1\.json/);
 assert.match(app,/normalizeSnapshot/);
 assert.doesNotMatch(html,/AED|交番/);
