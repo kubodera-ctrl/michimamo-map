@@ -106,9 +106,15 @@ assert.equal(JSON.stringify(snapshot).includes('termsStatus'),false);
 
 const html=fs.readFileSync(path.join(root,'drive-beta/index.html'),'utf8');
 const app=fs.readFileSync(path.join(root,'drive-beta/app.js'),'utf8');
+const driveManifest=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/manifest.webmanifest'),'utf8'));
+const rootManifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.webmanifest'),'utf8'));
 assert.match(html,/noindex,nofollow/);
 assert.match(html,/まちドラ β/);
 assert.match(html,/まちDRIVE/);
+assert.match(html,/\/drive-beta\/assets\/machidora-icon-64\.jpg/);
+assert.match(html,/\/drive-beta\/assets\/machidora-icon-180\.jpg/);
+assert.match(html,/\/drive-beta\/manifest\.webmanifest/);
+assert.match(html,/class="brand-logo"/);
 assert.doesNotMatch(html,/まちまも DRIVE β/);
 assert.match(html,/現行公式PDF 9路線/);
 assert.match(html,/id="scheduleToggle"/);
@@ -136,6 +142,17 @@ assert.match(html,/href="\/drive-beta\/drive\.css"/);
 assert.match(html,/src="\/drive-beta\/enforcement-zones\.js"/);
 assert.match(html,/src="\/drive-beta\/app\.js"/);
 assert.doesNotMatch(html,/tokyo-wangan-snapshot\.js/);
+assert.equal(driveManifest.name,'まちドラ（まちDRIVE）');
+assert.equal(driveManifest.short_name,'まちドラ');
+assert.equal(driveManifest.start_url,'./');
+assert.equal(driveManifest.scope,'./');
+assert.equal(driveManifest.icons.some(icon=>icon.src==='assets/machidora-icon-180.jpg'&&icon.sizes==='180x180'),true);
+assert.equal(rootManifest.name,'まちまも MAP','shared root PWA manifest must remain machimamo');
+for(const asset of ['machidora-icon-64.jpg','machidora-icon-180.jpg']){
+  const file=path.join(root,'drive-beta/assets',asset);
+  assert.equal(fs.existsSync(file),true,'machidora brand asset must exist: '+asset);
+  assert.ok(fs.statSync(file).size>1000,'machidora brand asset must not be empty: '+asset);
+}
 assert.match(html,/id="accidentToggle" aria-pressed="false"/);
 assert.match(app,/bindTooltip/);
 assert.match(app,/accidentVisible=false/);

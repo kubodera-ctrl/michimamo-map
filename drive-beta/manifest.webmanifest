@@ -1,0 +1,18 @@
+{
+  "name": "まちドラ（まちDRIVE）",
+  "short_name": "まちドラ",
+  "description": "警察公式の取締重点区間・公開取締予定と事故多発情報を確認する運転支援β",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2f7",
+  "theme_color": "#1d91d0",
+  "icons": [
+    {
+      "src": "assets/machidora-icon-180.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
