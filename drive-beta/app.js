@@ -37,6 +37,7 @@ const scheduleSource=document.getElementById('scheduleSource');
 const scheduleFootCopy=document.getElementById('scheduleFootCopy');
 const schedulePublicTab=document.getElementById('schedulePublicTab');
 const scheduleFocusTab=document.getElementById('scheduleFocusTab');
+const legendItems=Array.from(document.querySelectorAll('.legend-item'));
 const scheduleDayBanner=document.getElementById('scheduleDayBanner');
 const scheduleDayTitle=document.getElementById('scheduleDayTitle');
 const scheduleDayCopy=document.getElementById('scheduleDayCopy');
@@ -61,6 +62,14 @@ function setStatusPanelExpanded(expanded){
   statusPanelHandle.setAttribute('aria-label',open?'詳細を閉じる':'詳細を表示');
   statusPanelDetails.setAttribute('aria-hidden',String(!open));
   appRoot.classList.toggle('status-panel-expanded',open);
+}
+
+function setLegendItemOpen(target){
+  for(const item of legendItems){
+    const open=item===target&&!item.classList.contains('open');
+    item.classList.toggle('open',open);
+    item.setAttribute('aria-expanded',String(open));
+  }
 }
 
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
@@ -498,6 +507,13 @@ statusPanelHandle.addEventListener('click',()=>{
   setStatusPanelExpanded(statusPanel.classList.contains('collapsed'));
 });
 setStatusPanelExpanded(false);
+for(const item of legendItems){
+  item.addEventListener('click',event=>{
+    event.stopPropagation();
+    setLegendItemOpen(item);
+  });
+}
+map.on('click',()=>setLegendItemOpen(null));
 schedulePublicTab.addEventListener('click',()=>setScheduleTab('public'));
 scheduleFocusTab.addEventListener('click',()=>setScheduleTab('focus'));
 

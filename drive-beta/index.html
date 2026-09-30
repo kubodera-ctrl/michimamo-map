@@ -48,12 +48,22 @@
       <a id="scheduleSource" href="#" target="_blank" rel="noopener noreferrer">警視庁の出典</a>
     </div>
   </section>
-  <div class="legend" aria-hidden="true">
-    <div><i class="red"></i>現在の重点時間帯</div>
-    <div><i class="orange"></i>重点区間（時間外）</div>
-    <div><i class="red-dot"></i>本日の公開取締予定</div>
-    <div><i class="green-dot"></i>重点取締場所</div>
-    <div><i class="purple"></i>事故多発エリア</div>
+  <div class="legend" id="mapLegend" aria-label="地図表示の凡例">
+    <button class="legend-item" type="button" data-legend="active" aria-expanded="false" aria-label="現在の重点時間帯">
+      <i class="legend-marker red" aria-hidden="true"></i><span>現在の重点時間帯</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="inactive" aria-expanded="false" aria-label="重点区間（時間外）">
+      <i class="legend-marker orange" aria-hidden="true"></i><span>重点区間（時間外）</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="today" aria-expanded="false" aria-label="本日の公開取締予定">
+      <i class="legend-marker red-dot" aria-hidden="true"></i><span>本日の公開取締予定</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="focus" aria-expanded="false" aria-label="重点取締場所">
+      <i class="legend-marker green-dot" aria-hidden="true"></i><span>重点取締場所</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="accident" aria-expanded="false" aria-label="事故多発エリア">
+      <i class="legend-marker purple" aria-hidden="true"></i><span>事故多発エリア</span>
+    </button>
   </div>
   <button class="location-btn" id="locationBtn" aria-label="現在地へ移動">◎</button>
   <div class="alert-card" id="proximityAlert" role="status" aria-live="polite">
