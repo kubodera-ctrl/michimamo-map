@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v12",
+  "version": "2026-09-30-ready-audit-v13",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -354,6 +354,73 @@
         "reference_http": 15,
         "reference_other": 1,
         "note": "API availability/access is valid, but the corpus is historical and reference URLs are mostly HTTP. Fresh current event source must be found elsewhere; do not READY/promote this API."
+      }
+    },
+    {
+      "source_key": "gifu-pref-current-calendar",
+      "prefecture": "岐阜県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.gifu.lg.jp/calendar/",
+        "homepage_terms": "https://www.pref.gifu.lg.jp/page/79328.html",
+        "note": "一般の岐阜県公式HPは私的使用・引用等を除き許可なく複製・転用不可。オープンデータカタログのCC BY規約を公式HPカレンダーへ流用しない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "saitama-pref-current-calendar",
+      "prefecture": "埼玉県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.saitama.lg.jp/cgi-bin/event_cal/cal_month.cgi",
+        "homepage_terms": "https://www.pref.saitama.lg.jp/a0301/tyosaku-rinku.html",
+        "note": "埼玉県HP掲載情報の転載は各担当課の承認が必要。自動取得・再掲載sourceとしてREADYへ進めない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "ehime-pref-current-calendar",
+      "prefecture": "愛媛県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.ehime.jp/calendar/",
+        "homepage_terms": "https://www.pref.ehime.jp/page/14959.html",
+        "open_data_terms": "https://www.pref.ehime.jp/opendata-catalog/policy.html",
+        "note": "一般の愛媛県公式HPは無断複製・転用不可。オープンデータカタログのCC BY 4.0は別サイト/別コンテンツ契約であり、公式HPカレンダーへ自動適用しない。robots.txtは現ツールから確認できず。"
       }
     }
   ]
