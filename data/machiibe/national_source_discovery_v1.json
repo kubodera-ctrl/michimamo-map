@@ -560,7 +560,7 @@
       "review_state": "TERMS_REVIEWED",
       "yield_class": "high",
       "observed_current_items_min": null,
-      "notes": "長崎市公式利用規約は市保有著作物をCC BY 4.0、数値データ等は自由利用。第三者権利は別gate。固定resource URLは使わずCKAN package_showから最新active HTTPS CSVを解決し、45日以内freshnessをlive確認できた場合のみREADY昇格。",
+      "notes": "長崎市公式利用規約はCC BY 4.0・商用/加工利用可、第三者権利は別gate。CKAN_LATEST_CSV resolverをEvent Site Check #773でlive実行した結果、最新active HTTPS CSVは2024.3月resource（age 943.75日）だったためfreshness FAIL。READYへ上げず別sourceを探索する。",
       "resource_resolver": "CKAN_LATEST_CSV",
       "resolver_api_url": "https://data.bodik.jp/api/3/action/package_show?id=f76b7e71-6c52-491a-a847-d5aacb73bc98",
       "resolver_max_age_days": 45,
@@ -568,7 +568,8 @@
       "redistribution_status": "allowed_with_attribution",
       "cache_status": "allowed_with_attribution",
       "image_use_status": "unknown",
-      "sns_use_status": "factual_data_only"
+      "sns_use_status": "factual_data_only",
+      "freshness_confidence": "low"
     },
     {
       "source_key": "atre-event-network",
