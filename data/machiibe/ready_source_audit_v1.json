@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v4",
+  "version": "2026-09-30-ready-audit-v5",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -143,6 +143,79 @@
         "license": "CC BY 4.0",
         "observed_portal_update": "2026-09-07 event list shown as new/updated on Osaka portal",
         "note": "Direct official CSV distribution. Third-party rights clause is preserved as a separate media/content gate; no image reuse is inferred."
+      }
+    },
+    {
+      "source_key": "bodik-okinawa-pref-events",
+      "prefecture": "沖縄県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": false,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "resource_direct_url",
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/47007_event",
+        "terms": "https://odcs.bodik.jp/470007/tos/",
+        "license": "CC BY 4.0",
+        "dataset_updated_at": "2026-03-30",
+        "note": "2026イベント一覧だがdataset最終更新が3月末。9月末時点の継続freshnessを単独で担保できないためREADYへ上げない。"
+      }
+    },
+    {
+      "source_key": "bodik-toyonaka-events",
+      "prefecture": "大阪府",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/272035_event",
+        "resource_page": "https://data.bodik.jp/dataset/272035_event/resource/b0a19f54-86b5-4083-bdea-17f7fa76487f",
+        "license": "CC BY 4.0",
+        "frequency": "1ヶ月に1回",
+        "last_observed_update": "2026-07-31",
+        "note": "月次更新想定に対し8月・9月更新を確認できないため、最新イベント供給sourceとしてはHOLD。"
+      }
+    },
+    {
+      "source_key": "bodik-kumatori-events",
+      "prefecture": "大阪府",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": null,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": null,
+      "reuse_allowed": null,
+      "attribution_known": false,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "terms_review",
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/273619_event",
+        "resource_page": "https://data.bodik.jp/dataset/273619_event/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb",
+        "license": "CC BY 4.0",
+        "resource_updated_at": "2025-11-14",
+        "portal_notice": "2026-09-18 event dataset addition notice",
+        "note": "ポータル告知は新しいが、実CSV resourceの最終更新は2025-11-14。告知日だけでfreshnessを昇格させない。"
       }
     }
   ]
