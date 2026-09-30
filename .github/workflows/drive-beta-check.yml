@@ -9,7 +9,7 @@ on:
       - "drive-beta/**"
       - "data/drive/**"
       - "scripts/drive_enforcement_pipeline.mjs"
-      - "scripts/drive_source_fetch.mjs"
+      - "scripts/drive_source_fetch.mjs"\n      - "scripts/build_drive_preview_snapshot.mjs"
       - "tests/drive_beta.test.cjs"
       - "tests/drive_enforcement_pipeline.test.mjs"
       - "tests/drive_source_fetch.test.mjs"
