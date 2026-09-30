@@ -47,6 +47,7 @@ export function normalizeRecord(source,raw,endpoints={}){
 
   return Object.freeze({
     eventKey:source.sourceKey+':'+raw.externalId,
+    externalId:raw.externalId,
     sourceKey:source.sourceKey,
     sourceVersionDate:source.sourceVersionDate,
     parserVersion:source.parserVersion,
@@ -113,6 +114,48 @@ export function buildSnapshot(bundle,{mode='preview'}={}){
     sourceHash:sourceHash(bundle),
     generatedFrom:'verified_source_rows',
     gate,
+    events:Object.freeze(events)
+  });
+}
+
+
+export function buildPublicPreviewSnapshot(bundle){
+  const snapshot=buildSnapshot(bundle,{mode:'preview'});
+  if(!snapshot.gate.publishable)throw new Error('preview_not_publishable');
+  const events=snapshot.events.map(event=>Object.freeze({
+    id:event.externalId,
+    eventKey:event.eventKey,
+    agency:event.policeOrg,
+    policeStation:event.stationName,
+    sourceUrl:event.sourceUrl,
+    sourceVerifiedAt:event.sourceVerifiedAt,
+    freshnessStatus:event.freshnessStatus,
+    routeName:event.routeName,
+    focusType:event.focusType,
+    speedLimitKmh:event.speedLimitKmh,
+    speedLimitText:event.speedLimitText,
+    alternateSpeedKmh:event.alternateSpeedKmh,
+    segmentStartText:event.segmentStartText,
+    segmentEndText:event.segmentEndText,
+    timeStartMinutes:event.timeStartMinutes,
+    timeEndMinutes:event.timeEndMinutes,
+    geoPrecision:event.geoPrecision,
+    timePrecision:event.timePrecision,
+    displayMode:event.displayMode,
+    routeEndpoints:event.routeEndpoints,
+    geometryStatus:event.geometryStatus,
+    geometryVerified:event.geometryVerified,
+    scheduleChangeNote:event.scheduleChangeNote
+  }));
+  return Object.freeze({
+    schemaVersion:1,
+    sourceLabel:bundle.source.policeOrg+' '+bundle.source.stationName+'速度取締指針',
+    sourceUrl:bundle.source.sourceUrl,
+    sourceIndexUrl:bundle.source.sourceIndexUrl,
+    sourceVersionDate:bundle.source.sourceVersionDate,
+    sourceVerifiedAt:bundle.source.verifiedAt,
+    sourceHash:snapshot.sourceHash,
+    freshnessStatus:bundle.source.freshnessStatus,
     events:Object.freeze(events)
   });
 }
