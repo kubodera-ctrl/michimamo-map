@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v13",
+  "version": "2026-09-30-ready-audit-v14",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -421,6 +421,53 @@
         "homepage_terms": "https://www.pref.ehime.jp/page/14959.html",
         "open_data_terms": "https://www.pref.ehime.jp/opendata-catalog/policy.html",
         "note": "一般の愛媛県公式HPは無断複製・転用不可。オープンデータカタログのCC BY 4.0は別サイト/別コンテンツ契約であり、公式HPカレンダーへ自動適用しない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "ota-city-events-open-data",
+      "prefecture": "群馬県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "content_freshness",
+        "schema_probe"
+      ],
+      "evidence": {
+        "open_data_page": "https://www.city.ota.gunma.jp/page/3147.html",
+        "terms": "https://www.city.ota.gunma.jp/page/3146.html",
+        "csv": "https://www.city.ota.gunma.jp/uploaded/attachment/38432.csv",
+        "license": "CC BY 4.0",
+        "update_history": "event list updated 2026-03-24",
+        "note": "公式に開催予定イベント一覧と明記。実CSVの2026年開催範囲・列・event URLをpreflight確認後にREADY再判定。"
+      }
+    },
+    {
+      "source_key": "saga-city-tourism-events",
+      "prefecture": "佐賀県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/412015_eventlist_from4to9",
+        "license": "CC BY",
+        "latest_observed_event_period": "2025-10 through 2026-03",
+        "note": "current date 2026-09-30時点では確認可能な最新イベント期間が終了済み。新resource出現までREADYへ上げない。"
       }
     }
   ]
