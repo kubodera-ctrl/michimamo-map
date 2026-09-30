@@ -65,6 +65,10 @@ jobs:
         run: npm run typecheck
       - name: Unit tests
         run: npm test
+      - name: Resolve rotating source resource - Nagasaki (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:resolve-resource -- bodik-nagasaki-monthly-events
       - name: Live READY dry-run - Mie (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
