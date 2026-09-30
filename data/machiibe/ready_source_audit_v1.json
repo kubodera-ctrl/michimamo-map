@@ -151,14 +151,13 @@
       "decision": "HOLD_TERMS_REVIEWED",
       "terms_allowed": true,
       "robots_or_api_policy_clear": true,
-      "resource_resolved": false,
+      "resource_resolved": true,
       "commercial_allowed": true,
       "reuse_allowed": true,
       "attribution_known": true,
       "freshness_acceptable": false,
       "third_party_rights_separated": true,
       "blockers": [
-        "resource_direct_url",
         "freshness"
       ],
       "evidence": {
@@ -166,7 +165,11 @@
         "terms": "https://odcs.bodik.jp/470007/tos/",
         "license": "CC BY 4.0",
         "dataset_updated_at": "2026-03-30",
-        "note": "2026イベント一覧だがdataset最終更新が3月末。9月末時点の継続freshnessを単独で担保できないためREADYへ上げない。"
+        "note": "BODIK公式CKANでdirect CSV resourceを2026-10-01に解決。resource metadata最終更新は2026-03-30で、10月時点のevent-level freshnessを本文取得で再確認できていないためREADYへ上げない。",
+        "direct_resource": "https://data.bodik.jp/dataset/55c0bcf2-b656-4e75-ac9f-dbf06796acac/resource/bda2e391-3b62-4978-a3bd-3c4e9ede06f0/download/470007_event_2026.csv",
+        "resource_page": "https://data.bodik.jp/dataset/47007_event/resource/bda2e391-3b62-4978-a3bd-3c4e9ede06f0",
+        "resource_metadata_updated_at": "2026-03-30",
+        "resource_size": "96.5 KiB"
       }
     },
     {
@@ -492,7 +495,7 @@
         "official_dataset_updated": "2026-09-16",
         "official_event_index_observed_updated": "2026-09-25",
         "observed_event_category_items_min": 338,
-        "note": "公式source・CC BY 2.1日本・direct CSV access・schema・文字コード・未来開催日・location・event-specific URL品質を#850で確認。URLなし行はpublishableへ上げず、画像rightsはfactsと分離。READYはcontrolled automated dry-runを許可するがACTIVE/Production writeは行わない。",
+        "note": "公式source・CC BY 2.1日本・direct CSV access・schema・Shift_JIS・未来開催日・location・event-specific URL品質を確認。#855でlive dry-run / six-source cross-dedupeもPASS。URLなし296件と開始日なし2件はfail-closed。画像rightsはfactsと分離。READYはcontrolled automated dry-runを許可するがACTIVE/Production writeは行わない。",
         "ci_preflight": "Event Site Check #850",
         "http_status": 200,
         "bytes": 1359287,
@@ -506,7 +509,35 @@
         "with_title": 2293,
         "with_start_at": 2291,
         "with_location": 2293,
-        "with_official_url": 1997
+        "with_official_url": 1997,
+        "ci_live_dry_run": "Event Site Check #855",
+        "verified_head": "2efd140eab5fabd6940f356d4ddb13b1500c0b05",
+        "live_funnel": {
+          "potential": 2293,
+          "fetched": 2293,
+          "normalized": 2293,
+          "deduped": 2293,
+          "valid": 1995,
+          "publishable": 1972,
+          "active": 0
+        },
+        "event_freshness_evidence": {
+          "with_source_updated_at": 160,
+          "total": 2293,
+          "live_last_seen_evidence": "2026-10-01 dry-run observation; no Production write"
+        },
+        "identity": {
+          "with_source_event_id": 2293,
+          "unique": 2293,
+          "duplicates_removed": 0
+        },
+        "cross_source_dedup": {
+          "publishable_input": 2329,
+          "auto_merge_pairs": 0,
+          "review_pairs": 0,
+          "clusters": 0,
+          "unique_after_auto_merge": 2329
+        }
       }
     }
   ]

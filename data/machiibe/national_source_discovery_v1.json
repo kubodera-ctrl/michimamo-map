@@ -235,7 +235,7 @@
       "municipality": null,
       "coverage": "沖縄県",
       "base_url": "https://data.bodik.jp/dataset/47007_event",
-      "feed_url": null,
+      "feed_url": "https://data.bodik.jp/dataset/55c0bcf2-b656-4e75-ac9f-dbf06796acac/resource/bda2e391-3b62-4978-a3bd-3c4e9ede06f0/download/470007_event_2026.csv",
       "fetch_method": "OPEN_DATA",
       "terms_status": "license_identified_cc_by_4_0",
       "robots_status": "pending",
@@ -246,7 +246,9 @@
       "review_state": "TERMS_REVIEWED",
       "yield_class": "high",
       "observed_current_items_min": null,
-      "notes": "県および市町村で予定するイベント一覧CSVを確認。robots/resource URL確定後にdry-run候補。"
+      "notes": "沖縄県及び市町村の2026イベント一覧。2026-10-01にBODIK公式CKANのdirect CSV resource URLを解決。resource metadata最終更新は2026-03-30のため、現時点のevent-level freshness未確認。TERMS_REVIEWED / automated fetch OFFを維持。",
+      "resource_resolved_at": "2026-10-01",
+      "resource_metadata_updated_at": "2026-03-30"
     },
     {
       "source_key": "bodik-okazaki-events",
@@ -1249,7 +1251,7 @@
       "terms_difficulty": "low",
       "maintenance_cost": "low",
       "freshness_confidence": "high",
-      "notes": "浜松市公式Open Data『イベント』。CC BY 2.1日本、商用・再利用可、第三者権利は別gate。Event Site Check #850 preflightでHTTP 200 / 1,359,287 bytes / Shift_JIS replacement 0 / 2,293 rows / future date evidence / location 2,293 / event-specific URL 1,997を確認。直接公式CSVのみを非Production dry-run対象とし、mediaはfail-closed。",
+      "notes": "浜松市公式Open Data『イベント』。CC BY 2.1日本、商用・再利用可、第三者権利は別gate。Event Site Check #850 preflightに加え、#855 live dry-runで2,293取得 / 2,293正規化 / 1,995 Valid / 1,972 Publishable、event更新日160件、stable source ID 2,293件を確認。直接公式CSVのみ非Production fetch対象、mediaはfail-closed、ACTIVEは0。",
       "reuse_status": "allowed",
       "redistribution_status": "allowed_with_attribution",
       "cache_status": "allowed_with_attribution",
@@ -1262,7 +1264,7 @@
         "application/octet-stream"
       ],
       "encoding": "shift_jis",
-      "fetch_notes": "Direct official CSV only. #850 observed ETag and Last-Modified plus a 2.5MB hard byte cap; intended cadence is daily. READY permits controlled fetch/dry-run only and does not set ACTIVE."
+      "fetch_notes": "Direct official CSV only. #855 observed HTTP 200 / 1,359,287 bytes / ETag / Last-Modified within the 2.5MB hard byte cap. Intended cadence is daily. READY permits controlled fetch/dry-run only and does not set ACTIVE."
     },
     {
       "source_key": "bodik-kadoma-events",

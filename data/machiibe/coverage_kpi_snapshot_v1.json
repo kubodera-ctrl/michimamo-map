@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v17",
+  "version": "coverage-kpi-v18",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -8,7 +8,7 @@
     "inventoryOrDiscoveryCandidates": 97,
     "preflightOrBetter": 58,
     "termsReviewedOrBetter": 26,
-    "ready": 5,
+    "ready": 6,
     "active": 0
   },
   "supplyFunnel": {
@@ -19,25 +19,25 @@
       "note": "Discovery potentials overlap and are not summed into a publishable total."
     },
     "liveDryRunAggregate": {
-      "potential": 1384,
-      "fetched": 1364,
-      "normalized": 1363,
-      "dedupedWithinSource": 1363,
-      "valid": 1019,
-      "publishable": 240,
+      "potential": 3677,
+      "fetched": 3661,
+      "normalized": 3659,
+      "dedupedWithinSource": 3659,
+      "valid": 3310,
+      "publishable": 2329,
       "active": 0,
-      "note": "Five READY source dry-runs plus cross-source dedup revalidated at Event Site Check #848.",
+      "note": "Six READY source dry-runs plus cross-source dedup verified at Event Site Check #855.",
       "crossSourceDedup": {
-        "inputPublishable": 240,
+        "inputPublishable": 2329,
         "autoMergePairs": 0,
         "reviewPairs": 0,
         "clusters": 0,
-        "uniqueAfterAutoMerge": 240,
+        "uniqueAfterAutoMerge": 2329,
         "duplicatesRemoved": 0,
-        "evidence": "Event Site Check #848 / data/machiibe/cross_source_dedup_snapshot_v1.json"
+        "evidence": "Event Site Check #855 / data/machiibe/cross_source_dedup_snapshot_v2.json"
       }
     },
-    "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #848; no DB or Active writes."
+    "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka + Hamamatsu READY live dry-run / Event Site Check #855; no DB or Active writes. See data/machiibe/live_dry_run_snapshot_v4.json."
   },
   "lanes": {
     "facilitySourceInstances": 7,
@@ -47,7 +47,8 @@
       "bodik-okazaki-events",
       "bodik-osaka-pref-events",
       "bodik-kadoma-events",
-      "bodik-toyonaka-events"
+      "bodik-toyonaka-events",
+      "hamamatsu-current-events-open-data"
     ],
     "oshiRealEventFixtures": 10,
     "holdSourceKeys": [
@@ -57,9 +58,7 @@
       "bodik-okinawa-pref-events",
       "bodik-kumatori-events"
     ],
-    "freshPreflightSourceKeys": [
-      "hamamatsu-current-events-open-data"
-    ],
+    "freshPreflightSourceKeys": [],
     "oshiEntityFixtures": 7,
     "oshiVerifiedEntityRelationships": 2,
     "oshiAliasFixtureQueries": [
@@ -99,14 +98,15 @@
     "snapshot": "data/machiibe/weak_prefecture_snapshot_v1.json",
     "prefectureTotal": 47,
     "singleSourcePrefectures": 25,
-    "lowOrUnmeasuredPotentialPrefectures": 37,
-    "noReadySourcePrefectures": 44,
+    "lowOrUnmeasuredPotentialPrefectures": 36,
+    "noReadySourcePrefectures": 43,
     "noFacilityInstanceDirectEvidencePrefectures": 40,
     "noVerifiedOshiFixturePrefectures": 39,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
-      "三重県"
+      "三重県",
+      "静岡県"
     ],
     "termsReviewedPrefectures": [
       "高知県",
