@@ -17,7 +17,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "main": false
+      "main": false,
+      "ops/run-status-20260930": false
     }
   }
 }

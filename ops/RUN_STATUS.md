@@ -4,56 +4,83 @@ state:
 WAITING_USER
 
 updated_at:
-2026-09-30 19:03 JST
+2026-09-30 20:55 JST
 
 current_task:
-Source Protection / Anti-Clone read-only audit completed. No new Release P0 found. Drive CURRENT and QA canonical sheet updated; Final Candidate remains unchanged and reusable.
+DEV41 ASP beta-initial runtime/CI/Preview preparation completed; publication gates remain fail-closed. GitHub Private conversion moved to post-beta hardening. Initial TikTok/SNS production-master prep completed without posting.
 
-waiting_on:
-Owner iPhone Safari normal + Private combined QA; Android Chrome physical-device availability or explicit release-risk decision; repository Private conversion decision; final Production Release approval. No additional Preview required.
+latest_main:
+c4e16b0dd75f2625ae56087446756db887d6674f
 
-latest_head:
-main c4e16b0dd75f2625ae56087446756db887d6674f
-PR #37 HEAD b99ce54dc2ef6cf82420adab1862dbb86ce91186
+main_ci_expression:
+PR #37 HEAD CI SUCCESS. Current main is content-equivalent to PR #37 HEAD with changed files 0. Current main SHA itself has zero workflow runs; do not say "main CI PASS".
 
-latest_ci:
-PR #37 HEAD CI SUCCESS: Beta Release Gate, Event Site Check, Camera Regression. PR HEAD -> current main: 1 merge commit, changed files 0; content-equivalent evidence only. Current main SHA workflow runs=0; do not say main CI PASS.
+base_final_candidate:
+dpl_6koAu9GSzG7hyHdV6y8nzcxaUwtE READY
+https://machimamo-kebomv86m-miti4.vercel.app/
+source b99ce54dc2ef6cf82420adab1862dbb86ce91186
+Use for QA-015/016/017 base-device QA; no extra base Preview.
 
-Final Candidate Preview:
-dpl_6koAu9GSzG7hyHdV6y8nzcxaUwtE READY; URL https://machimamo-kebomv86m-miti4.vercel.app/
-source branch fix/beta-map-init-duplicate-now; source SHA b99ce54dc2ef6cf82420adab1862dbb86ce91186
-Current main compare: ahead 1 merge commit, changed files 0. Reuse candidate; no extra Preview.
-
-Production:
-known-good dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4 READY, target=production, source=cli.
+production:
+known-good dpl_5XXTtKK5o7RwCipcaqYckqDnCqw4 READY / production / cli
 aliases: machimamo-map.vercel.app; michimamo-map.vercel.app; machimamo-map-miti4.vercel.app
-main auto Production deployment OFF. No deploy/promote/alias change/Production write.
+No Production deploy/promote/alias/DB/Storage change.
 
-Source Protection / Anti-Clone:
-Repository visibility remains public. forks_count=0; releases=0. No repository visibility change performed.
-No actual service_role/secret/token/private-key/DB connection secret value found in current-code searches. Frontend Supabase key is publishable, not service_role/secret.
-Common sensitive file paths (.env, .env.local, .env.production, .env.development, supabase/.env, secrets.json, credentials.json) returned no commit history.
-Current .gitignore lacks .env patterns: P1 preventative hardening, not evidence of leakage.
-Supabase app_private schema USAGE is false for anon/authenticated; generic RLS-OFF warning for four app_private tables is not a current Data API exposure.
-Known anon SECURITY DEFINER: get_profile_ranking, get_safety_source_summary, get_safety_spots. Ranking raw profile UUID remains P1 hardening. Safety RPCs expose published map/source data with bounded/viewport scope, not the private Source Registry table.
-Public repo contains implementation/planning and rollback source archives, increasing cloneability without constituting a secret leak: P1/P2.
-New Anti-Clone Release P0: none found.
+private_repo_policy:
+POST_BETA_HARDENING / NON-BLOCKER.
+Owner decision 2026-09-30: do not make kubodera-ctrl/michimamo-map private before beta unless a new P0 secret leak appears.
+Keep secret hygiene, service_role server-only, Source Registry private, important logic/server entitlement, and env-ignore hardening.
 
-QA evidence:
-QA-011 Preview provenance/content-equivalence PASS.
-QA-012 First map PASS: Leaflet initialized, 28 tiles.
-QA-013 PC Chrome smoke PASS: map/menu/Terms/Privacy; app-origin console errors/warnings 0.
-QA-014 POST_DEPLOY_MEASUREMENT.
-QA-015/016 iPhone physical QA pending.
-QA-017 Android physical QA pending / risk decision owner-gated.
+asp_beta_initial:
+PR #38 Draft/open/mergeable=true
+branch feat/dev41-asp-beta-initial
+HEAD 84855256453fa2ed34c9ffa012e4247ee2ef0e4e
+CI SUCCESS: Beta Release Gate #19, Event Site Check #852, Camera Regression #90.
+ASP Preview: dpl_BGeHekqTmh4yAxEwwtUyWBFLahxm READY / target=null / exact HEAD
+https://machimamo-fvy8at8mq-miti4.vercel.app/
+Runtime code-only: max3, ad/PR label, reward OFF, PWA standalone fail-closed, empty-state, no legacy hardcoded fallback. ASP migrations are CODE-ONLY and not applied to Production.
+Initial shortlist: ofr_000080 Rurubu Travel; ofr_000083 Jalan Rent-a-car; ofr_000085 Tabirai Rent-a-car.
+ValueCommerce media site 3779876 / registered URL https://machimamo-map.vercel.app / URL-change review complete. Official ad URLs and source tag href sid/pid exact-match CI PASS.
+Still FALSE/empty by design: media_conditions_verified, link_verified, placement_approved, is_publishable. Machimamo is_publishable count remains 0. Do not force TRUE.
+Tracking URLs were not crawled/clicked; existing ASP master prohibition on automated HEAD/GET/click remains.
+ASP reward_enabled=false; Point Exchange exchange_enabled=false / processing_enabled=false.
+
+qa:
+QA-015 iPhone Safari normal pending.
+QA-016 Safari Private pending.
+QA-017 Android physical pending or owner release-risk decision.
 QA-018 RUNBOOK_PASS / BACKUP_ARTIFACT_PENDING.
-QA-019 NOT_APPLICABLE_YET / APPROVAL_GATED.
-ASP fail-closed and Point Exchange beta OFF remain unchanged.
+QA-019 APPROVAL_GATED.
+QA-020 ASP beta Preview/mobile: runtime artifact READY; final mobile QA blocked by ASP publication gates. Static fixture has tracking links disabled.
+ASP beta initial Release Gate: PARTIAL / 3 PREVIEW_READY / PUBLICATION_GATES_PENDING.
+
+security_backup_prep:
+migration max 20260930015537; 13 Edge Functions; known Advisor findings unchanged.
+app_private anon/auth schema USAGE=false; persistent rate RPC service_role-only.
+Storage 4 buckets / 10 objects / 11,520,895 bytes.
+This is preparation baseline, not final security readback. Actual backup remains intentionally deferred until physical P0 QA and immediately before Production.
+
+sns_prep:
+Drive formal master is v16.4 + REVIEW5 FINE TUNE / CURRENT / user-approved.
+SINGLE 43s; WEEKLY 6 items 62s; 1080x1920/30fps; facts/rights/technical/visual/admin gates required.
+End Card/CTA/caption/hashtag/post checklist prepared in Drive CURRENT.
+Formal TikTok handle/profile URL not found in Drive/Git; do not invent or create account.
+After Production smoke PASS, select latest verified+rights-allowed SINGLE candidate and present it to owner. No OAuth and no actual post before owner approval.
 
 blockers:
-A owner: iPhone normal/Private; Android physical or risk acceptance; repository Private decision; Production Release approval; backup credential/2FA only if required at actual backup step.
-B external: Cloudflare Dashboard build log remains non-P0 and does not block beta.
-C self-resolvable: Private-impact documentation, release checklist maintenance, pre-release security readback, backup preparation.
+A owner/device/auth: QA-015/016; QA-017 physical or risk decision; ValueCommerce authenticated primary-screen confirmation only if required to close individual Web conditions/live link gate; final Production + exact ASP initial set approval; TikTok account/post approval after Production smoke.
+B external: optional Cloudflare log remains non-P0.
+C self-resolvable: continue ASP primary evidence search and release checklist; final security readback/backup after device QA.
 
 next:
-Do not alter Final Candidate for P1/P2 hardening. Owner physical QA uses https://machimamo-kebomv86m-miti4.vercel.app/. After physical P0 QA, refresh read-only Production security inventory, acquire actual release backup immediately before deployment, validate backup, then ask for explicit Production Release approval. Repository visibility must not change without explicit owner approval.
+1. Close ASP media_conditions/link/placement only from primary evidence; keep is_publishable=0 until then.
+2. Owner device QA QA-015/016 and QA-017 or risk decision.
+3. ASP QA-020 mobile/static fixture, no real ad click.
+4. Production security final readback.
+5. Actual release backup + validation.
+6. Present exact Production + ASP initial set for owner approval.
+7. After approval only: Production/ASP release, smoke, ASP display verification.
+8. After Production smoke PASS: present first TikTok/SNS candidate; post only after owner approval.
+
+checkpoint_policy:
+This ops branch disables its own Vercel Git deployment in vercel.json to prevent status-only commits from spending Preview budget. Main and product feature branches are unchanged.
