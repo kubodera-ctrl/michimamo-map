@@ -69,6 +69,10 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
         run: npm run source:probe-tokyo-event-api
+      - name: Preflight reviewed CSV - Ota (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:preflight-csv -- ota-city-events-open-data
       - name: Discover recent BODIK event CSV candidates (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
