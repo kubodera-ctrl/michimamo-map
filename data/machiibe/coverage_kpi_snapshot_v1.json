@@ -1,13 +1,13 @@
 {
-  "version": "coverage-kpi-v8",
+  "version": "coverage-kpi-v9",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
     "concretePrefectureCoverage": 28,
-    "inventoryOrDiscoveryCandidates": 90,
-    "preflightOrBetter": 51,
-    "termsReviewedOrBetter": 21,
+    "inventoryOrDiscoveryCandidates": 91,
+    "preflightOrBetter": 52,
+    "termsReviewedOrBetter": 22,
     "ready": 5,
     "active": 0
   },
