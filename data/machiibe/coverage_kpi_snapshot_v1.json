@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v6",
+  "version": "coverage-kpi-v7",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -14,7 +14,7 @@
   "supplyFunnel": {
     "potential": {
       "nationalDiscoveryLowerBound": 3337,
-      "facilityPilotLowerBound": 58,
+      "facilityPilotLowerBound": 113,
       "oshiSourceLowerBound": 39,
       "note": "Discovery potentials overlap and are not summed into a publishable total."
     },
@@ -40,7 +40,7 @@
     "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #784; no DB or Active writes."
   },
   "lanes": {
-    "facilitySourceInstances": 2,
+    "facilitySourceInstances": 5,
     "oshiSourceCandidates": 6,
     "readySourceKeys": [
       "mie-pref-events-open-data",
@@ -79,7 +79,7 @@
     "singleSourcePrefectures": 30,
     "lowOrUnmeasuredPotentialPrefectures": 38,
     "noReadySourcePrefectures": 44,
-    "noFacilityInstanceDirectEvidencePrefectures": 45,
+    "noFacilityInstanceDirectEvidencePrefectures": 42,
     "noVerifiedOshiFixturePrefectures": 44,
     "readyPrefectures": [
       "愛知県",
@@ -95,11 +95,11 @@
       "香川県",
       "滋賀県",
       "鹿児島県",
-      "神奈川県",
-      "静岡県",
       "大分県",
       "長崎県",
       "福島県",
+      "神奈川県",
+      "静岡県",
       "愛知県",
       "大阪府",
       "東京都",
