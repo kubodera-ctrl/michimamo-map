@@ -106,6 +106,7 @@ assert.equal(JSON.stringify(snapshot).includes('termsStatus'),false);
 
 const html=fs.readFileSync(path.join(root,'drive-beta/index.html'),'utf8');
 const app=fs.readFileSync(path.join(root,'drive-beta/app.js'),'utf8');
+const css=fs.readFileSync(path.join(root,'drive-beta/drive.css'),'utf8');
 const driveManifest=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/manifest.webmanifest'),'utf8'));
 const rootManifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.webmanifest'),'utf8'));
 assert.match(html,/noindex,nofollow/);
@@ -115,6 +116,16 @@ assert.match(html,/\/drive-beta\/assets\/machidora-icon-64\.jpg/);
 assert.match(html,/\/drive-beta\/assets\/machidora-icon-180\.jpg/);
 assert.match(html,/\/drive-beta\/manifest\.webmanifest/);
 assert.match(html,/class="brand-logo"/);
+assert.match(html,/id="statusPanel"/);
+assert.match(html,/id="statusPanelHandle"/);
+assert.match(html,/id="statusPanelDetails"/);
+assert.match(html,/class="panel collapsed"/);
+assert.match(css,/\.panel\.collapsed \.panel-details/);
+assert.match(app,/setStatusPanelExpanded/);
+assert.match(app,/touchstart/);
+assert.match(app,/touchend/);
+assert.match(app,/weight:active\?6:4/);
+assert.match(app,/weight:flashOn\?6:4/);
 assert.doesNotMatch(html,/まちまも DRIVE β/);
 assert.match(html,/現行公式PDF 9路線/);
 assert.match(html,/id="scheduleToggle"/);
@@ -146,12 +157,14 @@ assert.equal(driveManifest.name,'まちドラ（まちDRIVE）');
 assert.equal(driveManifest.short_name,'まちドラ');
 assert.equal(driveManifest.start_url,'./');
 assert.equal(driveManifest.scope,'./');
-assert.equal(driveManifest.icons.some(icon=>icon.src==='assets/machidora-icon-180.jpg'&&icon.sizes==='180x180'),true);
+assert.equal(driveManifest.icons.some(icon=>icon.src==='assets/machidora-icon-180.png'&&icon.sizes==='180x180'&&icon.type==='image/png'),true);
 assert.equal(rootManifest.name,'まちまも MAP','shared root PWA manifest must remain machimamo');
-for(const asset of ['machidora-icon-64.jpg','machidora-icon-180.jpg']){
+for(const asset of ['machidora-icon-64.png','machidora-icon-180.png']){
   const file=path.join(root,'drive-beta/assets',asset);
   assert.equal(fs.existsSync(file),true,'machidora brand asset must exist: '+asset);
-  assert.ok(fs.statSync(file).size>1000,'machidora brand asset must not be empty: '+asset);
+  const bytes=fs.readFileSync(file);
+  assert.ok(bytes.length>1000,'machidora brand asset must not be empty: '+asset);
+  assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a','machidora brand asset must be a valid PNG: '+asset);
 }
 assert.match(html,/id="accidentToggle" aria-pressed="false"/);
 assert.match(app,/bindTooltip/);

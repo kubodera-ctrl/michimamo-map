@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#1d91d0">
 <title>まちドラ β｜まちDRIVE</title>
-<link rel="icon" type="image/jpeg" sizes="64x64" href="/drive-beta/assets/machidora-icon-64.jpg">
-<link rel="apple-touch-icon" sizes="180x180" href="/drive-beta/assets/machidora-icon-180.jpg">
+<link rel="icon" type="image/png" sizes="64x64" href="/drive-beta/assets/machidora-icon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/drive-beta/assets/machidora-icon-180.png">
 <link rel="manifest" href="/drive-beta/manifest.webmanifest">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="/drive-beta/drive.css">
@@ -18,7 +18,7 @@
 <div id="app">
   <div id="map" aria-label="まちドラ（まちDRIVE）β 地図"></div>
   <div class="topbar">
-    <div class="brand"><img class="brand-logo" src="/drive-beta/assets/machidora-icon-64.jpg" width="38" height="38" alt=""><div class="brand-copy"><strong>まちドラ β</strong><span>まちDRIVE｜運転中の安全情報に特化した試作</span></div></div>
+    <div class="brand"><img class="brand-logo" src="/drive-beta/assets/machidora-icon-64.png" width="38" height="38" alt=""><div class="brand-copy"><strong>まちドラ β</strong><span>まちDRIVE｜運転中の安全情報に特化した試作</span></div></div>
     <div class="clock" id="jstClock">--:--</div>
   </div>
   <div class="controls">
@@ -55,16 +55,21 @@
     <strong id="alertTitle">この先、速度取締重点区間です</strong>
     <span id="alertBody"></span>
   </div>
-  <div class="panel">
+  <section class="panel collapsed" id="statusPanel" aria-label="現在の重点区間情報" data-state="collapsed">
+    <button class="panel-handle" id="statusPanelHandle" type="button" aria-expanded="false" aria-controls="statusPanelDetails" aria-label="詳細を表示">
+      <span class="panel-grabber" aria-hidden="true"></span>
+    </button>
     <div class="panel-row">
       <div class="state-dot" id="stateDot"></div>
-      <div>
+      <div class="panel-content">
         <div class="panel-title" id="statusTitle">公式の重点時間帯を確認しています</div>
-        <div class="panel-copy" id="statusCopy">実際に現場で取締り・検問を実施中であることを示す表示ではありません。</div>
+        <div class="panel-details" id="statusPanelDetails" aria-hidden="true">
+          <div class="panel-copy" id="statusCopy">実際に現場で取締り・検問を実施中であることを示す表示ではありません。</div>
+          <div class="beta-note">β：東京湾岸署の現行公式PDF 9路線を収録。道路線形は検証済み区間から順次表示します。</div>
+        </div>
       </div>
     </div>
-    <div class="beta-note">β：東京湾岸署の現行公式PDF 9路線を収録。道路線形は検証済み区間から順次表示します。</div>
-  </div>
+  </section>
 </div>
 <script src="/drive-beta/enforcement-zones.js"></script>
 <script src="/drive-beta/app.js"></script>

@@ -19,6 +19,7 @@ const zoneLines=new Map();
 const resolvedGeometries=new Map();
 let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
 let accidentRequest=0,lastAlert={route:null,at:0};
+let panelTouchStartY=null,panelSwipeConsumed=false;
 
 const enforcementToggle=document.getElementById('enforcementToggle');
 const accidentToggle=document.getElementById('accidentToggle');
@@ -39,6 +40,20 @@ const statusTitle=document.getElementById('statusTitle');
 const statusCopy=document.getElementById('statusCopy');
 const stateDot=document.getElementById('stateDot');
 const jstClock=document.getElementById('jstClock');
+const appRoot=document.getElementById('app');
+const statusPanel=document.getElementById('statusPanel');
+const statusPanelHandle=document.getElementById('statusPanelHandle');
+const statusPanelDetails=document.getElementById('statusPanelDetails');
+
+function setStatusPanelExpanded(expanded){
+  const open=expanded===true;
+  statusPanel.classList.toggle('collapsed',!open);
+  statusPanel.dataset.state=open?'expanded':'collapsed';
+  statusPanelHandle.setAttribute('aria-expanded',String(open));
+  statusPanelHandle.setAttribute('aria-label',open?'詳細を閉じる':'詳細を表示');
+  statusPanelDetails.setAttribute('aria-hidden',String(!open));
+  appRoot.classList.toggle('status-panel-expanded',open);
+}
 
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function activeZones(){return enforcementZones.filter(z=>zonesApi.isZoneActive(z));}
@@ -64,7 +79,7 @@ function renderEnforcement(){
     const active=zonesApi.isZoneActive(zone);
     const line=L.polyline(geometry,{
       color:active?'#dc2626':'#f59e0b',
-      weight:active?10:7,
+      weight:active?6:4,
       opacity:active?.9:.72,
       dashArray:active?null:'10 8',
       lineCap:'round'
@@ -136,7 +151,7 @@ function flashTick(){
   flashOn=!flashOn;
   for(const {zone,line} of zoneLines.values()){
     if(!zonesApi.isZoneActive(zone))continue;
-    line.setStyle({opacity:flashOn?.95:.28,weight:flashOn?11:8});
+    line.setStyle({opacity:flashOn?.92:.30,weight:flashOn?6:4});
   }
 }
 
@@ -265,6 +280,28 @@ async function loadAccidents(){
     ).addTo(accidentLayer);
   }
 }
+
+statusPanelHandle.addEventListener('touchstart',event=>{
+  panelTouchStartY=event.touches?.[0]?.clientY??null;
+  panelSwipeConsumed=false;
+},{passive:true});
+statusPanelHandle.addEventListener('touchend',event=>{
+  if(panelTouchStartY===null)return;
+  const endY=event.changedTouches?.[0]?.clientY;
+  const delta=Number.isFinite(endY)?endY-panelTouchStartY:0;
+  panelTouchStartY=null;
+  if(Math.abs(delta)<28)return;
+  panelSwipeConsumed=true;
+  setStatusPanelExpanded(delta<0);
+},{passive:true});
+statusPanelHandle.addEventListener('click',()=>{
+  if(panelSwipeConsumed){
+    panelSwipeConsumed=false;
+    return;
+  }
+  setStatusPanelExpanded(statusPanel.classList.contains('collapsed'));
+});
+setStatusPanelExpanded(false);
 
 enforcementToggle.addEventListener('click',()=>{
   enforcementVisible=!enforcementVisible;

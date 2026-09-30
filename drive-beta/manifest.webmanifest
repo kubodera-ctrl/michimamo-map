@@ -9,9 +9,9 @@
   "theme_color": "#1d91d0",
   "icons": [
     {
-      "src": "assets/machidora-icon-180.jpg",
+      "src": "assets/machidora-icon-180.png",
       "sizes": "180x180",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
