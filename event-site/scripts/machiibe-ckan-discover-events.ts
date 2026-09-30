@@ -77,8 +77,10 @@ async function fetchJson(url:string){
 
 async function main(){
   const now=new Date();
-  const maxAgeDays=Number(process.argv[2]||60);
-  if(!Number.isFinite(maxAgeDays)||maxAgeDays<1)throw new Error('invalid maxAgeDays');
+  const discoveryHorizonDays=Number(process.argv[2]||180);
+  const freshnessDays=Number(process.argv[3]||60);
+  if(!Number.isFinite(discoveryHorizonDays)||discoveryHorizonDays<1)throw new Error('invalid discoveryHorizonDays');
+  if(!Number.isFinite(freshnessDays)||freshnessDays<1||freshnessDays>discoveryHorizonDays)throw new Error('invalid freshnessDays');
   const queries=['イベント','行事','催事'];
   const packages=new Map<string,CkanPackage>();
   const queryCounts:Record<string,number>={};
@@ -113,7 +115,7 @@ async function main(){
   const rows=[...packages.values()].flatMap((pkg)=>{
     if(!eventLike(pkg)||!reusableLicense(pkg))return [];
     const packageAge=ageDays(pkg.metadata_modified,nowMs);
-    if(packageAge===null||packageAge>maxAgeDays)return [];
+    if(packageAge===null||packageAge>discoveryHorizonDays)return [];
     const resources=(pkg.resources||[]).filter(csvResource)
       .sort((a,b)=>(parseTime(b.last_modified)||parseTime(b.created)||0)-(parseTime(a.last_modified)||parseTime(a.created)||0));
     const resource=resources[0];
@@ -134,7 +136,7 @@ async function main(){
       resourceUrl:resource.url||null,
       resourceModified:resource.last_modified||resource.created||null,
       resourceAgeDays:resourceAge,
-      freshnessCandidate:resourceAge!==null&&resourceAge<=maxAgeDays
+      freshnessCandidate:resourceAge!==null&&resourceAge<=freshnessDays
     }];
   }).sort((a,b)=>(a.resourceAgeDays??999999)-(b.resourceAgeDays??999999));
 
@@ -143,7 +145,8 @@ async function main(){
     databaseWrite:false,
     activeWrite:false,
     autoPromotion:false,
-    maxAgeDays,
+    discoveryHorizonDays,
+    freshnessDays,
     pagesPerQuery,
     rowsPerPage,
     queryCounts,
