@@ -1,0 +1,104 @@
+{
+  "version": "2026-09-30-live-dry-run-v2",
+  "status": "non_production_dry_run_evidence",
+  "recorded_at": "2026-09-30T08:34:42+09:00",
+  "evidence": {
+    "github_actions_run": 753,
+    "verified_head": "eaf6b7f81a5165f89f18dbc152dfe3763e15a8d0",
+    "database_write": false,
+    "active_write": false,
+    "production_change": false
+  },
+  "sources": [
+    {
+      "source_key": "mie-pref-events-open-data",
+      "prefecture": "三重県",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 150562,
+      "funnel": {
+        "potential": 66,
+        "fetched": 43,
+        "normalized": 43,
+        "deduped": 43,
+        "valid": 0,
+        "publishable": 0,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 27,
+        "with_official_url": 0,
+        "duplicates_removed": 0,
+        "ended": 2
+      },
+      "blockers": [
+        "official_url_missing:43",
+        "location_missing:16"
+      ],
+      "note": "feed URL is not substituted for event-specific officialUrl"
+    },
+    {
+      "source_key": "bodik-okazaki-events",
+      "prefecture": "愛知県",
+      "municipality": "岡崎市",
+      "encoding": "utf-8",
+      "http_status": 200,
+      "bytes_received": 836685,
+      "funnel": {
+        "potential": 1082,
+        "fetched": 1082,
+        "normalized": 1082,
+        "deduped": 1082,
+        "valid": 784,
+        "publishable": 152,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 786,
+        "with_official_url": 1081,
+        "duplicates_removed": 0,
+        "ended": 803
+      },
+      "blockers": [
+        "location_missing:296",
+        "official_url_missing:1",
+        "date_range_invalid:1"
+      ],
+      "note": "current municipal ODS fields normalized; ended events remain excluded from Publishable"
+    },
+    {
+      "source_key": "bodik-osaka-pref-events",
+      "prefecture": "大阪府",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 54464,
+      "funnel": {
+        "potential": 78,
+        "fetched": 78,
+        "normalized": 77,
+        "deduped": 77,
+        "valid": 77,
+        "publishable": 75,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 78,
+        "with_official_url": 78,
+        "duplicates_removed": 1,
+        "ended": 2
+      },
+      "blockers": [],
+      "note": "encoding auto-detected from live bytes; one within-source duplicate removed"
+    }
+  ],
+  "aggregate": {
+    "note": "Sum of source-level dry-runs. Deduped is within-source only; cross-source event identity/dedup has not yet been applied.",
+    "potential": 1226,
+    "fetched": 1203,
+    "normalized": 1202,
+    "deduped_within_source": 1202,
+    "valid": 861,
+    "publishable": 227,
+    "active": 0
+  }
+}
