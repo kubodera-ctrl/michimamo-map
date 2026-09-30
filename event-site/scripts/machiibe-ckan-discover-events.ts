@@ -38,8 +38,8 @@ function csvResource(resource:CkanResource){
   return format==='csv'||mime==='text/csv'||/\.csv(?:$|\?)/i.test(url);
 }
 function eventLike(pkg:CkanPackage){
-  const text=[pkg.title,pkg.name,pkg.notes].filter(Boolean).join(' ').normalize('NFKC');
-  return /イベント|行事|催事/.test(text);
+  const identity=[pkg.title,pkg.name].filter(Boolean).join(' ').normalize('NFKC');
+  return /イベント|行事|催事/.test(identity);
 }
 function reusableLicense(pkg:CkanPackage){
   const value=((pkg.license_id||'')+' '+(pkg.license_title||'')).toLowerCase();
