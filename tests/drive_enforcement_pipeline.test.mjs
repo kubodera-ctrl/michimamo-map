@@ -59,6 +59,14 @@ assert.equal(r357.endpointVerified,true);
 assert.equal(r357.geometryVerified,false);
 assert.equal(r357.routeMatchTokens.includes('357'),true);
 
+const meiji=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-meiji'));
+assert.ok(meiji);
+assert.equal(meiji.geometryStatus,'ENDPOINTS_CROSSCHECKED');
+assert.equal(meiji.endpointVerified,true);
+assert.equal(meiji.geometryVerified,false);
+assert.deepEqual(meiji.routeEndpoints,[[35.6461213,139.8255402],[35.655145,139.824323]]);
+assert.equal(meiji.routeMatchTokens.includes('明治通り'),true);
+
 const rinko50=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko-keihin-chuboh'));
 const rinko60=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko-chuboh-shinkiba'));
 assert.ok(rinko50&&rinko60);
@@ -72,6 +80,15 @@ assert.equal(rinko50.segmentStartText,'京浜大橋北交差点');
 assert.equal(rinko50.segmentEndText,'中央防波堤交差点');
 assert.equal(rinko60.segmentStartText,'中央防波堤交差点');
 assert.equal(rinko60.segmentEndText,'新木場交差点');
+assert.equal(rinko50.geometryStatus,'ENDPOINTS_CROSSCHECKED');
+assert.equal(rinko50.endpointVerified,true);
+assert.equal(rinko50.geometryVerified,false);
+assert.deepEqual(rinko50.routeEndpoints,[[35.5784984,139.7567388],[35.59522975,139.79993936111111]]);
+assert.equal(rinko50.routeMatchTokens.includes('東京港臨海道路'),true);
+assert.equal(rinko60.geometryStatus,'UNRESOLVED');
+assert.equal(rinko60.endpointVerified,false);
+assert.equal(rinko60.geometryVerified,false);
+assert.equal(rinko60.routeEndpoints,null);
 
 const aomi=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-aomi'));
 assert.equal(aomi.focusType,'METROPOLITAN_AND_STATION_FOCUS');
@@ -87,6 +104,12 @@ const miyako=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-miyako'));
 assert.equal(miyako.segmentStartText,'港区台場1丁目9番先');
 assert.equal(miyako.segmentEndText,'東雲1丁目交差点');
 assert.equal(miyako.focusType,'STATION_FOCUS');
+
+assert.equal(bundle.endpointRegistry['新木場交差点'].status,'NAME_CONFIRMED_COORDINATE_PENDING');
+assert.equal(bundle.endpointRegistry['新木場交差点'].coordinate,null);
+assert.equal(bundle.endpointRegistry['青海3丁目交差点'].coordinate,null);
+assert.equal(bundle.endpointRegistry['港区台場2丁目1番先'].coordinate,null);
+assert.equal(bundle.endpointRegistry['湾岸アンダー出口交差点'].coordinate,null);
 
 assert.equal(bundle.source.sourceUrl.includes('/torishimari.files/tokyowangan.pdf'),true,'current PDF URL must be used');
 assert.equal(bundle.source.sourceUrl.includes('/sokudo_sisin/1/'),false,'legacy 7-route PDF URL must not be used');
