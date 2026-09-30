@@ -30,3 +30,17 @@
 --
 -- This draft intentionally contains no CREATE/ALTER statements so it cannot be
 -- mistaken for an approved migration.
+
+-- Kanto staging contract confirmed by drive_common_event_v1:
+-- * Preserve sourceVersionDate with every normalized event for freshness/version audit.
+-- * Preserve sourceRecordKey + sourceSubrecordKey so one official source row may safely
+--   normalize into multiple events without losing source-row lineage.
+-- * Geometry candidates carry endpointVerified separately from geometryVerified.
+-- * routeMatchTokens belong to pre-verification routing metadata and must not imply that
+--   a LineString is verified. Only public.drive_road_geometries may hold VERIFIED geometry.
+-- * sourceIndexUrl is retained for current-source resolution / attribution where available.
+--
+-- Current implementation boundary:
+-- * PREVIEW_STAGING common events may contain endpoint candidates and routeMatchTokens.
+-- * Production public snapshot must expose only fields allowed by entitlement/publication gates.
+-- * No Production migration is authorized by this draft.
