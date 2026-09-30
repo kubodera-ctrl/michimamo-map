@@ -6,6 +6,7 @@ const SUPABASE_KEY='sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
 const zonesApi=window.MachimamoDriveZones;
 let enforcementZones=[];
+let publicSchedule=null;
 const map=L.map('map',{zoomControl:false,attributionControl:true}).setView([35.6335,139.7875],14);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -21,6 +22,15 @@ let accidentRequest=0,lastAlert={id:null,at:0};
 
 const enforcementToggle=document.getElementById('enforcementToggle');
 const accidentToggle=document.getElementById('accidentToggle');
+const scheduleToggle=document.getElementById('scheduleToggle');
+const schedulePanel=document.getElementById('schedulePanel');
+const scheduleClose=document.getElementById('scheduleClose');
+const scheduleList=document.getElementById('scheduleList');
+const schedulePeriod=document.getElementById('schedulePeriod');
+const scheduleSource=document.getElementById('scheduleSource');
+const scheduleDayBanner=document.getElementById('scheduleDayBanner');
+const scheduleDayTitle=document.getElementById('scheduleDayTitle');
+const scheduleDayCopy=document.getElementById('scheduleDayCopy');
 const locationBtn=document.getElementById('locationBtn');
 const alertBox=document.getElementById('proximityAlert');
 const alertTitle=document.getElementById('alertTitle');
@@ -167,6 +177,66 @@ function startLocation(){
   );
 }
 
+function tokyoDateKey(date=new Date()){
+  const parts=new Intl.DateTimeFormat('en-CA',{
+    timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'
+  }).formatToParts(date);
+  const part=type=>parts.find(p=>p.type===type)?.value||'';
+  return part('year')+'-'+part('month')+'-'+part('day');
+}
+
+function scheduleTimeLabel(event){
+  if(event.validDate)return event.validDate;
+  if(event.timeText)return event.timeText;
+  if(event.timePrecision==='ALL_DAY')return '終日を含む公開方針';
+  return '公開方針';
+}
+
+function renderPublicSchedule(){
+  if(!publicSchedule||!Array.isArray(publicSchedule.events))return;
+  const today=tokyoDateKey();
+  const inPeriod=today>=publicSchedule.periodStart&&today<=publicSchedule.periodEnd;
+  const todayEvents=publicSchedule.events.filter(event=>event.validDate===today);
+  schedulePeriod.textContent=publicSchedule.periodStart+' 〜 '+publicSchedule.periodEnd+(inPeriod?' ／ 公開期間内':' ／ 公開期間外');
+  scheduleSource.href=publicSchedule.sourceUrl;
+
+  scheduleList.innerHTML=publicSchedule.events.map(event=>{
+    const todayClass=event.validDate===today?' today':'';
+    const badge=event.validDate===today?'<span class="schedule-badge">本日</span>':'';
+    const detail=[event.areaText,scheduleTimeLabel(event)].filter(Boolean).map(esc).join(' ／ ');
+    return '<div class="schedule-item'+todayClass+'">'+
+      '<strong>'+badge+esc(event.enforcementType)+'</strong>'+
+      '<span>'+detail+'</span>'+
+      '</div>';
+  }).join('');
+
+  if(todayEvents.length){
+    scheduleDayBanner.hidden=false;
+    scheduleDayTitle.textContent='本日の公開情報：'+todayEvents.map(event=>event.enforcementType).join(' ／ ');
+    scheduleDayCopy.textContent='警視庁の公開予定です。現在の取締実施を示すリアルタイム情報ではありません。';
+  }else{
+    scheduleDayBanner.hidden=true;
+    scheduleDayTitle.textContent='';
+    scheduleDayCopy.textContent='';
+  }
+}
+
+async function loadPublicSchedule(){
+  try{
+    const response=await fetch('/drive-beta/data/tokyo-public-enforcement-2026-09-preview-v1.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('schedule_http_'+response.status);
+    const snapshot=await response.json();
+    if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('schedule_not_current');
+    publicSchedule=snapshot;
+    renderPublicSchedule();
+  }catch(error){
+    console.warn('DRIVE beta public schedule load failed',error);
+    publicSchedule=null;
+    scheduleToggle.disabled=true;
+    scheduleToggle.textContent='📅 公開取締予定 取得失敗';
+  }
+}
+
 function severity(item){
   const count=Number(item.accident_count||0),deaths=Number(item.death_count||0);
   if(deaths>0||count>=15)return{color:'#6d28d9',label:'特に注意'};
@@ -207,6 +277,17 @@ accidentToggle.addEventListener('click',()=>{
   accidentToggle.textContent=accidentVisible?'⚠️ 事故多発 ON':'⚠️ 事故多発 OFF';
   if(accidentVisible){accidentLayer.addTo(map);loadAccidents();}else accidentLayer.clearLayers();
 });
+scheduleToggle.addEventListener('click',()=>{
+  const open=schedulePanel.hidden;
+  schedulePanel.hidden=!open;
+  scheduleToggle.setAttribute('aria-pressed',String(open));
+  scheduleToggle.setAttribute('aria-expanded',String(open));
+});
+scheduleClose.addEventListener('click',()=>{
+  schedulePanel.hidden=true;
+  scheduleToggle.setAttribute('aria-pressed','false');
+  scheduleToggle.setAttribute('aria-expanded','false');
+});
 locationBtn.addEventListener('click',()=>{
   startLocation();
   if(lastPosition)map.setView(lastPosition,16,{animate:true});
@@ -237,6 +318,7 @@ async function loadEnforcementSource(){
 accidentLayer.clearLayers();
 startLocation();
 loadEnforcementSource();
+loadPublicSchedule();
 setInterval(()=>{renderEnforcement();checkProximity();},60000);
 setInterval(flashTick,850);
 })();
