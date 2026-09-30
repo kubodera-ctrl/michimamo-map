@@ -21,6 +21,8 @@ export function toCommonDriveEvent(event,{sourceFamily}={}){
     sourceKey:event.sourceKey,
     sourceFamily:family,
     sourceRecordKey:nullableText(event.sourceRecordKey),
+    sourceSubrecordKey:nullableText(event.sourceSubrecordKey),
+    sourceVersionDate:nullableText(event.sourceVersionDate),
     prefectureCode:text(event.prefectureCode),
     policeOrg:text(event.policeOrg),
     stationName:nullableText(event.stationName),
@@ -29,6 +31,7 @@ export function toCommonDriveEvent(event,{sourceFamily}={}){
     displayMode:text(event.displayMode),
     freshnessStatus:text(event.freshnessStatus),
     sourceUrl:text(event.sourceUrl),
+    sourceIndexUrl:nullableText(event.sourceIndexUrl),
     sourceVerifiedAt:nullableText(event.sourceVerifiedAt),
     route:Object.freeze({
       name:nullableText(event.routeName),
@@ -61,7 +64,8 @@ export function toCommonDriveEvent(event,{sourceFamily}={}){
       status:geometryStatus,
       endpointVerified:event.endpointVerified===true,
       verified:event.geometryVerified===true,
-      endpoints
+      endpoints,
+      routeMatchTokens:freezeArray(event.routeMatchTokens)
     }),
     scheduleChangeNote:nullableText(event.scheduleChangeNote)
   });
