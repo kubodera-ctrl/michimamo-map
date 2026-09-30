@@ -184,6 +184,238 @@
         "都道484号",
         "484"
       ]
+    },
+    "wangan-meiji": {
+      "start": [
+        35.6461213,
+        139.8255402
+      ],
+      "end": [
+        35.655145,
+        139.824323
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://mapfan.com/spots/SCC%2CJ%2C5TNW",
+          "https://www.djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi002_yumenoshima.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "明治通り",
+        "306",
+        "都道306号"
+      ]
+    },
+    "wangan-rinko-keihin-chuboh": {
+      "start": [
+        35.5784984,
+        139.7567388
+      ],
+      "end": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_official_centerline_crosscheck",
+        "evidence": [
+          "https://mapfan.com/spots/SCC%2CJ%2CG1ZZ",
+          "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf"
+        ]
+      },
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路"
+      ]
+    }
+  },
+  "endpointRegistry": {
+    "荒川河口橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.647526,
+        139.845068
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_arakawa/tokyo_bridge_arakawa034_arakawakakoh.php"
+      ]
+    },
+    "京浜大橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.575405,
+        139.748282
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_keihin/tokyo_bridge_keihin_s003_keijhinoh.php"
+      ]
+    },
+    "東雲交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html"
+      ]
+    },
+    "東雲橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.65038,
+        139.800698
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome001_shinonome.php"
+      ]
+    },
+    "夢の島交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6461213,
+        139.8255402
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2C5TNW",
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html"
+      ]
+    },
+    "夢の島大橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.655145,
+        139.824323
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi002_yumenoshima.php"
+      ]
+    },
+    "辰巳交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+        "https://map.yahoo.co.jp/v3/place/4-NGv4a8af2/map"
+      ]
+    },
+    "七枝橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.654181,
+        139.811308
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi005_nanaeda.php"
+      ]
+    },
+    "有明北橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.642054,
+        139.787168
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome004_ariakekita.php"
+      ]
+    },
+    "有明中央橋南交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6352293,
+        139.7926317
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2CYN4E"
+      ]
+    },
+    "京浜大橋北交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.5784984,
+        139.7567388
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2CG1ZZ"
+      ]
+    },
+    "中央防波堤交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "verifiedAt": "2026-09-30",
+      "method": "official_road_centerline_intersection",
+      "evidence": [
+        "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf"
+      ]
+    },
+    "新木場交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://map.yahoo.co.jp/v3/place/AIKAQbM2yaU",
+        "https://www.ktr.mlit.go.jp/ktr_content/content/000698490.pdf"
+      ]
+    },
+    "青海3丁目交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://portal-tokyoport.jp/information.html?id=30072&tid=AomiA1"
+      ]
+    },
+    "港区台場2丁目1番先": {
+      "status": "ADDRESS_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.kensetsu.metro.tokyo.lg.jp/road/kokyokijunten/seika11"
+      ]
+    },
+    "湾岸アンダー出口交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/directions/points/35.632282075892%2C139.79502373998%2C%E6%9D%B1%E4%BA%AC%E3%83%93%E3%83%83%E3%82%B0%E3%82%B5%E3%82%A4%E3%83%88%E5%89%8D%2CSCC%2CJ%2CFJ47%2C/34.695069043626%2C135.19776706861%2C%E7%A5%9E%E6%88%B8%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%2C%2C%2C%2C/types/car/settings/now%2C0%2C0%2C1%2C0%2C1%2C30%2C80%2C50"
+      ]
+    },
+    "港区台場1丁目9番先": {
+      "status": "ADDRESS_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.kensetsu.metro.tokyo.lg.jp/road/kokyokijunten/seika11"
+      ]
+    },
+    "東雲1丁目交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6456116,
+        139.8018667
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2C5P80"
+      ]
     }
   }
 }
