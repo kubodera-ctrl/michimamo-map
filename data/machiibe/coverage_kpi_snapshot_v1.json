@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v9",
+  "version": "coverage-kpi-v10",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -59,7 +59,17 @@
     ],
     "freshPreflightSourceKeys": [
       "hamamatsu-current-events-open-data"
-    ]
+    ],
+    "oshiEntityFixtures": 5,
+    "oshiVerifiedEntityRelationships": 2,
+    "oshiAliasFixtureQueries": [
+      "シナモン",
+      "CINNAMOROLL",
+      "ポケカ",
+      "ゲンジブ",
+      "GNJB"
+    ],
+    "oshiEntityGraphEvidence": "data/machiibe/fixtures/oshi_entity_graph_v1.json"
   },
   "blockerClasses": {
     "userAction": [
