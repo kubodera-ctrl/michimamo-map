@@ -125,9 +125,9 @@
       "prefecture": "熊本",
       "sourceKey": "kumamoto:weekly-public-enforcement",
       "sourceFamily": "PUBLIC_SCHEDULE",
-      "sourceUrl": "https://www.pref.kumamoto.jp/site/police/list20-90.html",
+      "sourceUrl": "https://www.pref.kumamoto.jp/site/police/192732.html",
       "contentFormat": "HTML",
-      "parserState": "SOURCE_SCHEMA_AUDIT_PENDING",
+      "parserState": "BLOCKED_SOURCE_404",
       "cadence": "WEEKLY_FRIDAY",
       "geoModes": [
         "LOCALITY",
@@ -141,7 +141,7 @@
       "provenancePass": false,
       "structuredFetchAllowed": false,
       "termsStatus": "PENDING",
-      "notes": "Official weekly pages exist; source-specific row extraction is not yet declared complete."
+      "notes": "Formal source URL from CURRENT returns 404. Current official list is live but presently exposes no fetchable weekly source page; search-index/cache content is not accepted as a fixture. Keep WAITING_EXTERNAL and do not implement parser from cache-only evidence."
     },
     {
       "id": "oita_halfmonth_csv_structured",
@@ -151,20 +151,19 @@
       "sourceFamily": "PUBLIC_SCHEDULE",
       "sourceUrl": "https://www.pref.oita.jp/site/keisatu/torishimarijouhou2.html",
       "contentFormat": "CSV_STRUCTURED",
-      "parserState": "SOURCE_SCHEMA_BINDING_PENDING",
+      "parserState": "PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING",
       "cadence": "OPEN_DATA_HALF_MONTH",
       "geoModes": [
         "LOCALITY"
       ],
       "timeModes": [
-        "DATE_ONLY",
         "DAYPART"
       ],
       "commonEventPass": false,
       "provenancePass": false,
       "structuredFetchAllowed": false,
       "termsStatus": "PENDING",
-      "notes": "Official page publishes a machine-readable CSV. Generic structured adapter is covered with synthetic contract rows; official current header binding remains pending."
+      "notes": "Dedicated CP932/Shift_JIS + YYYY/M/D + weekday + DAYPART parser and contract fixture implemented. Same-day official artifact SHA/105-row schema are recorded, but full raw CSV bytes were not persisted by the prior runtime; keep Common Event pending until raw artifact archival is reproducible."
     },
     {
       "id": "aomori_halfyear_pdf_area",
@@ -172,22 +171,21 @@
       "prefecture": "青森",
       "sourceKey": "aomori:speed-guideline:representative",
       "sourceFamily": "SPEED_GUIDELINE",
-      "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/koutu_kikaku/sokudokanri.html",
+      "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
       "contentFormat": "PDF",
-      "parserState": "SOURCE_SCHEMA_AUDIT_PENDING",
+      "parserState": "PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING",
       "cadence": "HALF_YEAR",
       "geoModes": [
         "ROAD_AREA"
       ],
       "timeModes": [
-        "EXACT_TIME",
-        "POLICY"
+        "UNSPECIFIED"
       ],
       "commonEventPass": false,
       "provenancePass": false,
       "structuredFetchAllowed": false,
       "termsStatus": "PENDING",
-      "notes": "Representative half-year policy/guideline family; full source-row parser is not yet marked complete."
+      "notes": "Dedicated visual-audited PDF parser implemented from the development-4 same-day official artifact audit (2026-07 version; 4 speed rows). Full raw PDF bytes were not persisted by the prior runtime, so Common Event remains pending until raw artifact archival is reproducible. No time/enforcement-target inference and no LineString."
     },
     {
       "id": "okayama_webmap_dynamic",

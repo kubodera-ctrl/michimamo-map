@@ -28,9 +28,16 @@ assert.equal(webmapGate.automatedFetchAllowed,false);
 assert.deepEqual(webmapGate.reasons,['provider_api_schema_unapproved','provider_terms_unapproved','provider_use_unapproved']);
 
 const oita=matrix.representatives.find(row=>row.id==='oita_halfmonth_csv_structured');
-assert.equal(oita.parserState,'SOURCE_SCHEMA_BINDING_PENDING');
+assert.equal(oita.parserState,'PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING');
 assert.equal(oita.commonEventPass,false);
 assert.equal(oita.structuredFetchAllowed,false);
+const aomori=matrix.representatives.find(row=>row.id==='aomori_halfyear_pdf_area');
+assert.equal(aomori.parserState,'PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING');
+assert.deepEqual(aomori.timeModes,['UNSPECIFIED']);
+assert.equal(aomori.commonEventPass,false);
+const kumamoto=matrix.representatives.find(row=>row.id==='kumamoto_weekly_html_schedule');
+assert.equal(kumamoto.parserState,'BLOCKED_SOURCE_404');
+assert.equal(kumamoto.commonEventPass,false);
 
 const csv='日付,時間帯,場所,取締種別,路線\n2026-09-16,午前,テスト市A地区,速度違反,国道X号\n2026-09-17,午後,テスト市B地区,横断歩行者妨害,県道Y号\n';
 const parsed=parseCsv(csv);

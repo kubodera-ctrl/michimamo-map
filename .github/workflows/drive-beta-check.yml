@@ -17,6 +17,8 @@ on:
       - "scripts/drive_common_event.mjs"
       - "scripts/drive_national_parser_matrix.mjs"
       - "scripts/drive_structured_schedule_adapter.mjs"
+      - "scripts/drive_oita_schedule_parser.mjs"
+      - "scripts/drive_aomori_speed_parser.mjs"
       - "scripts/drive_parser_trace.mjs"
       - "scripts/build_drive_preview_snapshot.mjs"
       - "scripts/build_drive_public_schedule_snapshot.mjs"
@@ -28,6 +30,9 @@ on:
       - "tests/drive_source_registry.test.mjs"
       - "tests/drive_kanto_staging_e2e.test.mjs"
       - "tests/drive_national_parser_matrix.test.mjs"
+      - "tests/drive_oita_pipeline.test.mjs"
+      - "tests/drive_aomori_pipeline.test.mjs"
+      - "evidence/machidora5/**"
       - "tests/drive_chiba_pipeline.test.mjs"
       - "tests/drive_kanagawa_pipeline.test.mjs"
       - "tests/drive_saitama_pipeline.test.mjs"
@@ -67,6 +72,10 @@ jobs:
         run: node tests/drive_source_registry.test.mjs
       - name: Kanto four-prefecture staging E2E
         run: node tests/drive_kanto_staging_e2e.test.mjs
+      - name: Oita CP932 half-month schedule parser contract
+        run: node tests/drive_oita_pipeline.test.mjs
+      - name: Aomori half-year visual-audited PDF parser contract
+        run: node tests/drive_aomori_pipeline.test.mjs
       - name: Nationwide representative parser contracts
         run: node tests/drive_national_parser_matrix.test.mjs
       - name: Verify generated DRIVE preview snapshot
