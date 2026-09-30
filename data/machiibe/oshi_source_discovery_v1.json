@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-29-oshi-discovery-v1",
+  "version": "2026-09-30-oshi-discovery-v2",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -168,6 +168,67 @@
       "observed_current_items_min": 4,
       "family_relevance": "high",
       "notes": "東京・横浜・京都・大阪梅田・博多等を横断。月別/施設別の導線を確認。"
+    },
+    {
+      "source_key": "mitsui-shopping-park-oshi-events",
+      "source_name": "三井ショッピングパーク 施設別コラボ・エンタメイベント",
+      "operator": "三井不動産商業マネジメント株式会社",
+      "source_type": "official_facility_event_network",
+      "base_url": "https://mitsui-shopping-park.com/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "experience",
+        "exhibition",
+        "live"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "talent",
+        "idol",
+        "group"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 23,
+      "family_relevance": "very_high",
+      "notes": "ららぽーと福岡/沼津/TOKYO-BAY等の施設別公式ページで、アニメ・キャラクター・アーティストの期間限定イベントを確認。通常キャンペーンとdestination eventを分離。規約/robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "ario-oshi-events",
+      "source_name": "アリオ 施設別ライブ・キャラクター・体験イベント",
+      "operator": "セブン＆アイ・クリエイトリンク",
+      "source_type": "official_facility_event_network",
+      "base_url": "https://www.ario.jp/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "live",
+        "mini_live",
+        "talk_show",
+        "photo_session",
+        "handover",
+        "character_show",
+        "workshop"
+      ],
+      "entity_types": [
+        "talent",
+        "idol",
+        "group",
+        "character",
+        "work"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 9,
+      "family_relevance": "very_high",
+      "notes": "アリオ橋本公式でリリースイベント、フリーライブ、ハロウィン体験等を確認。施設単位の個別公式detail URLを公開確定根拠として使用し、network一覧だけでentity関係を確定しない。"
     }
   ]
 }
