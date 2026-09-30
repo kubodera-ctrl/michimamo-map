@@ -62,5 +62,20 @@
       "expand prefecture depth, facility instances and oshi source/fixture coverage",
       "persist per-source dry-run evidence without Production writes"
     ]
+  },
+  "weakPrefectureCoverage": {
+    "snapshot": "data/machiibe/weak_prefecture_snapshot_v1.json",
+    "prefectureTotal": 47,
+    "singleSourcePrefectures": 30,
+    "lowOrUnmeasuredPotentialPrefectures": 38,
+    "noReadySourcePrefectures": 44,
+    "readyPrefectures": [
+      "三重県",
+      "愛知県",
+      "大阪府"
+    ],
+    "noFacilityInstanceDirectEvidencePrefectures": 45,
+    "noVerifiedOshiFixturePrefectures": 44,
+    "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists."
   }
 }
