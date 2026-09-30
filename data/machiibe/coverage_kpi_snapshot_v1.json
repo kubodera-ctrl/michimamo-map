@@ -1,12 +1,12 @@
 {
-  "version": "coverage-kpi-v10",
+  "version": "coverage-kpi-v11",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
-    "concretePrefectureCoverage": 28,
-    "inventoryOrDiscoveryCandidates": 91,
-    "preflightOrBetter": 52,
+    "concretePrefectureCoverage": 29,
+    "inventoryOrDiscoveryCandidates": 94,
+    "preflightOrBetter": 55,
     "termsReviewedOrBetter": 22,
     "ready": 5,
     "active": 0
@@ -86,8 +86,8 @@
   "weakPrefectureCoverage": {
     "snapshot": "data/machiibe/weak_prefecture_snapshot_v1.json",
     "prefectureTotal": 47,
-    "singleSourcePrefectures": 30,
-    "lowOrUnmeasuredPotentialPrefectures": 38,
+    "singleSourcePrefectures": 27,
+    "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
     "noFacilityInstanceDirectEvidencePrefectures": 42,
     "noVerifiedOshiFixturePrefectures": 41,
