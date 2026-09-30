@@ -5,7 +5,7 @@
   "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
   "sourceVersionDate": "2026-07-30",
   "sourceVerifiedAt": "2026-09-30",
-  "sourceHash": "32d82243e6886084d79c92cdf1b07681bbbf04474a640ed347ccdfc42d65d98e",
+  "sourceHash": "a9e1bf93dac368f0658cc19722f367e463bffc08889599f095fb94f76fd96064",
   "freshnessStatus": "CURRENT",
   "sourceRecordCount": 9,
   "events": [
@@ -100,10 +100,23 @@
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
-      "routeEndpoints": null,
-      "endpointVerified": false,
-      "routeMatchTokens": [],
-      "geometryStatus": "UNRESOLVED",
+      "routeEndpoints": [
+        [
+          35.6461213,
+          139.8255402
+        ],
+        [
+          35.655145,
+          139.824323
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "明治通り",
+        "306",
+        "都道306号"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
       "sourceRecordKey": "wangan-meiji",
       "sourceSubrecordKey": null,
@@ -201,10 +214,22 @@
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
-      "routeEndpoints": null,
-      "endpointVerified": false,
-      "routeMatchTokens": [],
-      "geometryStatus": "UNRESOLVED",
+      "routeEndpoints": [
+        [
+          35.5784984,
+          139.7567388
+        ],
+        [
+          35.59522975,
+          139.79993936111111
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
       "sourceRecordKey": "wangan-rinko",
       "sourceSubrecordKey": "50kmh",
