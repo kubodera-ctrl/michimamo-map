@@ -30,9 +30,9 @@ test('facility-backed oshi fixtures stay linked to a known facility host and pre
   const facilities=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/facility_source_instances_v1.json',import.meta.url),'utf8'));
   const fixtures=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/fixtures/oshi_real_events_v1.json',import.meta.url),'utf8'));
   const targeted=fixtures.events.filter((event:any)=>
-    /^lalaport-|^ario-/.test(event.id)
+    /^lalaport-|^ario-|^sakuramachi-/.test(event.id)
   );
-  assert.ok(targeted.length>=4);
+  assert.ok(targeted.length>=5);
 
   const host=(value:string)=>new URL(value).hostname.toLowerCase();
   for(const event of targeted){

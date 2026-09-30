@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v13",
+  "version": "coverage-kpi-v14",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -14,8 +14,8 @@
   "supplyFunnel": {
     "potential": {
       "nationalDiscoveryLowerBound": 3337,
-      "facilityPilotLowerBound": 113,
-      "oshiSourceLowerBound": 71,
+      "facilityPilotLowerBound": 128,
+      "oshiSourceLowerBound": 73,
       "note": "Discovery potentials overlap and are not summed into a publishable total."
     },
     "liveDryRunAggregate": {
@@ -40,8 +40,8 @@
     "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #784; no DB or Active writes."
   },
   "lanes": {
-    "facilitySourceInstances": 5,
-    "oshiSourceCandidates": 8,
+    "facilitySourceInstances": 6,
+    "oshiSourceCandidates": 9,
     "readySourceKeys": [
       "mie-pref-events-open-data",
       "bodik-okazaki-events",
@@ -49,7 +49,7 @@
       "bodik-kadoma-events",
       "bodik-toyonaka-events"
     ],
-    "oshiRealEventFixtures": 8,
+    "oshiRealEventFixtures": 9,
     "holdSourceKeys": [
       "tottori-pref-event-open-data",
       "shimane-pref-events-2026",
@@ -102,8 +102,8 @@
     "singleSourcePrefectures": 25,
     "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
-    "noFacilityInstanceDirectEvidencePrefectures": 42,
-    "noVerifiedOshiFixturePrefectures": 41,
+    "noFacilityInstanceDirectEvidencePrefectures": 41,
+    "noVerifiedOshiFixturePrefectures": 40,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -136,7 +136,8 @@
       "神奈川県",
       "静岡県",
       "大阪府",
-      "東京都"
+      "東京都",
+      "熊本県"
     ],
     "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists."
   }

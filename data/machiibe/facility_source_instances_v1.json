@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-facility-instances-v2",
+  "version": "2026-09-30-facility-instances-v3",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -134,6 +134,33 @@
       ],
       "family_relevance": "very_high",
       "notes": "2026-09-30公式イベント一覧で少なくとも9件の具体イベントを確認。ハロウィン工作、パレード、リリースイベント、フリーライブ等。物販/キッチンカーと体験・出演イベントを分類する。規約/robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "sakuramachi-kumamoto-events",
+      "network_key": "sakuramachi-kumamoto",
+      "facility_name": "SAKURA MACHI Kumamoto",
+      "prefecture": "熊本県",
+      "municipality": "熊本市中央区",
+      "homepage_url": "https://sakuramachi-kumamoto.jp/",
+      "event_url": "https://sakuramachi-kumamoto.jp/event",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 15,
+      "event_categories": [
+        "family",
+        "experience",
+        "character",
+        "anime_game",
+        "popup_store",
+        "exhibition",
+        "seasonal",
+        "food",
+        "campaign"
+      ],
+      "family_relevance": "very_high",
+      "notes": "2026-09-30公式イベント一覧で全館イベントとして少なくとも15件を確認。夏目友人帳、くまモンダンジョン、体験・期間催事等を含む。ショップ販促・カード/決済キャンペーンはevent-like判定で除外し、規約/robots確認前はfetch不可。"
     }
   ]
 }

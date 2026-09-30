@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-real-events-v2",
+  "version": "2026-09-30-oshi-real-events-v3",
   "status": "fixture_only_verified_from_official_pages",
   "checked_at": "2026-09-30",
   "rules": {
@@ -217,6 +217,31 @@
         "state": "upcoming",
         "checked_at": "2026-09-30",
         "source_url": "https://hashimoto.ario.jp/event/2400015381/"
+      }
+    },
+    {
+      "id": "sakuramachi-natsume-kumamoto-2026",
+      "title": "夏目友人帳 in Kumamoto",
+      "source_url": "https://sakuramachi-kumamoto.jp/natsumeyujincho2026/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-07-01",
+      "ends_on": "2026-09-30",
+      "venue_name": "SAKURA MACHI Kumamoto 1F メインエントランス",
+      "prefecture": "熊本県",
+      "classification_text": "TVアニメ「夏目友人帳」×九州産交グループの大型コラボレーション。サクラマチ クマモトで期間限定ポップアップ、限定グッズ、特設フォトスポット。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "夏目友人帳",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
       }
     }
   ]

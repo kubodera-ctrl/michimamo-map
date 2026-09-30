@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-discovery-v2",
+  "version": "2026-09-30-oshi-discovery-v3",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -229,6 +229,33 @@
       "observed_current_items_min": 9,
       "family_relevance": "very_high",
       "notes": "アリオ橋本公式でリリースイベント、フリーライブ、ハロウィン体験等を確認。施設単位の個別公式detail URLを公開確定根拠として使用し、network一覧だけでentity関係を確定しない。"
+    },
+    {
+      "source_key": "sakuramachi-kumamoto-oshi-events",
+      "source_name": "SAKURA MACHI Kumamoto 施設別コラボ・体験イベント",
+      "operator": "九州産交グループ / SAKURA MACHI Kumamoto",
+      "source_type": "official_facility_event",
+      "base_url": "https://sakuramachi-kumamoto.jp/event",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "experience",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "group"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 2,
+      "family_relevance": "very_high",
+      "notes": "公式施設ページで夏目友人帳 in Kumamoto、くまモンダンジョン等を確認。通常セール/カード/決済キャンペーンは除外し、個別公式detailを根拠に推し活fixtureへ昇格する。画像利用権は別gate。"
     }
   ]
 }

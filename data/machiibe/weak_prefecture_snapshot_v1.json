@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-weak-prefecture-v7",
+  "version": "2026-09-30-weak-prefecture-v8",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -13,8 +13,8 @@
     "singleSourcePrefectures": 25,
     "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
-    "noFacilityInstanceDirectEvidencePrefectures": 42,
-    "noVerifiedOshiFixturePrefectures": 41,
+    "noFacilityInstanceDirectEvidencePrefectures": 41,
+    "noVerifiedOshiFixturePrefectures": 40,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -47,7 +47,8 @@
       "神奈川県",
       "静岡県",
       "大阪府",
-      "東京都"
+      "東京都",
+      "熊本県"
     ]
   },
   "prefectures": [
@@ -94,16 +95,14 @@
       "termsReviewedOrBetter": 0,
       "readySources": 0,
       "observedPotentialMin": 0,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
+      "facilityInstances": 1,
+      "verifiedOshiFixtureEvents": 1,
       "weaknessReasons": [
         "single_source",
         "low_or_unmeasured_potential",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
+        "no_ready_source"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 3
     },
     {
       "prefecture": "高知県",

@@ -10,6 +10,7 @@ test('oshi source lane uses official candidates and stays fail closed',()=>{
   assert.ok(data.sources.some((row:any)=>row.source_key==='animate-only-shop'));
   assert.ok(data.sources.some((row:any)=>row.source_key==='tower-records-store-events'));
   assert.ok(data.sources.some((row:any)=>row.source_key==='bandainamco-amusement-events'));
+  assert.ok(data.sources.some((row:any)=>row.source_key==='sakuramachi-kumamoto-oshi-events'));
   assert.ok(data.sources.some((row:any)=>row.primary_event_types.includes('collab_cafe')));
   assert.ok(data.sources.some((row:any)=>row.primary_event_types.includes('mini_live')));
 });
