@@ -1,47 +1,68 @@
 (function(root,factory){
-  const api=factory();
+  const api=factory(root.MachimamoDriveTokyoSnapshot);
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   root.MachimamoDriveZones=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(){
+})(typeof globalThis!=='undefined'?globalThis:this,function(snapshot){
   'use strict';
 
   const SOURCE_INDEX='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html';
-  const SOURCE_PDF='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf';
+  const SOURCE_PDF='https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf';
 
-  // 2026-09-29 verified against the current Tokyo Wangan Police Station speed-enforcement guideline.
-  // Only zones with verified endpoints are routed on the beta map. We deliberately do not draw guessed geometry.
-  const TOKYO_WANGAN_ZONES=[
-    {
-      id:'wangan-r357',route:'国道357号',kind:'metropolitan',speedKmh:60,
-      startLabel:'荒川河口橋上',endLabel:'京浜大橋上',startMinute:360,endMinute:1320,
-      routeEndpoints:[[35.647526,139.845068],[35.575405,139.748282]],
-      geometryQuality:'road_routed_beta'
-    },
-    {id:'wangan-harumi',route:'晴海通り',kind:'metropolitan',speedKmh:60,startLabel:'東雲交差点',endLabel:'東雲橋上',startMinute:960,endMinute:1080},
-    {id:'wangan-meiji',route:'明治通り',kind:'metropolitan',speedKmh:60,startLabel:'夢の島交差点',endLabel:'夢の島大橋上',startMinute:360,endMinute:600},
-    {id:'wangan-mitsume',route:'三ツ目通り',kind:'metropolitan',speedKmh:50,startLabel:'辰巳交差点',endLabel:'七枝橋上',startMinute:960,endMinute:1200},
-    {
-      id:'wangan-kan2',route:'環二通り',kind:'metropolitan',speedKmh:60,
-      startLabel:'有明北橋上',endLabel:'有明中央橋南交差点',startMinute:1200,endMinute:1440,
-      routeEndpoints:[[35.642054,139.787168],[35.6352293,139.7926317]],
-      geometryQuality:'road_routed_beta'
-    },
-    {
-      id:'wangan-rinko',route:'臨港道路',kind:'metropolitan',speedKmh:50,
-      startLabel:'京浜大橋北交差点（中央防波堤交差点）',
-      endLabel:'中央防波堤交差点（新木場交差点）',
-      startMinute:360,endMinute:1200,note:'東京ゲートブリッジ上は60km/h表記あり'
-    },
-    {id:'wangan-aomi',route:'臨港道路（青海縦貫線）',kind:'metropolitan_station',speedKmh:50,startLabel:'青海3丁目交差点',endLabel:'中央防波堤交差点',startMinute:1080,endMinute:1320},
-    {id:'wangan-under',route:'臨港道路（東京湾岸アンダー線）',kind:'metropolitan_station',speedKmh:50,startLabel:'港区台場2丁目1番先',endLabel:'湾岸アンダー出口交差点',startMinute:420,endMinute:660},
-    {id:'wangan-miyako',route:'都橋通り',kind:'station',speedKmh:50,startLabel:'港区台場1丁目9番先',endLabel:'東雲1丁目交差点',startMinute:420,endMinute:960}
-  ].map(zone=>Object.freeze({
-    agency:'警視庁',
-    policeStation:'東京湾岸警察署',
-    sourceVerifiedAt:'2026-09-29',
-    sourceIndex:SOURCE_INDEX,
-    sourcePdf:SOURCE_PDF,
-    ...zone
+  const ID_BY_ROUTE=Object.freeze({
+    '国道357号':'wangan-r357',
+    '晴海通り':'wangan-harumi',
+    '明治通り':'wangan-meiji',
+    '三ツ目通り':'wangan-mitsume',
+    '環二通り':'wangan-kan2',
+    '臨港道路':'wangan-rinko',
+    '都橋通り':'wangan-miyako'
+  });
+
+  // Geometry is deliberately separate from official-source facts.
+  // These endpoint coordinates are PREVIEW candidates that are road-routed at runtime.
+  // They are not part of the police source and must not be promoted as verified geometry
+  // until map/road QA confirms the official start/end labels resolve correctly.
+  const GEOMETRY_CANDIDATES=Object.freeze({
+    'wangan-r357':Object.freeze({
+      routeEndpoints:Object.freeze([[35.647526,139.845068],[35.575405,139.748282]]),
+      geometryQuality:'road_routed_beta_candidate',
+      geometryVerified:false
+    }),
+    'wangan-kan2':Object.freeze({
+      routeEndpoints:Object.freeze([[35.642054,139.787168],[35.6352293,139.7926317]]),
+      geometryQuality:'road_routed_beta_candidate',
+      geometryVerified:false
+    })
+  });
+
+  const sourceEvents=Array.isArray(snapshot?.events)?snapshot.events:[];
+  const TOKYO_WANGAN_ZONES=Object.freeze(sourceEvents.map(event=>{
+    const id=ID_BY_ROUTE[event.routeName];
+    if(!id)throw new Error('unknown_tokyo_wangan_route');
+    const geometry=GEOMETRY_CANDIDATES[id]||{};
+    return Object.freeze({
+      id,
+      eventId:event.eventId,
+      route:event.routeName,
+      kind:event.enforcementClass==='STATION_FOCUS'?'station':'metropolitan',
+      speedKmh:event.speedLimitKmh,
+      speedText:event.speedLimitText,
+      alternateSpeedKmh:Object.freeze([...(event.alternateSpeedKmh||[])]),
+      startLabel:event.segmentStartText,
+      endLabel:event.segmentEndText,
+      startMinute:event.startMinute,
+      endMinute:event.endMinute,
+      agency:event.agency,
+      policeStation:event.policeStation,
+      sourceVerifiedAt:event.sourceVerifiedAt,
+      sourceIndex:SOURCE_INDEX,
+      sourcePdf:event.sourceUrl||SOURCE_PDF,
+      geoPrecision:event.geoPrecision,
+      timePrecision:event.timePrecision,
+      displayMode:event.displayMode,
+      freshnessStatus:event.freshnessStatus,
+      ...geometry
+    });
   }));
 
   function minutesInTokyo(date=new Date()){
@@ -108,7 +129,7 @@
   }
 
   return Object.freeze({
-    SOURCE_INDEX,SOURCE_PDF,TOKYO_WANGAN_ZONES,
+    SOURCE_INDEX,SOURCE_PDF,TOKYO_WANGAN_ZONES,GEOMETRY_CANDIDATES,
     minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
   });
 });
