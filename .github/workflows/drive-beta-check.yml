@@ -21,6 +21,7 @@ on:
       - "tests/drive_poll_scheduler.test.mjs"
       - "tests/drive_source_registry.test.mjs"
       - "tests/drive_chiba_pipeline.test.mjs"
+      - "tests/drive_kanagawa_pipeline.test.mjs"
       - "package.json"
       - ".github/workflows/drive-beta-check.yml"
   workflow_dispatch:
@@ -47,6 +48,8 @@ jobs:
         run: node tests/drive_public_schedule_pipeline.test.mjs
       - name: Chiba speed-guideline area/multi-window contract
         run: node tests/drive_chiba_pipeline.test.mjs
+      - name: Kanagawa HTML exact/area contract
+        run: node tests/drive_kanagawa_pipeline.test.mjs
       - name: Per-source polling scheduler contract
         run: node tests/drive_poll_scheduler.test.mjs
       - name: Source Registry to scheduler contract
