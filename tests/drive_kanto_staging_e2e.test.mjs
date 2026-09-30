@@ -45,7 +45,10 @@ assert.equal(new Set(staging.events.map(e=>e.eventKey)).size,41);
 assert.equal(staging.events.every(e=>e.freshnessStatus==='CURRENT'),true);
 assert.equal(staging.events.some(e=>JSON.stringify(e).includes('termsStatus')),false);
 assert.equal(staging.events.some(e=>JSON.stringify(e).includes('parserVersion')),false);
-assert.equal(staging.events.every(e=>e.sourceVersionDate!==null),true,'common events must preserve source version date');
+assert.equal(staging.events.every(e=>Object.hasOwn(e,'sourceVersionDate')),true,'common events must preserve source version date field');
+const saitamaFocusVersion=staging.events.find(e=>e.sourceKey==='saitama:focus-areas:urawa');
+assert.equal(saitamaFocusVersion.sourceVersionDate,null,'unknown official version date must remain null, not be fabricated');
+assert.equal(saitamaFocusVersion.sourceIndexUrl,'https://www.police.pref.saitama.lg.jp/f0020/kotsu/sokudoshishin.html');
 
 const byFamily=family=>staging.events.filter(e=>e.sourceFamily===family);
 assert.equal(byFamily('SPEED_GUIDELINE').length,28);
