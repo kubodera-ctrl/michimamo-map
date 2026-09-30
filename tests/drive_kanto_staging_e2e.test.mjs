@@ -45,6 +45,7 @@ assert.equal(new Set(staging.events.map(e=>e.eventKey)).size,41);
 assert.equal(staging.events.every(e=>e.freshnessStatus==='CURRENT'),true);
 assert.equal(staging.events.some(e=>JSON.stringify(e).includes('termsStatus')),false);
 assert.equal(staging.events.some(e=>JSON.stringify(e).includes('parserVersion')),false);
+assert.equal(staging.events.every(e=>e.sourceVersionDate!==null),true,'common events must preserve source version date');
 
 const byFamily=family=>staging.events.filter(e=>e.sourceFamily===family);
 assert.equal(byFamily('SPEED_GUIDELINE').length,28);
@@ -63,6 +64,14 @@ assert.deepEqual(geometryCandidates.map(e=>e.eventKey),[
   'tokyo:tokyo-wangan:speed-guideline:wangan-rinko-keihin-chuboh',
   'tokyo:tokyo-wangan:speed-guideline:wangan-rinko-chuboh-shinkiba'
 ]);
+assert.equal(geometryCandidates.every(e=>e.geometry.routeMatchTokens.length>0),true,'routable candidates must preserve route guards');
+
+const rinkoSegment=staging.events.find(e=>e.eventKey==='tokyo:tokyo-wangan:speed-guideline:wangan-rinko-chuboh-shinkiba');
+assert.equal(rinkoSegment.sourceRecordKey,'wangan-rinko');
+assert.equal(rinkoSegment.sourceSubrecordKey,'60kmh');
+assert.equal(rinkoSegment.sourceVersionDate,'2026-07-30');
+assert.equal(rinkoSegment.sourceIndexUrl,'https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html');
+assert.equal(rinkoSegment.geometry.routeMatchTokens.includes('東京ゲートブリッジ'),true);
 
 const tokyoToday=staging.events.find(e=>e.eventKey==='tokyo:public-enforcement:2026-09:school-route-2026-09-30');
 assert.equal(tokyoToday.time.validDate,'2026-09-30');
