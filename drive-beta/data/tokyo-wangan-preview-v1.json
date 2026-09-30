@@ -5,7 +5,7 @@
   "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
   "sourceVersionDate": "2026-07-30",
   "sourceVerifiedAt": "2026-09-30",
-  "sourceHash": "a9e1bf93dac368f0658cc19722f367e463bffc08889599f095fb94f76fd96064",
+  "sourceHash": "a91bcdaa7692d97fa8d405963f3530c225a52b545342e0ac0e818938f447b8a8",
   "freshnessStatus": "CURRENT",
   "sourceRecordCount": 9,
   "events": [
@@ -71,10 +71,23 @@
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
-      "routeEndpoints": null,
-      "endpointVerified": false,
-      "routeMatchTokens": [],
-      "geometryStatus": "UNRESOLVED",
+      "routeEndpoints": [
+        [
+          35.640932,
+          139.802592
+        ],
+        [
+          35.65038,
+          139.800698
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "晴海通り",
+        "都道304号",
+        "304"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
       "sourceRecordKey": "wangan-harumi",
       "sourceSubrecordKey": null,
@@ -142,10 +155,23 @@
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
-      "routeEndpoints": null,
-      "endpointVerified": false,
-      "routeMatchTokens": [],
-      "geometryStatus": "UNRESOLVED",
+      "routeEndpoints": [
+        [
+          35.644254,
+          139.812714
+        ],
+        [
+          35.654181,
+          139.811308
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "三ツ目通り",
+        "都道319号",
+        "319"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
       "sourceRecordKey": "wangan-mitsume",
       "sourceSubrecordKey": null,
@@ -255,10 +281,23 @@
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
-      "routeEndpoints": null,
-      "endpointVerified": false,
-      "routeMatchTokens": [],
-      "geometryStatus": "UNRESOLVED",
+      "routeEndpoints": [
+        [
+          35.59522975,
+          139.79993936111111
+        ],
+        [
+          35.64755,
+          139.837498
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路",
+        "東京ゲートブリッジ"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
       "sourceRecordKey": "wangan-rinko",
       "sourceSubrecordKey": "60kmh",
