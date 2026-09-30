@@ -5,8 +5,8 @@
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
     "concretePrefectureCoverage": 28,
-    "inventoryOrDiscoveryCandidates": 86,
-    "preflightOrBetter": 47,
+    "inventoryOrDiscoveryCandidates": 87,
+    "preflightOrBetter": 48,
     "termsReviewedOrBetter": 18,
     "ready": 3,
     "active": 0
@@ -38,7 +38,18 @@
       "bodik-okazaki-events",
       "bodik-osaka-pref-events"
     ],
-    "oshiRealEventFixtures": 4
+    "oshiRealEventFixtures": 4,
+    "holdSourceKeys": [
+      "tottori-pref-event-open-data",
+      "shimane-pref-events-2026",
+      "kagawa-mitoyo-events",
+      "bodik-okinawa-pref-events",
+      "bodik-toyonaka-events",
+      "bodik-kumatori-events"
+    ],
+    "freshPreflightSourceKeys": [
+      "hamamatsu-current-events-open-data"
+    ]
   },
   "blockerClasses": {
     "userAction": [
