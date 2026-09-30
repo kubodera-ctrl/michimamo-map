@@ -15,33 +15,47 @@
     return h*60+min;
   }
 
+  function parseSpeed(value){
+    const speedLimitText=clean(value);
+    const values=[...speedLimitText.matchAll(/(\d+)/g)].map(m=>Number(m[1]));
+    if(!values.length)throw new Error('invalid_speed:'+speedLimitText);
+    return {
+      speedKmh:values[0],
+      speedLimitText,
+      alternateSpeedKmh:Object.freeze(values.slice(1))
+    };
+  }
+
   function normalizeBundle(bundle){
     if(!bundle?.source||!Array.isArray(bundle.records))throw new Error('invalid_bundle');
     if(bundle.source.freshnessStatus!=='CURRENT')return [];
-    const endpoints=bundle.verifiedEndpointCoordinates||{};
+    const endpoints=bundle.geometryCandidates||{};
     const seen=new Set();
     return bundle.records.map(raw=>{
       if(!raw.externalId||seen.has(raw.externalId))throw new Error('duplicate_or_missing_event');
       seen.add(raw.externalId);
       const pair=endpoints[raw.externalId];
-      const speedText=clean(raw.speedLimitText);
+      const speed=parseSpeed(raw.speedLimitText);
+      const startMinute=parseClock(raw.timeStart),endMinute=parseClock(raw.timeEnd);
+      if(endMinute<=startMinute&&endMinute!==1440)throw new Error('invalid_time_window');
       return Object.freeze({
         id:raw.externalId,
         route:clean(raw.routeName),
-        speedKmh:/^\d+$/.test(speedText)?Number(speedText):null,
-        speedLimitText:speedText||null,
+        focusType:raw.focusType,
+        ...speed,
         startLabel:clean(raw.segmentStartText),
         endLabel:clean(raw.segmentEndText),
-        startMinute:parseClock(raw.timeStart),
-        endMinute:parseClock(raw.timeEnd),
+        startMinute,
+        endMinute,
         roadScope:raw.roadScope,
         geoPrecision:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT':'ROAD_AREA',
         displayMode:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT_TIMED':'ROAD_AREA_TIMED',
-        routeEndpoints:pair?[pair.start,pair.end]:null,
-        geometryQuality:pair?'road_routed_beta':null,
+        routeEndpoints:pair?Object.freeze([pair.start,pair.end]):null,
+        geometryQuality:pair?'road_routed_beta_candidate':null,
+        geometryVerified:false,
         agency:bundle.source.policeOrg,
         policeStation:bundle.source.stationName,
-        sourceVerifiedAt:bundle.source.sourceVersionDate,
+        sourceVerifiedAt:bundle.source.verifiedAt,
         sourceIndex:bundle.source.sourceIndexUrl,
         sourcePdf:bundle.source.sourceUrl,
         parserVersion:bundle.source.parserVersion,
@@ -115,7 +129,7 @@
   }
 
   return Object.freeze({
-    clean,parseClock,normalizeBundle,
+    clean,parseClock,parseSpeed,normalizeBundle,
     minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,
     distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
   });
