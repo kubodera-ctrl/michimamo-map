@@ -65,6 +65,10 @@ jobs:
         run: npm run typecheck
       - name: Unit tests
         run: npm test
+      - name: Discover recent BODIK event CSV candidates (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:discover-bodik-events -- 60
       - name: Resolve rotating source resource - Nagasaki (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
