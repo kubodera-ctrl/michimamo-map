@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..');
 const zones=require(path.join(root,'drive-beta/enforcement-zones.js'));
 const bundle=JSON.parse(fs.readFileSync(path.join(root,'data/drive/tokyo-wangan-source-v1.json'),'utf8'));
 const snapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-wangan-preview-v1.json'),'utf8'));
-const scheduleSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-public-enforcement-2026-09-preview-v1.json'),'utf8'));
+const scheduleSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-public-enforcement-2026-10-preview-v1.json'),'utf8'));
 const fromSource=zones.normalizeBundle(bundle);
 const current=zones.normalizeSnapshot(snapshot);
 
@@ -124,8 +124,8 @@ assert.match(css,/\.panel\.collapsed \.panel-details/);
 assert.match(app,/setStatusPanelExpanded/);
 assert.match(app,/touchstart/);
 assert.match(app,/touchend/);
-assert.match(app,/weight:active\?6:4/);
-assert.match(app,/weight:flashOn\?6:4/);
+assert.match(app,/weight:active\?lineWeights\.active:lineWeights\.inactive/);
+assert.match(app,/weight:flashOn\?lineWeights\.flashOn:lineWeights\.flashOff/);
 assert.match(app,/function enforcementLabelMode/);
 assert.match(app,/if\(zoom>=14\)return 'detail'/);
 assert.match(app,/if\(zoom>=13\)return 'compact'/);
@@ -182,12 +182,18 @@ assert.match(app,/lastAlert=\{route:hit\.zone\.route,at:now\}/,'route-scoped ale
 assert.match(app,/now-lastAlert\.at<10\*60\*1000/,'same-route suppression window must remain 10 minutes');
 
 assert.equal(scheduleSnapshot.freshnessStatus,'CURRENT');
-assert.equal(scheduleSnapshot.events.length,9);
+assert.equal(scheduleSnapshot.events.length,8);
 assert.equal(Object.hasOwn(scheduleSnapshot,'gate'),false);
 assert.equal(JSON.stringify(scheduleSnapshot).includes('termsStatus'),false);
-const todaySchedule=scheduleSnapshot.events.find(e=>e.id==='school-route-2026-09-30');
-assert.ok(todaySchedule);
-assert.equal(todaySchedule.validDate,'2026-09-30');
-assert.equal(todaySchedule.enforcementType,'通学路における全国一斉街頭指導');
+assert.equal(scheduleSnapshot.periodStart,'2026-10-01');
+assert.equal(scheduleSnapshot.periodEnd,'2026-10-31');
+assert.equal(scheduleSnapshot.sourceVersionDate,'2026-10-01');
+assert.equal(scheduleSnapshot.events.some(e=>e.id==='school-route-2026-09-30'),false);
+assert.match(app,/function enforcementLineWeights/);
+assert.match(app,/return Object\.freeze\(\{active:3,inactive:2,flashOn:3,flashOff:2\}\)/);
+assert.match(app,/function sortedPublicScheduleEvents/);
+assert.match(app,/scheduleDistanceMeters/);
+assert.match(app,/現在地から近い順/);
+assert.match(app,/公式掲載順/);
 
 console.log('drive beta static + public schedule contract: PASS');

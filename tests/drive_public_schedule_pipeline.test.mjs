@@ -6,18 +6,18 @@ import {buildScheduleSnapshot,buildPublicSchedulePreview,normalizeScheduleRecord
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'..');
-const bundle=JSON.parse(fs.readFileSync(path.join(root,'data/drive/tokyo-public-enforcement-2026-09.json'),'utf8'));
+const bundle=JSON.parse(fs.readFileSync(path.join(root,'data/drive/tokyo-public-enforcement-2026-10.json'),'utf8'));
 const snapshot=buildScheduleSnapshot(bundle,{mode:'preview'});
 const publicPreview=buildPublicSchedulePreview(bundle);
-const committedPublicPreview=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-public-enforcement-2026-09-preview-v1.json'),'utf8'));
+const committedPublicPreview=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-public-enforcement-2026-10-preview-v1.json'),'utf8'));
 assert.deepEqual(committedPublicPreview,publicPreview,'committed browser schedule snapshot must match normalized source output');
 assert.equal(Object.hasOwn(committedPublicPreview,'gate'),false);
 assert.equal(JSON.stringify(committedPublicPreview).includes('termsStatus'),false);
-assert.equal(committedPublicPreview.events.length,9);
+assert.equal(committedPublicPreview.events.length,8);
 
-assert.equal(snapshot.events.length,9);
-assert.equal(snapshot.periodStart,'2026-09-01');
-assert.equal(snapshot.periodEnd,'2026-09-30');
+assert.equal(snapshot.events.length,8);
+assert.equal(snapshot.periodStart,'2026-10-01');
+assert.equal(snapshot.periodEnd,'2026-10-31');
 assert.match(snapshot.sourceHash,/^[0-9a-f]{64}$/);
 
 const speeding=snapshot.events.find(e=>e.externalId==='speeding');
@@ -27,14 +27,12 @@ assert.equal(speeding.geoPrecision,'PREFECTURE');
 assert.equal(speeding.displayMode,'POLICY_ONLY');
 assert.equal(speeding.areaText,'幹線道路等');
 
-const school=snapshot.events.find(e=>e.externalId==='school-route-2026-09-30');
-assert.equal(school.infoType,'STATEWIDE_DAY');
-assert.equal(school.validDate,'2026-09-30');
-assert.equal(school.displayMode,'PREFECTURE_DATE');
-const publicSchool=publicPreview.events.find(e=>e.id==='school-route-2026-09-30');
-assert.ok(publicSchool);
-assert.equal(publicSchool.validDate,'2026-09-30');
-assert.equal(publicSchool.enforcementType,'通学路における全国一斉街頭指導');
+assert.equal(snapshot.events.some(e=>e.externalId==='school-route-2026-09-30'),false);
+assert.equal(publicPreview.events.every(e=>e.locationPoint===null),true);
+
+const located=normalizeScheduleRecord(bundle.source,{...bundle.records[0],geoPrecision:'LOCALITY',displayMode:'LOCALITY_SCHEDULED',locationPoint:[35.65,139.80]});
+assert.deepEqual(located.locationPoint,[35.65,139.8]);
+assert.throws(()=>normalizeScheduleRecord(bundle.source,{...bundle.records[0],locationPoint:[200,139]}),/invalid_location_point/);
 
 const drink=snapshot.events.find(e=>e.externalId==='drink-driving');
 assert.equal(drink.timeText,'飲酒実態に応じた時間');

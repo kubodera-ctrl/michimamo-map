@@ -64,6 +64,12 @@ function enforcementLabelMode(zoom=map.getZoom()){
   return 'marker';
 }
 
+function enforcementLineWeights(zoom=map.getZoom()){
+  if(zoom>=14)return Object.freeze({active:6,inactive:4,flashOn:6,flashOff:4});
+  if(zoom>=13)return Object.freeze({active:4,inactive:3,flashOn:4,flashOff:3});
+  return Object.freeze({active:3,inactive:2,flashOn:3,flashOff:2});
+}
+
 function zoneLabelHtml(zone,active,mode){
   if(mode==='compact'){
     return '<div class="zone-label-title">'+esc(zone.route)+'</div>';
@@ -93,6 +99,7 @@ function renderEnforcement(){
   enforcementLayer.clearLayers();zoneLines.clear();
   if(!enforcementVisible)return;
   const labelMode=enforcementLabelMode();
+  const lineWeights=enforcementLineWeights();
   for(const zone of enforcementZones){
     const geometry=resolvedGeometries.get(zone.id);
     if(!geometry)continue;
@@ -100,7 +107,7 @@ function renderEnforcement(){
     const popupHtml=zonePopup(zone);
     const line=L.polyline(geometry,{
       color:active?'#dc2626':'#f59e0b',
-      weight:active?6:4,
+      weight:active?lineWeights.active:lineWeights.inactive,
       opacity:active?.9:.72,
       dashArray:active?null:'10 8',
       lineCap:'round'
@@ -185,9 +192,10 @@ function updateStatus(){
 
 function flashTick(){
   flashOn=!flashOn;
+  const lineWeights=enforcementLineWeights();
   for(const {zone,line} of zoneLines.values()){
     if(!zonesApi.isZoneActive(zone))continue;
-    line.setStyle({opacity:flashOn?.92:.30,weight:flashOn?6:4});
+    line.setStyle({opacity:flashOn?.92:.30,weight:flashOn?lineWeights.flashOn:lineWeights.flashOff});
   }
 }
 
@@ -196,6 +204,7 @@ function renderUserPosition(coords){
   if(!userMarker){
     userMarker=L.circleMarker(lastPosition,{radius:9,color:'#fff',weight:3,fillColor:'#2563eb',fillOpacity:1}).addTo(map);
   }else userMarker.setLatLng(lastPosition);
+  if(publicSchedule)renderPublicSchedule();
   checkProximity();
 }
 
@@ -243,18 +252,47 @@ function scheduleTimeLabel(event){
   return '公開方針';
 }
 
+function scheduleDistanceMeters(event){
+  const point=event?.locationPoint;
+  if(!lastPosition||!Array.isArray(point)||point.length!==2||!point.every(Number.isFinite))return null;
+  return zonesApi.distanceMeters(lastPosition,point);
+}
+
+function scheduleDistanceLabel(event){
+  const distance=scheduleDistanceMeters(event);
+  if(!Number.isFinite(distance))return null;
+  if(distance<1000)return Math.max(50,Math.round(distance/50)*50)+'m先';
+  return (distance/1000).toFixed(distance<10000?1:0)+'km先';
+}
+
+function sortedPublicScheduleEvents(events,today){
+  return events.map((event,index)=>({event,index,distance:scheduleDistanceMeters(event),today:event.validDate===today}))
+    .sort((a,b)=>{
+      if(a.today!==b.today)return a.today?-1:1;
+      const aLocated=Number.isFinite(a.distance),bLocated=Number.isFinite(b.distance);
+      if(aLocated!==bLocated)return aLocated?-1:1;
+      if(aLocated&&a.distance!==b.distance)return a.distance-b.distance;
+      return a.index-b.index;
+    })
+    .map(item=>item.event);
+}
+
 function renderPublicSchedule(){
   if(!publicSchedule||!Array.isArray(publicSchedule.events))return;
   const today=tokyoDateKey();
   const inPeriod=today>=publicSchedule.periodStart&&today<=publicSchedule.periodEnd;
   const todayEvents=publicSchedule.events.filter(event=>event.validDate===today);
-  schedulePeriod.textContent=publicSchedule.periodStart+' 〜 '+publicSchedule.periodEnd+(inPeriod?' ／ 公開期間内':' ／ 公開期間外');
+  const orderedEvents=sortedPublicScheduleEvents(publicSchedule.events,today);
+  const hasLocatedEvents=orderedEvents.some(event=>Number.isFinite(scheduleDistanceMeters(event)));
+  schedulePeriod.textContent=publicSchedule.periodStart+' 〜 '+publicSchedule.periodEnd+
+    (inPeriod?' ／ 公開期間内':' ／ 公開期間外')+
+    (hasLocatedEvents?' ／ 現在地から近い順':' ／ 公式掲載順');
   scheduleSource.href=publicSchedule.sourceUrl;
 
-  scheduleList.innerHTML=publicSchedule.events.map(event=>{
+  scheduleList.innerHTML=orderedEvents.map(event=>{
     const todayClass=event.validDate===today?' today':'';
     const badge=event.validDate===today?'<span class="schedule-badge">本日</span>':'';
-    const detail=[event.areaText,scheduleTimeLabel(event)].filter(Boolean).map(esc).join(' ／ ');
+    const detail=[scheduleDistanceLabel(event),event.areaText,scheduleTimeLabel(event)].filter(Boolean).map(esc).join(' ／ ');
     return '<div class="schedule-item'+todayClass+'">'+
       '<strong>'+badge+esc(event.enforcementType)+'</strong>'+
       '<span>'+detail+'</span>'+
@@ -274,7 +312,7 @@ function renderPublicSchedule(){
 
 async function loadPublicSchedule(){
   try{
-    const response=await fetch('/drive-beta/data/tokyo-public-enforcement-2026-09-preview-v1.json',{cache:'no-store'});
+    const response=await fetch('/drive-beta/data/tokyo-public-enforcement-2026-10-preview-v1.json',{cache:'no-store'});
     if(!response.ok)throw new Error('schedule_http_'+response.status);
     const snapshot=await response.json();
     if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('schedule_not_current');

@@ -7,6 +7,13 @@ const DISPLAY_MODES=new Set(['POLICY_ONLY','PREFECTURE_DATE','LOCALITY_SCHEDULED
 
 function clean(value){return String(value??'').normalize('NFKC').replace(/\s+/g,' ').trim();}
 function validDate(value){return /^\d{4}-\d{2}-\d{2}$/.test(String(value||''));}
+function normalizeLocationPoint(value){
+  if(value==null)return null;
+  if(!Array.isArray(value)||value.length!==2)throw new Error('invalid_location_point');
+  const lat=Number(value[0]),lng=Number(value[1]);
+  if(!Number.isFinite(lat)||!Number.isFinite(lng)||lat<-90||lat>90||lng<-180||lng>180)throw new Error('invalid_location_point');
+  return Object.freeze([lat,lng]);
+}
 
 export function sourceHash(bundle){
   return crypto.createHash('sha256').update(JSON.stringify(bundle)).digest('hex');
@@ -41,6 +48,7 @@ export function normalizeScheduleRecord(source,raw){
     timeText:clean(raw.timeText)||null,
     geoPrecision:raw.geoPrecision,
     displayMode:raw.displayMode,
+    locationPoint:normalizeLocationPoint(raw.locationPoint),
     sourceUrl:source.sourceUrl,
     sourceVerifiedAt:source.verifiedAt,
     freshnessStatus:source.freshnessStatus,
@@ -105,6 +113,7 @@ export function buildPublicSchedulePreview(bundle){
       timeText:event.timeText,
       geoPrecision:event.geoPrecision,
       displayMode:event.displayMode,
+      locationPoint:event.locationPoint,
       sourceUrl:event.sourceUrl,
       sourceVerifiedAt:event.sourceVerifiedAt,
       freshnessStatus:event.freshnessStatus,
