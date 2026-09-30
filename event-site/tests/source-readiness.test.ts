@@ -24,3 +24,27 @@ test('current READY audit promotes only sources with every gate cleared',()=>{
   assert.ok(ready.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length===0));
   assert.ok(hold.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length>0));
 });
+
+
+test('READY registry and audit stay aligned with every fetch gate explicit',()=>{
+  const registry=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/national_source_discovery_v1.json',import.meta.url),'utf8'));
+  const audit=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/ready_source_audit_v1.json',import.meta.url),'utf8'));
+  const registryReady=registry.sources.filter((row:any)=>row.review_state==='READY');
+  const auditReady=audit.sources.filter((row:any)=>row.decision==='READY');
+  const registryKeys=registryReady.map((row:any)=>row.source_key).sort();
+  const auditKeys=auditReady.map((row:any)=>row.source_key).sort();
+
+  assert.deepEqual(registryKeys,auditKeys);
+  assert.equal(registry.counts.ready,registryReady.length);
+  assert.ok(registryReady.length>=5);
+
+  for(const row of registryReady){
+    assert.equal(row.automated_fetch_allowed,true,row.source_key);
+    assert.match(row.feed_url,/^https:\/\//,row.source_key);
+    assert.equal(row.terms_status,'reviewed_allowed',row.source_key);
+    assert.ok(['allowed','not_applicable'].includes(row.robots_status),row.source_key);
+    assert.equal(row.commercial_use_status,'allowed',row.source_key);
+    assert.equal(row.reuse_status,'allowed',row.source_key);
+    assert.ok(row.attribution_requirement,row.source_key);
+  }
+});
