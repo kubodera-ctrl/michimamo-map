@@ -1407,7 +1407,7 @@
       "base_url": "https://www.pref.gifu.lg.jp/calendar/",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "contact_required",
       "robots_status": "pending",
       "commercial_use_status": "unknown",
       "attribution_requirement": null,
@@ -1425,7 +1425,8 @@
       "terms_difficulty": "unknown",
       "maintenance_cost": "medium",
       "freshness_confidence": "high",
-      "notes": "2026-09-30県公式イベント一覧表示で27件。開催期間/場所/申込要否等が構造化表示される。オープンデータカタログは原則年1回更新のため、current供給はこの公式カレンダーを別sourceとして扱う。規約/robots確認前はfetch不可。"
+      "notes": "2026-09-30県公式イベント一覧表示で27件。開催期間/場所/申込要否等が構造化表示される。オープンデータカタログは原則年1回更新のため、current供給はこの公式カレンダーを別sourceとして扱う。規約/robots確認前はfetch不可。 一般県HPの著作権条件は無断複製・転用不可のため、事実確認sourceとしてのみ保持し自動取得しない。",
+      "reuse_status": "unknown"
     },
     {
       "source_key": "saitama-pref-current-calendar",
@@ -1438,7 +1439,7 @@
       "base_url": "https://www.pref.saitama.lg.jp/cgi-bin/event_cal/cal_month.cgi",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "contact_required",
       "robots_status": "pending",
       "commercial_use_status": "unknown",
       "attribution_requirement": null,
@@ -1455,7 +1456,8 @@
       "terms_difficulty": "unknown",
       "maintenance_cost": "medium",
       "freshness_confidence": "high",
-      "notes": "2026-09-30県公式イベントカレンダーでイベント/学習・体験/講座等、地域/対象者（子供・ファミリー含む）絞り込みを確認。規約/robots確認前はfetch不可。"
+      "notes": "2026-09-30県公式イベントカレンダーでイベント/学習・体験/講座等、地域/対象者（子供・ファミリー含む）絞り込みを確認。規約/robots確認前はfetch不可。 県HP掲載情報の転載には担当課承認が必要なため、自動取得しない。",
+      "reuse_status": "unknown"
     },
     {
       "source_key": "ehime-pref-current-calendar",
@@ -1468,7 +1470,7 @@
       "base_url": "https://www.pref.ehime.jp/calendar/",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "contact_required",
       "robots_status": "pending",
       "commercial_use_status": "unknown",
       "attribution_requirement": null,
@@ -1485,7 +1487,8 @@
       "terms_difficulty": "unknown",
       "maintenance_cost": "medium",
       "freshness_confidence": "high",
-      "notes": "2026-09-30県公式カレンダーでイベント/子ども/文化・芸術/スポーツ、費用、地域、対象者、事前申込等の絞り込みを確認。複数期間イベントは2027年まで掲載。規約/robots確認前はfetch不可。"
+      "notes": "2026-09-30県公式カレンダーでイベント/子ども/文化・芸術/スポーツ、費用、地域、対象者、事前申込等の絞り込みを確認。複数期間イベントは2027年まで掲載。規約/robots確認前はfetch不可。 一般県HPは無断複製・転用不可。オープンデータ規約をこのカレンダーへ流用せず自動取得しない。",
+      "reuse_status": "unknown"
     }
   ]
 }
