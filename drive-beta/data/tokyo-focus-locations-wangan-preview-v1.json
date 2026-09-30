@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sourceLabel": "警視庁 重点取締場所",
+  "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+  "sourceArtifactUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+  "sourceVersionDate": "2026-07-01",
+  "sourceVerifiedAt": "2026-10-01",
+  "freshnessStatus": "CURRENT",
+  "scope": "tokyo_wangan_verified_subset",
+  "events": [
+    {
+      "id": "focus-tokyo-wangan-sengokubashi-kita",
+      "eventKey": "tokyo:focus-locations:tokyo-wangan:sengokubashi-kita",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京湾岸警察署",
+      "localityText": "江東区新木場1丁目付近",
+      "placeName": "千石橋北交差点",
+      "reason": "歩行者や交通量も多く、事故抑止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.6445442,
+        139.8252532
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "MapFan 千石橋北: 35.6445442,139.8252532",
+        "信号サイクル調査: 35.644444,139.825325"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-wangan-shinonome",
+      "eventKey": "tokyo:focus-locations:tokyo-wangan:shinonome",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京湾岸警察署",
+      "localityText": "江東区東雲2丁目付近",
+      "placeName": "東雲交差点",
+      "reason": "工事関係車両の通過が多い交差点であり、事故防止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.640932,
+        139.802592
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "まちドラ既存の晴海通り endpointVerified=true の東雲交差点座標"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    }
+  ]
+}

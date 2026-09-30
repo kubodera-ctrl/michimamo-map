@@ -7,6 +7,8 @@ const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSe
 const zonesApi=window.MachimamoDriveZones;
 let enforcementZones=[];
 let publicSchedule=null;
+let focusLocations=null;
+let scheduleTab='public';
 const map=L.map('map',{zoomControl:false,attributionControl:true}).setView([35.6335,139.7875],14);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -15,7 +17,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 
 const enforcementLayer=L.layerGroup().addTo(map);
 const accidentLayer=L.layerGroup().addTo(map);
+const publicScheduleLayer=L.layerGroup().addTo(map);
+const focusLocationLayer=L.layerGroup().addTo(map);
 const zoneLines=new Map();
+const publicTodayMarkers=[];
 const resolvedGeometries=new Map();
 let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
 let accidentRequest=0,lastAlert={route:null,at:0};
@@ -29,6 +34,9 @@ const scheduleClose=document.getElementById('scheduleClose');
 const scheduleList=document.getElementById('scheduleList');
 const schedulePeriod=document.getElementById('schedulePeriod');
 const scheduleSource=document.getElementById('scheduleSource');
+const scheduleFootCopy=document.getElementById('scheduleFootCopy');
+const schedulePublicTab=document.getElementById('schedulePublicTab');
+const scheduleFocusTab=document.getElementById('scheduleFocusTab');
 const scheduleDayBanner=document.getElementById('scheduleDayBanner');
 const scheduleDayTitle=document.getElementById('scheduleDayTitle');
 const scheduleDayCopy=document.getElementById('scheduleDayCopy');
@@ -197,6 +205,9 @@ function flashTick(){
     if(!zonesApi.isZoneActive(zone))continue;
     line.setStyle({opacity:flashOn?.92:.30,weight:flashOn?lineWeights.flashOn:lineWeights.flashOff});
   }
+  for(const marker of publicTodayMarkers){
+    marker.setStyle({opacity:flashOn?1:.35,fillOpacity:flashOn?.96:.18});
+  }
 }
 
 function renderUserPosition(coords){
@@ -204,7 +215,7 @@ function renderUserPosition(coords){
   if(!userMarker){
     userMarker=L.circleMarker(lastPosition,{radius:9,color:'#fff',weight:3,fillColor:'#2563eb',fillOpacity:1}).addTo(map);
   }else userMarker.setLatLng(lastPosition);
-  if(publicSchedule)renderPublicSchedule();
+  if(publicSchedule||focusLocations)renderSchedulePanel();
   checkProximity();
 }
 
@@ -249,13 +260,17 @@ function scheduleTimeLabel(event){
   if(event.validDate)return event.validDate;
   if(event.timeText)return event.timeText;
   if(event.timePrecision==='ALL_DAY')return '終日を含む公開方針';
-  return '公開方針';
+  return event.validFrom&&event.validTo&&event.validFrom===event.validTo?event.validFrom:'公開期間内';
+}
+
+function hasConcreteLocation(event){
+  const point=event?.locationPoint;
+  return Array.isArray(point)&&point.length===2&&point.every(Number.isFinite)&&event?.geoPrecision!=='PREFECTURE';
 }
 
 function scheduleDistanceMeters(event){
-  const point=event?.locationPoint;
-  if(!lastPosition||!Array.isArray(point)||point.length!==2||!point.every(Number.isFinite))return null;
-  return zonesApi.distanceMeters(lastPosition,point);
+  if(!lastPosition||!hasConcreteLocation(event))return null;
+  return zonesApi.distanceMeters(lastPosition,event.locationPoint);
 }
 
 function scheduleDistanceLabel(event){
@@ -265,10 +280,9 @@ function scheduleDistanceLabel(event){
   return (distance/1000).toFixed(distance<10000?1:0)+'km先';
 }
 
-function sortedPublicScheduleEvents(events,today){
-  return events.map((event,index)=>({event,index,distance:scheduleDistanceMeters(event),today:event.validDate===today}))
+function sortedLocationEvents(events){
+  return events.map((event,index)=>({event,index,distance:scheduleDistanceMeters(event)}))
     .sort((a,b)=>{
-      if(a.today!==b.today)return a.today?-1:1;
       const aLocated=Number.isFinite(a.distance),bLocated=Number.isFinite(b.distance);
       if(aLocated!==bLocated)return aLocated?-1:1;
       if(aLocated&&a.distance!==b.distance)return a.distance-b.distance;
@@ -277,36 +291,126 @@ function sortedPublicScheduleEvents(events,today){
     .map(item=>item.event);
 }
 
-function renderPublicSchedule(){
-  if(!publicSchedule||!Array.isArray(publicSchedule.events))return;
+function concretePublicEvents(){
+  return Array.isArray(publicSchedule?.events)?publicSchedule.events.filter(hasConcreteLocation):[];
+}
+
+function concreteFocusEvents(){
+  return Array.isArray(focusLocations?.events)?focusLocations.events.filter(hasConcreteLocation):[];
+}
+
+function setScheduleTab(tab){
+  scheduleTab=tab==='focus'?'focus':'public';
+  const isPublic=scheduleTab==='public';
+  schedulePublicTab.classList.toggle('active',isPublic);
+  scheduleFocusTab.classList.toggle('active',!isPublic);
+  schedulePublicTab.setAttribute('aria-selected',String(isPublic));
+  scheduleFocusTab.setAttribute('aria-selected',String(!isPublic));
+  renderSchedulePanel();
+}
+
+function renderSchedulePanel(){
   const today=tokyoDateKey();
-  const inPeriod=today>=publicSchedule.periodStart&&today<=publicSchedule.periodEnd;
-  const todayEvents=publicSchedule.events.filter(event=>event.validDate===today);
-  const orderedEvents=sortedPublicScheduleEvents(publicSchedule.events,today);
-  const hasLocatedEvents=orderedEvents.some(event=>Number.isFinite(scheduleDistanceMeters(event)));
-  schedulePeriod.textContent=publicSchedule.periodStart+' 〜 '+publicSchedule.periodEnd+
-    (inPeriod?' ／ 公開期間内':' ／ 公開期間外')+
-    (hasLocatedEvents?' ／ 現在地から近い順':' ／ 公式掲載順');
-  scheduleSource.href=publicSchedule.sourceUrl;
+  const publicEvents=sortedLocationEvents(concretePublicEvents());
+  const focusEvents=sortedLocationEvents(concreteFocusEvents());
+  const selected=scheduleTab==='focus'?focusEvents:publicEvents;
+  const source=scheduleTab==='focus'?focusLocations:publicSchedule;
+  const titlePrefix=scheduleTab==='focus'?'重点取締場所':'公開取締予定';
 
-  scheduleList.innerHTML=orderedEvents.map(event=>{
-    const todayClass=event.validDate===today?' today':'';
-    const badge=event.validDate===today?'<span class="schedule-badge">本日</span>':'';
-    const detail=[scheduleDistanceLabel(event),event.areaText,scheduleTimeLabel(event)].filter(Boolean).map(esc).join(' ／ ');
-    return '<div class="schedule-item'+todayClass+'">'+
-      '<strong>'+badge+esc(event.enforcementType)+'</strong>'+
-      '<span>'+detail+'</span>'+
+  schedulePublicTab.textContent='公開取締予定（'+publicEvents.length+'）';
+  scheduleFocusTab.textContent='重点取締場所（'+focusEvents.length+'）';
+  schedulePeriod.textContent=titlePrefix+' ／ '+(lastPosition?'現在地から近い順':'現在地取得後に近い順');
+  scheduleSource.href=source?.sourceUrl||'#';
+  scheduleFootCopy.textContent=scheduleTab==='focus'
+    ?'具体的な場所を確認できる重点取締場所のみ表示します。現在その場所で取締りを実施中であることを示しません。'
+    :'具体的な場所を確認できる公開取締予定のみ表示します。本日の予定は地図上で赤点滅します。';
+
+  if(!selected.length){
+    scheduleList.innerHTML='<div class="schedule-empty">'+
+      (scheduleTab==='focus'
+        ?'位置を確認できる重点取締場所は現在ありません。'
+        :'具体的な場所が公表され、位置を確認できる公開取締予定は現在ありません。')+
       '</div>';
-  }).join('');
+  }else{
+    scheduleList.innerHTML=selected.map(event=>{
+      const todayClass=scheduleTab==='public'&&event.validDate===today?' today':'';
+      const badge=event.validDate===today?'<span class="schedule-badge">本日</span>':'';
+      const title=event.placeName||event.routeName||event.areaText||event.enforcementType;
+      const detail=scheduleTab==='focus'
+        ?[scheduleDistanceLabel(event),event.localityText,event.policeStation].filter(Boolean)
+        :[scheduleDistanceLabel(event),event.enforcementType,event.routeName,event.areaText,scheduleTimeLabel(event)].filter(Boolean);
+      return '<div class="schedule-item'+todayClass+'">'+
+        '<strong>'+badge+esc(title)+'</strong>'+
+        '<span>'+detail.map(esc).join(' ／ ')+'</span>'+
+        '</div>';
+    }).join('');
+  }
 
+  const todayEvents=publicEvents.filter(event=>event.validDate===today);
   if(todayEvents.length){
     scheduleDayBanner.hidden=false;
-    scheduleDayTitle.textContent='本日の公開情報：'+todayEvents.map(event=>event.enforcementType).join(' ／ ');
-    scheduleDayCopy.textContent='警視庁の公開予定です。現在の取締実施を示すリアルタイム情報ではありません。';
+    scheduleDayTitle.textContent='本日の公開取締予定：'+todayEvents.map(event=>event.placeName||event.areaText||event.routeName).join(' ／ ');
+    scheduleDayCopy.textContent='警視庁の公開予定です。現在その場所で取締りを実施中であることを示すものではありません。';
   }else{
     scheduleDayBanner.hidden=true;
     scheduleDayTitle.textContent='';
     scheduleDayCopy.textContent='';
+  }
+}
+
+function scheduleMarkerRadius(zoom=map.getZoom()){
+  if(zoom>=14)return 7;
+  if(zoom>=13)return 5.5;
+  return 4.5;
+}
+
+function publicLocationPopup(event){
+  const today=event.validDate===tokyoDateKey();
+  return '<div class="popup-title">📅 '+esc(event.placeName||event.routeName||event.areaText||'公開取締予定')+'</div>'+
+    '<div class="popup-status '+(today?'on':'off')+'">'+(today?'本日の公開予定':'公開予定')+'</div>'+
+    '<div class="popup-line">'+[event.enforcementType,event.routeName,event.areaText,scheduleTimeLabel(event)].filter(Boolean).map(esc).join(' ／ ')+'</div>'+
+    '<div class="popup-note">公開予定であり、現在その場所で取締りを実施中であることを示すものではありません。</div>';
+}
+
+function focusLocationPopup(event){
+  return '<div class="popup-title">📍 '+esc(event.placeName||event.areaText||'重点取締場所')+'</div>'+
+    '<div class="popup-status focus">重点取締場所</div>'+
+    '<div class="popup-line">'+[event.localityText,event.policeStation].filter(Boolean).map(esc).join(' ／ ')+'</div>'+
+    (event.reason?'<div class="popup-note">'+esc(event.reason)+'</div>':'')+
+    '<div class="popup-note">警視庁が公表する重点取締場所です。現在その場所で取締りを実施中であることを示すものではありません。</div>';
+}
+
+function renderScheduleMap(){
+  publicScheduleLayer.clearLayers();
+  focusLocationLayer.clearLayers();
+  publicTodayMarkers.length=0;
+  const today=tokyoDateKey();
+  const radius=scheduleMarkerRadius();
+
+  for(const event of concretePublicEvents()){
+    const isToday=event.validDate===today;
+    const marker=L.circleMarker(event.locationPoint,{
+      radius,
+      color:'#fff',
+      weight:2,
+      fillColor:'#dc2626',
+      fillOpacity:isToday?.96:.80,
+      opacity:1
+    }).bindPopup(publicLocationPopup(event),{autoClose:false,closeOnClick:false});
+    marker.addTo(publicScheduleLayer);
+    if(isToday)publicTodayMarkers.push(marker);
+  }
+
+  for(const event of concreteFocusEvents()){
+    L.circleMarker(event.locationPoint,{
+      radius,
+      color:'#fff',
+      weight:2,
+      fillColor:'#16a34a',
+      fillOpacity:.92,
+      opacity:1
+    }).bindPopup(focusLocationPopup(event),{autoClose:false,closeOnClick:false})
+      .addTo(focusLocationLayer);
   }
 }
 
@@ -317,12 +421,30 @@ async function loadPublicSchedule(){
     const snapshot=await response.json();
     if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('schedule_not_current');
     publicSchedule=snapshot;
-    renderPublicSchedule();
+    renderSchedulePanel();
+    renderScheduleMap();
   }catch(error){
     console.warn('DRIVE beta public schedule load failed',error);
     publicSchedule=null;
     scheduleToggle.disabled=true;
-    scheduleToggle.textContent='📅 公開取締予定 取得失敗';
+    scheduleToggle.textContent='📅 取締予定 取得失敗';
+  }
+}
+
+async function loadFocusLocations(){
+  try{
+    const response=await fetch('/drive-beta/data/tokyo-focus-locations-wangan-preview-v1.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('focus_http_'+response.status);
+    const snapshot=await response.json();
+    if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('focus_not_current');
+    focusLocations=snapshot;
+    renderSchedulePanel();
+    renderScheduleMap();
+  }catch(error){
+    console.warn('DRIVE beta focus locations load failed',error);
+    focusLocations={sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html',events:[]};
+    renderSchedulePanel();
+    renderScheduleMap();
   }
 }
 
@@ -376,6 +498,8 @@ statusPanelHandle.addEventListener('click',()=>{
   setStatusPanelExpanded(statusPanel.classList.contains('collapsed'));
 });
 setStatusPanelExpanded(false);
+schedulePublicTab.addEventListener('click',()=>setScheduleTab('public'));
+scheduleFocusTab.addEventListener('click',()=>setScheduleTab('focus'));
 
 enforcementToggle.addEventListener('click',()=>{
   enforcementVisible=!enforcementVisible;
@@ -407,6 +531,7 @@ document.getElementById('alertClose').addEventListener('click',()=>alertBox.clas
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 map.on('zoomend',()=>{
   if(enforcementVisible)renderEnforcement();
+  renderScheduleMap();
 });
 
 async function loadEnforcementSource(){
@@ -433,6 +558,7 @@ accidentLayer.clearLayers();
 startLocation();
 loadEnforcementSource();
 loadPublicSchedule();
+loadFocusLocations();
 setInterval(()=>{renderEnforcement();checkProximity();},60000);
 setInterval(flashTick,850);
 })();
