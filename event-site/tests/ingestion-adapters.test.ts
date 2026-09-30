@@ -113,7 +113,7 @@ test('Hamamatsu official event CSV fields normalize with stable ID, event freshn
     sourceName:'浜松市 オープンデータ「イベント」',prefecture:'静岡県',municipality:'浜松市',
     feedUrl:'https://static.hamamatsu.odpf.net/opendata/v01/221309_hamamatsu_event/221309_hamamatsu_event.csv'
   });
-  const csv='NO,都道府県名,市区町村名,イベント名,開始日,終了日,説明,料金(基本),料金(詳細),場所名称,住所,緯度,経度,URL,カテゴリー,公開日,更新日\\n20260113435,静岡県,浜松市,鳥獣被害対策基本講座,2026-11-26,,講座の説明,,無料,引佐支所,浜松市浜名区引佐町井伊谷616-5,34.834554,137.670504,https://www.city.hamamatsu.shizuoka.jp/noushin/event/tyoju-kouza.html,講座・教室,2026-01-19,2026-01-28';
+  const csv='NO,都道府県名,市区町村名,イベント名,開始日,終了日,説明,料金(基本),料金(詳細),場所名称,住所,緯度,経度,URL,カテゴリー,公開日,更新日\n20260113435,静岡県,浜松市,鳥獣被害対策基本講座,2026-11-26,,講座の説明,,無料,引佐支所,浜松市浜名区引佐町井伊谷616-5,34.834554,137.670504,https://www.city.hamamatsu.shizuoka.jp/noushin/event/tyoju-kouza.html,講座・教室,2026-01-19,2026-01-28';
   const parsed=parseCsv(csv,s);
   const normalized=normalizeCommonItem(parsed.items[0],s);
   assert.equal(parsed.items[0].sourceEventId,'20260113435');
