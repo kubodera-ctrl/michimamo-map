@@ -32,6 +32,15 @@ type RegistryRow={
   freshness_confidence?:string|null;
 };
 
+function stableSourceId(sourceKey:string){
+  let hash=2166136261;
+  for(let i=0;i<sourceKey.length;i++){
+    hash^=sourceKey.charCodeAt(i);
+    hash=Math.imul(hash,16777619);
+  }
+  return (hash>>>0)||1;
+}
+
 function sourceSnapshot(row:RegistryRow):SourcePolicySnapshot{
   if(row.review_state!=='READY'||row.automated_fetch_allowed!==true){
     throw new Error('source is not READY for automated dry-run fetch');
@@ -45,7 +54,7 @@ function sourceSnapshot(row:RegistryRow):SourcePolicySnapshot{
   const feed=row.feed_url||'';
   if(!feed.startsWith('https://')) throw new Error('READY source requires an HTTPS feed URL');
   return {
-    sourceId:1,sourceName:row.source_name,sourceType:row.source_type,
+    sourceId:stableSourceId(row.source_key),sourceName:row.source_name,sourceType:row.source_type,
     prefecture:row.prefecture||null,municipality:row.municipality||null,
     baseUrl:row.base_url,feedUrl:feed,fetchMethod:'OPEN_DATA',
     termsStatus:'reviewed_allowed',
