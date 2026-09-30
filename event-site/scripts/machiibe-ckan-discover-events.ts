@@ -64,19 +64,29 @@ async function main(){
   const now=new Date();
   const maxAgeDays=Number(process.argv[2]||60);
   if(!Number.isFinite(maxAgeDays)||maxAgeDays<1)throw new Error('invalid maxAgeDays');
-  const url=new URL('https://data.bodik.jp/api/3/action/package_search');
-  url.searchParams.set('q','イベント OR 行事 OR 催事');
-  url.searchParams.set('rows','100');
-  url.searchParams.set('sort','metadata_modified desc');
-  const payload=await fetchJson(url.toString()) as {
-    success?:boolean;
-    result?:{results?:CkanPackage[]};
-  };
-  if(payload.success!==true||!Array.isArray(payload.result?.results)){
-    throw new Error('invalid CKAN package_search payload');
+  const queries=['イベント','行事','催事'];
+  const packages=new Map<string,CkanPackage>();
+  const queryCounts:Record<string,number>={};
+  for(const query of queries){
+    const url=new URL('https://data.bodik.jp/api/3/action/package_search');
+    url.searchParams.set('q',query);
+    url.searchParams.set('rows','100');
+    url.searchParams.set('sort','metadata_modified desc');
+    const payload=await fetchJson(url.toString()) as {
+      success?:boolean;
+      result?:{results?:CkanPackage[]};
+    };
+    if(payload.success!==true||!Array.isArray(payload.result?.results)){
+      throw new Error('invalid CKAN package_search payload for '+query);
+    }
+    queryCounts[query]=payload.result!.results!.length;
+    for(const pkg of payload.result!.results!){
+      const key=pkg.id||pkg.name;
+      if(key)packages.set(key,pkg);
+    }
   }
   const nowMs=now.getTime();
-  const rows=payload.result!.results!.flatMap((pkg)=>{
+  const rows=[...packages.values()].flatMap((pkg)=>{
     if(!eventLike(pkg)||!reusableLicense(pkg))return [];
     const packageAge=ageDays(pkg.metadata_modified,nowMs);
     if(packageAge===null||packageAge>maxAgeDays)return [];
@@ -109,6 +119,8 @@ async function main(){
     activeWrite:false,
     autoPromotion:false,
     maxAgeDays,
+    queryCounts,
+    uniquePackagesScanned:packages.size,
     candidateCount:rows.length,
     candidates:rows.slice(0,25)
   },null,2)+'\n');
