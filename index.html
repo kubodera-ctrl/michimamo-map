@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="地域の安全情報、警察署・交番・駐在所、AEDなどを地図で確認・共有できる地域参加型の安全マップです。">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="manifest" href="/manifest.webmanifest">
     <script>
         // Safari Private Browsing may mask device metrics. iPhone uses the standard
         // responsive viewport; never infer its width from screen/outerWidth.
@@ -41,6 +44,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="beta-error-bootstrap.js?v=38-errors1"></script>
     <style>
         html { width: 100%; overflow: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         html, body { margin:0; height:100%; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background:#f4f6f8; color:#17212b; }
@@ -435,7 +439,7 @@
 
                 <div class="search-box">
                     <input type="text" id="searchInput" placeholder="施設名・住所で検索...">
-                    <button onclick="searchLocation()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button onclick="searchLocation()" aria-label="場所を検索"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
                 <div class="filter-wrapper" id="filterWrapper">
@@ -473,7 +477,7 @@
                 </div>
 
 
-                <button id="currentLocationBtn" onclick="goToCurrentLocation()"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button id="currentLocationBtn" onclick="goToCurrentLocation()" aria-label="現在地へ移動"><i class="fa-solid fa-location-crosshairs"></i></button>
                 <button id="mapMenuBtn" class="fab" type="button" onclick="openMapMenu()" aria-haspopup="dialog" aria-controls="mapMenuModal" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i> メニュー</button>
 
                 <!-- ▼ AIパトロール（カメラ）画面 ▼ -->
@@ -929,7 +933,7 @@
                             <button class="cat-sub-btn" onclick="switchCategoryRanking('abandoned', this)">🟣 不法放置</button>
                         </div>
                         <div style="margin-bottom:12px;">
-                            <select id="prefFilter" onchange="loadAreaRanking()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #d9dee4; font-weight:bold; background:#f9fafb; color:#17212b;">
+                            <select id="prefFilter" aria-label="地域ランキングの都道府県" onchange="loadAreaRanking()" style="width:100%; padding:10px; border-radius:8px; border:1px solid #d9dee4; font-weight:bold; background:#f9fafb; color:#17212b;">
                                 <option value="ALL">🗾 全国すべて</option>
                                 <!-- JSで47都道府県が自動追加されます -->
                             </select>
@@ -978,59 +982,19 @@
                     </div>
                 </div>
 
-                <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
-                    🎁 スキマ時間でお小遣い稼ぎ
+                <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color:#374151;">
+                    🎁 お得情報
                 </h3>
-                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=4BAITT+7B5NPE+4286+69P02" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
-                        <div>
-                            <span style="background:#fce7f3; color:#be185d; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">アンケート</span>
-                            <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">アンケートに答えてポイントGET！（Ipsos）</div>
-                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ＋10,000 pt</div>
-                        </div>
-                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
-                    </a>
-                    <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4BAITT+7B5NPE+4286+69P02" alt="" style="display:none;">
+                <div id="betaAdEmptyState" role="status" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:20px;">
+                    <div style="font-weight:900;color:#334155;margin-bottom:6px;">広告は準備中です</div>
+                    <p style="font-size:.8rem;line-height:1.6;color:#64748b;margin:0;">β版では、掲載条件を確認できた広告だけを表示します。現在公開中の案件はありません。</p>
                 </div>
-
-                <h3 style="font-size:1.1rem; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin-bottom:16px; color: #374151;">
-                    🎓 子育て・お出かけサポート
-                </h3>
-                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom: 20px;">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=4BAITT+6P4MBM+4HHM+ZPD5F&a8ejpredirect=https%3A%2F%2Fwww.qqeng.com%2Flp%2Fjpcampustop_affiliate%2F" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
-                        <div>
-                            <span style="background:#dbeafe; color:#1d4ed8; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">教育・習い事</span>
-                            <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">小学生からのオンライン英語【CampusTop】</div>
-                            <div style="color:#ef4444; font-weight:900; font-size:1.2rem; margin-top:4px;"><i class="fa-solid fa-coins"></i> ＋500,000 pt</div>
-                        </div>
-                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
-                    </a>
-
-                    <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" style="background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration:none;">
-                        <div>
-                            <span style="background:#fef3c7; color:#b45309; font-size:0.7rem; padding:4px 8px; border-radius:4px; font-weight:bold;">駐車場予約</span>
-                            <div style="font-weight:bold; margin-top:8px; font-size: 0.95rem; color:#17212b;">お出かけ先の格安駐車場を予約（軒先P）</div>
-                            <!-- ※駐車場は定率のためポイント表記なし -->
-                        </div>
-                        <i class="fa-solid fa-chevron-right" style="color:#9ca3af;"></i>
-                    </a>
-                    <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3779876&pid=892689337" height="1" width="0" border="0" style="display:none;">
-                </div>
-
-                <!-- クレーム防止の注意書き -->
-                <p style="font-size:0.75rem; color:#6b7280; font-weight:bold; text-align:center; margin-top:10px;">
-                    ※ポイントは広告主の承認完了後（翌月〜翌々月）に付与されます。
-                </p>
             </div>
+        </section>            </div>
         </section>
     </main>
 
-    <!-- 収益化バナー（特P） -->
-    <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="ad-banner" style="display:flex; text-decoration:none; position:relative; z-index:9999;">
-        <div class="ad-banner-title"><i class="fa-solid fa-square-parking" style="color:#2563eb;"></i> 車でお出かけ、付近の駐車場はこちらから予約可！</div>
-        <span class="ad-pr-tag">PR</span>
-    </a>
-    <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" alt="" style="display:none;">
+    <!-- β Release Gate: legacy hardcoded affiliate banner disabled until ASP Runtime approval. -->
 
     <!-- ナビゲーションメニュー -->
     <nav>
@@ -1067,7 +1031,7 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:18px; font-weight:900;">アバターを選択</div>
-            <button class="close" onclick="closeAvatarModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closeAvatarModal()" aria-label="アバター選択を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="emoji-grid" id="emojiGrid"></div>
     </div>
@@ -1078,15 +1042,12 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:18px; font-weight:900; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-parking" style="color:#2563eb;"></i> 駐車場を予約する</div>
-            <button class="close" onclick="closeParkingModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closeParkingModal()" aria-label="駐車場案内を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <p class="muted" style="margin-bottom:20px; font-weight:bold;">お出かけ先の格安駐車場を事前に予約できます。</p>
-
-        <a href="https://px.a8.net/svt/ejp?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#ff7f50; display:block; text-align:center; text-decoration:none;">特P（とくぴー）で探す ➔</a>
-        <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BAH9J+CY6GZM+43U8+BWVTE" alt="" style="display:none;">
-
-        <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3779876&pid=892689337" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background:#1e90ff; display:block; text-align:center; text-decoration:none; margin-top:10px;">軒先パーキングで探す ➔</a>
-        <img src="https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3779876&pid=892689337" height="1" width="0" border="0" style="display:none;">
+        <div role="status" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:14px;">
+            <div style="font-weight:900;color:#334155;margin-bottom:6px;">β版では準備中です</div>
+            <p class="muted" style="margin:0;line-height:1.6;">掲載条件の確認が完了した駐車場サービスのみ、今後ここに表示します。</p>
+        </div>
     </div>
 </div>
 
@@ -1109,13 +1070,13 @@
         </div>
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-location-dot" style="color:#1f6feb;"></i> 地域の安全情報を共有</div>
-            <button class="close" onclick="closePostModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closePostModal()" aria-label="投稿画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
             <div id="localAnomalyArea" style="display:none; margin-bottom:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
-                <select id="localAnomalyType" onchange="syncLocalAnomalyTitle()">
+                <select id="localAnomalyType" aria-label="地域の異変の種類" onchange="syncLocalAnomalyTitle()">
                     <option value="">選択してください</option>
                     <option value="illegal_dumping">不法投棄・ごみ</option>
                     <option value="abandoned_object_vehicle">放置物・放置車両</option>
@@ -1140,7 +1101,7 @@
 
 
            <label>種類</label>
-           <select id="postCategory" required onchange="toggleImageUpload()">
+           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
                 <option value="illegal">🔴 違法駐車</option>
                 <option value="danger">🔵 危険な路上停車</option>
                 <option value="reckless">🟡 暴走・騒音車両</option>
@@ -1149,8 +1110,8 @@
                 <option value="patrol">🟢 巡回・取り締まり情報</option>
                 <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
             </select>
-            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" required maxlength="160">
-            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" rows="3" maxlength="500"></textarea>
+            <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" aria-label="投稿タイトル" required maxlength="160">
+            <label id="postCommentLabel">状況コメント</label><textarea id="postComment" aria-label="投稿コメント" rows="3" maxlength="500"></textarea>
 
             <div id="aedSubmissionArea" style="display:none; margin-top:14px; background:#fff7ed; border:1px solid #fdba74; padding:12px; border-radius:12px;">
                 <div style="font-size:.78rem; color:#9a3412; font-weight:800; line-height:1.55;">運営が新規AEDとして承認した場合だけ累積AEDスタンプを1個付与します。10個ごとに50ptです。掲載済み・重複・否認は対象外です。</div>
@@ -1192,7 +1153,7 @@
                 <div style="font-size:18px;font-weight:900;"><i class="fa-solid fa-photo-film" style="color:#0891b2;"></i> まちまもSNS投稿素材</div>
                 <div id="adminSocialAssetSubtitle" class="muted" style="font-size:.72rem;margin-top:4px;"></div>
             </div>
-            <button class="close" type="button" onclick="closeAdminSocialAsset()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" type="button" onclick="closeAdminSocialAsset()" aria-label="SNS素材画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="adminSocialAssetBody">
             <div>
@@ -1218,7 +1179,7 @@
     <div class="sheet" style="padding-top: 30px;">
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-file-contract" style="color:#ef4444;"></i> 利用規約・安全の約束</div>
-            <button class="close" onclick="document.getElementById('termsModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="document.getElementById('termsModal').classList.remove('open')" aria-label="利用規約を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <ul style="font-size:0.85rem; color:#4b5563; line-height:1.6; padding-left:20px; margin-bottom:16px;">
             <li style="margin-bottom:8px;"><strong>運転中の操作禁止：</strong> 投稿や閲覧は安全な場所に停車後に行ってください。</li>
@@ -1237,7 +1198,7 @@
     <div class="sheet" style="padding-top: 30px;">
         <div class="row">
             <div style="font-size:18px; font-weight:900;"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> プライバシーと安全対策</div>
-            <button class="close" onclick="closePrivacyModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="closePrivacyModal()" aria-label="プライバシーポリシーを閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
             まちまもMAPは、皆さまに安心してご利用いただけるよう、以下のプライバシー保護対策と機能強化を進めています。
@@ -1259,7 +1220,7 @@
     <div class="sheet">
         <div class="row">
             <div style="font-size:1.1rem; font-weight:900;"><i class="fa-solid fa-store" style="color:#f59e0b;"></i> 地域スポンサー募集</div>
-            <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close" onclick="document.getElementById('sponsorModal').classList.remove('open')" aria-label="広告掲載案内を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div style="font-size:0.85rem; color:#4b5563; line-height:1.6; margin-bottom:16px;">
             まちまもMAPでは、地域の安全を一緒に守るスポンサー店舗様・企業様を募集しています。
@@ -1340,6 +1301,28 @@
     const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     window.db = db;
 
+    const nativeDbRpc = db.rpc.bind(db);
+    db.rpc = async function(functionName, args, options) {
+        try {
+            const result = await nativeDbRpc(functionName, args, options);
+            if (result?.error) {
+                window.MachimamoBetaError?.capture({
+                    kind: 'rpc_failure',
+                    code: 'supabase_rpc_error',
+                    detail: String(functionName || 'unknown')
+                });
+            }
+            return result;
+        } catch (error) {
+            window.MachimamoBetaError?.capture({
+                kind: 'rpc_failure',
+                code: 'supabase_rpc_throw',
+                detail: String(functionName || 'unknown')
+            });
+            throw error;
+        }
+    };
+
     async function requireAuthenticatedUser() {
         const { data, error } = await db.auth.getUser();
         const user = data && data.user;
@@ -1413,14 +1396,11 @@
         loadRanking();
     }
 
-    const dynamicAdList = [
-        { target: "driver", title: "お出かけ先の格安駐車場を予約 (特P)", icon: "fa-square-parking", iconColor: "#2563eb", url: "#" },
-        { target: "driver", title: "【無料】自動車保険の一括見積もり", icon: "fa-car-shield", iconColor: "#1f6feb", url: "#" },
-        { target: "walker", title: "歩いてポイントが貯まる！ポイ活アプリ", icon: "fa-shoe-prints", iconColor: "#10b981", url: "#" },
-        { target: "family", title: "子供の安全を守る。見守りGPSトラッカー", icon: "fa-child", iconColor: "#f59e0b", url: "#" }
-    ];
+    // β Release Gate: legacy hardcoded ad candidates are intentionally empty.
+    // ASP Runtimeの公開gateを通った案件だけを別経路から表示する。
+    const dynamicAdList = [];
 
-    function setDynamicAd(triggerCategory = null) {
+    function setDynamicAd(triggerCategory = null) {    function setDynamicAd(triggerCategory = null) {
         // 現在は固定広告にしているため、将来拡張用として残します。
     }
 
@@ -1982,14 +1962,7 @@
     }
 
     async function loadRanking() {
-        let allUsers = [
-            { id: 'dummy1', name: 'パトロールおじさん', avatar: '🚓', point: 12500 },
-            { id: 'dummy2', name: '安全第一丸', avatar: '🔰', point: 9800 },
-            { id: 'dummy3', name: 'ご近所ウォッチャー', avatar: '👀', point: 4500 },
-            { id: 'dummy4', name: 'タクシードライバー', avatar: '🚕', point: 1200 },
-            { id: 'dummy5', name: 'セーフティライダー', avatar: '🛵', point: 950 },
-            { id: 'dummy6', name: 'ママチャリパトロール', avatar: '🚲', point: 800 }
-        ];
+        let allUsers = [];
 
         try {
             const { data: profiles } = await db.rpc('get_profile_ranking', { p_limit: 50 });
@@ -2003,6 +1976,9 @@
         const rankingArea = document.getElementById('nationalRankingArea');
         rankingArea.innerHTML = '';
         let myRankPos = '圏外';
+        if (uniqueUsers.length === 0) {
+            rankingArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">ランキングデータはまだありません</div>';
+        }
 
         uniqueUsers.forEach((u, idx) => {
             if (u.id === myUserId) myRankPos = `${idx + 1}位`;
@@ -2021,80 +1997,15 @@
         loadAreaRanking();
     }
 
-    const prefCities = {
-        "北海道": ["札幌市中央区","札幌市北区","旭川市","函館市","苫小牧市","帯広市","釧路市","江別市","北見市","小樽市"],
-        "青森県": ["青森市","弘前市","八戸市","十和田市","むつ市","五所川原市","三沢市","黒石市","つがる市","平川市"],
-        "岩手県": ["盛岡市","奥州市","一関市","花巻市","北上市","宮古市","滝沢市","大船渡市","釜石市","久慈市"],
-        "宮城県": ["仙台市青葉区","仙台市宮城野区","仙台市太白区","仙台市泉区","石巻市","大崎市","登米市","栗原市","気仙沼市","名取市"],
-        "秋田県": ["秋田市","横手市","大仙市","由利本荘市","大館市","能代市","湯沢市","北秋田市","鹿角市","潟上市"],
-        "山形県": ["山形市","鶴岡市","酒田市","米沢市","天童市","東根市","村山市","寒河江市","新庄市","上山市"],
-        "福島県": ["郡山市","いわき市","福島市","会津若松市","須賀川市","南相馬市","伊達市","白河市","二本松市","喜多方市"],
-        "茨城県": ["水戸市","つくば市","日立市","ひたちなか市","土浦市","古河市","取手市","筑西市","神栖市","牛久市"],
-        "栃木県": ["宇都宮市","小山市","栃木市","足利市","佐野市","那須塩原市","鹿沼市","日光市","真岡市","大田原市"],
-        "群馬県": ["高崎市","前橋市","太田市","伊勢崎市","桐生市","渋川市","館林市","藤岡市","安中市","みどり市"],
-        "埼玉県": ["さいたま市大宮区","さいたま市浦和区","川口市","川越市","所沢市","越谷市","草加市","春日部市","上尾市","熊谷市"],
-        "千葉県": ["千葉市中央区","船橋市","松戸市","市川市","柏市","市原市","八千代市","流山市","習志野市","浦安市"],
-        "東京都": ["新宿区","渋谷区","港区","中央区","千代田区","豊島区","世田谷区","品川区","大田区","八王子市"],
-        "神奈川県": ["横浜市中区","横浜市西区","横浜市港北区","川崎市川崎区","川崎市中原区","相模原市","横須賀市","藤沢市","平塚市","茅ヶ崎市"],
-        "新潟県": ["新潟市中央区","新潟市東区","長岡市","上越市","三条市","新発田市","柏崎市","燕市","村上市","糸魚川市"],
-        "富山県": ["富山市","高岡市","射水市","南砺市","氷見市","砺波市","魚津市","黒部市","滑川市","小矢部市"],
-        "石川県": ["金沢市","白山市","小松市","加賀市","七尾市","野々市市","能美市","かほく市","輪島市","珠洲市"],
-        "福井県": ["福井市","坂井市","越前市","敦賀市","鯖江市","大野市","小浜市","あわら市","勝山市","越前町"],
-        "山梨県": ["甲府市","甲斐市","南アルプス市","笛吹市","富士吉田市","北杜市","山梨市","都留市","中央市","韮崎市"],
-        "長野県": ["長野市","松本市","上田市","飯田市","佐久市","安曇野市","伊那市","塩尻市","千曲市","茅野市"],
-        "岐阜県": ["岐阜市","大垣市","各務原市","多治見市","可児市","高山市","関市","中津川市","羽島市","土岐市"],
-        "静岡県": ["静岡市葵区","浜松市中区","富士市","沼津市","磐田市","焼津市","藤枝市","富士宮市","掛川市","三島市"],
-        "愛知県": ["名古屋市中区","名古屋市中村区","豊田市","岡崎市","一宮市","豊橋市","春日井市","安城市","豊川市","西尾市"],
-        "三重県": ["四日市市","津市","鈴鹿市","松阪市","桑名市","伊勢市","伊賀市","名張市","志摩市","亀山市"],
-        "滋賀県": ["大津市","草津市","長浜市","東近江市","彦根市","甲賀市","近江八幡市","守山市","栗東市","湖南市"],
-        "京都府": ["京都市中京区","京都市下京区","京都市右京区","宇治市","亀岡市","舞鶴市","城陽市","長岡京市","八幡市","京田辺市"],
-        "大阪府": ["大阪市中央区","大阪市北区","大阪市淀川区","堺市堺区","東大阪市","豊中市","吹田市","枚方市","茨木市","八尾市"],
-        "兵庫県": ["神戸市中央区","神戸市兵庫区","姫路市","西宮市","尼崎市","明石市","加古川市","宝塚市","伊丹市","川西市"],
-        "奈良県": ["奈良市","橿原市","生駒市","大和郡山市","香芝市","天理市","葛城市","桜井市","大和高田市","宇陀市"],
-        "和歌山県": ["和歌山市","田辺市","橋本市","紀の川市","海南市","岩出市","新宮市","有田市","有田川町","御坊市"],
-        "鳥取県": ["鳥取市","米子市","倉吉市","境港市","琴浦町","八頭町","大山町","北栄町","湯梨浜町","岩美町"],
-        "島根県": ["松江市","出雲市","浜田市","益田市","安来市","大田市","雲南市","江津市","隠岐の島町","奥出雲町"],
-        "岡山県": ["岡山市北区","岡山市南区","倉敷市","津山市","玉野市","笠岡市","総社市","瀬戸内市","備前市","赤磐市"],
-        "広島県": ["広島市中区","広島市南区","福山市","呉市","東広島市","尾道市","廿日市市","三原市","三次市","府中市"],
-        "山口県": ["下関市","山口市","宇部市","周南市","岩国市","防府市","山陽小野田市","萩市","光市","長門市"],
-        "徳島県": ["徳島市","阿南市","鳴門市","吉野川市","小松島市","阿波市","藍住町","美馬市","三好市","石井町"],
-        "香川県": ["高松市","丸亀市","三豊市","観音寺市","坂出市","さぬき市","東かがわ市","善通寺市","綾川町","多度津町"],
-        "愛媛県": ["松山市","今治市","新居浜市","西条市","四国中央市","宇和島市","大洲市","八幡浜市","伊予市","東温市"],
-        "高知県": ["高知市","南国市","四万十市","香南市","香美市","土佐市","いの町","須崎市","宿毛市","安芸市"],
-        "福岡県": ["福岡市博多区","福岡市中央区","北九州市小倉北区","久留米市","飯塚市","大牟田市","春日市","糸島市","筑紫野市","宗像市"],
-        "佐賀県": ["佐賀市","唐津市","鳥栖市","伊万里市","武雄市","小城市","神埼市","鹿島市","嬉野市","みやき町"],
-        "長崎県": ["長崎市","佐世保市","諫早市","大村市","南島原市","島原市","五島市","平戸市","雲仙市","長与町"],
-        "熊本県": ["熊本市中央区","熊本市東区","八代市","天草市","玉名市","宇城市","山鹿市","荒尾市","合志市","菊池市"],
-        "大分県": ["大分市","別府市","中津市","佐伯市","日田市","宇佐市","臼杵市","豊後大野市","杵築市","由布市"],
-        "宮崎県": ["宮崎市","都城市","延岡市","日向市","日南市","小林市","西都市","えびの市","三股町","高鍋町"],
-        "鹿児島県": ["鹿児島市","霧島市","鹿屋市","薩摩川内市","姶良市","出水市","日置市","奄美市","指宿市","南九州市"],
-        "沖縄県": ["那覇市","沖縄市","うるま市","浦添市","宜野湾市","豊見城市","糸満市","名護市","宮古島市","南城市"]
-    };
-
-    async function loadAreaRanking() {
+    async function loadAreaRanking() {    async function loadAreaRanking() {
         const prefFilterElement = document.getElementById('prefFilter');
         const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
 
-        let dummies = {};
-        if (selectedPref === 'ALL') {
-            if (currentCategoryRank === 'illegal') { dummies = {'東京都 新宿区':142, '大阪府 大阪市中央区':98, '愛知県 名古屋市中区':76, '福岡県 福岡市博多区':54, '北海道 札幌市中央区':45, '神奈川県 横浜市西区':38, '埼玉県 さいたま市大宮区':31, '千葉県 千葉市中央区':25, '広島県 広島市中区':20, '宮城県 仙台市青葉区':15, '京都府 京都市中京区':12}; }
-            else if (currentCategoryRank === 'danger') { dummies = {'東京都 渋谷区':110, '大阪府 大阪市北区':85, '神奈川県 横浜市中区':62, '愛知県 名古屋市中村区':45, '福岡県 福岡市中央区':40, '北海道 札幌市北区':30, '埼玉県 川口市':25, '千葉県 船橋市':20, '兵庫県 神戸市中央区':18, '京都府 京都市下京区':14}; }
-            else if (currentCategoryRank === 'patrol') { dummies = {'東京都 千代田区':88, '大阪府 堺市堺区':70, '北海道 旭川市':45, '神奈川県 川崎市川崎区':40, '愛知県 豊田市':35, '福岡県 北九州市小倉北区':30, '埼玉県 川越市':25, '千葉県 松戸市':20, '広島県 福山市':15, '静岡県 浜松市中区':10}; }
-            else if (currentCategoryRank === 'abandoned') { dummies = {'東京都 足立区':65, '大阪府 大阪市淀川区':58, '埼玉県 所沢市':39, '神奈川県 相模原市':35, '千葉県 市川市':30, '愛知県 岡崎市':25, '福岡県 久留米市':20, '北海道 函館市':15, '兵庫県 姫路市':10, '茨城県 水戸市':8}; }
-        } else {
-            const baseCount = currentCategoryRank === 'illegal' ? 50 : currentCategoryRank === 'danger' ? 40 : 30;
-            const dummyCities = prefCities[selectedPref] || [];
-            dummyCities.forEach((city, i) => {
-                dummies[`${selectedPref} ${city}`] = baseCount - (i * 3) + Math.floor(Math.random()*5);
-            });
-        }
-
-        const now = new Date();
+        const now = new Date();        const now = new Date();
         const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
         const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
 
         let realDataCount = {};
-        let totalRealCount = 0;
         try {
             const { data: spotsData } = await db.from('spots')
                 .select('address')
@@ -2107,22 +2018,13 @@
                     if(s.address && s.address !== '不明なエリア') {
                         if(selectedPref === 'ALL' || s.address.startsWith(selectedPref)) {
                             realDataCount[s.address] = (realDataCount[s.address] || 0) + 1;
-                            totalRealCount++;
                         }
                     }
                 });
             }
         } catch (e) { console.log("DBエリアランキング取得スキップ"); }
 
-        let areaCount = {};
-        if (totalRealCount >= 10) {
-            areaCount = realDataCount;
-        } else {
-            areaCount = dummies;
-            for(let k in realDataCount) {
-                areaCount[k] = (areaCount[k] || 0) + realDataCount[k];
-            }
-        }
+        const areaCount = realDataCount;
 
         let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
@@ -2650,9 +2552,11 @@ function shareSpot(title, address, category, event, anomalyType = null) {
         showToast("ダウンロードが完了しました");
     }
 
+    window.MachimamoBetaError?.setPhase('map_init');
     const map = L.map('map', { attributionControl: false, zoomControl: false, trackResize: false }).setView([35.681236, 139.767125], 13);
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    window.MachimamoBetaError?.clearPhase('map_init');
 
     // Accident hotspot UI is intentionally disabled for beta while the official-year aggregate is rebuilt.
 
@@ -2960,7 +2864,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 
         const pin = L.divIcon({ className: 'custom-pin', html: `<div style="background:${color}; width:32px; height:32px; border-radius:50% 50% 50% 8px; transform:rotate(-45deg); display:flex; align-items:center; justify-content:center; color:white; border:2px solid white; box-shadow:0 3px 10px rgba(0,0,0,0.25);"><i class="fa-solid ${iconC}" style="transform:rotate(45deg);"></i></div>`, iconSize: [32, 32], iconAnchor: [16, 30] });
 
-        const imgTag = spot.image_url ? `<img src="${escapeHtml(spot.image_url)}" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
+        const imgTag = spot.image_url ? `<img src="${escapeHtml(spot.image_url)}" alt="投稿画像" style="width:100%; border-radius:8px; margin-bottom:8px; border:1px solid #e5e7eb;">` : '';
         const likeCount = spot.like_count || 0, reportCount = spot.report_count || 0;
         const safeTitle = (spot.title || "").replace(/'/g, "\\'"), safeAddress = (spot.address || "").replace(/'/g, "\\'");
         const anomalyBadge = spot.category === 'local_anomaly'
@@ -4164,6 +4068,11 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                 "LINE auth start failed",
                 e
             );
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'start_failed',
+                detail: 'line_auth'
+            });
 
             showToast(
                 "ログインの開始に失敗しました"
@@ -4326,6 +4235,12 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 
             if (!exchangeVerifier) {
 
+                window.MachimamoBetaError?.capture({
+                    kind: 'line_auth_failure',
+                    code: 'missing_exchange_verifier',
+                    detail: 'line_auth'
+                });
+
                 showToast(
                     "ログイン情報の確認に失敗しました。もう一度LINEログインをお試しください"
                 );
@@ -4408,6 +4323,11 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                         "Session exchange failed",
                         e
                     );
+                    window.MachimamoBetaError?.capture({
+                        kind: 'line_auth_failure',
+                        code: 'exchange_failed',
+                        detail: 'line_auth'
+                    });
 
                     showToast(
                         "ログイン処理中にエラーが発生しました"
@@ -4417,6 +4337,12 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 
 
         } else if (errorMsg) {
+
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'callback_error',
+                detail: 'line_auth'
+            });
 
             // LINE認証をキャンセルした場合など
             localStorage.removeItem(
@@ -4445,6 +4371,11 @@ function shareSpot(title, address, category, event, anomalyType = null) {
             console.error(
                 "Session check failed"
             );
+            window.MachimamoBetaError?.capture({
+                kind: 'line_auth_failure',
+                code: 'session_check_failed',
+                detail: 'supabase_auth'
+            });
         }
 
 
@@ -4819,7 +4750,8 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>
-<script src="identity-ui.js?v=36-identity4"></script>\n<script src="profile-v2.js?v=36-identity4"></script>
+<script src="identity-ui.js?v=36-identity4"></script>
+<script src="profile-v2.js?v=36-identity4"></script>
 <script src="exchange-service.js?v=31-digital-gift1"></script>
 <script src="point-exchange.js?v=31-digital-gift1"></script>
 </body>
