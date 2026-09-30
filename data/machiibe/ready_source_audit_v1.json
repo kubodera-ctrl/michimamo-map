@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v6",
+  "version": "2026-09-30-ready-audit-v7",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -224,14 +224,13 @@
       "decision": "HOLD_TERMS_REVIEWED",
       "terms_allowed": true,
       "robots_or_api_policy_clear": true,
-      "resource_resolved": false,
+      "resource_resolved": true,
       "commercial_allowed": true,
       "reuse_allowed": true,
       "attribution_known": true,
       "freshness_acceptable": false,
       "third_party_rights_separated": true,
       "blockers": [
-        "resource_latest_resolution",
         "freshness"
       ],
       "evidence": {
@@ -240,7 +239,14 @@
         "terms": "https://odcs.bodik.jp/422011/tos/",
         "license": "CC BY 4.0",
         "max_resource_age_days": 45,
-        "note": "月別resourceのため固定URL禁止。live resolver probeで最新active HTTPS CSVと更新日を確認してからREADY判定する。第三者権利はmedia/event factsから分離。"
+        "note": "CKAN_LATEST_CSV resolver自体は正常。package内で最も新しいactive HTTPS CSVが2024年3月resourceのためfreshness gate FAIL。READYへ昇格しない。",
+        "resolver_probe_run": 773,
+        "resolved_resource_id": "7e148d9c-1ef5-48d4-9a5f-cb596bf86cd5",
+        "resolved_resource_name": "2024.3月_イベント一覧（長崎市の月別行事予定）",
+        "resolved_resource_url": "https://data.bodik.jp/dataset/f76b7e71-6c52-491a-a847-d5aacb73bc98/resource/7e148d9c-1ef5-48d4-9a5f-cb596bf86cd5/download/422011_event_m_202403.csv",
+        "resolved_modified_at": "2024-02-29T08:10:07.682Z",
+        "resolved_age_days": 943.75,
+        "ready_freshness_gate": false
       }
     }
   ]
