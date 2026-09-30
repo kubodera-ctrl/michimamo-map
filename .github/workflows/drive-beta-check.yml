@@ -14,6 +14,7 @@ on:
       - "scripts/drive_focus_area_pipeline.mjs"
       - "scripts/drive_poll_scheduler.mjs"
       - "scripts/drive_source_registry.mjs"
+      - "scripts/drive_common_event.mjs"
       - "scripts/build_drive_preview_snapshot.mjs"
       - "scripts/build_drive_public_schedule_snapshot.mjs"
       - "tests/drive_beta.test.cjs"
@@ -22,6 +23,7 @@ on:
       - "tests/drive_public_schedule_pipeline.test.mjs"
       - "tests/drive_poll_scheduler.test.mjs"
       - "tests/drive_source_registry.test.mjs"
+      - "tests/drive_kanto_staging_e2e.test.mjs"
       - "tests/drive_chiba_pipeline.test.mjs"
       - "tests/drive_kanagawa_pipeline.test.mjs"
       - "tests/drive_saitama_pipeline.test.mjs"
@@ -59,6 +61,8 @@ jobs:
         run: node tests/drive_poll_scheduler.test.mjs
       - name: Source Registry to scheduler contract
         run: node tests/drive_source_registry.test.mjs
+      - name: Kanto four-prefecture staging E2E
+        run: node tests/drive_kanto_staging_e2e.test.mjs
       - name: Verify generated DRIVE preview snapshot
         run: node scripts/build_drive_preview_snapshot.mjs --check
       - name: Verify generated DRIVE public schedule snapshot
