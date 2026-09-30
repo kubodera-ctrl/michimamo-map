@@ -1,0 +1,32 @@
+{
+  "version": "2026-09-30-cross-source-dedup-v1",
+  "status": "non_production_live_dry_run_evidence",
+  "recorded_at": "2026-09-30T12:21:00+09:00",
+  "evidence": {
+    "github_actions_run": 792,
+    "verified_head": "d5ef6822e62b68457115efb1879b2b9b2a25096e",
+    "database_write": false,
+    "active_write": false,
+    "production_change": false
+  },
+  "input": {
+    "ready_source_count": 5,
+    "publishable_candidates": 240,
+    "source_publishable": {
+      "mie-pref-events-open-data": 0,
+      "bodik-okazaki-events": 152,
+      "bodik-osaka-pref-events": 75,
+      "bodik-kadoma-events": 5,
+      "bodik-toyonaka-events": 8
+    }
+  },
+  "cross_source_dedup": {
+    "auto_merge_pairs": 0,
+    "review_pairs": 0,
+    "review_by_reason": {},
+    "clusters": 0,
+    "unique_after_auto_merge": 240,
+    "duplicates_removed_by_auto_merge": 0
+  },
+  "interpretation": "No cross-source duplicate pair reached the current review threshold among the 240 Publishable candidates in this live run. Within-source dedup remains separately applied before this stage."
+}
