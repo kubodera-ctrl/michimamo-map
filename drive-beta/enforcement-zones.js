@@ -1,69 +1,55 @@
 (function(root,factory){
-  const api=factory(root.MachimamoDriveTokyoSnapshot);
+  const api=factory();
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   root.MachimamoDriveZones=api;
-})(typeof globalThis!=='undefined'?globalThis:this,function(snapshot){
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const SOURCE_INDEX='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html';
-  const SOURCE_PDF='https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf';
+  function clean(value){return String(value??'').normalize('NFKC').replace(/\s+/g,' ').trim();}
 
-  const ID_BY_ROUTE=Object.freeze({
-    '国道357号':'wangan-r357',
-    '晴海通り':'wangan-harumi',
-    '明治通り':'wangan-meiji',
-    '三ツ目通り':'wangan-mitsume',
-    '環二通り':'wangan-kan2',
-    '臨港道路':'wangan-rinko',
-    '都橋通り':'wangan-miyako'
-  });
+  function parseClock(value){
+    const v=clean(value),m=/^(\d{1,2}):(\d{2})$/.exec(v);
+    if(!m)throw new Error('invalid_time:'+v);
+    const h=Number(m[1]),min=Number(m[2]);
+    if((h<0||h>24)||min<0||min>59||(h===24&&min!==0))throw new Error('invalid_time:'+v);
+    return h*60+min;
+  }
 
-  // Geometry is deliberately separate from official-source facts.
-  // These endpoint coordinates are PREVIEW candidates that are road-routed at runtime.
-  // They are not part of the police source and must not be promoted as verified geometry
-  // until map/road QA confirms the official start/end labels resolve correctly.
-  const GEOMETRY_CANDIDATES=Object.freeze({
-    'wangan-r357':Object.freeze({
-      routeEndpoints:Object.freeze([[35.647526,139.845068],[35.575405,139.748282]]),
-      geometryQuality:'road_routed_beta_candidate',
-      geometryVerified:false
-    }),
-    'wangan-kan2':Object.freeze({
-      routeEndpoints:Object.freeze([[35.642054,139.787168],[35.6352293,139.7926317]]),
-      geometryQuality:'road_routed_beta_candidate',
-      geometryVerified:false
-    })
-  });
-
-  const sourceEvents=Array.isArray(snapshot?.events)?snapshot.events:[];
-  const TOKYO_WANGAN_ZONES=Object.freeze(sourceEvents.map(event=>{
-    const id=ID_BY_ROUTE[event.routeName];
-    if(!id)throw new Error('unknown_tokyo_wangan_route');
-    const geometry=GEOMETRY_CANDIDATES[id]||{};
-    return Object.freeze({
-      id,
-      eventId:event.eventId,
-      route:event.routeName,
-      kind:event.enforcementClass==='STATION_FOCUS'?'station':'metropolitan',
-      speedKmh:event.speedLimitKmh,
-      speedText:event.speedLimitText,
-      alternateSpeedKmh:Object.freeze([...(event.alternateSpeedKmh||[])]),
-      startLabel:event.segmentStartText,
-      endLabel:event.segmentEndText,
-      startMinute:event.startMinute,
-      endMinute:event.endMinute,
-      agency:event.agency,
-      policeStation:event.policeStation,
-      sourceVerifiedAt:event.sourceVerifiedAt,
-      sourceIndex:SOURCE_INDEX,
-      sourcePdf:event.sourceUrl||SOURCE_PDF,
-      geoPrecision:event.geoPrecision,
-      timePrecision:event.timePrecision,
-      displayMode:event.displayMode,
-      freshnessStatus:event.freshnessStatus,
-      ...geometry
+  function normalizeBundle(bundle){
+    if(!bundle?.source||!Array.isArray(bundle.records))throw new Error('invalid_bundle');
+    if(bundle.source.freshnessStatus!=='CURRENT')return [];
+    const endpoints=bundle.verifiedEndpointCoordinates||{};
+    const seen=new Set();
+    return bundle.records.map(raw=>{
+      if(!raw.externalId||seen.has(raw.externalId))throw new Error('duplicate_or_missing_event');
+      seen.add(raw.externalId);
+      const pair=endpoints[raw.externalId];
+      const speedText=clean(raw.speedLimitText);
+      return Object.freeze({
+        id:raw.externalId,
+        route:clean(raw.routeName),
+        speedKmh:/^\d+$/.test(speedText)?Number(speedText):null,
+        speedLimitText:speedText||null,
+        startLabel:clean(raw.segmentStartText),
+        endLabel:clean(raw.segmentEndText),
+        startMinute:parseClock(raw.timeStart),
+        endMinute:parseClock(raw.timeEnd),
+        roadScope:raw.roadScope,
+        geoPrecision:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT':'ROAD_AREA',
+        displayMode:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT_TIMED':'ROAD_AREA_TIMED',
+        routeEndpoints:pair?[pair.start,pair.end]:null,
+        geometryQuality:pair?'road_routed_beta':null,
+        agency:bundle.source.policeOrg,
+        policeStation:bundle.source.stationName,
+        sourceVerifiedAt:bundle.source.sourceVersionDate,
+        sourceIndex:bundle.source.sourceIndexUrl,
+        sourcePdf:bundle.source.sourceUrl,
+        parserVersion:bundle.source.parserVersion,
+        freshnessStatus:bundle.source.freshnessStatus,
+        note:clean(raw.note)||null
+      });
     });
-  }));
+  }
 
   function minutesInTokyo(date=new Date()){
     const parts=new Intl.DateTimeFormat('en-GB',{
@@ -129,7 +115,8 @@
   }
 
   return Object.freeze({
-    SOURCE_INDEX,SOURCE_PDF,TOKYO_WANGAN_ZONES,GEOMETRY_CANDIDATES,
-    minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
+    clean,parseClock,normalizeBundle,
+    minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,
+    distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
   });
 });
