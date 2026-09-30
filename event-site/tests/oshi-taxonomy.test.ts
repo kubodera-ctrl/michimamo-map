@@ -22,8 +22,8 @@ test('limited retail is an event only when visiting is itself a destination purp
 
 test('verified real oshi fixtures classify only from official evidence',()=>{
   const raw=fs.readFileSync(new URL('../../data/machiibe/fixtures/oshi_real_events_v1.json',import.meta.url),'utf8');
-  const fixture=JSON.parse(raw) as {events:Array<{source_url:string;classification_text:string;expected_event_types:string[];verified_entities:Array<{type:string;canonical_name:string;relation:string}>}>};
-  assert.ok(fixture.events.length>=4);
+  const fixture=JSON.parse(raw) as {events:Array<{source_url:string;classification_text:string;expected_event_types:string[];verified_entities:Array<{type:string;canonical_name:string;relation:string}>;reservation?:{mode?:string;state?:string;checked_at?:string;source_url?:string}}>};
+  assert.ok(fixture.events.length>=8);
   for(const event of fixture.events){
     assert.match(event.source_url,/^https:\/\//);
     const actual=classifyOshiEventType(event.classification_text);
@@ -32,6 +32,10 @@ test('verified real oshi fixtures classify only from official evidence',()=>{
       assert.ok(OSHI_ENTITY_TYPES.includes(entity.type as never));
       assert.ok(entity.canonical_name.trim().length>0);
       assert.ok(['featured','appearing','collaboration','subject','host'].includes(entity.relation));
+    }
+    if(event.reservation?.checked_at){
+      assert.match(event.reservation.checked_at,/^\\d{4}-\\d{2}-\\d{2}$/);
+      assert.match(event.reservation.source_url||'',/^https:\\/\\//);
     }
   }
 });
