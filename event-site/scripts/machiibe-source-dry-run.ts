@@ -202,6 +202,7 @@ async function main(){
 
   const output={
     sourceKey,
+    sourceId:source.sourceId,
     dryRun:true,
     databaseWrite:false,
     activeWrite:false,
