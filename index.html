@@ -1400,7 +1400,7 @@
     // ASP Runtimeの公開gateを通った案件だけを別経路から表示する。
     const dynamicAdList = [];
 
-    function setDynamicAd(triggerCategory = null) {    function setDynamicAd(triggerCategory = null) {
+    function setDynamicAd(triggerCategory = null) {
         // 現在は固定広告にしているため、将来拡張用として残します。
     }
 
@@ -1997,11 +1997,11 @@
         loadAreaRanking();
     }
 
-    async function loadAreaRanking() {    async function loadAreaRanking() {
+    async function loadAreaRanking() {
         const prefFilterElement = document.getElementById('prefFilter');
         const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
 
-        const now = new Date();        const now = new Date();
+        const now = new Date();
         const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
         const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
 
