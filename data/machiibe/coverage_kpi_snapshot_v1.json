@@ -1,14 +1,14 @@
 {
-  "version": "coverage-kpi-v3",
+  "version": "coverage-kpi-v4",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
     "concretePrefectureCoverage": 28,
-    "inventoryOrDiscoveryCandidates": 87,
-    "preflightOrBetter": 48,
-    "termsReviewedOrBetter": 18,
-    "ready": 3,
+    "inventoryOrDiscoveryCandidates": 88,
+    "preflightOrBetter": 49,
+    "termsReviewedOrBetter": 19,
+    "ready": 5,
     "active": 0
   },
   "supplyFunnel": {
@@ -19,16 +19,16 @@
       "note": "Discovery potentials overlap and are not summed into a publishable total."
     },
     "liveDryRunAggregate": {
-      "potential": 1226,
-      "fetched": 1203,
-      "normalized": 1202,
-      "dedupedWithinSource": 1202,
-      "valid": 861,
-      "publishable": 227,
+      "potential": 1384,
+      "fetched": 1364,
+      "normalized": 1363,
+      "dedupedWithinSource": 1363,
+      "valid": 1019,
+      "publishable": 240,
       "active": 0,
-      "note": "Aggregate of three READY dry-runs; cross-source dedup is not yet applied."
+      "note": "Five READY source dry-runs at Event Site Check #784; cross-source dedup not yet applied."
     },
-    "evidence": "Mie + Okazaki + Osaka READY live dry-run / Event Site Check #753; no DB or Active writes."
+    "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #784; no DB or Active writes."
   },
   "lanes": {
     "facilitySourceInstances": 2,
@@ -36,7 +36,9 @@
     "readySourceKeys": [
       "mie-pref-events-open-data",
       "bodik-okazaki-events",
-      "bodik-osaka-pref-events"
+      "bodik-osaka-pref-events",
+      "bodik-kadoma-events",
+      "bodik-toyonaka-events"
     ],
     "oshiRealEventFixtures": 4,
     "holdSourceKeys": [
@@ -44,7 +46,6 @@
       "shimane-pref-events-2026",
       "kagawa-mitoyo-events",
       "bodik-okinawa-pref-events",
-      "bodik-toyonaka-events",
       "bodik-kumatori-events"
     ],
     "freshPreflightSourceKeys": [
@@ -57,9 +58,9 @@
     ],
     "externalWait": [],
     "selfResolvable": [
-      "promote additional official CSV/JSON/API sources through full READY audit",
-      "apply cross-source event identity/dedup to live dry-run candidates",
-      "expand prefecture depth, facility instances and oshi source/fixture coverage",
+      "apply cross-source event identity/dedup to live READY candidates",
+      "promote additional official sources only after current terms/freshness/resource review",
+      "expand weak prefecture depth, facility instances and oshi source/fixture coverage",
       "persist per-source dry-run evidence without Production writes"
     ]
   },
