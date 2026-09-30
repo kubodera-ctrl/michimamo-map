@@ -221,10 +221,14 @@ assert.match(app,/現在地から近い順/);
 assert.match(app,/現在地取得後に近い順/);
 assert.equal(scheduleSnapshot.events.every(e=>e.locationPoint===null),true,'broad monthly policy rows must not masquerade as concrete places');
 assert.equal(focusSnapshot.freshnessStatus,'CURRENT');
-assert.equal(focusSnapshot.scope,'tokyo_wangan_verified_subset');
-assert.equal(focusSnapshot.events.length,2);
+assert.equal(focusSnapshot.scope,'tokyo_bay_adjacent_verified_subset');
+assert.equal(focusSnapshot.events.length,6);
 assert.equal(focusSnapshot.events.every(e=>e.geoPrecision==='POINT'&&e.coordinateVerified===true&&Array.isArray(e.locationPoint)),true);
 assert.equal(focusSnapshot.events.some(e=>e.placeName==='千石橋北交差点'),true);
 assert.equal(focusSnapshot.events.some(e=>e.placeName==='東雲交差点'),true);
+assert.equal(focusSnapshot.events.some(e=>e.placeName==='晴海三丁目交差点'&&e.policeStation==='月島警察署'),true);
+assert.equal(focusSnapshot.events.some(e=>e.placeName==='三原橋交差点'&&e.policeStation==='築地警察署'),true);
+assert.equal(focusSnapshot.events.some(e=>e.placeName==='木場五丁目交差点'&&e.policeStation==='深川警察署'),true);
+assert.equal(focusSnapshot.events.some(e=>e.placeName==='豊洲駅前交差点'&&e.policeStation==='深川警察署'),true);
 
 console.log('drive beta static + public schedule contract: PASS');

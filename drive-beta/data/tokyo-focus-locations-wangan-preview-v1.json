@@ -6,7 +6,7 @@
   "sourceVersionDate": "2026-07-01",
   "sourceVerifiedAt": "2026-10-01",
   "freshnessStatus": "CURRENT",
-  "scope": "tokyo_wangan_verified_subset",
+  "scope": "tokyo_bay_adjacent_verified_subset",
   "events": [
     {
       "id": "focus-tokyo-wangan-sengokubashi-kita",
@@ -48,6 +48,98 @@
       "coordinateVerified": true,
       "coordinateEvidence": [
         "まちドラ既存の晴海通り endpointVerified=true の東雲交差点座標"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tsukishima-harumi3",
+      "eventKey": "tokyo:focus-locations:tsukishima:harumi3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "月島警察署",
+      "localityText": "中央区晴海1丁目付近",
+      "placeName": "晴海三丁目交差点",
+      "reason": "交通量が多く事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.6554419,
+        139.7817924
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧: 中央区晴海1丁目付近 / 晴海三丁目交差点",
+        "MapFan 晴海三丁目: 35.6554419,139.7817924"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tsukiji-miharabashi",
+      "eventKey": "tokyo:focus-locations:tsukiji:miharabashi",
+      "enforcementType": "重点取締場所",
+      "policeStation": "築地警察署",
+      "localityText": "中央区銀座4丁目付近",
+      "placeName": "三原橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.6694791,
+        139.7671045
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧: 中央区銀座4丁目付近 / 三原橋交差点",
+        "MapFan 三原橋: 35.6694791,139.7671045"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-fukagawa-kiba5",
+      "eventKey": "tokyo:focus-locations:fukagawa:kiba5",
+      "enforcementType": "重点取締場所",
+      "policeStation": "深川警察署",
+      "localityText": "江東区木場2丁目付近",
+      "placeName": "木場五丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.6694401,
+        139.8057602
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧: 江東区木場2丁目付近 / 木場五丁目交差点",
+        "MapFan 木場五丁目: 35.6694401,139.8057602"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-fukagawa-toyosu",
+      "eventKey": "tokyo:focus-locations:fukagawa:toyosu",
+      "enforcementType": "重点取締場所",
+      "policeStation": "深川警察署",
+      "localityText": "江東区豊洲5丁目付近",
+      "placeName": "豊洲駅前交差点",
+      "reason": "多車線の交差点であり、交通量も多く事故抑止のため",
+      "geoPrecision": "POINT",
+      "locationPoint": [
+        35.654445,
+        139.7965058
+      ],
+      "coordinatePrecision": "INTERSECTION",
+      "coordinateVerified": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧: 江東区豊洲5丁目付近 / 豊洲駅前交差点",
+        "MapFan 豊洲駅前: 35.654445,139.7965058"
       ],
       "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.pdf",
       "sourceVerifiedAt": "2026-10-01",
