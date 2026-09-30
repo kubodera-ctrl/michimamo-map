@@ -205,7 +205,7 @@ assert.equal(scheduleSnapshot.sourceVersionDate,'2026-10-01');
 assert.equal(scheduleSnapshot.events.some(e=>e.id==='school-route-2026-09-30'),false);
 assert.match(app,/function enforcementLineWeights/);
 assert.match(app,/return Object\.freeze\(\{active:3,inactive:2,flashOn:3,flashOff:2\}\)/);
-assert.match(app,/function sortedPublicScheduleEvents/);
+assert.match(app,/function sortedLocationEvents/);
 assert.match(app,/scheduleDistanceMeters/);
 assert.match(app,/現在地から近い順/);
 assert.match(app,/現在地取得後に近い順/);
