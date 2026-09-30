@@ -552,7 +552,7 @@
       "feed_url": null,
       "fetch_method": "OPEN_DATA",
       "terms_status": "license_identified_cc_by_4_0",
-      "robots_status": "pending",
+      "robots_status": "not_applicable",
       "commercial_use_status": "allowed_with_attribution",
       "attribution_requirement": "CC BY 4.0 / 長崎市・各月resource表示",
       "automated_fetch_allowed": false,
@@ -560,7 +560,10 @@
       "review_state": "TERMS_REVIEWED",
       "yield_class": "high",
       "observed_current_items_min": null,
-      "notes": "月別行事予定を自治体標準ODSへ変換。package内の最新月resourceを選択するresolverが必要。古い月resource固定を避ける。"
+      "notes": "月別行事予定を自治体標準ODSへ変換。固定resource URLは使わず、CKAN package_showから最新active HTTPS CSVを選択するresolver基盤を実装済み。最新resourceが45日以内であることをlive確認するまでTERMS_REVIEWED/HOLD。",
+      "resource_resolver": "CKAN_LATEST_CSV",
+      "resolver_api_url": "https://data.bodik.jp/api/3/action/package_show?id=f76b7e71-6c52-491a-a847-d5aacb73bc98",
+      "resolver_max_age_days": 45
     },
     {
       "source_key": "atre-event-network",
