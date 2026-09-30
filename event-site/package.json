@@ -12,7 +12,8 @@
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "source:dry-run": "tsx scripts/machiibe-source-dry-run.ts",
-    "source:resolve-resource": "tsx scripts/machiibe-source-resolve-resource.ts"
+    "source:resolve-resource": "tsx scripts/machiibe-source-resolve-resource.ts",
+    "source:discover-bodik-events": "tsx scripts/machiibe-ckan-discover-events.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
