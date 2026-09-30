@@ -8,15 +8,17 @@ const snapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-
 const fromSource=zones.normalizeBundle(bundle);
 const current=zones.normalizeSnapshot(snapshot);
 
-assert.equal(fromSource.length,9,'Tokyo Wangan current official PDF has nine normalized source rows');
-assert.equal(current.length,9,'public preview snapshot must expose nine current rows');
+assert.equal(bundle.records.length,9,'Tokyo Wangan current official PDF has nine source rows');
+assert.equal(fromSource.length,10,'segmented Rinko row expands to ten normalized events');
+assert.equal(current.length,10,'public preview snapshot must expose ten geometry-safe events');
 assert.deepEqual(current.map(x=>x.id),fromSource.map(x=>x.id),'public snapshot IDs must match source normalization');
 
 const kan2=current.find(z=>z.id==='wangan-kan2');
 const r357=current.find(z=>z.id==='wangan-r357');
 const miyako=current.find(z=>z.id==='wangan-miyako');
-const rinko=current.find(z=>z.id==='wangan-rinko');
-assert.ok(kan2&&r357&&miyako&&rinko);
+const rinko50=current.find(z=>z.id==='wangan-rinko-keihin-chuboh');
+const rinko60=current.find(z=>z.id==='wangan-rinko-chuboh-shinkiba');
+assert.ok(kan2&&r357&&miyako&&rinko50&&rinko60);
 assert.equal(zones.isMinuteInWindow(20*60+30,kan2.startMinute,kan2.endMinute),true);
 assert.equal(zones.isMinuteInWindow(19*60+59,kan2.startMinute,kan2.endMinute),false);
 assert.equal(zones.formatWindow(kan2),'20:00〜24:00');
@@ -25,12 +27,20 @@ assert.equal(r357.speedKmh,60);
 assert.equal(miyako.startLabel,'港区台場1丁目9番先');
 assert.equal(miyako.endLabel,'東雲1丁目交差点');
 assert.equal(miyako.focusType,'STATION_FOCUS');
-assert.equal(rinko.speedKmh,50);
-assert.deepEqual(rinko.alternateSpeedKmh,[60]);
-assert.equal(kan2.geometryQuality,'road_routed_beta_candidate');
-assert.equal(r357.geometryQuality,'road_routed_beta_candidate');
-assert.equal(kan2.geometryStatus,'ENDPOINTS_CANDIDATE');
+assert.equal(rinko50.speedKmh,50);
+assert.equal(rinko60.speedKmh,60);
+assert.deepEqual(rinko50.alternateSpeedKmh,[]);
+assert.deepEqual(rinko60.alternateSpeedKmh,[]);
+assert.equal(rinko50.startLabel,'京浜大橋北交差点');
+assert.equal(rinko50.endLabel,'中央防波堤交差点');
+assert.equal(rinko60.startLabel,'中央防波堤交差点');
+assert.equal(rinko60.endLabel,'新木場交差点');
+assert.equal(kan2.geometryQuality,'road_route_endpoint_crosschecked');
+assert.equal(r357.geometryQuality,'road_route_endpoint_crosschecked');
+assert.equal(kan2.geometryStatus,'ENDPOINTS_CROSSCHECKED');
+assert.equal(kan2.endpointVerified,true);
 assert.equal(kan2.geometryVerified,false);
+assert.equal(r357.endpointVerified,true);
 assert.equal(r357.geometryVerified,false);
 assert.ok(Array.isArray(kan2.routeEndpoints)&&kan2.routeEndpoints.length===2);
 assert.ok(Array.isArray(r357.routeEndpoints)&&r357.routeEndpoints.length===2);
@@ -45,6 +55,15 @@ assert.deepEqual(zones.normalizeSnapshot(stale),[],'stale public snapshot must f
 
 const segDistance=zones.distanceToPolylineMeters([35.64115,139.7902],[[35.6400,139.7900],[35.6423,139.7904]]);
 assert.ok(segDistance<50,'proximity must measure to the road segment, not only vertices');
+
+const osrm357={routes:[{legs:[{steps:[
+  {name:'東京湾岸道路',ref:'国道357号'},
+  {name:'湾岸道路',ref:'357'}
+]}]}]};
+const osrmWrong={routes:[{legs:[{steps:[{name:'首都高速湾岸線',ref:'B'}]}]}]};
+assert.equal(zones.routeMatchesExpected(osrm357,r357.routeMatchTokens),true,'R357 road signature must match');
+assert.equal(zones.routeMatchesExpected(osrmWrong,r357.routeMatchTokens),false,'unrelated road route must fail closed');
+assert.equal(zones.routeMatchesExpected({routes:[]},kan2.routeMatchTokens),false,'missing OSRM steps must fail closed');
 
 for(const zone of current){
   assert.equal(zone.agency,'警視庁');
@@ -65,6 +84,10 @@ assert.match(html,/実際に現場で取締り・検問を実施中であるこ�
 assert.match(app,/accident_hotspots_in_view/);
 assert.match(app,/watchPosition/);
 assert.match(app,/router\.project-osrm\.org\/route\/v1\/driving/);
+assert.match(app,/steps=true/);
+assert.match(app,/routeMatchesExpected/);
+assert.match(app,/route_signature_mismatch/);
+assert.match(app,/endpointVerified/);
 assert.match(app,/resolvedGeometries/);
 assert.match(app,/\/drive-beta\/data\/tokyo-wangan-preview-v1\.json/);
 assert.doesNotMatch(app,/\/data\/drive\/tokyo-wangan-source-v1\.json/);
