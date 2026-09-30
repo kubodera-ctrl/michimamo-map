@@ -18,7 +18,7 @@ const accidentLayer=L.layerGroup().addTo(map);
 const zoneLines=new Map();
 const resolvedGeometries=new Map();
 let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
-let accidentRequest=0,lastAlert={id:null,at:0};
+let accidentRequest=0,lastAlert={route:null,at:0};
 
 const enforcementToggle=document.getElementById('enforcementToggle');
 const accidentToggle=document.getElementById('accidentToggle');
@@ -157,8 +157,8 @@ function checkProximity(){
     .sort((a,b)=>a.d-b.d);
   if(!candidates.length)return;
   const hit=candidates[0],now=Date.now();
-  if(lastAlert.id===hit.zone.id&&now-lastAlert.at<10*60*1000)return;
-  lastAlert={id:hit.zone.id,at:now};
+  if(lastAlert.route===hit.zone.route&&now-lastAlert.at<10*60*1000)return;
+  lastAlert={route:hit.zone.route,at:now};
   alertTitle.textContent='この先、速度取締重点区間です';
   alertBody.textContent=hit.zone.route+'／重点時間 '+zonesApi.formatWindow(hit.zone)+'／約'+Math.max(50,Math.round(hit.d/50)*50)+'m以内。実際の取締実施を示すものではありません。';
   alertBox.classList.add('show');

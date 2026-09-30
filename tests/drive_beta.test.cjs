@@ -139,6 +139,9 @@ assert.doesNotMatch(html,/tokyo-wangan-snapshot\.js/);
 assert.match(html,/id="accidentToggle" aria-pressed="false"/);
 assert.match(app,/bindTooltip/);
 assert.match(app,/accidentVisible=false/);
+assert.match(app,/lastAlert\.route===hit\.zone\.route/,'10-minute suppression must be route-scoped');
+assert.match(app,/lastAlert=\{route:hit\.zone\.route,at:now\}/,'route-scoped alert state must be persisted');
+assert.match(app,/now-lastAlert\.at<10\*60\*1000/,'same-route suppression window must remain 10 minutes');
 
 assert.equal(scheduleSnapshot.freshnessStatus,'CURRENT');
 assert.equal(scheduleSnapshot.events.length,9);
