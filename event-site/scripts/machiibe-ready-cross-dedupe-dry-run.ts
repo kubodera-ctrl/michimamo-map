@@ -249,7 +249,9 @@ async function main(){
       normalized:assessed.filter((item)=>item.assessment.normalized).length,
       dedupedWithinSource:deduped.length,
       valid:assessed.filter((item)=>item.assessment.valid).length,
-      publishable:publishable.length
+      publishable:publishable.length,
+      withSourceUpdatedAt:normalized.filter((item)=>Boolean(item.sourceUpdatedAt)).length,
+      withSourceEventId:normalized.filter((item)=>Boolean(item.sourceEventId)).length
     });
   }
 

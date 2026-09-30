@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v15",
+  "version": "2026-10-01-ready-audit-v16",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -473,7 +473,7 @@
     {
       "source_key": "hamamatsu-current-events-open-data",
       "prefecture": "静岡県",
-      "decision": "HOLD_TERMS_REVIEWED",
+      "decision": "READY",
       "terms_allowed": true,
       "robots_or_api_policy_clear": true,
       "resource_resolved": true,
@@ -482,10 +482,7 @@
       "attribution_known": true,
       "freshness_acceptable": true,
       "third_party_rights_separated": true,
-      "blockers": [
-        "schema_probe",
-        "event_specific_url_quality"
-      ],
+      "blockers": [],
       "evidence": {
         "official_data_page": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?m=detail&x=221309_hamamatsu_event",
         "official_event_index": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?x=221309_hamamatsu_event",
@@ -495,7 +492,21 @@
         "official_dataset_updated": "2026-09-16",
         "official_event_index_observed_updated": "2026-09-25",
         "observed_event_category_items_min": 338,
-        "note": "公式配布・利用条件・current/future画面鮮度は確認。CSV schema、event-specific URL比率、current/future行の実測をPR CIで確認後にREADY再判定。"
+        "note": "公式source・CC BY 2.1日本・direct CSV access・schema・文字コード・未来開催日・location・event-specific URL品質を#850で確認。URLなし行はpublishableへ上げず、画像rightsはfactsと分離。READYはcontrolled automated dry-runを許可するがACTIVE/Production writeは行わない。",
+        "ci_preflight": "Event Site Check #850",
+        "http_status": 200,
+        "bytes": 1359287,
+        "encoding": "Shift_JIS",
+        "replacement_count": 0,
+        "csv_rows": 2293,
+        "raw_date_count": 5656,
+        "min_date": "2026-01-19",
+        "max_date": "2027-06-20",
+        "current_or_future_dates": 2322,
+        "with_title": 2293,
+        "with_start_at": 2291,
+        "with_location": 2293,
+        "with_official_url": 1997
       }
     }
   ]

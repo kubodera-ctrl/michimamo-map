@@ -189,6 +189,8 @@ async function main(){
   const endDateParseable=normalized.filter((item)=>!item.endAt||canonicalDate(item.endAt)!==null).length;
   const withLocation=normalized.filter((item)=>Boolean(item.venueName||item.address||item.municipality||(item.lat!==null&&item.lng!==null))).length;
   const withOfficialUrl=normalized.filter((item)=>Boolean(item.officialUrl)).length;
+  const withSourceUpdatedAt=normalized.filter((item)=>Boolean(item.sourceUpdatedAt)).length;
+  const withSourceEventId=normalized.filter((item)=>Boolean(item.sourceEventId)).length;
   const ended=normalized.filter((item)=>{
     const key=canonicalDate(item.endAt||item.startAt);
     return Boolean(key&&key<today);
@@ -227,7 +229,8 @@ async function main(){
       dateParse:{startParseable:startDateParseable,totalWithStart:normalized.filter((item)=>Boolean(item.startAt)).length,endParseable:endDateParseable,total:normalized.length},
       location:{withLocation,total:normalized.length},
       officialUrl:{withOfficialUrl,total:normalized.length,feedUrlUsedAsOfficialUrl:false},
-      identity:{unique:deduped.length,duplicatesRemoved:normalized.length-deduped.length},
+      eventFreshnessEvidence:{withSourceUpdatedAt,total:normalized.length},
+      identity:{withSourceEventId,unique:deduped.length,duplicatesRemoved:normalized.length-deduped.length},
       ended:{count:ended,today}
     },
     policy:{

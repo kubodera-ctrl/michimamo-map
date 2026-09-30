@@ -242,7 +242,7 @@ export function parseCsv(body:string,source:SourcePolicySnapshot):AdapterParseRe
   const items=table.rows.slice(1).map((values,index)=>{
     if(values.length!==headers.length)mismatchedRows++;
     const payload=Object.fromEntries(headers.map((h,i)=>[h,values[i]??'']));
-    const id=text(payload['event_id'])||text(payload['イベントID'])||text(payload['ID']);
+    const id=text(payload['event_id'])||text(payload['イベントID'])||text(payload['ID'])||text(payload['NO']);
     const url=httpsUrl(payload['official_url'])||httpsUrl(payload['URL'])||httpsUrl(payload['コンテンツURL'])||httpsUrl(payload['url'])||source.feedUrl||source.baseUrl;
     const updated=text(payload['source_updated_at'])||text(payload['更新日']);
     return raw(source,payload,index,id,url,updated);
@@ -314,7 +314,7 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
   const obj=record(item.payload)||{};
   const place=schemaPlace(obj);
   const title=pick(obj,['name','title','イベント名','名称','記事タイトル']);
-  const description=pick(obj,['description','content','summary','概要','内容']);
+  const description=pick(obj,['description','content','summary','概要','内容','説明']);
   const startAt=canonicalDateOnly(pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']));
   const endAt=canonicalDateOnly(pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']));
   const explicitOfficialUrl=
@@ -322,7 +322,7 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
     webUrl(obj['コンテンツURL'])||webUrl(obj.link);
   const itemUrlIsFeed=item.sourceUrl===source.feedUrl||item.sourceUrl===source.baseUrl;
   const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?webUrl(item.sourceUrl):null);
-  const priceRaw=pick(obj,['price_type','料金区分','料金種別']);
+  const priceRaw=pick(obj,['price_type','料金区分','料金種別','料金(基本)','料金(詳細)']);
   const normalizedPrice=(priceRaw||'').normalize('NFKC').toLowerCase();
   const priceType=priceRaw==='free'||priceRaw==='partly_free'||priceRaw==='paid'
     ?priceRaw
@@ -342,11 +342,11 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
     sourceId:item.sourceId,sourceEventId:item.sourceEventId,sourceUrl:item.sourceUrl,
     sourceUpdatedAt:item.sourceUpdatedAt,sourceHash:item.sourceHash,
     title,description,startAt,endAt,timezone:'Asia/Tokyo',
-    prefecture:place.prefecture||pick(obj,['prefecture','都道府県','所在地_都道府県'])||source.prefecture,
-    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町','所在地_市区町村'])||source.municipality,
+    prefecture:place.prefecture||pick(obj,['prefecture','都道府県','都道府県名','所在地_都道府県'])||source.prefecture,
+    municipality:place.municipality||pick(obj,['municipality','市区町村','市区町村名','市区郡','市町','所在地_市区町村'])||source.municipality,
     address:place.address||pick(obj,['address','place_adr','住所','所在地_連結表記']),lat,lng,
     venueName:place.venueName||pick(obj,['venue_name','会場','場所','場所名称']),
-    venueType:pick(obj,['venue_type']),category:pick(obj,['category','type1','カテゴリ','イベント種類']),
+    venueType:pick(obj,['venue_type']),category:pick(obj,['category','type1','カテゴリ','カテゴリー','イベント種類']),
     tags:stringArray(obj.tags),ageMin:typeof obj.age_min==='number'?obj.age_min:null,
     ageMax:typeof obj.age_max==='number'?obj.age_max:null,
     family:typeof obj.family==='boolean'?obj.family:null,

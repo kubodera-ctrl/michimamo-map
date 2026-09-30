@@ -21,6 +21,7 @@ test('current READY audit promotes only sources with every gate cleared',()=>{
   assert.ok(ready.length>=2);
   assert.ok(ready.some((row:any)=>row.source_key==='mie-pref-events-open-data'));
   assert.ok(ready.some((row:any)=>row.source_key==='bodik-okazaki-events'));
+  assert.ok(ready.some((row:any)=>row.source_key==='hamamatsu-current-events-open-data'));
   assert.ok(ready.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length===0));
   assert.ok(hold.every((row:any)=>Array.isArray(row.blockers)&&row.blockers.length>0));
 });
@@ -36,7 +37,7 @@ test('READY registry and audit stay aligned with every fetch gate explicit',()=>
 
   assert.deepEqual(registryKeys,auditKeys);
   assert.equal(registry.counts.ready,registryReady.length);
-  assert.ok(registryReady.length>=5);
+  assert.ok(registryReady.length>=6);
 
   for(const row of registryReady){
     assert.equal(row.automated_fetch_allowed,true,row.source_key);

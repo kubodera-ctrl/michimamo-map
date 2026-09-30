@@ -105,6 +105,10 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
         run: npm run source:dry-run -- bodik-toyonaka-events
+      - name: Live READY dry-run - Hamamatsu (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- hamamatsu-current-events-open-data
       - name: Live READY cross-source dedupe dry-run (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true

@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-national-discovery-v10",
+  "version": "2026-10-01-national-discovery-v11",
   "status": "research_only_no_automated_fetch",
   "counts": {
     "existing_kanto_registry": 26,
@@ -9,8 +9,8 @@
     "total_inventory_or_discovery_candidates": 97,
     "concrete_prefecture_coverage_from_all_inventories": 31,
     "preflight_or_better": 58,
-    "terms_reviewed_or_better": 25,
-    "ready": 5,
+    "terms_reviewed_or_better": 26,
+    "ready": 6,
     "active": 0
   },
   "rules": {
@@ -1236,9 +1236,9 @@
       "robots_status": "not_applicable",
       "commercial_use_status": "allowed",
       "attribution_requirement": "CC BY 2.1 日本 / 浜松市・出典表示",
-      "automated_fetch_allowed": false,
+      "automated_fetch_allowed": true,
       "priority": 99,
-      "review_state": "TERMS_REVIEWED",
+      "review_state": "READY",
       "yield_class": "high",
       "observed_current_items_min": 338,
       "expected_update_frequency": "frequent / official event dataset and calendar updated in 2026-09",
@@ -1249,7 +1249,7 @@
       "terms_difficulty": "low",
       "maintenance_cost": "low",
       "freshness_confidence": "high",
-      "notes": "浜松市公式Open Data『イベント』はCSV/JSON配布を明示し、2026-09-16時点で2,237件。公式イベント一覧は2026-09-25更新で9〜12月導線とイベントカテゴリ338件を確認。浜松市Open Data利用規約はCC BY 2.1日本で自由利用・改変可、第三者権利は別管理。direct CSVのschema/event-specific URL/current-future品質を非Production preflightで確認するまでREADYへ上げない。",
+      "notes": "浜松市公式Open Data『イベント』。CC BY 2.1日本、商用・再利用可、第三者権利は別gate。Event Site Check #850 preflightでHTTP 200 / 1,359,287 bytes / Shift_JIS replacement 0 / 2,293 rows / future date evidence / location 2,293 / event-specific URL 1,997を確認。直接公式CSVのみを非Production dry-run対象とし、mediaはfail-closed。",
       "reuse_status": "allowed",
       "redistribution_status": "allowed_with_attribution",
       "cache_status": "allowed_with_attribution",
@@ -1260,7 +1260,9 @@
         "text/csv",
         "text/comma-separated-values",
         "application/octet-stream"
-      ]
+      ],
+      "encoding": "shift_jis",
+      "fetch_notes": "Direct official CSV only. #850 observed ETag and Last-Modified plus a 2.5MB hard byte cap; intended cadence is daily. READY permits controlled fetch/dry-run only and does not set ACTIVE."
     },
     {
       "source_key": "bodik-kadoma-events",
