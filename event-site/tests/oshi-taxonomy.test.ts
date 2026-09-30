@@ -34,8 +34,8 @@ test('verified real oshi fixtures classify only from official evidence',()=>{
       assert.ok(['featured','appearing','collaboration','subject','host'].includes(entity.relation));
     }
     if(event.reservation?.checked_at){
-      assert.match(event.reservation.checked_at,/^\\d{4}-\\d{2}-\\d{2}$/);
-      assert.match(event.reservation.source_url||'',/^https:\\/\\//);
+      assert.match(event.reservation.checked_at,/^\d{4}-\d{2}-\d{2}$/);
+      assert.match(event.reservation.source_url||'',/^https:\/\//);
     }
   }
 });
