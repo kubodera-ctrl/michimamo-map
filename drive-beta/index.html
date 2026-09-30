@@ -20,7 +20,26 @@
   <div class="controls">
     <button class="chip" id="enforcementToggle" aria-pressed="true">🚓 取締重点</button>
     <button class="chip" id="accidentToggle" aria-pressed="false">⚠️ 事故多発 OFF</button>
+    <button class="chip" id="scheduleToggle" aria-pressed="false" aria-expanded="false">📅 公開取締予定</button>
   </div>
+  <div class="schedule-day-banner" id="scheduleDayBanner" role="status" aria-live="polite" hidden>
+    <strong id="scheduleDayTitle"></strong>
+    <span id="scheduleDayCopy"></span>
+  </div>
+  <section class="schedule-panel" id="schedulePanel" aria-label="警視庁 公開交通取締り" hidden>
+    <div class="schedule-head">
+      <div>
+        <strong>📅 警視庁 公開交通取締り</strong>
+        <span id="schedulePeriod">読み込み中</span>
+      </div>
+      <button id="scheduleClose" class="schedule-close" aria-label="公開取締予定を閉じる">×</button>
+    </div>
+    <div class="schedule-list" id="scheduleList"></div>
+    <div class="schedule-foot">
+      公開された月間方針・一斉日です。現在その場所で取締りを実施中であることを示しません。
+      <a id="scheduleSource" href="#" target="_blank" rel="noopener noreferrer">警視庁の出典</a>
+    </div>
+  </section>
   <div class="legend" aria-hidden="true">
     <div><i class="red"></i>現在の重点時間帯</div>
     <div><i class="orange"></i>重点区間（時間外）</div>
