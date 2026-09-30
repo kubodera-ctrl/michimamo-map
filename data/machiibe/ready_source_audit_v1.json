@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v11",
+  "version": "2026-09-30-ready-audit-v12",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -334,8 +334,8 @@
       "freshness_acceptable": false,
       "third_party_rights_separated": true,
       "blockers": [
-        "schema_mapping",
-        "freshness"
+        "freshness",
+        "reference_https_quality"
       ],
       "evidence": {
         "official_api": "https://api.data.metro.tokyo.lg.jp/v1/Event",
@@ -343,9 +343,17 @@
         "official_terms": "https://portal.data.metro.tokyo.lg.jp/terms/",
         "license": "CC BY 4.0 by default unless individual rule applies",
         "auth": "none / public GET API",
-        "probe_run": 813,
+        "probe_run": 814,
         "probe_http_status": 200,
-        "note": "公開APIへのGETは成功。レスポンスが[rows,meta]型で、初回sampleに2019年イベントが含まれたため、100件date range/meta.updatedを再probeしてfreshnessを確認するまでREADYにしない。参照URLにはhttp/https混在の可能性があるためofficialUrl gateも別確認。"
+        "response_shape": "[rows,meta]",
+        "row_count": 30,
+        "min_start_date": "2018-12-02",
+        "max_start_date": "2019-05-03",
+        "api_meta_updated": "2024-11-13T00:49:14.851Z",
+        "reference_https": 3,
+        "reference_http": 15,
+        "reference_other": 1,
+        "note": "API availability/access is valid, but the corpus is historical and reference URLs are mostly HTTP. Fresh current event source must be found elsewhere; do not READY/promote this API."
       }
     }
   ]
