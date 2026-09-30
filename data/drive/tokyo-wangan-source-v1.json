@@ -78,12 +78,26 @@
       "externalId": "wangan-rinko",
       "routeName": "臨港道路",
       "focusType": "METROPOLITAN_FOCUS",
-      "speedLimitText": "50（東京ゲートブリッジ上60）",
-      "segmentStartText": "京浜大橋北交差点（中央防波堤交差点）",
-      "segmentEndText": "中央防波堤交差点（新木場交差点）",
       "timeStart": "06:00",
       "timeEnd": "20:00",
-      "roadScope": "SEGMENT"
+      "roadScope": "SEGMENT",
+      "sourceRecordKey": "wangan-rinko",
+      "segments": [
+        {
+          "externalId": "wangan-rinko-keihin-chuboh",
+          "sourceSubrecordKey": "50kmh",
+          "speedLimitText": "50",
+          "segmentStartText": "京浜大橋北交差点",
+          "segmentEndText": "中央防波堤交差点"
+        },
+        {
+          "externalId": "wangan-rinko-chuboh-shinkiba",
+          "sourceSubrecordKey": "60kmh",
+          "speedLimitText": "60",
+          "segmentStartText": "中央防波堤交差点",
+          "segmentEndText": "新木場交差点"
+        }
+      ]
     },
     {
       "externalId": "wangan-aomi",
@@ -129,7 +143,21 @@
         35.575405,
         139.748282
       ],
-      "verification": "beta_candidate_endpoint_pair"
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "bridge_centerline_crosscheck",
+        "evidence": [
+          "https://www.djq.jp/bridge_liblary/river_arakawa/tokyo_bridge_arakawa034_arakawakakoh.php",
+          "https://www.djq.jp/bridge_liblary/river_keihin/tokyo_bridge_keihin_s003_keijhinoh.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "国道357号",
+        "357",
+        "東京湾岸道路"
+      ]
     },
     "wangan-kan2": {
       "start": [
@@ -140,7 +168,22 @@
         35.6352293,
         139.7926317
       ],
-      "verification": "beta_candidate_endpoint_pair"
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "bridge_and_intersection_crosscheck",
+        "evidence": [
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome004_ariakekita.php",
+          "https://mapfan.com/spots/SCC%2CJ%2CYN4E"
+        ]
+      },
+      "routeMatchTokens": [
+        "環二通り",
+        "環状二号線",
+        "都道484号",
+        "484"
+      ]
     }
   }
 }
