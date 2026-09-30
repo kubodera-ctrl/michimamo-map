@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v14",
+  "version": "2026-09-30-ready-audit-v15",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -468,6 +468,34 @@
         "license": "CC BY",
         "latest_observed_event_period": "2025-10 through 2026-03",
         "note": "current date 2026-09-30時点では確認可能な最新イベント期間が終了済み。新resource出現までREADYへ上げない。"
+      }
+    },
+    {
+      "source_key": "hamamatsu-current-events-open-data",
+      "prefecture": "静岡県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "schema_probe",
+        "event_specific_url_quality"
+      ],
+      "evidence": {
+        "official_data_page": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?m=detail&x=221309_hamamatsu_event",
+        "official_event_index": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?x=221309_hamamatsu_event",
+        "csv": "https://static.hamamatsu.odpf.net/opendata/v01/221309_hamamatsu_event/221309_hamamatsu_event.csv",
+        "terms": "https://www.city.hamamatsu.shizuoka.jp/koho2/opendata/kiyaku.html",
+        "license": "CC BY 2.1 Japan",
+        "official_dataset_updated": "2026-09-16",
+        "official_event_index_observed_updated": "2026-09-25",
+        "observed_event_category_items_min": 338,
+        "note": "公式配布・利用条件・current/future画面鮮度は確認。CSV schema、event-specific URL比率、current/future行の実測をPR CIで確認後にREADY再判定。"
       }
     }
   ]

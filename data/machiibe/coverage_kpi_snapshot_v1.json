@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v16",
+  "version": "coverage-kpi-v17",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -7,7 +7,7 @@
     "concretePrefectureCoverage": 31,
     "inventoryOrDiscoveryCandidates": 97,
     "preflightOrBetter": 58,
-    "termsReviewedOrBetter": 25,
+    "termsReviewedOrBetter": 26,
     "ready": 5,
     "active": 0
   },
