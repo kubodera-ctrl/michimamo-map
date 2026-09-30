@@ -6,7 +6,8 @@ const viewportSetup = html.match(/<script>\s*([\s\S]*?)<\/script>/)?.[1] || '';
 const compensation = html.match(/<script id="iosViewportCompensation">([\s\S]*?)<\/script>/)?.[1] || '';
 
 assert.match(viewportSetup, /iPhone\|iPod[\s\S]*?width=device-width/);
-const iphoneBranch = viewportSetup.match(/if \(\/iPhone\|iPod\/i\.test\(ua\)\) \{([\s\S]*?)\n\s*\}/)?.[1] || '';
+assert.match(viewportSetup, /const isIPhone = \/iPhone\|iPod\/i\.test\(ua\)/);
+const iphoneBranch = viewportSetup.match(/if \(isIPhone\) \{([\s\S]*?)\n\s*\} else \{/i)?.[1] || '';
 assert.match(iphoneBranch, /width=device-width/);
 assert.doesNotMatch(iphoneBranch, /screen\.width|screen\.height|outerWidth/);
 assert.doesNotMatch(compensation, /screen\.width|screen\.height|outerWidth|innerWidth|visualViewport\.scale/);
