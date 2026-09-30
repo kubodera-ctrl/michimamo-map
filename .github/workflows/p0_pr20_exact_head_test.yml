@@ -1,0 +1,32 @@
+name: P0 PR20 Exact Head Test
+
+on:
+  push:
+    branches:
+      - fix/beta-point-exchange-contract
+    paths:
+      - '.github/workflows/p0_pr20_exact_head_test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pr20-full-npm-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout exact PR20 head
+        uses: actions/checkout@v4
+        with:
+          ref: restart/dev34
+      - name: Assert audited SHA
+        run: test "$(git rev-parse HEAD)" = "52f213b8ceb451eec5d865db5037ea29f45e144f"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci --no-audit --no-fund
+      - name: Full npm test
+        run: npm test
