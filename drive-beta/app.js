@@ -210,17 +210,17 @@ map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 
 async function loadEnforcementSource(){
   statusTitle.textContent='警察公式データを読み込み中';
-  statusCopy.textContent='検証済みSource版から重点路線を生成しています。';
+  statusCopy.textContent='検証済み公開snapshotから重点路線を読み込んでいます。';
   try{
-    const response=await fetch('/data/drive/tokyo-wangan-source-v1.json',{cache:'no-store'});
+    const response=await fetch('/drive-beta/data/tokyo-wangan-preview-v1.json',{cache:'no-store'});
     if(!response.ok)throw new Error('source_http_'+response.status);
-    const bundle=await response.json();
-    enforcementZones=zonesApi.normalizeBundle(bundle);
+    const snapshot=await response.json();
+    enforcementZones=zonesApi.normalizeSnapshot(snapshot);
     await hydrateRoadGeometries();
     renderEnforcement();
     updateStatus();
   }catch(error){
-    console.warn('DRIVE beta enforcement source load failed',error);
+    console.warn('DRIVE beta enforcement snapshot load failed',error);
     enforcementZones=[];
     enforcementLayer.clearLayers();
     statusTitle.textContent='警察公式データを読み込めませんでした';
