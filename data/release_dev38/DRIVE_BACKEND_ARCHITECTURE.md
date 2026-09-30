@@ -1,4 +1,4 @@
-# まちまも DRIVE Backend / Data Pipeline
+# まちドラ（まちDRIVE） Backend / Data Pipeline
 
 Status: design-current / no Production migration
 
@@ -54,6 +54,8 @@ An enforcement event is publishable only when:
 - LOCALITY -> locality halo/card.
 - PREFECTURE/NONE -> card only.
 - Hand-drawn guessed LineStrings are prohibited.
+- `endpointVerified=true` and `routeMatchTokens` only authorize routing candidates; they do not make geometry VERIFIED.
+- `geometryVerified=true` requires endpoint evidence, road-name match, routing result and road/visual QA.
 
 ## Scheduler
 One small scheduler claims due Sources by `next_check_at`.
@@ -67,10 +69,37 @@ OPEN_DATA_HALF_MONTH, MONTHLY_BOUNDARY, MONTHLY_ADVANCE, MONTHLY_SPOT,
 HALF_YEAR, ANNUAL_CHANGE_DETECT, HTML_CHANGE_DETECT, HALF_MONTH_SPOT,
 AD_HOC_SPOT, PREFECTURE_POLICY, SOURCE_STALE_AWARE.
 
+## Nationwide parser rollout contract
+Do not implement all 47 prefectures as one parser. Expand by representative Source type first.
+
+The representative matrix is `data/drive/national-parser-representatives-v1.json`.
+Current type coverage intentionally distinguishes implementation from discovery:
+- PDF: existing Tokyo/Chiba/Saitama contracts exercise exact, area and focus semantics.
+- HTML: existing Kanagawa and Tokyo monthly contracts exercise mixed exact/area and policy/date semantics.
+- CSV / structured data: Oita publishes machine-readable CSV; a generic structured adapter is tested only with synthetic contract rows until the current official CSV header schema is bound and verified.
+- WebMap / dynamic provider: Okayama remains `DYNAMIC_PROVIDER_GATE`; rendered-map scraping is prohibited until an official/approved API or data interface, schema, terms and use conditions are validated.
+- Weekly / half-month / monthly / annual / half-year cadence families are represented before broad rollout.
+
+Every completed parser path must preserve:
+Source -> Source Version -> Source Record -> Normalized Common Event -> Provenance ->
+Geometry precision -> Time precision -> Freshness -> Publish gate.
+
+Lineage rules:
+- `sourceRecordKey` always points back to the official row/record.
+- `sourceSubrecordKey` preserves one-row-to-many-event splits.
+- `sourceVersionDate` is present in the common schema but remains NULL when the official version date cannot be verified.
+- `sourceIndexUrl` preserves current-source resolution / attribution where available.
+- `geometry.routeMatchTokens` is routing validation metadata, never proof of verified geometry.
+
+`scripts/drive_parser_trace.mjs` provides a testable staging trace for this chain.
+It separates event-fact publication from precise LineString publication so a valid ROAD_AREA/LOCALITY fact is not lost merely because exact geometry is unavailable.
+
 ## Fail-safe
 A parse failure never makes a new broken version public.
 The previous snapshot can remain only until its own event expiry.
 Expired information is never extended merely because a new parse failed.
+A dynamic provider with unknown API/schema/terms must fail closed rather than scrape rendered UI.
+A machine-readable Source with unknown current header binding remains schema-pending rather than receiving guessed columns.
 
 ## Premium
 Feature key: `police_official_info`.
