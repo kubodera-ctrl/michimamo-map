@@ -5,6 +5,7 @@ const SUPABASE_URL='https://ckftozjhdszlwqnylmxv.supabase.co';
 const SUPABASE_KEY='sb_publishable_NpF8BeMCuhcjxu4b-eey7w_xxvimWJ8';
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
 const zonesApi=window.MachimamoDriveZones;
+let enforcementZones=[];
 const map=L.map('map',{zoomControl:false,attributionControl:true}).setView([35.6335,139.7875],14);
 L.control.zoom({position:'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -30,7 +31,7 @@ const stateDot=document.getElementById('stateDot');
 const jstClock=document.getElementById('jstClock');
 
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function activeZones(){return zonesApi.TOKYO_WANGAN_ZONES.filter(z=>zonesApi.isZoneActive(z));}
+function activeZones(){return enforcementZones.filter(z=>zonesApi.isZoneActive(z));}
 
 function zonePopup(zone){
   const active=zonesApi.isZoneActive(zone);
@@ -47,7 +48,7 @@ function zonePopup(zone){
 function renderEnforcement(){
   enforcementLayer.clearLayers();zoneLines.clear();
   if(!enforcementVisible)return;
-  for(const zone of zonesApi.TOKYO_WANGAN_ZONES){
+  for(const zone of enforcementZones){
     const geometry=resolvedGeometries.get(zone.id);
     if(!geometry)continue;
     const active=zonesApi.isZoneActive(zone);
@@ -89,7 +90,7 @@ async function resolveRoadGeometry(zone){
 }
 
 async function hydrateRoadGeometries(){
-  const routable=zonesApi.TOKYO_WANGAN_ZONES.filter(z=>Array.isArray(z.routeEndpoints));
+  const routable=enforcementZones.filter(z=>Array.isArray(z.routeEndpoints));
   const results=await Promise.all(routable.map(async zone=>[zone.id,await resolveRoadGeometry(zone)]));
   for(const [id,geometry] of results){
     if(Array.isArray(geometry)&&geometry.length>1)resolvedGeometries.set(id,geometry);
@@ -133,7 +134,7 @@ function renderUserPosition(coords){
 
 function checkProximity(){
   if(!lastPosition||!enforcementVisible)return;
-  const candidates=zonesApi.TOKYO_WANGAN_ZONES
+  const candidates=enforcementZones
     .filter(z=>resolvedGeometries.has(z.id)&&zonesApi.isZoneActive(z))
     .map(z=>({zone:z,d:zonesApi.distanceToPolylineMeters(lastPosition,resolvedGeometries.get(z.id))}))
     .filter(x=>x.d<=500)
@@ -207,11 +208,29 @@ locationBtn.addEventListener('click',()=>{
 document.getElementById('alertClose').addEventListener('click',()=>alertBox.classList.remove('show'));
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 
-renderEnforcement();
-hydrateRoadGeometries();
+async function loadEnforcementSource(){
+  statusTitle.textContent='警察公式データを読み込み中';
+  statusCopy.textContent='検証済みSource版から重点路線を生成しています。';
+  try{
+    const response=await fetch('/data/drive/tokyo-wangan-source-v1.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('source_http_'+response.status);
+    const bundle=await response.json();
+    enforcementZones=zonesApi.normalizeBundle(bundle);
+    await hydrateRoadGeometries();
+    renderEnforcement();
+    updateStatus();
+  }catch(error){
+    console.warn('DRIVE beta enforcement source load failed',error);
+    enforcementZones=[];
+    enforcementLayer.clearLayers();
+    statusTitle.textContent='警察公式データを読み込めませんでした';
+    statusCopy.textContent='古い情報を代替表示せず、再読み込みしてください。';
+  }
+}
+
 accidentLayer.clearLayers();
 startLocation();
-updateStatus();
+loadEnforcementSource();
 setInterval(()=>{renderEnforcement();checkProximity();},60000);
 setInterval(flashTick,850);
 })();
