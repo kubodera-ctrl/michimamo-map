@@ -85,6 +85,14 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
         run: npm run source:dry-run -- bodik-osaka-pref-events
+      - name: Live READY dry-run - Kadoma (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-kadoma-events
+      - name: Live READY dry-run - Toyonaka (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-toyonaka-events
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
