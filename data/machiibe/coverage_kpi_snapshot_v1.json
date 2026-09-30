@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v2",
+  "version": "coverage-kpi-v3",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -8,7 +8,7 @@
     "inventoryOrDiscoveryCandidates": 86,
     "preflightOrBetter": 47,
     "termsReviewedOrBetter": 18,
-    "ready": 1,
+    "ready": 3,
     "active": 0
   },
   "supplyFunnel": {
@@ -16,21 +16,27 @@
       "nationalDiscoveryLowerBound": 3337,
       "facilityPilotLowerBound": 58,
       "oshiSourceLowerBound": 39,
-      "note": "Do not sum as a publishable total because sources can overlap."
+      "note": "Discovery potentials overlap and are not summed into a publishable total."
     },
-    "fetched": 45,
-    "normalized": 45,
-    "deduped": 45,
-    "valid": 0,
-    "publishable": 0,
-    "active": 0,
-    "evidence": "Mie READY live dry-run / Event Site Check #729; no DB or Active writes."
+    "liveDryRunAggregate": {
+      "potential": 1226,
+      "fetched": 1203,
+      "normalized": 1202,
+      "dedupedWithinSource": 1202,
+      "valid": 861,
+      "publishable": 227,
+      "active": 0,
+      "note": "Aggregate of three READY dry-runs; cross-source dedup is not yet applied."
+    },
+    "evidence": "Mie + Okazaki + Osaka READY live dry-run / Event Site Check #753; no DB or Active writes."
   },
   "lanes": {
     "facilitySourceInstances": 2,
     "oshiSourceCandidates": 6,
     "readySourceKeys": [
-      "mie-pref-events-open-data"
+      "mie-pref-events-open-data",
+      "bodik-okazaki-events",
+      "bodik-osaka-pref-events"
     ],
     "oshiRealEventFixtures": 4
   },
@@ -41,8 +47,9 @@
     "externalWait": [],
     "selfResolvable": [
       "promote additional official CSV/JSON/API sources through full READY audit",
-      "prove at least one source through Publishable without relaxing officialUrl or rights gates",
-      "expand prefecture depth, facility instances and oshi source/fixture coverage"
+      "apply cross-source event identity/dedup to live dry-run candidates",
+      "expand prefecture depth, facility instances and oshi source/fixture coverage",
+      "persist per-source dry-run evidence without Production writes"
     ]
   }
 }
