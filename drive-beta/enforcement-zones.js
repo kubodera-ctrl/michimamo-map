@@ -34,8 +34,23 @@
     if(!bundle?.source||!Array.isArray(bundle.records))throw new Error('invalid_bundle');
     if(bundle.source.freshnessStatus!=='CURRENT')return [];
     const endpoints=bundle.geometryCandidates||{};
+    const records=bundle.records.flatMap(raw=>{
+      const segments=Array.isArray(raw?.segments)?raw.segments:[];
+      if(!segments.length)return [raw];
+      if(raw.speedLimitText||raw.segmentStartText||raw.segmentEndText){
+        throw new Error('segmented_parent_must_not_define_geometry:'+raw.externalId);
+      }
+      return segments.map((segment,index)=>({
+        ...raw,
+        ...segment,
+        externalId:clean(segment.externalId),
+        sourceRecordKey:clean(raw.sourceRecordKey)||raw.externalId,
+        sourceSubrecordKey:clean(segment.sourceSubrecordKey)||String(index+1),
+        segments:undefined
+      }));
+    });
     const seen=new Set();
-    return bundle.records.map(raw=>{
+    return records.map(raw=>{
       if(!raw.externalId||seen.has(raw.externalId))throw new Error('duplicate_or_missing_event');
       seen.add(raw.externalId);
       const pair=endpoints[raw.externalId];
@@ -55,7 +70,14 @@
         geoPrecision:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT':'ROAD_AREA',
         displayMode:raw.segmentStartText&&raw.segmentEndText?'EXACT_SEGMENT_TIMED':'ROAD_AREA_TIMED',
         routeEndpoints:pair?Object.freeze([pair.start,pair.end]):null,
-        geometryQuality:pair?'road_routed_beta_candidate':null,
+        endpointVerified:pair?.endpointVerification?.status==='CROSS_CHECKED',
+        routeMatchTokens:Object.freeze([...(pair?.routeMatchTokens||[])].map(clean).filter(Boolean)),
+        geometryQuality:pair
+          ?(pair?.endpointVerification?.status==='CROSS_CHECKED'?'road_route_endpoint_crosschecked':'road_routed_beta_candidate')
+          :null,
+        geometryStatus:pair
+          ?(pair?.endpointVerification?.status==='CROSS_CHECKED'?'ENDPOINTS_CROSSCHECKED':'ENDPOINTS_CANDIDATE')
+          :'UNRESOLVED',
         geometryVerified:false,
         agency:bundle.source.policeOrg,
         policeStation:bundle.source.stationName,
