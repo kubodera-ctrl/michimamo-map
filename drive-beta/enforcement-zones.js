@@ -19,10 +19,14 @@
     const speedLimitText=clean(value);
     const values=[...speedLimitText.matchAll(/(\d+)/g)].map(m=>Number(m[1]));
     if(!values.length)throw new Error('invalid_speed:'+speedLimitText);
+    const primaryWithException=values.length>1&&/\([^)]*\d[^)]*\)/.test(speedLimitText);
+    const ambiguous=values.length>1&&!primaryWithException;
     return {
-      speedKmh:values[0],
+      speedKmh:ambiguous?null:values[0],
       speedLimitText,
-      alternateSpeedKmh:Object.freeze(values.slice(1))
+      speedLimitKind:values.length===1?'EXACT':(primaryWithException?'PRIMARY_WITH_EXCEPTION':'MULTIPLE_OR_RANGE'),
+      speedLimitValuesKmh:Object.freeze(values),
+      alternateSpeedKmh:Object.freeze(primaryWithException?values.slice(1):[])
     };
   }
 
