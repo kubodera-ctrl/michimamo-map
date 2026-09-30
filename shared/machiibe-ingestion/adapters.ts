@@ -134,7 +134,7 @@ function jsonItems(value:unknown):unknown[]{
   if(Array.isArray(value))return value;
   const obj=record(value);
   if(!obj)return [];
-  for(const key of ['events','items','results','data']){
+  for(const key of ['events','event_data','items','results','data']){
     const candidate=obj[key];
     if(Array.isArray(candidate))return candidate;
   }
@@ -145,11 +145,62 @@ export function parseJsonApi(body:unknown,source:SourcePolicySnapshot):AdapterPa
   const items=rows.map((payload,index)=>{
     const obj=record(payload);
     const id=obj?text(obj.id)||text(obj.uid)||text(obj.event_id):null;
-    const url=obj?text(obj.url)||text(obj.official_url)||text(obj.source_url):null;
-    const updated=obj?text(obj.updated_at)||text(obj.updated)||text(obj.modified):null;
+    const url=obj?text(obj.url)||text(obj.official_url)||text(obj.open_url)||text(obj.source_url):null;
+    const updated=obj?text(obj.updated_at)||text(obj.updated)||text(obj.modified)||text(obj.upd_date)||text(obj.created_date):null;
     return raw(source,payload,index,id,url,updated);
   });
   return {method:source.fetchMethod==='OPEN_DATA'?'OPEN_DATA':'JSON_API',items,warnings:items.length?[]:['no_json_items']};
+}
+
+
+function splitCommaFacts(value:unknown){
+  const one=text(value);
+  if(!one)return [] as string[];
+  return one.split(/[、,，]/).map((part)=>part.trim()).filter(Boolean);
+}
+function stableTextHash(value:string){
+  let h=2166136261;
+  for(let i=0;i<value.length;i++){h^=value.charCodeAt(i);h=Math.imul(h,16777619);}
+  return (h>>>0).toString(16).padStart(8,'0');
+}
+export function parseKawasakiEventApi(body:unknown,source:SourcePolicySnapshot):AdapterParseResult{
+  const root=record(body);
+  const events=root&&Array.isArray(root.event_data)?root.event_data:[];
+  const items:RawSourceItem[]=[];
+  const warnings:string[]=[];
+  for(const [eventIndex,payload] of events.entries()){
+    const obj=record(payload);
+    if(!obj){warnings.push('kawasaki_invalid_event:'+eventIndex);continue;}
+    const dates=Array.isArray(obj.date_list)?obj.date_list.map(record).filter((v):v is UnknownRecord=>Boolean(v)):[];
+    const officialUrl=webUrl(obj.open_url);
+    const updated=text(obj.upd_date)||text(obj.created_date);
+    const title=text(obj.title)||'';
+    const occurrences=dates.length?dates:[null];
+    for(const [occurrenceIndex,date] of occurrences.entries()){
+      const dateValue=date?text(date.date):null;
+      const timeFrom=date?text(date.time_from):null;
+      const timeTo=date?text(date.time_to):null;
+      const signature=[officialUrl||'',title,updated||'',dateValue||'',timeFrom||'',String(occurrenceIndex)].join('|');
+      const sourceEventId='kawasaki-'+stableTextHash(signature);
+      const normalizedPayload={
+        ...obj,
+        description:text(obj.content),
+        startDate:dateValue,
+        endDate:dateValue,
+        start_time:timeFrom,
+        end_time:timeTo,
+        url:officialUrl,
+        address:text(obj.place_adr),
+        latitude:obj.place_lat??null,
+        longitude:obj.place_lon??null,
+        category:text(obj.type1),
+        accessibility:splitCommaFacts(obj.barrier_free)
+      };
+      items.push(raw(source,normalizedPayload,items.length,sourceEventId,officialUrl||source.feedUrl||source.baseUrl,updated));
+    }
+  }
+  if(!items.length)warnings.push('no_kawasaki_event_items');
+  return {method:'JSON_API',items,warnings};
 }
 
 function parseCsvTable(body:string){
@@ -263,11 +314,11 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
   const obj=record(item.payload)||{};
   const place=schemaPlace(obj);
   const title=pick(obj,['name','title','イベント名','名称','記事タイトル']);
-  const description=pick(obj,['description','summary','概要','内容']);
+  const description=pick(obj,['description','content','summary','概要','内容']);
   const startAt=canonicalDateOnly(pick(obj,['startDate','start_at','start','開始日時','開始日','イベント開始日']));
   const endAt=canonicalDateOnly(pick(obj,['endDate','end_at','end','終了日時','終了日','イベント終了日']));
   const explicitOfficialUrl=
-    webUrl(obj.url)||webUrl(obj.official_url)||webUrl(obj['公式URL'])||webUrl(obj['URL'])||
+    webUrl(obj.url)||webUrl(obj.official_url)||webUrl(obj.open_url)||webUrl(obj['公式URL'])||webUrl(obj['URL'])||
     webUrl(obj['コンテンツURL'])||webUrl(obj.link);
   const itemUrlIsFeed=item.sourceUrl===source.feedUrl||item.sourceUrl===source.baseUrl;
   const officialUrl=explicitOfficialUrl||(!itemUrlIsFeed?webUrl(item.sourceUrl):null);
@@ -279,8 +330,8 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
     :/無料|なし|free/.test(normalizedPrice)?'free'
     :/有料|paid/.test(normalizedPrice)?'paid'
     :'unknown';
-  const latRaw=obj.latitude??obj['緯度']??record(obj.geo)?.latitude;
-  const lngRaw=obj.longitude??obj['経度']??record(obj.geo)?.longitude;
+  const latRaw=obj.latitude??obj.place_lat??obj['緯度']??record(obj.geo)?.latitude;
+  const lngRaw=obj.longitude??obj.place_lon??obj['経度']??record(obj.geo)?.longitude;
   const numeric=(value:unknown)=>{
     if(typeof value==='number'&&Number.isFinite(value))return value;
     if(typeof value==='string'&&value.trim()&&Number.isFinite(Number(value.trim())))return Number(value.trim());
@@ -291,18 +342,18 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
     sourceId:item.sourceId,sourceEventId:item.sourceEventId,sourceUrl:item.sourceUrl,
     sourceUpdatedAt:item.sourceUpdatedAt,sourceHash:item.sourceHash,
     title,description,startAt,endAt,timezone:'Asia/Tokyo',
-    prefecture:place.prefecture||pick(obj,['prefecture','都道府県','所在地_都道府県']),
-    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町','所在地_市区町村']),
-    address:place.address||pick(obj,['address','住所','所在地_連結表記']),lat,lng,
+    prefecture:place.prefecture||pick(obj,['prefecture','都道府県','所在地_都道府県'])||source.prefecture,
+    municipality:place.municipality||pick(obj,['municipality','市区町村','市区郡','市町','所在地_市区町村'])||source.municipality,
+    address:place.address||pick(obj,['address','place_adr','住所','所在地_連結表記']),lat,lng,
     venueName:place.venueName||pick(obj,['venue_name','会場','場所','場所名称']),
-    venueType:pick(obj,['venue_type']),category:pick(obj,['category','カテゴリ','イベント種類']),
+    venueType:pick(obj,['venue_type']),category:pick(obj,['category','type1','カテゴリ','イベント種類']),
     tags:stringArray(obj.tags),ageMin:typeof obj.age_min==='number'?obj.age_min:null,
     ageMax:typeof obj.age_max==='number'?obj.age_max:null,
     family:typeof obj.family==='boolean'?obj.family:null,
     childFocused:typeof obj.child_focused==='boolean'?obj.child_focused:null,
     indoor:typeof obj.indoor==='boolean'?obj.indoor:null,
     rainOk:typeof obj.rain_ok==='boolean'?obj.rain_ok:null,
-    accessibility:stringArray(obj.accessibility),
+    accessibility:Array.isArray(obj.accessibility)?stringArray(obj.accessibility):splitCommaFacts(obj.accessibility??obj.barrier_free),
     priceType,priceMin:typeof obj.price_min==='number'?obj.price_min:null,
     priceMax:typeof obj.price_max==='number'?obj.price_max:null,
     imageUrl:null,imageRightsStatus:'unknown',officialUrl,
@@ -313,7 +364,10 @@ export function normalizeCommonItem(item:RawSourceItem,source:SourcePolicySnapsh
 export function parseSourcePayload(payload:unknown,source:SourcePolicySnapshot):AdapterParseResult{
   if(source.fetchMethod==='RSS')return parseRssAtom(String(payload??''),source);
   if(source.fetchMethod==='ICS')return parseIcs(String(payload??''),source);
-  if(source.fetchMethod==='JSON_API')return parseJsonApi(payload,source);
+  if(source.fetchMethod==='JSON_API'){
+    const kawasaki=[source.baseUrl,source.feedUrl].some((url)=>url?.includes('eventapp.city.kawasaki.jp/data/api/v1'));
+    return kawasaki?parseKawasakiEventApi(payload,source):parseJsonApi(payload,source);
+  }
   if(source.fetchMethod==='JSON_LD')return parseJsonLd(payload,source);
   if(source.fetchMethod==='HTML_STRUCTURED')return parseHtmlStructured(String(payload??''),source);
   if(source.fetchMethod==='OPEN_DATA'){
