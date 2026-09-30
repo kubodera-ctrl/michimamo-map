@@ -112,8 +112,8 @@ const rootManifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.webmanife
 assert.match(html,/noindex,nofollow/);
 assert.match(html,/まちドラ β/);
 assert.match(html,/まちDRIVE/);
-assert.match(html,/\/drive-beta\/assets\/machidora-icon-64\.jpg/);
-assert.match(html,/\/drive-beta\/assets\/machidora-icon-180\.jpg/);
+assert.match(html,/\/drive-beta\/assets\/machidora-icon-64\.png/);
+assert.match(html,/\/drive-beta\/assets\/machidora-icon-180\.png/);
 assert.match(html,/\/drive-beta\/manifest\.webmanifest/);
 assert.match(html,/class="brand-logo"/);
 assert.match(html,/id="statusPanel"/);
