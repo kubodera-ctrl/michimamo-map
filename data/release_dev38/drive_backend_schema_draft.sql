@@ -32,7 +32,8 @@
 -- mistaken for an approved migration.
 
 -- Kanto staging contract confirmed by drive_common_event_v1:
--- * Preserve sourceVersionDate with every normalized event for freshness/version audit.
+-- * Preserve the sourceVersionDate field with every normalized event for freshness/version audit;
+--   the value remains NULL when the official Source has no reliably verified version date.
 -- * Preserve sourceRecordKey + sourceSubrecordKey so one official source row may safely
 --   normalize into multiple events without losing source-row lineage.
 -- * Geometry candidates carry endpointVerified separately from geometryVerified.
