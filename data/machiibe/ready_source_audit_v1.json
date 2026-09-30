@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v8",
+  "version": "2026-09-30-ready-audit-v9",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -179,19 +179,19 @@
       "commercial_allowed": null,
       "reuse_allowed": null,
       "attribution_known": false,
-      "freshness_acceptable": false,
+      "freshness_acceptable": true,
       "third_party_rights_separated": true,
       "blockers": [
-        "terms_review",
-        "freshness"
+        "terms_review"
       ],
       "evidence": {
-        "dataset": "https://data.bodik.jp/dataset/273619_event",
-        "resource_page": "https://data.bodik.jp/dataset/273619_event/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb",
+        "dataset": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8",
+        "resource_page": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb",
+        "csv": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb/download/273619_event.csv",
         "license": "CC BY 4.0",
-        "resource_updated_at": "2025-11-14",
-        "portal_notice": "2026-09-18 event dataset addition notice",
-        "note": "ポータル告知は新しいが、実CSV resourceの最終更新は2025-11-14。告知日だけでfreshnessを昇格させない。"
+        "resource_modified": "2026-09-18T04:59:12.364828",
+        "live_discovery_run": 779,
+        "note": "以前の検索キャッシュ由来2025-11-14判定をlive CKAN #779で訂正。freshnessは合格。利用規約・商用/reuse・attributionの公式確認前なのでterms_reviewのみHOLD。"
       }
     },
     {
