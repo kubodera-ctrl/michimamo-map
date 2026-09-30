@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   buildApprovedFetchPlan,buildDryRunFetchPlan,normalizeCommonItem,parseCsv,parseHtmlStructured,
-  parseIcs,parseJsonApi,parseRssAtom
+  parseIcs,parseJsonApi,parseKawasakiEventApi,parseRssAtom,parseSourcePayload
 } from '../../shared/machiibe-ingestion/adapters';
 import type {SourcePolicySnapshot} from '../../shared/machiibe-ingestion/contracts';
 
@@ -106,6 +106,47 @@ test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records withou
   assert.equal(normalized.startAt,'2026-10-01');
   assert.equal(normalized.imageRightsStatus,'unknown');
 });
+
+
+test('Kawasaki Event API adapter expands documented date_list occurrences without inventing media rights',()=>{
+  const s=source({
+    sourceName:'川崎市 Event API',
+    sourceType:'open_data_api',
+    prefecture:'神奈川県',
+    municipality:'川崎市',
+    baseUrl:'https://eventapp.city.kawasaki.jp/data/api/v1',
+    feedUrl:'https://eventapp.city.kawasaki.jp/data/api/v1/events?page=1&format=JSON',
+    fetchMethod:'JSON_API'
+  });
+  const fixture=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/fixtures/kawasaki_event_api_schema_fixture.json',import.meta.url),'utf8'));
+  const parsed=parseKawasakiEventApi(fixture,s);
+  assert.equal(parsed.items.length,2);
+  assert.deepEqual(parsed.warnings,[]);
+  assert.notEqual(parsed.items[0].sourceEventId,parsed.items[1].sourceEventId);
+  assert.equal(parsed.items[0].sourceUpdatedAt,'2026-09-29 12:00:00');
+
+  const first=normalizeCommonItem(parsed.items[0],s);
+  const second=normalizeCommonItem(parsed.items[1],s);
+  assert.equal(first.title,'親子体験講座');
+  assert.equal(first.description,'川崎Event API adapter検証用のsynthetic fixture。');
+  assert.equal(first.startAt,'2026-10-10');
+  assert.equal(first.endAt,'2026-10-10');
+  assert.equal(second.startAt,'2026-10-12');
+  assert.equal(first.prefecture,'神奈川県');
+  assert.equal(first.municipality,'川崎市');
+  assert.equal(first.address,'川崎市中原区テスト1-1');
+  assert.equal(first.lat,35.57);
+  assert.equal(first.lng,139.65);
+  assert.equal(first.category,'体感・体験,子ども・子育て');
+  assert.deepEqual(first.accessibility,['エレベーター','授乳室']);
+  assert.equal(first.officialUrl,'https://example.invalid/kawasaki-event');
+  assert.equal(first.imageUrl,null);
+  assert.equal(first.imageRightsStatus,'unknown');
+
+  const auto=parseSourcePayload(fixture,s);
+  assert.equal(auto.items.length,2);
+});
+
 
 
 test('Mie documented open-data headers normalize without inventing rights or price facts',()=>{
