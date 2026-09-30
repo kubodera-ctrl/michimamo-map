@@ -14,8 +14,8 @@ const content=JSON.stringify(snapshot,null,2)+'\n';
 
 if(process.argv.includes('--check')){
   if(!fs.existsSync(outPath))throw new Error('preview_snapshot_missing');
-  const current=fs.readFileSync(outPath,'utf8');
-  if(current!==content){
+  const current=JSON.parse(fs.readFileSync(outPath,'utf8'));
+  if(JSON.stringify(current)!==JSON.stringify(snapshot)){
     console.error('DRIVE preview snapshot is stale');
     process.exit(1);
   }
