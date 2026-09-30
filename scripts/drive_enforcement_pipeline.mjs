@@ -19,10 +19,14 @@ export function parseSpeed(value){
   const speedText=text(value);
   const values=[...speedText.matchAll(/(\d+)/g)].map(m=>Number(m[1]));
   if(!values.length)throw new Error('invalid_speed:'+speedText);
+  const primaryWithException=values.length>1&&/\([^)]*\d[^)]*\)/.test(speedText);
+  const ambiguous=values.length>1&&!primaryWithException;
   return Object.freeze({
-    speedLimitKmh:values[0],
+    speedLimitKmh:ambiguous?null:values[0],
     speedLimitText:speedText,
-    alternateSpeedKmh:Object.freeze(values.slice(1))
+    speedLimitKind:values.length===1?'EXACT':(primaryWithException?'PRIMARY_WITH_EXCEPTION':'MULTIPLE_OR_RANGE'),
+    speedLimitValuesKmh:Object.freeze(values),
+    alternateSpeedKmh:Object.freeze(primaryWithException?values.slice(1):[])
   });
 }
 
@@ -31,7 +35,7 @@ export function sourceHash(bundle){
 }
 
 export function normalizeRecord(source,raw,endpoints={}){
-  const routeName=text(raw.routeName),start=text(raw.segmentStartText),end=text(raw.segmentEndText);
+  const routeName=text(raw.routeName),start=text(raw.segmentStartText),end=text(raw.segmentEndText),area=text(raw.areaText);
   if(!raw.externalId||!routeName)throw new Error('missing_identity');
   if(!VALID_FRESHNESS.has(source.freshnessStatus))throw new Error('invalid_freshness');
   if(!VALID_SCOPE.has(raw.roadScope))throw new Error('invalid_road_scope');
@@ -58,6 +62,7 @@ export function normalizeRecord(source,raw,endpoints={}){
     enforcementType:'速度取締重点',
     focusType:raw.focusType,
     routeName,
+    areaText:area||null,
     segmentStartText:start||null,
     segmentEndText:end||null,
     ...speed,
@@ -75,6 +80,7 @@ export function normalizeRecord(source,raw,endpoints={}){
     routeEndpoints:pair?Object.freeze([pair.start,pair.end]):null,
     geometryStatus:pair?'ENDPOINTS_CANDIDATE':'UNRESOLVED',
     geometryVerified:false,
+    sourceRecordKey:text(raw.sourceRecordKey)||raw.externalId,
     note:text(raw.note)||null
   });
 }
