@@ -12,3 +12,8 @@ assert.match(html, /getMapPopupOptions\(\{ noImage: !spot\.image_url \}\)/);
 assert.match(html, /marker\._machimamoSpot\?\.hasImage === false/);
 assert.match(html, /const imgTag = spot\.image_url \? `\<img src="\$\{escapeHtml\(spot\.image_url\)\}"/);
 console.log('post owner deletion synchronizes auth state; image-less popup has readable responsive typography');
+
+assert.match(html, /class="spot-owner-login-hint"/);
+assert.match(html, /投稿したLINEアカウントでログインすると、自分の投稿に削除ボタンが表示されます/);
+assert.match(html, /const isOwner = Boolean\(currentAuthUserId && currentAuthUserId === marker\._machimamoSpot\.createdBy\)/);
+assert.match(html, /loginHint\.style\.display = currentAuthUserId \? 'none' : 'block'/);

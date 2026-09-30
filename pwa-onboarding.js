@@ -39,6 +39,7 @@ const isStandalone=()=>window.matchMedia?.('(display-mode: standalone)').matches
 function syncStandaloneViewport(){
   const standalone=isStandalone();
   document.documentElement.classList.toggle('mm-standalone',standalone);
+  window.MachimamoSyncAppHeight?.();
   clearTimeout(viewportSyncTimer);
   viewportSyncTimer=setTimeout(()=>{
     try{window.map?.invalidateSize?.({pan:false,animate:false});}catch(_){}
@@ -66,7 +67,7 @@ function injectStyles(){
   .mm-ob-progress{display:flex;gap:6px;margin:12px 0 18px}.mm-ob-dot{height:5px;flex:1;background:#dbe4ee;border-radius:999px}.mm-ob-dot.active{background:#2563eb}
   .mm-ob-hero{text-align:center;padding:4px 4px 10px}.mm-ob-emoji{font-size:52px;line-height:1;margin:8px 0 16px}.mm-ob-title{font-size:24px;line-height:1.35;font-weight:950;margin:0 0 12px}.mm-ob-body{font-size:15px;line-height:1.8;color:#334155;margin:0 auto;max-width:430px}.mm-ob-note{margin:16px 0 0;padding:13px 14px;border-radius:15px;background:#eff6ff;color:#1e40af;font-size:13px;line-height:1.65;font-weight:700;text-align:left}
   .mm-ob-actions{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-top:22px}.mm-ob-btn{border:0;border-radius:14px;padding:14px 12px;font:inherit;font-weight:900;cursor:pointer}.mm-ob-back{background:#eef2f7;color:#334155}.mm-ob-next{background:#2563eb;color:#fff;box-shadow:0 7px 18px rgba(37,99,235,.22)}.mm-ob-back[disabled]{opacity:.35;cursor:default}
-  .mm-install-title{font-size:23px;font-weight:950;line-height:1.35;margin:14px 0 10px}.mm-install-copy{color:#334155;line-height:1.75;font-size:15px;margin:0}.mm-install-steps{display:grid;gap:9px;margin:18px 0}.mm-install-step{display:flex;align-items:center;gap:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:15px;padding:12px 13px;font-size:14px;font-weight:800}.mm-install-num{width:28px;height:28px;display:grid;place-items:center;background:#2563eb;color:#fff;border-radius:50%;font-size:13px;flex:none}.mm-install-later{width:100%;border:0;border-radius:14px;padding:14px;background:#eef2f7;color:#475569;font-weight:900;font-size:14px;cursor:pointer}
+  .mm-install-title{font-size:23px;font-weight:950;line-height:1.35;margin:14px 0 10px}.mm-install-copy{color:#334155;line-height:1.75;font-size:15px;margin:0}.mm-install-steps{display:grid;gap:9px;margin:18px 0}.mm-install-step{display:flex;align-items:center;gap:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:15px;padding:12px 13px;font-size:14px;font-weight:800}.mm-install-num{width:28px;height:28px;display:grid;place-items:center;background:#2563eb;color:#fff;border-radius:50%;font-size:13px;flex:none}.mm-install-later{width:100%;border:0;border-radius:14px;padding:14px;background:#eef2f7;color:#475569;font-weight:900;font-size:14px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .mm-guide-replay{margin:10px 0 16px}.mm-guide-replay button{width:100%;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:14px;padding:13px 14px;font:inherit;font-weight:900;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px}.mm-guide-replay small{display:block;color:#64748b;font-weight:600;margin-top:3px}
   html.mm-standalone,html.mm-standalone body{width:100%!important;height:100%!important;min-height:100%!important;max-height:100%!important;margin:0!important;overflow:hidden!important;background:#f4f6f8!important}
   html.mm-standalone #app{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:calc(0px - env(safe-area-inset-bottom, 0px) - env(safe-area-inset-bottom, 0px))!important;width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
@@ -78,7 +79,12 @@ function injectStyles(){
   document.head.appendChild(style);
 }
 
-function removeOverlay(){document.getElementById('machimamo-onboarding-overlay')?.remove();setTimeout(syncStandaloneViewport,30);}
+function removeOverlay(){
+  const overlay=document.getElementById('machimamo-onboarding-overlay');
+  if(overlay){overlay.style.display='none';overlay.remove();}
+  window.MachimamoSyncAppHeight?.();
+  setTimeout(syncStandaloneViewport,0);
+}
 function makeOverlay(){
   removeOverlay();
   const overlay=document.createElement('div');
@@ -99,7 +105,17 @@ function showInstallGuide(){
     <div class="mm-install-steps"><div class="mm-install-step"><span class="mm-install-num">1</span><span>Safariの共有ボタンをタップ</span></div><div class="mm-install-step"><span class="mm-install-num">2</span><span>「ホーム画面に追加」をタップ</span></div><div class="mm-install-step"><span class="mm-install-num">3</span><span>右上の「追加」をタップ</span></div></div>
     <button type="button" class="mm-install-later" id="mm-install-later">あとで</button>
   </div>`;
-  document.getElementById('mm-install-later')?.addEventListener('click',()=>{safeSet(KEY_INSTALL);removeOverlay();});
+  const later=document.getElementById('mm-install-later');
+  let dismissed=false;
+  const dismiss=event=>{
+    if(dismissed)return;
+    dismissed=true;
+    event?.preventDefault?.();
+    removeOverlay();
+    safeSet(KEY_INSTALL);
+  };
+  later?.addEventListener('pointerdown',dismiss,{passive:false,once:true});
+  later?.addEventListener('click',dismiss,{once:true});
 }
 
 let slideIndex=0;

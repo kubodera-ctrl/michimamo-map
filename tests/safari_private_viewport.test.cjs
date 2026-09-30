@@ -12,3 +12,7 @@ assert.doesNotMatch(iphoneBranch, /screen\.width|screen\.height|outerWidth/);
 assert.doesNotMatch(compensation, /screen\.width|screen\.height|outerWidth|innerWidth|visualViewport\.scale/);
 assert.match(compensation, /root\.style\.zoom\s*=\s*''/);
 console.log('Safari Private viewport uses width=device-width without geometry inference or CSS zoom');
+
+assert.match(viewportSetup, /visualViewport\?\.height/);
+assert.match(viewportSetup, /--machimamo-app-height/);
+assert.match(html, /#app \{[^}]*height: var\(--machimamo-app-height, 100svh\)/);

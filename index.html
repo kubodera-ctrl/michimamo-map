@@ -12,23 +12,39 @@
         (function configurePhoneViewport() {
             const viewport = document.querySelector('meta[name="viewport"]');
             const ua = navigator.userAgent || '';
-            if (/iPhone|iPod/i.test(ua)) {
+            const isIPhone = /iPhone|iPod/i.test(ua);
+            if (isIPhone) {
                 viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
-                return;
+            } else {
+                const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
+                const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
+                if (phoneScreen && touchDevice) {
+                    function updatePhoneViewport() {
+                        const shortSide = Math.min(screen.width || 0, screen.height || 0);
+                        const longSide = Math.max(screen.width || 0, screen.height || 0);
+                        const landscape = window.matchMedia('(orientation: landscape)').matches;
+                        const width = landscape ? longSide : shortSide;
+                        if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+                    }
+                    updatePhoneViewport();
+                    window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
+                    window.addEventListener('pageshow', updatePhoneViewport);
+                }
             }
-            const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
-            if (!phoneScreen || !touchDevice) return;
-            function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width || 0, screen.height || 0);
-                const longSide = Math.max(screen.width || 0, screen.height || 0);
-                const landscape = window.matchMedia('(orientation: landscape)').matches;
-                const width = landscape ? longSide : shortSide;
-                if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+
+            if (!isIPhone) return;
+            function updatePhoneVisibleHeight() {
+                const visibleHeight = Math.round(window.visualViewport?.height || window.innerHeight || 0);
+                if (visibleHeight > 0) {
+                    document.documentElement.style.setProperty('--machimamo-app-height', `${visibleHeight}px`);
+                }
             }
-            updatePhoneViewport();
-            window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
-            window.addEventListener('pageshow', updatePhoneViewport);
+            window.MachimamoSyncAppHeight = updatePhoneVisibleHeight;
+            updatePhoneVisibleHeight();
+            window.addEventListener('pageshow', updatePhoneVisibleHeight);
+            window.addEventListener('resize', updatePhoneVisibleHeight, { passive:true });
+            window.addEventListener('orientationchange', () => setTimeout(updatePhoneVisibleHeight, 120), { passive:true });
+            window.visualViewport?.addEventListener('resize', updatePhoneVisibleHeight, { passive:true });
         })();
     </script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -52,7 +68,7 @@
         html, body, #app, .view { touch-action: pan-x pan-y; }
         * { box-sizing: border-box; }
         body { width: 100%; max-width: 100vw; overflow: hidden; }
-        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100svh; height: var(--machimamo-app-height, 100svh); display: flex; flex-direction: column; overflow: hidden; }
 
         header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
         .brand { display: flex; gap: 10px; align-items: center; }
@@ -1074,6 +1090,16 @@
             <button class="close" onclick="closePostModal()" aria-label="投稿画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
+           <label>種類</label>
+           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
+                <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
+            </select>
             <div id="localAnomalyArea" style="display:none; margin-bottom:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
@@ -1101,16 +1127,7 @@
             </div>
 
 
-           <label>種類</label>
-           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
-                <option value="illegal">🔴 違法駐車</option>
-                <option value="danger">🔵 危険な路上停車</option>
-                <option value="reckless">🟡 暴走・騒音車両</option>
-                <option value="abandoned">🟣 不法放置 (写真必須)</option>
-                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
-                <option value="patrol">🟢 巡回・取り締まり情報</option>
-                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
-            </select>
+
             <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" aria-label="投稿タイトル" required maxlength="160">
             <label id="postCommentLabel">状況コメント</label><textarea id="postComment" aria-label="投稿コメント" rows="3" maxlength="500"></textarea>
 
@@ -2914,6 +2931,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                             <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
                             <button class="spot-owner-delete" onclick="deleteSpot(${Number(spot.id)})" style="${spot.created_by && spot.created_by === currentAuthUserId ? '' : 'display:none;'}flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">自分の投稿を削除</button>
                         </div>
+                        ${spot.category === 'local_anomaly' ? '<div class="spot-owner-login-hint" style="display:none;margin-top:8px;font-size:.7rem;line-height:1.5;color:#64748b;text-align:center;">投稿したLINEアカウントでログインすると、自分の投稿に削除ボタンが表示されます。</div>' : ''}
                     </div>
                 </div>
             `;
@@ -2930,7 +2948,10 @@ function shareSpot(title, address, category, event, anomalyType = null) {
         if (!content || !marker._machimamoSpot) return;
         content.classList.toggle('no-image-post', !marker._machimamoSpot.hasImage);
         const deleteButton = content.querySelector('.spot-owner-delete');
-        if (deleteButton) deleteButton.style.display = currentAuthUserId && currentAuthUserId === marker._machimamoSpot.createdBy ? '' : 'none';
+        const isOwner = Boolean(currentAuthUserId && currentAuthUserId === marker._machimamoSpot.createdBy);
+        if (deleteButton) deleteButton.style.display = isOwner ? '' : 'none';
+        const loginHint = content.querySelector('.spot-owner-login-hint');
+        if (loginHint) loginHint.style.display = currentAuthUserId ? 'none' : 'block';
     }
 
     async function loadSafetySpots() {
