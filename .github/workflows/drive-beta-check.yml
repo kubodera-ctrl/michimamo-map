@@ -20,6 +20,7 @@ on:
       - "scripts/drive_oita_schedule_parser.mjs"
       - "scripts/drive_aomori_speed_parser.mjs"
       - "scripts/drive_parser_trace.mjs"
+      - "scripts/drive_premium_entitlement.mjs"
       - "scripts/build_drive_preview_snapshot.mjs"
       - "scripts/build_drive_public_schedule_snapshot.mjs"
       - "tests/drive_beta.test.cjs"
@@ -32,7 +33,9 @@ on:
       - "tests/drive_national_parser_matrix.test.mjs"
       - "tests/drive_oita_pipeline.test.mjs"
       - "tests/drive_aomori_pipeline.test.mjs"
+      - "tests/drive_premium_entitlement.test.mjs"
       - "evidence/machidora5/**"
+      - "evidence/machidora6/**"
       - "tests/drive_chiba_pipeline.test.mjs"
       - "tests/drive_kanagawa_pipeline.test.mjs"
       - "tests/drive_saitama_pipeline.test.mjs"
@@ -78,6 +81,8 @@ jobs:
         run: node tests/drive_aomori_pipeline.test.mjs
       - name: Nationwide representative parser contracts
         run: node tests/drive_national_parser_matrix.test.mjs
+      - name: DRIVE Premium entitlement fail-closed contract
+        run: node tests/drive_premium_entitlement.test.mjs
       - name: Verify generated DRIVE preview snapshot
         run: node scripts/build_drive_preview_snapshot.mjs --check
       - name: Verify generated DRIVE public schedule snapshot

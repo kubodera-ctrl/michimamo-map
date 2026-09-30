@@ -106,6 +106,18 @@ Feature key: `police_official_info`.
 Police official information is returned only by an authenticated server-side entitlement-checked RPC.
 Free clients cannot retrieve the same premium geometry/time payload from a hidden endpoint.
 
+Non-Production entitlement contract:
+- authenticated identity must come from verified server-side auth context; client flags never grant access;
+- grants are matched by user + feature key and must be ACTIVE and unexpired;
+- Production accepts only server-owned grant records;
+- TEST_GRANT is allowed only when explicitly enabled in non-Production and is rejected in Production;
+- unknown feature/status/source, missing auth, missing grant and expired grant all fail closed;
+- Store Billing connection state never grants Premium by itself;
+- while Store Billing is disconnected, locked UI remains fail-closed and Premium data is not requested.
+
+The executable contract lives in `scripts/drive_premium_entitlement.mjs` with `tests/drive_premium_entitlement.test.mjs`.
+It is a Preview/test boundary only and does not authorize a Production migration or real billing.
+
 ## Nationwide audit status (2026-09-30)
 - Official speed-enforcement guideline Source: 47/47 prefectures.
 - Dynamic/future Source found: 35/47.
