@@ -2117,7 +2117,7 @@
 
         const rankingArea = document.getElementById('nationalRankingArea');
         rankingArea.innerHTML = sampleMode
-            ? '<div class="ranking-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>β参考表示</strong>：実ユーザーが6人未満のためサンプルを併記しています。<strong>サンプルは実利用者・実績ではありません。</strong></div>'
+            ? '<div class="ranking-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>β参考表示</strong>：利用初期の参考値を表示しています。<strong>実利用者・実績とは別の参考表示です。</strong></div>'
             : '';
 
         if (!displayUsers.length) {
@@ -2135,10 +2135,7 @@
             else medal = `<span style="display:inline-block;width:45px;text-align:center;font-size:.9rem;color:#6b7280;">${idx+1}位</span>`;
 
             const bg = !u.isSample && u.id === myUserId ? 'background:#eff6ff;' : '';
-            const sampleBadge = u.isSample
-                ? '<span style="font-size:.58rem;font-weight:900;color:#9a3412;background:#ffedd5;border-radius:999px;padding:2px 5px;margin-left:5px;">サンプル</span>'
-                : '';
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}${sampleBadge}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
         });
 
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
@@ -2179,7 +2176,7 @@
 
         const areaArea = document.getElementById('areaRankingArea');
         areaArea.innerHTML = sampleMode
-            ? `<div class="area-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>参考サンプル</strong>：先月の実集計が${totalRealCount}件のため表示例を掲載しています。<strong>下記件数は実績ではありません。</strong></div>`
+            ? `<div class="area-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>参考表示</strong>：先月の実集計が${totalRealCount}件のため参考値を掲載しています。<strong>下記件数は実績ではありません。</strong></div>`
             : '';
 
         if (!sortedAreas.length) {
@@ -2190,10 +2187,7 @@
         sortedAreas.slice(0,10).forEach((a,idx) => {
             let rankColor = "#6b7280";
             if (idx===0) rankColor="#ef4444"; else if(idx===1) rankColor="#f97316"; else if(idx===2) rankColor="#eab308";
-            const sampleBadge = sampleMode
-                ? '<span style="font-size:.58rem;font-weight:900;color:#9a3412;background:#ffedd5;border-radius:999px;padding:2px 5px;margin-left:5px;">サンプル</span>'
-                : '';
-            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor};width:30px;display:inline-block;">${idx+1}位</span> ${escapeHtml(a.name)}${sampleBadge}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
+            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor};width:30px;display:inline-block;">${idx+1}位</span> ${escapeHtml(a.name)}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
         });
     }
 
