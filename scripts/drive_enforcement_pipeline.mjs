@@ -34,6 +34,29 @@ export function sourceHash(bundle){
   return crypto.createHash('sha256').update(JSON.stringify(bundle)).digest('hex');
 }
 
+export function expandRawRecord(raw){
+  const segments=Array.isArray(raw?.segments)?raw.segments:[];
+  if(!segments.length)return Object.freeze([raw]);
+  if(raw.speedLimitText||raw.segmentStartText||raw.segmentEndText){
+    throw new Error('segmented_parent_must_not_define_geometry:'+raw.externalId);
+  }
+  const ids=new Set();
+  const expanded=segments.map((segment,index)=>{
+    const externalId=text(segment?.externalId);
+    if(!externalId||ids.has(externalId))throw new Error('invalid_segment_identity:'+raw.externalId);
+    ids.add(externalId);
+    return Object.freeze({
+      ...raw,
+      ...segment,
+      externalId,
+      sourceRecordKey:text(raw.sourceRecordKey)||raw.externalId,
+      sourceSubrecordKey:text(segment.sourceSubrecordKey)||String(index+1),
+      segments:undefined
+    });
+  });
+  return Object.freeze(expanded);
+}
+
 export function normalizeRecord(source,raw,endpoints={}){
   const routeName=text(raw.routeName),start=text(raw.segmentStartText),end=text(raw.segmentEndText),area=text(raw.areaText);
   if(!raw.externalId||!routeName)throw new Error('missing_identity');
@@ -46,6 +69,10 @@ export function normalizeRecord(source,raw,endpoints={}){
   if(timeEnd<=timeStart&&timeEnd!==1440)throw new Error('invalid_time_window');
   const speed=parseSpeed(raw.speedLimitText);
   const pair=endpoints[raw.externalId];
+  const endpointVerified=pair?.endpointVerification?.status==='CROSS_CHECKED';
+  const routeMatchTokens=Array.isArray(pair?.routeMatchTokens)
+    ?Object.freeze(pair.routeMatchTokens.map(text).filter(Boolean))
+    :Object.freeze([]);
   const geoPrecision=start&&end?'EXACT_SEGMENT':'ROAD_AREA';
   const displayMode=geoPrecision==='EXACT_SEGMENT'?'EXACT_SEGMENT_TIMED':'ROAD_AREA_TIMED';
 
@@ -78,9 +105,12 @@ export function normalizeRecord(source,raw,endpoints={}){
     freshnessStatus:source.freshnessStatus,
     scheduleChangeNote:'実際の取締実施中を示すものではありません。',
     routeEndpoints:pair?Object.freeze([pair.start,pair.end]):null,
-    geometryStatus:pair?'ENDPOINTS_CANDIDATE':'UNRESOLVED',
+    endpointVerified,
+    routeMatchTokens,
+    geometryStatus:pair?(endpointVerified?'ENDPOINTS_CROSSCHECKED':'ENDPOINTS_CANDIDATE'):'UNRESOLVED',
     geometryVerified:false,
     sourceRecordKey:text(raw.sourceRecordKey)||raw.externalId,
+    sourceSubrecordKey:text(raw.sourceSubrecordKey)||null,
     note:text(raw.note)||null
   });
 }
@@ -107,7 +137,9 @@ export function buildSnapshot(bundle,{mode='preview'}={}){
       events:Object.freeze([])
     });
   }
-  const events=bundle.records.map(row=>normalizeRecord(bundle.source,row,bundle.geometryCandidates||{}));
+  const events=bundle.records.flatMap(row=>
+    expandRawRecord(row).map(expanded=>normalizeRecord(bundle.source,expanded,bundle.geometryCandidates||{}))
+  );
   const keys=new Set();
   for(const event of events){
     if(keys.has(event.eventKey))throw new Error('duplicate_event:'+event.eventKey);
@@ -149,8 +181,12 @@ export function buildPublicPreviewSnapshot(bundle){
     timePrecision:event.timePrecision,
     displayMode:event.displayMode,
     routeEndpoints:event.routeEndpoints,
+    endpointVerified:event.endpointVerified,
+    routeMatchTokens:event.routeMatchTokens,
     geometryStatus:event.geometryStatus,
     geometryVerified:event.geometryVerified,
+    sourceRecordKey:event.sourceRecordKey,
+    sourceSubrecordKey:event.sourceSubrecordKey,
     scheduleChangeNote:event.scheduleChangeNote
   }));
   return Object.freeze({
@@ -162,6 +198,7 @@ export function buildPublicPreviewSnapshot(bundle){
     sourceVerifiedAt:bundle.source.verifiedAt,
     sourceHash:snapshot.sourceHash,
     freshnessStatus:bundle.source.freshnessStatus,
+    sourceRecordCount:bundle.records.length,
     events:Object.freeze(events)
   });
 }
