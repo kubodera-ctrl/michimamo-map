@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildSnapshot,parseClock,parseSpeed,normalizeRecord,publicationGate} from '../scripts/drive_enforcement_pipeline.mjs';
+import {buildSnapshot,buildPublicPreviewSnapshot,parseClock,parseSpeed,normalizeRecord,publicationGate} from '../scripts/drive_enforcement_pipeline.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'..');
@@ -16,6 +16,12 @@ assert.deepEqual(parseSpeed('50（東京ゲートブリッジ上60）'),{
 });
 
 const snapshot=buildSnapshot(bundle,{mode:'preview'});
+const publicSnapshot=buildPublicPreviewSnapshot(bundle);
+const committedPublicSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-wangan-preview-v1.json'),'utf8'));
+assert.deepEqual(committedPublicSnapshot,publicSnapshot,'committed browser snapshot must exactly match normalized Source output');
+assert.equal(Object.hasOwn(committedPublicSnapshot,'records'),false);
+assert.equal(JSON.stringify(committedPublicSnapshot).includes('parserVersion'),false);
+assert.equal(JSON.stringify(committedPublicSnapshot).includes('termsStatus'),false);
 assert.equal(snapshot.events.length,9,'current official Tokyo Wangan PDF contains nine focus routes');
 assert.match(snapshot.sourceHash,/^[0-9a-f]{64}$/);
 assert.equal(snapshot.events.every(e=>e.freshnessStatus==='CURRENT'),true);
