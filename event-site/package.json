@@ -14,7 +14,8 @@
     "source:dry-run": "tsx scripts/machiibe-source-dry-run.ts",
     "source:resolve-resource": "tsx scripts/machiibe-source-resolve-resource.ts",
     "source:discover-bodik-events": "tsx scripts/machiibe-ckan-discover-events.ts",
-    "source:dry-run-cross-dedupe": "tsx scripts/machiibe-ready-cross-dedupe-dry-run.ts"
+    "source:dry-run-cross-dedupe": "tsx scripts/machiibe-ready-cross-dedupe-dry-run.ts",
+    "source:probe-tokyo-event-api": "tsx scripts/machiibe-tokyo-event-api-probe.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
