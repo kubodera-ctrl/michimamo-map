@@ -36,7 +36,8 @@ assert.ok(Array.isArray(kan2.routeEndpoints)&&kan2.routeEndpoints.length===2);
 assert.ok(Array.isArray(r357.routeEndpoints)&&r357.routeEndpoints.length===2);
 assert.equal(current.filter(z=>Array.isArray(z.routeEndpoints)).length,2,'only geometry candidates may route in beta');
 assert.equal(current.every(z=>z.freshnessStatus==='CURRENT'),true);
-assert.equal(current.some(z=>/青海縦貫/.test(z.route)),true);\nassert.equal(current.some(z=>/東京湾岸アンダー/.test(z.route)),true);
+assert.equal(current.some(z=>/青海縦貫/.test(z.route)),true);
+assert.equal(current.some(z=>/東京湾岸アンダー/.test(z.route)),true);
 
 const stale=structuredClone(snapshot);
 stale.freshnessStatus='STALE';
