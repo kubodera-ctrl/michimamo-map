@@ -11,11 +11,13 @@ on:
       - "scripts/drive_enforcement_pipeline.mjs"
       - "scripts/drive_source_fetch.mjs"
       - "scripts/drive_public_schedule_pipeline.mjs"
+      - "scripts/drive_poll_scheduler.mjs"
       - "scripts/build_drive_preview_snapshot.mjs"
       - "tests/drive_beta.test.cjs"
       - "tests/drive_enforcement_pipeline.test.mjs"
       - "tests/drive_source_fetch.test.mjs"
       - "tests/drive_public_schedule_pipeline.test.mjs"
+      - "tests/drive_poll_scheduler.test.mjs"
       - "tests/drive_chiba_pipeline.test.mjs"
       - "package.json"
       - ".github/workflows/drive-beta-check.yml"
@@ -43,6 +45,8 @@ jobs:
         run: node tests/drive_public_schedule_pipeline.test.mjs
       - name: Chiba speed-guideline area/multi-window contract
         run: node tests/drive_chiba_pipeline.test.mjs
+      - name: Per-source polling scheduler contract
+        run: node tests/drive_poll_scheduler.test.mjs
       - name: Verify generated DRIVE preview snapshot
         run: node scripts/build_drive_preview_snapshot.mjs --check
       - name: DRIVE beta map contract
