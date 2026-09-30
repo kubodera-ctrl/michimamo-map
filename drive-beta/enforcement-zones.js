@@ -65,6 +65,46 @@
     });
   }
 
+  function normalizeSnapshot(snapshot){
+    if(!snapshot||!Array.isArray(snapshot.events))throw new Error('invalid_snapshot');
+    if(snapshot.freshnessStatus!=='CURRENT')return [];
+    const seen=new Set();
+    return snapshot.events.map(event=>{
+      if(!event.id||seen.has(event.id))throw new Error('duplicate_or_missing_event');
+      seen.add(event.id);
+      if(event.geoPrecision!=='EXACT_SEGMENT'||event.timePrecision!=='EXACT_TIME')throw new Error('unsupported_preview_precision');
+      const startMinute=Number(event.timeStartMinutes),endMinute=Number(event.timeEndMinutes);
+      if(!Number.isInteger(startMinute)||!Number.isInteger(endMinute)||startMinute<0||endMinute>1440||endMinute<=startMinute)throw new Error('invalid_snapshot_time');
+      return Object.freeze({
+        id:event.id,
+        route:clean(event.routeName),
+        focusType:event.focusType,
+        speedKmh:Number(event.speedLimitKmh),
+        speedLimitText:clean(event.speedLimitText),
+        alternateSpeedKmh:Object.freeze([...(event.alternateSpeedKmh||[])]),
+        startLabel:clean(event.segmentStartText),
+        endLabel:clean(event.segmentEndText),
+        startMinute,
+        endMinute,
+        roadScope:'SEGMENT',
+        geoPrecision:event.geoPrecision,
+        displayMode:event.displayMode,
+        routeEndpoints:Array.isArray(event.routeEndpoints)?Object.freeze(event.routeEndpoints.map(point=>Object.freeze([...point]))):null,
+        geometryQuality:Array.isArray(event.routeEndpoints)?'road_routed_beta_candidate':null,
+        geometryStatus:event.geometryStatus,
+        geometryVerified:event.geometryVerified===true,
+        agency:event.agency,
+        policeStation:event.policeStation,
+        sourceVerifiedAt:event.sourceVerifiedAt,
+        sourceIndex:snapshot.sourceIndexUrl,
+        sourcePdf:event.sourceUrl||snapshot.sourceUrl,
+        parserVersion:null,
+        freshnessStatus:event.freshnessStatus,
+        note:null
+      });
+    });
+  }
+
   function minutesInTokyo(date=new Date()){
     const parts=new Intl.DateTimeFormat('en-GB',{
       timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hour12:false
@@ -129,7 +169,7 @@
   }
 
   return Object.freeze({
-    clean,parseClock,parseSpeed,normalizeBundle,
+    clean,parseClock,parseSpeed,normalizeBundle,normalizeSnapshot,
     minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,
     distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
   });
