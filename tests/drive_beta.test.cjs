@@ -149,7 +149,7 @@ assert.match(app,/route_signature_mismatch/);
 assert.match(app,/endpointVerified/);
 assert.match(app,/resolvedGeometries/);
 assert.match(app,/\/drive-beta\/data\/tokyo-wangan-preview-v1\.json/);
-assert.match(app,/\/drive-beta\/data\/tokyo-public-enforcement-2026-09-preview-v1\.json/);
+assert.match(app,/\/drive-beta\/data\/tokyo-public-enforcement-2026-10-preview-v1\.json/);
 assert.match(app,/loadPublicSchedule/);
 assert.match(app,/現在の取締実施を示すリアルタイム情報ではありません/);
 assert.doesNotMatch(app,/\/data\/drive\/tokyo-wangan-source-v1\.json/);
