@@ -36,3 +36,22 @@ export function inferReservationSnapshot(text:string):Pick<ReservationSnapshot,'
   else if(/受付開始|予約開始/.test(value))state='upcoming';
   return {mode,state};
 }
+
+function parsedTime(value:string|null){
+  if(!value)return null;
+  const parsed=Date.parse(value);
+  return Number.isFinite(parsed)?parsed:null;
+}
+
+export function reservationStateForDisplay(
+  snapshot:ReservationSnapshot,
+  nowIso:string,
+  maxAgeHours=24
+):ReservationState{
+  if(snapshot.state==='unknown')return 'unknown';
+  if(!snapshot.checkedAt||!snapshot.stateUpdatedAt||!snapshot.sourceUrl)return 'unknown';
+  const checked=parsedTime(snapshot.checkedAt),now=parsedTime(nowIso);
+  if(checked===null||now===null||now<checked)return 'unknown';
+  if(now-checked>maxAgeHours*60*60*1000)return 'unknown';
+  return snapshot.state;
+}
