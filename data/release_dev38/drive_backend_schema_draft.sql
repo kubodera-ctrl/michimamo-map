@@ -1,0 +1,32 @@
+-- まちまも DRIVE backend schema DRAFT
+-- DESIGN ONLY. Do not apply as a Production migration.
+
+-- Existing machimamo precedent:
+-- * AED foundation tracks source -> batch -> source record -> field provenance.
+-- * accident_hotspots exposes viewport data through a scoped RPC.
+-- DRIVE keeps those ideas but places ingestion internals in app_private.
+
+-- Proposed entities (field-level canonical list lives in Google Drive Source Registry):
+--
+-- app_private.enforcement_sources
+-- app_private.enforcement_fetch_runs
+-- app_private.enforcement_source_versions
+-- app_private.enforcement_source_records
+-- app_private.enforcement_events
+-- app_private.enforcement_field_provenance
+-- public.drive_road_geometries
+-- public.drive_enforcement_public_snapshot
+--
+-- Security principles:
+-- 1. app_private objects are service-role/admin only.
+-- 2. Do not solve permission failures by exposing raw tables.
+-- 3. Public/free and Premium clients use separate narrow RPC contracts.
+-- 4. SECURITY DEFINER, if truly required, stays private and validates the caller/entitlement.
+-- 5. Snapshot publication is fail-closed on terms, freshness and validation.
+--
+-- Scheduler principles:
+-- due Sources are claimed by next_check_at; conditional GET/hash avoids unnecessary
+-- parsing; Source version rows are written only when content actually changes.
+--
+-- This draft intentionally contains no CREATE/ALTER statements so it cannot be
+-- mistaken for an approved migration.
