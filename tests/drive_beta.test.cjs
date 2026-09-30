@@ -16,9 +16,10 @@ assert.deepEqual(current.map(x=>x.id),fromSource.map(x=>x.id),'public snapshot I
 const kan2=current.find(z=>z.id==='wangan-kan2');
 const r357=current.find(z=>z.id==='wangan-r357');
 const miyako=current.find(z=>z.id==='wangan-miyako');
+const meiji=current.find(z=>z.id==='wangan-meiji');
 const rinko50=current.find(z=>z.id==='wangan-rinko-keihin-chuboh');
 const rinko60=current.find(z=>z.id==='wangan-rinko-chuboh-shinkiba');
-assert.ok(kan2&&r357&&miyako&&rinko50&&rinko60);
+assert.ok(kan2&&r357&&meiji&&miyako&&rinko50&&rinko60);
 assert.equal(zones.isMinuteInWindow(20*60+30,kan2.startMinute,kan2.endMinute),true);
 assert.equal(zones.isMinuteInWindow(19*60+59,kan2.startMinute,kan2.endMinute),false);
 assert.equal(zones.formatWindow(kan2),'20:00〜24:00');
@@ -42,9 +43,18 @@ assert.equal(kan2.endpointVerified,true);
 assert.equal(kan2.geometryVerified,false);
 assert.equal(r357.endpointVerified,true);
 assert.equal(r357.geometryVerified,false);
+assert.equal(meiji.endpointVerified,true);
+assert.equal(meiji.geometryVerified,false);
+assert.equal(rinko50.endpointVerified,true);
+assert.equal(rinko50.geometryVerified,false);
+assert.equal(rinko60.endpointVerified,false);
+assert.equal(rinko60.geometryVerified,false);
 assert.ok(Array.isArray(kan2.routeEndpoints)&&kan2.routeEndpoints.length===2);
 assert.ok(Array.isArray(r357.routeEndpoints)&&r357.routeEndpoints.length===2);
-assert.equal(current.filter(z=>Array.isArray(z.routeEndpoints)).length,2,'only geometry candidates may route in beta');
+assert.ok(Array.isArray(meiji.routeEndpoints)&&meiji.routeEndpoints.length===2);
+assert.ok(Array.isArray(rinko50.routeEndpoints)&&rinko50.routeEndpoints.length===2);
+assert.equal(rinko60.routeEndpoints,null);
+assert.equal(current.filter(z=>Array.isArray(z.routeEndpoints)).length,4,'only cross-checked geometry candidates may route in beta');
 assert.equal(current.every(z=>z.freshnessStatus==='CURRENT'),true);
 assert.equal(current.some(z=>/青海縦貫/.test(z.route)),true);
 assert.equal(current.some(z=>/東京湾岸アンダー/.test(z.route)),true);
@@ -63,6 +73,10 @@ const osrm357={routes:[{legs:[{steps:[
 const osrmWrong={routes:[{legs:[{steps:[{name:'首都高速湾岸線',ref:'B'}]}]}]};
 assert.equal(zones.routeMatchesExpected(osrm357,r357.routeMatchTokens),true,'R357 road signature must match');
 assert.equal(zones.routeMatchesExpected(osrmWrong,r357.routeMatchTokens),false,'unrelated road route must fail closed');
+const osrmMeiji={routes:[{legs:[{steps:[{name:'明治通り',ref:'東京都道306号'}]}]}]};
+const osrmRinko={routes:[{legs:[{steps:[{name:'東京港臨海道路',ref:''}]}]}]};
+assert.equal(zones.routeMatchesExpected(osrmMeiji,meiji.routeMatchTokens),true,'Meiji-dori road signature must match');
+assert.equal(zones.routeMatchesExpected(osrmRinko,rinko50.routeMatchTokens),true,'Tokyo Port Rinkai Road signature must match');
 assert.equal(zones.routeMatchesExpected({routes:[]},kan2.routeMatchTokens),false,'missing OSRM steps must fail closed');
 
 for(const zone of current){
