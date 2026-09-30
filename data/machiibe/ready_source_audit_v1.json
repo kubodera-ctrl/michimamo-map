@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v10",
+  "version": "2026-09-30-ready-audit-v11",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -319,6 +319,33 @@
         "resource_modified": "2026-08-26T02:43:50.788245",
         "live_discovery_run": 779,
         "note": "metadata更新は新しいがresource自体が2024年度イベント。2026現行カレンダーと一致しないためfreshness FAIL。READYへ上げない。"
+      }
+    },
+    {
+      "source_key": "tokyo-metropolitan-event-api",
+      "prefecture": "東京都",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "schema_mapping",
+        "freshness"
+      ],
+      "evidence": {
+        "official_api": "https://api.data.metro.tokyo.lg.jp/v1/Event",
+        "official_api_catalog": "https://portal.data.metro.tokyo.lg.jp/opendata-api/",
+        "official_terms": "https://portal.data.metro.tokyo.lg.jp/terms/",
+        "license": "CC BY 4.0 by default unless individual rule applies",
+        "auth": "none / public GET API",
+        "probe_run": 813,
+        "probe_http_status": 200,
+        "note": "公開APIへのGETは成功。レスポンスが[rows,meta]型で、初回sampleに2019年イベントが含まれたため、100件date range/meta.updatedを再probeしてfreshnessを確認するまでREADYにしない。参照URLにはhttp/https混在の可能性があるためofficialUrl gateも別確認。"
       }
     }
   ]
