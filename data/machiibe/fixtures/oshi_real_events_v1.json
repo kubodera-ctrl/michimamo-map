@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-29-oshi-real-events-v1",
+  "version": "2026-09-30-oshi-real-events-v2",
   "status": "fixture_only_verified_from_official_pages",
-  "checked_at": "2026-09-29",
+  "checked_at": "2026-09-30",
   "rules": {
     "entity_relation_requires_official_evidence": true,
     "no_auto_inference_from_alias_only": true,
@@ -109,6 +109,114 @@
       "reservation": {
         "mode": "unknown",
         "state": "unknown"
+      }
+    },
+    {
+      "id": "lalaport-fukuoka-jujutsu-5th-2026",
+      "title": "アニメ『呪術廻戦』5周年記念！ららぽーと・ラゾーナコラボキャンペーン",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/fukuoka/event/3612399.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-29",
+      "ends_on": "2026-10-14",
+      "venue_name": "ららぽーと福岡",
+      "prefecture": "福岡県",
+      "classification_text": "アニメ『呪術廻戦』5周年記念。特休任務スペシャルPOPUP STOREを期間限定開催。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "呪術廻戦",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "open",
+        "checked_at": "2026-09-30",
+        "source_url": "https://mitsui-shopping-park.com/lalaport/fukuoka/event/3612399.html"
+      }
+    },
+    {
+      "id": "lalaport-numazu-pokemon-card-store-2026",
+      "title": "ポケモンカードストア in ららぽーと沼津",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/numazu/event/3530335.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-16",
+      "ends_on": "2026-10-04",
+      "venue_name": "ららぽーと沼津 1F ひかりの広場",
+      "prefecture": "静岡県",
+      "classification_text": "ポケモンカードストア in ららぽーと沼津。ポケモンカードゲーム・ポケモンセンターオリジナル商品を販売。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "ポケモンカードゲーム",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "lottery",
+        "state": "closed",
+        "checked_at": "2026-09-30",
+        "source_url": "https://mitsui-shopping-park.com/lalaport/numazu/event/3530335.html"
+      }
+    },
+    {
+      "id": "ario-hashimoto-genjibu-love-reason-2026",
+      "title": "原因は自分にある。5thシングル「ラブリーズン」リリースイベント",
+      "source_url": "https://hashimoto.ario.jp/event/2400015142/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-03",
+      "ends_on": "2026-10-03",
+      "venue_name": "アリオ橋本 1F屋外イベント広場",
+      "prefecture": "神奈川県",
+      "classification_text": "原因は自分にある。トークライブ＆特典会。個別ジャケットカードお渡し会。",
+      "expected_event_types": [
+        "live",
+        "handover"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "原因は自分にある。",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "lottery",
+        "state": "closed",
+        "checked_at": "2026-09-30",
+        "source_url": "https://hashimoto.ario.jp/event/2400015142/"
+      }
+    },
+    {
+      "id": "ario-hashimoto-tokusatsu-boyz-2026",
+      "title": "特撮Boyzフリーライブ開催!!",
+      "source_url": "https://hashimoto.ario.jp/event/2400015381/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-11",
+      "ends_on": "2026-10-11",
+      "venue_name": "アリオ橋本 屋外イベント広場",
+      "prefecture": "神奈川県",
+      "classification_text": "特撮Boyz フリーライブ。チェキ・スマホ撮影会。",
+      "expected_event_types": [
+        "live",
+        "photo_session"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "特撮Boyz",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "same_day",
+        "state": "upcoming",
+        "checked_at": "2026-09-30",
+        "source_url": "https://hashimoto.ario.jp/event/2400015381/"
       }
     }
   ]
