@@ -13,7 +13,10 @@
     "freshnessStatus": "CURRENT",
     "termsStatus": "PENDING",
     "cadenceType": "ANNUAL_CHANGE_DETECT",
-    "parserVersion": "tokyo_wangan_official_table_v3"
+    "parserVersion": "tokyo_wangan_official_table_v3",
+    "allowedHosts": [
+      "www.keishicho.metro.tokyo.lg.jp"
+    ]
   },
   "records": [
     {
