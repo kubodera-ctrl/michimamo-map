@@ -10,6 +10,41 @@ export function validateSourceConfig(source){
   return url;
 }
 
+
+export function resolveLinkedSourceUrl(source,indexHtml,{linkText}={}){
+  validateSourceConfig(source);
+  if(typeof source.sourceIndexUrl!=='string'||!source.sourceIndexUrl)throw new Error('source_index_url_required');
+  const indexUrl=new URL(source.sourceIndexUrl);
+  if(indexUrl.protocol!=='https:')throw new Error('source_index_https_required');
+  const hosts=Array.isArray(source.allowedHosts)?source.allowedHosts:[];
+  if(!hosts.includes(indexUrl.hostname))throw new Error('source_index_host_not_allowed');
+  const html=String(indexHtml??'');
+  if(!html)throw new Error('source_index_empty');
+
+  const anchors=[...html.matchAll(/<a\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi)]
+    .map(m=>({
+      href:m[2],
+      label:m[3].replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim()
+    }));
+  const targetLabel=String(linkText||source.stationName||'').normalize('NFKC').replace(/\s+/g,'').trim();
+  if(!targetLabel)throw new Error('source_link_text_required');
+
+  const matches=anchors.filter(a=>a.label.normalize('NFKC').replace(/\s+/g,'').includes(targetLabel));
+  if(matches.length!==1)throw new Error(matches.length?'source_index_link_ambiguous':'source_index_link_not_found');
+
+  const resolved=new URL(matches[0].href,indexUrl);
+  if(resolved.protocol!=='https:')throw new Error('resolved_source_https_required');
+  if(!hosts.includes(resolved.hostname))throw new Error('resolved_source_host_not_allowed');
+  return resolved.toString();
+}
+
+export function validateResolvedSourceUrl(source,resolvedUrl){
+  const configured=validateSourceConfig(source).toString();
+  const resolved=new URL(resolvedUrl).toString();
+  if(configured!==resolved)throw new Error('configured_source_not_current_index_link');
+  return true;
+}
+
 function getHeader(headers,name){
   if(!headers)return null;
   if(typeof headers.get==='function')return headers.get(name);
