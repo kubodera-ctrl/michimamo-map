@@ -16,18 +16,19 @@ assert.deepEqual(parseSpeed('50（東京ゲートブリッジ上60）'),{
 });
 
 const snapshot=buildSnapshot(bundle,{mode:'preview'});
-assert.equal(snapshot.events.length,7,'current official Tokyo Wangan PDF contains seven focus routes');
+assert.equal(snapshot.events.length,9,'current official Tokyo Wangan PDF contains nine focus routes');
 assert.match(snapshot.sourceHash,/^[0-9a-f]{64}$/);
 assert.equal(snapshot.events.every(e=>e.freshnessStatus==='CURRENT'),true);
 assert.equal(snapshot.events.every(e=>e.infoType==='SPEED_FOCUS'),true);
 assert.equal(snapshot.events.every(e=>e.scheduleChangeNote.includes('実際の取締実施中を示すものではありません')),true);
 assert.deepEqual(snapshot.events.map(e=>e.routeName),[
-  '国道357号','晴海通り','明治通り','三ツ目通り','環二通り','臨港道路','都橋通り'
+  '国道357号','晴海通り','明治通り','三ツ目通り','環二通り','臨港道路',
+  '臨港道路(青海縦貫線)','臨港道路(東京湾岸アンダー線)','都橋通り'
 ]);
 
 const r357=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-r357'));
 assert.equal(r357.timeStartMinutes,360);
-assert.equal(r357.timeEndMinutes,1440);
+assert.equal(r357.timeEndMinutes,1320);
 assert.equal(r357.speedLimitKmh,60);
 
 const kan2=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-kan2'));
@@ -43,15 +44,26 @@ assert.deepEqual(kan2.routeEndpoints,[[35.642054,139.787168],[35.6352293,139.792
 const rinko=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko'));
 assert.equal(rinko.speedLimitKmh,50);
 assert.deepEqual(rinko.alternateSpeedKmh,[60]);
-assert.equal(rinko.segmentStartText,'京浜大橋北交差点');
-assert.equal(rinko.segmentEndText,'中央防波堤交差点');
+assert.equal(rinko.segmentStartText,'京浜大橋北交差点(中央防波堤交差点)');
+assert.equal(rinko.segmentEndText,'中央防波堤交差点(新木場交差点)');
+
+const aomi=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-aomi'));
+assert.equal(aomi.focusType,'METROPOLITAN_AND_STATION_FOCUS');
+assert.equal(aomi.timeStartMinutes,1080);
+assert.equal(aomi.timeEndMinutes,1320);
+
+const under=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-under'));
+assert.equal(under.focusType,'METROPOLITAN_AND_STATION_FOCUS');
+assert.equal(under.timeStartMinutes,420);
+assert.equal(under.timeEndMinutes,660);
 
 const miyako=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-miyako'));
-assert.equal(miyako.segmentStartText,'東雲1丁目交差点');
-assert.equal(miyako.segmentEndText,'台場駅前交差点');
+assert.equal(miyako.segmentStartText,'港区台場1丁目9番先');
+assert.equal(miyako.segmentEndText,'東雲1丁目交差点');
 assert.equal(miyako.focusType,'STATION_FOCUS');
 
-assert.equal(snapshot.events.some(e=>/青海縦貫|東京湾岸アンダー/.test(e.routeName)),false,'old mixed-in rows must not reappear');
+assert.equal(bundle.source.sourceUrl.includes('/torishimari.files/tokyowangan.pdf'),true,'current PDF URL must be used');
+assert.equal(bundle.source.sourceUrl.includes('/sokudo_sisin/1/'),false,'legacy 7-route PDF URL must not be used');
 
 const prod=buildSnapshot(bundle,{mode:'production'});
 assert.equal(prod.events.length,0,'production publication must remain closed while terms are pending');
@@ -74,4 +86,4 @@ const multi=normalizeRecord(bundle.source,{
 assert.equal(multi.speedLimitKmh,70);
 assert.deepEqual(multi.alternateSpeedKmh,[80,100]);
 
-console.log('PASS: DRIVE official source -> normalized preview snapshot contract');
+console.log('PASS: current 9-route DRIVE official source -> normalized preview snapshot contract');
