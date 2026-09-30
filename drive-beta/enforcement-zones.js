@@ -199,7 +199,7 @@
   }
 
   function normalizeRoadToken(value){
-    return clean(value).toLowerCase().replace(/[^\\p{L}\\p{N}]+/gu,'');
+    return clean(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'');
   }
 
   function osrmRouteSignature(payload){
