@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v7",
+  "version": "2026-09-30-ready-audit-v8",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -170,30 +170,6 @@
       }
     },
     {
-      "source_key": "bodik-toyonaka-events",
-      "prefecture": "大阪府",
-      "decision": "HOLD_TERMS_REVIEWED",
-      "terms_allowed": true,
-      "robots_or_api_policy_clear": true,
-      "resource_resolved": true,
-      "commercial_allowed": true,
-      "reuse_allowed": true,
-      "attribution_known": true,
-      "freshness_acceptable": false,
-      "third_party_rights_separated": true,
-      "blockers": [
-        "freshness"
-      ],
-      "evidence": {
-        "dataset": "https://data.bodik.jp/dataset/272035_event",
-        "resource_page": "https://data.bodik.jp/dataset/272035_event/resource/b0a19f54-86b5-4083-bdea-17f7fa76487f",
-        "license": "CC BY 4.0",
-        "frequency": "1ヶ月に1回",
-        "last_observed_update": "2026-07-31",
-        "note": "月次更新想定に対し8月・9月更新を確認できないため、最新イベント供給sourceとしてはHOLD。"
-      }
-    },
-    {
       "source_key": "bodik-kumatori-events",
       "prefecture": "大阪府",
       "decision": "HOLD_PREFLIGHT",
@@ -247,6 +223,51 @@
         "resolved_modified_at": "2024-02-29T08:10:07.682Z",
         "resolved_age_days": 943.75,
         "ready_freshness_gate": false
+      }
+    },
+    {
+      "source_key": "bodik-kadoma-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "city_open_data": "https://www.city.kadoma.osaka.jp/soshiki/kikakuzaisei/ict/2/5/opendata.html",
+        "dataset": "https://data.bodik.jp/dataset/ef30adaf-dda4-4549-9e58-c92b7983c9b3",
+        "csv": "https://data.bodik.jp/dataset/ef30adaf-dda4-4549-9e58-c92b7983c9b3/resource/23cfa9eb-181e-4d91-8f5f-50bdfdfec485/download/272230_event_202610.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-09-29T04:21:39.423619",
+        "note": "門真市公式がBODIK公開データをCC BY 4.0で提供。live CKAN #779で2026年10月イベントCSVを確認。event factsとmedia rightsは分離。"
+      }
+    },
+    {
+      "source_key": "bodik-toyonaka-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "city_open_data": "https://www.city.toyonaka.osaka.jp/joho/keikaku/degital_government/torikumi/open_data/index.html",
+        "terms": "https://www.city.toyonaka.osaka.jp/joho/keikaku/degital_government/torikumi/open_data/index.files/public_facility_opendata_agreement.pdf",
+        "dataset": "https://data.bodik.jp/dataset/4f4ac809-c36a-46a6-ad39-76e7e2bbf587",
+        "csv": "https://data.bodik.jp/dataset/4f4ac809-c36a-46a6-ad39-76e7e2bbf587/resource/b0a19f54-86b5-4083-bdea-17f7fa76487f/download/272035_event.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-09-03T00:05:10.819043",
+        "note": "豊中市公式規約は商用利用、複製・改変・頒布・公衆送信を許可しCC BY 4.0。第三者権利は別gate。live CKAN #779のfreshnessを優先。"
       }
     }
   ]
