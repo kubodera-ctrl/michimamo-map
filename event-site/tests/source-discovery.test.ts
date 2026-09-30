@@ -57,6 +57,9 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   assert.ok(registry.sources.some((row:any)=>row.source_key==='shizuoka-pref-events-open-data'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='miyagi-pref-events-dataeye'));
   assert.ok(registry.sources.some((row:any)=>row.source_key==='bodik-otsu-events'));
+  const kawasaki=registry.sources.find((row:any)=>row.source_key==='kawasaki-city-event-api');
+  assert.equal(kawasaki?.review_state,'TERMS_REVIEWED');
+  assert.equal(kawasaki?.automated_fetch_allowed,false);
   assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=23);
 });
 

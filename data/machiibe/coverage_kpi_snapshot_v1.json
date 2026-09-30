@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v14",
+  "version": "coverage-kpi-v15",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -7,7 +7,7 @@
     "concretePrefectureCoverage": 31,
     "inventoryOrDiscoveryCandidates": 97,
     "preflightOrBetter": 58,
-    "termsReviewedOrBetter": 24,
+    "termsReviewedOrBetter": 25,
     "ready": 5,
     "active": 0
   },
@@ -60,7 +60,7 @@
     "freshPreflightSourceKeys": [
       "hamamatsu-current-events-open-data"
     ],
-    "oshiEntityFixtures": 5,
+    "oshiEntityFixtures": 6,
     "oshiVerifiedEntityRelationships": 2,
     "oshiAliasFixtureQueries": [
       "シナモン",
@@ -73,12 +73,12 @@
     "bodikCandidateSnapshot": "data/machiibe/bodik_event_candidate_snapshot_v1.json",
     "kawasakiEventApi": {
       "sourceKey": "kawasaki-city-event-api",
-      "reviewState": "PREFLIGHT",
+      "reviewState": "TERMS_REVIEWED",
       "automatedFetchAllowed": false,
       "documentedTotalNumbers": 421,
       "documentedTotalPages": 5,
       "schemaFixture": "data/machiibe/fixtures/kawasaki_event_api_schema_fixture.json",
-      "note": "開発9のlive page 1確認値。全5page監査・current freshness・event-level URL品質未確定のためREADYへ昇格しない。"
+      "note": "公式APIガイド/利用規約をreviewしTERMS_REVIEWED。開発9のlive page 1 total_numbers=421 / total_pages=5はcurrent/future Valid件数に加算しない。全5page freshness・event-level URL品質・取得負荷未確定のためREADYへ昇格しない。"
     }
   },
   "blockerClasses": {

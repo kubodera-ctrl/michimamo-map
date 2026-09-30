@@ -71,6 +71,9 @@ test('verified oshi entity graph resolves aliases and only links known entity id
   assert.equal(entityMatchesQuery(genjibu,'ゲンジブ'),true);
   assert.equal(entityMatchesQuery(genjibu,'GNJB'),true);
 
+  const natsume=graph.entities.find((entity)=>entity.id==='work-natsume-yujincho')!;
+  assert.equal(entityMatchesQuery(natsume,'夏目友人帳'),true);
+
   for(const relation of graph.verifiedRelationships){
     assert.ok(ids.has(relation.childEntityId));
     assert.ok(ids.has(relation.parentEntityId));

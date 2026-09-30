@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-national-discovery-v8",
+  "version": "2026-09-30-national-discovery-v9",
   "status": "research_only_no_automated_fetch",
   "counts": {
     "existing_kanto_registry": 26,
@@ -9,7 +9,7 @@
     "total_inventory_or_discovery_candidates": 97,
     "concrete_prefecture_coverage_from_all_inventories": 31,
     "preflight_or_better": 58,
-    "terms_reviewed_or_better": 24,
+    "terms_reviewed_or_better": 25,
     "ready": 5,
     "active": 0
   },
@@ -1576,21 +1576,21 @@
       "base_url": "https://eventapp.city.kawasaki.jp/data/api/v1",
       "feed_url": "https://eventapp.city.kawasaki.jp/data/api/v1/events?page=1&format=JSON",
       "fetch_method": "JSON_API",
-      "terms_status": "pending",
-      "robots_status": "pending",
-      "commercial_use_status": "unknown",
-      "reuse_status": "unknown",
-      "redistribution_status": "unknown",
-      "cache_status": "unknown",
+      "terms_status": "reviewed_allowed",
+      "robots_status": "not_applicable",
+      "commercial_use_status": "allowed",
+      "reuse_status": "allowed",
+      "redistribution_status": "allowed_with_attribution",
+      "cache_status": "allowed_with_attribution",
       "image_use_status": "not_in_dataset",
       "sns_use_status": "factual_data_only",
-      "attribution_requirement": "公式ReferenceはCC BY 2.1 日本を明示。川崎市Open Data利用規約・取得条件の最終review後に確定",
+      "attribution_requirement": "川崎市イベント情報オープンデータ / CC BY 2.1 日本。改変有無に応じて川崎市利用規約所定のクレジットを表示",
       "automated_fetch_allowed": false,
       "priority": 100,
-      "review_state": "PREFLIGHT",
+      "review_state": "TERMS_REVIEWED",
       "yield_class": "high",
-      "observed_current_items_min": 421,
-      "observed_scope": "開発9でpage=1 live responseのtotal_numbers=421 / total_pages=5を確認。全5page集計・future/current/ended分布は未監査",
+      "observed_current_items_min": null,
+      "observed_scope": "開発9でpage=1 live responseのtotal_numbers=421 / total_pages=5を確認。421はcurrent/future Valid件数とは扱わず、全5page freshness監査完了までpotentialへ加算しない",
       "expected_update_frequency": "unknown",
       "region_coverage": "municipality",
       "category_breadth": "high",
@@ -1599,7 +1599,7 @@
       "terms_difficulty": "low",
       "maintenance_cost": "medium",
       "freshness_confidence": "unknown",
-      "notes": "公式Referenceはpage/from/to/place/type/target/area/title/barrier_free filter、最大100件/page、画像情報を返さない仕様。開発9でlive page 1をHTTP 200確認したが応答が遅く全5page連続取得は中断。schema adapter/fixture/testは開発10で追加。event factsとmedia rightsを分離し、open_urlだけをevent-level official URL候補として扱う。全件freshness・upd_date/open_url/location/status/barrier_free分布、規約/access/robots/automated fetch条件を確定するまでREADYへ上げない。"
+      "notes": "公式API利用ガイドは利用者側プログラムからHTTP GETを送信する利用方法とpage/from/to等の絞り込みを明示。公式Open Data利用規約は原則CC BY 2.1日本。terms/reuse条件はreview済みだが、開発9でlive page 1の応答遅延を観測し、全5page freshness・upd_date/open_url/location/status/barrier_free分布と取得負荷が未確定。schema adapter/fixture/testは開発10で追加済み。event factsとmedia rightsを分離し、open_urlだけをevent-level official URL候補として扱う。READY/automated fetchは引き続き禁止。"
     }
   ]
 }

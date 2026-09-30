@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-entity-graph-v1",
+  "version": "2026-09-30-oshi-entity-graph-v2",
   "status": "verified_fixture_only",
   "rules": {
     "no_auto_inference": true,
@@ -97,6 +97,20 @@
       ],
       "evidenceUrls": [
         "https://genjibu.jp/"
+      ]
+    },
+    {
+      "id": "work-natsume-yujincho",
+      "type": "work",
+      "canonicalName": "夏目友人帳",
+      "aliases": [],
+      "parentEntityIds": [],
+      "relatedEntityIds": [],
+      "officialUrls": [
+        "https://www.natsume-anime.jp/"
+      ],
+      "evidenceUrls": [
+        "https://www.natsume-anime.jp/"
       ]
     }
   ],
