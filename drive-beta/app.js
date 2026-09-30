@@ -40,7 +40,7 @@ function zonePopup(zone){
     '<div class="popup-status '+(active?'on':'off')+'">'+(active?'現在、重点時間帯':'重点時間帯外')+'</div>'+
     '<div class="popup-line">'+esc(zone.startLabel)+' 〜 '+esc(zone.endLabel)+'</div>'+
     '<div class="popup-line">重点時間 '+esc(zonesApi.formatWindow(zone))+' ／ 規制速度 '+esc(zone.speedKmh)+'km/h</div>'+
-    (routed?'<div class="popup-note">道路表示は実道路ルーティングに沿ったβ表示です。</div>':'')+
+    (routed?'<div class="popup-note">始終点を外部資料で照合し、実道路ルーティングへ追従させたQA前の候補線です。</div>':'')+
     '<div class="popup-note">警視庁が公表する速度取締重点路線・重点時間帯です。現在その場所で取締りを実施中であることを示すものではありません。</div>'+
     '<a class="popup-source" href="'+esc(zone.sourcePdf)+'" target="_blank" rel="noopener noreferrer">出典：警視庁 東京湾岸警察署速度取締指針</a>';
 }
@@ -71,15 +71,19 @@ function renderEnforcement(){
 }
 
 async function resolveRoadGeometry(zone){
-  if(!zone.routeEndpoints||zone.routeEndpoints.length!==2)return null;
+  if(!zone.endpointVerified||!zone.routeEndpoints||zone.routeEndpoints.length!==2)return null;
+  if(!Array.isArray(zone.routeMatchTokens)||!zone.routeMatchTokens.length)return null;
   const [[lat1,lng1],[lat2,lng2]]=zone.routeEndpoints;
   const url='https://router.project-osrm.org/route/v1/driving/'+
     encodeURIComponent(lng1+','+lat1+';'+lng2+','+lat2)+
-    '?overview=full&geometries=geojson&steps=false';
+    '?overview=full&geometries=geojson&steps=true';
   try{
     const response=await fetch(url,{headers:{Accept:'application/json'}});
     if(!response.ok)throw new Error('route_http_'+response.status);
     const payload=await response.json();
+    if(!zonesApi.routeMatchesExpected(payload,zone.routeMatchTokens)){
+      throw new Error('route_signature_mismatch');
+    }
     const coords=payload?.routes?.[0]?.geometry?.coordinates;
     if(!Array.isArray(coords)||coords.length<2)throw new Error('route_geometry_missing');
     return coords.map(([lng,lat])=>[lat,lng]);
@@ -90,7 +94,9 @@ async function resolveRoadGeometry(zone){
 }
 
 async function hydrateRoadGeometries(){
-  const routable=enforcementZones.filter(z=>Array.isArray(z.routeEndpoints));
+  const routable=enforcementZones.filter(z=>
+    z.endpointVerified===true&&Array.isArray(z.routeEndpoints)&&z.routeMatchTokens.length>0
+  );
   const results=await Promise.all(routable.map(async zone=>[zone.id,await resolveRoadGeometry(zone)]));
   for(const [id,geometry] of results){
     if(Array.isArray(geometry)&&geometry.length>1)resolvedGeometries.set(id,geometry);
@@ -108,7 +114,7 @@ function updateStatus(){
   enforcementToggle.classList.toggle('active-now',mappedActive.length>0);
   stateDot.classList.toggle('live',active.length>0);
   if(active.length){
-    statusTitle.textContent='現在、'+active.length+'路線が警視庁の重点時間帯';
+    statusTitle.textContent='現在、'+active.length+'重点区間が警視庁の重点時間帯';
     statusCopy.textContent=active.map(z=>z.route+' '+zonesApi.formatWindow(z)).join(' ／ ')+'。実施中の断定ではありません。';
   }else{
     statusTitle.textContent='現在、収録路線は重点時間帯外';
