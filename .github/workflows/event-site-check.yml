@@ -93,6 +93,10 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
         run: npm run source:dry-run -- bodik-toyonaka-events
+      - name: Live READY cross-source dedupe dry-run (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-cross-dedupe
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
