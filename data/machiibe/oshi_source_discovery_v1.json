@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-discovery-v3",
+  "version": "2026-09-30-oshi-discovery-v4",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -256,6 +256,35 @@
       "observed_current_items_min": 2,
       "family_relevance": "very_high",
       "notes": "公式施設ページで夏目友人帳 in Kumamoto、くまモンダンジョン等を確認。通常セール/カード/決済キャンペーンは除外し、個別公式detailを根拠に推し活fixtureへ昇格する。画像利用権は別gate。"
+    },
+    {
+      "source_key": "aeon-laketown-mori-oshi-events",
+      "source_name": "イオンレイクタウンmori エンタメ・キャラクターイベント",
+      "operator": "イオンレイクタウンmori",
+      "source_type": "official_facility_event",
+      "base_url": "https://www.aeon-laketown.jp/mori/event/cat_entertainment.html",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "live",
+        "character_show",
+        "workshop",
+        "experience"
+      ],
+      "entity_types": [
+        "group",
+        "talent",
+        "idol",
+        "character",
+        "work",
+        "franchise"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 4,
+      "family_relevance": "very_high",
+      "notes": "公式エンタメ一覧でCIRRA、サンリオキャラクター大賞ステージショー、書道パフォーマンス、クラシックライブを確認。施設公式detail/主催者公式detailをfixture根拠とし、規約/robots確認前はfetch不可。画像権利は別gate。"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-facility-instances-v3",
+  "version": "2026-09-30-facility-instances-v4",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -161,6 +161,32 @@
       ],
       "family_relevance": "very_high",
       "notes": "2026-09-30公式イベント一覧で全館イベントとして少なくとも15件を確認。夏目友人帳、くまモンダンジョン、体験・期間催事等を含む。ショップ販促・カード/決済キャンペーンはevent-like判定で除外し、規約/robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "aeon-laketown-mori-events",
+      "network_key": "aeon-mall-event-network",
+      "facility_name": "イオンレイクタウンmori",
+      "prefecture": "埼玉県",
+      "municipality": "越谷市",
+      "homepage_url": "https://www.aeon-laketown.jp/mori/",
+      "event_url": "https://www.aeon-laketown.jp/mori/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 5,
+      "event_categories": [
+        "character",
+        "music_live",
+        "family",
+        "workshop",
+        "experience",
+        "exhibition",
+        "seasonal",
+        "campaign"
+      ],
+      "family_relevance": "very_high",
+      "notes": "2026-09-30公式イベントニュースでCIRRA release event、サンリオキャラクター大賞ステージショー、書道パフォーマンス、クラシックライブ、親子/工作系等を直接確認。通常セール・ポイント・カード/決済キャンペーンはevent-like判定から除外。規約/robots確認前はfetch不可。"
     }
   ]
 }

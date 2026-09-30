@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-entity-graph-v2",
+  "version": "2026-09-30-oshi-entity-graph-v3",
   "status": "verified_fixture_only",
   "rules": {
     "no_auto_inference": true,
@@ -111,6 +111,22 @@
       ],
       "evidenceUrls": [
         "https://www.natsume-anime.jp/"
+      ]
+    },
+    {
+      "id": "group-cirra",
+      "type": "group",
+      "canonicalName": "CIRRA",
+      "aliases": [],
+      "parentEntityIds": [],
+      "relatedEntityIds": [],
+      "officialUrls": [
+        "https://www.ldh.co.jp/management/cirra/",
+        "https://www.cirra.jp/"
+      ],
+      "evidenceUrls": [
+        "https://www.ldh.co.jp/management/cirra/",
+        "https://www.ldh.co.jp/news/detail.php?lang=jpn&newsid=0000055515&site=Egirls"
       ]
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v15",
+  "version": "coverage-kpi-v16",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -26,7 +26,7 @@
       "valid": 1019,
       "publishable": 240,
       "active": 0,
-      "note": "Five READY source dry-runs plus cross-source dedup at Event Site Check #792.",
+      "note": "Five READY source dry-runs plus cross-source dedup revalidated at Event Site Check #848.",
       "crossSourceDedup": {
         "inputPublishable": 240,
         "autoMergePairs": 0,
@@ -34,14 +34,14 @@
         "clusters": 0,
         "uniqueAfterAutoMerge": 240,
         "duplicatesRemoved": 0,
-        "evidence": "Event Site Check #792 / data/machiibe/cross_source_dedup_snapshot_v1.json"
+        "evidence": "Event Site Check #848 / data/machiibe/cross_source_dedup_snapshot_v1.json"
       }
     },
-    "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #784; no DB or Active writes."
+    "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #848; no DB or Active writes."
   },
   "lanes": {
-    "facilitySourceInstances": 6,
-    "oshiSourceCandidates": 9,
+    "facilitySourceInstances": 7,
+    "oshiSourceCandidates": 10,
     "readySourceKeys": [
       "mie-pref-events-open-data",
       "bodik-okazaki-events",
@@ -49,7 +49,7 @@
       "bodik-kadoma-events",
       "bodik-toyonaka-events"
     ],
-    "oshiRealEventFixtures": 9,
+    "oshiRealEventFixtures": 10,
     "holdSourceKeys": [
       "tottori-pref-event-open-data",
       "shimane-pref-events-2026",
@@ -60,7 +60,7 @@
     "freshPreflightSourceKeys": [
       "hamamatsu-current-events-open-data"
     ],
-    "oshiEntityFixtures": 6,
+    "oshiEntityFixtures": 7,
     "oshiVerifiedEntityRelationships": 2,
     "oshiAliasFixtureQueries": [
       "シナモン",
@@ -86,14 +86,13 @@
       "PR #1 5P / 7P / 8P / Web QA and merge decision"
     ],
     "externalWait": [
-      "川崎市Event API: 全5page live監査・freshness/open_url/location/status/barrier_free分布と取得負荷の確認"
+      "川崎市Event API: date-scoped low-load live freshness監査の外部到達性・応答負荷・open_url/location/status/barrier_free品質確認"
     ],
     "selfResolvable": [
-      "川崎市Event API schema adapter/fixture/testの回帰確認とsource gate整理",
-      "expand weak prefecture depth with additional current official sources",
-      "increase facility-instance coverage beyond five pilots",
-      "expand verified oshi source/fixture coverage",
-      "persist live evidence and freshness monitoring without Production writes"
+      "expand weak prefecture depth with additional current official structured sources",
+      "increase facility-instance direct evidence beyond seven pilots",
+      "expand verified oshi source/fixture/entity coverage",
+      "apply freshness / cancel-change / reservation contracts to real source evidence without Production writes"
     ]
   },
   "weakPrefectureCoverage": {
@@ -102,8 +101,8 @@
     "singleSourcePrefectures": 25,
     "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
-    "noFacilityInstanceDirectEvidencePrefectures": 41,
-    "noVerifiedOshiFixturePrefectures": 40,
+    "noFacilityInstanceDirectEvidencePrefectures": 40,
+    "noVerifiedOshiFixturePrefectures": 39,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -137,7 +136,8 @@
       "静岡県",
       "大阪府",
       "東京都",
-      "熊本県"
+      "熊本県",
+      "埼玉県"
     ],
     "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists."
   }
