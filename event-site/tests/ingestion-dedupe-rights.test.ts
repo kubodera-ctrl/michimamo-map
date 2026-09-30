@@ -4,6 +4,7 @@ import {
   canCacheMedia,canUseMediaForSns,detectEventChanges,duplicateConfidence,duplicateReviewRequired,
   duplicateSignals,selectDisplayMedia,type MediaCandidate
 } from '../../shared/machiibe-ingestion/contracts';
+import {dedupeCrossSourceCandidates} from '../../shared/machiibe-ingestion/dedupe';
 
 const rights=(patch:any={})=>({
   displayAllowed:null,cacheAllowed:null,commercialAllowed:null,snsAllowed:null,
@@ -44,4 +45,31 @@ test('update/cancel dry-run uses source hash and emits auditable change kinds',(
   assert.ok(changed.kinds.includes('date_changed'));
   assert.ok(changed.kinds.includes('cancelled'));
   assert.ok(changed.fields.includes('status'));
+});
+
+
+test('cross-source batch dedupe auto-merges strong pairs and queues ambiguous pairs for review',()=>{
+  const strongA={candidateId:'a',sourceId:11,sourceEventId:'a1',officialUrl:'https://official.test/e',title:'秋の親子体験フェス',startAt:'2026-10-10',endAt:'2026-10-10',venueName:'中央公園',municipality:'港区',lat:35.65,lng:139.75,organizer:'実行委員会'};
+  const strongB={...strongA,candidateId:'b',sourceId:22,sourceEventId:'b9'};
+  const ambiguous={...strongA,candidateId:'c',sourceId:33,sourceEventId:'c3',officialUrl:'https://another.test/e',title:'秋の親子体験イベント',venueName:'中央公園 特設会場',lat:null,lng:null,organizer:'観光協会'};
+  const otherMunicipality={...strongA,candidateId:'d',sourceId:44,municipality:'江東区'};
+  const sameSource={...strongA,candidateId:'e',sourceId:11};
+
+  const result=dedupeCrossSourceCandidates([strongA,strongB,ambiguous,otherMunicipality,sameSource],{
+    reviewThreshold:.5,
+    autoMergeThreshold:.97
+  });
+  assert.ok(result.autoMergePairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='b'));
+  assert.ok(result.reviewPairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='c'));
+  assert.equal(result.autoMergePairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='e'),false);
+  assert.equal(result.reviewPairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='d'),false);
+  assert.ok(result.clusters.some((cluster)=>cluster.includes('a')&&cluster.includes('b')));
+  assert.equal(result.uniqueAfterAutoMerge,4);
+});
+
+test('cross-source dedupe rejects unsafe threshold configuration',()=>{
+  assert.throws(()=>dedupeCrossSourceCandidates([],{
+    reviewThreshold:.98,
+    autoMergeThreshold:.97
+  }),/invalid dedupe thresholds/);
 });
