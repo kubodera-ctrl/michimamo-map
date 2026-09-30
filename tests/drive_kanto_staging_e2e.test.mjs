@@ -52,13 +52,16 @@ assert.equal(byFamily('PUBLIC_SCHEDULE').length,9);
 assert.equal(byFamily('AREA_FOCUS').length,4);
 
 const geometryCandidates=staging.events.filter(e=>e.geometry.endpointVerified);
-assert.equal(geometryCandidates.length,4);
+assert.equal(geometryCandidates.length,7);
 assert.equal(geometryCandidates.every(e=>e.geometry.verified===false),true);
 assert.deepEqual(geometryCandidates.map(e=>e.eventKey),[
   'tokyo:tokyo-wangan:speed-guideline:wangan-r357',
+  'tokyo:tokyo-wangan:speed-guideline:wangan-harumi',
   'tokyo:tokyo-wangan:speed-guideline:wangan-meiji',
+  'tokyo:tokyo-wangan:speed-guideline:wangan-mitsume',
   'tokyo:tokyo-wangan:speed-guideline:wangan-kan2',
-  'tokyo:tokyo-wangan:speed-guideline:wangan-rinko-keihin-chuboh'
+  'tokyo:tokyo-wangan:speed-guideline:wangan-rinko-keihin-chuboh',
+  'tokyo:tokyo-wangan:speed-guideline:wangan-rinko-chuboh-shinkiba'
 ]);
 
 const tokyoToday=staging.events.find(e=>e.eventKey==='tokyo:public-enforcement:2026-09:school-route-2026-09-30');
