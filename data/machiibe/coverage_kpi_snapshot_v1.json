@@ -1,13 +1,13 @@
 {
-  "version": "coverage-kpi-v11",
+  "version": "coverage-kpi-v12",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
-    "concretePrefectureCoverage": 29,
-    "inventoryOrDiscoveryCandidates": 94,
-    "preflightOrBetter": 55,
-    "termsReviewedOrBetter": 22,
+    "concretePrefectureCoverage": 31,
+    "inventoryOrDiscoveryCandidates": 96,
+    "preflightOrBetter": 57,
+    "termsReviewedOrBetter": 24,
     "ready": 5,
     "active": 0
   },
@@ -69,7 +69,8 @@
       "ゲンジブ",
       "GNJB"
     ],
-    "oshiEntityGraphEvidence": "data/machiibe/fixtures/oshi_entity_graph_v1.json"
+    "oshiEntityGraphEvidence": "data/machiibe/fixtures/oshi_entity_graph_v1.json",
+    "bodikCandidateSnapshot": "data/machiibe/bodik_event_candidate_snapshot_v1.json"
   },
   "blockerClasses": {
     "userAction": [
@@ -86,7 +87,7 @@
   "weakPrefectureCoverage": {
     "snapshot": "data/machiibe/weak_prefecture_snapshot_v1.json",
     "prefectureTotal": 47,
-    "singleSourcePrefectures": 27,
+    "singleSourcePrefectures": 25,
     "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
     "noFacilityInstanceDirectEvidencePrefectures": 42,
@@ -102,7 +103,9 @@
       "島根県",
       "沖縄県",
       "宮崎県",
+      "群馬県",
       "香川県",
+      "佐賀県",
       "滋賀県",
       "鹿児島県",
       "大分県",
