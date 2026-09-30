@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-weak-prefecture-v5",
+  "version": "2026-09-30-weak-prefecture-v6",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -10,8 +10,8 @@
   },
   "summary": {
     "prefectureTotal": 47,
-    "singleSourcePrefectures": 30,
-    "lowOrUnmeasuredPotentialPrefectures": 38,
+    "singleSourcePrefectures": 27,
+    "lowOrUnmeasuredPotentialPrefectures": 37,
     "noReadySourcePrefectures": 44,
     "noFacilityInstanceDirectEvidencePrefectures": 42,
     "noVerifiedOshiFixturePrefectures": 41,
@@ -50,43 +50,7 @@
   },
   "prefectures": [
     {
-      "prefecture": "愛媛県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
-      "termsReviewedOrBetter": 0,
-      "readySources": 0,
-      "observedPotentialMin": 0,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
-      "weaknessReasons": [
-        "single_source",
-        "low_or_unmeasured_potential",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
-      ],
-      "weaknessDimensionCount": 5
-    },
-    {
       "prefecture": "茨城県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
-      "termsReviewedOrBetter": 0,
-      "readySources": 0,
-      "observedPotentialMin": 0,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
-      "weaknessReasons": [
-        "single_source",
-        "low_or_unmeasured_potential",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
-      ],
-      "weaknessDimensionCount": 5
-    },
-    {
-      "prefecture": "岐阜県",
       "candidateSources": 1,
       "preflightOrBetter": 0,
       "termsReviewedOrBetter": 0,
@@ -177,24 +141,6 @@
     },
     {
       "prefecture": "佐賀県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
-      "termsReviewedOrBetter": 0,
-      "readySources": 0,
-      "observedPotentialMin": 0,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
-      "weaknessReasons": [
-        "single_source",
-        "low_or_unmeasured_potential",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
-      ],
-      "weaknessDimensionCount": 5
-    },
-    {
-      "prefecture": "埼玉県",
       "candidateSources": 1,
       "preflightOrBetter": 0,
       "termsReviewedOrBetter": 0,
@@ -446,6 +392,23 @@
       "weaknessDimensionCount": 5
     },
     {
+      "prefecture": "愛媛県",
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
+      "termsReviewedOrBetter": 0,
+      "readySources": 0,
+      "observedPotentialMin": 0,
+      "facilityInstances": 0,
+      "verifiedOshiFixtureEvents": 0,
+      "weaknessReasons": [
+        "low_or_unmeasured_potential",
+        "no_ready_source",
+        "facility_instance_gap",
+        "oshi_fixture_evidence_gap"
+      ],
+      "weaknessDimensionCount": 4
+    },
+    {
       "prefecture": "沖縄県",
       "candidateSources": 2,
       "preflightOrBetter": 1,
@@ -501,6 +464,23 @@
       "candidateSources": 2,
       "preflightOrBetter": 2,
       "termsReviewedOrBetter": 2,
+      "readySources": 0,
+      "observedPotentialMin": 0,
+      "facilityInstances": 0,
+      "verifiedOshiFixtureEvents": 0,
+      "weaknessReasons": [
+        "low_or_unmeasured_potential",
+        "no_ready_source",
+        "facility_instance_gap",
+        "oshi_fixture_evidence_gap"
+      ],
+      "weaknessDimensionCount": 4
+    },
+    {
+      "prefecture": "埼玉県",
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
+      "termsReviewedOrBetter": 0,
       "readySources": 0,
       "observedPotentialMin": 0,
       "facilityInstances": 0,
@@ -730,6 +710,22 @@
         "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source"
+      ],
+      "weaknessDimensionCount": 3
+    },
+    {
+      "prefecture": "岐阜県",
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
+      "termsReviewedOrBetter": 0,
+      "readySources": 0,
+      "observedPotentialMin": 27,
+      "facilityInstances": 0,
+      "verifiedOshiFixtureEvents": 0,
+      "weaknessReasons": [
+        "no_ready_source",
+        "facility_instance_gap",
+        "oshi_fixture_evidence_gap"
       ],
       "weaknessDimensionCount": 3
     },
