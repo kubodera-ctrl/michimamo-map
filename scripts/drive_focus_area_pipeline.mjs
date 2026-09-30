@@ -57,6 +57,7 @@ export function normalizeFocusRecord(source,raw){
     geoPrecision:raw.geoPrecision,
     displayMode:raw.displayMode,
     sourceUrl:source.sourceUrl,
+    sourceIndexUrl:source.sourceIndexUrl||null,
     sourceVerifiedAt:source.verifiedAt,
     freshnessStatus:source.freshnessStatus,
     scheduleChangeNote:'公式の重点時間・重点場所を示すもので、現在の取締実施や検問位置を示すものではありません。'
