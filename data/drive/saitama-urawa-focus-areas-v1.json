@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "saitama:focus-areas:urawa",
+    "prefectureCode": "11",
+    "policeOrg": "埼玉県警察",
+    "stationName": "浦和警察署",
+    "sourceFamily": "AREA_FOCUS",
+    "sourceUrl": "https://www.police.pref.saitama.lg.jp/documents/34842/zyuutennrosenn.pdf",
+    "sourceIndexUrl": "https://www.police.pref.saitama.lg.jp/f0020/kotsu/sokudoshishin.html",
+    "sourceVersionDate": null,
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "ANNUAL_CHANGE_DETECT",
+    "parserVersion": "saitama_focus_area_table_v1",
+    "allowedHosts": ["www.police.pref.saitama.lg.jp"]
+  },
+  "records": [
+    {"externalId":"urawa-intersection-am","sourceRecordKey":"urawa-focus-row","infoType":"INTERSECTION_FOCUS","enforcementType":"交差点関連違反","localityText":"浦和駅西口・武蔵浦和駅周辺","timePrecision":"EXACT_TIME","timeStart":"06:00","timeEnd":"08:30","geoPrecision":"LOCALITY","displayMode":"AREA_FOCUS"},
+    {"externalId":"urawa-intersection-pm","sourceRecordKey":"urawa-focus-row","infoType":"INTERSECTION_FOCUS","enforcementType":"交差点関連違反","localityText":"浦和駅西口・武蔵浦和駅周辺","timePrecision":"EXACT_TIME","timeStart":"17:30","timeEnd":"19:00","geoPrecision":"LOCALITY","displayMode":"AREA_FOCUS"},
+    {"externalId":"urawa-drink","sourceRecordKey":"urawa-focus-row","infoType":"DRINK_FOCUS","enforcementType":"飲酒運転","localityText":"武蔵浦和駅付近・田島団地通り","timePrecision":"POLICY","timeText":"飲酒実態に応じた時間","geoPrecision":"LOCALITY","displayMode":"AREA_FOCUS"},
+    {"externalId":"urawa-school","sourceRecordKey":"urawa-focus-row","infoType":"SCHOOL_ROUTE_FOCUS","enforcementType":"通学路重点","localityText":"仲町小学校・大谷場小学校・北浦和小学校・高砂小学校の各校区内（市道）","timePrecision":"DAYPART","timeText":"児童・生徒等の登下校の時間帯","geoPrecision":"LOCALITY","displayMode":"AREA_FOCUS"}
+  ]
+}
