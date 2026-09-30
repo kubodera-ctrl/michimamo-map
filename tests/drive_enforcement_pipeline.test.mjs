@@ -26,13 +26,14 @@ assert.deepEqual(committedPublicSnapshot,publicSnapshot,'committed browser snaps
 assert.equal(Object.hasOwn(committedPublicSnapshot,'records'),false);
 assert.equal(JSON.stringify(committedPublicSnapshot).includes('parserVersion'),false);
 assert.equal(JSON.stringify(committedPublicSnapshot).includes('termsStatus'),false);
-assert.equal(snapshot.events.length,9,'current official Tokyo Wangan PDF contains nine focus routes');
+assert.equal(bundle.records.length,9,'current official Tokyo Wangan PDF contains nine source rows');
+assert.equal(snapshot.events.length,10,'one official Rinko row contains two speed/geometry segments, so preview has ten normalized events');
 assert.match(snapshot.sourceHash,/^[0-9a-f]{64}$/);
 assert.equal(snapshot.events.every(e=>e.freshnessStatus==='CURRENT'),true);
 assert.equal(snapshot.events.every(e=>e.infoType==='SPEED_FOCUS'),true);
 assert.equal(snapshot.events.every(e=>e.scheduleChangeNote.includes('実際の取締実施中を示すものではありません')),true);
 assert.deepEqual(snapshot.events.map(e=>e.routeName),[
-  '国道357号','晴海通り','明治通り','三ツ目通り','環二通り','臨港道路',
+  '国道357号','晴海通り','明治通り','三ツ目通り','環二通り','臨港道路','臨港道路',
   '臨港道路(青海縦貫線)','臨港道路(東京湾岸アンダー線)','都橋通り'
 ]);
 
@@ -47,15 +48,30 @@ assert.equal(kan2.routeName,'環二通り');
 assert.equal(kan2.timeStartMinutes,1200);
 assert.equal(kan2.timeEndMinutes,1440);
 assert.equal(kan2.geoPrecision,'EXACT_SEGMENT');
-assert.equal(kan2.geometryStatus,'ENDPOINTS_CANDIDATE');
+assert.equal(kan2.geometryStatus,'ENDPOINTS_CROSSCHECKED');
+assert.equal(kan2.endpointVerified,true);
 assert.equal(kan2.geometryVerified,false);
 assert.deepEqual(kan2.routeEndpoints,[[35.642054,139.787168],[35.6352293,139.7926317]]);
+assert.equal(kan2.routeMatchTokens.includes('環二通り'),true);
 
-const rinko=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko'));
-assert.equal(rinko.speedLimitKmh,50);
-assert.deepEqual(rinko.alternateSpeedKmh,[60]);
-assert.equal(rinko.segmentStartText,'京浜大橋北交差点(中央防波堤交差点)');
-assert.equal(rinko.segmentEndText,'中央防波堤交差点(新木場交差点)');
+assert.equal(r357.geometryStatus,'ENDPOINTS_CROSSCHECKED');
+assert.equal(r357.endpointVerified,true);
+assert.equal(r357.geometryVerified,false);
+assert.equal(r357.routeMatchTokens.includes('357'),true);
+
+const rinko50=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko-keihin-chuboh'));
+const rinko60=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-rinko-chuboh-shinkiba'));
+assert.ok(rinko50&&rinko60);
+assert.equal(rinko50.sourceRecordKey,'wangan-rinko');
+assert.equal(rinko60.sourceRecordKey,'wangan-rinko');
+assert.equal(rinko50.speedLimitKmh,50);
+assert.equal(rinko60.speedLimitKmh,60);
+assert.deepEqual(rinko50.alternateSpeedKmh,[]);
+assert.deepEqual(rinko60.alternateSpeedKmh,[]);
+assert.equal(rinko50.segmentStartText,'京浜大橋北交差点');
+assert.equal(rinko50.segmentEndText,'中央防波堤交差点');
+assert.equal(rinko60.segmentStartText,'中央防波堤交差点');
+assert.equal(rinko60.segmentEndText,'新木場交差点');
 
 const aomi=snapshot.events.find(e=>e.eventKey.endsWith(':wangan-aomi'));
 assert.equal(aomi.focusType,'METROPOLITAN_AND_STATION_FOCUS');
@@ -98,4 +114,4 @@ assert.equal(multi.speedLimitKind,'MULTIPLE_OR_RANGE');
 assert.deepEqual(multi.speedLimitValuesKmh,[70,80,100]);
 assert.deepEqual(multi.alternateSpeedKmh,[]);
 
-console.log('PASS: current 9-route DRIVE official source -> normalized preview snapshot contract');
+console.log('PASS: current 9-row DRIVE official source -> 10 geometry-safe normalized preview events');
