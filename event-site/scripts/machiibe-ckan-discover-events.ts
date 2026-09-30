@@ -20,6 +20,21 @@ type CkanPackage={
   resources?:CkanResource[];
 };
 
+const PREFECTURES=[
+  '北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県',
+  '埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県',
+  '岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県',
+  '鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県',
+  '佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'
+] as const;
+
+function prefectureFromPackageName(value:string|null|undefined){
+  const match=(value||'').match(/^(\d{2})\d{4}/);
+  if(!match)return null;
+  const code=Number(match[1]);
+  return code>=1&&code<=47?PREFECTURES[code-1]:null;
+}
+
 function parseTime(value:string|null|undefined){
   if(!value)return null;
   const ms=Date.parse(value);
@@ -67,23 +82,32 @@ async function main(){
   const queries=['イベント','行事','催事'];
   const packages=new Map<string,CkanPackage>();
   const queryCounts:Record<string,number>={};
+  const pagesPerQuery=3;
+  const rowsPerPage=100;
   for(const query of queries){
-    const url=new URL('https://data.bodik.jp/api/3/action/package_search');
-    url.searchParams.set('q',query);
-    url.searchParams.set('rows','100');
-    url.searchParams.set('sort','metadata_modified desc');
-    const payload=await fetchJson(url.toString()) as {
-      success?:boolean;
-      result?:{results?:CkanPackage[]};
-    };
-    if(payload.success!==true||!Array.isArray(payload.result?.results)){
-      throw new Error('invalid CKAN package_search payload for '+query);
+    let returned=0;
+    for(let page=0;page<pagesPerQuery;page++){
+      const url=new URL('https://data.bodik.jp/api/3/action/package_search');
+      url.searchParams.set('q',query);
+      url.searchParams.set('rows',String(rowsPerPage));
+      url.searchParams.set('start',String(page*rowsPerPage));
+      url.searchParams.set('sort','metadata_modified desc');
+      const payload=await fetchJson(url.toString()) as {
+        success?:boolean;
+        result?:{results?:CkanPackage[]};
+      };
+      if(payload.success!==true||!Array.isArray(payload.result?.results)){
+        throw new Error('invalid CKAN package_search payload for '+query+' page '+page);
+      }
+      const pageRows=payload.result!.results!;
+      returned+=pageRows.length;
+      for(const pkg of pageRows){
+        const key=pkg.id||pkg.name;
+        if(key)packages.set(key,pkg);
+      }
+      if(pageRows.length<rowsPerPage)break;
     }
-    queryCounts[query]=payload.result!.results!.length;
-    for(const pkg of payload.result!.results!){
-      const key=pkg.id||pkg.name;
-      if(key)packages.set(key,pkg);
-    }
+    queryCounts[query]=returned;
   }
   const nowMs=now.getTime();
   const rows=[...packages.values()].flatMap((pkg)=>{
@@ -100,6 +124,7 @@ async function main(){
       packageName:pkg.name||null,
       title:pkg.title||null,
       organization:pkg.organization?.title||pkg.organization?.name||null,
+      inferredPrefecture:prefectureFromPackageName(pkg.name),
       licenseId:pkg.license_id||null,
       licenseTitle:pkg.license_title||null,
       metadataModified:pkg.metadata_modified||null,
@@ -119,6 +144,8 @@ async function main(){
     activeWrite:false,
     autoPromotion:false,
     maxAgeDays,
+    pagesPerQuery,
+    rowsPerPage,
     queryCounts,
     uniquePackagesScanned:packages.size,
     candidateCount:rows.length,
