@@ -16,6 +16,7 @@ on:
       - "tests/drive_enforcement_pipeline.test.mjs"
       - "tests/drive_source_fetch.test.mjs"
       - "tests/drive_public_schedule_pipeline.test.mjs"
+      - "tests/drive_chiba_pipeline.test.mjs"
       - "package.json"
       - ".github/workflows/drive-beta-check.yml"
   workflow_dispatch:
@@ -40,6 +41,8 @@ jobs:
         run: node tests/drive_source_fetch.test.mjs
       - name: Tokyo monthly public-enforcement contract
         run: node tests/drive_public_schedule_pipeline.test.mjs
+      - name: Chiba speed-guideline area/multi-window contract
+        run: node tests/drive_chiba_pipeline.test.mjs
       - name: Verify generated DRIVE preview snapshot
         run: node scripts/build_drive_preview_snapshot.mjs --check
       - name: DRIVE beta map contract
