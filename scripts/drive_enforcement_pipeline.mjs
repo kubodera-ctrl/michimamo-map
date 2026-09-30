@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 
 const VALID_FRESHNESS=new Set(['CURRENT','AGING','STALE','UNKNOWN']);
 const VALID_SCOPE=new Set(['SEGMENT','AREA','WHOLE_ROUTE','STATION_AREA','PREFECTURE']);
-const VALID_FOCUS=new Set(['METROPOLITAN_FOCUS','STATION_FOCUS']);
+const VALID_FOCUS=new Set(['METROPOLITAN_FOCUS','STATION_FOCUS','METROPOLITAN_AND_STATION_FOCUS']);
 
 function text(value){return String(value??'').normalize('NFKC').replace(/\s+/g,' ').trim();}
 
