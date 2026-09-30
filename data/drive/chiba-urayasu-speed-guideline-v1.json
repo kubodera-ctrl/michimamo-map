@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "chiba:urayasu:speed-guideline",
+    "prefectureCode": "12",
+    "policeOrg": "千葉県警察",
+    "stationName": "浦安警察署",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "sourceUrl": "https://www.police.pref.chiba.jp/content/common/000004933.pdf",
+    "sourceIndexUrl": "https://www.police.pref.chiba.jp/kotsushidoka/traffic-safety_defend-02.html",
+    "sourceVersionDate": "2026-07",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "ANNUAL_CHANGE_DETECT",
+    "parserVersion": "chiba_speed_guideline_table_v1",
+    "allowedHosts": [
+      "www.police.pref.chiba.jp"
+    ]
+  },
+  "records": [
+    {
+      "externalId": "urayasu-r357",
+      "sourceRecordKey": "speed-row-1",
+      "routeName": "国道357号",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "60",
+      "areaText": "富岡地区",
+      "timeStart": "06:00",
+      "timeEnd": "17:00",
+      "roadScope": "AREA"
+    },
+    {
+      "externalId": "urayasu-nishiurayasu",
+      "sourceRecordKey": "speed-row-2",
+      "routeName": "西浦安停車場線",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "60",
+      "areaText": "弁天地区",
+      "timeStart": "07:00",
+      "timeEnd": "17:00",
+      "roadScope": "AREA"
+    },
+    {
+      "externalId": "urayasu-cityroad-am",
+      "sourceRecordKey": "speed-row-3",
+      "routeName": "市道",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "30～50",
+      "areaText": "管内全域",
+      "timeStart": "08:00",
+      "timeEnd": "09:00",
+      "roadScope": "AREA"
+    },
+    {
+      "externalId": "urayasu-cityroad-pm",
+      "sourceRecordKey": "speed-row-3",
+      "routeName": "市道",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "30～50",
+      "areaText": "管内全域",
+      "timeStart": "13:00",
+      "timeEnd": "16:00",
+      "roadScope": "AREA"
+    }
+  ]
+}
