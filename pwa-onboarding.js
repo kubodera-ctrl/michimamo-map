@@ -152,14 +152,27 @@ function addReplayButton(){
   if(title)title.insertAdjacentElement('afterend',wrap);else guide.prepend(wrap);
 }
 
+function runWhenInitialLoadReady(callback){
+  let fired=false;
+  const run=()=>{
+    if(fired)return;
+    fired=true;
+    requestAnimationFrame(()=>requestAnimationFrame(callback));
+  };
+  if(window.MachimamoInitialLoadReady){run();return;}
+  window.addEventListener('machimamo:initial-ready',run,{once:true});
+  const afterLoad=()=>setTimeout(run,4500);
+  if(document.readyState==='complete')afterLoad();
+  else window.addEventListener('load',afterLoad,{once:true});
+}
 function boot(){
   installPwaHead();
   injectStyles();
   syncStandaloneViewport();
   addReplayButton();
   window.MachimamoOnboarding={showTutorial,showInstallGuide,isStandalone};
-  if(isIOS&&isSafari&&!isStandalone()&&!safeGet(KEY_INSTALL)){setTimeout(showInstallGuide,250);return;}
-  if(isStandalone()&&!safeGet(KEY_TUTORIAL))setTimeout(showTutorial,350);
+  if(isIOS&&isSafari&&!isStandalone()&&!safeGet(KEY_INSTALL)){runWhenInitialLoadReady(showInstallGuide);return;}
+  if(isStandalone()&&!safeGet(KEY_TUTORIAL))runWhenInitialLoadReady(showTutorial);
 }
 
 window.addEventListener('pageshow',()=>setTimeout(syncStandaloneViewport,0));

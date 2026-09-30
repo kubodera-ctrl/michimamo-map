@@ -19,5 +19,9 @@ console.log('beta SEO/PWA metadata gate: PASS');
 
 const spotLoader = fs.readFileSync(path.join(__dirname, '..', 'spot-loader.js'), 'utf8');
 const mypageGuide = fs.readFileSync(path.join(__dirname, '..', 'mypage-guide.js'), 'utf8');
-assert(spotLoader.includes('pwa-onboarding.js?v=42-safari-nav4'), 'Safari must fetch the latest onboarding bundle');
-assert(mypageGuide.includes('spot-loader.js?v=42-safari-nav4'), 'Safari must fetch the latest spot/onboarding loader');
+assert(spotLoader.includes('pwa-onboarding.js?v=42-safari-nav5'), 'Safari must fetch the latest onboarding bundle');
+assert(mypageGuide.includes('spot-loader.js?v=42-safari-nav5'), 'Safari must fetch the latest spot/onboarding loader');
+
+assert(onboarding.includes('runWhenInitialLoadReady'), 'onboarding must wait until initial app work is complete');
+assert(onboarding.includes("machimamo:initial-ready"), 'onboarding must use the app-ready signal');
+assert(html.includes('window.MachimamoInitialLoadReady = true'), 'app must publish initial-ready state');

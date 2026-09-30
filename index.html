@@ -117,6 +117,7 @@
             font-size: 12px !important; display: flex !important; visibility: visible !important; opacity: 1 !important;
             flex-direction: column !important; align-items: center !important; justify-content: center !important;
             gap: 4px !important; cursor: pointer; padding: 4px 2px !important; -webkit-appearance: none;
+            transform: translateY(5px) !important;
         }
         #bottomNav button.active { color: #1f6feb !important; }
         #bottomNav button i { display: block !important; font-size: 20px !important; line-height: 1 !important; }
@@ -2008,38 +2009,138 @@
         return `<span class="ranking-avatar" aria-hidden="true">${escapeHtml(avatar)}</span>`;
     }
 
-    async function loadRanking() {
-        let allUsers = [];
+    const RANKING_SAMPLE_MIN_REAL_USERS = 6;
+    const AREA_SAMPLE_MIN_REAL_REPORTS = 10;
+    const RANKING_SAMPLE_USERS = [
+        { id:'sample-rank-1', name:'パトロールおじさん', avatar:'🚓', point:12500, isSample:true },
+        { id:'sample-rank-2', name:'安全第一丸', avatar:'🔰', point:9800, isSample:true },
+        { id:'sample-rank-3', name:'ご近所ウォッチャー', avatar:'👀', point:4500, isSample:true },
+        { id:'sample-rank-4', name:'タクシードライバー', avatar:'🚕', point:1200, isSample:true },
+        { id:'sample-rank-5', name:'セーフティライダー', avatar:'🛵', point:950, isSample:true },
+        { id:'sample-rank-6', name:'ママチャリパトロール', avatar:'🚲', point:800, isSample:true }
+    ];
 
+    const AREA_SAMPLE_ALL = {
+        illegal: {'東京都 新宿区':142,'大阪府 大阪市中央区':98,'愛知県 名古屋市中区':76,'福岡県 福岡市博多区':54,'北海道 札幌市中央区':45,'神奈川県 横浜市西区':38,'埼玉県 さいたま市大宮区':31,'千葉県 千葉市中央区':25,'広島県 広島市中区':20,'宮城県 仙台市青葉区':15,'京都府 京都市中京区':12},
+        danger: {'東京都 渋谷区':110,'大阪府 大阪市北区':85,'神奈川県 横浜市中区':62,'愛知県 名古屋市中村区':45,'福岡県 福岡市中央区':40,'北海道 札幌市北区':30,'埼玉県 川口市':25,'千葉県 船橋市':20,'兵庫県 神戸市中央区':18,'京都府 京都市下京区':14},
+        patrol: {'東京都 千代田区':88,'大阪府 堺市堺区':70,'北海道 旭川市':45,'神奈川県 川崎市川崎区':40,'愛知県 豊田市':35,'福岡県 北九州市小倉北区':30,'埼玉県 川越市':25,'千葉県 松戸市':20,'広島県 福山市':15,'静岡県 浜松市中区':10},
+        abandoned: {'東京都 足立区':65,'大阪府 大阪市淀川区':58,'埼玉県 所沢市':39,'神奈川県 相模原市':35,'千葉県 市川市':30,'愛知県 岡崎市':25,'福岡県 久留米市':20,'北海道 函館市':15,'兵庫県 姫路市':10,'茨城県 水戸市':8}
+    };
+
+    const prefCities = {
+        "北海道": ["札幌市中央区","札幌市北区","旭川市","函館市","苫小牧市","帯広市","釧路市","江別市","北見市","小樽市"],
+        "青森県": ["青森市","弘前市","八戸市","十和田市","むつ市","五所川原市","三沢市","黒石市","つがる市","平川市"],
+        "岩手県": ["盛岡市","奥州市","一関市","花巻市","北上市","宮古市","滝沢市","大船渡市","釜石市","久慈市"],
+        "宮城県": ["仙台市青葉区","仙台市宮城野区","仙台市太白区","仙台市泉区","石巻市","大崎市","登米市","栗原市","気仙沼市","名取市"],
+        "秋田県": ["秋田市","横手市","大仙市","由利本荘市","大館市","能代市","湯沢市","北秋田市","鹿角市","潟上市"],
+        "山形県": ["山形市","鶴岡市","酒田市","米沢市","天童市","東根市","村山市","寒河江市","新庄市","上山市"],
+        "福島県": ["郡山市","いわき市","福島市","会津若松市","須賀川市","南相馬市","伊達市","白河市","二本松市","喜多方市"],
+        "茨城県": ["水戸市","つくば市","日立市","ひたちなか市","土浦市","古河市","取手市","筑西市","神栖市","牛久市"],
+        "栃木県": ["宇都宮市","小山市","栃木市","足利市","佐野市","那須塩原市","鹿沼市","日光市","真岡市","大田原市"],
+        "群馬県": ["高崎市","前橋市","太田市","伊勢崎市","桐生市","渋川市","館林市","藤岡市","安中市","みどり市"],
+        "埼玉県": ["さいたま市大宮区","さいたま市浦和区","川口市","川越市","所沢市","越谷市","草加市","春日部市","上尾市","熊谷市"],
+        "千葉県": ["千葉市中央区","船橋市","松戸市","市川市","柏市","市原市","八千代市","流山市","習志野市","浦安市"],
+        "東京都": ["新宿区","渋谷区","港区","中央区","千代田区","豊島区","世田谷区","品川区","大田区","八王子市"],
+        "神奈川県": ["横浜市中区","横浜市西区","横浜市港北区","川崎市川崎区","川崎市中原区","相模原市","横須賀市","藤沢市","平塚市","茅ヶ崎市"],
+        "新潟県": ["新潟市中央区","新潟市東区","長岡市","上越市","三条市","新発田市","柏崎市","燕市","村上市","糸魚川市"],
+        "富山県": ["富山市","高岡市","射水市","南砺市","氷見市","砺波市","魚津市","黒部市","滑川市","小矢部市"],
+        "石川県": ["金沢市","白山市","小松市","加賀市","七尾市","野々市市","能美市","かほく市","輪島市","珠洲市"],
+        "福井県": ["福井市","坂井市","越前市","敦賀市","鯖江市","大野市","小浜市","あわら市","勝山市","越前町"],
+        "山梨県": ["甲府市","甲斐市","南アルプス市","笛吹市","富士吉田市","北杜市","山梨市","都留市","中央市","韮崎市"],
+        "長野県": ["長野市","松本市","上田市","飯田市","佐久市","安曇野市","伊那市","塩尻市","千曲市","茅野市"],
+        "岐阜県": ["岐阜市","大垣市","各務原市","多治見市","可児市","高山市","関市","中津川市","羽島市","土岐市"],
+        "静岡県": ["静岡市葵区","浜松市中区","富士市","沼津市","磐田市","焼津市","藤枝市","富士宮市","掛川市","三島市"],
+        "愛知県": ["名古屋市中区","名古屋市中村区","豊田市","岡崎市","一宮市","豊橋市","春日井市","安城市","豊川市","西尾市"],
+        "三重県": ["四日市市","津市","鈴鹿市","松阪市","桑名市","伊勢市","伊賀市","名張市","志摩市","亀山市"],
+        "滋賀県": ["大津市","草津市","長浜市","東近江市","彦根市","甲賀市","近江八幡市","守山市","栗東市","湖南市"],
+        "京都府": ["京都市中京区","京都市下京区","京都市右京区","宇治市","亀岡市","舞鶴市","城陽市","長岡京市","八幡市","京田辺市"],
+        "大阪府": ["大阪市中央区","大阪市北区","大阪市淀川区","堺市堺区","東大阪市","豊中市","吹田市","枚方市","茨木市","八尾市"],
+        "兵庫県": ["神戸市中央区","神戸市兵庫区","姫路市","西宮市","尼崎市","明石市","加古川市","宝塚市","伊丹市","川西市"],
+        "奈良県": ["奈良市","橿原市","生駒市","大和郡山市","香芝市","天理市","葛城市","桜井市","大和高田市","宇陀市"],
+        "和歌山県": ["和歌山市","田辺市","橋本市","紀の川市","海南市","岩出市","新宮市","有田市","有田川町","御坊市"],
+        "鳥取県": ["鳥取市","米子市","倉吉市","境港市","琴浦町","八頭町","大山町","北栄町","湯梨浜町","岩美町"],
+        "島根県": ["松江市","出雲市","浜田市","益田市","安来市","大田市","雲南市","江津市","隠岐の島町","奥出雲町"],
+        "岡山県": ["岡山市北区","岡山市南区","倉敷市","津山市","玉野市","笠岡市","総社市","瀬戸内市","備前市","赤磐市"],
+        "広島県": ["広島市中区","広島市南区","福山市","呉市","東広島市","尾道市","廿日市市","三原市","三次市","府中市"],
+        "山口県": ["下関市","山口市","宇部市","周南市","岩国市","防府市","山陽小野田市","萩市","光市","長門市"],
+        "徳島県": ["徳島市","阿南市","鳴門市","吉野川市","小松島市","阿波市","藍住町","美馬市","三好市","石井町"],
+        "香川県": ["高松市","丸亀市","三豊市","観音寺市","坂出市","さぬき市","東かがわ市","善通寺市","綾川町","多度津町"],
+        "愛媛県": ["松山市","今治市","新居浜市","西条市","四国中央市","宇和島市","大洲市","八幡浜市","伊予市","東温市"],
+        "高知県": ["高知市","南国市","四万十市","香南市","香美市","土佐市","いの町","須崎市","宿毛市","安芸市"],
+        "福岡県": ["福岡市博多区","福岡市中央区","北九州市小倉北区","久留米市","飯塚市","大牟田市","春日市","糸島市","筑紫野市","宗像市"],
+        "佐賀県": ["佐賀市","唐津市","鳥栖市","伊万里市","武雄市","小城市","神埼市","鹿島市","嬉野市","みやき町"],
+        "長崎県": ["長崎市","佐世保市","諫早市","大村市","南島原市","島原市","五島市","平戸市","雲仙市","長与町"],
+        "熊本県": ["熊本市中央区","熊本市東区","八代市","天草市","玉名市","宇城市","山鹿市","荒尾市","合志市","菊池市"],
+        "大分県": ["大分市","別府市","中津市","佐伯市","日田市","宇佐市","臼杵市","豊後大野市","杵築市","由布市"],
+        "宮崎県": ["宮崎市","都城市","延岡市","日向市","日南市","小林市","西都市","えびの市","三股町","高鍋町"],
+        "鹿児島県": ["鹿児島市","霧島市","鹿屋市","薩摩川内市","姶良市","出水市","日置市","奄美市","指宿市","南九州市"],
+        "沖縄県": ["那覇市","沖縄市","うるま市","浦添市","宜野湾市","豊見城市","糸満市","名護市","宮古島市","南城市"]
+    };
+
+    function areaSampleData(selectedPref, category) {
+        if (selectedPref === 'ALL') return { ...(AREA_SAMPLE_ALL[category] || AREA_SAMPLE_ALL.illegal) };
+        const bases = { illegal:50, danger:40, patrol:34, abandoned:30 };
+        const base = bases[category] || 30;
+        const categoryOffset = { illegal:1, danger:2, patrol:3, abandoned:4 }[category] || 0;
+        const cities = prefCities[selectedPref] || [];
+        const rows = {};
+        cities.forEach((city,index) => {
+            const variation = ((index * 7 + categoryOffset * 3) % 5);
+            rows[`${selectedPref} ${city}`] = Math.max(3, base - index * 3 + variation);
+        });
+        return rows;
+    }
+
+    async function loadRanking() {
+        const allUsers = [];
         try {
             const { data: profiles } = await db.rpc('get_profile_ranking', { p_limit: 50 });
-            if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
+            if (profiles) profiles.forEach(p => allUsers.push({
+                id:p.id, name:p.name || '名無しドライバー', avatar:p.avatar || '👤',
+                point:Number(p.point || 0), isSample:false
+            }));
         } catch(e) { console.log("DBランキング取得スキップ"); }
 
-        const uniqueUsers = []; const map = new Map();
-        for (const item of allUsers) { if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); } }
-        uniqueUsers.sort((a, b) => b.point - a.point);
+        const realUsers = [];
+        const seen = new Set();
+        for (const item of allUsers) {
+            if (!item.id || seen.has(item.id)) continue;
+            seen.add(item.id);
+            realUsers.push(item);
+        }
+        realUsers.sort((a,b)=>b.point-a.point);
+
+        const sampleMode = realUsers.length < RANKING_SAMPLE_MIN_REAL_USERS;
+        const displayUsers = sampleMode
+            ? [...realUsers, ...RANKING_SAMPLE_USERS].sort((a,b)=>Number(b.point||0)-Number(a.point||0))
+            : realUsers;
 
         const rankingArea = document.getElementById('nationalRankingArea');
-        rankingArea.innerHTML = '';
-        let myRankPos = '圏外';
-        if (uniqueUsers.length === 0) {
-            rankingArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">ランキングデータはまだありません</div>';
+        rankingArea.innerHTML = sampleMode
+            ? '<div class="ranking-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>β参考表示</strong>：実ユーザーが6人未満のためサンプルを併記しています。<strong>サンプルは実利用者・実績ではありません。</strong></div>'
+            : '';
+
+        if (!displayUsers.length) {
+            rankingArea.innerHTML = '<div style="text-align:center;padding:15px;color:#6b7280;font-size:.85rem;">ランキングデータはまだありません</div>';
         }
 
-        uniqueUsers.forEach((u, idx) => {
-            if (u.id === myUserId) myRankPos = `${idx + 1}位`;
-            if (idx >= 10) return;
+        const myRealIndex = realUsers.findIndex(u=>u.id===myUserId);
+        const myRankPos = myRealIndex >= 0 ? `${myRealIndex+1}位` : '圏外';
+
+        displayUsers.slice(0,10).forEach((u,idx) => {
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
             else if (idx === 1) medal = '<i class="fa-solid fa-medal medal-2"></i> 2位';
             else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
-            else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
+            else medal = `<span style="display:inline-block;width:45px;text-align:center;font-size:.9rem;color:#6b7280;">${idx+1}位</span>`;
 
-            const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
-            const point = Number(u.point || 0);
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold; color:#1f6feb;">${point.toLocaleString()} pt</div></div>`;
+            const bg = !u.isSample && u.id === myUserId ? 'background:#eff6ff;' : '';
+            const sampleBadge = u.isSample
+                ? '<span style="font-size:.58rem;font-weight:900;color:#9a3412;background:#ffedd5;border-radius:999px;padding:2px 5px;margin-left:5px;">サンプル</span>'
+                : '';
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}${sampleBadge}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
         });
+
         document.getElementById('rankMyPosDisp').innerText = myRankPos;
         loadAreaRanking();
     }
@@ -2050,39 +2151,49 @@
 
         const now = new Date();
         const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
-        const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
+        const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth()-1, 1).toISOString();
 
-        let realDataCount = {};
+        const realDataCount = {};
+        let totalRealCount = 0;
         try {
             const { data: spotsData } = await db.from('spots')
                 .select('address')
                 .eq('category', currentCategoryRank)
                 .gte('created_at', firstDayOfLastMonth)
                 .lt('created_at', firstDayOfThisMonth);
-
             if (spotsData) {
                 spotsData.forEach(s => {
-                    if(s.address && s.address !== '不明なエリア') {
-                        if(selectedPref === 'ALL' || s.address.startsWith(selectedPref)) {
-                            realDataCount[s.address] = (realDataCount[s.address] || 0) + 1;
-                        }
+                    if (s.address && s.address !== '不明なエリア' && (selectedPref === 'ALL' || s.address.startsWith(selectedPref))) {
+                        realDataCount[s.address] = (realDataCount[s.address] || 0) + 1;
+                        totalRealCount++;
                     }
                 });
             }
-        } catch (e) { console.log("DBエリアランキング取得スキップ"); }
+        } catch(e) { console.log("DBエリアランキング取得スキップ"); }
 
-        const areaCount = realDataCount;
+        const sampleMode = totalRealCount < AREA_SAMPLE_MIN_REAL_REPORTS;
+        const areaCount = sampleMode ? areaSampleData(selectedPref,currentCategoryRank) : realDataCount;
+        const sortedAreas = Object.keys(areaCount)
+            .map(name=>({name,count:Number(areaCount[name]||0)}))
+            .sort((a,b)=>b.count-a.count);
 
-        let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
-        areaArea.innerHTML = '';
+        areaArea.innerHTML = sampleMode
+            ? `<div class="area-sample-notice" style="margin:0 0 10px;padding:8px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:.72rem;line-height:1.5;"><strong>参考サンプル</strong>：先月の実集計が${totalRealCount}件のため表示例を掲載しています。<strong>下記件数は実績ではありません。</strong></div>`
+            : '';
 
-        if (sortedAreas.length === 0) { areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>'; return; }
+        if (!sortedAreas.length) {
+            areaArea.innerHTML = '<div style="text-align:center;padding:15px;color:#6b7280;font-size:.85rem;">データがありません</div>';
+            return;
+        }
 
-        sortedAreas.slice(0, 10).forEach((a, idx) => {
+        sortedAreas.slice(0,10).forEach((a,idx) => {
             let rankColor = "#6b7280";
-            if (idx === 0) rankColor = "#ef4444"; else if (idx === 1) rankColor = "#f97316"; else if (idx === 2) rankColor = "#eab308";
-            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
+            if (idx===0) rankColor="#ef4444"; else if(idx===1) rankColor="#f97316"; else if(idx===2) rankColor="#eab308";
+            const sampleBadge = sampleMode
+                ? '<span style="font-size:.58rem;font-weight:900;color:#9a3412;background:#ffedd5;border-radius:999px;padding:2px 5px;margin-left:5px;">サンプル</span>'
+                : '';
+            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor};width:30px;display:inline-block;">${idx+1}位</span> ${escapeHtml(a.name)}${sampleBadge}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
         });
     }
 
@@ -2860,6 +2971,9 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                   setTimeout(loadSpots, 1000);
               }
           }).subscribe();
+
+        window.MachimamoInitialLoadReady = true;
+        window.dispatchEvent(new Event('machimamo:initial-ready'));
     };
 
     function removeMarkerFromMap(id) {
@@ -4797,7 +4911,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
-<script src="mypage-guide.js?v=42-safari-nav4"></script>
+<script src="mypage-guide.js?v=42-safari-nav5"></script>
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>

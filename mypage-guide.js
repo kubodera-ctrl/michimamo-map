@@ -124,7 +124,7 @@ else window.addEventListener('load',load,{once:true});
 'use strict';
 const load=()=>{
 const script=document.createElement('script');
-script.src='spot-loader.js?v=42-safari-nav4';
+script.src='spot-loader.js?v=42-safari-nav5';
 script.async=false;
 script.onerror=()=>console.error('Paged spot loader could not be loaded.');
 document.head.appendChild(script);

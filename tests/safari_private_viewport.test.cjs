@@ -30,4 +30,6 @@ assert.match(html, /<nav id="bottomNav" aria-label="メインメニュー">/);
 assert.doesNotMatch(html, /#app > nav \{/);
 assert.match(html, /#bottomNav \{[\s\S]*position: fixed !important;[\s\S]*bottom: 0 !important;[\s\S]*display: grid !important;[\s\S]*visibility: visible !important;/);
 assert.match(html, /#bottomNav button \{[\s\S]*display: flex !important;[\s\S]*visibility: visible !important;/);
-assert.match(html, /mypage-guide\.js\?v=42-safari-nav4/);
+assert.match(html, /mypage-guide\.js\?v=42-safari-nav5/);
+
+assert.match(html, /#bottomNav button \{[\s\S]*transform: translateY\(5px\) !important/);
