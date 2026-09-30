@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-weak-prefecture-v4",
+  "version": "2026-09-30-weak-prefecture-v5",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -827,11 +827,11 @@
     },
     {
       "prefecture": "東京都",
-      "candidateSources": 11,
-      "preflightOrBetter": 10,
-      "termsReviewedOrBetter": 4,
+      "candidateSources": 12,
+      "preflightOrBetter": 11,
+      "termsReviewedOrBetter": 5,
       "readySources": 0,
-      "observedPotentialMin": 41,
+      "observedPotentialMin": 71,
       "facilityInstances": 0,
       "verifiedOshiFixtureEvents": 2,
       "weaknessReasons": [
