@@ -995,7 +995,7 @@
                             <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
                         <div class="ranking-row" style="background:#f8fafc; padding:8px; border-radius:8px; margin-top:8px;">
-                            <div style="font-weight:bold; color:#6b7280;">... <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
+                            <div style="font-weight:bold; color:#6b7280;">実ユーザー内 <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
@@ -2065,6 +2065,15 @@
         '熊本県','大分県','宮崎県','鹿児島県','沖縄県'
     ];
 
+    const RANKING_DEMO_USERS = [
+        { id:'demo-rank-1', name:'パトロールおじさん', avatar:'🚓', point:12500, isDemo:true },
+        { id:'demo-rank-2', name:'安全第一丸', avatar:'🔰', point:9800, isDemo:true },
+        { id:'demo-rank-3', name:'ご近所ウォッチャー', avatar:'👀', point:4500, isDemo:true },
+        { id:'demo-rank-4', name:'タクシードライバー', avatar:'🚕', point:1200, isDemo:true },
+        { id:'demo-rank-5', name:'セーフティライダー', avatar:'🛵', point:950, isDemo:true },
+        { id:'demo-rank-6', name:'ママチャリパトロール', avatar:'🚲', point:800, isDemo:true }
+    ];
+
     async function loadRanking() {
         const allUsers = [];
         try {
@@ -2086,22 +2095,24 @@
         }
         uniqueUsers.sort((a,b)=>b.point-a.point);
 
+        const rankingUsers = [...uniqueUsers, ...RANKING_DEMO_USERS]
+            .sort((a,b)=>Number(b.point||0)-Number(a.point||0));
+
         const rankingArea = document.getElementById('nationalRankingArea');
-        rankingArea.innerHTML = '';
+        rankingArea.innerHTML = '<div style="margin:0 0 10px;padding:7px 10px;border-radius:9px;background:#f8fafc;border:1px solid #e2e8f0;color:#64748b;font-size:.68rem;line-height:1.45;"><strong>β版：</strong>ランキングには表示確認用のDEMOユーザーを含みます。</div>';
 
-        if (!uniqueUsers.length) {
-            rankingArea.innerHTML = '<div style="text-align:center;padding:15px;color:#6b7280;font-size:.85rem;">ランキングデータはまだありません</div>';
-        }
-
-        uniqueUsers.slice(0,10).forEach((u,idx) => {
+        rankingUsers.slice(0,10).forEach((u,idx) => {
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
             else if (idx === 1) medal = '<i class="fa-solid fa-medal medal-2"></i> 2位';
             else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
             else medal = `<span style="display:inline-block;width:45px;text-align:center;font-size:.9rem;color:#6b7280;">${idx+1}位</span>`;
 
-            const bg = u.id === myUserId ? 'background:#eff6ff;' : '';
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
+            const bg = !u.isDemo && u.id === myUserId ? 'background:#eff6ff;' : '';
+            const demoBadge = u.isDemo
+                ? '<span style="font-size:.58rem;font-weight:900;color:#7c3aed;background:#ede9fe;border-radius:999px;padding:2px 5px;margin-left:5px;">DEMO</span>'
+                : '';
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}${demoBadge}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
         });
 
         const myRealIndex = uniqueUsers.findIndex(u=>u.id===myUserId);
