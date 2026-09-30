@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-weak-prefecture-v12",
+  "version": "2026-10-01-weak-prefecture-v13",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -10,10 +10,10 @@
   },
   "summary": {
     "prefectureTotal": 47,
-    "singleSourcePrefectures": 25,
+    "singleSourcePrefectures": 23,
     "lowOrUnmeasuredPotentialPrefectures": 36,
     "noReadySourcePrefectures": 43,
-    "noFacilityInstanceDirectEvidencePrefectures": 40,
+    "noFacilityInstanceDirectEvidencePrefectures": 39,
     "noVerifiedOshiFixturePrefectures": 39,
     "readyPrefectures": [
       "愛知県",
@@ -56,39 +56,36 @@
   "prefectures": [
     {
       "prefecture": "茨城県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
       "termsReviewedOrBetter": 0,
       "readySources": 0,
-      "observedPotentialMin": 0,
+      "observedPotentialMin": 3,
       "facilityInstances": 0,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
-        "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source",
         "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 4
     },
     {
       "prefecture": "京都府",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
       "termsReviewedOrBetter": 0,
       "readySources": 0,
-      "observedPotentialMin": 0,
-      "facilityInstances": 0,
+      "observedPotentialMin": 8,
+      "facilityInstances": 1,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
-        "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source",
-        "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 3
     },
     {
       "prefecture": "熊本県",

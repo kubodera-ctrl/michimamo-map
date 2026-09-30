@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-facility-instances-v4",
+  "version": "2026-10-01-facility-instances-v5",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -187,6 +187,32 @@
       ],
       "family_relevance": "very_high",
       "notes": "2026-09-30公式イベントニュースでCIRRA release event、サンリオキャラクター大賞ステージショー、書道パフォーマンス、クラシックライブ、親子/工作系等を直接確認。通常セール・ポイント・カード/決済キャンペーンはevent-like判定から除外。規約/robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "kyoto-station-building-events",
+      "network_key": "kyoto-station-building",
+      "facility_name": "京都駅ビル",
+      "prefecture": "京都府",
+      "municipality": "京都市下京区",
+      "homepage_url": "https://www.kyoto-station-building.co.jp/",
+      "event_url": "https://www.kyoto-station-building.co.jp/events/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 10,
+      "event_categories": [
+        "stage",
+        "music",
+        "workshop",
+        "exhibition",
+        "experience",
+        "retail",
+        "food",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式イベント一覧で10月以降の具体イベントを少なくとも10件確認。開催日/期間、場所、カテゴリ、個別詳細導線あり。常設サービス・単なる販促はevent-like判定から分離し、規約/robots確認前はfetch不可。"
     }
   ]
 }
