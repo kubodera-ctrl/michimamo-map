@@ -4,11 +4,11 @@
   "counts": {
     "existing_kanto_registry": 26,
     "existing_national_venue_series": 12,
-    "discovery_file_sources": 48,
-    "newly_researched_official_open_data": 20,
-    "total_inventory_or_discovery_candidates": 86,
+    "discovery_file_sources": 49,
+    "newly_researched_official_open_data": 21,
+    "total_inventory_or_discovery_candidates": 87,
     "concrete_prefecture_coverage_from_all_inventories": 28,
-    "preflight_or_better": 47,
+    "preflight_or_better": 48,
     "terms_reviewed_or_better": 18,
     "ready": 3,
     "active": 0
@@ -1199,6 +1199,36 @@
       "maintenance_cost": "medium",
       "freshness_confidence": "high",
       "notes": "公式イベント一覧で市町村・エリア・開催期間を確認。過年度項目混在もあるためfreshness filterが必要。"
+    },
+    {
+      "source_key": "hamamatsu-current-events-open-data",
+      "source_name": "浜松市 オープンデータ「イベント」",
+      "role": "event_feed_candidate",
+      "source_type": "open_data",
+      "prefecture": "静岡県",
+      "municipality": "浜松市",
+      "coverage": "浜松市",
+      "base_url": "https://opendata.pref.shizuoka.jp/dataset/chiiki/shizuoka/hamamatu/",
+      "feed_url": null,
+      "fetch_method": "OPEN_DATA",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "commercial_use_status": "unknown",
+      "attribution_requirement": null,
+      "automated_fetch_allowed": false,
+      "priority": 99,
+      "review_state": "PREFLIGHT",
+      "yield_class": "high",
+      "observed_current_items_min": null,
+      "expected_update_frequency": "unknown",
+      "region_coverage": "municipality",
+      "category_breadth": "unknown",
+      "family_relevance": "unknown",
+      "acquisition_difficulty": "low",
+      "terms_difficulty": "low",
+      "maintenance_cost": "low",
+      "freshness_confidence": "high",
+      "notes": "静岡県オープンデータの浜松市カタログで「イベント」が2026-09-25更新として新着表示。CSV/XLSX 2resourceを確認。dataset detail/resource直URL・利用条件・schema確定前はfetch不可。"
     }
   ]
 }
