@@ -94,7 +94,11 @@
         geoPrecision:event.geoPrecision,
         displayMode:event.displayMode,
         routeEndpoints:Array.isArray(event.routeEndpoints)?Object.freeze(event.routeEndpoints.map(point=>Object.freeze([...point]))):null,
-        geometryQuality:Array.isArray(event.routeEndpoints)?'road_routed_beta_candidate':null,
+        endpointVerified:event.endpointVerified===true,
+        routeMatchTokens:Object.freeze([...(event.routeMatchTokens||[])].map(clean).filter(Boolean)),
+        geometryQuality:Array.isArray(event.routeEndpoints)
+          ?(event.endpointVerified===true?'road_route_endpoint_crosschecked':'road_routed_beta_candidate')
+          :null,
         geometryStatus:event.geometryStatus,
         geometryVerified:event.geometryVerified===true,
         agency:event.agency,
@@ -172,9 +176,38 @@
     return best;
   }
 
+  function normalizeRoadToken(value){
+    return clean(value).toLowerCase().replace(/[^\\p{L}\\p{N}]+/gu,'');
+  }
+
+  function osrmRouteSignature(payload){
+    const values=[];
+    for(const route of Array.isArray(payload?.routes)?payload.routes:[]){
+      for(const leg of Array.isArray(route?.legs)?route.legs:[]){
+        for(const step of Array.isArray(leg?.steps)?leg.steps:[]){
+          for(const value of [step?.name,step?.ref]){
+            const normalized=normalizeRoadToken(value);
+            if(normalized)values.push(normalized);
+          }
+        }
+      }
+    }
+    return Object.freeze([...new Set(values)]);
+  }
+
+  function routeMatchesExpected(payload,expectedTokens){
+    const expected=(Array.isArray(expectedTokens)?expectedTokens:[])
+      .map(normalizeRoadToken).filter(Boolean);
+    if(!expected.length)return false;
+    const signature=osrmRouteSignature(payload);
+    if(!signature.length)return false;
+    return expected.some(token=>signature.some(value=>value.includes(token)||token.includes(value)));
+  }
+
   return Object.freeze({
     clean,parseClock,parseSpeed,normalizeBundle,normalizeSnapshot,
     minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,
-    distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters
+    distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters,
+    normalizeRoadToken,osrmRouteSignature,routeMatchesExpected
   });
 });
