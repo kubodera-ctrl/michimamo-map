@@ -64,6 +64,11 @@ test('cross-source batch dedupe auto-merges strong pairs and queues ambiguous pa
   assert.equal(result.autoMergePairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='e'),false);
   assert.equal(result.reviewPairs.some((pair)=>pair.leftId==='a'&&pair.rightId==='d'),false);
   assert.ok(result.clusters.some((cluster)=>cluster.includes('a')&&cluster.includes('b')));
+  assert.equal(result.clusters.some((cluster)=>cluster.includes('a')&&cluster.includes('e')),false);
+  assert.ok(result.reviewPairs.some((pair)=>
+    pair.reviewReason==='source_cluster_conflict'
+    && ((pair.leftId==='b'&&pair.rightId==='e')||(pair.leftId==='a'&&pair.rightId==='e'))
+  ));
   assert.equal(result.uniqueAfterAutoMerge,4);
 });
 
