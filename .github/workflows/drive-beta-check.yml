@@ -11,6 +11,7 @@ on:
       - "scripts/drive_enforcement_pipeline.mjs"
       - "scripts/drive_source_fetch.mjs"
       - "scripts/drive_public_schedule_pipeline.mjs"
+      - "scripts/drive_focus_area_pipeline.mjs"
       - "scripts/drive_poll_scheduler.mjs"
       - "scripts/drive_source_registry.mjs"
       - "scripts/build_drive_preview_snapshot.mjs"
@@ -22,6 +23,7 @@ on:
       - "tests/drive_source_registry.test.mjs"
       - "tests/drive_chiba_pipeline.test.mjs"
       - "tests/drive_kanagawa_pipeline.test.mjs"
+      - "tests/drive_saitama_pipeline.test.mjs"
       - "package.json"
       - ".github/workflows/drive-beta-check.yml"
   workflow_dispatch:
@@ -50,6 +52,8 @@ jobs:
         run: node tests/drive_chiba_pipeline.test.mjs
       - name: Kanagawa HTML exact/area contract
         run: node tests/drive_kanagawa_pipeline.test.mjs
+      - name: Saitama speed and focus-area contract
+        run: node tests/drive_saitama_pipeline.test.mjs
       - name: Per-source polling scheduler contract
         run: node tests/drive_poll_scheduler.test.mjs
       - name: Source Registry to scheduler contract
