@@ -79,3 +79,36 @@ export function buildScheduleSnapshot(bundle,{mode='preview'}={}){
     events:Object.freeze(events)
   });
 }
+
+export function buildPublicSchedulePreview(bundle){
+  const snapshot=buildScheduleSnapshot(bundle,{mode:'preview'});
+  if(!snapshot.gate.publishable)throw new Error('schedule_preview_not_publishable');
+  return Object.freeze({
+    schemaVersion:1,
+    sourceLabel:bundle.source.policeOrg+' 公開交通取締り',
+    sourceUrl:bundle.source.sourceUrl,
+    sourceVersionDate:bundle.source.sourceVersionDate,
+    sourceVerifiedAt:bundle.source.verifiedAt,
+    freshnessStatus:bundle.source.freshnessStatus,
+    sourceHash:snapshot.sourceHash,
+    periodStart:snapshot.periodStart,
+    periodEnd:snapshot.periodEnd,
+    events:Object.freeze(snapshot.events.map(event=>Object.freeze({
+      id:event.externalId,
+      eventKey:event.eventKey,
+      enforcementType:event.enforcementType,
+      areaText:event.areaText,
+      validDate:event.validDate,
+      validFrom:event.validFrom,
+      validTo:event.validTo,
+      timePrecision:event.timePrecision,
+      timeText:event.timeText,
+      geoPrecision:event.geoPrecision,
+      displayMode:event.displayMode,
+      sourceUrl:event.sourceUrl,
+      sourceVerifiedAt:event.sourceVerifiedAt,
+      freshnessStatus:event.freshnessStatus,
+      scheduleChangeNote:event.scheduleChangeNote
+    })))
+  });
+}
