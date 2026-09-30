@@ -58,6 +58,25 @@ function setStatusPanelExpanded(expanded){
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function activeZones(){return enforcementZones.filter(z=>zonesApi.isZoneActive(z));}
 
+function enforcementLabelMode(zoom=map.getZoom()){
+  if(zoom>=14)return 'detail';
+  if(zoom>=13)return 'compact';
+  return 'marker';
+}
+
+function zoneLabelHtml(zone,active,mode){
+  if(mode==='compact'){
+    return '<div class="zone-label-title">'+esc(zone.route)+'</div>';
+  }
+  if(mode!=='detail')return '';
+  return '<div class="zone-label-title">'+esc(zone.route)+'</div>'+
+    '<div class="zone-label-time">'+(active?'現在重点 '+esc(zonesApi.formatWindow(zone)):esc(zonesApi.formatWindow(zone)))+'</div>';
+}
+
+function zoneMarkerPoint(geometry){
+  return geometry[Math.floor((geometry.length-1)/2)]||geometry[0];
+}
+
 function zonePopup(zone){
   const active=zonesApi.isZoneActive(zone);
   const routed=resolvedGeometries.has(zone.id);
@@ -73,24 +92,41 @@ function zonePopup(zone){
 function renderEnforcement(){
   enforcementLayer.clearLayers();zoneLines.clear();
   if(!enforcementVisible)return;
+  const labelMode=enforcementLabelMode();
   for(const zone of enforcementZones){
     const geometry=resolvedGeometries.get(zone.id);
     if(!geometry)continue;
     const active=zonesApi.isZoneActive(zone);
+    const popupHtml=zonePopup(zone);
     const line=L.polyline(geometry,{
       color:active?'#dc2626':'#f59e0b',
       weight:active?6:4,
       opacity:active?.9:.72,
       dashArray:active?null:'10 8',
       lineCap:'round'
-    }).bindPopup(zonePopup(zone),{autoClose:false,closeOnClick:false});
+    }).bindPopup(popupHtml,{autoClose:false,closeOnClick:false});
     line.addTo(enforcementLayer);
-    line.bindTooltip(
-      '<div class="zone-label-title">'+esc(zone.route)+'</div>'+
-      '<div class="zone-label-time">'+(active?'現在重点 '+esc(zonesApi.formatWindow(zone)):esc(zonesApi.formatWindow(zone)))+'</div>',
-      {permanent:true,direction:'center',className:active?'drive-zone-label active':'drive-zone-label',opacity:1}
-    );
-    zoneLines.set(zone.id,{zone,line});
+
+    let marker=null;
+    if(labelMode==='marker'){
+      marker=L.circleMarker(zoneMarkerPoint(geometry),{
+        radius:active?6:5,
+        color:'#fff',
+        weight:2,
+        fillColor:active?'#dc2626':'#f59e0b',
+        fillOpacity:.96
+      }).bindPopup(popupHtml,{autoClose:false,closeOnClick:false});
+      marker.addTo(enforcementLayer);
+    }else{
+      const classes=['drive-zone-label'];
+      if(active)classes.push('active');
+      if(labelMode==='compact')classes.push('compact');
+      line.bindTooltip(
+        zoneLabelHtml(zone,active,labelMode),
+        {permanent:true,direction:'center',className:classes.join(' '),opacity:1}
+      );
+    }
+    zoneLines.set(zone.id,{zone,line,marker});
   }
   updateStatus();
 }
@@ -331,6 +367,9 @@ locationBtn.addEventListener('click',()=>{
 });
 document.getElementById('alertClose').addEventListener('click',()=>alertBox.classList.remove('show'));
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
+map.on('zoomend',()=>{
+  if(enforcementVisible)renderEnforcement();
+});
 
 async function loadEnforcementSource(){
   statusTitle.textContent='警察公式データを読み込み中';
