@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v4",
+  "version": "coverage-kpi-v5",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -26,7 +26,16 @@
       "valid": 1019,
       "publishable": 240,
       "active": 0,
-      "note": "Five READY source dry-runs at Event Site Check #784; cross-source dedup not yet applied."
+      "note": "Five READY source dry-runs plus cross-source dedup at Event Site Check #792.",
+      "crossSourceDedup": {
+        "inputPublishable": 240,
+        "autoMergePairs": 0,
+        "reviewPairs": 0,
+        "clusters": 0,
+        "uniqueAfterAutoMerge": 240,
+        "duplicatesRemoved": 0,
+        "evidence": "Event Site Check #792 / data/machiibe/cross_source_dedup_snapshot_v1.json"
+      }
     },
     "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka READY live dry-run / Event Site Check #784; no DB or Active writes."
   },
@@ -58,10 +67,10 @@
     ],
     "externalWait": [],
     "selfResolvable": [
-      "apply cross-source event identity/dedup to live READY candidates",
-      "promote additional official sources only after current terms/freshness/resource review",
-      "expand weak prefecture depth, facility instances and oshi source/fixture coverage",
-      "persist per-source dry-run evidence without Production writes"
+      "expand weak prefecture depth with additional current official sources",
+      "increase facility-instance coverage beyond two pilots",
+      "expand verified oshi source/fixture coverage",
+      "persist live evidence and freshness monitoring without Production writes"
     ]
   },
   "weakPrefectureCoverage": {
