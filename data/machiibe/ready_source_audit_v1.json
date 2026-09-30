@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v9",
+  "version": "2026-09-30-ready-audit-v10",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -268,6 +268,57 @@
         "license": "CC BY 4.0",
         "resource_modified": "2026-09-03T00:05:10.819043",
         "note": "豊中市公式規約は商用利用、複製・改変・頒布・公衆送信を許可しCC BY 4.0。第三者権利は別gate。live CKAN #779のfreshnessを優先。"
+      }
+    },
+    {
+      "source_key": "bodik-usa-events",
+      "prefecture": "大分県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness_recheck"
+      ],
+      "evidence": {
+        "city_open_data": "https://www.city.usa.oita.jp/sougo/soshiki/10/sogoseisaku/2_1/open_data/index.html",
+        "dataset": "https://data.bodik.jp/dataset/72e1d155-6ea8-450e-9559-570b768ab1ab",
+        "csv": "https://data.bodik.jp/dataset/72e1d155-6ea8-450e-9559-570b768ab1ab/resource/00a0b50c-a46b-498c-94fd-0fe61f3d14c2/download/442119_event.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-08-03T02:32:29.576088",
+        "live_discovery_run": 779,
+        "note": "権利/access/resourceは明確。更新から約58日でfreshness余裕が小さいため、次回更新確認かcurrent event内容確認後にREADY再判定。"
+      }
+    },
+    {
+      "source_key": "bodik-shibushi-events",
+      "prefecture": "鹿児島県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "content_freshness"
+      ],
+      "evidence": {
+        "city_open_data": "https://www.city.shibushi.lg.jp/soshiki/1/1876.html",
+        "current_calendar": "https://www.city.shibushi.lg.jp/calendar/",
+        "dataset": "https://data.bodik.jp/dataset/7b13ce0d-97c7-4935-8071-a0888469b592",
+        "csv": "https://data.bodik.jp/dataset/7b13ce0d-97c7-4935-8071-a0888469b592/resource/dca85562-12e6-4d3a-b87f-e1f9e43e8eb1/download/462217_event_2024.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-08-26T02:43:50.788245",
+        "live_discovery_run": 779,
+        "note": "metadata更新は新しいがresource自体が2024年度イベント。2026現行カレンダーと一致しないためfreshness FAIL。READYへ上げない。"
       }
     }
   ]
