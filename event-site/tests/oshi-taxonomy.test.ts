@@ -39,3 +39,42 @@ test('verified real oshi fixtures classify only from official evidence',()=>{
     }
   }
 });
+
+
+test('verified oshi entity graph resolves aliases and only links known entity ids',()=>{
+  const raw=fs.readFileSync(new URL('../../data/machiibe/fixtures/oshi_entity_graph_v1.json',import.meta.url),'utf8');
+  const graph=JSON.parse(raw) as {
+    entities:OshiEntity[];
+    verifiedRelationships:Array<{childEntityId:string;parentEntityId:string;relation:string;sourceUrl:string}>;
+  };
+  assert.ok(graph.entities.length>=5);
+  const ids=new Set(graph.entities.map((entity)=>entity.id));
+  assert.equal(ids.size,graph.entities.length);
+
+  for(const entity of graph.entities){
+    assert.ok(OSHI_ENTITY_TYPES.includes(entity.type));
+    assert.ok(entity.canonicalName.trim());
+    assert.ok(entity.officialUrls.every((url)=>/^https:\/\//.test(url)));
+    assert.ok(entity.parentEntityIds.every((id)=>ids.has(id)&&id!==entity.id));
+    assert.ok(entity.relatedEntityIds.every((id)=>ids.has(id)&&id!==entity.id));
+  }
+
+  const cinnamoroll=graph.entities.find((entity)=>entity.id==='character-cinnamoroll')!;
+  assert.equal(entityMatchesQuery(cinnamoroll,'シナモン'),true);
+  assert.equal(entityMatchesQuery(cinnamoroll,'CINNAMOROLL'),true);
+
+  const pokemonCard=graph.entities.find((entity)=>entity.id==='work-pokemon-card-game')!;
+  assert.equal(entityMatchesQuery(pokemonCard,'ポケカ'),true);
+  assert.deepEqual(pokemonCard.parentEntityIds,['franchise-pokemon']);
+
+  const genjibu=graph.entities.find((entity)=>entity.id==='group-genjibu')!;
+  assert.equal(entityMatchesQuery(genjibu,'ゲンジブ'),true);
+  assert.equal(entityMatchesQuery(genjibu,'GNJB'),true);
+
+  for(const relation of graph.verifiedRelationships){
+    assert.ok(ids.has(relation.childEntityId));
+    assert.ok(ids.has(relation.parentEntityId));
+    assert.ok(['part_of_franchise','member_of'].includes(relation.relation));
+    assert.match(relation.sourceUrl,/^https:\/\//);
+  }
+});
