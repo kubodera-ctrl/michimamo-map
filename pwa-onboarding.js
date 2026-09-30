@@ -71,9 +71,9 @@ function injectStyles(){
   .mm-guide-replay{margin:10px 0 16px}.mm-guide-replay button{width:100%;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:14px;padding:13px 14px;font:inherit;font-weight:900;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px}.mm-guide-replay small{display:block;color:#64748b;font-weight:600;margin-top:3px}
   html.mm-standalone,html.mm-standalone body{width:100%!important;height:100%!important;min-height:100%!important;max-height:100%!important;margin:0!important;overflow:hidden!important;background:#f4f6f8!important}
   html.mm-standalone #app{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:calc(0px - env(safe-area-inset-bottom, 0px) - env(safe-area-inset-bottom, 0px))!important;width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
-  html.mm-standalone nav{padding-bottom:calc(8px + env(safe-area-inset-bottom, 0px) + env(safe-area-inset-bottom, 0px))!important;background:#fff!important}
+  html.mm-standalone #bottomNav{padding-bottom:calc(8px + env(safe-area-inset-bottom, 0px) + env(safe-area-inset-bottom, 0px))!important;background:#fff!important}
   html.mm-standalone main{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important}
-  html.mm-standalone nav,html.mm-standalone .ad-banner,html.mm-standalone header{flex:0 0 auto!important}
+  html.mm-standalone #bottomNav,html.mm-standalone .ad-banner,html.mm-standalone header{flex:0 0 auto!important}
   @media (min-width:600px){.mm-ob-overlay{align-items:center;padding:24px}.mm-ob-sheet{border-radius:26px;max-height:88vh;padding-bottom:22px}}
   `;
   document.head.appendChild(style);
@@ -114,8 +114,14 @@ function showInstallGuide(){
     removeOverlay();
     safeSet(KEY_INSTALL);
   };
-  later?.addEventListener('pointerdown',dismiss,{passive:false,once:true});
-  later?.addEventListener('click',dismiss,{once:true});
+  if(later){
+    later.onpointerdown=dismiss;
+    later.ontouchstart=dismiss;
+    later.onclick=dismiss;
+    later.addEventListener('pointerdown',dismiss,{capture:true,passive:false});
+    later.addEventListener('touchstart',dismiss,{capture:true,passive:false});
+    later.addEventListener('click',dismiss,{capture:true});
+  }
 }
 
 let slideIndex=0;

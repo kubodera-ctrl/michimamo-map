@@ -100,11 +100,27 @@
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        #app > nav { position: fixed; left: 0; right: 0; bottom: var(--machimamo-browser-bottom, 0px); min-height: var(--machimamo-bottom-nav-height); background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 5000; }
-        #app > nav[hidden] { display: none !important; }
-        #app > nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
-        #app > nav button.active { color: #1f6feb; }
-        #app > nav button i { font-size: 20px; }
+        #bottomNav {
+            position: fixed !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+            width: 100% !important; min-height: var(--machimamo-bottom-nav-height) !important;
+            background: #fff !important; border-top: 1px solid #e5e7eb !important;
+            display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+            z-index: 1900 !important; visibility: visible !important; opacity: 1 !important;
+            pointer-events: auto !important; transform: translateZ(0) !important;
+            box-shadow: 0 -4px 16px rgba(15,23,42,.08);
+        }
+        #bottomNav[hidden] { display: none !important; }
+        #bottomNav button {
+            min-width: 0 !important; min-height: 48px !important; border: 0 !important;
+            background: transparent !important; color: #6b7280 !important; font-weight: 800 !important;
+            font-size: 12px !important; display: flex !important; visibility: visible !important; opacity: 1 !important;
+            flex-direction: column !important; align-items: center !important; justify-content: center !important;
+            gap: 4px !important; cursor: pointer; padding: 4px 2px !important; -webkit-appearance: none;
+        }
+        #bottomNav button.active { color: #1f6feb !important; }
+        #bottomNav button i { display: block !important; font-size: 20px !important; line-height: 1 !important; }
+        #bottomNav button span { display: block !important; line-height: 1.2 !important; }
 
         .search-box { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; gap: 6px; }
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
@@ -1025,14 +1041,15 @@
 
     <!-- β Release Gate: legacy hardcoded affiliate banner disabled until ASP Runtime approval. -->
 
-    <!-- ナビゲーションメニュー -->
-    <nav>
-        <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
-        <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i> クイズ</button>
-        <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i> マイページ</button>
-        <button class="nav" data-view="poikatsuView" onclick="updateMyPage()"><i class="fa-solid fa-gift"></i> ポイ活</button>
-    </nav>
 </div>
+
+<!-- ナビゲーションメニュー：Safariでも独立した固定UIとして描画 -->
+<nav id="bottomNav" aria-label="メインメニュー">
+    <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i><span>マップ</span></button>
+    <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i><span>クイズ</span></button>
+    <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i><span>マイページ</span></button>
+    <button class="nav" data-view="poikatsuView" onclick="updateMyPage()"><i class="fa-solid fa-gift"></i><span>ポイ活</span></button>
+</nav>
 
 <!-- 各種モーダル -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
@@ -4780,7 +4797,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
-<script src="mypage-guide.js?v=30-camera-audit1"></script>
+<script src="mypage-guide.js?v=42-safari-nav4"></script>
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>

@@ -1,6 +1,6 @@
 body.camera-running #app > header,
 body.camera-running .ad-banner,
-body.camera-running #app > nav { display:none !important; }
+body.camera-running #bottomNav { display:none !important; }
 
 .camera-view.active {
   position:fixed;
