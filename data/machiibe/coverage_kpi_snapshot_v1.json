@@ -1,12 +1,12 @@
 {
-  "version": "coverage-kpi-v12",
+  "version": "coverage-kpi-v13",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
     "prefectureTotal": 47,
     "concretePrefectureCoverage": 31,
-    "inventoryOrDiscoveryCandidates": 96,
-    "preflightOrBetter": 57,
+    "inventoryOrDiscoveryCandidates": 97,
+    "preflightOrBetter": 58,
     "termsReviewedOrBetter": 24,
     "ready": 5,
     "active": 0
@@ -70,16 +70,28 @@
       "GNJB"
     ],
     "oshiEntityGraphEvidence": "data/machiibe/fixtures/oshi_entity_graph_v1.json",
-    "bodikCandidateSnapshot": "data/machiibe/bodik_event_candidate_snapshot_v1.json"
+    "bodikCandidateSnapshot": "data/machiibe/bodik_event_candidate_snapshot_v1.json",
+    "kawasakiEventApi": {
+      "sourceKey": "kawasaki-city-event-api",
+      "reviewState": "PREFLIGHT",
+      "automatedFetchAllowed": false,
+      "documentedTotalNumbers": 421,
+      "documentedTotalPages": 5,
+      "schemaFixture": "data/machiibe/fixtures/kawasaki_event_api_schema_fixture.json",
+      "note": "開発9のlive page 1確認値。全5page監査・current freshness・event-level URL品質未確定のためREADYへ昇格しない。"
+    }
   },
   "blockerClasses": {
     "userAction": [
       "PR #1 5P / 7P / 8P / Web QA and merge decision"
     ],
-    "externalWait": [],
+    "externalWait": [
+      "川崎市Event API: 全5page live監査・freshness/open_url/location/status/barrier_free分布と取得負荷の確認"
+    ],
     "selfResolvable": [
+      "川崎市Event API schema adapter/fixture/testの回帰確認とsource gate整理",
       "expand weak prefecture depth with additional current official sources",
-      "increase facility-instance coverage beyond two pilots",
+      "increase facility-instance coverage beyond five pilots",
       "expand verified oshi source/fixture coverage",
       "persist live evidence and freshness monitoring without Production writes"
     ]
