@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-ready-audit-v5",
+  "version": "2026-09-30-ready-audit-v6",
   "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
   "sources": [
     {
@@ -216,6 +216,31 @@
         "resource_updated_at": "2025-11-14",
         "portal_notice": "2026-09-18 event dataset addition notice",
         "note": "ポータル告知は新しいが、実CSV resourceの最終更新は2025-11-14。告知日だけでfreshnessを昇格させない。"
+      }
+    },
+    {
+      "source_key": "bodik-nagasaki-monthly-events",
+      "prefecture": "長崎県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": false,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "resource_latest_resolution",
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/f76b7e71-6c52-491a-a847-d5aacb73bc98",
+        "resolver_api": "https://data.bodik.jp/api/3/action/package_show?id=f76b7e71-6c52-491a-a847-d5aacb73bc98",
+        "terms": "https://odcs.bodik.jp/422011/tos/",
+        "license": "CC BY 4.0",
+        "max_resource_age_days": 45,
+        "note": "月別resourceのため固定URL禁止。live resolver probeで最新active HTTPS CSVと更新日を確認してからREADY判定する。第三者権利はmedia/event factsから分離。"
       }
     }
   ]
