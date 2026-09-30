@@ -17,3 +17,11 @@ console.log('Safari Private viewport uses width=device-width without geometry in
 assert.match(viewportSetup, /visualViewport\?\.height/);
 assert.match(viewportSetup, /--machimamo-app-height/);
 assert.match(html, /#app \{[^}]*height: var\(--machimamo-app-height, 100svh\)/);
+
+assert.match(html, /--machimamo-bottom-nav-height/);
+assert.match(html, /--machimamo-browser-bottom/);
+assert.match(html, /#app \{[^}]*padding-bottom: var\(--machimamo-bottom-nav-height\)/);
+assert.match(html, /#app > nav \{[^}]*position: fixed[^}]*bottom: var\(--machimamo-browser-bottom, 0px\)[^}]*z-index: 5000/);
+assert.match(viewportSetup, /layoutHeight - visibleBottom/);
+assert.match(viewportSetup, /--machimamo-browser-bottom/);
+assert.match(viewportSetup, /visualViewport\?\.addEventListener\('scroll', updatePhoneVisibleHeight/);
