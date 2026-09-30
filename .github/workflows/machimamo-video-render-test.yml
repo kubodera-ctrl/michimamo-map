@@ -1,0 +1,76 @@
+name: Machimamo video render test
+
+on:
+  push:
+    branches:
+      - feature/machimamo-video-render-test
+    paths:
+      - "tools/video-production/**"
+      - ".github/workflows/machimamo-video-render-test.yml"
+  pull_request:
+    paths:
+      - "tools/video-production/**"
+      - ".github/workflows/machimamo-video-render-test.yml"
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install pillow
+
+      - name: Fetch rights-cleared source video
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .render-source output
+
+          SRC1="https://satlib.cira.colostate.edu/wp-content/uploads/sites/23/2026/09/20260920213000-20260922151000_g18_ahi_fd_geocolor_Typhoon-Dujuan-passes-Japan_nolabels.mp4"
+          SRC2="https://commons.wikimedia.org/wiki/Special:Redirect/file/Typhoon_Dujuan_Passes_South_of_Japan_%28CIRA_2026-09-22_-_nolabels%29.webm"
+
+          if curl -fL --retry 3 --retry-delay 2 "$SRC1" -o .render-source/source.mp4 \
+            && ffprobe -v error .render-source/source.mp4 >/dev/null 2>&1; then
+            echo "SOURCE=.render-source/source.mp4" >> "$GITHUB_ENV"
+          else
+            rm -f .render-source/source.mp4
+            curl -fL --retry 3 --retry-delay 2 "$SRC2" -o .render-source/source.webm
+            ffprobe -v error .render-source/source.webm >/dev/null
+            echo "SOURCE=.render-source/source.webm" >> "$GITHUB_ENV"
+          fi
+
+      - name: Render short and long videos
+        run: |
+          python tools/video-production/render_test.py \
+            --source "$SOURCE" \
+            --out output
+
+      - name: Verify output durations and metadata
+        run: |
+          echo "SHORT"
+          ffprobe -v error -show_entries format=duration -of default=nw=1 output/machimamo_short_v1.mp4
+          echo "LONG"
+          ffprobe -v error -show_entries format=duration -of default=nw=1 output/machimamo_long_v1.mp4
+          cat output/metadata.json
+
+      - name: Upload render artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: machimamo-video-render-test
+          path: |
+            output/machimamo_short_v1.mp4
+            output/machimamo_long_v1.mp4
+            output/preview_short.jpg
+            output/preview_long.jpg
+            output/metadata.json
+          retention-days: 7
+          if-no-files-found: error
