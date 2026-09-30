@@ -12,7 +12,11 @@ assert.equal(parseClock('24:00'),1440);
 assert.equal(parseClock('07:00'),420);
 assert.throws(()=>parseClock('24:01'));
 assert.deepEqual(parseSpeed('50（東京ゲートブリッジ上60）'),{
-  speedLimitKmh:50,speedLimitText:'50(東京ゲートブリッジ上60)',alternateSpeedKmh:[60]
+  speedLimitKmh:50,
+  speedLimitText:'50(東京ゲートブリッジ上60)',
+  speedLimitKind:'PRIMARY_WITH_EXCEPTION',
+  speedLimitValuesKmh:[50,60],
+  alternateSpeedKmh:[60]
 });
 
 const snapshot=buildSnapshot(bundle,{mode:'preview'});
@@ -89,7 +93,9 @@ const multi=normalizeRecord(bundle.source,{
   speedLimitText:'70・80・100',segmentStartText:'始点',segmentEndText:'終点',
   timeStart:'06:00',timeEnd:'18:00',roadScope:'SEGMENT'
 },{});
-assert.equal(multi.speedLimitKmh,70);
-assert.deepEqual(multi.alternateSpeedKmh,[80,100]);
+assert.equal(multi.speedLimitKmh,null);
+assert.equal(multi.speedLimitKind,'MULTIPLE_OR_RANGE');
+assert.deepEqual(multi.speedLimitValuesKmh,[70,80,100]);
+assert.deepEqual(multi.alternateSpeedKmh,[]);
 
 console.log('PASS: current 9-route DRIVE official source -> normalized preview snapshot contract');
