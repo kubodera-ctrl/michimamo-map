@@ -233,6 +233,84 @@
         "東京港臨海道路",
         "臨港道路"
       ]
+    },
+    "wangan-harumi": {
+      "start": [
+        35.640932,
+        139.802592
+      ],
+      "end": [
+        35.65038,
+        139.800698
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+          "https://www.douroweb.jp/region13021/c030harumi.html",
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome001_shinonome.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "晴海通り",
+        "都道304号",
+        "304"
+      ]
+    },
+    "wangan-mitsume": {
+      "start": [
+        35.644254,
+        139.812714
+      ],
+      "end": [
+        35.654181,
+        139.811308
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+          "https://www.douroweb.jp/region13025/c045mitsume.html",
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi005_nanaeda.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "三ツ目通り",
+        "都道319号",
+        "319"
+      ]
+    },
+    "wangan-rinko-chuboh-shinkiba": {
+      "start": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "end": [
+        35.64755,
+        139.837498
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "official_centerline_and_intersection_crosscheck",
+        "evidence": [
+          "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf",
+          "https://www.ktr.mlit.go.jp/syuto/syuto00173.html",
+          "https://www.douroweb.jp/region13043/utb_wankan.html"
+        ]
+      },
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路",
+        "東京ゲートブリッジ"
+      ]
     }
   },
   "endpointRegistry": {
@@ -259,11 +337,17 @@
       ]
     },
     "東雲交差点": {
-      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
-      "coordinate": null,
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.640932,
+        139.802592
+      ],
       "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
       "evidence": [
-        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html"
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+        "https://www.douroweb.jp/region13021/c030harumi.html",
+        "https://www.google.co.jp/maps/@35.640932,139.802592,16z"
       ]
     },
     "東雲橋上": {
@@ -301,12 +385,17 @@
       ]
     },
     "辰巳交差点": {
-      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
-      "coordinate": null,
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.644254,
+        139.812714
+      ],
       "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
       "evidence": [
         "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
-        "https://map.yahoo.co.jp/v3/place/4-NGv4a8af2/map"
+        "https://www.douroweb.jp/region13025/c045mitsume.html",
+        "https://www.google.co.jp/maps/@35.644254,139.812714,16z"
       ]
     },
     "七枝橋上": {
@@ -366,12 +455,17 @@
       ]
     },
     "新木場交差点": {
-      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
-      "coordinate": null,
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.64755,
+        139.837498
+      ],
       "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
       "evidence": [
-        "https://map.yahoo.co.jp/v3/place/AIKAQbM2yaU",
-        "https://www.ktr.mlit.go.jp/ktr_content/content/000698490.pdf"
+        "https://www.ktr.mlit.go.jp/syuto/syuto00173.html",
+        "https://www.douroweb.jp/region13043/utb_wankan.html",
+        "https://www.google.co.jp/maps/@35.647550,139.837498,16z"
       ]
     },
     "青海3丁目交差点": {
@@ -391,12 +485,17 @@
       ]
     },
     "湾岸アンダー出口交差点": {
-      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "status": "NAME_CONFIRMED_VICINITY_COORDINATE_ONLY",
       "coordinate": null,
       "verifiedAt": "2026-09-30",
       "evidence": [
-        "https://mapfan.com/directions/points/35.632282075892%2C139.79502373998%2C%E6%9D%B1%E4%BA%AC%E3%83%93%E3%83%83%E3%82%B0%E3%82%B5%E3%82%A4%E3%83%88%E5%89%8D%2CSCC%2CJ%2CFJ47%2C/34.695069043626%2C135.19776706861%2C%E7%A5%9E%E6%88%B8%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%2C%2C%2C%2C/types/car/settings/now%2C0%2C0%2C1%2C0%2C1%2C30%2C80%2C50"
-      ]
+        "https://www.tptc.co.jp/park/event/detail/1434"
+      ],
+      "vicinityCoordinate": [
+        35.62669080659562,
+        139.7842946967036
+      ],
+      "method": "official_streetview_vicinity_only"
     },
     "港区台場1丁目9番先": {
       "status": "ADDRESS_CONFIRMED_COORDINATE_PENDING",
