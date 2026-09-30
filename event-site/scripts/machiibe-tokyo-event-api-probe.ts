@@ -22,63 +22,100 @@ async function fetchWithOneRetry(url:string){
     :String(last);
   throw new Error('Tokyo Event API fetch failed after one retry: '+cause);
 }
+
 function record(value:unknown):Record<string,unknown>|null{
-  return value!==null&&typeof value==='object'&&!Array.isArray(value)?value as Record<string,unknown>:null;
+  return value!==null&&typeof value==='object'&&!Array.isArray(value)
+    ?value as Record<string,unknown>
+    :null;
 }
-function rowsFromPayload(payload:unknown){
-  if(Array.isArray(payload))return payload;
+
+function eventRowsAndMeta(payload:unknown){
+  if(Array.isArray(payload)){
+    if(Array.isArray(payload[0])){
+      return {rows:payload[0] as unknown[],meta:record(payload[1]),shape:'[rows,meta]'};
+    }
+    return {rows:payload as unknown[],meta:null,shape:'rows'};
+  }
   const obj=record(payload);
-  if(!obj)return [];
-  for(const key of ['data','items','results','events','@graph']){
-    if(Array.isArray(obj[key]))return obj[key] as unknown[];
+  if(!obj)return {rows:[] as unknown[],meta:null,shape:typeof payload};
+  for(const key of ['events','items','results','data']){
+    if(Array.isArray(obj[key]))return {rows:obj[key] as unknown[],meta:obj,shape:key};
   }
-  return [];
+  return {rows:[] as unknown[],meta:obj,shape:'object'};
 }
-function collectKeys(rows:unknown[]){
-  const keys=new Set<string>();
-  for(const row of rows.slice(0,20)){
-    const obj=record(row);
-    if(!obj)continue;
-    for(const key of Object.keys(obj))keys.add(key);
-  }
-  return [...keys].sort();
+
+function nestedRecord(obj:Record<string,unknown>|null,key:string){
+  return obj?record(obj[key]):null;
 }
-function deepStrings(value:unknown,path='',out:Array<{path:string;value:string}>=[]){
-  if(typeof value==='string'){
-    out.push({path,value});return out;
+
+function eventName(row:unknown){
+  const obj=record(row);
+  const names=obj&&Array.isArray(obj['名称'])?obj['名称']:[];
+  for(const item of names){
+    const n=record(item);
+    if(n&&typeof n['表記']==='string'&&n['表記'].trim())return n['表記'].trim();
   }
-  if(Array.isArray(value)){
-    value.slice(0,5).forEach((item,index)=>deepStrings(item,path+'['+index+']',out));
-    return out;
-  }
-  const obj=record(value);
-  if(obj){
-    for(const [key,val] of Object.entries(obj)){
-      deepStrings(val,path?(path+'.'+key):key,out);
-    }
-  }
-  return out;
+  return null;
 }
-function urlFacts(rows:unknown[]){
-  let httpsValues=0,officialLike=0;
-  const sample:Array<{path:string;value:string}>=[];
-  for(const row of rows.slice(0,20)){
-    for(const entry of deepStrings(row)){
-      if(/^https:\/\//i.test(entry.value)){
-        httpsValues++;
-        if(/url|uri|web|link|ホームページ|サイト/i.test(entry.path))officialLike++;
-        if(sample.length<12)sample.push(entry);
-      }
-    }
-  }
-  return {httpsValues,officialLike,sample};
+
+function eventDate(row:unknown,key:'開始日'|'終了日'){
+  const obj=record(row);
+  const period=nestedRecord(obj,'期間');
+  const value=period?.[key];
+  return typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)?value:null;
 }
+
+function eventReference(row:unknown){
+  const obj=record(row);
+  const ref=nestedRecord(obj,'参照');
+  const value=ref?.['参照先'];
+  return typeof value==='string'&&value.trim()?value.trim():null;
+}
+
+function eventPlace(row:unknown){
+  const obj=record(row);
+  const place=nestedRecord(obj,'開催場所');
+  const address=nestedRecord(place,'住所');
+  return {
+    venue:typeof place?.['表記']==='string'?place['表記']:null,
+    address:typeof address?.['表記']==='string'?address['表記']:null,
+    lat:typeof nestedRecord(place,'地理座標')?.['緯度']==='string'?nestedRecord(place,'地理座標')?.['緯度']:null,
+    lng:typeof nestedRecord(place,'地理座標')?.['経度']==='string'?nestedRecord(place,'地理座標')?.['経度']:null
+  };
+}
+
+function dateStats(rows:unknown[]){
+  const starts=rows.map((row)=>eventDate(row,'開始日')).filter((x):x is string=>Boolean(x)).sort();
+  const ends=rows.map((row)=>eventDate(row,'終了日')).filter((x):x is string=>Boolean(x)).sort();
+  return {
+    withStartDate:starts.length,
+    minStartDate:starts[0]||null,
+    maxStartDate:starts.at(-1)||null,
+    minEndDate:ends[0]||null,
+    maxEndDate:ends.at(-1)||null
+  };
+}
+
+function referenceStats(rows:unknown[]){
+  const refs=rows.map(eventReference).filter((x):x is string=>Boolean(x));
+  return {
+    withReference:refs.length,
+    https:refs.filter((x)=>x.startsWith('https://')).length,
+    http:refs.filter((x)=>x.startsWith('http://')).length,
+    other:refs.filter((x)=>!/^https?:\/\//.test(x)).length,
+    sample:refs.slice(0,10)
+  };
+}
+
 async function main(){
-  const url='https://api.data.metro.tokyo.lg.jp/v1/Event?limit=20';
+  const url='https://api.data.metro.tokyo.lg.jp/v1/Event?limit=100';
   const response=await fetchWithOneRetry(url);
   const payload=await response.json();
-  const rows=rowsFromPayload(payload);
-  const top=record(payload);
+  const parsed=eventRowsAndMeta(payload);
+  const rows=parsed.rows;
+  const first=rows[0];
+  const firstObj=record(first);
+  const meta=parsed.meta;
   process.stdout.write(JSON.stringify({
     dryRun:true,
     databaseWrite:false,
@@ -87,13 +124,22 @@ async function main(){
     url,
     httpStatus:response.status,
     contentType:response.headers.get('content-type'),
-    topLevel:Array.isArray(payload)?'array':top?Object.keys(top):typeof payload,
-    rowCountInResponse:rows.length,
-    rowKeys:collectKeys(rows),
-    urlFacts:urlFacts(rows),
-    firstRow:rows[0]??null
+    shape:parsed.shape,
+    rowCountInPage:rows.length,
+    meta,
+    dateStats:dateStats(rows),
+    referenceStats:referenceStats(rows),
+    sample:{
+      name:eventName(first),
+      startAt:eventDate(first,'開始日'),
+      endAt:eventDate(first,'終了日'),
+      reference:eventReference(first),
+      place:eventPlace(first),
+      keys:firstObj?Object.keys(firstObj):[]
+    }
   },null,2)+'\n');
 }
+
 main().catch((error)=>{
   console.error(error instanceof Error?error.message:String(error));
   process.exitCode=1;
