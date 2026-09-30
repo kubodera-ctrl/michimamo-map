@@ -1,14 +1,32 @@
 import assert from 'node:assert/strict';
-import {inspectSource,shouldCreateSourceVersion,validateSourceConfig} from '../scripts/drive_source_fetch.mjs';
+import {inspectSource,resolveLinkedSourceUrl,shouldCreateSourceVersion,validateResolvedSourceUrl,validateSourceConfig} from '../scripts/drive_source_fetch.mjs';
 
 const source={
   sourceKey:'tokyo:tokyo-wangan:speed-guideline',
-  sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/current.pdf',
+  sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf',
+  sourceIndexUrl:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html',
+  stationName:'東京湾岸警察署',
   allowedHosts:['www.keishicho.metro.tokyo.lg.jp'],
   termsStatus:'PENDING'
 };
 
 validateSourceConfig(source);
+
+const indexHtml=`
+<html><body>
+<a href="/sokudo_sisin/1/tokyowangan_sokudo.pdf">旧資料</a>
+<a href="./torishimari.files/tokyowangan.pdf">東京湾岸警察署</a>
+</body></html>`;
+const resolved=resolveLinkedSourceUrl(source,indexHtml);
+assert.equal(resolved,source.sourceUrl);
+assert.equal(validateResolvedSourceUrl(source,resolved),true);
+assert.throws(
+  ()=>validateResolvedSourceUrl({...source,sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf'},resolved),
+  /configured_source_not_current_index_link/
+);
+assert.throws(()=>resolveLinkedSourceUrl(source,'<a href="/x.pdf">別の警察署</a>'),/source_index_link_not_found/);
+assert.throws(()=>resolveLinkedSourceUrl(source,'<a href="https://example.com/x.pdf">東京湾岸警察署</a>'),/resolved_source_host_not_allowed/);
+
 assert.throws(()=>validateSourceConfig({...source,sourceUrl:'http://www.keishicho.metro.tokyo.lg.jp/current.pdf'}),/source_https_required/);
 assert.throws(()=>validateSourceConfig({...source,sourceUrl:'https://example.com/current.pdf'}),/source_host_not_allowed/);
 await assert.rejects(inspectSource(source,{fetchImpl:async()=>{throw new Error('must_not_fetch')}}),/terms_not_allowed/);
