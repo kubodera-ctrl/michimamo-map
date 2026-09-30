@@ -9,8 +9,10 @@ on:
       - "drive-beta/**"
       - "data/drive/**"
       - "scripts/drive_enforcement_pipeline.mjs"
+      - "scripts/drive_source_fetch.mjs"
       - "tests/drive_beta.test.cjs"
       - "tests/drive_enforcement_pipeline.test.mjs"
+      - "tests/drive_source_fetch.test.mjs"
       - "package.json"
       - ".github/workflows/drive-beta-check.yml"
   workflow_dispatch:
@@ -31,5 +33,7 @@ jobs:
         run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
       - name: Tokyo source to normalized snapshot contract
         run: node tests/drive_enforcement_pipeline.test.mjs
+      - name: DRIVE source fetch/version gate
+        run: node tests/drive_source_fetch.test.mjs
       - name: DRIVE beta map contract
         run: node tests/drive_beta.test.cjs
