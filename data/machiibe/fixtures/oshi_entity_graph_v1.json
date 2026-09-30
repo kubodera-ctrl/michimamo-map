@@ -1,0 +1,119 @@
+{
+  "version": "2026-09-30-oshi-entity-graph-v1",
+  "status": "verified_fixture_only",
+  "rules": {
+    "no_auto_inference": true,
+    "relationship_requires_official_evidence": true,
+    "aliases_require_official_usage": true
+  },
+  "entities": [
+    {
+      "id": "character-cinnamoroll",
+      "type": "character",
+      "canonicalName": "シナモロール",
+      "aliases": [
+        "シナモン",
+        "CINNAMOROLL"
+      ],
+      "parentEntityIds": [],
+      "relatedEntityIds": [],
+      "officialUrls": [
+        "https://www.sanrio.co.jp/characters/cinnamon/"
+      ],
+      "evidenceUrls": [
+        "https://www.sanrio.co.jp/characters/cinnamon/"
+      ]
+    },
+    {
+      "id": "franchise-pokemon",
+      "type": "franchise",
+      "canonicalName": "ポケットモンスター",
+      "aliases": [
+        "ポケモン"
+      ],
+      "parentEntityIds": [],
+      "relatedEntityIds": [
+        "work-pokemon-card-game"
+      ],
+      "officialUrls": [
+        "https://www.pokemon.co.jp/"
+      ],
+      "evidenceUrls": [
+        "https://www.pokemon-card.com/about/"
+      ]
+    },
+    {
+      "id": "work-pokemon-card-game",
+      "type": "work",
+      "canonicalName": "ポケモンカードゲーム",
+      "aliases": [
+        "ポケカ"
+      ],
+      "parentEntityIds": [
+        "franchise-pokemon"
+      ],
+      "relatedEntityIds": [],
+      "officialUrls": [
+        "https://www.pokemon-card.com/"
+      ],
+      "evidenceUrls": [
+        "https://www.pokemon-card.com/",
+        "https://www.pokemon-card.com/about/"
+      ]
+    },
+    {
+      "id": "group-genjibu",
+      "type": "group",
+      "canonicalName": "原因は自分にある。",
+      "aliases": [
+        "ゲンジブ",
+        "GNJB"
+      ],
+      "parentEntityIds": [],
+      "relatedEntityIds": [
+        "talent-mokudai-kazuto"
+      ],
+      "officialUrls": [
+        "https://genjibu.jp/"
+      ],
+      "evidenceUrls": [
+        "https://genjibu.jp/",
+        "https://genjibu.jp/news/detail/2371"
+      ]
+    },
+    {
+      "id": "talent-mokudai-kazuto",
+      "type": "talent",
+      "canonicalName": "杢代 和人",
+      "aliases": [
+        "杢代和人"
+      ],
+      "parentEntityIds": [
+        "group-genjibu"
+      ],
+      "relatedEntityIds": [],
+      "officialUrls": [
+        "https://genjibu.jp/"
+      ],
+      "evidenceUrls": [
+        "https://genjibu.jp/"
+      ]
+    }
+  ],
+  "verifiedRelationships": [
+    {
+      "childEntityId": "work-pokemon-card-game",
+      "parentEntityId": "franchise-pokemon",
+      "relation": "part_of_franchise",
+      "sourceUrl": "https://www.pokemon-card.com/about/",
+      "evidence": "公式説明で『ゲームソフト『ポケットモンスター』シリーズの世界をテーマにした』と明記。"
+    },
+    {
+      "childEntityId": "talent-mokudai-kazuto",
+      "parentEntityId": "group-genjibu",
+      "relation": "member_of",
+      "sourceUrl": "https://genjibu.jp/",
+      "evidence": "公式サイトのメンバー表示に杢代 和人を掲載。"
+    }
+  ]
+}
