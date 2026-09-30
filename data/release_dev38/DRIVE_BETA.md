@@ -26,8 +26,8 @@ https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/tor
 東京湾岸警察署:
 https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf
 
-2026-09-29時点で東京湾岸署の重点路線は9件。
-旧試作に入っていた7件・旧時間帯は破棄し、現行PDFに合わせて更新した。
+2026-09-30再監査で、警視庁の現行「速度取締指針」一覧（更新日2026-07-30）から東京湾岸警察署リンクを直接辿り、重点路線9件を確認した。
+旧直リンク `https://www.keishicho.metro.tokyo.lg.jp/sokudo_sisin/1/tokyowangan_sokudo.pdf` には7路線の旧版が残るため、現行性判定では必ず一覧ページからのリンク先を正とする。
 
 ## 道路線形
 手作業で数点を結んだ概略LineStringは撤去。
@@ -65,7 +65,7 @@ Google Mapsアプリそのものへのプラグインではない。
 ## 次工程
 1. 実道路ルーティング版をPreviewで本人QA
 2. 環二通り・国道357号の道路追従を確認
-3. 東京湾岸署9路線の起終点を順次検証して全線地図化
+3. 東京湾岸署9路線の起終点を順次検証して全線地図化（現行一覧リンク由来Sourceのみ）
 4. 99署＋高速隊の取締指針を構造化
 5. 車線規制など公式道路情報を追加
 6. ネイティブNavigation SDK版
