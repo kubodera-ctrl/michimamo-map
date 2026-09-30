@@ -5,8 +5,9 @@
   "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
   "sourceVersionDate": "2026-07-30",
   "sourceVerifiedAt": "2026-09-30",
-  "sourceHash": "02c8cddc153ad08596bfb45d3898c9a6ab0d441ba6bc099f95e9c85252425bb1",
+  "sourceHash": "32d82243e6886084d79c92cdf1b07681bbbf04474a640ed347ccdfc42d65d98e",
   "freshnessStatus": "CURRENT",
+  "sourceRecordCount": 9,
   "events": [
     {
       "id": "wangan-r357",
@@ -38,8 +39,16 @@
           139.748282
         ]
       ],
-      "geometryStatus": "ENDPOINTS_CANDIDATE",
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "国道357号",
+        "357",
+        "東京湾岸道路"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-r357",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -63,8 +72,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-harumi",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -88,8 +101,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-meiji",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -113,8 +130,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-mitsume",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -147,13 +168,22 @@
           139.7926317
         ]
       ],
-      "geometryStatus": "ENDPOINTS_CANDIDATE",
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "環二通り",
+        "環状二号線",
+        "都道484号",
+        "484"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-kan2",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
-      "id": "wangan-rinko",
-      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-rinko",
+      "id": "wangan-rinko-keihin-chuboh",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-rinko-keihin-chuboh",
       "agency": "警視庁",
       "policeStation": "東京湾岸警察署",
       "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
@@ -162,20 +192,51 @@
       "routeName": "臨港道路",
       "focusType": "METROPOLITAN_FOCUS",
       "speedLimitKmh": 50,
-      "speedLimitText": "50(東京ゲートブリッジ上60)",
-      "alternateSpeedKmh": [
-        60
-      ],
-      "segmentStartText": "京浜大橋北交差点(中央防波堤交差点)",
-      "segmentEndText": "中央防波堤交差点(新木場交差点)",
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "京浜大橋北交差点",
+      "segmentEndText": "中央防波堤交差点",
       "timeStartMinutes": 360,
       "timeEndMinutes": 1200,
       "geoPrecision": "EXACT_SEGMENT",
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-rinko",
+      "sourceSubrecordKey": "50kmh",
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-rinko-chuboh-shinkiba",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-rinko-chuboh-shinkiba",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "臨港道路",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "中央防波堤交差点",
+      "segmentEndText": "新木場交差点",
+      "timeStartMinutes": 360,
+      "timeEndMinutes": 1200,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
+      "geometryStatus": "UNRESOLVED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-rinko",
+      "sourceSubrecordKey": "60kmh",
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -199,8 +260,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-aomi",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -224,8 +289,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-under",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     },
     {
@@ -249,8 +318,12 @@
       "timePrecision": "EXACT_TIME",
       "displayMode": "EXACT_SEGMENT_TIMED",
       "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
       "geometryStatus": "UNRESOLVED",
       "geometryVerified": false,
+      "sourceRecordKey": "wangan-miyako",
+      "sourceSubrecordKey": null,
       "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
     }
   ]
