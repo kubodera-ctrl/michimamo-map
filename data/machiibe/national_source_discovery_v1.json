@@ -1385,16 +1385,16 @@
       "priority": 100,
       "review_state": "TERMS_REVIEWED",
       "yield_class": "high",
-      "observed_current_items_min": null,
-      "expected_update_frequency": "unknown / live API",
+      "observed_current_items_min": 30,
+      "expected_update_frequency": "stale / API meta updated 2024-11-13",
       "region_coverage": "prefecture",
       "category_breadth": "unknown",
       "family_relevance": "high",
       "acquisition_difficulty": "low",
       "terms_difficulty": "low",
       "maintenance_cost": "low",
-      "freshness_confidence": "unknown",
-      "notes": "東京都公式Open Data APIでGET /Eventを提供。公式利用規約は原則CC BY 4.0・商用利用可、第三者権利は個別扱い。認証不要の公開API。live schema/freshness/official URLを非Production probeで確認するまでREADYへ上げない。"
+      "freshness_confidence": "low",
+      "notes": "東京都公式Open Data API GET /Event。公式規約は原則CC BY 4.0・商用利用可、認証不要。live probe #814: HTTP 200、全30件、開催開始日は2018-12-02〜2019-05-03、meta.updated=2024-11-13、参照URLはhttps 3/http 15/other 1。現行イベント供給としてfreshness FAILのためREADYへ上げない。"
     }
   ]
 }
