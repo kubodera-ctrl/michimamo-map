@@ -38,9 +38,13 @@
     "okayama": {
       "sourceKey": "okayama:public-enforcement:webmap",
       "indexUrl": "https://www.pref.okayama.jp/page/818192.html",
-      "status": "DYNAMIC_PROVIDER_GATE",
-      "rawArchiveStatus": "HOLD",
-      "decision": "do_not_scrape_or_integrate until provider/API/schema/terms are verified"
+      "status": "TERMS_BLOCKED_COMMERCIAL_USE",
+      "rawArchiveStatus": "BLOCKED",
+      "decision": "do_not_scrape, copy, transform, or integrate WebMap data into Machidora; keep static speed-guideline PDF lane separate",
+      "termsEvidence": {
+        "observedDate": "2026-10-01",
+        "statement": "official WebMap prohibits commercial use/quotation of the map and altered quotation/use"
+      }
     }
   }
 }
