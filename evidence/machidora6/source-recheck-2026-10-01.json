@@ -6,12 +6,13 @@
     "oita": {
       "sourceKey": "oita:public-enforcement:half-month",
       "indexUrl": "https://www.pref.oita.jp/site/keisatu/torishimarijouhou2.html",
-      "searchObservedUpdate": "2026-09-15",
-      "searchObservedPeriod": "2026-09-16..2026-09-30",
+      "searchObservedUpdate": "2026-09-30",
+      "searchObservedPeriod": "2026-10-01..2026-10-15",
       "directReaderObservedOlderUpdate": "2026-07-31",
       "directReaderObservedOlderPeriod": "2026-08-01..2026-08-15",
       "rawArchiveStatus": "PENDING_EVIDENCE",
-      "decision": "do_not_archive_or_promote_stale_reader_artifact"
+      "decision": "current index is 2026-09-30 / 2026-10-01..15, but direct reader still exposes stale bytes; do_not_archive_or_promote_until_current raw bytes are obtained",
+      "currentIndexStatus": "CURRENT_INDEX_CONFIRMED"
     },
     "aomori": {
       "sourceKey": "aomori:speed-guideline:representative",
@@ -20,14 +21,26 @@
       "priorRecordedFixtureVersion": "2026-07",
       "versionMismatch": true,
       "rawArchiveStatus": "PENDING_EVIDENCE",
-      "decision": "do_not_replace_prior_fixture_until_current-version lineage is reconciled"
+      "decision": "treat current official index/PDF as 2026-01; do_not_promote_prior 2026-07 fixture until provenance is reconciled",
+      "indexUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/torisimari_sisin.html",
+      "representativeStationUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/aomori_sisin.pdf",
+      "representativeHighwayUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
+      "currentIndexLinksVerified": true,
+      "lineageStatus": "PRIOR_2026_07_FIXTURE_METADATA_UNRECONCILED"
     },
     "kumamoto": {
       "sourceKey": "kumamoto:weekly-public-enforcement",
       "indexUrl": "https://www.pref.kumamoto.jp/site/police/list20-90.html",
       "status": "SOURCE_INDEX_RECOVERED_WAITING_ARTIFACT",
       "listingState": "CURRENTLY_NO_PUBLISHED_ITEMS",
-      "decision": "WAITING_EXTERNAL; do_not_fixture_from_search_cache"
+      "decision": "WAITING_EXTERNAL; do_not_fixture_from_search cache or historical page"
+    },
+    "okayama": {
+      "sourceKey": "okayama:public-enforcement:webmap",
+      "indexUrl": "https://www.pref.okayama.jp/page/818192.html",
+      "status": "DYNAMIC_PROVIDER_GATE",
+      "rawArchiveStatus": "HOLD",
+      "decision": "do_not_scrape_or_integrate until provider/API/schema/terms are verified"
     }
   }
 }
