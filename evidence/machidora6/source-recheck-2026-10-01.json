@@ -17,17 +17,17 @@
     "aomori": {
       "sourceKey": "aomori:speed-guideline:representative",
       "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
-      "directOfficialPdfObservedVersion": "2025-07",
-      "priorRecordedFixtureVersion": "2025-07 (metadata corrected 2026-10-01)",
-      "versionMismatch": false,
-      "rawArchiveStatus": "PENDING_RAW_ARCHIVE",
-      "decision": "fixture era metadata corrected from erroneous 2026-07 / 令和8年7月 to 2025-07 / 令和7年7月; parsed rows unchanged; persist exact official raw PDF bytes before raw-archive gate is closed",
+      "directOfficialPdfObservedVersion": "2026-01",
+      "priorRecordedFixtureVersion": "2026-07",
+      "versionMismatch": true,
+      "rawArchiveStatus": "PENDING_EVIDENCE",
+      "decision": "current direct official PDF at the same URL is 2026-01, while search-index evidence also exposes an older 2025-07 version and the prior captured fixture records 2026-07. Preserve prior fixture metadata and do_not_promote until exact raw-byte/hash provenance is reconciled.",
       "indexUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/torisimari_sisin.html",
       "representativeStationUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/aomori_sisin.pdf",
       "representativeHighwayUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
       "currentIndexLinksVerified": true,
-      "lineageStatus": "RECONCILED_METADATA_CORRECTION",
-      "evidenceNote": "2026-10-01 recheck: official highway, Towada, Ooma, Mutsu and Tsugaru PDFs show 令和7年7月 (=2025-07). Six-month review policy is documented."
+      "lineageStatus": "PRIOR_2026_07_FIXTURE_METADATA_UNRECONCILED",
+      "evidenceNote": "2026-10-01: direct official PDF currently returns 令和8年1月 (=2026-01); search index can surface 令和7年7月 (=2025-07). Same-URL replacement/cache history is mixed, so prior 2026-07 fixture must not be rewritten without its archived raw bytes."
     },
     "kumamoto": {
       "sourceKey": "kumamoto:weekly-public-enforcement",
