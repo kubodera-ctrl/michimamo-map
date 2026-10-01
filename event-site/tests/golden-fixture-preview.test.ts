@@ -6,7 +6,8 @@ import {GOLDEN_FIXTURES,goldenFixtureById} from '../lib/machiibe-golden-fixtures
 const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/page.tsx',import.meta.url),'utf8');
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
-const approvedIconPath=new URL('../public/machiibe-icon.svg',import.meta.url);\nconst approvedIconSource=fs.readFileSync(approvedIconPath,'utf8');
+const approvedIconPath=new URL('../public/machiibe-icon.svg',import.meta.url);
+const approvedIconSource=fs.readFileSync(approvedIconPath,'utf8');
 const brandNavSource=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
 const cssSource=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
 
