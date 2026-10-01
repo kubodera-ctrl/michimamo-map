@@ -18,6 +18,14 @@ const POLICE_CSV='https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/koka
     assert.equal(events.some(e=>e.placeName===name),true,'known focus place must be included: '+name);
   }
   assert.equal(events.every(e=>e.locationApproximate===true&&e.coordinatePrecision==='TOWN_REPRESENTATIVE'),true);
+  const publishedKeys=new Set(events.map(e=>[e.policeStation||'',e.localityText,e.placeName].join('|')));
+  const unresolved=rows.filter(row=>!publishedKeys.has([row.policeStation||'',row.localityText,row.placeName].join('|')));
+  console.log('TOKYO_FOCUS_UNRESOLVED='+JSON.stringify(unresolved.map(row=>({
+    municipality:row.municipality,
+    policeStation:row.policeStation,
+    localityText:row.localityText,
+    placeName:row.placeName
+  }))));
   console.log('TOKYO_FOCUS_SOURCE_ROWS='+rows.length);
   console.log('TOKYO_FOCUS_PUBLISHED='+events.length);
   console.log('TOKYO_FOCUS_COVERAGE='+(events.length/rows.length).toFixed(3));
