@@ -8,7 +8,7 @@
     "stationName": "高速道路交通警察隊",
     "sourceIndexUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/torisimari_sisin.html",
     "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
-    "sourceVersionDate": "2025-07",
+    "sourceVersionDate": "2026-07",
     "verifiedAt": "2026-09-30",
     "freshnessStatus": "CURRENT",
     "termsStatus": "PENDING"
@@ -16,7 +16,7 @@
   "sourceArtifactSha256": "e9c4ebae68400bc529cfdda51cbfc0fe46ed8f8a49e86e03a2be78a3dbd190e3",
   "pageCount": 1,
   "pageSize": "A4",
-  "documentVersionLabel": "令和7年7月版",
+  "documentVersionLabel": "令和8年7月版",
   "reviewCadence": "HALF_YEAR_APPROX",
   "visualQa": {
     "approved": true,
@@ -59,10 +59,5 @@
     }
   ],
   "fullRawArtifactArchived": false,
-  "fullRawArtifactArchiveBlocker": "Official current PDF version/rows are reconciled as 2025-07, but exact raw bytes matching sourceArtifactSha256 are not yet persisted to Drive or Git. Raw PDF archival remains pending.",
-  "metadataCorrection": {
-    "correctedAt": "2026-10-01",
-    "reason": "The prior visual-audit metadata recorded 令和8年7月 / 2026-07, but the official current PDF and the fixture's own four highway rows correspond to 令和7年7月 / 2025-07. Correct metadata only; parsed row facts are unchanged.",
-    "currentOfficialRechecked": true
-  }
+  "fullRawArtifactArchiveBlocker": "The prior runtime captured and hashed the official PDF but did not persist its bytes to Drive or Git. Visual-audit fixture is reproducible, raw PDF archival remains pending."
 }
