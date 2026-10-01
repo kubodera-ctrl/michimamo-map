@@ -1,11 +1,14 @@
 {
-  "version": "2026-10-01-facility-instances-v6",
-  "status": "research_only_no_automated_fetch",
+  "version": "2026-10-01-facility-instances-v7",
+  "status": "research_only_controlled_facts_fetch_allowed",
   "rules": {
     "automated_fetch_default": false,
     "event_page_discovery_does_not_imply_publishable": true,
     "image_reuse_default": false,
-    "individual_facility_confirmation_required": true
+    "individual_facility_confirmation_required": true,
+    "facts_only_fetch_may_precede_ready": true,
+    "facts_only_fetch_must_not_copy_body_or_media": true,
+    "stop_on_403_429_or_explicit_bot_block": true
   },
   "instances": [
     {
@@ -197,9 +200,9 @@
       "homepage_url": "https://www.kyoto-station-building.co.jp/",
       "event_url": "https://www.kyoto-station-building.co.jp/events/",
       "review_state": "TERMS_REVIEWED",
-      "terms_status": "reviewed_restricted",
+      "terms_status": "reviewed_facts_only",
       "robots_status": "pending",
-      "automated_fetch_allowed": false,
+      "automated_fetch_allowed": true,
       "observed_current_items_min": 10,
       "event_categories": [
         "stage",
@@ -212,7 +215,14 @@
         "other"
       ],
       "family_relevance": "high",
-      "notes": "2026-10-01公式イベント一覧で10月以降の具体イベントを少なくとも10件確認。利用規約は掲載情報の二次使用を文書承諾なしでは禁止しているためtermsはreviewed_restricted。robots/access policyは独立確認未了のためpending、HTML自動取得はOFFを維持。開催日/期間・場所・カテゴリ・個別詳細導線の直接証拠のみ保持し、READY/Publishable/ACTIVEへ加算しない。"
+      "notes": "2026-10-01公式イベント一覧で将来イベントと個別詳細導線を確認。利用規約は掲載情報の二次使用を文書承諾なしでは禁止するため本文・画像・HTMLの再利用は不可扱い。一方、本人方針により公開ページから日時・名称・場所・status・event-specific公式URL等のfacts_only自動取得のみ許可する。robots/accessはREADY昇格前に別途確定し、403/429/明示bot block時は即停止。READY/Publishable/ACTIVEへは加算しない。",
+      "fetch_scope": "facts_only",
+      "body_text_reuse_allowed": false,
+      "image_reuse_allowed": false,
+      "html_cache_allowed": false,
+      "source_link_required": true,
+      "stop_on_403_429_or_explicit_bot_block": true,
+      "max_requests_per_minute": 2
     }
   ]
 }
