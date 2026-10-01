@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "machiibe-pipeline",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-27",
+  "workers_dev": true,
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "machiibe-media"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {"binding": "INGEST_QUEUE", "queue": "machiibe-ingest"},
+      {"binding": "PRODUCTION_QUEUE", "queue": "machiibe-production"}
+    ],
+    "consumers": [
+      {
+        "queue": "machiibe-ingest",
+        "max_batch_size": 5,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "dead_letter_queue": "machiibe-ingest-dlq"
+      },
+      {
+        "queue": "machiibe-production",
+        "max_batch_size": 2,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "dead_letter_queue": "machiibe-production-dlq"
+      }
+    ]
+  },
+  "vars": {
+    "MAX_RAW_BYTES": "2097152"
+  }
+}

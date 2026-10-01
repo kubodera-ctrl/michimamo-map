@@ -1,0 +1,73 @@
+import type { MetadataRoute } from 'next';
+import { CATEGORY_OPTIONS, getEventSitemap, getPublicFacetSitemap, getPublicFandomSitemap } from '@/lib/events';
+import { slugByPrefecture } from '@/lib/prefectures';
+import { SEO_INTENTS, searchSeoIntentEvents } from '@/lib/seo-intents';
+import { publicSiteBaseUrl, searchIndexingAllowed } from '@/lib/url-config';
+
+export const revalidate = 3600;
+
+const STATIC_POLICY_PATHS=[
+  '/policies','/terms','/privacy','/external-transmission','/data-policy','/advertising-policy',
+  '/copyright','/disclaimer','/accessibility','/corrections','/operator'
+] as const;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if(!searchIndexingAllowed()) return [];
+  const base = publicSiteBaseUrl().replace(/\/$/,'');
+  const [eventRows, fandomRows, facetRows, guideRows] = await Promise.all([
+    getEventSitemap(),
+    getPublicFandomSitemap(),
+    getPublicFacetSitemap(),
+    Promise.all(Object.keys(SEO_INTENTS).map(async (intent) => ({
+      intent,
+      count:(await searchSeoIntentEvents(intent,1,3)).events.length
+    })))
+  ]);
+
+  const validCategories=new Set(CATEGORY_OPTIONS.map(([key])=>key));
+  const areas=facetRows
+    .filter((row)=>row.kind==='prefecture')
+    .map((row)=>({row,slug:slugByPrefecture[row.key]}))
+    .filter((entry)=>Boolean(entry.slug));
+  const categories=facetRows.filter((row)=>row.kind==='category' && validCategories.has(row.key as never));
+
+  return [
+    { url: base, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
+    ...STATIC_POLICY_PATHS.map((path)=>({
+      url:`${base}${path}`,
+      lastModified:new Date(),
+      changeFrequency:'monthly' as const,
+      priority:0.3
+    })),
+    ...areas.map(({row,slug}) => ({
+      url: `${base}/area/${slug}`,
+      lastModified: new Date(row.updated_at),
+      changeFrequency: 'daily' as const,
+      priority: 0.8
+    })),
+    ...categories.map((row) => ({
+      url: `${base}/category/${row.key}`,
+      lastModified: new Date(row.updated_at),
+      changeFrequency: 'daily' as const,
+      priority: 0.8
+    })),
+    ...guideRows.filter((row)=>row.count>=3).map((row) => ({
+      url: `${base}/guide/${row.intent}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.85
+    })),
+    ...fandomRows.map((row) => ({
+      url: `${base}/oshi/${row.slug}`,
+      lastModified: new Date(row.updated_at),
+      changeFrequency: 'daily' as const,
+      priority: 0.8
+    })),
+    ...eventRows.map((row) => ({
+      url: `${base}/events/${row.slug}`,
+      lastModified: new Date(row.updated_at),
+      changeFrequency: 'daily' as const,
+      priority: 0.7
+    }))
+  ];
+}

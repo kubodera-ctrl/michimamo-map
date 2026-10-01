@@ -1,0 +1,174 @@
+{
+  "version": "2026-09-23-venue-sources-v2",
+  "policy": {
+    "automated_fetch_default": false,
+    "purpose": "全国のモール・商業施設イベントを発見し、公式詳細を確認して候補化する",
+    "include": [
+      "キャラクターショー",
+      "インフルエンサー出演",
+      "ライブ",
+      "ワークショップ",
+      "体験",
+      "展示",
+      "季節イベント",
+      "親子イベント",
+      "地域イベント"
+    ],
+    "exclude_by_default": [
+      "ポイントキャンペーン",
+      "カード入会キャンペーン",
+      "通常セール",
+      "常設店舗ニュース",
+      "単なる商品販売のみ"
+    ],
+    "publish_rule": "公式詳細で開催日・会場等を確認後。画像は利用条件確認前は使用しない。",
+    "facility_detail_recheck_required": true,
+    "target_count": 12
+  },
+  "targets": [
+    {
+      "source_key": "mall-discovery-aeonmall-corporate-events",
+      "name": "イオンモール 企業イベント情報",
+      "homepage_url": "https://www.aeonmall.com/",
+      "event_url": "https://www.aeonmall.com/news_releases/event/",
+      "role": "national_discovery",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "全国横断企画の発見用。個別モール開催情報は各施設公式で再確認する。"
+    },
+    {
+      "source_key": "mall-discovery-aeontown",
+      "name": "イオンタウン 各施設イベント",
+      "homepage_url": "https://www.aeontown.co.jp/",
+      "event_url": "https://www.aeontown.co.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "各SCにイベント一覧ページあり。施設URLを台帳化して個別確認する。"
+    },
+    {
+      "source_key": "mall-discovery-mitsui-shopping-park",
+      "name": "三井ショッピングパーク 各施設イベント",
+      "homepage_url": "https://mitsui-shopping-park.com/",
+      "event_url": "https://mitsui-shopping-park.com/lalaport/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "施設ごとにイベント・キャンペーン一覧あり。イベントと販促キャンペーンを分離する。"
+    },
+    {
+      "source_key": "mall-discovery-parco",
+      "name": "PARCO 各施設 event & POPUP",
+      "homepage_url": "https://parco.jp/",
+      "event_url": "https://parco.jp/artculture/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "各PARCOのevent & POPUPを候補発見に使用。POPUP販売のみは原則イベント検索から除外。"
+    },
+    {
+      "source_key": "mall-discovery-ario",
+      "name": "アリオ / セブンパーク 各施設",
+      "homepage_url": "https://www.ario.jp/",
+      "event_url": "https://www.ario.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "全国の施設一覧から各施設公式へ遷移し、イベント情報を個別確認する。催事スペース案内は収集対象イベントそのものとは分離する。"
+    },
+    {
+      "source_key": "mall-discovery-opa",
+      "name": "OPA / VIVRE / FORUS 各施設",
+      "homepage_url": "https://www.opa-club.com/",
+      "event_url": "https://www.opa-club.com/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "各施設のニュース＆イベントから候補発見。ショップニュースや販促のみは除外し、来場目的になるイベントを個別確認する。"
+    },
+    {
+      "source_key": "mall-discovery-marui-modi",
+      "name": "マルイ・モディ 各店イベント",
+      "homepage_url": "https://www.0101.co.jp/",
+      "event_url": "https://www.0101.co.jp/global/event/",
+      "role": "national_discovery",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "各店のイベント横断ページを候補発見に使用し、個別イベント詳細で開催日・会場・内容を再確認する。"
+    },
+    {
+      "source_key": "mall-discovery-premium-outlets",
+      "name": "プレミアム・アウトレット 各施設",
+      "homepage_url": "https://www.premiumoutlets.co.jp/",
+      "event_url": "https://www.premiumoutlets.co.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "全国施設一覧から施設別イベントカレンダーへ遷移。セール・店舗ニュースとイベントを分離して候補化する。"
+    },
+    {
+      "source_key": "mall-discovery-tokyu-plaza",
+      "name": "東急プラザ / 東急不動産SC関連施設",
+      "homepage_url": "https://www.tokyu-plaza.com/",
+      "event_url": "https://www.tokyu-plaza.com/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "東急プラザおよび関連SCの施設公式へ遷移し、各施設のイベント情報を個別確認する。"
+    },
+    {
+      "source_key": "mall-discovery-atre",
+      "name": "アトレ 各施設",
+      "homepage_url": "https://www.atre.co.jp/",
+      "event_url": "https://www.atre.co.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "施設別のイベント・特集を候補発見に使用。ショップニュースやポイント施策だけの情報は除外する。"
+    },
+    {
+      "source_key": "mall-discovery-lumine",
+      "name": "ルミネ / NEWoMan 各施設",
+      "homepage_url": "https://www.lumine.ne.jp/",
+      "event_url": "https://www.lumine.ne.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "施設公式の企画・イベントを候補化。販売のみのPOPUPは原則除外し、展示・体験・コラボ等のイベント性を確認する。"
+    },
+    {
+      "source_key": "mall-discovery-qs-mall",
+      "name": "キューズモール 各施設",
+      "homepage_url": "https://qs-mall.jp/",
+      "event_url": "https://qs-mall.jp/",
+      "role": "facility_directory",
+      "venue_type": "mall",
+      "acquisition_mode": "discovery_only",
+      "terms_review_status": "contact_required",
+      "automated_fetch_allowed": false,
+      "note": "あべの・あまがさき・みのお・もりのみや等の施設公式へ遷移し、親子・地域・体験イベントを個別確認する。"
+    }
+  ]
+}

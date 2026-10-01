@@ -2712,6 +2712,32 @@ function shareSpot(title, address, category, event, anomalyType = null) {
         else map.setView(center, 15, { animate: false });
     }
     let initialGpsCentering = true, initialGpsAccuracy = Infinity, firstGpsAt = 0;
+
+    // まちイベ等からの安全な会場ディープリンク。
+    // パラメータが無い通常アクセスでは従来のGPS初期中心化をそのまま使う。
+    try {
+        const sharedParams = new URLSearchParams(window.location.search);
+        const rawEventLat = sharedParams.get('lat');
+        const rawEventLng = sharedParams.get('lng');
+        const hasEventCoordinates = rawEventLat !== null && rawEventLng !== null
+            && rawEventLat.trim() !== '' && rawEventLng.trim() !== '';
+        const machiibeEventLat = hasEventCoordinates ? Number(rawEventLat) : NaN;
+        const machiibeEventLng = hasEventCoordinates ? Number(rawEventLng) : NaN;
+        if (
+            hasEventCoordinates &&
+            Number.isFinite(machiibeEventLat) &&
+            Number.isFinite(machiibeEventLng) &&
+            Math.abs(machiibeEventLat) <= 90 &&
+            Math.abs(machiibeEventLng) <= 180
+        ) {
+            initialGpsCentering = false;
+            // GPSマーカー取得は継続するが、初回GPSで共有会場から現在地へ戻さない。
+            isFirstLocationSet = true;
+            map.setView([machiibeEventLat, machiibeEventLng], 16, { animate: false });
+        }
+    } catch (error) {
+        console.warn('Event deep link ignored', error);
+    }
     map.on('dragstart popupopen', () => { initialGpsCentering = false; });
     map.on('zoomstart', () => { if (isFirstLocationSet) initialGpsCentering = false; });
 
