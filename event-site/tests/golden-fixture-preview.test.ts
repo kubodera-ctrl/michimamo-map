@@ -26,6 +26,11 @@ test('fixed iPhone QA routes expose NORMAL 5P, EXTENDED 7P and HOLIDAY 8P',()=>{
   assert.equal(goldenFixtureById('normal-5p')?.label,'NORMAL 5P');
   assert.equal(goldenFixtureById('extended-7p')?.label,'EXTENDED 7P');
   assert.equal(goldenFixtureById('holiday-8p')?.label,'HOLIDAY 8P');
+  const holiday=goldenFixtureById('holiday-8p');
+  assert.ok(holiday);
+  assert.ok(holiday.input.events.some((event)=>event.imageMode==='none'&&event.mediaUrl===null));
+  assert.ok(holiday.input.events.some((event)=>event.imageMode==='provided'&&event.mediaRightsStatus==='approved'&&event.mediaUrl==='/machiibe-icon-approved.png'));
+  assert.ok(holiday.input.events.some((event)=>event.mediaUrl==='/preview/golden-fixture-intentionally-missing.png'));
   assert.match(detailSource,/generateStaticParams/);
   assert.match(detailSource,/全\{item\.pageCount\}ページ/);
   assert.match(detailSource,/GOLDEN確認用/);
