@@ -121,3 +121,50 @@ Official references:
 - https://docs.x.com/x-api/getting-started/about-x-api
 - https://docs.x.com/x-api/getting-started/pricing
 - https://docs.x.com/x-api/fundamentals/rate-limits
+
+
+## Stage D preparation: verified registry / cost gate (2026-10-01)
+
+No API connection was made. The verified registry was expanded from 3 to 10 accounts using only explicit official-site backlinks or official operator/store pages.
+
+Current verified handles:
+- @SanrioGames_JP
+- @SanrioKML_JP
+- @jo1xsanrio
+- @purolandjp
+- @sanrio_ent
+- @eddy_sanrio
+- @kabukinyantaro
+- @namjatown765
+- @animatejoji
+- @animateSt_grt
+
+Every row keeps:
+- user_id=null until an approved API pilot resolves it with provenance
+- automated_fetch_allowed=false
+- api_fetch_enabled=false
+- media_reuse_allowed=false
+- full_post_body_reuse_allowed=false
+
+Structured cost scenarios:
+`data/machiibe/x_api_cost_scenarios_v1.json`
+
+Scenario assumptions:
+- 30-day month
+- timeline-first
+- max_results=5 for the minimal pilot scenario
+- Post Read USD 0.005 per returned Post resource
+- no-dedup conservative case: every poll returns five billable Posts
+- dedup lower case: the same five Posts repeat within the UTC day and 24-hour dedup works; new unique Posts remain billable
+- repeated username -> user-ID lookup is not part of polling design; user_id is resolved once only after approval and then pinned in the verified registry
+
+For the current 10-account registry at 2 polls/day:
+- conservative no-dedup Post Read estimate: USD 15/month
+- dedup/no-new-Posts lower estimate: USD 7.50/month
+- one-time 10-account User Read lookup at the current USD 0.010/resource snapshot: USD 0.10 if one User resource is returned per lookup
+- draft spending-limit proposal: USD 20/month
+- approval state: NOT APPROVED
+
+The 24-hour billing deduplication is documented by X as a soft guarantee, so it is never used as the budget ceiling. The conservative no-dedup scenario remains the cost gate.
+
+The pilot approval request must not be raised until registry size, cadence, expected returned Post resources, conservative monthly bound, spending limit, auto-recharge OFF verification, token/secret handling, stop procedure, policy re-check, storage/deletion policy and Production connectivity are all documented.
