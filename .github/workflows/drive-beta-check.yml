@@ -26,6 +26,7 @@ on:
       - "scripts/build_drive_public_schedule_snapshot.mjs"
       - "tests/drive_beta.test.cjs"
       - "tests/drive_focus_tokyo_api.test.cjs"
+      - "tests/drive_focus_tokyo_live.test.cjs"
       - "tests/drive_enforcement_pipeline.test.mjs"
       - "tests/drive_source_fetch.test.mjs"
       - "tests/drive_public_schedule_pipeline.test.mjs"
@@ -91,5 +92,7 @@ jobs:
         run: node scripts/build_drive_public_schedule_snapshot.mjs --check
       - name: DRIVE Tokyo focus all-area API contract
         run: node tests/drive_focus_tokyo_api.test.cjs
+      - name: DRIVE Tokyo focus live fetch + geocode
+        run: node tests/drive_focus_tokyo_live.test.cjs
       - name: DRIVE beta map contract
         run: node tests/drive_beta.test.cjs
