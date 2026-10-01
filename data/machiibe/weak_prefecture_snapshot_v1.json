@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-weak-prefecture-v16",
+  "version": "2026-10-01-weak-prefecture-v17",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -42,7 +42,10 @@
       "東京都",
       "三重県",
       "京都府",
-      "茨城県"
+      "茨城県",
+      "山口県",
+      "栃木県",
+      "福井県"
     ],
     "verifiedOshiFixturePrefectures": [
       "福岡県",
@@ -127,7 +130,7 @@
       "prefecture": "山口県",
       "candidateSources": 2,
       "preflightOrBetter": 1,
-      "termsReviewedOrBetter": 0,
+      "termsReviewedOrBetter": 1,
       "readySources": 0,
       "observedPotentialMin": 6,
       "facilityInstances": 0,
@@ -270,7 +273,7 @@
       "prefecture": "栃木県",
       "candidateSources": 2,
       "preflightOrBetter": 1,
-      "termsReviewedOrBetter": 0,
+      "termsReviewedOrBetter": 1,
       "readySources": 0,
       "observedPotentialMin": 10,
       "facilityInstances": 0,
@@ -305,7 +308,7 @@
       "prefecture": "福井県",
       "candidateSources": 2,
       "preflightOrBetter": 1,
-      "termsReviewedOrBetter": 0,
+      "termsReviewedOrBetter": 1,
       "readySources": 0,
       "observedPotentialMin": 10,
       "facilityInstances": 0,
