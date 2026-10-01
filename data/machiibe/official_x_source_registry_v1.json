@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-official-x-registry-v2",
+  "version": "2026-10-01-official-x-registry-v3",
   "status": "verified_registry_manual_research_no_api_fetch",
   "checked_at": "2026-10-01",
   "policy_sources": [
@@ -145,5 +145,45 @@
       "full_post_body_reuse_allowed": false,
       "notes": "Sanrio corporate press release explicitly identifies JOCHUM official X. Discovery/facts-only only; API and Production remain off."
     }
-  ]
+  ],
+  "api_research": {
+    "reviewed_at": "2026-10-01",
+    "state": "researched_not_connected",
+    "official_docs": [
+      "https://docs.x.com/x-api/getting-started/about-x-api",
+      "https://docs.x.com/x-api/getting-started/pricing",
+      "https://docs.x.com/x-api/fundamentals/rate-limits"
+    ],
+    "pricing": {
+      "model": "pay_per_usage",
+      "subscriptions": false,
+      "minimum_spend": false,
+      "credits_purchased_upfront": true,
+      "post_read_usd_per_resource": 0.005,
+      "user_read_usd_per_resource": 0.01,
+      "pay_per_use_post_reads_monthly_cap": 2000000,
+      "same_resource_24h_deduplication": true,
+      "rates_subject_to_change": true,
+      "recheck_developer_console_before_enable": true,
+      "spending_limit_available": true,
+      "project_auto_recharge_default": false
+    },
+    "rate_limit_snapshot": {
+      "recent_search_per_app_per_15min": 450,
+      "recent_search_max_results_per_request": 100,
+      "user_timeline_per_app_per_15min": 10000
+    },
+    "recommended_pilot": {
+      "primary_endpoint": "GET /2/users/{id}/tweets",
+      "reason": "verified official account timelines are narrower than broad search and reduce irrelevant billable Post resources",
+      "secondary_endpoint": "GET /2/tweets/search/recent",
+      "secondary_use": "discovery gap filling only after explicit cost approval"
+    },
+    "approvals": {
+      "api_access_approved": false,
+      "api_cost_approved": false,
+      "oauth_approved": false,
+      "recurring_fetch_approved": false
+    }
+  }
 }

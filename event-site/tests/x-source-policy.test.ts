@@ -144,3 +144,20 @@ test('verified X pilot accounts keep official-site provenance and no automation'
     assert.equal(row.api_fetch_enabled,false);
   }
 });
+
+
+test('X API research snapshot stays cost-gated and non-connected',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
+  assert.equal(data.api_research.state,'researched_not_connected');
+  assert.equal(data.api_research.pricing.model,'pay_per_usage');
+  assert.equal(data.api_research.pricing.post_read_usd_per_resource,0.005);
+  assert.equal(data.api_research.pricing.user_read_usd_per_resource,0.010);
+  assert.equal(data.api_research.pricing.rates_subject_to_change,true);
+  assert.equal(data.api_research.pricing.recheck_developer_console_before_enable,true);
+  assert.equal(data.api_research.pricing.project_auto_recharge_default,false);
+  assert.equal(data.api_research.recommended_pilot.primary_endpoint,'GET /2/users/{id}/tweets');
+  assert.equal(data.api_research.approvals.api_access_approved,false);
+  assert.equal(data.api_research.approvals.api_cost_approved,false);
+  assert.equal(data.api_research.approvals.oauth_approved,false);
+  assert.equal(data.api_research.approvals.recurring_fetch_approved,false);
+});

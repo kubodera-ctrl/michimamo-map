@@ -83,3 +83,41 @@ Embedding stays a separate privacy/UX gate because X for Websites may receive pa
 - https://help.x.com/en/rules-and-policies/profile-labels
 - https://help.x.com/en/x-for-websites-ads-info-and-privacy
 - https://help.x.com/en/using-x/how-to-embed-a-post
+
+## Stage C: X API current pricing / quota research (2026-10-01)
+
+Research only. No Developer App creation, credential issuance, OAuth, credit purchase, API request, recurring fetch or Production ingest was performed.
+
+Official docs currently describe X API v2 as pay-per-usage:
+- no subscription
+- no minimum spend
+- credits are purchased upfront
+- Post Read: USD 0.005 per returned Post resource
+- User Read: USD 0.010 per returned User resource
+- pay-per-use Post reads are capped at 2,000,000 per monthly billing cycle
+- the same billable resource is normally deduplicated within a 24-hour UTC day
+- rates are subject to change; re-check the Developer Console immediately before enabling any paid access
+- spending limits are available
+
+Current rate-limit snapshot used for architecture:
+- `GET /2/users/:id/tweets`: 10,000 requests / 15 min per app
+- `GET /2/tweets/search/recent`: 450 requests / 15 min per app, up to 100 results per request
+
+Recommended first paid pilot, if later approved:
+1. Resolve verified registry accounts to X user IDs.
+2. Read each verified account timeline with `GET /2/users/{id}/tweets`.
+3. Persist only provenance IDs and normalized facts allowed by the facts-only contract.
+4. Use `since_id`/equivalent incremental state where supported by the endpoint contract and avoid repeatedly requesting old pages.
+5. Keep broad recent search as a secondary gap-discovery lane, not the primary verified-account ingestion route.
+6. Set an explicit spending limit before the first paid API call.
+7. Keep auto-recharge OFF by project policy unless separately approved.
+
+Why timeline-first:
+The billing unit for Post reads is the returned Post resource. Narrow verified-account timelines should reduce irrelevant billable resources compared with broad keyword searches, while current app-level rate limits are ample for a small verified registry.
+
+This is an architecture recommendation, not an approval to purchase credits or connect the API.
+
+Official references:
+- https://docs.x.com/x-api/getting-started/about-x-api
+- https://docs.x.com/x-api/getting-started/pricing
+- https://docs.x.com/x-api/fundamentals/rate-limits
