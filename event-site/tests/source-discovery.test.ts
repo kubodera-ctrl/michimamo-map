@@ -34,14 +34,24 @@ test('source discovery deduplicates repeated feed links and ignores invalid JSON
 });
 
 
-test('expanded discovery inventory keeps fetch fail-closed and explicit review states',()=>{
+test('expanded discovery inventory keeps full-content fetch fail-closed while allowing explicit facts-only exceptions',()=>{
   const registry=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/national_source_discovery_v1.json',import.meta.url),'utf8'));
   const allowed=new Set(['DISCOVERED','PREFLIGHT','TERMS_REVIEWED','ROBOTS_REVIEWED','READY','ACTIVE','BLOCKED']);
   assert.ok(registry.sources.length>=26);
   assert.ok(registry.sources.every((row:any)=>allowed.has(row.review_state)));
-  assert.ok(registry.sources
-    .filter((row:any)=>!['READY','ACTIVE'].includes(row.review_state))
-    .every((row:any)=>row.automated_fetch_allowed===false));
+  const preReady=registry.sources.filter((row:any)=>!['READY','ACTIVE'].includes(row.review_state));
+  const factsOnly=preReady.filter((row:any)=>row.automated_fetch_allowed===true);
+  const stillClosed=preReady.filter((row:any)=>row.automated_fetch_allowed!==true);
+  assert.ok(factsOnly.every((row:any)=>
+    row.review_state==='TERMS_REVIEWED'
+    && row.terms_status==='reviewed_facts_only'
+    && row.fetch_scope==='facts_only'
+    && row.body_text_reuse_allowed===false
+    && row.image_reuse_allowed===false
+    && row.html_cache_allowed===false
+    && row.stop_on_403_429_or_explicit_bot_block===true
+  ));
+  assert.ok(stillClosed.every((row:any)=>row.automated_fetch_allowed===false));
   assert.equal(registry.counts.ready,registry.sources.filter((row:any)=>row.review_state==='READY').length);
   assert.ok(registry.counts.ready>=2);
   assert.equal(registry.counts.active,0);
@@ -60,6 +70,14 @@ test('expanded discovery inventory keeps fetch fail-closed and explicit review s
   const kawasaki=registry.sources.find((row:any)=>row.source_key==='kawasaki-city-event-api');
   assert.equal(kawasaki?.review_state,'TERMS_REVIEWED');
   assert.equal(kawasaki?.automated_fetch_allowed,false);
+  for(const key of ['kyoto-pref-current-events','ibaraki-kasumigaura-esc-events']){
+    const row=registry.sources.find((source:any)=>source.source_key===key);
+    assert.equal(row?.automated_fetch_allowed,true,key);
+    assert.equal(row?.terms_status,'reviewed_facts_only',key);
+    assert.equal(row?.fetch_scope,'facts_only',key);
+    assert.equal(row?.body_text_reuse_allowed,false,key);
+    assert.equal(row?.image_reuse_allowed,false,key);
+  }
   assert.ok(registry.counts.concrete_prefecture_coverage_from_all_inventories>=23);
 });
 
