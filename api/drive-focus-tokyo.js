@@ -41,6 +41,11 @@ function geoloniaMunicipalityKey(municipality,location){
   }
   return admin;
 }
+function authoritativeLocalityAlias(admin,full,local){
+  if(admin==='武蔵野市'&&local==='本町1丁目')return '吉祥寺本町1丁目';
+  if(admin==='町田市'&&/^南大谷1428番(?:地)?$/.test(local))return '南大谷一丁目';
+  return local;
+}
 function locationParts(municipality,location){
   const admin=normalizeText(municipality);
   let full=stripVicinity(location);
@@ -49,6 +54,7 @@ function locationParts(municipality,location){
   let local=city&&full.startsWith(city)
     ?full.slice(city.length)
     :(admin&&full.startsWith(admin)?full.slice(admin.length):full);
+  local=authoritativeLocalityAlias(admin,full,local);
   local=local.replace(/\d+番.*$/,'').replace(/\d+号.*$/,'');
   return {city,full,local};
 }
@@ -170,6 +176,7 @@ module.exports=handler;
 module.exports.parseCsv=parseCsv;
 module.exports.rowsFromCsv=rowsFromCsv;
 module.exports.geoloniaMunicipalityKey=geoloniaMunicipalityKey;
+module.exports.authoritativeLocalityAlias=authoritativeLocalityAlias;
 module.exports.locationParts=locationParts;
 module.exports.matchTownPoint=matchTownPoint;
 module.exports.buildAllTokyoEvents=buildAllTokyoEvents;
