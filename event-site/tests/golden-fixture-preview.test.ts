@@ -35,6 +35,12 @@ test('QA labels stay outside the final Canvas renderer',()=>{
   assert.doesNotMatch(rendererSource,/GOLDEN確認用|文字切れ|文字重なり|safe area/);
 });
 
+test('final Canvas brand uses the shared official machiibe icon asset',()=>{
+  assert.match(rendererSource,/loadImage\('\/machiibe-icon\.svg'\)/);
+  assert.match(rendererSource,/ctx\.drawImage\(icon,/);
+  assert.match(rendererSource,/await brand\(ctx,/);
+});
+
 test('cover period pill is width-aware and keeps a fixed right safe area',()=>{
   assert.match(rendererSource,/function periodPill/);
   assert.match(rendererSource,/maxWidth=500/);
