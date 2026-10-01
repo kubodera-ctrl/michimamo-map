@@ -1,0 +1,149 @@
+{
+  "version": "2026-10-01-x-api-cost-scenarios-v1",
+  "status": "design_only_no_api_connection",
+  "checked_at": "2026-10-01",
+  "pricing_source": "https://docs.x.com/x-api/getting-started/pricing",
+  "rate_limit_source": "https://docs.x.com/x-api/fundamentals/rate-limits",
+  "pricing_snapshot": {
+    "post_read_usd_per_returned_resource": 0.005,
+    "user_read_usd_per_returned_resource": 0.01,
+    "pay_per_use_post_reads_monthly_cap": 2000000,
+    "same_resource_24h_deduplication": "soft_guarantee",
+    "rates_subject_to_change": true
+  },
+  "scenario_assumptions": {
+    "billing_days_per_month": 30,
+    "timeline_primary": "GET /2/users/{id}/tweets",
+    "timeline_poll_max_results": 5,
+    "no_dedup_case": "Conservative scenario: every poll returns 5 billable Post resources and none are deduplicated.",
+    "dedup_case": "Lower scenario: the same 5 Post resources are returned repeatedly within each UTC day and 24h dedup works. Any new unique Posts add USD 0.005 each.",
+    "user_read": "Recurring User Read is excluded because the design stores a verified user_id once after API approval. Initial one-time user-ID resolution would be USD 0.01 per returned User resource at this pricing snapshot.",
+    "broad_recent_search": "Excluded from the base pilot scenario; gap discovery only after a separate cost review."
+  },
+  "scenarios": [
+    {
+      "verified_accounts": 10,
+      "polls_per_day": 1,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 7.5,
+      "monthly_post_read_usd_dedup_no_new_posts": 7.5
+    },
+    {
+      "verified_accounts": 10,
+      "polls_per_day": 2,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 15,
+      "monthly_post_read_usd_dedup_no_new_posts": 7.5
+    },
+    {
+      "verified_accounts": 10,
+      "polls_per_day": 4,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 30,
+      "monthly_post_read_usd_dedup_no_new_posts": 7.5
+    },
+    {
+      "verified_accounts": 10,
+      "polls_per_day": 6,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 45,
+      "monthly_post_read_usd_dedup_no_new_posts": 7.5
+    },
+    {
+      "verified_accounts": 25,
+      "polls_per_day": 1,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 18.75,
+      "monthly_post_read_usd_dedup_no_new_posts": 18.75
+    },
+    {
+      "verified_accounts": 25,
+      "polls_per_day": 2,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 37.5,
+      "monthly_post_read_usd_dedup_no_new_posts": 18.75
+    },
+    {
+      "verified_accounts": 25,
+      "polls_per_day": 4,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 75,
+      "monthly_post_read_usd_dedup_no_new_posts": 18.75
+    },
+    {
+      "verified_accounts": 25,
+      "polls_per_day": 6,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 112.5,
+      "monthly_post_read_usd_dedup_no_new_posts": 18.75
+    },
+    {
+      "verified_accounts": 50,
+      "polls_per_day": 1,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 37.5,
+      "monthly_post_read_usd_dedup_no_new_posts": 37.5
+    },
+    {
+      "verified_accounts": 50,
+      "polls_per_day": 2,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 75,
+      "monthly_post_read_usd_dedup_no_new_posts": 37.5
+    },
+    {
+      "verified_accounts": 50,
+      "polls_per_day": 4,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 150,
+      "monthly_post_read_usd_dedup_no_new_posts": 37.5
+    },
+    {
+      "verified_accounts": 50,
+      "polls_per_day": 6,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 225,
+      "monthly_post_read_usd_dedup_no_new_posts": 37.5
+    },
+    {
+      "verified_accounts": 100,
+      "polls_per_day": 1,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 75,
+      "monthly_post_read_usd_dedup_no_new_posts": 75
+    },
+    {
+      "verified_accounts": 100,
+      "polls_per_day": 2,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 150,
+      "monthly_post_read_usd_dedup_no_new_posts": 75
+    },
+    {
+      "verified_accounts": 100,
+      "polls_per_day": 4,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 300,
+      "monthly_post_read_usd_dedup_no_new_posts": 75
+    },
+    {
+      "verified_accounts": 100,
+      "polls_per_day": 6,
+      "max_results_per_timeline_poll": 5,
+      "monthly_post_read_usd_no_dedup": 450,
+      "monthly_post_read_usd_dedup_no_new_posts": 75
+    }
+  ],
+  "current_registry_pilot_proposal": {
+    "verified_accounts": 10,
+    "cadence_polls_per_day": 2,
+    "max_results_per_timeline_poll": 5,
+    "conservative_post_read_usd_per_month": 15,
+    "dedup_no_new_posts_usd_per_month": 7.5,
+    "one_time_user_id_resolution_usd_for_10_accounts": 0.1,
+    "proposed_monthly_spending_limit_usd": 20,
+    "auto_recharge_policy": "do_not_enable_without_owner_approval_and_verify_off_in_developer_console_before_first_paid_call",
+    "approval_state": "not_approved",
+    "note": "Design proposal only. No Developer Account, App, credentials, credits or API request."
+  }
+}
