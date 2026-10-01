@@ -193,21 +193,34 @@ export type ImageRightsContract={
 export type MediaCandidate={
   id:string;
   subjectType:'event'|'venue'|'category'|'generic';
-  role:'event_official'|'venue_official'|'place_photo'|'category_visual'|'generic_fallback';
+  role:'event_official'|'event_illustration'|'venue_official'|'place_photo'|'category_visual'|'generic_fallback';
   url:string|null;
   rights:ImageRightsContract;
   machiibeOwned:boolean;
 };
 
+export type MediaSafetyState='SAFE'|'REVIEW_REQUIRED'|'DO_NOT_USE';
+
+export function mediaSafetyState(candidate:MediaCandidate):MediaSafetyState{
+  if(candidate.machiibeOwned)return 'SAFE';
+  if(candidate.rights.displayAllowed===false)return 'DO_NOT_USE';
+  if(candidate.rights.displayAllowed!==true)return 'REVIEW_REQUIRED';
+  if(!candidate.rights.rightsSourceUrl||!candidate.rights.reviewedAt)return 'REVIEW_REQUIRED';
+  return 'SAFE';
+}
+
 export function canDisplayMedia(candidate:MediaCandidate){
-  return candidate.machiibeOwned || candidate.rights.displayAllowed===true;
+  return mediaSafetyState(candidate)==='SAFE';
 }
 export function canCacheMedia(candidate:MediaCandidate){
-  return candidate.machiibeOwned || candidate.rights.cacheAllowed===true;
+  return candidate.machiibeOwned || (
+    mediaSafetyState(candidate)==='SAFE'
+    && candidate.rights.cacheAllowed===true
+  );
 }
 export function canUseMediaForSns(candidate:MediaCandidate){
   return candidate.machiibeOwned || (
-    candidate.rights.displayAllowed===true
+    mediaSafetyState(candidate)==='SAFE'
     && candidate.rights.snsAllowed===true
     && candidate.rights.commercialAllowed===true
   );
@@ -215,10 +228,12 @@ export function canUseMediaForSns(candidate:MediaCandidate){
 
 const MEDIA_ROLE_ORDER:Record<MediaCandidate['role'],number>={
   event_official:1,
-  venue_official:2,
+  event_illustration:2,
+  venue_official:3,
   place_photo:3,
   category_visual:4,
-  generic_fallback:5
+  // generic_fallback is the branded "other" variant inside layer 4, not a fifth public layer.
+  generic_fallback:4
 };
 
 export function selectDisplayMedia(candidates:MediaCandidate[]){
@@ -226,6 +241,30 @@ export function selectDisplayMedia(candidates:MediaCandidate[]){
     .filter(canDisplayMedia)
     .slice()
     .sort((a,b)=>MEDIA_ROLE_ORDER[a.role]-MEDIA_ROLE_ORDER[b.role])[0]||null;
+}
+
+export type MediaQualityInput={
+  eventId:string;
+  candidates:MediaCandidate[];
+};
+
+export function measureMediaQuality(events:MediaQualityInput[]){
+  const selections=events.map((event)=>({
+    eventId:event.eventId,
+    selected:selectDisplayMedia(event.candidates)
+  }));
+  const covered=selections.filter((item)=>item.selected!==null).length;
+  const unsafe=selections.filter((item)=>
+    item.selected!==null && mediaSafetyState(item.selected)!=='SAFE'
+  ).length;
+  return {
+    total_event_count:events.length,
+    covered_event_count:covered,
+    image_coverage_rate:events.length===0?null:(covered/events.length)*100,
+    empty_visual_count:events.length-covered,
+    rights_unknown_public_image_count:unsafe,
+    selections
+  };
 }
 
 function normalized(value:string|null|undefined){
