@@ -7,6 +7,7 @@ const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtur
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
 const iconSource=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
+const cssSource=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
 
 test('Golden fixture preview stays synthetic, noindex and disabled when indexing is enabled',()=>{
   assert.match(indexSource,/PREVIEW ONLY \/ SYNTHETIC DATA/);
@@ -47,6 +48,11 @@ test('official brand asset keeps its outer background transparent',()=>{
   assert.doesNotMatch(iconSource,/<rect[^>]+(?:width="512"|width="100%")[^>]+fill=["'](?:#fff|white)["']/i);
   assert.match(iconSource,/<rect x="24" y="24" width="464" height="464" rx="112" fill="url\(#g\)"\/>/);
   assert.match(iconSource,/fill="#fff"/);
+});
+
+test('official site logo wrapper stays transparent',()=>{
+  assert.match(cssSource,/\.brand-icon-wrap\{padding:0;overflow:hidden;background:transparent\}/);
+  assert.doesNotMatch(cssSource,/\.brand-icon-wrap\{[^}]*background:#fff/);
 });
 
 test('cover period pill is width-aware and keeps a fixed right safe area',()=>{
