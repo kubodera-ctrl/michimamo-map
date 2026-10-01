@@ -642,8 +642,8 @@ body::before{
 .brand-shell{position:relative;display:flex;align-items:center;min-width:0;flex:0 0 auto}
 .brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0;text-decoration:none}
 .brand-lockup{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
-.brand-icon-crop{position:relative;display:block;width:46px;height:46px;overflow:hidden;border-radius:14px;flex:0 0 auto}
-.brand-icon-image{position:absolute;display:block;width:64px;height:64px;max-width:none;left:-9px;top:-8px}
+.brand-icon-crop{display:block;width:46px;height:46px;border-radius:14px;flex:0 0 auto}
+.brand-icon-image{display:block;width:46px;height:46px;max-width:none}
 .brand-wordmark{display:inline-flex;align-items:baseline;white-space:nowrap;font-size:24px;line-height:1;font-weight:950;letter-spacing:-.06em}
 .brand-wordmark-machi{color:var(--logo-blue)}
 .brand-wordmark-ibe{color:var(--logo-orange)}

@@ -89,12 +89,7 @@ async function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
   const icon=await loadImage('/machiibe-icon-approved.webp');
   const size=72*scale;
   if(icon){
-    // Owner-approved square logo. Crop only its neutral outer margin when drawing.
-    const sx=icon.naturalWidth*.140625;
-    const sy=icon.naturalHeight*.125;
-    const sw=icon.naturalWidth*.71875;
-    const sh=icon.naturalHeight*.734375;
-    ctx.drawImage(icon,sx,sy,sw,sh,x,y,size,size);
+    ctx.drawImage(icon,x,y,size,size);
   }else{
     // Deterministic fallback using the approved blue/orange/yellow palette.
     rounded(ctx,x,y,size,size,18*scale,LOGO_BLUE);
