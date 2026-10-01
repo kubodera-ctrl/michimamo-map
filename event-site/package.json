@@ -17,7 +17,8 @@
     "source:dry-run-cross-dedupe": "tsx scripts/machiibe-ready-cross-dedupe-dry-run.ts",
     "source:probe-tokyo-event-api": "tsx scripts/machiibe-tokyo-event-api-probe.ts",
     "source:preflight-csv": "tsx scripts/machiibe-source-preflight-csv.ts",
-    "source:audit-kawasaki-event-api": "tsx scripts/machiibe-kawasaki-event-api-audit.ts"
+    "source:audit-kawasaki-event-api": "tsx scripts/machiibe-kawasaki-event-api-audit.ts",
+    "source:dry-run-facts-only": "tsx scripts/machiibe-facts-only-dry-run.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",
