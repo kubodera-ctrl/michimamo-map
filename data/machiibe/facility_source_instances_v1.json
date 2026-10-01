@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-facility-instances-v8",
+  "version": "2026-10-01-facility-instances-v9",
   "status": "research_only_controlled_facts_fetch_allowed",
   "rules": {
     "automated_fetch_default": false,
@@ -324,6 +324,54 @@
       ],
       "family_relevance": "high",
       "notes": "2026-10-01公式Event & Pop Upで2026年10月以降の具体イベントを少なくとも10件直接確認。WIND BREAKER、しゅごキャラ！、仮面ライダーアギト等。規約・robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "ikebukuro-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "池袋PARCO",
+      "prefecture": "東京都",
+      "municipality": "豊島区",
+      "homepage_url": "https://ikebukuro.parco.jp/",
+      "event_url": "https://ikebukuro.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 5,
+      "event_categories": [
+        "gallery",
+        "popup_store",
+        "anime_game",
+        "character",
+        "exhibition",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式Event & Pop Upで当日以降の具体イベントを保守的に5件以上直接確認。SONIC the Exhibition、CHAINSAW MAN CLOSET、キャラメゾン等。規約・robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "shinsaibashi-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "心斎橋PARCO",
+      "prefecture": "大阪府",
+      "municipality": "大阪市中央区",
+      "homepage_url": "https://shinsaibashi.parco.jp/",
+      "event_url": "https://shinsaibashi.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 6,
+      "event_categories": [
+        "popup_store",
+        "event",
+        "entertainment",
+        "gallery",
+        "exhibition",
+        "other"
+      ],
+      "family_relevance": "medium",
+      "notes": "2026-10-01公式Event & Pop Upで当日以降の具体イベントを保守的に6件以上直接確認。KOJIMA PRODUCTIONS × PARCO GAMES STRAND STORE、写真展、Wall Gallery等。規約・robots確認前はfetch不可。"
     }
   ]
 }

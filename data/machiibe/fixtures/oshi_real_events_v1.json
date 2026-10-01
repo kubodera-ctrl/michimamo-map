@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-oshi-real-events-v5",
+  "version": "2026-10-01-oshi-real-events-v6",
   "status": "fixture_only_verified_from_official_pages",
   "checked_at": "2026-10-01",
   "rules": {
@@ -315,6 +315,100 @@
           "type": "character",
           "canonical_name": "コジコジ",
           "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "lalaport-tokyo-bay-stray-kids-collab-2026",
+      "title": "「Stray Kids」とのスペシャルコラボキャンペーン「LaLaport・LAZONA×Stray Kids」",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/tokyo-bay/event/3618882.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-30",
+      "ends_on": "2026-11-08",
+      "venue_name": "ららぽーとTOKYO-BAY",
+      "prefecture": "千葉県",
+      "classification_text": "Stray Kidsのワールドツアー公演を記念した施設コラボイベント。会場内メッセージ映像・館内放送などを実施。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "Stray Kids",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "hiroshima-parco-beatles-get-back-2026",
+      "title": "ビートルズ来日60周年記念 世界最長の歴史を誇る公式グッズ・ストア「GET BACK」",
+      "source_url": "https://hiroshima.parco.jp/event/detail/?id=37258",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-23",
+      "ends_on": "2026-11-03",
+      "venue_name": "広島PARCO 本館6F PARCO FACTORY",
+      "prefecture": "広島県",
+      "classification_text": "ビートルズ来日60周年を記念した期間限定POPUPイベント。公式ライセンス商品と英国ロック文化の展示・体験を展開。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "The Beatles",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "qs-amagasaki-hololive-joypolis-2026-w1",
+      "title": "『ホロライブ×JOYPOLIS』人気イベント「ホロ×マッチ」",
+      "source_url": "https://qs-mall.jp/amagasaki/event/detail/1155",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-11-07",
+      "ends_on": "2026-11-08",
+      "venue_name": "あまがさきキューズモール",
+      "prefecture": "兵庫県",
+      "classification_text": "『ホロライブ×JOYPOLIS』のイベント「ホロ×マッチ」。公式施設ページで開催日を確認。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "vtuber",
+          "canonical_name": "ホロライブ",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "qs-amagasaki-hololive-joypolis-2026-w2",
+      "title": "『ホロライブ×JOYPOLIS』人気イベント「ホロ×マッチ」",
+      "source_url": "https://qs-mall.jp/amagasaki/event/detail/1155",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-11-14",
+      "ends_on": "2026-11-15",
+      "venue_name": "あまがさきキューズモール",
+      "prefecture": "兵庫県",
+      "classification_text": "『ホロライブ×JOYPOLIS』のイベント「ホロ×マッチ」。公式施設ページで開催日を確認。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "vtuber",
+          "canonical_name": "ホロライブ",
+          "relation": "collaboration"
         }
       ],
       "reservation": {

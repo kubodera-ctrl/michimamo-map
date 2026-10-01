@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v24",
+  "version": "coverage-kpi-v25",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -14,9 +14,9 @@
   "supplyFunnel": {
     "potential": {
       "nationalDiscoveryLowerBound": 3337,
-      "facilityPilotLowerBound": 128,
+      "facilityPilotLowerBound": 186,
       "oshiSourceLowerBound": 73,
-      "note": "Discovery potentials overlap and are not summed into a publishable total."
+      "note": "Discovery potentials overlap and are not summed into a publishable total. Facility pilot lower bound is the sum of conservative directly observed current-item minima for explicit facility instances."
     },
     "liveDryRunAggregate": {
       "potential": 3677,
@@ -40,7 +40,7 @@
     "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka + Hamamatsu READY live dry-run / Event Site Check #855; no DB or Active writes. See data/machiibe/live_dry_run_snapshot_v4.json."
   },
   "lanes": {
-    "facilitySourceInstances": 12,
+    "facilitySourceInstances": 14,
     "oshiSourceCandidates": 10,
     "readySourceKeys": [
       "mie-pref-events-open-data",
@@ -50,7 +50,7 @@
       "bodik-toyonaka-events",
       "hamamatsu-current-events-open-data"
     ],
-    "oshiRealEventFixtures": 12,
+    "oshiRealEventFixtures": 16,
     "holdSourceKeys": [
       "tottori-pref-event-open-data",
       "shimane-pref-events-2026",
@@ -108,8 +108,8 @@
     "singleSourcePrefectures": 20,
     "lowOrUnmeasuredPotentialPrefectures": 36,
     "noReadySourcePrefectures": 43,
-    "noFacilityInstanceDirectEvidencePrefectures": 35,
-    "noVerifiedOshiFixturePrefectures": 37,
+    "noFacilityInstanceDirectEvidencePrefectures": 33,
+    "noVerifiedOshiFixturePrefectures": 34,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -152,8 +152,11 @@
       "熊本県",
       "埼玉県",
       "北海道",
-      "宮城県"
+      "宮城県",
+      "千葉県",
+      "広島県",
+      "兵庫県"
     ],
-    "note": "Direct evidence only. Development14: Yamaguchi/Tochigi/Fukui joined controlled facts-only TERMS_REVIEWED without READY promotion; four PARCO facility pilots (Hokkaido/Miyagi/Hiroshima/Aichi) and two official oshi fixtures (Hokkaido/Miyagi) were added. READY=6 / ACTIVE=0 unchanged. Missing evidence is not proof of no supply."
+    "note": "Direct evidence only. Development15: Tokyo/Osaka gained explicit PARCO facility evidence; Chiba/Hiroshima/Hyogo gained verified official oshi fixtures. facts-only parser is implemented for six reviewed sources without READY/ACTIVE promotion. READY=6 / ACTIVE=0 unchanged. Missing evidence is not proof of no supply."
   }
 }
