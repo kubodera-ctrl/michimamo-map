@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-facility-instances-v7",
+  "version": "2026-10-01-facility-instances-v8",
   "status": "research_only_controlled_facts_fetch_allowed",
   "rules": {
     "automated_fetch_default": false,
@@ -223,6 +223,107 @@
       "source_link_required": true,
       "stop_on_403_429_or_explicit_bot_block": true,
       "max_requests_per_minute": 2
+    },
+    {
+      "source_key": "sapporo-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "札幌PARCO",
+      "prefecture": "北海道",
+      "municipality": "札幌市中央区",
+      "homepage_url": "https://sapporo.parco.jp/",
+      "event_url": "https://sapporo.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 8,
+      "event_categories": [
+        "popup_store",
+        "character",
+        "entertainment",
+        "gallery",
+        "event",
+        "fashion",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式Event & Pop Upで開催中/予告を少なくとも8件直接確認。ちいかわぽけっと、可愛い嘘のカワウソ等のキャラクター/POPUPを含む。規約・robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "sendai-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "仙台PARCO",
+      "prefecture": "宮城県",
+      "municipality": "仙台市青葉区",
+      "homepage_url": "https://sendai.parco.jp/",
+      "event_url": "https://sendai.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 9,
+      "event_categories": [
+        "popup_store",
+        "character",
+        "entertainment",
+        "gallery",
+        "music",
+        "food",
+        "event",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式Event & Pop Upで2026年10月以降の開催中/予告を9件直接確認。ちびまる子ちゃん/コジコジ、OSAMU GOODS等を含む。規約・robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "hiroshima-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "広島PARCO",
+      "prefecture": "広島県",
+      "municipality": "広島市中区",
+      "homepage_url": "https://hiroshima.parco.jp/",
+      "event_url": "https://hiroshima.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 5,
+      "event_categories": [
+        "popup_store",
+        "character",
+        "entertainment",
+        "gallery",
+        "music",
+        "event",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式Event & Pop Upで当日以降の具体イベントを保守的に5件以上直接確認。大☆ヤンキー展、ビートルズ公式グッズストア、仮面ライダーストア等。規約・robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "nagoya-parco-events",
+      "network_key": "parco-event-network",
+      "facility_name": "名古屋PARCO",
+      "prefecture": "愛知県",
+      "municipality": "名古屋市中区",
+      "homepage_url": "https://nagoya.parco.jp/",
+      "event_url": "https://nagoya.parco.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "observed_current_items_min": 10,
+      "event_categories": [
+        "popup_store",
+        "anime_game",
+        "entertainment",
+        "gallery",
+        "exhibition",
+        "event",
+        "other"
+      ],
+      "family_relevance": "high",
+      "notes": "2026-10-01公式Event & Pop Upで2026年10月以降の具体イベントを少なくとも10件直接確認。WIND BREAKER、しゅごキャラ！、仮面ライダーアギト等。規約・robots確認前はfetch不可。"
     }
   ]
 }
