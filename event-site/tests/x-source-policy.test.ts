@@ -18,7 +18,7 @@ test('official X registry stays design-only with scraping/API/Production closed'
   assert.equal(data.rules.x_post_body_reuse_default,false);
   assert.equal(data.rules.x_media_reuse_default,false);
   assert.equal(data.rules.blue_check_alone_is_official,false);
-  assert.equal(data.accounts.length,3);
+  assert.equal(data.accounts.length,10);
   assert.ok(data.accounts.every((row:any)=>row.officiality==='verified_official'));
   assert.ok(data.accounts.every((row:any)=>row.verification_method==='official_site_backlink'));
   assert.ok(data.accounts.every((row:any)=>row.automated_fetch_allowed===false&&row.api_fetch_enabled===false));
@@ -134,10 +134,12 @@ test('official web becomes primary evidence when available after X announcement'
 test('verified X pilot accounts keep official-site provenance and no automation',()=>{
   const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
   const handles=new Set(data.accounts.map((row:any)=>row.handle));
-  assert.deepEqual(handles,new Set(['SanrioGames_JP','SanrioKML_JP','jo1xsanrio']));
+  assert.deepEqual(handles,new Set(['SanrioGames_JP','SanrioKML_JP','jo1xsanrio','purolandjp','sanrio_ent','eddy_sanrio','kabukinyantaro','namjatown765','animatejoji','animateSt_grt']));
   for(const row of data.accounts){
     assert.match(row.profile_url,/^https:\/\/x\.com\/[A-Za-z0-9_]+$/);
-    assert.match(row.verification_evidence_url,/^https:\/\/corporate\.sanrio\.co\.jp\//);
+    assert.match(row.verification_evidence_url,/^https:\/\//);
+    assert.equal(row.verification_method,'official_site_backlink');
+    assert.equal(row.user_id,null);
     assert.equal(row.discovery_use_allowed,true);
     assert.equal(row.x_only_facts_evidence_allowed,true);
     assert.equal(row.automated_fetch_allowed,false);
@@ -154,7 +156,10 @@ test('X API research snapshot stays cost-gated and non-connected',()=>{
   assert.equal(data.api_research.pricing.user_read_usd_per_resource,0.010);
   assert.equal(data.api_research.pricing.rates_subject_to_change,true);
   assert.equal(data.api_research.pricing.recheck_developer_console_before_enable,true);
-  assert.equal(data.api_research.pricing.project_auto_recharge_default,false);
+  assert.equal('project_auto_recharge_default' in data.api_research.pricing,false);
+  assert.equal(data.api_research.pricing.auto_recharge_default_state_evidence,'not_established_from_public_docs');
+  assert.equal(data.api_research.pricing.auto_recharge_policy,'do_not_enable_without_owner_approval');
+  assert.equal(data.api_research.pricing.auto_recharge_console_check_required_before_enable,true);
   assert.equal(data.api_research.recommended_pilot.primary_endpoint,'GET /2/users/{id}/tweets');
   assert.equal(data.api_research.approvals.api_access_approved,false);
   assert.equal(data.api_research.approvals.api_cost_approved,false);
