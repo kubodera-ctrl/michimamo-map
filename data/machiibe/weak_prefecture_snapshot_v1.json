@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-weak-prefecture-v13",
+  "version": "2026-10-01-weak-prefecture-v14",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -58,7 +58,7 @@
       "prefecture": "茨城県",
       "candidateSources": 2,
       "preflightOrBetter": 1,
-      "termsReviewedOrBetter": 0,
+      "termsReviewedOrBetter": 1,
       "readySources": 0,
       "observedPotentialMin": 3,
       "facilityInstances": 0,
@@ -75,7 +75,7 @@
       "prefecture": "京都府",
       "candidateSources": 2,
       "preflightOrBetter": 1,
-      "termsReviewedOrBetter": 0,
+      "termsReviewedOrBetter": 1,
       "readySources": 0,
       "observedPotentialMin": 8,
       "facilityInstances": 1,
