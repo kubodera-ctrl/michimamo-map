@@ -9,7 +9,7 @@ assert.match(
 );
 assert.match(
   html,
-  /mypage-guide\.js\?v=30-camera-audit1/,
+  /mypage-guide\.js\?v=42-safari-nav5/,
   'the page cache-busts the hardened camera loader'
 );
 assert.match(

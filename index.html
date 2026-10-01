@@ -12,23 +12,49 @@
         (function configurePhoneViewport() {
             const viewport = document.querySelector('meta[name="viewport"]');
             const ua = navigator.userAgent || '';
-            if (/iPhone|iPod/i.test(ua)) {
+            const isIPhone = /iPhone|iPod/i.test(ua);
+            if (isIPhone) {
                 viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
-                return;
+            } else {
+                const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
+                const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
+                if (phoneScreen && touchDevice) {
+                    function updatePhoneViewport() {
+                        const shortSide = Math.min(screen.width || 0, screen.height || 0);
+                        const longSide = Math.max(screen.width || 0, screen.height || 0);
+                        const landscape = window.matchMedia('(orientation: landscape)').matches;
+                        const width = landscape ? longSide : shortSide;
+                        if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+                    }
+                    updatePhoneViewport();
+                    window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
+                    window.addEventListener('pageshow', updatePhoneViewport);
+                }
             }
-            const phoneScreen = Math.min(screen.width || 0, screen.height || 0) <= 600;
-            const touchDevice = navigator.maxTouchPoints > 0 || /Android.*Mobile/i.test(ua);
-            if (!phoneScreen || !touchDevice) return;
-            function updatePhoneViewport() {
-                const shortSide = Math.min(screen.width || 0, screen.height || 0);
-                const longSide = Math.max(screen.width || 0, screen.height || 0);
-                const landscape = window.matchMedia('(orientation: landscape)').matches;
-                const width = landscape ? longSide : shortSide;
-                if (width > 0) viewport.setAttribute('content', `width=${width}, initial-scale=1, viewport-fit=cover`);
+
+            if (!isIPhone) return;
+            function updatePhoneVisibleHeight() {
+                const vv = window.visualViewport;
+                const visibleHeight = Math.round(vv?.height || window.innerHeight || 0);
+                const visibleBottom = Math.round((vv?.offsetTop || 0) + (vv?.height || visibleHeight));
+                const layoutHeight = Math.max(
+                    Math.round(window.innerHeight || 0),
+                    Math.round(document.documentElement.clientHeight || 0),
+                    visibleBottom
+                );
+                const browserBottom = Math.max(0, layoutHeight - visibleBottom);
+                if (visibleHeight > 0) {
+                    document.documentElement.style.setProperty('--machimamo-app-height', `${visibleHeight}px`);
+                    document.documentElement.style.setProperty('--machimamo-browser-bottom', `${browserBottom}px`);
+                }
             }
-            updatePhoneViewport();
-            window.addEventListener('orientationchange', () => setTimeout(updatePhoneViewport, 200));
-            window.addEventListener('pageshow', updatePhoneViewport);
+            window.MachimamoSyncAppHeight = updatePhoneVisibleHeight;
+            updatePhoneVisibleHeight();
+            window.addEventListener('pageshow', updatePhoneVisibleHeight);
+            window.addEventListener('resize', updatePhoneVisibleHeight, { passive:true });
+            window.addEventListener('orientationchange', () => setTimeout(updatePhoneVisibleHeight, 120), { passive:true });
+            window.visualViewport?.addEventListener('resize', updatePhoneVisibleHeight, { passive:true });
+            window.visualViewport?.addEventListener('scroll', updatePhoneVisibleHeight, { passive:true });
         })();
     </script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -51,8 +77,9 @@
         /* Keep browser page scale fixed for touch gestures; Leaflet handles map zoom itself. */
         html, body, #app, .view { touch-action: pan-x pan-y; }
         * { box-sizing: border-box; }
+        :root { --machimamo-bottom-nav-height: calc(66px + env(safe-area-inset-bottom, 0px)); --machimamo-browser-bottom: 0px; }
         body { width: 100%; max-width: 100vw; overflow: hidden; }
-        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+        #app { width: 100%; max-width: 100vw; height: 100vh; height: 100svh; height: var(--machimamo-app-height, 100svh); display: flex; flex-direction: column; overflow: hidden; padding-bottom: var(--machimamo-bottom-nav-height); }
 
         header { background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; padding-top: calc(12px + env(safe-area-inset-top)); z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); flex-shrink: 0; }
         .brand { display: flex; gap: 10px; align-items: center; }
@@ -73,10 +100,28 @@
         .ad-banner-title { font-weight: 900; color: #17212b; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .ad-pr-tag { font-size: 0.65rem; color: #ef4444; border: 1px solid #ef4444; padding: 2px 4px; border-radius: 4px; font-weight: bold; }
 
-        nav { background: #fff; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0; padding-bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 1000; flex-shrink: 0; }
-        nav button { border: 0; background: transparent; color: #6b7280; font-weight: 800; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; padding: 4px 0; }
-        nav button.active { color: #1f6feb; }
-        nav button i { font-size: 20px; }
+        #bottomNav {
+            position: fixed !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+            width: 100% !important; min-height: var(--machimamo-bottom-nav-height) !important;
+            background: #fff !important; border-top: 1px solid #e5e7eb !important;
+            display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+            z-index: 1900 !important; visibility: visible !important; opacity: 1 !important;
+            pointer-events: auto !important; transform: translateZ(0) !important;
+            box-shadow: 0 -4px 16px rgba(15,23,42,.08);
+        }
+        #bottomNav[hidden] { display: none !important; }
+        #bottomNav button {
+            min-width: 0 !important; min-height: 48px !important; border: 0 !important;
+            background: transparent !important; color: #6b7280 !important; font-weight: 800 !important;
+            font-size: 12px !important; display: flex !important; visibility: visible !important; opacity: 1 !important;
+            flex-direction: column !important; align-items: center !important; justify-content: center !important;
+            gap: 4px !important; cursor: pointer; padding: 4px 2px !important; -webkit-appearance: none;
+            transform: translateY(5px) !important;
+        }
+        #bottomNav button.active { color: #1f6feb !important; }
+        #bottomNav button i { display: block !important; font-size: 20px !important; line-height: 1 !important; }
+        #bottomNav button span { display: block !important; line-height: 1.2 !important; }
 
         .search-box { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; gap: 6px; }
         .search-box input { flex: 1; padding: 12px 16px; border: none; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 0.95rem; outline: none; }
@@ -382,8 +427,8 @@
             .ad-banner-title { min-width: 0; font-size: 13px; line-height: 1.25; }
             .ad-pr-tag { font-size: 11px; }
             nav { padding-top: 8px; }
-            nav button { font-size: 12px; }
-            nav button i { font-size: 21px; }
+            #app > nav button { font-size: 12px; }
+            #app > nav button i { font-size: 21px; }
             .leaflet-control-zoom a { width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 22px !important; }
         .leaflet-popup-content { font-size: 16px; }
         .leaflet-popup-content.no-image-post { width: min(82vw, 430px) !important; max-width: 82vw !important; }
@@ -414,7 +459,8 @@
     <link rel="stylesheet" href="nearby-safety.css">
     <link rel="stylesheet" href="aed-review.css">
     <link rel="stylesheet" href="map-menu.css">
-    <link rel="stylesheet" href="profile-v2.css?v=36-identity4">\n    <link rel="stylesheet" href="identity-ui.css?v=36-identity4">
+    <link rel="stylesheet" href="profile-v2.css?v=36-identity4">
+    <link rel="stylesheet" href="identity-ui.css?v=36-identity4">
     <link rel="stylesheet" href="point-exchange.css?v=31-digital-gift1">
 </head>
 <body>
@@ -912,13 +958,45 @@
 
                 <!-- 【タブ2：ランキング】 -->
                 <div id="rankingTab" class="tab-content">
+                    <div class="muted" id="rankingDemoDisclosure" style="font-size:.7rem;line-height:1.55;margin:0 2px 10px;color:#64748b;">※β版では、一部に過去情報を元にしたデモ表示があります。</div>
+                    <div class="card" id="realCoverageSnapshotCard" style="background:linear-gradient(135deg,#eff6ff,#ffffff);border:1px solid #bfdbfe;">
+                        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;">
+                            <div>
+                                <h2 style="font-size:1.1rem;margin:0;color:#1d4ed8;"><i class="fa-solid fa-shield-halved"></i> 全国の安全データ</h2>
+                                <div class="muted" style="font-size:.68rem;margin-top:4px;">2026/10/1時点・公開DB実数</div>
+                            </div>
+                            <span style="font-size:.65rem;font-weight:900;color:#1d4ed8;background:#dbeafe;padding:5px 8px;border-radius:999px;">全国47都道府県</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
+                            <div style="padding:12px;border-radius:12px;background:#fff;border:1px solid #dbeafe;">
+                                <strong style="display:block;font-size:1.35rem;color:#17212b;">61,736</strong>
+                                <span class="muted" style="font-size:.72rem;">掲載安全スポット</span>
+                            </div>
+                            <div style="padding:12px;border-radius:12px;background:#fff;border:1px solid #dbeafe;">
+                                <strong style="display:block;font-size:1.35rem;color:#dc2626;">48,620</strong>
+                                <span class="muted" style="font-size:.72rem;">AED</span>
+                            </div>
+                            <div style="padding:12px;border-radius:12px;background:#fff;border:1px solid #dbeafe;">
+                                <strong style="display:block;font-size:1.35rem;color:#0f766e;">2,148</strong>
+                                <span class="muted" style="font-size:.72rem;">掲載市区町村</span>
+                            </div>
+                            <div style="padding:12px;border-radius:12px;background:#fff;border:1px solid #dbeafe;">
+                                <strong style="display:block;font-size:1.35rem;color:#7c3aed;">2,064</strong>
+                                <span class="muted" style="font-size:.72rem;">9月追加の地域安全情報</span>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;font-size:.72rem;line-height:1.55;color:#475569;">
+                            AED 48,620件・交番 6,131件・駐在所 5,839件・警察署 1,146件を公開中。
+                        </div>
+                    </div>
+
                     <div class="card">
                         <h2 style="font-size:1.1rem;"><i class="fa-solid fa-crown" style="color:#fbbf24;"></i> 今月の安全守護神 トップ10</h2>
                         <div id="nationalRankingArea">
                             <div style="text-align:center; padding:20px; color:#6b7280;">集計中...</div>
                         </div>
                         <div class="ranking-row" style="background:#f8fafc; padding:8px; border-radius:8px; margin-top:8px;">
-                            <div style="font-weight:bold; color:#6b7280;">... <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
+                            <div style="font-weight:bold; color:#6b7280;">実ユーザー内 <span id="rankMyPosDisp">圏外</span> <span id="rankMyNameDisp">あなた</span></div>
                             <div style="font-weight:bold; color:#6b7280;"><span id="rankMyPtDisp">0</span> pt</div>
                         </div>
                     </div>
@@ -996,14 +1074,15 @@
 
     <!-- β Release Gate: legacy hardcoded affiliate banner disabled until ASP Runtime approval. -->
 
-    <!-- ナビゲーションメニュー -->
-    <nav>
-        <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i> マップ</button>
-        <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i> クイズ</button>
-        <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i> マイページ</button>
-        <button class="nav" data-view="poikatsuView" onclick="updateMyPage()"><i class="fa-solid fa-gift"></i> ポイ活</button>
-    </nav>
 </div>
+
+<!-- ナビゲーションメニュー：Safariでも独立した固定UIとして描画 -->
+<nav id="bottomNav" aria-label="メインメニュー">
+    <button class="nav active" data-view="mapView"><i class="fa-solid fa-map-location-dot"></i><span>マップ</span></button>
+    <button class="nav" data-view="quizView"><i class="fa-solid fa-graduation-cap"></i><span>クイズ</span></button>
+    <button class="nav" data-view="aboutView" onclick="updateMyPage()"><i class="fa-solid fa-user"></i><span>マイページ</span></button>
+    <button class="nav" data-view="poikatsuView" onclick="updateMyPage()"><i class="fa-solid fa-gift"></i><span>ポイ活</span></button>
+</nav>
 
 <!-- 各種モーダル -->
 <div class="alert-toast" id="alertToast"><i class="fa-solid fa-bell"></i> <span id="alertToastMsg"></span></div>
@@ -1073,6 +1152,16 @@
             <button class="close" onclick="closePostModal()" aria-label="投稿画面を閉じる"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <form id="postForm" onsubmit="handlePostSubmit(event)">
+           <label>種類</label>
+           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
+                <option value="illegal">🔴 違法駐車</option>
+                <option value="danger">🔵 危険な路上停車</option>
+                <option value="reckless">🟡 暴走・騒音車両</option>
+                <option value="abandoned">🟣 不法放置 (写真必須)</option>
+                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
+                <option value="patrol">🟢 巡回・取り締まり情報</option>
+                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
+            </select>
             <div id="localAnomalyArea" style="display:none; margin-bottom:14px; background:#ecfeff; border:1px solid #67e8f9; padding:12px; border-radius:12px;">
                 <div style="font-size:.8rem; color:#155e75; font-weight:900; line-height:1.55;">地域で見つけた「いつもと違う」を共有します。見た事実だけを投稿してください。</div>
                 <label>異変の種類</label>
@@ -1100,16 +1189,7 @@
             </div>
 
 
-           <label>種類</label>
-           <select id="postCategory" aria-label="投稿の種類" required onchange="toggleImageUpload()">
-                <option value="illegal">🔴 違法駐車</option>
-                <option value="danger">🔵 危険な路上停車</option>
-                <option value="reckless">🟡 暴走・騒音車両</option>
-                <option value="abandoned">🟣 不法放置 (写真必須)</option>
-                <option value="local_anomaly">🟦 地域の異変（道路・倒木・害獣など）</option>
-                <option value="patrol">🟢 巡回・取り締まり情報</option>
-                <option value="aed">❤️ AEDを現地から投稿（新規承認で累積スタンプ）</option>
-            </select>
+
             <label id="postTitleLabel">タイトル</label><input type="text" id="postTitle" aria-label="投稿タイトル" required maxlength="160">
             <label id="postCommentLabel">状況コメント</label><textarea id="postComment" aria-label="投稿コメント" rows="3" maxlength="500"></textarea>
 
@@ -1961,81 +2041,162 @@
         return `<span class="ranking-avatar" aria-hidden="true">${escapeHtml(avatar)}</span>`;
     }
 
-    async function loadRanking() {
-        let allUsers = [];
+    const PREFECTURES = [
+        '北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県',
+        '茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県',
+        '新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県',
+        '静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県',
+        '奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県',
+        '徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県',
+        '熊本県','大分県','宮崎県','鹿児島県','沖縄県'
+    ];
 
+    const RANKING_DEMO_USERS = [
+        { id:'demo-rank-1', name:'パトロールおじさん', avatar:'🚓', point:12500, isDemo:true },
+        { id:'demo-rank-2', name:'安全第一丸', avatar:'🔰', point:9800, isDemo:true },
+        { id:'demo-rank-3', name:'ご近所ウォッチャー', avatar:'👀', point:4500, isDemo:true },
+        { id:'demo-rank-4', name:'タクシードライバー', avatar:'🚕', point:1200, isDemo:true },
+        { id:'demo-rank-5', name:'セーフティライダー', avatar:'🛵', point:950, isDemo:true },
+        { id:'demo-rank-6', name:'ママチャリパトロール', avatar:'🚲', point:800, isDemo:true }
+    ];
+
+    const AREA_DEMO_ALL = {
+        illegal: [
+            ['大阪府 大阪市',188],['神奈川県 横浜市',181],['埼玉県 さいたま市',169],['兵庫県 神戸市',158],['福岡県 福岡市',151],
+            ['神奈川県 川崎市',144],['京都府 京都市',136],['愛知県 名古屋市',129],['宮城県 仙台市',121],['千葉県 千葉市',115]
+        ],
+        danger: [
+            ['神奈川県 横浜市',162],['大阪府 大阪市',157],['兵庫県 神戸市',149],['福岡県 福岡市',142],['埼玉県 さいたま市',136],
+            ['愛知県 名古屋市',131],['神奈川県 川崎市',124],['京都府 京都市',118],['千葉県 千葉市',112],['宮城県 仙台市',106]
+        ],
+        patrol: [
+            ['大阪府 大阪市',133],['神奈川県 横浜市',127],['福岡県 福岡市',119],['埼玉県 さいたま市',113],['兵庫県 神戸市',107],
+            ['京都府 京都市',101],['神奈川県 川崎市',96],['愛知県 名古屋市',91],['宮城県 仙台市',86],['千葉県 千葉市',81]
+        ],
+        abandoned: [
+            ['大阪府 大阪市',92],['神奈川県 横浜市',87],['兵庫県 神戸市',82],['埼玉県 さいたま市',77],['福岡県 福岡市',72],
+            ['愛知県 名古屋市',67],['神奈川県 川崎市',63],['京都府 京都市',59],['千葉県 千葉市',55],['宮城県 仙台市',51]
+        ]
+    };
+
+    const prefCities = {
+        "北海道": ["札幌市中央区","札幌市北区","旭川市","函館市","苫小牧市","帯広市","釧路市","江別市","北見市","小樽市"],
+        "青森県": ["青森市","弘前市","八戸市","十和田市","むつ市","五所川原市","三沢市","黒石市","つがる市","平川市"],
+        "岩手県": ["盛岡市","奥州市","一関市","花巻市","北上市","宮古市","滝沢市","大船渡市","釜石市","久慈市"],
+        "宮城県": ["仙台市青葉区","仙台市宮城野区","仙台市太白区","仙台市泉区","石巻市","大崎市","登米市","栗原市","気仙沼市","名取市"],
+        "秋田県": ["秋田市","横手市","大仙市","由利本荘市","大館市","能代市","湯沢市","北秋田市","鹿角市","潟上市"],
+        "山形県": ["山形市","鶴岡市","酒田市","米沢市","天童市","東根市","村山市","寒河江市","新庄市","上山市"],
+        "福島県": ["郡山市","いわき市","福島市","会津若松市","須賀川市","南相馬市","伊達市","白河市","二本松市","喜多方市"],
+        "茨城県": ["水戸市","つくば市","日立市","ひたちなか市","土浦市","古河市","取手市","筑西市","神栖市","牛久市"],
+        "栃木県": ["宇都宮市","小山市","栃木市","足利市","佐野市","那須塩原市","鹿沼市","日光市","真岡市","大田原市"],
+        "群馬県": ["高崎市","前橋市","太田市","伊勢崎市","桐生市","渋川市","館林市","藤岡市","安中市","みどり市"],
+        "埼玉県": ["さいたま市大宮区","さいたま市浦和区","川口市","川越市","所沢市","越谷市","草加市","春日部市","上尾市","熊谷市"],
+        "千葉県": ["千葉市中央区","船橋市","松戸市","市川市","柏市","市原市","八千代市","流山市","習志野市","浦安市"],
+        "東京都": ["新宿区","渋谷区","港区","中央区","千代田区","豊島区","世田谷区","品川区","大田区","八王子市"],
+        "神奈川県": ["横浜市中区","横浜市西区","横浜市港北区","川崎市川崎区","川崎市中原区","相模原市","横須賀市","藤沢市","平塚市","茅ヶ崎市"],
+        "新潟県": ["新潟市中央区","新潟市東区","長岡市","上越市","三条市","新発田市","柏崎市","燕市","村上市","糸魚川市"],
+        "富山県": ["富山市","高岡市","射水市","南砺市","氷見市","砺波市","魚津市","黒部市","滑川市","小矢部市"],
+        "石川県": ["金沢市","白山市","小松市","加賀市","七尾市","野々市市","能美市","かほく市","輪島市","珠洲市"],
+        "福井県": ["福井市","坂井市","越前市","敦賀市","鯖江市","大野市","小浜市","あわら市","勝山市","越前町"],
+        "山梨県": ["甲府市","甲斐市","南アルプス市","笛吹市","富士吉田市","北杜市","山梨市","都留市","中央市","韮崎市"],
+        "長野県": ["長野市","松本市","上田市","飯田市","佐久市","安曇野市","伊那市","塩尻市","千曲市","茅野市"],
+        "岐阜県": ["岐阜市","大垣市","各務原市","多治見市","可児市","高山市","関市","中津川市","羽島市","土岐市"],
+        "静岡県": ["静岡市葵区","浜松市中区","富士市","沼津市","磐田市","焼津市","藤枝市","富士宮市","掛川市","三島市"],
+        "愛知県": ["名古屋市中区","名古屋市中村区","豊田市","岡崎市","一宮市","豊橋市","春日井市","安城市","豊川市","西尾市"],
+        "三重県": ["四日市市","津市","鈴鹿市","松阪市","桑名市","伊勢市","伊賀市","名張市","志摩市","亀山市"],
+        "滋賀県": ["大津市","草津市","長浜市","東近江市","彦根市","甲賀市","近江八幡市","守山市","栗東市","湖南市"],
+        "京都府": ["京都市中京区","京都市下京区","京都市右京区","宇治市","亀岡市","舞鶴市","城陽市","長岡京市","八幡市","京田辺市"],
+        "大阪府": ["大阪市中央区","大阪市北区","大阪市淀川区","堺市堺区","東大阪市","豊中市","吹田市","枚方市","茨木市","八尾市"],
+        "兵庫県": ["神戸市中央区","神戸市兵庫区","姫路市","西宮市","尼崎市","明石市","加古川市","宝塚市","伊丹市","川西市"],
+        "奈良県": ["奈良市","橿原市","生駒市","大和郡山市","香芝市","天理市","葛城市","桜井市","大和高田市","宇陀市"],
+        "和歌山県": ["和歌山市","田辺市","橋本市","紀の川市","海南市","岩出市","新宮市","有田市","有田川町","御坊市"],
+        "鳥取県": ["鳥取市","米子市","倉吉市","境港市","琴浦町","八頭町","大山町","北栄町","湯梨浜町","岩美町"],
+        "島根県": ["松江市","出雲市","浜田市","益田市","安来市","大田市","雲南市","江津市","隠岐の島町","奥出雲町"],
+        "岡山県": ["岡山市北区","岡山市南区","倉敷市","津山市","玉野市","笠岡市","総社市","瀬戸内市","備前市","赤磐市"],
+        "広島県": ["広島市中区","広島市南区","福山市","呉市","東広島市","尾道市","廿日市市","三原市","三次市","府中市"],
+        "山口県": ["下関市","山口市","宇部市","周南市","岩国市","防府市","山陽小野田市","萩市","光市","長門市"],
+        "徳島県": ["徳島市","阿南市","鳴門市","吉野川市","小松島市","阿波市","藍住町","美馬市","三好市","石井町"],
+        "香川県": ["高松市","丸亀市","三豊市","観音寺市","坂出市","さぬき市","東かがわ市","善通寺市","綾川町","多度津町"],
+        "愛媛県": ["松山市","今治市","新居浜市","西条市","四国中央市","宇和島市","大洲市","八幡浜市","伊予市","東温市"],
+        "高知県": ["高知市","南国市","四万十市","香南市","香美市","土佐市","いの町","須崎市","宿毛市","安芸市"],
+        "福岡県": ["福岡市博多区","福岡市中央区","北九州市小倉北区","久留米市","飯塚市","大牟田市","春日市","糸島市","筑紫野市","宗像市"],
+        "佐賀県": ["佐賀市","唐津市","鳥栖市","伊万里市","武雄市","小城市","神埼市","鹿島市","嬉野市","みやき町"],
+        "長崎県": ["長崎市","佐世保市","諫早市","大村市","南島原市","島原市","五島市","平戸市","雲仙市","長与町"],
+        "熊本県": ["熊本市中央区","熊本市東区","八代市","天草市","玉名市","宇城市","山鹿市","荒尾市","合志市","菊池市"],
+        "大分県": ["大分市","別府市","中津市","佐伯市","日田市","宇佐市","臼杵市","豊後大野市","杵築市","由布市"],
+        "宮崎県": ["宮崎市","都城市","延岡市","日向市","日南市","小林市","西都市","えびの市","三股町","高鍋町"],
+        "鹿児島県": ["鹿児島市","霧島市","鹿屋市","薩摩川内市","姶良市","出水市","日置市","奄美市","指宿市","南九州市"],
+        "沖縄県": ["那覇市","沖縄市","うるま市","浦添市","宜野湾市","豊見城市","糸満市","名護市","宮古島市","南城市"]
+    };
+
+    function areaDemoRows(selectedPref, category) {
+        if (selectedPref === 'ALL') return (AREA_DEMO_ALL[category] || AREA_DEMO_ALL.illegal).map(([name,count])=>({name,count}));
+        const bases = { illegal:96, danger:82, patrol:68, abandoned:52 };
+        const base = bases[category] || 60;
+        const cityList = prefCities[selectedPref] || [];
+        return cityList.slice(0,10).map((city,index)=>({
+            name:`${selectedPref} ${city}`,
+            count:Math.max(12, base - index * 6 + ((index * 3 + selectedPref.length) % 5))
+        }));
+    }
+
+    async function loadRanking() {
+        const allUsers = [];
         try {
             const { data: profiles } = await db.rpc('get_profile_ranking', { p_limit: 50 });
-            if (profiles) profiles.forEach(p => allUsers.push({ id: p.id, name: p.name || '名無しドライバー', avatar: p.avatar || '👤', point: p.point }));
+            if (profiles) profiles.forEach(p => allUsers.push({
+                id:p.id,
+                name:p.name || '名無しドライバー',
+                avatar:p.avatar || '👤',
+                point:Number(p.point || 0)
+            }));
         } catch(e) { console.log("DBランキング取得スキップ"); }
 
-        const uniqueUsers = []; const map = new Map();
-        for (const item of allUsers) { if(!map.has(item.id)) { map.set(item.id, true); uniqueUsers.push(item); } }
-        uniqueUsers.sort((a, b) => b.point - a.point);
+        const uniqueUsers = [];
+        const seen = new Set();
+        for (const item of allUsers) {
+            if (!item.id || seen.has(item.id)) continue;
+            seen.add(item.id);
+            uniqueUsers.push(item);
+        }
+        uniqueUsers.sort((a,b)=>b.point-a.point);
+
+        const rankingUsers = [...uniqueUsers, ...RANKING_DEMO_USERS]
+            .sort((a,b)=>Number(b.point||0)-Number(a.point||0));
 
         const rankingArea = document.getElementById('nationalRankingArea');
         rankingArea.innerHTML = '';
-        let myRankPos = '圏外';
-        if (uniqueUsers.length === 0) {
-            rankingArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">ランキングデータはまだありません</div>';
-        }
 
-        uniqueUsers.forEach((u, idx) => {
-            if (u.id === myUserId) myRankPos = `${idx + 1}位`;
-            if (idx >= 10) return;
+        rankingUsers.slice(0,10).forEach((u,idx) => {
             let medal = '';
             if (idx === 0) medal = '<i class="fa-solid fa-medal medal-1"></i> 1位';
             else if (idx === 1) medal = '<i class="fa-solid fa-medal medal-2"></i> 2位';
             else if (idx === 2) medal = '<i class="fa-solid fa-medal medal-3"></i> 3位';
-            else medal = `<span style="display:inline-block; width:45px; text-align:center; font-size:0.9rem; color:#6b7280;">${idx+1}位</span>`;
+            else medal = `<span style="display:inline-block;width:45px;text-align:center;font-size:.9rem;color:#6b7280;">${idx+1}位</span>`;
 
-            const bg = (u.id === myUserId) ? 'background:#eff6ff;' : '';
-            const point = Number(u.point || 0);
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold; display:flex; align-items:center; gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold; color:#1f6feb;">${point.toLocaleString()} pt</div></div>`;
+            const bg = !u.isDemo && u.id === myUserId ? 'background:#eff6ff;' : '';
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
         });
-        document.getElementById('rankMyPosDisp').innerText = myRankPos;
+
+        const myRealIndex = uniqueUsers.findIndex(u=>u.id===myUserId);
+        document.getElementById('rankMyPosDisp').innerText = myRealIndex >= 0 ? `${myRealIndex+1}位` : '圏外';
         loadAreaRanking();
     }
 
     async function loadAreaRanking() {
         const prefFilterElement = document.getElementById('prefFilter');
         const selectedPref = prefFilterElement ? prefFilterElement.value : 'ALL';
+        const rows = areaDemoRows(selectedPref,currentCategoryRank);
 
-        const now = new Date();
-        const firstDayOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
-        const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).toISOString();
-
-        let realDataCount = {};
-        try {
-            const { data: spotsData } = await db.from('spots')
-                .select('address')
-                .eq('category', currentCategoryRank)
-                .gte('created_at', firstDayOfLastMonth)
-                .lt('created_at', firstDayOfThisMonth);
-
-            if (spotsData) {
-                spotsData.forEach(s => {
-                    if(s.address && s.address !== '不明なエリア') {
-                        if(selectedPref === 'ALL' || s.address.startsWith(selectedPref)) {
-                            realDataCount[s.address] = (realDataCount[s.address] || 0) + 1;
-                        }
-                    }
-                });
-            }
-        } catch (e) { console.log("DBエリアランキング取得スキップ"); }
-
-        const areaCount = realDataCount;
-
-        let sortedAreas = Object.keys(areaCount).map(k => ({ name: k, count: areaCount[k] })).sort((a,b)=>b.count - a.count);
         const areaArea = document.getElementById('areaRankingArea');
         areaArea.innerHTML = '';
 
-        if (sortedAreas.length === 0) { areaArea.innerHTML = '<div style="text-align:center; padding:15px; color:#6b7280; font-size:0.85rem;">データがありません</div>'; return; }
-
-        sortedAreas.slice(0, 10).forEach((a, idx) => {
+        rows.slice(0,10).forEach((a,idx) => {
             let rankColor = "#6b7280";
-            if (idx === 0) rankColor = "#ef4444"; else if (idx === 1) rankColor = "#f97316"; else if (idx === 2) rankColor = "#eab308";
-            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor}; width:30px; display:inline-block;">${idx+1}位</span> ${a.name}</div><div style="font-weight:bold;">${a.count}件</div></div>`;
+            if (idx===0) rankColor="#ef4444";
+            else if(idx===1) rankColor="#f97316";
+            else if(idx===2) rankColor="#eab308";
+            areaArea.innerHTML += `<div class="ranking-row"><div style="font-weight:bold;"><span style="color:${rankColor};width:30px;display:inline-block;">${idx+1}位</span> ${escapeHtml(a.name)}</div><div style="font-weight:bold;">${Number(a.count).toLocaleString()}件</div></div>`;
         });
     }
 
@@ -2813,6 +2974,9 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                   setTimeout(loadSpots, 1000);
               }
           }).subscribe();
+
+        window.MachimamoInitialLoadReady = true;
+        window.dispatchEvent(new Event('machimamo:initial-ready'));
     };
 
     function removeMarkerFromMap(id) {
@@ -2913,6 +3077,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
                             <button onclick="confirmSpot(${spot.id}, ${spot.confirm_count})" style="flex:1; background:#10b981; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">はい(${spot.confirm_count||0})</button>
                             <button class="spot-owner-delete" onclick="deleteSpot(${Number(spot.id)})" style="${spot.created_by && spot.created_by === currentAuthUserId ? '' : 'display:none;'}flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;">自分の投稿を削除</button>
                         </div>
+                        ${spot.category === 'local_anomaly' ? '<div class="spot-owner-login-hint" style="display:none;margin-top:8px;font-size:.7rem;line-height:1.5;color:#64748b;text-align:center;">投稿したLINEアカウントでログインすると、自分の投稿に削除ボタンが表示されます。</div>' : ''}
                     </div>
                 </div>
             `;
@@ -2929,7 +3094,10 @@ function shareSpot(title, address, category, event, anomalyType = null) {
         if (!content || !marker._machimamoSpot) return;
         content.classList.toggle('no-image-post', !marker._machimamoSpot.hasImage);
         const deleteButton = content.querySelector('.spot-owner-delete');
-        if (deleteButton) deleteButton.style.display = currentAuthUserId && currentAuthUserId === marker._machimamoSpot.createdBy ? '' : 'none';
+        const isOwner = Boolean(currentAuthUserId && currentAuthUserId === marker._machimamoSpot.createdBy);
+        if (deleteButton) deleteButton.style.display = isOwner ? '' : 'none';
+        const loginHint = content.querySelector('.spot-owner-login-hint');
+        if (loginHint) loginHint.style.display = currentAuthUserId ? 'none' : 'block';
     }
 
     async function loadSafetySpots() {
@@ -4746,7 +4914,7 @@ function shareSpot(title, address, category, event, anomalyType = null) {
 <script src="camera-detection.js?v=24-detection1"></script>
 <script src="camera-evidence.js?v=26-retry1"></script>
 <script src="post-outbox.js?v=26-retry1"></script>
-<script src="mypage-guide.js?v=30-camera-audit1"></script>
+<script src="mypage-guide.js?v=42-safari-nav5"></script>
 <script src="source-browser.js?v=26-source1"></script>
 <script src="camera-capture.js?v=26-retry1"></script>
 <script src="drive-test-log.js?v=25-test1"></script>

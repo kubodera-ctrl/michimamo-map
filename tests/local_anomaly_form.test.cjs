@@ -6,10 +6,10 @@ const html = fs.readFileSync('index.html', 'utf8');
 const elements = Object.fromEntries(['postCategory','localAnomalyType','postTitle','postTitleLabel'].map(id => [id,{value:'',style:{}}]));
 const context = vm.createContext({document:{getElementById:id=>elements[id]},localAnomalyLabels:{road_damage:'道路の破損・陥没',other:'その他'}});
 vm.runInContext(html.slice(html.indexOf('    function syncLocalAnomalyTitle()'),html.indexOf('    function toggleImageUpload()')),context);
-test('blue anomaly block precedes category and text controls',()=>{
+test('category selector is first, anomaly guidance is second, text controls follow',()=>{
   const form=html.slice(html.indexOf('<form id="postForm"'),html.indexOf('id="aedSubmissionArea"'));
-  assert.ok(form.indexOf('id="localAnomalyArea"') < form.indexOf('id="postCategory"'));
-  assert.ok(form.indexOf('id="postCategory"') < form.indexOf('id="postTitle"'));
+  assert.ok(form.indexOf('id="postCategory"') < form.indexOf('id="localAnomalyArea"'));
+  assert.ok(form.indexOf('id="localAnomalyArea"') < form.indexOf('id="postTitle"'));
 });
 test('ordinary anomaly needs no title; other needs text; other categories restore title',()=>{
   elements.postCategory.value='local_anomaly';
