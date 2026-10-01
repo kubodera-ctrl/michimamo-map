@@ -89,7 +89,7 @@
     ],
     "selfResolvable": [
       "expand weak prefecture depth with additional current official structured sources",
-      "increase facility-instance direct evidence beyond seven pilots",
+      "increase facility-instance direct evidence beyond eight pilots",
       "expand verified oshi source/fixture/entity coverage",
       "apply freshness / cancel-change / reservation contracts to real source evidence without Production writes"
     ]
@@ -127,7 +127,9 @@
       "静岡県",
       "大阪府",
       "東京都",
-      "三重県"
+      "三重県",
+      "京都府",
+      "茨城県"
     ],
     "verifiedOshiFixturePrefectures": [
       "福岡県",
