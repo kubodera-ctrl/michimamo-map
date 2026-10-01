@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-official-x-registry-v3",
+  "version": "2026-10-01-official-x-registry-v4",
   "status": "verified_registry_manual_research_no_api_fetch",
   "checked_at": "2026-10-01",
   "policy_sources": [
@@ -95,7 +95,9 @@
       "api_fetch_enabled": false,
       "media_reuse_allowed": false,
       "full_post_body_reuse_allowed": false,
-      "notes": "Sanrio corporate release explicitly labels this as Sanrio Games official X. Discovery/facts-only only; API and Production remain off."
+      "notes": "Sanrio corporate release explicitly labels this as Sanrio Games official X. Discovery/facts-only only; API and Production remain off.",
+      "user_id": null,
+      "user_id_verified_at": null
     },
     {
       "account_key": "sanrio-kawaii-me-live-jp-x",
@@ -119,7 +121,9 @@
       "api_fetch_enabled": false,
       "media_reuse_allowed": false,
       "full_post_body_reuse_allowed": false,
-      "notes": "Sanrio corporate release explicitly lists the official X account. Discovery/facts-only only; API and Production remain off."
+      "notes": "Sanrio corporate release explicitly lists the official X account. Discovery/facts-only only; API and Production remain off.",
+      "user_id": null,
+      "user_id_verified_at": null
     },
     {
       "account_key": "jochum-official-x",
@@ -143,7 +147,190 @@
       "api_fetch_enabled": false,
       "media_reuse_allowed": false,
       "full_post_body_reuse_allowed": false,
-      "notes": "Sanrio corporate press release explicitly identifies JOCHUM official X. Discovery/facts-only only; API and Production remain off."
+      "notes": "Sanrio corporate press release explicitly identifies JOCHUM official X. Discovery/facts-only only; API and Production remain off.",
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "sanrio-puroland-x",
+      "operator": "株式会社サンリオエンターテイメント",
+      "display_name": "サンリオピューロランド",
+      "handle": "purolandjp",
+      "profile_url": "https://x.com/purolandjp",
+      "source_scope": [
+        "facility",
+        "character",
+        "event_announcement",
+        "change_detection"
+      ],
+      "verification_evidence_url": "https://www.puroland.jp/sns-app/",
+      "notes": "Puroland official SNS page explicitly lists X @purolandjp. Discovery/change detection only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "sanrio-entertainment-x",
+      "operator": "株式会社サンリオエンターテイメント",
+      "display_name": "サンリオエンターテイメント",
+      "handle": "sanrio_ent",
+      "profile_url": "https://x.com/sanrio_ent",
+      "source_scope": [
+        "operator",
+        "facility",
+        "event_announcement",
+        "change_detection"
+      ],
+      "verification_evidence_url": "https://www.puroland.jp/sns-app/",
+      "notes": "Puroland official SNS page explicitly lists X @sanrio_ent as Sanrio Entertainment. Discovery/change detection only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "buddyeddy-official-x",
+      "operator": "株式会社サンリオ",
+      "display_name": "BUDDYEDDY（バディエディ）【公式】",
+      "handle": "eddy_sanrio",
+      "profile_url": "https://x.com/eddy_sanrio",
+      "source_scope": [
+        "character",
+        "work",
+        "event_announcement"
+      ],
+      "verification_evidence_url": "https://www.puroland.jp/character/eddy/",
+      "notes": "Official Puroland character page explicitly links the BUDDYEDDY official X account. Discovery/facts-only only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "kabukinyantaro-official-x",
+      "operator": "株式会社サンリオ",
+      "display_name": "かぶきにゃんたろう【公式】",
+      "handle": "kabukinyantaro",
+      "profile_url": "https://x.com/kabukinyantaro",
+      "source_scope": [
+        "character",
+        "work",
+        "event_announcement"
+      ],
+      "verification_evidence_url": "https://www.puroland.jp/character/kabukinyantaro/",
+      "notes": "Official Puroland character page explicitly links the Kabukinyantaro official X account. Discovery/facts-only only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "namjatown-official-x",
+      "operator": "株式会社バンダイナムコエクスペリエンス",
+      "display_name": "NAMJATOWN 公式",
+      "handle": "namjatown765",
+      "profile_url": "https://x.com/namjatown765",
+      "source_scope": [
+        "facility",
+        "collaboration",
+        "event_announcement",
+        "change_detection"
+      ],
+      "verification_evidence_url": "https://bandainamco-am.co.jp/en/tp/namja/NEWS/info/20260618_1.html",
+      "notes": "Official NAMJATOWN page explicitly links X @namjatown765. Discovery/change detection only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "animate-kichijoji-parco-x",
+      "operator": "株式会社アニメイト",
+      "display_name": "アニメイト吉祥寺パルコ",
+      "handle": "animatejoji",
+      "profile_url": "https://x.com/animatejoji",
+      "source_scope": [
+        "facility",
+        "oshi_goods",
+        "event_announcement",
+        "change_detection"
+      ],
+      "verification_evidence_url": "https://www.animate.co.jp/shop/kichijoji/",
+      "notes": "Official Animate store page explicitly lists 店舗公式X @animatejoji. Discovery/change detection only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
+    },
+    {
+      "account_key": "animate-street-gratte-x",
+      "operator": "株式会社アニメイト",
+      "display_name": "アニメイトグラッテアニメイト通り店",
+      "handle": "animateSt_grt",
+      "profile_url": "https://x.com/animateSt_grt",
+      "source_scope": [
+        "facility",
+        "collab_cafe",
+        "oshi_goods",
+        "event_announcement",
+        "change_detection"
+      ],
+      "verification_evidence_url": "https://www.animate.co.jp/shop/animatedori/",
+      "notes": "Official Animate store page explicitly lists 店舗公式X @animateSt_grt. Discovery/change detection only; API and Production remain off.",
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "user_id": null,
+      "user_id_verified_at": null
     }
   ],
   "api_research": {
@@ -166,7 +353,9 @@
       "rates_subject_to_change": true,
       "recheck_developer_console_before_enable": true,
       "spending_limit_available": true,
-      "project_auto_recharge_default": false
+      "auto_recharge_default_state_evidence": "not_established_from_public_docs",
+      "auto_recharge_policy": "do_not_enable_without_owner_approval",
+      "auto_recharge_console_check_required_before_enable": true
     },
     "rate_limit_snapshot": {
       "recent_search_per_app_per_15min": 450,
@@ -177,7 +366,12 @@
       "primary_endpoint": "GET /2/users/{id}/tweets",
       "reason": "verified official account timelines are narrower than broad search and reduce irrelevant billable Post resources",
       "secondary_endpoint": "GET /2/tweets/search/recent",
-      "secondary_use": "discovery gap filling only after explicit cost approval"
+      "secondary_use": "discovery gap filling only after explicit cost approval",
+      "user_id_strategy": {
+        "registry_field": "user_id",
+        "current_state": "not_fetched",
+        "policy": "resolve once only after API pilot approval, retain provenance, and reuse the verified ID for timeline polling to avoid repeated User Read lookups"
+      }
     },
     "approvals": {
       "api_access_approved": false,
