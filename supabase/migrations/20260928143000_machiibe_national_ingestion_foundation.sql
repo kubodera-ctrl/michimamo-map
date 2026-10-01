@@ -229,9 +229,11 @@ create table if not exists public.machiibe_media_assets (
   id uuid primary key default gen_random_uuid(),
   subject_type text not null check (subject_type in ('event','venue','category','generic')),
   subject_ref text not null,
-  media_role text not null check (media_role in ('event_official','venue_official','place_photo','category_visual','generic_fallback')),
+  media_role text not null check (media_role in ('event_official','event_illustration','venue_official','place_photo','category_visual','generic_fallback')),
   media_url text check (media_url is null or media_url ~* '^https?://'),
   source_url text check (source_url is null or source_url ~* '^https?://'),
+  provenance_kind text not null default 'unknown'
+    check (provenance_kind in ('unknown','official_event','official_venue','licensed_third_party','machiibe_owned','generated_machiibe')),
   display_allowed boolean,
   cache_allowed boolean,
   commercial_allowed boolean,
@@ -243,6 +245,9 @@ create table if not exists public.machiibe_media_assets (
   rights_status text not null default 'unknown'
     check (rights_status in ('unknown','reviewed_allowed','reviewed_restricted','permission_required','blocked','machiibe_owned')),
   rights_reviewed_at timestamptz,
+  checked_at timestamptz,
+  public_selected boolean not null default false,
+  public_selected_at timestamptz,
   cache_object_key text,
   active boolean not null default true,
   created_at timestamptz not null default now(),
@@ -256,6 +261,24 @@ create table if not exists public.machiibe_media_assets (
       display_allowed is true
       and commercial_allowed is true
       and rights_status in ('reviewed_allowed','machiibe_owned')
+    )
+  ),
+  constraint machiibe_media_public_gate_ck check (
+    public_selected is false
+    or (
+      active is true
+      and provenance_kind <> 'unknown'
+      and checked_at is not null
+      and public_selected_at is not null
+      and (
+        rights_status='machiibe_owned'
+        or (
+          display_allowed is true
+          and rights_status in ('reviewed_allowed','reviewed_restricted')
+          and source_url is not null
+          and rights_reviewed_at is not null
+        )
+      )
     )
   )
 );
