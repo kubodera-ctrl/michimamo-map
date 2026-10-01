@@ -127,6 +127,18 @@ function decodeEntities(value:string){
     .replace(/&nbsp;/gi,' ');
 }
 
+function decodeHtml(bytes:Uint8Array,contentType:string){
+  const declared=(contentType.match(/charset=([^;\s]+)/i)?.[1]||'').toLowerCase();
+  const decode=(encoding:string,fatal=false)=>new TextDecoder(encoding,{fatal}).decode(bytes);
+  if(/shift[_-]?jis|windows-31j|cp932/.test(declared)) return {html:decode('shift_jis'),encoding:'shift_jis'};
+  if(/utf-?8/.test(declared)) return {html:decode('utf-8'),encoding:'utf-8'};
+  try{return {html:decode('utf-8',true),encoding:'utf-8'};}
+  catch{
+    try{return {html:decode('shift_jis'),encoding:'shift_jis'};}
+    catch{return {html:decode('utf-8'),encoding:'utf-8-replacement'};}
+  }
+}
+
 function plainText(value:string){
   return decodeEntities(value.replace(/<script\b[\s\S]*?<\/script>/gi,' ')
     .replace(/<style\b[\s\S]*?<\/style>/gi,' ')
@@ -172,17 +184,57 @@ function anchorInventory(html:string,pageUrl:string){
   return candidates.filter(item=>item.url!==pageCanonical);
 }
 
-function dateEvidence(text:string){
-  const full=[...text.matchAll(/\b(20\d{2})[\/.\-年](\d{1,2})[\/.\-月](\d{1,2})(?:日)?\b/g)]
+function eventLikeLinkInventory(row:FactsOnlyRow,links:{title:string;url:string}[]){
+  const eventWords=/(イベント|開催|募集|体験|教室|講座|フェスタ|まつり|祭|展|観察|セミナー|公演|マルシェ|大会|相談|ツアー|ライブ|コンサート|ワークショップ|発表|シンポジウム|フォーラム|POP.?UP|グリーティング|festival|event|workshop|concert)/i;
+  return links.filter(item=>{
+    const url=new URL(item.url);
+    const path=url.pathname.toLowerCase();
+    if(row.source_key==='kyoto-station-building-events'){
+      return path.startsWith('/events/')
+        && path!=='/events/'
+        && !path.startsWith('/events/news_pdf/');
+    }
+    if(row.source_key==='ibaraki-kasumigaura-esc-events'){
+      return path.includes('/03_event/')
+        && !/(?:\/top\.htm|\/event_schedule20\d{2}\.htm)$/.test(path)
+        && item.title.length>=4;
+    }
+    if(row.source_key==='kyoto-pref-current-events'){
+      return eventWords.test(item.title)
+        && !/(イベント・募集|イベント検索|イベント一覧|募集情報)$/.test(item.title);
+    }
+    return eventWords.test(item.title);
+  });
+}
+
+function dateEvidence(text:string,lastModified:string|null){
+  const western=[...text.matchAll(/\b(20\d{2})[\/.\-年](\d{1,2})[\/.\-月](\d{1,2})(?:日)?\b/g)]
     .map(match=>match[1]+'-'+String(Number(match[2])).padStart(2,'0')+'-'+String(Number(match[3])).padStart(2,'0'));
+  const reiwa=[...text.matchAll(/令和\s*(\d{1,2})年\s*(\d{1,2})月\s*(\d{1,2})日/g)]
+    .map(match=>String(2018+Number(match[1]))+'-'+String(Number(match[2])).padStart(2,'0')+'-'+String(Number(match[3])).padStart(2,'0'));
+  const full=[...western,...reiwa];
   const monthDay=[...text.matchAll(/(?:^|\D)(\d{1,2})月(\d{1,2})日/g)].length;
   const unique=[...new Set(full)].sort();
-  const currentYear=new Intl.DateTimeFormat('en',{timeZone:'Asia/Tokyo',year:'numeric'}).format(new Date());
+  const now=new Date();
+  const currentYear=new Intl.DateTimeFormat('en',{timeZone:'Asia/Tokyo',year:'numeric'}).format(now);
+  const currentMonth=Number(new Intl.DateTimeFormat('en',{timeZone:'Asia/Tokyo',month:'numeric'}).format(now));
+  const currentMonthDayTokenCount=[...text.matchAll(new RegExp('(?:^|\\D)'+currentMonth+'月\\s*\\d{1,2}日','g'))].length;
+  const currentYearMentionCount=(text.match(new RegExp(currentYear+'年','g'))||[]).length
+    +(text.match(new RegExp('令和\\s*'+(Number(currentYear)-2018)+'年','g'))||[]).length;
+  let lastModifiedAgeDays:null|number=null;
+  if(lastModified){
+    const t=Date.parse(lastModified);
+    if(Number.isFinite(t)) lastModifiedAgeDays=Math.max(0,Math.floor((Date.now()-t)/86_400_000));
+  }
   return {
     fullDateCount:unique.length,
     monthDayTokenCount:monthDay,
+    currentMonthDayTokenCount,
+    currentYearMentionCount,
     latestFullDate:unique.length?unique[unique.length-1]:null,
-    containsCurrentYear:unique.some(value=>value.startsWith(currentYear+'-'))
+    containsCurrentYear:unique.some(value=>value.startsWith(currentYear+'-'))||currentYearMentionCount>0,
+    httpLastModified:lastModified,
+    httpLastModifiedAgeDays:lastModifiedAgeDays
   };
 }
 
@@ -217,13 +269,16 @@ async function main(){
   if(declaredLength>maxBytes) throw new Error('content-length exceeds dry-run byte limit');
   const bytes=new Uint8Array(await response.arrayBuffer());
   if(bytes.byteLength>maxBytes) throw new Error('response exceeds dry-run byte limit');
-  const html=new TextDecoder('utf-8',{fatal:false}).decode(bytes);
+  const decoded=decodeHtml(bytes,contentType);
+  const html=decoded.html;
 
   const parsed=parseHtmlStructured(html,source);
   const normalized=parsed.items.map(item=>normalizeCommonItem(item,source));
   const links=anchorInventory(html,url);
+  const eventLikeLinks=eventLikeLinkInventory(row,links);
   const pageText=plainText(html);
-  const dates=dateEvidence(pageText);
+  const lastModified=response.headers.get('last-modified');
+  const dates=dateEvidence(pageText,lastModified);
 
   const structured={
     items:normalized.length,
@@ -258,14 +313,17 @@ async function main(){
       status:response.status,
       finalUrl:response.url,
       contentType,
+      detectedEncoding:decoded.encoding,
       bytes:bytes.byteLength,
       etag:response.headers.get('etag'),
-      lastModified:response.headers.get('last-modified')
+      lastModified
     },
     schema:{
       jsonLdStructuredEvents:structured,
       sameOfficialSiteFactLinkCandidates:links.length,
-      eventSpecificUrlSample:links.slice(0,12)
+      eventLikeFactLinkCandidates:eventLikeLinks.length,
+      eventSpecificUrlSample:eventLikeLinks.slice(0,12),
+      extractionMode:normalized.length>0?'json_ld_event':'html_fact_links_required'
     },
     freshness:dates,
     load:{
