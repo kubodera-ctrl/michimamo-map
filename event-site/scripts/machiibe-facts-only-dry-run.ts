@@ -139,14 +139,32 @@ function decodeEntities(value:string){
 
 function decodeHtml(bytes:Uint8Array,contentType:string){
   const declared=(contentType.match(/charset=([^;\s]+)/i)?.[1]||'').toLowerCase();
+  const aliases:Record<string,string>={
+    'utf8':'utf-8','utf-8':'utf-8',
+    'shift_jis':'shift_jis','shift-jis':'shift_jis','sjis':'shift_jis','windows-31j':'shift_jis','cp932':'shift_jis',
+    'euc-jp':'euc-jp','euc_jp':'euc-jp','eucjp':'euc-jp'
+  };
   const decode=(encoding:string,fatal=false)=>new TextDecoder(encoding,{fatal}).decode(bytes);
-  if(/shift[_-]?jis|windows-31j|cp932/.test(declared)) return {html:decode('shift_jis'),encoding:'shift_jis'};
-  if(/utf-?8/.test(declared)) return {html:decode('utf-8'),encoding:'utf-8'};
-  try{return {html:decode('utf-8',true),encoding:'utf-8'};}
-  catch{
-    try{return {html:decode('shift_jis'),encoding:'shift_jis'};}
-    catch{return {html:decode('utf-8'),encoding:'utf-8-replacement'};}
+  const explicit=aliases[declared];
+  if(explicit){
+    try{return {html:decode(explicit),encoding:explicit};}catch{}
   }
+  const anchors=['イベント','開催','期間','場所','会場','募集','年月','タイトル','一覧','件中','令和'];
+  const candidates=['utf-8','shift_jis','euc-jp'].map((encoding,index)=>{
+    try{
+      const html=decode(encoding);
+      const head=html.slice(0,120_000);
+      const replacementCount=(html.match(/\uFFFD/g)||[]).length;
+      const anchorHits=anchors.filter(anchor=>head.includes(anchor)).length;
+      const mojibakePenalty=(head.match(/[･｢｣､｡]/g)||[]).length;
+      return {html,encoding,score:anchorHits*500-replacementCount*50-mojibakePenalty-index};
+    }catch{
+      return {html:'',encoding,score:Number.MIN_SAFE_INTEGER};
+    }
+  });
+  const best=candidates.sort((a,b)=>b.score-a.score)[0];
+  if(!best||best.score===Number.MIN_SAFE_INTEGER) return {html:decode('utf-8'),encoding:'utf-8-replacement'};
+  return {html:best.html,encoding:best.encoding};
 }
 
 function plainText(value:string){
