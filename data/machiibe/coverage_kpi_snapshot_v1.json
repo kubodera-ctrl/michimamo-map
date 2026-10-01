@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v23",
+  "version": "coverage-kpi-v24",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -40,7 +40,7 @@
     "evidence": "Mie + Okazaki + Osaka + Kadoma + Toyonaka + Hamamatsu READY live dry-run / Event Site Check #855; no DB or Active writes. See data/machiibe/live_dry_run_snapshot_v4.json."
   },
   "lanes": {
-    "facilitySourceInstances": 8,
+    "facilitySourceInstances": 12,
     "oshiSourceCandidates": 10,
     "readySourceKeys": [
       "mie-pref-events-open-data",
@@ -50,7 +50,7 @@
       "bodik-toyonaka-events",
       "hamamatsu-current-events-open-data"
     ],
-    "oshiRealEventFixtures": 10,
+    "oshiRealEventFixtures": 12,
     "holdSourceKeys": [
       "tottori-pref-event-open-data",
       "shimane-pref-events-2026",
@@ -108,8 +108,8 @@
     "singleSourcePrefectures": 20,
     "lowOrUnmeasuredPotentialPrefectures": 36,
     "noReadySourcePrefectures": 43,
-    "noFacilityInstanceDirectEvidencePrefectures": 39,
-    "noVerifiedOshiFixturePrefectures": 39,
+    "noFacilityInstanceDirectEvidencePrefectures": 35,
+    "noVerifiedOshiFixturePrefectures": 37,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -150,8 +150,10 @@
       "大阪府",
       "東京都",
       "熊本県",
-      "埼玉県"
+      "埼玉県",
+      "北海道",
+      "宮城県"
     ],
-    "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists. Development14 enabled controlled facts-only automated fetch for Kyoto/Ibaraki/Kyoto Station plus Yamaguchi/Tochigi/Fukui while keeping body text, images and HTML reuse disabled. READY=6 and ACTIVE=0 remain unchanged; robots/access remains a separate READY gate."
+    "note": "Direct evidence only. Development14: Yamaguchi/Tochigi/Fukui joined controlled facts-only TERMS_REVIEWED without READY promotion; four PARCO facility pilots (Hokkaido/Miyagi/Hiroshima/Aichi) and two official oshi fixtures (Hokkaido/Miyagi) were added. READY=6 / ACTIVE=0 unchanged. Missing evidence is not proof of no supply."
   }
 }
