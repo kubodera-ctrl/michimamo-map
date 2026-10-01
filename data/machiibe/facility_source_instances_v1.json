@@ -196,8 +196,8 @@
       "municipality": "京都市下京区",
       "homepage_url": "https://www.kyoto-station-building.co.jp/",
       "event_url": "https://www.kyoto-station-building.co.jp/events/",
-      "review_state": "PREFLIGHT",
-      "terms_status": "pending",
+      "review_state": "TERMS_REVIEWED",
+      "terms_status": "reviewed_restricted",
       "robots_status": "pending",
       "automated_fetch_allowed": false,
       "observed_current_items_min": 10,
@@ -212,7 +212,7 @@
         "other"
       ],
       "family_relevance": "high",
-      "notes": "2026-10-01公式イベント一覧で10月以降の具体イベントを少なくとも10件確認。開催日/期間、場所、カテゴリ、個別詳細導線あり。常設サービス・単なる販促はevent-like判定から分離し、規約/robots確認前はfetch不可。"
+      "notes": "2026-10-01公式イベント一覧で10月以降の具体イベントを少なくとも10件確認。利用規約は掲載情報の二次使用を文書承諾なしでは禁止しているためtermsはreviewed_restricted。robots/access policyは独立確認未了のためpending、HTML自動取得はOFFを維持。開催日/期間・場所・カテゴリ・個別詳細導線の直接証拠のみ保持し、READY/Publishable/ACTIVEへ加算しない。"
     }
   ]
 }
