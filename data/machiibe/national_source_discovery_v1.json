@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-national-discovery-v12",
+  "version": "2026-10-01-national-discovery-v13",
   "status": "research_only_no_automated_fetch",
   "counts": {
     "existing_kanto_registry": 26,
@@ -9,7 +9,7 @@
     "total_inventory_or_discovery_candidates": 99,
     "concrete_prefecture_coverage_from_all_inventories": 33,
     "preflight_or_better": 60,
-    "terms_reviewed_or_better": 26,
+    "terms_reviewed_or_better": 28,
     "ready": 6,
     "active": 0
   },
@@ -1627,16 +1627,16 @@
       "base_url": "https://www.pref.kyoto.jp/event/",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "reviewed_restricted",
       "robots_status": "pending",
-      "commercial_use_status": "unknown",
+      "commercial_use_status": "restricted_or_permission_required",
       "attribution_requirement": null,
       "automated_fetch_allowed": false,
       "priority": 92,
-      "review_state": "PREFLIGHT",
+      "review_state": "TERMS_REVIEWED",
       "yield_class": "medium",
       "observed_current_items_min": 8,
-      "notes": "2026-10-01京都府公式『イベント・募集』で10〜11月以降の具体イベントを複数確認。日付・タイトル・個別詳細リンクを持つstructured HTML候補。規約・robots・継続取得負荷未確認のためPREFLIGHT / fetch OFF。"
+      "notes": "2026-10-01京都府公式『イベント・募集』で10〜11月以降の具体イベントを複数確認。京都府一般サイトの著作権案内は私的使用・引用等を除く無断複製/転用を認めていないためtermsはreviewed_restricted。robots/access policyは現時点で独立確認できておらずpending、HTML自動取得はOFFのまま。event factsとevent-specific official URLの手動/個別確認用候補としてPREFLIGHT相当の証拠を保持し、READYへ昇格しない。"
     },
     {
       "source_key": "ibaraki-kasumigaura-esc-events",
@@ -1649,16 +1649,16 @@
       "base_url": "https://www.pref.ibaraki.jp/soshiki/seikatsukankyo/kasumigauraesc/03_event/event_schedule2026.htm",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "pending",
+      "terms_status": "reviewed_restricted",
       "robots_status": "pending",
-      "commercial_use_status": "unknown",
+      "commercial_use_status": "restricted_or_permission_required",
       "attribution_requirement": null,
       "automated_fetch_allowed": false,
       "priority": 78,
-      "review_state": "PREFLIGHT",
+      "review_state": "TERMS_REVIEWED",
       "yield_class": "low",
       "observed_current_items_min": 3,
-      "notes": "2026-10-01茨城県公式ページで10/3・10/17・11/8の将来イベントを日付・募集状況・場所・対象者付きで確認。県全体網羅ではない補完Source。規約・robots未確認のためfetch OFF。"
+      "notes": "2026-10-01茨城県公式ページで10/3・10/17・11/8の将来イベントを日付・募集状況・場所・対象者付きで確認。茨城県サイトポリシーは文章・画像等の無断転用を認めていないためtermsはreviewed_restricted。robots/access policyは現時点で独立確認できておらずpending、HTML自動取得はOFFのまま。県全体網羅ではない補完Sourceとして保持し、READYへ昇格しない。"
     }
   ]
 }
