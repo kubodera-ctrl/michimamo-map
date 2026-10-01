@@ -83,7 +83,15 @@ function verifiedChips(event:CarouselEventInput){
 function pageBadge(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage){
   rounded(ctx,0,0,142,80,0,NAVY);label(ctx,String(page.pageNumber)+'/'+String(page.pageCount),24,12,44,900,'#fff');
 }
-function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
+async function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
+  const icon=await loadImage('/machiibe-icon.svg');
+  if(icon){
+    const size=72*scale;
+    ctx.drawImage(icon,x,y,size,size);
+    label(ctx,'まちイベ',x+88*scale,y+7*scale,42*scale,900,'#111');
+    return;
+  }
+  // Asset load failure fallback only. Normal Preview/PNG must use the official shared icon.
   ctx.fillStyle=PINK;ctx.beginPath();ctx.arc(x+26*scale,y+24*scale,23*scale,0,Math.PI*2);ctx.fill();
   ctx.beginPath();ctx.moveTo(x+11*scale,y+39*scale);ctx.lineTo(x+26*scale,y+66*scale);ctx.lineTo(x+41*scale,y+39*scale);ctx.closePath();ctx.fill();
   label(ctx,'まちイベ',x+60*scale,y,42*scale,900,'#111');
@@ -154,7 +162,7 @@ async function drawCover(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,in
   ctx.restore();
 
   rounded(ctx,0,1680,1080,240,0,'rgba(255,255,255,.98)');
-  brand(ctx,110,1730,1.45);
+  await brand(ctx,110,1730,1.45);
   label(ctx,'見つけよう、みんなのおでかけ',560,1830,30,780,INK,'center');
   disclaimer(ctx,hero,62,1370,535);
 }
@@ -192,7 +200,7 @@ async function drawHighlights(ctx:CanvasRenderingContext2D,page:Extract<Machiibe
   rounded(ctx,175,1680,730,105,42,'rgba(255,255,255,.95)');
   label(ctx,'どんなイベントに出会えるかな？',540,1707,34,900,INK,'center');
   accentRays(ctx,942,1712,.46);
-  brand(ctx,70,1845,.7);
+  await brand(ctx,70,1845,.7);
   disclaimer(ctx,hero,520,620,500);
 }
 
@@ -225,7 +233,7 @@ async function drawEvents(ctx:CanvasRenderingContext2D,page:Extract<MachiibeRend
 }
 async function drawCta(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage,input:CarouselInput){
   const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#fff4f7');g.addColorStop(.58,'#fff');g.addColorStop(1,SOFT_BLUE);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);pageBadge(ctx,page);
-  label(ctx,'おでかけイベントを探すなら',540,105,42,900,PINK,'center');brand(ctx,315,195,1.18);
+  label(ctx,'おでかけイベントを探すなら',540,105,42,900,PINK,'center');await brand(ctx,315,195,1.18);
   accentRays(ctx,935,265,.48);
 
   // Phone-like search UI: visualises the real search hierarchy without implying a live screenshot.
