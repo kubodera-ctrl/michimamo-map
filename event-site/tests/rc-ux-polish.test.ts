@@ -5,7 +5,7 @@ import fs from 'node:fs';
 test('brand icon never exposes browser broken-image UI after asset failure',()=>{
   const brand=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
   const icon=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
-  assert.match(brand,/onError=\{\(\)=>setIconFailed\(true\)\}/);
+  assert.match(brand,/onError=\{\(\)=>setLogoFailed\(true\)\}/);
   assert.match(brand,/brand-icon-fallback/);
   assert.doesNotMatch(icon,/data:image|<image\b/i);
 });
