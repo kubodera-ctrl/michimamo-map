@@ -55,6 +55,20 @@ function parseMunicipalityByStation(sql){
   let m; while((m=re.exec(sql)))out.set(m[1],m[2]);
   return out;
 }
+async function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
+async function fetchWithRetry(url,options={},attempts=4){
+  let lastError=null;
+  for(let attempt=1;attempt<=attempts;attempt++){
+    try{
+      const response=await fetch(url,options);
+      if(response.ok)return response;
+      lastError=new Error('http_'+response.status);
+      if(response.status<500&&response.status!==429)throw lastError;
+    }catch(error){lastError=error;}
+    if(attempt<attempts)await sleep(500*attempt);
+  }
+  throw lastError||new Error('fetch_failed');
+}
 async function pooled(items,limit,fn){
   const results=new Array(items.length); let next=0;
   async function worker(){
@@ -79,12 +93,11 @@ if(links.length<80)throw new Error('too_few_station_pdfs_'+links.length);
 const coords=parseStationCoords(seedSql);
 const municipalities=parseMunicipalityByStation(seedSql);
 
-const parsed=await pooled(links,4,async item=>{
+const parsed=await pooled(links,2,async item=>{
   const municipality=municipalities.get(item.station)||null;
   const point=coords.get(item.station)||null;
   if(!point||!isMainlandMunicipality(municipality))return {...item,skip:true,municipality};
-  const response=await fetch(item.href,{headers:{'User-Agent':'machidora-snapshot/1.0','Accept':'application/pdf'}});
-  if(!response.ok)throw new Error('pdf_http_'+response.status);
+  const response=await fetchWithRetry(item.href,{headers:{'User-Agent':'machidora-snapshot/1.0','Accept':'application/pdf'}},4);
   const buf=Buffer.from(await response.arrayBuffer());
   const data=await pdfParse(buf,{max:1});
   const windows=parseWindows(data.text);
