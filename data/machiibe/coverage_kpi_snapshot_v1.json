@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v22",
+  "version": "coverage-kpi-v23",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -7,7 +7,7 @@
     "concretePrefectureCoverage": 33,
     "inventoryOrDiscoveryCandidates": 102,
     "preflightOrBetter": 63,
-    "termsReviewedOrBetter": 28,
+    "termsReviewedOrBetter": 31,
     "ready": 6,
     "active": 0
   },
@@ -78,7 +78,15 @@
       "documentedTotalPages": 5,
       "schemaFixture": "data/machiibe/fixtures/kawasaki_event_api_schema_fixture.json",
       "note": "公式APIガイド/利用規約をreviewしTERMS_REVIEWED。開発9のlive page 1 total_numbers=421 / total_pages=5はcurrent/future Valid件数に加算しない。全5page freshness・event-level URL品質・取得負荷未確定のためREADYへ昇格しない。"
-    }
+    },
+    "factsOnlyFetchSourceKeys": [
+      "kyoto-pref-current-events",
+      "ibaraki-kasumigaura-esc-events",
+      "kyoto-station-building-events",
+      "yamaguchi-pref-event-calendar",
+      "tochigi-pref-event-calendar",
+      "fukui-pref-odekake-events"
+    ]
   },
   "blockerClasses": {
     "userAction": [
@@ -129,7 +137,10 @@
       "東京都",
       "三重県",
       "京都府",
-      "茨城県"
+      "茨城県",
+      "山口県",
+      "栃木県",
+      "福井県"
     ],
     "verifiedOshiFixturePrefectures": [
       "福岡県",
@@ -141,6 +152,6 @@
       "熊本県",
       "埼玉県"
     ],
-    "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists. Development13 added official PREFLIGHT calendars for Yamaguchi/Tochigi/Fukui. Kyoto/Ibaraki/Kyoto Station are TERMS_REVIEWED with controlled facts-only automated fetch enabled; body text, images and HTML reuse remain disabled, READY=6 and ACTIVE=0 unchanged."
+    "note": "facility/oshi counts are direct evidence only. Missing direct evidence is not proof that no national-network supply exists. Development14 enabled controlled facts-only automated fetch for Kyoto/Ibaraki/Kyoto Station plus Yamaguchi/Tochigi/Fukui while keeping body text, images and HTML reuse disabled. READY=6 and ACTIVE=0 remain unchanged; robots/access remains a separate READY gate."
   }
 }
