@@ -10,7 +10,7 @@ export default function manifest():MetadataRoute.Manifest {
     background_color:'#f7f8fa',
     theme_color:'#2fa7ee',
     icons:[
-      {src:'/machiibe-icon.svg',sizes:'512x512',type:'image/svg+xml',purpose:'any'}
+      {src:'/machiibe-icon-approved.png',sizes:'192x192',type:'image/png',purpose:'any'}
     ]
   };
 }

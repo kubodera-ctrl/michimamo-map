@@ -9,6 +9,8 @@ const W=1080;
 const H=1920;
 const NAVY='#0d3556';
 const PINK='#ff3d78';
+const LOGO_BLUE='#2aa4e8';
+const LOGO_ORANGE='#ff8200';
 const SKY='#38bdf8';
 const YELLOW='#ffc928';
 const SOFT_BLUE='#e7f7ff';
@@ -84,19 +86,27 @@ function pageBadge(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage){
   rounded(ctx,0,0,142,80,0,NAVY);label(ctx,String(page.pageNumber)+'/'+String(page.pageCount),24,12,44,900,'#fff');
 }
 async function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
-  const logo=await loadImage('/machiibe-logo.svg');
-  if(logo){
-    ctx.drawImage(logo,x,y,258*scale,75*scale);
-    return;
+  const icon=await loadImage('/machiibe-icon-approved.png');
+  const size=72*scale;
+  if(icon){
+    // Owner-approved square logo. Crop only its neutral outer margin when drawing.
+    const sx=icon.naturalWidth*.140625;
+    const sy=icon.naturalHeight*.125;
+    const sw=icon.naturalWidth*.71875;
+    const sh=icon.naturalHeight*.734375;
+    ctx.drawImage(icon,sx,sy,sw,sh,x,y,size,size);
+  }else{
+    // Deterministic fallback using the approved blue/orange/yellow palette.
+    rounded(ctx,x,y,size,size,18*scale,LOGO_BLUE);
+    ctx.fillStyle=LOGO_ORANGE;ctx.beginPath();ctx.arc(x+36*scale,y+31*scale,21*scale,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.moveTo(x+22*scale,y+45*scale);ctx.lineTo(x+36*scale,y+64*scale);ctx.lineTo(x+50*scale,y+45*scale);ctx.closePath();ctx.fill();
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x+36*scale,y+31*scale,12*scale,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=YELLOW;ctx.beginPath();
+    for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,r=i%2?5:11;const px=x+(36+Math.cos(a)*r)*scale,py=y+(31+Math.sin(a)*r)*scale;if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}
+    ctx.closePath();ctx.fill();
   }
-  // Asset load failure fallback only. Normal Preview/PNG must use the approved Golden wordmark.
-  const pink='#ff2e78';
-  ctx.fillStyle=pink;
-  ctx.beginPath();ctx.arc(x+28*scale,y+27*scale,24*scale,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.moveTo(x+11*scale,y+43*scale);ctx.lineTo(x+28*scale,y+72*scale);ctx.lineTo(x+45*scale,y+43*scale);ctx.closePath();ctx.fill();
-  ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x+28*scale,y+27*scale,9*scale,0,Math.PI*2);ctx.fill();
-  label(ctx,'まち',x+70*scale,y+7*scale,42*scale,900,'#111827');
-  label(ctx,'イベ',x+151*scale,y+7*scale,42*scale,900,pink);
+  label(ctx,'まち',x+88*scale,y+7*scale,42*scale,900,LOGO_BLUE);
+  label(ctx,'イベ',x+172*scale,y+7*scale,42*scale,900,LOGO_ORANGE);
 }
 function approvedUrl(event?:CarouselEventInput){
   if(!event?.mediaUrl||event.mediaRightsStatus==='blocked') return null;

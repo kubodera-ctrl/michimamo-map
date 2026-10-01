@@ -6,8 +6,7 @@ import {GOLDEN_FIXTURES,goldenFixtureById} from '../lib/machiibe-golden-fixtures
 const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/page.tsx',import.meta.url),'utf8');
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
-const iconSource=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
-const logoSource=fs.readFileSync(new URL('../public/machiibe-logo.svg',import.meta.url),'utf8');
+const approvedIconPath=new URL('../public/machiibe-icon-approved.png',import.meta.url);
 const brandNavSource=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
 const cssSource=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
 
@@ -39,33 +38,27 @@ test('QA labels stay outside the final Canvas renderer',()=>{
   assert.doesNotMatch(rendererSource,/GOLDEN確認用|文字切れ|文字重なり|safe area/);
 });
 
-test('final Canvas brand uses the shared approved Golden wordmark asset',()=>{
-  assert.match(rendererSource,/loadImage\('\/machiibe-logo\.svg'\)/);
-  assert.match(rendererSource,/ctx\.drawImage\(logo,/);
+test('final Canvas brand uses the owner-approved logo image and approved palette',()=>{
+  assert.match(rendererSource,/loadImage\('\/machiibe-icon-approved\.png'\)/);
+  assert.match(rendererSource,/const LOGO_BLUE='#2aa4e8'/);
+  assert.match(rendererSource,/const LOGO_ORANGE='#ff8200'/);
+  assert.match(rendererSource,/label\(ctx,'まち'/);
+  assert.match(rendererSource,/label\(ctx,'イベ'/);
   assert.match(rendererSource,/await brand\(ctx,/);
 });
 
-test('approved Golden wordmark is pink pin + black machi + pink ibe on transparent background',()=>{
-  assert.match(logoSource,/fill="#ff2e78"/);
-  assert.match(logoSource,/>まち<\/tspan>/);
-  assert.match(logoSource,/>イベ<\/tspan>/);
-  assert.match(logoSource,/fill="#111827">まち/);
-  assert.doesNotMatch(logoSource,/<rect[^>]+fill=/i);
-  assert.doesNotMatch(logoSource,/linearGradient/i);
+test('owner-approved square logo is bundled as a non-empty PNG asset',()=>{
+  assert.equal(fs.existsSync(approvedIconPath),true);
+  assert.ok(fs.statSync(approvedIconPath).size>10_000);
 });
 
-test('standalone app icon uses the same pink location-pin mark without the old medical cross tile',()=>{
-  assert.match(iconSource,/fill="#ff2e78"/);
-  assert.match(iconSource,/<circle[^>]+fill="#fff"/);
-  assert.doesNotMatch(iconSource,/linearGradient/i);
-  assert.doesNotMatch(iconSource,/stroke="#fff"/i);
-});
-
-test('site header uses the shared wordmark asset and keeps it on one visual line',()=>{
-  assert.match(brandNavSource,/src="\/machiibe-logo\.svg"/);
-  assert.doesNotMatch(brandNavSource,/<strong>まちイベ<\/strong>/);
-  assert.match(cssSource,/\.brand-logo-image\{[^}]*width:118px/);
-  assert.match(cssSource,/\.brand-wordmark-fallback\{[^}]*white-space:nowrap/);
+test('site header uses approved logo image with a one-line blue/orange wordmark',()=>{
+  assert.match(brandNavSource,/src="\/machiibe-icon-approved\.png"/);
+  assert.match(brandNavSource,/brand-wordmark-machi/);
+  assert.match(brandNavSource,/brand-wordmark-ibe/);
+  assert.match(cssSource,/\.brand-wordmark-machi\{color:var\(--logo-blue\)\}/);
+  assert.match(cssSource,/\.brand-wordmark-ibe\{color:var\(--logo-orange\)\}/);
+  assert.match(cssSource,/\.brand-lockup\{[^}]*white-space:nowrap/);
 });
 
 test('cover period pill is width-aware and keeps a fixed right safe area',()=>{

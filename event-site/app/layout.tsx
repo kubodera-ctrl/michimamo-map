@@ -26,7 +26,7 @@ export async function generateMetadata():Promise<Metadata>{
     applicationName:SITE_NAME,
     title:{default:messages.homeTitle,template:`%s｜${SITE_NAME}`},
     description:messages.homeDescription,
-    icons:{icon:'/machiibe-icon.svg',shortcut:'/machiibe-icon.svg',apple:'/machiibe-icon.svg'},
+    icons:{icon:'/machiibe-icon-approved.png',shortcut:'/machiibe-icon-approved.png',apple:'/machiibe-icon-approved.png'},
     manifest:'/manifest.webmanifest',
     metadataBase:new URL(publicSiteBaseUrl()),
     alternates:{
