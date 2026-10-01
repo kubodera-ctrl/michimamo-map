@@ -41,14 +41,19 @@ function geoloniaMunicipalityKey(municipality,location){
   }
   return admin;
 }
+function authoritativeMunicipalityAlias(admin,full){
+  if(admin==='稲城市'&&/^多摩市大丸1541番(?:地)?$/.test(full))return '多摩市';
+  return admin;
+}
 function authoritativeLocalityAlias(admin,full,local){
   if(admin==='武蔵野市'&&local==='本町1丁目')return '吉祥寺本町1丁目';
   if(admin==='町田市'&&/^南大谷1428番(?:地)?$/.test(local))return '南大谷一丁目';
   return local;
 }
 function locationParts(municipality,location){
-  const admin=normalizeText(municipality);
+  const sourceAdmin=normalizeText(municipality);
   let full=stripVicinity(location);
+  const admin=authoritativeMunicipalityAlias(sourceAdmin,full);
   if(admin&&!full.startsWith(admin))full=admin+full;
   const city=geoloniaMunicipalityKey(admin,full);
   let local=city&&full.startsWith(city)
@@ -176,6 +181,7 @@ module.exports=handler;
 module.exports.parseCsv=parseCsv;
 module.exports.rowsFromCsv=rowsFromCsv;
 module.exports.geoloniaMunicipalityKey=geoloniaMunicipalityKey;
+module.exports.authoritativeMunicipalityAlias=authoritativeMunicipalityAlias;
 module.exports.authoritativeLocalityAlias=authoritativeLocalityAlias;
 module.exports.locationParts=locationParts;
 module.exports.matchTownPoint=matchTownPoint;
