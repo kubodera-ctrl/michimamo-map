@@ -24,3 +24,10 @@ Normalization:
 - runtime SHA-256 remains ingestion worker responsibility; parser uses dry-run identity only for unit tests.
 
 Source-specific field mapping belongs in source adapter config/normalizer modules, not public.events or UI.
+
+Facts-only HTML source-specific parsing:
+- `machiibe-facts-only-dry-run.ts` still performs exactly one low-load request, stores no HTML, writes no DB/R2/Production state, and never promotes READY/Publishable/ACTIVE.
+- The six reviewed facts-only sources use `shared/machiibe-ingestion/facts-only-html.ts` to map only explicit event facts: title, event-specific official URL, date/range when stated, venue/category/status when stated.
+- Month/day-only facts without a source year stay as `dateText` and do not get an invented canonical year.
+- Parsed facts are mapped through the common normalizer only for dry-run schema compatibility metrics. Body text and media are not promoted.
+- Parser tests are synthetic and make no network request.

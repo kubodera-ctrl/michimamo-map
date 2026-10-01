@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {normalizeCommonItem,parseHtmlStructured} from '../../shared/machiibe-ingestion/adapters';
+import {parseFactsOnlyHtml} from '../../shared/machiibe-ingestion/facts-only-html';
 import type {SourcePolicySnapshot} from '../../shared/machiibe-ingestion/contracts';
 
 type FactsOnlyRow={
@@ -315,6 +316,22 @@ async function main(){
 
   const parsed=parseHtmlStructured(html,source);
   const normalized=parsed.items.map(item=>normalizeCommonItem(item,source));
+  const factParsed=parseFactsOnlyHtml(row.source_key,html,response.url||url);
+  const factNormalized=factParsed.items.map((item,index)=>normalizeCommonItem({
+    sourceId:source.sourceId,
+    sourceEventId:null,
+    sourceUrl:item.officialUrl,
+    sourceUpdatedAt:null,
+    sourceHash:'facts-only-'+source.sourceId+'-'+String(index),
+    payload:{
+      title:item.title,
+      startDate:item.startAt,
+      endDate:item.endAt,
+      venue_name:item.venueName,
+      category:item.category,
+      url:item.officialUrl
+    }
+  },source));
   const links=anchorInventory(html,url);
   let eventLikeLinks=eventLikeLinkInventory(row,links);
   if(row.source_key==='fukui-pref-odekake-events'){
@@ -337,6 +354,17 @@ async function main(){
     withLocation:normalized.filter(item=>Boolean(item.venueName||item.address||item.municipality)).length,
     withEventSpecificOfficialUrl:normalized.filter(item=>Boolean(item.officialUrl&&canonicalUrl(item.officialUrl)!==canonicalUrl(url))).length,
     parserWarnings:parsed.warnings
+  };
+  const factStructured={
+    items:factNormalized.length,
+    withTitle:factNormalized.filter(item=>Boolean(item.title)).length,
+    withDateText:factParsed.items.filter(item=>Boolean(item.dateText)).length,
+    withStart:factNormalized.filter(item=>Boolean(item.startAt)).length,
+    withEnd:factNormalized.filter(item=>Boolean(item.endAt)).length,
+    withLocation:factNormalized.filter(item=>Boolean(item.venueName||item.address||item.municipality)).length,
+    withStatusFact:factParsed.items.filter(item=>Boolean(item.statusFact)).length,
+    withEventSpecificOfficialUrl:factNormalized.filter(item=>Boolean(item.officialUrl&&canonicalUrl(item.officialUrl)!==canonicalUrl(url))).length,
+    parserWarnings:factParsed.warnings
   };
 
   const output={
@@ -370,10 +398,11 @@ async function main(){
     },
     schema:{
       jsonLdStructuredEvents:structured,
+      sourceSpecificHtmlFacts:factStructured,
       sameOfficialSiteFactLinkCandidates:links.length,
       eventLikeFactLinkCandidates:eventLikeLinks.length,
       eventSpecificUrlSample:eventLikeLinks.slice(0,12),
-      extractionMode:normalized.length>0?'json_ld_event':'html_fact_links_required'
+      extractionMode:factNormalized.length>0?'source_specific_html_facts':normalized.length>0?'json_ld_event':'html_fact_links_required'
     },
     freshness:dates,
     load:{
