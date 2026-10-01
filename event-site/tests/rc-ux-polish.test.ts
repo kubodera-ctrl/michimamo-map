@@ -4,10 +4,12 @@ import fs from 'node:fs';
 
 test('brand icon never exposes browser broken-image UI after asset failure',()=>{
   const brand=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
-  const icon=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
+  const iconPath=new URL('../public/machiibe-icon-approved.png',import.meta.url);
   assert.match(brand,/onError=\{\(\)=>setLogoFailed\(true\)\}/);
   assert.match(brand,/brand-wordmark-fallback/);
-  assert.doesNotMatch(icon,/data:image|<image\b/i);
+  assert.match(brand,/src="\/machiibe-icon-approved\.png"/);
+  assert.doesNotMatch(brand,/data:image/i);
+  assert.ok(fs.statSync(iconPath).size>50_000);
 });
 
 test('event media falls back once to owned category visual on load failure',()=>{

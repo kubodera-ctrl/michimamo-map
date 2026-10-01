@@ -35,7 +35,7 @@ export function BrandNav({locale,tagline}:{locale:Locale;tagline:string}){
             : (
               <>
                 <span className="brand-icon-crop">
-                  <img className="brand-icon-image" src="/machiibe-icon-approved.webp" alt="" onError={()=>setLogoFailed(true)} />
+                  <img className="brand-icon-image" src="/machiibe-icon-approved.png" alt="" onError={()=>setLogoFailed(true)} />
                 </span>
                 <strong className="brand-wordmark">
                   <span className="brand-wordmark-machi">まち</span><span className="brand-wordmark-ibe">イベ</span>

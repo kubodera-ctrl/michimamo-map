@@ -86,7 +86,7 @@ function pageBadge(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage){
   rounded(ctx,0,0,142,80,0,NAVY);label(ctx,String(page.pageNumber)+'/'+String(page.pageCount),24,12,44,900,'#fff');
 }
 async function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
-  const icon=await loadImage('/machiibe-icon-approved.webp');
+  const icon=await loadImage('/machiibe-icon-approved.png');
   const size=72*scale;
   if(icon){
     ctx.drawImage(icon,x,y,size,size);
