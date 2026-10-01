@@ -58,10 +58,33 @@ function fixture(eventCount:number,label:string):CarouselInput{
   };
 }
 
+function holidayFixture():CarouselInput{
+  const input=fixture(10,'HOLIDAY 8P / 3連休イベント');
+  return {
+    ...input,
+    events:input.events.map((event,index)=>{
+      if(index===1)return {
+        ...event,
+        mediaUrl:'/machiibe-icon-approved.png',
+        mediaRightsStatus:'approved' as const,
+        imageMode:'provided' as const
+      };
+      if(index===2)return {
+        ...event,
+        // Deliberately missing first-party fixture URL: renderer must fail safely to the brand visual.
+        mediaUrl:'/preview/golden-fixture-intentionally-missing.png',
+        mediaRightsStatus:'approved' as const,
+        imageMode:'provided' as const
+      };
+      return event;
+    })
+  };
+}
+
 export const GOLDEN_FIXTURES=[
   {id:'normal-5p',label:'NORMAL 5P',description:'通常3〜4イベント構成',input:fixture(4,'NORMAL 5P / 9月28日〜10月4日'),pageCount:5},
   {id:'extended-7p',label:'EXTENDED 7P',description:'7〜8イベント構成',input:fixture(8,'EXTENDED 7P / 秋のおでかけ特集'),pageCount:7},
-  {id:'holiday-8p',label:'HOLIDAY 8P',description:'9〜10イベント・連休構成',input:fixture(10,'HOLIDAY 8P / 3連休イベント'),pageCount:8}
+  {id:'holiday-8p',label:'HOLIDAY 8P',description:'9〜10イベント・連休構成 / 画像混在fallback QA',input:holidayFixture(),pageCount:8}
 ] as const;
 
 export function goldenFixtureById(id:string){
