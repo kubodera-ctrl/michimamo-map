@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-30-oshi-real-events-v4",
+  "version": "2026-10-01-oshi-real-events-v5",
   "status": "fixture_only_verified_from_official_pages",
-  "checked_at": "2026-09-30",
+  "checked_at": "2026-10-01",
   "rules": {
     "entity_relation_requires_official_evidence": true,
     "no_auto_inference_from_alias_only": true,
@@ -260,6 +260,61 @@
           "type": "group",
           "canonical_name": "CIRRA",
           "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "sapporo-parco-chiikawa-pocket-2026",
+      "title": "ちいかわぽけっと　mini POP UP STORE",
+      "source_url": "https://sapporo.parco.jp/event/detail/?id=38647",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-18",
+      "ends_on": "2026-10-04",
+      "venue_name": "札幌PARCO 7F PARCO FACTORY",
+      "prefecture": "北海道",
+      "classification_text": "『ちいかわぽけっと』の期間限定POP UP STORE。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "ちいかわぽけっと",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "sendai-parco-sakura-momoko-yumeiro-2026",
+      "title": "さくらももこ ゆめいろ商店",
+      "source_url": "https://sendai.parco.jp/event/detail/?id=38290",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-02",
+      "ends_on": "2026-10-12",
+      "venue_name": "仙台PARCO1 5F PARCO FACTORY SENDAI",
+      "prefecture": "宮城県",
+      "classification_text": "『ちびまる子ちゃん』『コジコジ』を中心とした期間限定POP UP STORE。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "character",
+          "canonical_name": "ちびまる子ちゃん",
+          "relation": "subject"
+        },
+        {
+          "type": "character",
+          "canonical_name": "コジコジ",
+          "relation": "subject"
         }
       ],
       "reservation": {
