@@ -13,6 +13,12 @@ assert.equal(rows[1].municipality,'中央区');
 assert.equal(rows[1].reason,'事故多発,事故抑止');
 
 assert.deepEqual(api.locationParts('中央区','中央区晴海１丁目付近'),{city:'中央区',full:'中央区晴海1丁目',local:'晴海1丁目'});
+assert.deepEqual(api.locationParts('西多摩郡','西多摩郡奥多摩町丹三郎２４２番付近'),{city:'西多摩郡奥多摩町',full:'西多摩郡奥多摩町丹三郎242番',local:'丹三郎'});
+assert.deepEqual(api.locationParts('西多摩郡','西多摩郡日の出町大字大久野１１００番付近'),{city:'西多摩郡日の出町',full:'西多摩郡日の出町大字大久野1100番',local:'大字大久野'});
+assert.deepEqual(api.locationParts('西多摩郡','西多摩郡瑞穂町長岡１丁目付近'),{city:'西多摩郡瑞穂町',full:'西多摩郡瑞穂町長岡1丁目',local:'長岡1丁目'});
+assert.deepEqual(api.matchTownPoint('大字大久野',[
+  {oaza_cho:'大久野',point:[139.25,35.74]}
+]),[35.74,139.25]);
 assert.deepEqual(api.matchTownPoint('晴海1丁目',[
   {oaza_cho:'晴海',chome:'一丁目',point:[139.78,35.65]},
   {oaza_cho:'晴海',chome:'二丁目',point:[139.79,35.66]}
