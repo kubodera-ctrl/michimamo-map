@@ -363,3 +363,45 @@ raw queryを保存せず、prefecture/municipality/entity/event type/date mode�
 β直後Discovery lane:
 for_you / oshi_new / today / tomorrow / weekend / nearby / ending_soon / free / rainy_day / limited_shop / collab_cafe / character_anime / appearance。
 現PR #1 UIには追加せず、データ契約とテストのみ先行する。
+
+## 18. Official X discovery lane
+
+2026-10-01 formal policy:
+
+Official X is added as a discovery / breaking announcement / change-detection lane for oshi events.
+
+Priority:
+1. official Web event page
+2. verified official X post
+3. X post needing official-account review
+4. non-official social post = discovery only
+
+Do not scrape or script the X website. The project keeps:
+- web_scraping_allowed=false
+- official_api_fetch_enabled=false
+- OAuth=false
+- recurring_fetch=false
+- Production ingest=false
+
+Official API automation is a later gate requiring explicit API-access approval, cost approval and a current policy/ToS review.
+
+Official-account verification:
+- strongest: official website backlink or official operator-page mention
+- supporting: official-domain match + gold/grey checkmark or verified-organization affiliation
+- blue checkmark alone is insufficient
+- display name / follower count are insufficient
+
+X-only event facts may be evidence only for a public post from a verified official account with source-post URL provenance, explicit facts and no inference. Full post body and X-hosted media are not copied.
+
+When an official Web event page later exists, it becomes primary event evidence and the X post remains announcement/change provenance.
+
+Default user-facing treatment is link-out ("Xで見る"). Embed is a separate Privacy/UX gate.
+
+Registry:
+`data/machiibe/official_x_source_registry_v1.json`
+
+Contract:
+`shared/machiibe-ingestion/x-source-policy.ts`
+
+Detailed design:
+`docs/machiibe-official-x-discovery.md`

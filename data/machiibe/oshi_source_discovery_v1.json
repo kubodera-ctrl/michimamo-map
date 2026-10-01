@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-oshi-discovery-v4",
+  "version": "2026-10-01-oshi-discovery-v5",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
@@ -7,7 +7,15 @@
     "social_media_discovery_only": true,
     "image_reuse_default": false,
     "ordinary_sale_excluded": true,
-    "limited_destination_retail_may_be_event": true
+    "limited_destination_retail_may_be_event": true,
+    "official_x_discovery_supported": true,
+    "official_x_registry": "data/machiibe/official_x_source_registry_v1.json",
+    "official_x_web_scraping_allowed": false,
+    "official_x_api_enabled": false,
+    "official_x_blue_check_alone_is_official": false,
+    "official_x_full_post_body_reuse": false,
+    "official_x_media_reuse": false,
+    "official_x_default_surface": "link_out"
   },
   "sources": [
     {

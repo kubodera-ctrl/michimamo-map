@@ -1,0 +1,76 @@
+{
+  "version": "2026-10-01-official-x-registry-v1",
+  "status": "design_only_no_api_fetch",
+  "checked_at": "2026-10-01",
+  "policy_sources": [
+    "https://help.x.com/en/rules-and-policies/x-automation",
+    "https://help.x.com/en/rules-and-policies/x-api",
+    "https://help.x.com/en/rules-and-policies/profile-labels",
+    "https://help.x.com/en/x-for-websites-ads-info-and-privacy",
+    "https://help.x.com/en/using-x/how-to-embed-a-post"
+  ],
+  "rules": {
+    "discovery_lane_enabled": true,
+    "web_scraping_allowed": false,
+    "website_dom_scripting_allowed": false,
+    "official_api_fetch_enabled": false,
+    "api_access_requires_explicit_approval": true,
+    "api_cost_requires_explicit_approval": true,
+    "oauth_enabled": false,
+    "recurring_fetch_enabled": false,
+    "production_ingest_enabled": false,
+    "official_web_preferred_as_primary_evidence": true,
+    "x_only_facts_evidence_allowed": true,
+    "blue_check_alone_is_official": false,
+    "official_site_backlink_is_strong_evidence": true,
+    "x_post_body_reuse_default": false,
+    "x_media_reuse_default": false,
+    "embed_default": false,
+    "default_user_surface": "link_out"
+  },
+  "verification_signals": {
+    "strong": [
+      "official_site_backlink",
+      "official_operator_page_mention"
+    ],
+    "supporting": [
+      "official_domain_match",
+      "gold_checkmark",
+      "grey_checkmark",
+      "verified_organization_affiliation"
+    ],
+    "insufficient_alone": [
+      "blue_checkmark",
+      "display_name_match",
+      "follower_count"
+    ]
+  },
+  "facts_only_fields": [
+    "event_title",
+    "starts_at",
+    "ends_at",
+    "venue_name",
+    "event_status",
+    "reservation_status",
+    "explicit_entity_relations",
+    "event_specific_official_url",
+    "source_post_url",
+    "source_account_handle",
+    "source_post_id",
+    "source_post_published_at"
+  ],
+  "prohibited_reuse": [
+    "full_post_body",
+    "x_hosted_image_copy",
+    "x_hosted_video_copy",
+    "html_or_dom_snapshot",
+    "inferred_unstated_event_facts"
+  ],
+  "evidence_priority": [
+    "official_web_event_page",
+    "verified_official_x_post",
+    "official_x_post_needs_review",
+    "nonofficial_social_discovery_only"
+  ],
+  "accounts": []
+}

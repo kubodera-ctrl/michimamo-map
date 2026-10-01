@@ -21,3 +21,16 @@ test('oshi source discovery separates destination events from ordinary sale inte
   assert.equal(data.rules.limited_destination_retail_may_be_event,true);
   assert.equal(data.rules.official_page_confirmation_required,true);
 });
+
+
+test('oshi source discovery delegates official X to a fail-closed registry',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/oshi_source_discovery_v1.json',import.meta.url),'utf8'));
+  assert.equal(data.rules.official_x_discovery_supported,true);
+  assert.equal(data.rules.official_x_registry,'data/machiibe/official_x_source_registry_v1.json');
+  assert.equal(data.rules.official_x_web_scraping_allowed,false);
+  assert.equal(data.rules.official_x_api_enabled,false);
+  assert.equal(data.rules.official_x_blue_check_alone_is_official,false);
+  assert.equal(data.rules.official_x_full_post_body_reuse,false);
+  assert.equal(data.rules.official_x_media_reuse,false);
+  assert.equal(data.rules.official_x_default_surface,'link_out');
+});
