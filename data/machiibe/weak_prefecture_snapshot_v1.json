@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-weak-prefecture-v17",
+  "version": "2026-10-01-weak-prefecture-v18",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -13,8 +13,8 @@
     "singleSourcePrefectures": 20,
     "lowOrUnmeasuredPotentialPrefectures": 36,
     "noReadySourcePrefectures": 43,
-    "noFacilityInstanceDirectEvidencePrefectures": 39,
-    "noVerifiedOshiFixturePrefectures": 39,
+    "noFacilityInstanceDirectEvidencePrefectures": 35,
+    "noVerifiedOshiFixturePrefectures": 37,
     "readyPrefectures": [
       "愛知県",
       "大阪府",
@@ -55,7 +55,9 @@
       "大阪府",
       "東京都",
       "熊本県",
-      "埼玉県"
+      "埼玉県",
+      "北海道",
+      "宮城県"
     ]
   },
   "prefectures": [
@@ -415,15 +417,13 @@
       "termsReviewedOrBetter": 0,
       "readySources": 0,
       "observedPotentialMin": 0,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
+      "facilityInstances": 1,
+      "verifiedOshiFixtureEvents": 1,
       "weaknessReasons": [
         "low_or_unmeasured_potential",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
+        "no_ready_source"
       ],
-      "weaknessDimensionCount": 4
+      "weaknessDimensionCount": 2
     },
     {
       "prefecture": "群馬県",
@@ -617,15 +617,14 @@
       "termsReviewedOrBetter": 0,
       "readySources": 0,
       "observedPotentialMin": 44,
-      "facilityInstances": 0,
+      "facilityInstances": 1,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
         "single_source",
         "no_ready_source",
-        "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 4
+      "weaknessDimensionCount": 3
     },
     {
       "prefecture": "北海道",
@@ -634,15 +633,13 @@
       "termsReviewedOrBetter": 0,
       "readySources": 0,
       "observedPotentialMin": 185,
-      "facilityInstances": 0,
-      "verifiedOshiFixtureEvents": 0,
+      "facilityInstances": 1,
+      "verifiedOshiFixtureEvents": 1,
       "weaknessReasons": [
         "single_source",
-        "no_ready_source",
-        "facility_instance_gap",
-        "oshi_fixture_evidence_gap"
+        "no_ready_source"
       ],
-      "weaknessDimensionCount": 4
+      "weaknessDimensionCount": 2
     },
     {
       "prefecture": "富山県",
@@ -766,13 +763,12 @@
       "termsReviewedOrBetter": 1,
       "readySources": 1,
       "observedPotentialMin": 0,
-      "facilityInstances": 0,
+      "facilityInstances": 1,
       "verifiedOshiFixtureEvents": 1,
       "weaknessReasons": [
-        "low_or_unmeasured_potential",
-        "facility_instance_gap"
+        "low_or_unmeasured_potential"
       ],
-      "weaknessDimensionCount": 2
+      "weaknessDimensionCount": 1
     },
     {
       "prefecture": "神奈川県",
