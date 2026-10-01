@@ -16,6 +16,8 @@ assert.deepEqual(api.locationParts('中央区','中央区晴海１丁目付近')
 assert.deepEqual(api.locationParts('西多摩郡','西多摩郡奥多摩町丹三郎２４２番付近'),{city:'西多摩郡奥多摩町',full:'西多摩郡奥多摩町丹三郎242番',local:'丹三郎'});
 assert.deepEqual(api.locationParts('西多摩郡','西多摩郡日の出町大字大久野１１００番付近'),{city:'西多摩郡日の出町',full:'西多摩郡日の出町大字大久野1100番',local:'大字大久野'});
 assert.deepEqual(api.locationParts('西多摩郡','西多摩郡瑞穂町長岡１丁目付近'),{city:'西多摩郡瑞穂町',full:'西多摩郡瑞穂町長岡1丁目',local:'長岡1丁目'});
+assert.deepEqual(api.locationParts('武蔵野市','武蔵野市本町１丁目付近'),{city:'武蔵野市',full:'武蔵野市本町1丁目',local:'吉祥寺本町1丁目'});
+assert.deepEqual(api.locationParts('町田市','町田市南大谷１４２８番地付近'),{city:'町田市',full:'町田市南大谷1428番地',local:'南大谷一丁目'});
 assert.deepEqual(api.matchTownPoint('大字大久野',[
   {oaza_cho:'大久野',point:[139.25,35.74]}
 ]),[35.74,139.25]);
