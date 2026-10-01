@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-01-national-discovery-v14",
-  "status": "research_only_no_automated_fetch",
+  "version": "2026-10-01-national-discovery-v15",
+  "status": "research_only_controlled_facts_fetch_allowed",
   "counts": {
     "existing_kanto_registry": 26,
     "existing_national_venue_series": 12,
@@ -30,7 +30,12 @@
       "BLOCKED"
     ],
     "event_fact_can_survive_without_image_rights": true,
-    "web_display_rights_do_not_imply_sns_or_storage_rights": true
+    "web_display_rights_do_not_imply_sns_or_storage_rights": true,
+    "facts_only_fetch_may_precede_ready": true,
+    "facts_only_fetch_requires_public_unauthenticated_page": true,
+    "facts_only_fetch_must_not_copy_body_or_media": true,
+    "stop_on_403_429_or_explicit_bot_block": true,
+    "robots_review_required_for_ready_or_active": true
   },
   "sources": [
     {
@@ -1627,16 +1632,23 @@
       "base_url": "https://www.pref.kyoto.jp/event/",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "reviewed_restricted",
+      "terms_status": "reviewed_facts_only",
       "robots_status": "pending",
-      "commercial_use_status": "restricted_or_permission_required",
+      "commercial_use_status": "conditional",
       "attribution_requirement": null,
-      "automated_fetch_allowed": false,
+      "automated_fetch_allowed": true,
       "priority": 92,
       "review_state": "TERMS_REVIEWED",
       "yield_class": "medium",
       "observed_current_items_min": 8,
-      "notes": "2026-10-01京都府公式『イベント・募集』で10〜11月以降の具体イベントを複数確認。京都府一般サイトの著作権案内は私的使用・引用等を除く無断複製/転用を認めていないためtermsはreviewed_restricted。robots/access policyは現時点で独立確認できておらずpending、HTML自動取得はOFFのまま。event factsとevent-specific official URLの手動/個別確認用候補としてPREFLIGHT相当の証拠を保持し、READYへ昇格しない。"
+      "notes": "2026-10-01京都府公式『イベント・募集』で将来イベントと個別詳細導線を確認。サイトは文章・写真等の無断複製/転用を制限するため本文・画像・HTMLの二次利用は不可扱い。一方、単なる事実データの利用と公開ページへの低負荷アクセスを分離し、本人方針により日時・名称・場所・status・event-specific公式URL等のfacts_only自動取得のみ許可。robots/accessはREADY昇格前に別途確定し、403/429/明示bot block時は即停止。READY/Publishable/ACTIVEへの自動昇格はしない。",
+      "fetch_scope": "facts_only",
+      "body_text_reuse_allowed": false,
+      "image_reuse_allowed": false,
+      "html_cache_allowed": false,
+      "source_link_required": true,
+      "stop_on_403_429_or_explicit_bot_block": true,
+      "max_requests_per_minute": 2
     },
     {
       "source_key": "ibaraki-kasumigaura-esc-events",
@@ -1649,16 +1661,23 @@
       "base_url": "https://www.pref.ibaraki.jp/soshiki/seikatsukankyo/kasumigauraesc/03_event/event_schedule2026.htm",
       "feed_url": null,
       "fetch_method": "HTML_STRUCTURED",
-      "terms_status": "reviewed_restricted",
+      "terms_status": "reviewed_facts_only",
       "robots_status": "pending",
-      "commercial_use_status": "restricted_or_permission_required",
+      "commercial_use_status": "conditional",
       "attribution_requirement": null,
-      "automated_fetch_allowed": false,
+      "automated_fetch_allowed": true,
       "priority": 78,
       "review_state": "TERMS_REVIEWED",
       "yield_class": "low",
       "observed_current_items_min": 3,
-      "notes": "2026-10-01茨城県公式ページで10/3・10/17・11/8の将来イベントを日付・募集状況・場所・対象者付きで確認。茨城県サイトポリシーは文章・画像等の無断転用を認めていないためtermsはreviewed_restricted。robots/access policyは現時点で独立確認できておらずpending、HTML自動取得はOFFのまま。県全体網羅ではない補完Sourceとして保持し、READYへ昇格しない。"
+      "notes": "2026-10-01茨城県公式ページで将来イベント、募集状況、場所、対象者、個別詳細導線を確認。サイトは文章・画像等の無断転用を制限するため本文・画像・HTMLの二次利用は不可扱い。一方、単なる事実データの利用と公開ページへの低負荷アクセスを分離し、本人方針により日時・名称・場所・募集status・event-specific公式URL等のfacts_only自動取得のみ許可。robots/accessはREADY昇格前に別途確定し、403/429/明示bot block時は即停止。READY/Publishable/ACTIVEへの自動昇格はしない。",
+      "fetch_scope": "facts_only",
+      "body_text_reuse_allowed": false,
+      "image_reuse_allowed": false,
+      "html_cache_allowed": false,
+      "source_link_required": true,
+      "stop_on_403_429_or_explicit_bot_block": true,
+      "max_requests_per_minute": 2
     },
     {
       "source_key": "yamaguchi-pref-event-calendar",
