@@ -14,7 +14,7 @@ const rights=(patch:any={})=>({
 test('image fallback order is event image -> venue/place -> owned category -> generic and rights stay independent',()=>{
   const candidates:MediaCandidate[]=[
     {id:'blocked-event',subjectType:'event',role:'event_official',url:'https://example.test/e.jpg',rights:rights(),machiibeOwned:false},
-    {id:'venue',subjectType:'venue',role:'venue_official',url:'https://example.test/v.jpg',rights:rights({displayAllowed:true,cacheAllowed:false,snsAllowed:false,commercialAllowed:true}),machiibeOwned:false},
+    {id:'venue',subjectType:'venue',role:'venue_official',url:'https://example.test/v.jpg',rights:rights({displayAllowed:true,cacheAllowed:false,snsAllowed:false,commercialAllowed:true,rightsSourceUrl:'https://example.test/rights',reviewedAt:'2026-10-01'}),machiibeOwned:false},
     {id:'category',subjectType:'category',role:'category_visual',url:null,rights:rights(),machiibeOwned:true},
     {id:'generic',subjectType:'generic',role:'generic_fallback',url:null,rights:rights(),machiibeOwned:true}
   ];
