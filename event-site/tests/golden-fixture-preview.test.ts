@@ -39,7 +39,7 @@ test('QA labels stay outside the final Canvas renderer',()=>{
 });
 
 test('final Canvas brand uses the owner-approved logo image and approved palette',()=>{
-  assert.match(rendererSource,/loadImage\('\/machiibe-icon-approved\.png'\)/);
+  assert.match(rendererSource,/loadImage\('\/machiibe-icon-approved\.webp'\)/);
   assert.match(rendererSource,/const LOGO_BLUE='#2aa4e8'/);
   assert.match(rendererSource,/const LOGO_ORANGE='#ff8200'/);
   assert.match(rendererSource,/label\(ctx,'まち'/);
@@ -53,7 +53,7 @@ test('owner-approved square logo is bundled as a non-empty owner-approved WebP a
 });
 
 test('site header uses approved logo image with a one-line blue/orange wordmark',()=>{
-  assert.match(brandNavSource,/src="\/machiibe-icon-approved\.png"/);
+  assert.match(brandNavSource,/src="\/machiibe-icon-approved\.webp"/);
   assert.match(brandNavSource,/brand-wordmark-machi/);
   assert.match(brandNavSource,/brand-wordmark-ibe/);
   assert.match(cssSource,/\.brand-wordmark-machi\{color:var\(--logo-blue\)\}/);
