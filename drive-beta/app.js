@@ -34,6 +34,7 @@ const scheduleClose=document.getElementById('scheduleClose');
 const scheduleList=document.getElementById('scheduleList');
 const schedulePeriod=document.getElementById('schedulePeriod');
 const scheduleSource=document.getElementById('scheduleSource');
+const scheduleGeoSource=document.getElementById('scheduleGeoSource');
 const scheduleFootCopy=document.getElementById('scheduleFootCopy');
 const schedulePublicTab=document.getElementById('schedulePublicTab');
 const scheduleFocusTab=document.getElementById('scheduleFocusTab');
@@ -64,12 +65,15 @@ function setStatusPanelExpanded(expanded){
   appRoot.classList.toggle('status-panel-expanded',open);
 }
 
-function setLegendItemOpen(target){
-  for(const item of legendItems){
-    const open=item===target&&!item.classList.contains('open');
-    item.classList.toggle('open',open);
-    item.setAttribute('aria-expanded',String(open));
-  }
+function setLegendExpanded(expanded){
+  const open=expanded===true;
+  document.getElementById('mapLegend')?.classList.toggle('expanded',open);
+  for(const item of legendItems)item.setAttribute('aria-expanded',String(open));
+}
+
+function toggleLegendExpanded(){
+  const legend=document.getElementById('mapLegend');
+  setLegendExpanded(!legend?.classList.contains('expanded'));
 }
 
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
@@ -285,8 +289,9 @@ function scheduleDistanceMeters(event){
 function scheduleDistanceLabel(event){
   const distance=scheduleDistanceMeters(event);
   if(!Number.isFinite(distance))return null;
-  if(distance<1000)return Math.max(50,Math.round(distance/50)*50)+'m先';
-  return (distance/1000).toFixed(distance<10000?1:0)+'km先';
+  const prefix=event?.locationApproximate?'約':'';
+  if(distance<1000)return prefix+Math.max(50,Math.round(distance/50)*50)+'m先';
+  return prefix+(distance/1000).toFixed(distance<10000?1:0)+'km先';
 }
 
 function sortedLocationEvents(events){
@@ -330,8 +335,9 @@ function renderSchedulePanel(){
   scheduleFocusTab.textContent='重点取締場所（'+focusEvents.length+'）';
   schedulePeriod.textContent=titlePrefix+' ／ '+(lastPosition?'現在地から近い順':'現在地取得後に近い順');
   scheduleSource.href=source?.sourceUrl||'#';
+  scheduleGeoSource.hidden=scheduleTab!=='focus';
   scheduleFootCopy.textContent=scheduleTab==='focus'
-    ?'具体的な場所を確認できる重点取締場所のみ表示します。現在その場所で取締りを実施中であることを示しません。'
+    ?'都内の公式重点取締場所を表示します。位置目安は警視庁の実施場所を住所データの町丁目代表点へ加工したもので、正確な交差点ピンではありません。'
     :'具体的な場所を確認できる公開取締予定のみ表示します。本日の予定は地図上で赤点滅します。';
 
   if(!selected.length){
@@ -345,11 +351,12 @@ function renderSchedulePanel(){
       const todayClass=scheduleTab==='public'&&event.validDate===today?' today':'';
       const badge=event.validDate===today?'<span class="schedule-badge">本日</span>':'';
       const title=event.placeName||event.routeName||event.areaText||event.enforcementType;
+      const positionNote=event.locationApproximate?'<span class="schedule-position-note">位置目安</span>':'';
       const detail=scheduleTab==='focus'
         ?[scheduleDistanceLabel(event),event.localityText,event.policeStation].filter(Boolean)
         :[scheduleDistanceLabel(event),event.enforcementType,event.routeName,event.areaText,scheduleTimeLabel(event)].filter(Boolean);
       return '<div class="schedule-item'+todayClass+'">'+
-        '<strong>'+badge+esc(title)+'</strong>'+
+        '<strong>'+badge+esc(title)+positionNote+'</strong>'+
         '<span>'+detail.map(esc).join(' ／ ')+'</span>'+
         '</div>';
     }).join('');
@@ -386,6 +393,7 @@ function focusLocationPopup(event){
     '<div class="popup-status focus">重点取締場所</div>'+
     '<div class="popup-line">'+[event.localityText,event.policeStation].filter(Boolean).map(esc).join(' ／ ')+'</div>'+
     (event.reason?'<div class="popup-note">'+esc(event.reason)+'</div>':'')+
+    (event.locationApproximate?'<div class="popup-note">位置は公式の実施場所を町丁目代表点へ変換した目安です。交差点そのものの正確なピンではありません。</div>':'')+
     '<div class="popup-note">警視庁が公表する重点取締場所です。現在その場所で取締りを実施中であることを示すものではありません。</div>';
 }
 
@@ -416,8 +424,9 @@ function renderScheduleMap(){
       color:'#fff',
       weight:2,
       fillColor:'#16a34a',
-      fillOpacity:.92,
-      opacity:1
+      fillOpacity:event.locationApproximate?.56:.92,
+      opacity:event.locationApproximate?.72:1,
+      dashArray:event.locationApproximate?'3 3':null
     }).bindPopup(focusLocationPopup(event),{autoClose:false,closeOnClick:false})
       .addTo(focusLocationLayer);
   }
@@ -440,21 +449,47 @@ async function loadPublicSchedule(){
   }
 }
 
+function mergeFocusEvents(allTokyo,verified){
+  const merged=new Map();
+  for(const event of Array.isArray(allTokyo)?allTokyo:[]){
+    const key=(event.placeName||'')+'|'+(event.localityText||'');
+    merged.set(key,event);
+  }
+  for(const event of Array.isArray(verified)?verified:[]){
+    const key=(event.placeName||'')+'|'+(event.localityText||'');
+    merged.set(key,{...event,locationApproximate:false});
+  }
+  return Array.from(merged.values());
+}
+
 async function loadFocusLocations(){
+  let verified={sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html',events:[]};
+  let allTokyo=null;
   try{
     const response=await fetch('/drive-beta/data/tokyo-focus-locations-wangan-preview-v1.json',{cache:'no-store'});
-    if(!response.ok)throw new Error('focus_http_'+response.status);
-    const snapshot=await response.json();
-    if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('focus_not_current');
-    focusLocations=snapshot;
-    renderSchedulePanel();
-    renderScheduleMap();
+    if(response.ok){
+      const snapshot=await response.json();
+      if(snapshot?.freshnessStatus==='CURRENT'&&Array.isArray(snapshot?.events))verified=snapshot;
+    }
   }catch(error){
-    console.warn('DRIVE beta focus locations load failed',error);
-    focusLocations={sourceUrl:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html',events:[]};
-    renderSchedulePanel();
-    renderScheduleMap();
+    console.warn('DRIVE beta verified focus snapshot load failed',error);
   }
+  try{
+    const response=await fetch('/api/drive-focus-tokyo',{cache:'no-store'});
+    if(!response.ok)throw new Error('focus_tokyo_http_'+response.status);
+    const snapshot=await response.json();
+    if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('focus_tokyo_not_current');
+    allTokyo=snapshot;
+  }catch(error){
+    console.warn('DRIVE beta all-Tokyo focus load failed; verified subset fallback',error);
+  }
+  focusLocations={
+    ...(allTokyo||verified),
+    sourceUrl:(allTokyo||verified).sourceUrl,
+    events:mergeFocusEvents(allTokyo?.events,verified.events)
+  };
+  renderSchedulePanel();
+  renderScheduleMap();
 }
 
 function severity(item){
@@ -510,10 +545,10 @@ setStatusPanelExpanded(false);
 for(const item of legendItems){
   item.addEventListener('click',event=>{
     event.stopPropagation();
-    setLegendItemOpen(item);
+    toggleLegendExpanded();
   });
 }
-map.on('click',()=>setLegendItemOpen(null));
+map.on('click',()=>setLegendExpanded(false));
 schedulePublicTab.addEventListener('click',()=>setScheduleTab('public'));
 scheduleFocusTab.addEventListener('click',()=>setScheduleTab('focus'));
 
