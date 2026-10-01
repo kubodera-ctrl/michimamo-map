@@ -13,6 +13,8 @@
 3. TERMS_REVIEWED
    - 利用規約、商用利用、再利用、再配布、cache、画像、SNS、attributionを確認。
    - unknownはunknownのまま。
+   - 権利者の文章・画像・HTMLの二次利用が制限されていても、公開ページ上の単なる事実データだけを分離できる場合は `terms_status=reviewed_facts_only` を使える。
+   - 本人承認済みの facts-only 例外では、`automated_fetch_allowed=true` を TERMS_REVIEWED 段階で付けてもよい。ただし `fetch_scope=facts_only`、本文/画像/HTML再利用OFF、低負荷、403/429/明示bot block時の即停止を必須とし、READY/Publishable/ACTIVEを意味しない。
 4. ROBOTS_REVIEWED
    - robots/access policyを確認。規約OKでもrobots pendingならREADYへ上げない。
 5. READY
@@ -50,7 +52,8 @@ FETCH_ALLOWED条件:
 - redistribution/cache/image/SNSの状態を記録
 - automated_fetch_allowed=true の明示承認
 
-robots pendingは自動fetchを許可しない。
+robots pendingは通常のREADY/ACTIVE自動fetchを許可しない。
+例外として、本人承認済みの `reviewed_facts_only` かつ公開・認証不要ページでは、robots/accessの明示禁止が確認されていない間に限り、低負荷のresearch/dry-run facts-only fetchを許可できる。robots disallow、403/429、bot block、アクセス制限、認証回避が必要になった時点で即停止する。
 画像/SNSの許可はevent fact取得許可とは独立する。
 Web掲載可能でもSNS二次利用・cache・R2保存・動画素材利用を自動許可しない。
 画像権利が不明でも、イベント本文の利用条件が満たされる場合はイベント自体を捨てず、画像だけfail-closedにする。
