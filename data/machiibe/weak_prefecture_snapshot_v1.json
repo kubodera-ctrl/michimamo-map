@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-weak-prefecture-v14",
+  "version": "2026-10-01-weak-prefecture-v15",
   "status": "research_evidence_snapshot",
   "rules": {
     "candidate_coverage_not_equal_supply_depth": true,
@@ -10,7 +10,7 @@
   },
   "summary": {
     "prefectureTotal": 47,
-    "singleSourcePrefectures": 23,
+    "singleSourcePrefectures": 20,
     "lowOrUnmeasuredPotentialPrefectures": 36,
     "noReadySourcePrefectures": 43,
     "noFacilityInstanceDirectEvidencePrefectures": 39,
@@ -123,21 +123,20 @@
     },
     {
       "prefecture": "山口県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
       "termsReviewedOrBetter": 0,
       "readySources": 0,
-      "observedPotentialMin": 0,
+      "observedPotentialMin": 6,
       "facilityInstances": 0,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
-        "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source",
         "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 4
     },
     {
       "prefecture": "山梨県",
@@ -267,21 +266,20 @@
     },
     {
       "prefecture": "栃木県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
       "termsReviewedOrBetter": 0,
       "readySources": 0,
-      "observedPotentialMin": 0,
+      "observedPotentialMin": 10,
       "facilityInstances": 0,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
-        "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source",
         "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 4
     },
     {
       "prefecture": "奈良県",
@@ -303,21 +301,20 @@
     },
     {
       "prefecture": "福井県",
-      "candidateSources": 1,
-      "preflightOrBetter": 0,
+      "candidateSources": 2,
+      "preflightOrBetter": 1,
       "termsReviewedOrBetter": 0,
       "readySources": 0,
-      "observedPotentialMin": 0,
+      "observedPotentialMin": 10,
       "facilityInstances": 0,
       "verifiedOshiFixtureEvents": 0,
       "weaknessReasons": [
-        "single_source",
         "low_or_unmeasured_potential",
         "no_ready_source",
         "facility_instance_gap",
         "oshi_fixture_evidence_gap"
       ],
-      "weaknessDimensionCount": 5
+      "weaknessDimensionCount": 4
     },
     {
       "prefecture": "和歌山県",
