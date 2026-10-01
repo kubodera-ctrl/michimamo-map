@@ -26,16 +26,29 @@ function normalizeText(value){return String(value||'').normalize('NFKC').replace
 function normalizeTownKey(value){
   const kanji={'〇':'0','一':'1','二':'2','三':'3','四':'4','五':'5','六':'6','七':'7','八':'8','九':'9','十':'10'};
   return normalizeText(value)
+    .replace(/^大字/,'')
     .replace(/([一二三四五六七八九])?十([一二三四五六七八九])?/g,(_,a,b)=>String((a?Number(kanji[a]):1)*10+(b?Number(kanji[b]):0)))
     .replace(/[〇一二三四五六七八九]/g,m=>kanji[m])
     .replace(/[・‐－―ー\-]/g,'');
 }
 function stripVicinity(value){return normalizeText(value).replace(/(?:付近|周辺)$/,'');}
+function geoloniaMunicipalityKey(municipality,location){
+  const admin=normalizeText(municipality);
+  const full=stripVicinity(location);
+  if(admin.endsWith('郡')&&full.startsWith(admin)){
+    const nested=full.slice(admin.length).match(/^(.+?[町村])/);
+    if(nested)return admin+nested[1];
+  }
+  return admin;
+}
 function locationParts(municipality,location){
-  const city=normalizeText(municipality);
+  const admin=normalizeText(municipality);
   let full=stripVicinity(location);
-  if(city&&!full.startsWith(city))full=city+full;
-  let local=city&&full.startsWith(city)?full.slice(city.length):full;
+  if(admin&&!full.startsWith(admin))full=admin+full;
+  const city=geoloniaMunicipalityKey(admin,full);
+  let local=city&&full.startsWith(city)
+    ?full.slice(city.length)
+    :(admin&&full.startsWith(admin)?full.slice(admin.length):full);
   local=local.replace(/\d+番.*$/,'').replace(/\d+号.*$/,'');
   return {city,full,local};
 }
@@ -85,7 +98,7 @@ async function fetchTownRows(city){
 }
 
 async function buildAllTokyoEvents(sourceRows){
-  const cities=[...new Set(sourceRows.map(x=>x.municipality).filter(Boolean))];
+  const cities=[...new Set(sourceRows.map(x=>locationParts(x.municipality,x.localityText).city).filter(Boolean))];
   const cityData=new Map();
   await Promise.all(cities.map(async city=>{
     try{cityData.set(city,await fetchTownRows(city));}
@@ -156,6 +169,7 @@ async function handler(req,res){
 module.exports=handler;
 module.exports.parseCsv=parseCsv;
 module.exports.rowsFromCsv=rowsFromCsv;
+module.exports.geoloniaMunicipalityKey=geoloniaMunicipalityKey;
 module.exports.locationParts=locationParts;
 module.exports.matchTownPoint=matchTownPoint;
 module.exports.buildAllTokyoEvents=buildAllTokyoEvents;
