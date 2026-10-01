@@ -8,7 +8,7 @@ import {
 
 test('official X registry stays design-only with scraping/API/Production closed',()=>{
   const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
-  assert.equal(data.status,'design_only_no_api_fetch');
+  assert.equal(data.status,'verified_registry_manual_research_no_api_fetch');
   assert.equal(data.rules.web_scraping_allowed,false);
   assert.equal(data.rules.website_dom_scripting_allowed,false);
   assert.equal(data.rules.official_api_fetch_enabled,false);
