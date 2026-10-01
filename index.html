@@ -958,6 +958,7 @@
 
                 <!-- 【タブ2：ランキング】 -->
                 <div id="rankingTab" class="tab-content">
+                    <div class="muted" id="rankingDemoDisclosure" style="font-size:.7rem;line-height:1.55;margin:0 2px 10px;color:#64748b;">※β版では、一部に過去情報を元にしたデモ表示があります。</div>
                     <div class="card" id="realCoverageSnapshotCard" style="background:linear-gradient(135deg,#eff6ff,#ffffff);border:1px solid #bfdbfe;">
                         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;">
                             <div>
@@ -1000,26 +1001,8 @@
                         </div>
                     </div>
 
-                    <div class="card" id="trafficDemoCityTopCard">
-                        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
-                            <h2 style="font-size:1.1rem;color:#7c3aed;margin-bottom:10px;"><i class="fa-solid fa-road"></i> 交通安全エリア 上位10</h2>
-                            <span style="font-size:.62rem;font-weight:900;color:#7c3aed;background:#ede9fe;border-radius:999px;padding:4px 7px;">DEMO</span>
-                        </div>
-                        <p class="muted" style="font-size:.72rem;margin-top:-6px;margin-bottom:12px;">β表示確認用。政令指定都市・大都市圏を中心にしたDEMO件数です。</p>
-                        <div class="ranking-row"><div style="font-weight:bold;">1位　大阪府 大阪市</div><div style="font-weight:900;color:#7c3aed;">188件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">2位　神奈川県 横浜市</div><div style="font-weight:900;color:#7c3aed;">181件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">3位　埼玉県 さいたま市</div><div style="font-weight:900;color:#7c3aed;">169件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">4位　兵庫県 神戸市</div><div style="font-weight:900;color:#7c3aed;">158件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">5位　福岡県 福岡市</div><div style="font-weight:900;color:#7c3aed;">151件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">6位　神奈川県 川崎市</div><div style="font-weight:900;color:#7c3aed;">144件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">7位　京都府 京都市</div><div style="font-weight:900;color:#7c3aed;">136件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">8位　愛知県 名古屋市</div><div style="font-weight:900;color:#7c3aed;">129件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">9位　宮城県 仙台市</div><div style="font-weight:900;color:#7c3aed;">121件</div></div>
-                        <div class="ranking-row"><div style="font-weight:bold;">10位　千葉県 千葉市</div><div style="font-weight:900;color:#7c3aed;">115件</div></div>
-                    </div>
-
                     <div class="card">
-                        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><h2 style="font-size:1.1rem; color:#ef4444;margin-bottom:10px;"><i class="fa-solid fa-chart-line"></i> エリア別 前月報告数ワースト10</h2><span style="font-size:.62rem;font-weight:900;color:#7c3aed;background:#ede9fe;border-radius:999px;padding:4px 7px;">DEMO</span></div>
+                        <h2 style="font-size:1.1rem; color:#ef4444;"><i class="fa-solid fa-chart-line"></i> エリア別 前月報告数ワースト10</h2>
                         <p class="muted" style="font-size:0.75rem; margin-top:-8px; margin-bottom:12px;">横スワイプでジャンルを切り替えられます</p>
                         <div class="category-tab-bar">
                             <button class="cat-sub-btn active" onclick="switchCategoryRanking('illegal', this)">🔴 違法駐車</button>
@@ -2182,7 +2165,7 @@
             .sort((a,b)=>Number(b.point||0)-Number(a.point||0));
 
         const rankingArea = document.getElementById('nationalRankingArea');
-        rankingArea.innerHTML = '<div style="margin:0 0 10px;padding:7px 10px;border-radius:9px;background:#f8fafc;border:1px solid #e2e8f0;color:#64748b;font-size:.68rem;line-height:1.45;"><strong>β版：</strong>ランキングには表示確認用のDEMOユーザーを含みます。</div>';
+        rankingArea.innerHTML = '';
 
         rankingUsers.slice(0,10).forEach((u,idx) => {
             let medal = '';
@@ -2192,10 +2175,7 @@
             else medal = `<span style="display:inline-block;width:45px;text-align:center;font-size:.9rem;color:#6b7280;">${idx+1}位</span>`;
 
             const bg = !u.isDemo && u.id === myUserId ? 'background:#eff6ff;' : '';
-            const demoBadge = u.isDemo
-                ? '<span style="font-size:.58rem;font-weight:900;color:#7c3aed;background:#ede9fe;border-radius:999px;padding:2px 5px;margin-left:5px;">DEMO</span>'
-                : '';
-            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}${demoBadge}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
+            rankingArea.innerHTML += `<div class="ranking-row" style="${bg}"><div style="font-weight:bold;display:flex;align-items:center;gap:8px;">${medal}<span class="ranking-user">${rankingAvatarHtml(u.avatar)}<span class="ranking-name">${escapeHtml(u.name || 'まちまもユーザー')}</span></span></div><div style="font-weight:bold;color:#1f6feb;">${Number(u.point||0).toLocaleString()} pt</div></div>`;
         });
 
         const myRealIndex = uniqueUsers.findIndex(u=>u.id===myUserId);
@@ -2209,7 +2189,7 @@
         const rows = areaDemoRows(selectedPref,currentCategoryRank);
 
         const areaArea = document.getElementById('areaRankingArea');
-        areaArea.innerHTML = '<div style="margin:0 0 10px;padding:7px 10px;border-radius:9px;background:#f8fafc;border:1px solid #e2e8f0;color:#64748b;font-size:.68rem;line-height:1.45;"><strong>DEMO：</strong>β表示確認用の件数です。</div>';
+        areaArea.innerHTML = '';
 
         rows.slice(0,10).forEach((a,idx) => {
             let rankColor = "#6b7280";
