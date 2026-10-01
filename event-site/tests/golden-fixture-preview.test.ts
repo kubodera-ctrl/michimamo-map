@@ -6,6 +6,7 @@ import {GOLDEN_FIXTURES,goldenFixtureById} from '../lib/machiibe-golden-fixtures
 const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/page.tsx',import.meta.url),'utf8');
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
+const iconSource=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
 
 test('Golden fixture preview stays synthetic, noindex and disabled when indexing is enabled',()=>{
   assert.match(indexSource,/PREVIEW ONLY \/ SYNTHETIC DATA/);
@@ -39,6 +40,13 @@ test('final Canvas brand uses the shared official machiibe icon asset',()=>{
   assert.match(rendererSource,/loadImage\('\/machiibe-icon\.svg'\)/);
   assert.match(rendererSource,/ctx\.drawImage\(icon,/);
   assert.match(rendererSource,/await brand\(ctx,/);
+});
+
+test('official brand asset keeps its outer background transparent',()=>{
+  // Transparent outside the rounded icon tile. Preserve intentional white shapes inside the logo.
+  assert.doesNotMatch(iconSource,/<rect[^>]+(?:width="512"|width="100%")[^>]+fill=["'](?:#fff|white)["']/i);
+  assert.match(iconSource,/<rect x="24" y="24" width="464" height="464" rx="112" fill="url\(#g\)"\/>/);
+  assert.match(iconSource,/fill="#fff"/);
 });
 
 test('cover period pill is width-aware and keeps a fixed right safe area',()=>{
