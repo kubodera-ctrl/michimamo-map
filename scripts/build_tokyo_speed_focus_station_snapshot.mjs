@@ -26,7 +26,7 @@ function parsePdfLinks(html){
     const label=stripTags(m[2]);
     const station=(label.match(/([^\s（）()]+警察署)/)||[])[1];
     if(!station)continue;
-    const href=m[1].startsWith('http')?m[1]:new URL(m[1],BASE).href;
+    const href=m[1].startsWith('http')?m[1]:new URL(m[1],INDEX).href;
     out.push({station,href});
   }
   return out;
