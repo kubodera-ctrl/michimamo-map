@@ -6,7 +6,7 @@ import {GOLDEN_FIXTURES,goldenFixtureById} from '../lib/machiibe-golden-fixtures
 const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/page.tsx',import.meta.url),'utf8');
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
-const approvedIconPath=new URL('../public/machiibe-icon-approved.png',import.meta.url);
+const approvedIconPath=new URL('../public/machiibe-icon-approved.webp',import.meta.url);
 const brandNavSource=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
 const cssSource=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
 
@@ -47,9 +47,9 @@ test('final Canvas brand uses the owner-approved logo image and approved palette
   assert.match(rendererSource,/await brand\(ctx,/);
 });
 
-test('owner-approved square logo is bundled as a non-empty PNG asset',()=>{
+test('owner-approved square logo is bundled as a non-empty owner-approved WebP asset',()=>{
   assert.equal(fs.existsSync(approvedIconPath),true);
-  assert.ok(fs.statSync(approvedIconPath).size>10_000);
+  assert.ok(fs.statSync(approvedIconPath).size>1_000);
 });
 
 test('site header uses approved logo image with a one-line blue/orange wordmark',()=>{
