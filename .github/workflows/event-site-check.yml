@@ -65,6 +65,78 @@ jobs:
         run: npm run typecheck
       - name: Unit tests
         run: npm test
+      - name: Probe Tokyo official Event API (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:probe-tokyo-event-api
+      - name: Preflight reviewed CSV - Ota (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:preflight-csv -- ota-city-events-open-data
+      - name: Preflight reviewed CSV - Hamamatsu (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:preflight-csv -- hamamatsu-current-events-open-data
+      - name: Discover recent BODIK event CSV candidates (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:discover-bodik-events -- 180 60
+      - name: Resolve rotating source resource - Nagasaki (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:resolve-resource -- bodik-nagasaki-monthly-events
+      - name: Live READY dry-run - Mie (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- mie-pref-events-open-data
+      - name: Live READY dry-run - Okazaki (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-okazaki-events
+      - name: Live READY dry-run - Osaka (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-osaka-pref-events
+      - name: Live READY dry-run - Kadoma (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-kadoma-events
+      - name: Live READY dry-run - Toyonaka (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-toyonaka-events
+      - name: Live READY dry-run - Hamamatsu (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run -- hamamatsu-current-events-open-data
+      - name: Live facts-only dry-run - Kyoto Pref (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- kyoto-pref-current-events
+      - name: Live facts-only dry-run - Ibaraki Kasumigaura ESC (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- ibaraki-kasumigaura-esc-events
+      - name: Live facts-only dry-run - Kyoto Station Building (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- kyoto-station-building-events
+      - name: Live facts-only dry-run - Yamaguchi Pref (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- yamaguchi-pref-event-calendar
+      - name: Live facts-only dry-run - Tochigi Pref (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- tochigi-pref-event-calendar
+      - name: Live facts-only dry-run - Fukui Pref (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- fukui-pref-odekake-events
+      - name: Live READY cross-source dedupe dry-run (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-cross-dedupe
       - name: Build
         run: npm run build
       - name: Cloudflare adapter build
@@ -100,6 +172,7 @@ jobs:
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260923073000_event_i18n_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260927062000_machiibe_operational_foundation.sql
           psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928082000_machiibe_media_commit.sql
+          if [ -f supabase/migrations/20260928143000_machiibe_national_ingestion_foundation.sql ]; then psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/migrations/20260928143000_machiibe_national_ingestion_foundation.sql; fi
       - name: SQL behavior smoke tests
         working-directory: .
         env:
@@ -115,6 +188,17 @@ jobs:
         env:
           PGPASSWORD: postgres
         run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_production_seed_smoke.sql
+      - name: National search scale smoke (10k / 50k / 100k)
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f supabase/tests/machiibe_scale_smoke.sql
+      - name: Concurrent cursor query smoke
+        working-directory: .
+        env:
+          PGPASSWORD: postgres
+        run: |
+          seq 1 8 | xargs -P8 -I{} sh -c "psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -Atqc \"select count(*) from public.search_public_events_cursor_v2(date '2026-10-01',date '2026-12-31','東京都',null,'体験',array['family','experience'],array['free','partly_free'],true,true,null,null,24);\" >/dev/null"
       - name: MAP event deep-link smoke
         working-directory: .
         run: |

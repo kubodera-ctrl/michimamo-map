@@ -1,0 +1,407 @@
+# まちイベ 全国イベント収集基盤 v1
+
+更新: 2026-09-28
+branch: feat/machiibe-national-ingestion-foundation
+状態: Preview/dry-run設計。Production投入禁止。
+
+## 1. Pipeline
+
+SOURCE
+→ FETCH
+→ NORMALIZE
+→ DEDUP
+→ VERIFY
+→ EVENT
+→ SEARCH
+→ EXPIRE / UPDATE
+
+原則:
+- 公式 / Open Data / API / RSS / ICS / JSON-LDを優先。
+- 検索エンジン結果や第三者イベントサイトを無差別scrapingしない。
+- robots / 利用規約 / 商用利用 / attributionをSource Registryで明示する。
+- 未確認値をAIや文字列推測でcanonical factへ確定しない。
+- 画像権利はdisplay/cache/SNS/commercialを分離する。
+- Production大量投入は本人QA後の別Gate。
+
+## 2. Source Registry mapping
+
+既存 public.regional_sources を正本として拡張する。似た第二マスターを作らない。
+
+要求名 → 現行/拡張:
+- source_id → id
+- source_name → name
+- source_type → source_kind
+- prefecture / municipality → 同名
+- base_url → homepage_url
+- feed_url → data_url
+- terms_status → terms_review_status
+- failure_count → consecutive_failures
+- active → is_active
+- fetch_method → 今回追加
+- robots_status → 今回追加
+- commercial_use_status → 今回追加
+- attribution_requirement → 今回追加
+- update_frequency → update_frequency_minutesを追加
+- last_checked_at → 今回追加
+- last_success_at → 既存
+- priority → 今回追加
+- ETag / Last-Modified → source_etag / source_last_modifiedを追加
+
+Secrets / token / passwordはRegistryに保存しない。
+
+## 3. Adapter boundary
+
+shared/machiibe-ingestion/contracts.ts をUI非依存の契約とする。
+
+Adapter:
+- OPEN_DATA
+- RSS
+- ICS
+- JSON_API
+- JSON_LD
+- HTML_STRUCTURED
+- MANUAL
+
+fetch計画・raw抽出・normalizeをsource adapterへ分離し、events schemaへsource固有ロジックを埋め込まない。
+自動fetchは reviewed_allowed + robots許可 + commercial disallowedでない + automated_fetch_allowed の全条件でのみ許可する。
+
+## 4. Canonical Event mapping
+
+現行 public.events を壊さず利用する。
+
+- event_id → events.id
+- source_id → events.source_id
+- source_event_id → source_event_key / event_source_records
+- source_url → source_page_url
+- source_updated_at → source_updated_at
+- source_hash → event_source_records.raw_hash
+- title / description → title / summary
+- start_at / end_at → start_date,start_time,end_date,end_time,timezone
+- prefecture / municipality / address / lat / lng → 既存位置フィールド
+- venue_name / venue_type → venue_name / venue_type_keys
+- category / tags → category_keys +将来tag layer
+- age_min / age_max → 未確認時null。現行age_group_keysと併用し、推測変換しない
+- family / child_focused → audience_intent_verified=trueの時だけ意味を持つ
+- indoor → indoor
+- rain_ok → 現行に確定列なし。source fact取得までは推測しない
+- accessibility → accessibility_keys/notes
+- price_type / min / max → price_type + price_text。金額min/maxはsourceに構造化値がある場合のみ将来追加
+- image_url / rights → image_url + granular rights flags
+- official_url → official_url
+- verified_at → last_verified_at
+- expires_at → expires_at
+- status → event_status / publication_status
+
+## 5. Dedup
+
+単純title一致でmergeしない。
+
+signals:
+- source_event_id
+- official_url
+- normalized title similarity
+- venue similarity
+- start/end overlap
+- municipality
+- distance
+- organizer similarity
+
+confidenceが十分高い候補だけ自動処理対象にできるが、初期は conservative。
+shared contractの duplicateReviewRequired は0.97未満をreviewへ回す。
+machiibe_duplicate_candidatesでsignalsと判断を監査可能にする。
+
+## 6. Update / cancel / expire
+
+source_hash差分を基本に:
+- content_changed
+- date_changed
+- venue_changed
+- price_changed
+- cancelled
+- postponed
+- expired
+- restored
+
+をmachiibe_event_change_logへ記録可能にする。
+終了イベントは検索RPCの日時条件とexpires_atで除外し、監査metadataは保持。
+
+## 7. Freshness
+
+Sourceごとにupdate_frequency_minutes。
+当日/翌日系は短く、数か月先は長く設定可能。
+ETag / Last-Modifiedがあるsourceはconditional requestを優先。
+304 Not Modified時はrawの重複保存を避ける。
+失敗時はbackoffし、consecutive_failuresとstale状態を管理する。
+
+## 8. Search scale
+
+Production検索はDB/API側filter + pagination/cursorを維持。
+全イベントをクライアントへ配らない。
+初期はPostgres:
+- date range
+- prefecture / municipality
+- category / price / indoor / audience / age / venue
+- FTS
+- pg_trgm候補
+- lat/lng将来地理検索
+
+専用検索サービスは実測で必要になった場合だけ。
+
+## 9. Inventory current
+
+2026-09-29時点の調査inventory:
+- Kanto concrete registry: 26 sources (Tokyo 8 / Kanagawa 6 / Chiba 6 / Saitama 6)
+- National venue discovery series: 12
+- national_source_discovery_v1.json: 43 entries
+- 総inventory/discovery候補: 81
+- 全inventoryで具体sourceが確認できている都道府県: 23
+- 今回追加の地方空白対策: 宮城県（県イベント一覧 + 柴田町）、静岡県（県イベント一覧CSV/WEBAPI）、滋賀県（大津市月次イベント一覧）、石川県（かほく市標準ODS）、香川県（三豊市標準ODS）
+- discovery file内 PREFLIGHT以上: 42
+- discovery file内 TERMS_REVIEWED以上: 18
+- READY: 0
+- ACTIVE: 0
+
+高効率source-of-sources:
+- デジタル庁 自治体標準オープンデータセット / 取組済自治体一覧
+- BODIK ODCS / CKAN
+- 東京都オープンデータ CKAN
+- 神奈川県オープンデータ CKAN
+
+追加で確認した地域source:
+- 宮城県及び市町村共同オープンデータ: 宮城県イベント一覧CSV、柴田町イベント一覧
+- 静岡県オープンデータ: 県イベント一覧CSV + WEBAPI
+- 大津市/BODIK: 月次イベント一覧（CSV/JSON/RDF）
+- かほく市: 自治体標準ODSイベント一覧
+- 三豊市/香川県オープンデータ: イベント一覧CSV/KML
+いずれもrobotsやresource freshness等の未確認項目が残るものはREADYへ上げない。
+
+BODIKで具体的に確認済みのイベントdataset候補:
+- 大阪府
+- 沖縄県
+- 岡崎市
+- 豊中市
+- 須賀川市
+- 長崎市（月別行事予定）
+- 宮崎市
+- 竹田市
+- 奄美市
+
+施設networkの高yield候補:
+- イオンモール
+- 三井ショッピングパーク / ららぽーと
+- アリオ
+- PARCO
+- アトレ
+- キューズモール
+
+単独施設pilot候補:
+- 東京ドームシティ
+- よみうりランド
+- 東京ソラマチ
+- 東京ジョイポリス
+- 東京スカイツリー
+- すみだ水族館
+
+これらは候補発見/Preflightであり、自動取得許可を意味しない。
+各sourceはterms/robots/resource/licenseを個別確認し、イベント本文と画像利用権を分離する。
+
+sourceを増やすだけでなく、shared/machiibe-ingestion/discovery.tsでHTML内のJSON-LD Event、RSS/Atom、ICS、CSV/XLSX、sitemap候補をpure preflightとして検出する。ネットワークアクセスやfetch許可判定は行わない。
+
+都道府県別coverageはshared/machiibe-ingestion/coverage.tsで、
+candidateSources / readySources / activeSources / activeEvents / next30DaysEvents / imageUsableEvents / imageMissingEvents / sourceFailures / duplicateMerged / observedPotentialEventsMin
+を集計可能にした。observedPotentialEventsMinは調査時にsourceページで観測した下限値であり、取得済み・重複除去済み・現在有効なイベント数とは別指標。activeEvents / next30DaysEventsへ混ぜない。0件地域→少数地域→大都市追加の順でgapを優先できる。
+
+## 10. Rollout
+
+Phase 1:
+Tokyo + nearby prefectures, official/open-data, hundreds→thousands.
+
+Phase 2:
+47 prefectures source registry discovery/compliance.
+
+Phase 3:
+major municipalities / facilities / malls.
+
+Phase 4:
+organizer direct registration + external provider if ROI supports it.
+
+Quality before count:
+accuracy / freshness / rights / duplicate rate / search UX.
+
+## 11. KPI
+
+将来管理OSへ:
+- active_events
+- new_events
+- updated_events
+- expired_events
+- cancelled_events
+- duplicate_candidates
+- source_success_rate
+- source_failure_rate
+- stale_sources
+- rights_unknown
+- image_rights_unknown
+
+UIへ密結合せずSource Registry / ingestion health / duplicate review / rights review / event approval APIを分離する。
+
+## 12. No Production
+
+このbranchで許可:
+Source Registry schema / adapter contract / dry-run / normalize / dedup / validation / Preview search.
+
+禁止:
+Production migration / bulk seed / actual R2 resource / paid provider contract / OAuth / index release / real SNS post.
+
+
+## 13. Event supply funnel
+
+イベント件数は必ず段階を分離する。
+
+Potential → Fetched → Normalized → Deduped → Valid → Publishable → Active
+
+- Potential: source一覧で観測した潜在量。取得済み件数ではない。
+- Fetched: 実resource/APIから取得できたraw件数。
+- Normalized: canonical contractへ変換できた件数。
+- Deduped: event identityで重複統合した後の件数。
+- Valid: 開催日・場所・公式URL等の最低条件を満たす件数。
+- Publishable: source/rights/freshness等の公開gateを満たす件数。
+- Active: 実際にPreview/Production検索対象へ有効化された件数。
+
+shared/machiibe-ingestion/funnel.ts が段階の単調減少とdropoffを検証する。
+Potentialだけ増えた時にFetched/Activeへ自動転記しない。
+
+## 14. Source priority
+
+sourceの期待供給量と運用コストを比較するため、
+shared/machiibe-ingestion/priority.ts で以下を独立評価できるようにした。
+
+- observedPotentialEventsMin
+- prefecture gap解消
+- region coverage
+- category breadth
+- family relevance
+- freshness confidence
+- acquisition difficulty
+- terms difficulty
+- maintenance cost
+
+高得点でもterms/robotsを飛ばしてREADYへ上げない。priorityは調査順を決めるだけで公開許可ではない。
+
+## 15. Regional high-yield preflight
+
+2026-09-29追加preflight:
+- 北海道 HOKKAIDO LOVE!: 公式一覧で185件観測
+- 富山県 とやま観光ナビ: 公式一覧で428件観測
+- 三重県 観光三重: 公式一覧で281件観測
+- 兵庫県 兵庫観光ナビ: 公式一覧で73件観測
+- 新潟県/石川県/山梨県: 現行2026イベント一覧を確認、件数下限は未固定
+
+これらはPREFLIGHTであり、規約・robots未確認のため自動fetch不可。
+
+施設network pilot:
+- ららぽーとTOKYO-BAY: 公式イベント/キャンペーン一覧38件
+- あまがさきキューズモール: EVENT・POPUP / calendar導線、親子・キャラクター・芸能・体験型を確認
+
+data/machiibe/facility_source_instances_v1.jsonで施設単位sourceをnetwork親sourceと分離して管理する。
+shared/machiibe-ingestion/discovery.tsのfacility event-page discoveryはHTMLから候補URLを発見するだけで、fetch/公開許可は行わない。
+
+
+## 16. First READY source
+
+2026-09-29、三重県公式「お知らせ・イベント情報一覧 Open Data CSV」を最初のREADY sourceとした。
+
+- landing: https://www.pref.mie.lg.jp/EVENTS/opendata.htm
+- CSV: https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv
+- license: CC BY 4.0
+- update: 毎日午前7時ごろ
+- discovery state: READY
+- ingestion stage: FETCH_ALLOWED
+- automated_fetch_allowed: true
+- image: dataset側の再利用画像契約なし。event factsとmedia rightsを分離し、画像はfail-closed。
+- Potential: 公式イベント検索で「これから開催」66件を観測
+- Fetched / Normalized / Deduped / Valid / Publishable / Active: まだ0。runtimeでCSV bytesを取得できた時点から計測する。
+
+既存の観光三重はイベント数が多いが、サイトポリシー上の再利用制限が強いため自動取得sourceとして使わず、県公式Open Dataを優先する。
+
+SourcePolicyのREADY判定も修正し、event fact取得可否とimage/SNS二次利用権を分離した。画像権利unknownはmediaをfail-closedにするが、合法なevent facts自体は捨てない。
+
+
+## 17. Oshi / discovery foundation
+
+Drive CURRENTの「まちイベ完成形ロードマップ｜全国網羅・推し活・再訪UX（正式方針）」を正式基準として、β RCを変更せずPR #24側で将来データ構造を準備する。
+
+推し活entity:
+- work / franchise / character
+- talent / idol / voice_actor
+- youtuber / tiktoker / vtuber / influencer / creator / group
+- canonical name + aliases + parent/related entity
+- eventとのrelationは featured / appearing / collaboration / subject / host
+
+推し活event type:
+talk_show / stage_greeting / fan_meeting / live / mini_live / greeting / character_show / popup_store / limited_shop / collab_cafe / collab_food / exhibition / original_art_exhibition / handover / signing / photo_session / workshop / experience
+
+期間限定物販は、来場自体が目的になるPOPUP・展示・体験等をevent候補に含める。通常sale/point campaignは除外する。
+
+公式source PREFLIGHT:
+- animate Only Shop
+- animate Gratte
+- Tower Records store events
+- Bandai Namco Amusement events
+- NAMJATOWN collaboration events
+- Bandai Namco Cross Store events
+
+いずれも自動fetch/公開許可を意味せず、terms/robots/resource確認前はPREFLIGHTのまま。
+
+予約:
+unknown / not_required / required / lottery / first_come / same_day と、
+unknown / upcoming / open / closed / full / cancelled を分離する。
+
+検索0件自己改善:
+raw queryを保存せず、prefecture/municipality/entity/event type/date modeの構造化dimensionでgap signalを集計する。zero/low resultと検索回数からsource discovery優先度へ戻す。
+
+β直後Discovery lane:
+for_you / oshi_new / today / tomorrow / weekend / nearby / ending_soon / free / rainy_day / limited_shop / collab_cafe / character_anime / appearance。
+現PR #1 UIには追加せず、データ契約とテストのみ先行する。
+
+## 18. Official X discovery lane
+
+2026-10-01 formal policy:
+
+Official X is added as a discovery / breaking announcement / change-detection lane for oshi events.
+
+Priority:
+1. official Web event page
+2. verified official X post
+3. X post needing official-account review
+4. non-official social post = discovery only
+
+Do not scrape or script the X website. The project keeps:
+- web_scraping_allowed=false
+- official_api_fetch_enabled=false
+- OAuth=false
+- recurring_fetch=false
+- Production ingest=false
+
+Official API automation is a later gate requiring explicit API-access approval, cost approval and a current policy/ToS review.
+
+Official-account verification:
+- strongest: official website backlink or official operator-page mention
+- supporting: official-domain match + gold/grey checkmark or verified-organization affiliation
+- blue checkmark alone is insufficient
+- display name / follower count are insufficient
+
+X-only event facts may be evidence only for a public post from a verified official account with source-post URL provenance, explicit facts and no inference. Full post body and X-hosted media are not copied.
+
+When an official Web event page later exists, it becomes primary event evidence and the X post remains announcement/change provenance.
+
+Default user-facing treatment is link-out ("Xで見る"). Embed is a separate Privacy/UX gate.
+
+Registry:
+`data/machiibe/official_x_source_registry_v1.json`
+
+Contract:
+`shared/machiibe-ingestion/x-source-policy.ts`
+
+Detailed design:
+`docs/machiibe-official-x-discovery.md`

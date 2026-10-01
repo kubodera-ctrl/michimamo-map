@@ -1,0 +1,73 @@
+{
+  "version": "2026-09-29-preview-media-v1",
+  "status": "preview_only_rights_reviewed",
+  "hard_rules": {
+    "production_write": false,
+    "r2_copy": false,
+    "sns_publish": false,
+    "infer_venue_match": false,
+    "attribution_required": true
+  },
+  "candidates": [
+    {
+      "event_seed_slug": "joypolis-sidem-3-2026",
+      "venue_name": "東京ジョイポリス",
+      "media_role": "venue_official",
+      "provider": "Wikimedia Commons",
+      "media_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Tokyo_Joypolis_entrance.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Tokyo_Joypolis_entrance.jpg",
+      "rights": {
+        "display_allowed": true,
+        "cache_allowed": true,
+        "commercial_allowed": true,
+        "sns_allowed": true,
+        "attribution_required": true,
+        "attribution_text": "Davepape at English Wikipedia / Wikimedia Commons",
+        "license_name": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "rights_reviewed_at": "2026-09-29"
+      },
+      "notes": "1999年撮影の東京ジョイポリス入口。イベントそのものの画像ではないため会場イメージ表記必須。"
+    },
+    {
+      "event_seed_slug": "solamachi-space-brothers-2026",
+      "venue_name": "東京ソラマチ",
+      "media_role": "place_photo",
+      "provider": "Wikimedia Commons",
+      "media_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Tokyo_Skytree_%26_Soramachi.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_%26_Soramachi.jpg",
+      "rights": {
+        "display_allowed": true,
+        "cache_allowed": true,
+        "commercial_allowed": true,
+        "sns_allowed": true,
+        "attribution_required": true,
+        "attribution_text": "Kakidai / Wikimedia Commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "rights_reviewed_at": "2026-09-29"
+      },
+      "notes": "東京スカイツリー/東京ソラマチの場所写真。イベント画像ではないため場所イメージ表記必須。"
+    },
+    {
+      "event_seed_slug": "sogo-suzuki-shintaro-2026",
+      "venue_name": "そごう横浜店",
+      "media_role": "venue_official",
+      "provider": "Wikimedia Commons",
+      "media_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Sogo_Yokohama.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sogo_Yokohama.jpg",
+      "rights": {
+        "display_allowed": true,
+        "cache_allowed": true,
+        "commercial_allowed": true,
+        "sns_allowed": true,
+        "attribution_required": true,
+        "attribution_text": "Sakura Torch / Wikimedia Commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "rights_reviewed_at": "2026-09-29"
+      },
+      "notes": "そごう横浜店の施設写真。展覧会自体の画像ではないため会場イメージ表記必須。"
+    }
+  ]
+}

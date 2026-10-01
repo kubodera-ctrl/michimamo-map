@@ -1,0 +1,154 @@
+{
+  "version": "2026-09-30-live-dry-run-v3",
+  "status": "non_production_dry_run_evidence",
+  "recorded_at": "2026-09-30T11:23:17+09:00",
+  "evidence": {
+    "github_actions_run": 784,
+    "verified_head": "5d2a31b6743054a98f48701d1dd862efcc4a1cf1",
+    "database_write": false,
+    "active_write": false,
+    "production_change": false
+  },
+  "sources": [
+    {
+      "source_key": "mie-pref-events-open-data",
+      "source_id": 1252966996,
+      "prefecture": "三重県",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 160713,
+      "funnel": {
+        "potential": 66,
+        "fetched": 46,
+        "normalized": 46,
+        "deduped": 46,
+        "valid": 0,
+        "publishable": 0,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 27,
+        "with_official_url": 0,
+        "duplicates_removed": 0,
+        "ended": 2
+      },
+      "blockers": [
+        "official_url_missing:46",
+        "location_missing:19"
+      ]
+    },
+    {
+      "source_key": "bodik-okazaki-events",
+      "source_id": 1593138319,
+      "prefecture": "愛知県",
+      "municipality": "岡崎市",
+      "encoding": "utf-8",
+      "http_status": 200,
+      "bytes_received": 836685,
+      "funnel": {
+        "potential": 1082,
+        "fetched": 1082,
+        "normalized": 1082,
+        "deduped": 1082,
+        "valid": 784,
+        "publishable": 152,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 786,
+        "with_official_url": 1081,
+        "duplicates_removed": 0,
+        "ended": 803
+      },
+      "blockers": [
+        "location_missing:296",
+        "official_url_missing:1",
+        "date_range_invalid:1"
+      ]
+    },
+    {
+      "source_key": "bodik-osaka-pref-events",
+      "source_id": 409379966,
+      "prefecture": "大阪府",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 54464,
+      "funnel": {
+        "potential": 78,
+        "fetched": 78,
+        "normalized": 77,
+        "deduped": 77,
+        "valid": 77,
+        "publishable": 75,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 78,
+        "with_official_url": 78,
+        "duplicates_removed": 1,
+        "ended": 2
+      },
+      "blockers": []
+    },
+    {
+      "source_key": "bodik-kadoma-events",
+      "source_id": 3449742540,
+      "prefecture": "大阪府",
+      "municipality": "門真市",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 3852,
+      "funnel": {
+        "potential": 5,
+        "fetched": 5,
+        "normalized": 5,
+        "deduped": 5,
+        "valid": 5,
+        "publishable": 5,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 5,
+        "with_official_url": 5,
+        "duplicates_removed": 0,
+        "ended": 0
+      },
+      "blockers": []
+    },
+    {
+      "source_key": "bodik-toyonaka-events",
+      "source_id": 2689324985,
+      "prefecture": "大阪府",
+      "municipality": "豊中市",
+      "encoding": "utf-8",
+      "http_status": 200,
+      "bytes_received": 93351,
+      "funnel": {
+        "potential": 153,
+        "fetched": 153,
+        "normalized": 153,
+        "deduped": 153,
+        "valid": 153,
+        "publishable": 8,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 153,
+        "with_official_url": 153,
+        "duplicates_removed": 0,
+        "ended": 145
+      },
+      "blockers": []
+    }
+  ],
+  "aggregate": {
+    "note": "Sum of five READY source dry-runs. Deduped is within-source only; cross-source identity/dedup remains a separate next stage.",
+    "potential": 1384,
+    "fetched": 1364,
+    "normalized": 1363,
+    "deduped_within_source": 1363,
+    "valid": 1019,
+    "publishable": 240,
+    "active": 0
+  }
+}

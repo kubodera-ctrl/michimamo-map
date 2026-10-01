@@ -1,0 +1,204 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {
+  buildApprovedFetchPlan,buildDryRunFetchPlan,normalizeCommonItem,parseCsv,parseHtmlStructured,
+  parseIcs,parseJsonApi,parseKawasakiEventApi,parseRssAtom,parseSourcePayload
+} from '../../shared/machiibe-ingestion/adapters';
+import type {SourcePolicySnapshot} from '../../shared/machiibe-ingestion/contracts';
+
+function source(patch:Partial<SourcePolicySnapshot>={}):SourcePolicySnapshot{
+  return {
+    sourceId:1,sourceName:'Official',sourceType:'open_data',prefecture:'東京都',municipality:null,
+    baseUrl:'https://official.test/',feedUrl:'https://official.test/events',fetchMethod:'OPEN_DATA',
+    termsStatus:'pending',robotsStatus:'pending',commercialUseStatus:'unknown',
+    reuseStatus:'unknown',redistributionStatus:'unknown',cacheStatus:'unknown',
+    imageUseStatus:'unknown',snsUseStatus:'unknown',attributionRequirement:null,
+    sourceStage:'CANDIDATE',lastTermsCheckedAt:null,
+    updateFrequencyMinutes:1440,lastCheckedAt:null,lastSuccessAt:null,failureCount:0,active:true,priority:50,
+    automatedFetchAllowed:false,etag:'"abc"',lastModified:'Mon, 28 Sep 2026 00:00:00 GMT',...patch
+  };
+}
+
+test('dry-run plans are available while actual fetch stays fail-closed until every source gate is approved',()=>{
+  assert.equal(buildDryRunFetchPlan(source())?.dryRun,true);
+  assert.equal(buildApprovedFetchPlan(source()),null);
+  assert.equal(buildApprovedFetchPlan(source({
+    termsStatus:'reviewed_allowed',robotsStatus:'allowed',commercialUseStatus:'allowed',reuseStatus:'allowed',sourceStage:'FETCH_ALLOWED',automatedFetchAllowed:true
+  }))?.dryRun,false);
+});
+
+test('OPEN_DATA CSV adapter keeps source facts and does not infer missing canonical fields',()=>{
+  const s=source();
+  const parsed=parseCsv('event_id,イベント名,開始日,終了日,市区郡,URL\n1,親子体験,2026-10-01,2026-10-01,港区,https://official.test/e/1',s);
+  assert.equal(parsed.items.length,1);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'親子体験');
+  assert.equal(normalized.municipality,'港区');
+  assert.equal(normalized.indoor,null);
+  assert.equal(normalized.imageUrl,null);
+});
+
+test('OPEN_DATA CSV adapter tolerates quoted commas and embedded newlines',()=>{
+  const s=source();
+  const csv=`event_id,イベント名,内容,開始日,終了日,市区郡,URL
+1,"親子,体験","1行目
+2行目",2026-10-01,2026-10-01,港区,https://official.test/e/1`;
+  const parsed=parseCsv(csv,s);
+  assert.equal(parsed.items.length,1);
+  assert.deepEqual(parsed.warnings,[]);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'親子,体験');
+  assert.equal(normalized.description,`1行目
+2行目`);
+  assert.equal(normalized.officialUrl,'https://official.test/e/1');
+});
+
+test('current municipal ODS event fields normalize without weakening rights gates',()=>{
+  const s=source();
+  const csv='ID,地方公共団体名,イベント名,コンテンツURL,開始日,終了日,場所名称,所在地_連結表記,所在地_都道府県,所在地_市区町村,緯度,経度,イベント種類,料金種別,URL\n1,岡崎市,親子体験,https://official.test/content/1,2026/10/10,2026/10/10,中央公園,愛知県岡崎市,愛知県,岡崎市,34.95,137.17,体験,無料,https://official.test/event/1';
+  const parsed=parseCsv(csv,s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'親子体験');
+  assert.equal(normalized.officialUrl,'https://official.test/event/1');
+  assert.equal(normalized.venueName,'中央公園');
+  assert.equal(normalized.address,'愛知県岡崎市');
+  assert.equal(normalized.prefecture,'愛知県');
+  assert.equal(normalized.municipality,'岡崎市');
+  assert.equal(normalized.lat,34.95);
+  assert.equal(normalized.lng,137.17);
+  assert.equal(normalized.category,'体験');
+  assert.equal(normalized.priceType,'free');
+  assert.equal(normalized.imageUrl,null);
+  assert.equal(normalized.imageRightsStatus,'unknown');
+});
+
+test('municipal ODS placeholder URL falls back to feed provenance without becoming official URL',()=>{
+  const s=source({feedUrl:'https://official.test/events.csv'});
+  const parsed=parseCsv('ID,イベント名,開始日,場所名称,URL,コンテンツURL\n1,体験会,2026/10/10,中央公園,ー,なし',s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.sourceUrl,'https://official.test/events.csv');
+  assert.equal(normalized.officialUrl,null);
+});
+
+test('municipal ODS slash dates canonicalize for range and freshness comparisons',()=>{
+  const s=source();
+  const parsed=parseCsv('ID,イベント名,開始日,終了日,場所名称,URL\n1,体験会,2026/09/01,2026/09/02,中央公園,https://official.test/e/1',s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.startAt,'2026-09-01');
+  assert.equal(normalized.endAt,'2026-09-02');
+});
+
+test('JSON API, RSS, ICS and HTML JSON-LD adapters discover event records without network access',()=>{
+  const json=parseJsonApi({events:[{id:'a',name:'JSON event',url:'https://official.test/a'}]},source({fetchMethod:'JSON_API'}));
+  assert.equal(json.items.length,1);
+
+  const rss=parseRssAtom('<rss><channel><item><guid>b</guid><title>RSS event</title><link>https://official.test/b</link></item></channel></rss>',source({fetchMethod:'RSS'}));
+  assert.equal(rss.items.length,1);
+
+  const ics=parseIcs('BEGIN:VCALENDAR\nBEGIN:VEVENT\nUID:c\nSUMMARY:ICS event\nDTSTART:20261001T100000\nURL:https://official.test/c\nEND:VEVENT\nEND:VCALENDAR',source({fetchMethod:'ICS'}));
+  assert.equal(ics.items.length,1);
+
+  const html=parseHtmlStructured('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"LD event","url":"https://official.test/d","startDate":"2026-10-01"}</script>',source({fetchMethod:'HTML_STRUCTURED'}));
+  assert.equal(html.items.length,1);
+  const normalized=normalizeCommonItem(html.items[0],source());
+  assert.equal(normalized.title,'LD event');
+  assert.equal(normalized.startAt,'2026-10-01');
+  assert.equal(normalized.imageRightsStatus,'unknown');
+});
+
+
+test('Hamamatsu official event CSV fields normalize with stable ID, event freshness and factual fields',()=>{
+  const s=source({
+    sourceName:'浜松市 オープンデータ「イベント」',prefecture:'静岡県',municipality:'浜松市',
+    feedUrl:'https://static.hamamatsu.odpf.net/opendata/v01/221309_hamamatsu_event/221309_hamamatsu_event.csv'
+  });
+  const csv='NO,都道府県名,市区町村名,イベント名,開始日,終了日,説明,料金(基本),料金(詳細),場所名称,住所,緯度,経度,URL,カテゴリー,公開日,更新日\n20260113435,静岡県,浜松市,鳥獣被害対策基本講座,2026-11-26,,講座の説明,,無料,引佐支所,浜松市浜名区引佐町井伊谷616-5,34.834554,137.670504,https://www.city.hamamatsu.shizuoka.jp/noushin/event/tyoju-kouza.html,講座・教室,2026-01-19,2026-01-28';
+  const parsed=parseCsv(csv,s);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(parsed.items[0].sourceEventId,'20260113435');
+  assert.equal(parsed.items[0].sourceUpdatedAt,'2026-01-28');
+  assert.equal(normalized.description,'講座の説明');
+  assert.equal(normalized.prefecture,'静岡県');
+  assert.equal(normalized.municipality,'浜松市');
+  assert.equal(normalized.venueName,'引佐支所');
+  assert.equal(normalized.category,'講座・教室');
+  assert.equal(normalized.priceType,'free');
+  assert.equal(normalized.officialUrl,'https://www.city.hamamatsu.shizuoka.jp/noushin/event/tyoju-kouza.html');
+  assert.equal(normalized.imageUrl,null);
+  assert.equal(normalized.imageRightsStatus,'unknown');
+});
+
+
+test('Kawasaki Event API adapter expands documented date_list occurrences without inventing media rights',()=>{
+  const s=source({
+    sourceName:'川崎市 Event API',
+    sourceType:'open_data_api',
+    prefecture:'神奈川県',
+    municipality:'川崎市',
+    baseUrl:'https://eventapp.city.kawasaki.jp/data/api/v1',
+    feedUrl:'https://eventapp.city.kawasaki.jp/data/api/v1/events?page=1&format=JSON',
+    fetchMethod:'JSON_API'
+  });
+  const fixture=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/fixtures/kawasaki_event_api_schema_fixture.json',import.meta.url),'utf8'));
+  const parsed=parseKawasakiEventApi(fixture,s);
+  assert.equal(parsed.items.length,2);
+  assert.deepEqual(parsed.warnings,[]);
+  assert.notEqual(parsed.items[0].sourceEventId,parsed.items[1].sourceEventId);
+  assert.equal(parsed.items[0].sourceUpdatedAt,'2026-09-29 12:00:00');
+
+  const first=normalizeCommonItem(parsed.items[0],s);
+  const second=normalizeCommonItem(parsed.items[1],s);
+  assert.equal(first.title,'親子体験講座');
+  assert.equal(first.description,'川崎Event API adapter検証用のsynthetic fixture。');
+  assert.equal(first.startAt,'2026-10-10');
+  assert.equal(first.endAt,'2026-10-10');
+  assert.equal(second.startAt,'2026-10-12');
+  assert.equal(first.prefecture,'神奈川県');
+  assert.equal(first.municipality,'川崎市');
+  assert.equal(first.address,'川崎市中原区テスト1-1');
+  assert.equal(first.lat,35.57);
+  assert.equal(first.lng,139.65);
+  assert.equal(first.category,'体感・体験,子ども・子育て');
+  assert.deepEqual(first.accessibility,['エレベーター','授乳室']);
+  assert.equal(first.officialUrl,'https://example.invalid/kawasaki-event');
+  assert.equal(first.imageUrl,null);
+  assert.equal(first.imageRightsStatus,'unknown');
+
+  const auto=parseSourcePayload(fixture,s);
+  assert.equal(auto.items.length,2);
+});
+
+
+
+test('Mie documented open-data headers normalize without inventing rights or price facts',()=>{
+  const s=source({
+    sourceName:'三重県 お知らせ・イベント情報一覧 Open Data CSV',
+    prefecture:'三重県',
+    baseUrl:'https://www.pref.mie.lg.jp/EVENTS/opendata.htm',
+    feedUrl:'https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv',
+    termsStatus:'reviewed_allowed',robotsStatus:'not_applicable',
+    commercialUseStatus:'allowed',reuseStatus:'allowed',
+    redistributionStatus:'allowed',cacheStatus:'allowed',
+    imageUseStatus:'not_applicable',snsUseStatus:'allowed',
+    sourceStage:'FETCH_ALLOWED',lastTermsCheckedAt:'2026-09-29',
+    automatedFetchAllowed:true
+  });
+  const csv=fs.readFileSync(new URL('../../data/machiibe/fixtures/mie_open_data_schema_fixture.csv',import.meta.url),'utf8');
+  const parsed=parseCsv(csv,s);
+  assert.equal(parsed.items.length,1);
+  const normalized=normalizeCommonItem(parsed.items[0],s);
+  assert.equal(normalized.title,'テストイベント');
+  assert.equal(normalized.description,'テスト本文');
+  assert.equal(normalized.startAt,'2026-10-10');
+  assert.equal(normalized.endAt,'2026-10-10');
+  assert.equal(normalized.municipality,'津市');
+  assert.equal(normalized.venueName,'テスト会場');
+  assert.equal(normalized.category,'文化');
+  assert.equal(normalized.priceType,'unknown');
+  assert.equal(normalized.imageUrl,null);
+  assert.equal(normalized.imageRightsStatus,'unknown');
+  // The feed URL is a source URL, not an event-specific official URL.
+  assert.equal(normalized.officialUrl,null);
+  assert.equal(buildApprovedFetchPlan(s)?.url,'https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv');
+});

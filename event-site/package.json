@@ -10,7 +10,15 @@
     "test": "node --test --import=tsx tests/*.test.ts",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "source:dry-run": "tsx scripts/machiibe-source-dry-run.ts",
+    "source:resolve-resource": "tsx scripts/machiibe-source-resolve-resource.ts",
+    "source:discover-bodik-events": "tsx scripts/machiibe-ckan-discover-events.ts",
+    "source:dry-run-cross-dedupe": "tsx scripts/machiibe-ready-cross-dedupe-dry-run.ts",
+    "source:probe-tokyo-event-api": "tsx scripts/machiibe-tokyo-event-api-probe.ts",
+    "source:preflight-csv": "tsx scripts/machiibe-source-preflight-csv.ts",
+    "source:audit-kawasaki-event-api": "tsx scripts/machiibe-kawasaki-event-api-audit.ts",
+    "source:dry-run-facts-only": "tsx scripts/machiibe-facts-only-dry-run.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.116.0",

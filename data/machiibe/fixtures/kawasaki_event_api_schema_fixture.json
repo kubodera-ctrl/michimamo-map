@@ -1,0 +1,70 @@
+{
+  "fixture_kind": "synthetic_schema_fixture",
+  "source": "川崎市Event API公式Referenceのfield構造に基づく。実イベント本文・画像は含めない。",
+  "page": 1,
+  "total_pages": 1,
+  "total_numbers": 1,
+  "event_data": [
+    {
+      "title": "親子体験講座",
+      "content": "川崎Event API adapter検証用のsynthetic fixture。",
+      "status": "公開中",
+      "status_ext": "",
+      "date_list": [
+        {
+          "date": "2026-10-10",
+          "time_from": "10:00:00",
+          "time_to": "12:00:00",
+          "time_ext": "",
+          "date_w": "土曜日"
+        },
+        {
+          "date": "2026-10-12",
+          "time_from": "13:30:00",
+          "time_to": "15:00:00",
+          "time_ext": "",
+          "date_w": "月曜日"
+        }
+      ],
+      "type1": "体感・体験,子ども・子育て",
+      "type2": "行政",
+      "target": "幼児,保護者",
+      "target_ext": "",
+      "target_sex": "指定なし",
+      "target_area": "地域指定なし",
+      "target_area_list": "指定なし",
+      "target_area_ext": "",
+      "place": "中原区",
+      "event_location": [],
+      "place_zip": "0000000",
+      "place_adr": "川崎市中原区テスト1-1",
+      "place_lat": 35.57,
+      "place_lon": 139.65,
+      "cost_ext": "",
+      "capacity_ext": "",
+      "entry_list": [
+        {
+          "entry_from": "2026-09-20",
+          "entry_to": "2026-10-05",
+          "entry_tel": "",
+          "entry_fax": "",
+          "entry_mail": "",
+          "entry_url": "https://example.invalid/kawasaki-entry",
+          "entry_postcode": "",
+          "entry_post": "",
+          "entry_ext": "",
+          "entry_from_w": "",
+          "entry_to_w": ""
+        }
+      ],
+      "note": "",
+      "rel_list": [],
+      "organizer": "テスト担当",
+      "contact_list": [],
+      "open_url": "https://example.invalid/kawasaki-event",
+      "barrier_free": "エレベーター,授乳室",
+      "upd_date": "2026-09-29 12:00:00",
+      "created_date": "2026-09-20 10:00:00"
+    }
+  ]
+}

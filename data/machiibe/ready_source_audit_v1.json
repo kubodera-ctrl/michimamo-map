@@ -1,0 +1,544 @@
+{
+  "version": "2026-10-01-ready-audit-v16",
+  "policy": "READY only when terms, access policy, resource, commercial/reuse, attribution, freshness and third-party-rights separation are all clear.",
+  "sources": [
+    {
+      "source_key": "tottori-pref-event-open-data",
+      "prefecture": "鳥取県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://odp-pref-tottori.tori-info.co.jp/dataset/1879.html",
+        "api": "https://odp-pref-tottori.tori-info.co.jp/api/package_show?id=db14b1ba-9705-413f-8ffe-715379a54062",
+        "csv": "https://odp-pref-tottori.tori-info.co.jp/dataset/1879/resource/9594/310000_event.csv",
+        "license": "CC BY",
+        "dataset_updated_at": "2026-06-23",
+        "note": "掲載datasetは2026-03-23〜03-31の年度アーカイブ。リアルタイムデータは鳥取県データ連携基盤へ案内されており、そちらの安定取得経路/access policyを別確認する。"
+      }
+    },
+    {
+      "source_key": "shimane-pref-events-2026",
+      "prefecture": "島根県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "resource_page": "https://shimane-opendata.jp/resources/75904",
+        "file_name": "shimane_event2026.xlsx",
+        "license": "CC BY",
+        "published_at": "2026-03-24",
+        "updated_at": "2026-03-24",
+        "note": "令和8年3月16日取りまとめの年次snapshot。最新情報は各所管課確認と明記されるため、単独sourceでActive freshnessを担保しない。"
+      }
+    },
+    {
+      "source_key": "kagawa-mitoyo-events",
+      "prefecture": "香川県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "robots_or_api_policy",
+        "freshness"
+      ],
+      "evidence": {
+        "file_name": "372081_event.csv",
+        "license": "CC BY 4.0",
+        "update_frequency": "原則1年に1回",
+        "last_observed_dataset_update": "2024-03-22",
+        "note": "自治体標準ODSとして有用だがイベント供給の鮮度が低い。観光/施設sourceの補助・identity補完用途を優先。"
+      }
+    },
+    {
+      "source_key": "mie-pref-events-open-data",
+      "prefecture": "三重県",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "landing_page": "https://www.pref.mie.lg.jp/EVENTS/opendata.htm",
+        "csv": "https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv",
+        "license": "CC BY 4.0",
+        "update_frequency": "毎日午前7時ごろ",
+        "image_policy": "dataset has no reusable image contract; media remains separate/fail-closed",
+        "note": "県公式がデータファイルとしてCSV直リンクを明示。HTML crawlingではなく配布CSVを直接取得する。個別コンテンツに第三者権利が含まれる場合は別途処理する。"
+      }
+    },
+    {
+      "source_key": "bodik-okazaki-events",
+      "prefecture": "愛知県",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/232025_event",
+        "resource_page": "https://data.bodik.jp/dataset/232025_event/resource/92a4cbd7-1a7d-47ef-9ead-4c6e42fe6eba",
+        "csv": "https://data.bodik.jp/dataset/beb99975-6d85-4463-8767-0cb1d7c414e0/resource/92a4cbd7-1a7d-47ef-9ead-4c6e42fe6eba/download/232025_event.csv",
+        "api_docs": "https://odcs.bodik.jp/232025/use_api/",
+        "license": "CC BY 4.0",
+        "city_terms": "岡崎市オープンデータ利用規約: 営利・非営利を問わず利用・改変可、岡崎市のデータ利用である旨を表示",
+        "observed_resource_update": "2026-09-02 (catalog search observation; provider pages may show older cached metadata)",
+        "note": "BODIK公式API案内が当該イベントresource_idのDataStore API例を明示。画像・第三者素材はevent factsと分離しfail-closed。"
+      }
+    },
+    {
+      "source_key": "bodik-osaka-pref-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/ja/dataset/270008_event",
+        "resource_page": "https://data.bodik.jp/dataset/270008_event/resource/a6f32430-9e39-49f7-b429-6e4eadcc96de",
+        "csv": "https://data.bodik.jp/dataset/388c34d1-f97a-4865-a547-8e89c53a364a/resource/a6f32430-9e39-49f7-b429-6e4eadcc96de/download/270008_event.csv",
+        "terms": "https://odcs.bodik.jp/270008/tos/",
+        "license": "CC BY 4.0",
+        "observed_portal_update": "2026-09-07 event list shown as new/updated on Osaka portal",
+        "note": "Direct official CSV distribution. Third-party rights clause is preserved as a separate media/content gate; no image reuse is inferred."
+      }
+    },
+    {
+      "source_key": "bodik-okinawa-pref-events",
+      "prefecture": "沖縄県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/47007_event",
+        "terms": "https://odcs.bodik.jp/470007/tos/",
+        "license": "CC BY 4.0",
+        "dataset_updated_at": "2026-03-30",
+        "note": "BODIK公式CKANでdirect CSV resourceを2026-10-01に解決。resource metadata最終更新は2026-03-30で、10月時点のevent-level freshnessを本文取得で再確認できていないためREADYへ上げない。",
+        "direct_resource": "https://data.bodik.jp/dataset/55c0bcf2-b656-4e75-ac9f-dbf06796acac/resource/bda2e391-3b62-4978-a3bd-3c4e9ede06f0/download/470007_event_2026.csv",
+        "resource_page": "https://data.bodik.jp/dataset/47007_event/resource/bda2e391-3b62-4978-a3bd-3c4e9ede06f0",
+        "resource_metadata_updated_at": "2026-03-30",
+        "resource_size": "96.5 KiB"
+      }
+    },
+    {
+      "source_key": "bodik-kumatori-events",
+      "prefecture": "大阪府",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": null,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": null,
+      "reuse_allowed": null,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "terms_review"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8",
+        "resource_page": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb",
+        "csv": "https://data.bodik.jp/dataset/1fa97779-568e-4b59-a543-0ea191d363e8/resource/2f142e50-67f1-4aee-b430-bd8d63f336eb/download/273619_event.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-09-18T04:59:12.364828",
+        "live_discovery_run": 779,
+        "note": "以前の検索キャッシュ由来2025-11-14判定をlive CKAN #779で訂正。freshnessは合格。利用規約・商用/reuse・attributionの公式確認前なのでterms_reviewのみHOLD。"
+      }
+    },
+    {
+      "source_key": "bodik-nagasaki-monthly-events",
+      "prefecture": "長崎県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/f76b7e71-6c52-491a-a847-d5aacb73bc98",
+        "resolver_api": "https://data.bodik.jp/api/3/action/package_show?id=f76b7e71-6c52-491a-a847-d5aacb73bc98",
+        "terms": "https://odcs.bodik.jp/422011/tos/",
+        "license": "CC BY 4.0",
+        "max_resource_age_days": 45,
+        "note": "CKAN_LATEST_CSV resolver自体は正常。package内で最も新しいactive HTTPS CSVが2024年3月resourceのためfreshness gate FAIL。READYへ昇格しない。",
+        "resolver_probe_run": 773,
+        "resolved_resource_id": "7e148d9c-1ef5-48d4-9a5f-cb596bf86cd5",
+        "resolved_resource_name": "2024.3月_イベント一覧（長崎市の月別行事予定）",
+        "resolved_resource_url": "https://data.bodik.jp/dataset/f76b7e71-6c52-491a-a847-d5aacb73bc98/resource/7e148d9c-1ef5-48d4-9a5f-cb596bf86cd5/download/422011_event_m_202403.csv",
+        "resolved_modified_at": "2024-02-29T08:10:07.682Z",
+        "resolved_age_days": 943.75,
+        "ready_freshness_gate": false
+      }
+    },
+    {
+      "source_key": "bodik-kadoma-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "city_open_data": "https://www.city.kadoma.osaka.jp/soshiki/kikakuzaisei/ict/2/5/opendata.html",
+        "dataset": "https://data.bodik.jp/dataset/ef30adaf-dda4-4549-9e58-c92b7983c9b3",
+        "csv": "https://data.bodik.jp/dataset/ef30adaf-dda4-4549-9e58-c92b7983c9b3/resource/23cfa9eb-181e-4d91-8f5f-50bdfdfec485/download/272230_event_202610.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-09-29T04:21:39.423619",
+        "note": "門真市公式がBODIK公開データをCC BY 4.0で提供。live CKAN #779で2026年10月イベントCSVを確認。event factsとmedia rightsは分離。"
+      }
+    },
+    {
+      "source_key": "bodik-toyonaka-events",
+      "prefecture": "大阪府",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "city_open_data": "https://www.city.toyonaka.osaka.jp/joho/keikaku/degital_government/torikumi/open_data/index.html",
+        "terms": "https://www.city.toyonaka.osaka.jp/joho/keikaku/degital_government/torikumi/open_data/index.files/public_facility_opendata_agreement.pdf",
+        "dataset": "https://data.bodik.jp/dataset/4f4ac809-c36a-46a6-ad39-76e7e2bbf587",
+        "csv": "https://data.bodik.jp/dataset/4f4ac809-c36a-46a6-ad39-76e7e2bbf587/resource/b0a19f54-86b5-4083-bdea-17f7fa76487f/download/272035_event.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-09-03T00:05:10.819043",
+        "note": "豊中市公式規約は商用利用、複製・改変・頒布・公衆送信を許可しCC BY 4.0。第三者権利は別gate。live CKAN #779のfreshnessを優先。"
+      }
+    },
+    {
+      "source_key": "bodik-usa-events",
+      "prefecture": "大分県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness_recheck"
+      ],
+      "evidence": {
+        "city_open_data": "https://www.city.usa.oita.jp/sougo/soshiki/10/sogoseisaku/2_1/open_data/index.html",
+        "dataset": "https://data.bodik.jp/dataset/72e1d155-6ea8-450e-9559-570b768ab1ab",
+        "csv": "https://data.bodik.jp/dataset/72e1d155-6ea8-450e-9559-570b768ab1ab/resource/00a0b50c-a46b-498c-94fd-0fe61f3d14c2/download/442119_event.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-08-03T02:32:29.576088",
+        "live_discovery_run": 779,
+        "note": "権利/access/resourceは明確。更新から約58日でfreshness余裕が小さいため、次回更新確認かcurrent event内容確認後にREADY再判定。"
+      }
+    },
+    {
+      "source_key": "bodik-shibushi-events",
+      "prefecture": "鹿児島県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "content_freshness"
+      ],
+      "evidence": {
+        "city_open_data": "https://www.city.shibushi.lg.jp/soshiki/1/1876.html",
+        "current_calendar": "https://www.city.shibushi.lg.jp/calendar/",
+        "dataset": "https://data.bodik.jp/dataset/7b13ce0d-97c7-4935-8071-a0888469b592",
+        "csv": "https://data.bodik.jp/dataset/7b13ce0d-97c7-4935-8071-a0888469b592/resource/dca85562-12e6-4d3a-b87f-e1f9e43e8eb1/download/462217_event_2024.csv",
+        "license": "CC BY 4.0",
+        "resource_modified": "2026-08-26T02:43:50.788245",
+        "live_discovery_run": 779,
+        "note": "metadata更新は新しいがresource自体が2024年度イベント。2026現行カレンダーと一致しないためfreshness FAIL。READYへ上げない。"
+      }
+    },
+    {
+      "source_key": "tokyo-metropolitan-event-api",
+      "prefecture": "東京都",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness",
+        "reference_https_quality"
+      ],
+      "evidence": {
+        "official_api": "https://api.data.metro.tokyo.lg.jp/v1/Event",
+        "official_api_catalog": "https://portal.data.metro.tokyo.lg.jp/opendata-api/",
+        "official_terms": "https://portal.data.metro.tokyo.lg.jp/terms/",
+        "license": "CC BY 4.0 by default unless individual rule applies",
+        "auth": "none / public GET API",
+        "probe_run": 814,
+        "probe_http_status": 200,
+        "response_shape": "[rows,meta]",
+        "row_count": 30,
+        "min_start_date": "2018-12-02",
+        "max_start_date": "2019-05-03",
+        "api_meta_updated": "2024-11-13T00:49:14.851Z",
+        "reference_https": 3,
+        "reference_http": 15,
+        "reference_other": 1,
+        "note": "API availability/access is valid, but the corpus is historical and reference URLs are mostly HTTP. Fresh current event source must be found elsewhere; do not READY/promote this API."
+      }
+    },
+    {
+      "source_key": "gifu-pref-current-calendar",
+      "prefecture": "岐阜県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.gifu.lg.jp/calendar/",
+        "homepage_terms": "https://www.pref.gifu.lg.jp/page/79328.html",
+        "note": "一般の岐阜県公式HPは私的使用・引用等を除き許可なく複製・転用不可。オープンデータカタログのCC BY規約を公式HPカレンダーへ流用しない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "saitama-pref-current-calendar",
+      "prefecture": "埼玉県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.saitama.lg.jp/cgi-bin/event_cal/cal_month.cgi",
+        "homepage_terms": "https://www.pref.saitama.lg.jp/a0301/tyosaku-rinku.html",
+        "note": "埼玉県HP掲載情報の転載は各担当課の承認が必要。自動取得・再掲載sourceとしてREADYへ進めない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "ehime-pref-current-calendar",
+      "prefecture": "愛媛県",
+      "decision": "HOLD_PREFLIGHT",
+      "terms_allowed": false,
+      "robots_or_api_policy_clear": false,
+      "resource_resolved": true,
+      "commercial_allowed": false,
+      "reuse_allowed": false,
+      "attribution_known": false,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "homepage_reuse_terms",
+        "robots_or_access_policy"
+      ],
+      "evidence": {
+        "calendar": "https://www.pref.ehime.jp/calendar/",
+        "homepage_terms": "https://www.pref.ehime.jp/page/14959.html",
+        "open_data_terms": "https://www.pref.ehime.jp/opendata-catalog/policy.html",
+        "note": "一般の愛媛県公式HPは無断複製・転用不可。オープンデータカタログのCC BY 4.0は別サイト/別コンテンツ契約であり、公式HPカレンダーへ自動適用しない。robots.txtは現ツールから確認できず。"
+      }
+    },
+    {
+      "source_key": "ota-city-events-open-data",
+      "prefecture": "群馬県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "content_freshness",
+        "schema_probe"
+      ],
+      "evidence": {
+        "open_data_page": "https://www.city.ota.gunma.jp/page/3147.html",
+        "terms": "https://www.city.ota.gunma.jp/page/3146.html",
+        "csv": "https://www.city.ota.gunma.jp/uploaded/attachment/38432.csv",
+        "license": "CC BY 4.0",
+        "update_history": "event list updated 2026-03-24",
+        "note": "公式に開催予定イベント一覧と明記。実CSVの2026年開催範囲・列・event URLをpreflight確認後にREADY再判定。"
+      }
+    },
+    {
+      "source_key": "saga-city-tourism-events",
+      "prefecture": "佐賀県",
+      "decision": "HOLD_TERMS_REVIEWED",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": false,
+      "third_party_rights_separated": true,
+      "blockers": [
+        "freshness"
+      ],
+      "evidence": {
+        "dataset": "https://data.bodik.jp/dataset/412015_eventlist_from4to9",
+        "license": "CC BY",
+        "latest_observed_event_period": "2025-10 through 2026-03",
+        "note": "current date 2026-09-30時点では確認可能な最新イベント期間が終了済み。新resource出現までREADYへ上げない。"
+      }
+    },
+    {
+      "source_key": "hamamatsu-current-events-open-data",
+      "prefecture": "静岡県",
+      "decision": "READY",
+      "terms_allowed": true,
+      "robots_or_api_policy_clear": true,
+      "resource_resolved": true,
+      "commercial_allowed": true,
+      "reuse_allowed": true,
+      "attribution_known": true,
+      "freshness_acceptable": true,
+      "third_party_rights_separated": true,
+      "blockers": [],
+      "evidence": {
+        "official_data_page": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?m=detail&x=221309_hamamatsu_event",
+        "official_event_index": "https://www.city.hamamatsu.shizuoka.jp/odpf/event/v1.html?x=221309_hamamatsu_event",
+        "csv": "https://static.hamamatsu.odpf.net/opendata/v01/221309_hamamatsu_event/221309_hamamatsu_event.csv",
+        "terms": "https://www.city.hamamatsu.shizuoka.jp/koho2/opendata/kiyaku.html",
+        "license": "CC BY 2.1 Japan",
+        "official_dataset_updated": "2026-09-16",
+        "official_event_index_observed_updated": "2026-09-25",
+        "observed_event_category_items_min": 338,
+        "note": "公式source・CC BY 2.1日本・direct CSV access・schema・Shift_JIS・未来開催日・location・event-specific URL品質を確認。#855でlive dry-run / six-source cross-dedupeもPASS。URLなし296件と開始日なし2件はfail-closed。画像rightsはfactsと分離。READYはcontrolled automated dry-runを許可するがACTIVE/Production writeは行わない。",
+        "ci_preflight": "Event Site Check #850",
+        "http_status": 200,
+        "bytes": 1359287,
+        "encoding": "Shift_JIS",
+        "replacement_count": 0,
+        "csv_rows": 2293,
+        "raw_date_count": 5656,
+        "min_date": "2026-01-19",
+        "max_date": "2027-06-20",
+        "current_or_future_dates": 2322,
+        "with_title": 2293,
+        "with_start_at": 2291,
+        "with_location": 2293,
+        "with_official_url": 1997,
+        "ci_live_dry_run": "Event Site Check #855",
+        "verified_head": "2efd140eab5fabd6940f356d4ddb13b1500c0b05",
+        "live_funnel": {
+          "potential": 2293,
+          "fetched": 2293,
+          "normalized": 2293,
+          "deduped": 2293,
+          "valid": 1995,
+          "publishable": 1972,
+          "active": 0
+        },
+        "event_freshness_evidence": {
+          "with_source_updated_at": 160,
+          "total": 2293,
+          "live_last_seen_evidence": "2026-10-01 dry-run observation; no Production write"
+        },
+        "identity": {
+          "with_source_event_id": 2293,
+          "unique": 2293,
+          "duplicates_removed": 0
+        },
+        "cross_source_dedup": {
+          "publishable_input": 2329,
+          "auto_merge_pairs": 0,
+          "review_pairs": 0,
+          "clusters": 0,
+          "unique_after_auto_merge": 2329
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "version": "2026-10-01-live-dry-run-v4",
+  "status": "non_production_dry_run_evidence",
+  "recorded_at": "2026-10-01T06:40:47+09:00",
+  "evidence": {
+    "github_actions_run": 855,
+    "verified_head": "2efd140eab5fabd6940f356d4ddb13b1500c0b05",
+    "database_write": false,
+    "active_write": false,
+    "production_change": false
+  },
+  "sources": [
+    {
+      "source_key": "mie-pref-events-open-data",
+      "source_id": 1252966996,
+      "prefecture": "三重県",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 152960,
+      "funnel": {
+        "potential": 66,
+        "fetched": 50,
+        "normalized": 49,
+        "deduped": 49,
+        "valid": 0,
+        "publishable": 0,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 31,
+        "with_official_url": 0,
+        "with_source_updated_at": 0,
+        "with_source_event_id": 0,
+        "duplicates_removed": 1,
+        "ended": 1
+      }
+    },
+    {
+      "source_key": "bodik-okazaki-events",
+      "source_id": 1593138319,
+      "prefecture": "愛知県",
+      "municipality": "岡崎市",
+      "encoding": "utf-8",
+      "http_status": 200,
+      "bytes_received": 836685,
+      "funnel": {
+        "potential": 1082,
+        "fetched": 1082,
+        "normalized": 1082,
+        "deduped": 1082,
+        "valid": 1080,
+        "publishable": 270,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 1082,
+        "with_official_url": 1081,
+        "with_source_updated_at": 0,
+        "with_source_event_id": 1082,
+        "duplicates_removed": 0,
+        "ended": 811
+      }
+    },
+    {
+      "source_key": "bodik-osaka-pref-events",
+      "source_id": 409379966,
+      "prefecture": "大阪府",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 54464,
+      "funnel": {
+        "potential": 78,
+        "fetched": 78,
+        "normalized": 77,
+        "deduped": 77,
+        "valid": 77,
+        "publishable": 75,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 78,
+        "with_official_url": 78,
+        "with_source_updated_at": 0,
+        "with_source_event_id": 0,
+        "duplicates_removed": 1,
+        "ended": 2
+      }
+    },
+    {
+      "source_key": "bodik-kadoma-events",
+      "source_id": 3449742540,
+      "prefecture": "大阪府",
+      "municipality": "門真市",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 3852,
+      "funnel": {
+        "potential": 5,
+        "fetched": 5,
+        "normalized": 5,
+        "deduped": 5,
+        "valid": 5,
+        "publishable": 5,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 5,
+        "with_official_url": 5,
+        "with_source_updated_at": 0,
+        "with_source_event_id": 0,
+        "duplicates_removed": 0,
+        "ended": 0
+      }
+    },
+    {
+      "source_key": "bodik-toyonaka-events",
+      "source_id": 2689324985,
+      "prefecture": "大阪府",
+      "municipality": "豊中市",
+      "encoding": "utf-8",
+      "http_status": 200,
+      "bytes_received": 93351,
+      "funnel": {
+        "potential": 153,
+        "fetched": 153,
+        "normalized": 153,
+        "deduped": 153,
+        "valid": 153,
+        "publishable": 7,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 153,
+        "with_official_url": 153,
+        "with_source_updated_at": 0,
+        "with_source_event_id": 153,
+        "duplicates_removed": 0,
+        "ended": 146
+      }
+    },
+    {
+      "source_key": "hamamatsu-current-events-open-data",
+      "source_id": 1437644066,
+      "prefecture": "静岡県",
+      "municipality": "浜松市",
+      "encoding": "shift_jis",
+      "http_status": 200,
+      "bytes_received": 1359287,
+      "funnel": {
+        "potential": 2293,
+        "fetched": 2293,
+        "normalized": 2293,
+        "deduped": 2293,
+        "valid": 1995,
+        "publishable": 1972,
+        "active": 0
+      },
+      "quality": {
+        "with_location": 2293,
+        "with_official_url": 1997,
+        "with_source_updated_at": 160,
+        "with_source_event_id": 2293,
+        "duplicates_removed": 0,
+        "ended": 587
+      }
+    }
+  ],
+  "aggregate": {
+    "note": "Sum of six READY source dry-runs at Event Site Check #855. Deduped is within-source only; cross-source dedup is recorded separately.",
+    "potential": 3677,
+    "fetched": 3661,
+    "normalized": 3659,
+    "deduped_within_source": 3659,
+    "valid": 3310,
+    "publishable": 2329,
+    "active": 0
+  }
+}

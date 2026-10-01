@@ -1,0 +1,298 @@
+{
+  "version": "2026-10-01-oshi-discovery-v5",
+  "status": "research_only_no_automated_fetch",
+  "rules": {
+    "automated_fetch_default": false,
+    "official_page_confirmation_required": true,
+    "social_media_discovery_only": true,
+    "image_reuse_default": false,
+    "ordinary_sale_excluded": true,
+    "limited_destination_retail_may_be_event": true,
+    "official_x_discovery_supported": true,
+    "official_x_registry": "data/machiibe/official_x_source_registry_v1.json",
+    "official_x_web_scraping_allowed": false,
+    "official_x_api_enabled": false,
+    "official_x_blue_check_alone_is_official": false,
+    "official_x_full_post_body_reuse": false,
+    "official_x_media_reuse": false,
+    "official_x_default_surface": "link_out"
+  },
+  "sources": [
+    {
+      "source_key": "animate-only-shop",
+      "source_name": "アニメイト オンリーショップ",
+      "operator": "株式会社アニメイト",
+      "source_type": "official_retail_event",
+      "base_url": "https://www.animate.co.jp/onlyshop/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "creator"
+      ],
+      "region_coverage": "national_store_network",
+      "observed_current_items_min": 8,
+      "family_relevance": "medium",
+      "notes": "期間限定POPUP/オンリーショップ。開催期間・対象店舗・作品名が一覧化されている。"
+    },
+    {
+      "source_key": "animate-gratte",
+      "source_name": "アニメイト Gratte",
+      "operator": "株式会社アニメイト",
+      "source_type": "official_collab_cafe",
+      "base_url": "https://www.animate.co.jp/gratte/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "collab_cafe",
+        "collab_food",
+        "limited_shop"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "creator",
+        "vtuber"
+      ],
+      "region_coverage": "multi_store",
+      "observed_current_items_min": 10,
+      "family_relevance": "medium",
+      "notes": "作品・VTuber等の期間限定コラボ飲食。開催期間・店舗を公式一覧で確認。"
+    },
+    {
+      "source_key": "tower-records-store-events",
+      "source_name": "タワーレコード 店舗イベント",
+      "operator": "タワーレコード株式会社",
+      "source_type": "official_retail_event",
+      "base_url": "https://tower.jp/store/event",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "mini_live",
+        "talk_show",
+        "signing",
+        "photo_session",
+        "handover"
+      ],
+      "entity_types": [
+        "talent",
+        "idol",
+        "creator",
+        "group"
+      ],
+      "region_coverage": "national_store_network",
+      "observed_current_items_min": 4,
+      "family_relevance": "low",
+      "notes": "開催日時・店舗・出演・イベント種別・参加方法を個別公式ページで確認可能。"
+    },
+    {
+      "source_key": "bandainamco-amusement-events",
+      "source_name": "バンダイナムコアミューズメント イベント・キャンペーン",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_amusement_event",
+      "base_url": "https://bandainamco-am.co.jp/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "experience",
+        "character_show",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 5,
+      "family_relevance": "high",
+      "notes": "ポケモン・プリキュア・アイドル作品等の期間イベントを確認。通常キャンペーンと来場目的イベントを分類する。"
+    },
+    {
+      "source_key": "namjatown-collab-events",
+      "source_name": "ナンジャタウン コラボ・催事",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_theme_park_event",
+      "base_url": "https://bandainamco-am.co.jp/tp/namja/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "collab_food",
+        "experience",
+        "limited_shop",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 8,
+      "family_relevance": "high",
+      "notes": "作品コラボの開催期間が一覧化されている。終了/開催中判定に向く。"
+    },
+    {
+      "source_key": "bandainamco-crossstore-events",
+      "source_name": "バンダイナムコ Cross Store イベント",
+      "operator": "株式会社バンダイナムコアミューズメント",
+      "source_type": "official_retail_amusement_event",
+      "base_url": "https://bandainamco-am.co.jp/crossstore/event/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "experience",
+        "limited_shop",
+        "exhibition",
+        "collab_food"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character"
+      ],
+      "region_coverage": "multi_facility",
+      "observed_current_items_min": 4,
+      "family_relevance": "high",
+      "notes": "東京・横浜・京都・大阪梅田・博多等を横断。月別/施設別の導線を確認。"
+    },
+    {
+      "source_key": "mitsui-shopping-park-oshi-events",
+      "source_name": "三井ショッピングパーク 施設別コラボ・エンタメイベント",
+      "operator": "三井不動産商業マネジメント株式会社",
+      "source_type": "official_facility_event_network",
+      "base_url": "https://mitsui-shopping-park.com/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "experience",
+        "exhibition",
+        "live"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "talent",
+        "idol",
+        "group"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 23,
+      "family_relevance": "very_high",
+      "notes": "ららぽーと福岡/沼津/TOKYO-BAY等の施設別公式ページで、アニメ・キャラクター・アーティストの期間限定イベントを確認。通常キャンペーンとdestination eventを分離。規約/robots確認前はfetch不可。"
+    },
+    {
+      "source_key": "ario-oshi-events",
+      "source_name": "アリオ 施設別ライブ・キャラクター・体験イベント",
+      "operator": "セブン＆アイ・クリエイトリンク",
+      "source_type": "official_facility_event_network",
+      "base_url": "https://www.ario.jp/",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "live",
+        "mini_live",
+        "talk_show",
+        "photo_session",
+        "handover",
+        "character_show",
+        "workshop"
+      ],
+      "entity_types": [
+        "talent",
+        "idol",
+        "group",
+        "character",
+        "work"
+      ],
+      "region_coverage": "national_facility_network",
+      "observed_current_items_min": 9,
+      "family_relevance": "very_high",
+      "notes": "アリオ橋本公式でリリースイベント、フリーライブ、ハロウィン体験等を確認。施設単位の個別公式detail URLを公開確定根拠として使用し、network一覧だけでentity関係を確定しない。"
+    },
+    {
+      "source_key": "sakuramachi-kumamoto-oshi-events",
+      "source_name": "SAKURA MACHI Kumamoto 施設別コラボ・体験イベント",
+      "operator": "九州産交グループ / SAKURA MACHI Kumamoto",
+      "source_type": "official_facility_event",
+      "base_url": "https://sakuramachi-kumamoto.jp/event",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "popup_store",
+        "limited_shop",
+        "experience",
+        "exhibition"
+      ],
+      "entity_types": [
+        "work",
+        "franchise",
+        "character",
+        "group"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 2,
+      "family_relevance": "very_high",
+      "notes": "公式施設ページで夏目友人帳 in Kumamoto、くまモンダンジョン等を確認。通常セール/カード/決済キャンペーンは除外し、個別公式detailを根拠に推し活fixtureへ昇格する。画像利用権は別gate。"
+    },
+    {
+      "source_key": "aeon-laketown-mori-oshi-events",
+      "source_name": "イオンレイクタウンmori エンタメ・キャラクターイベント",
+      "operator": "イオンレイクタウンmori",
+      "source_type": "official_facility_event",
+      "base_url": "https://www.aeon-laketown.jp/mori/event/cat_entertainment.html",
+      "review_state": "PREFLIGHT",
+      "terms_status": "pending",
+      "robots_status": "pending",
+      "automated_fetch_allowed": false,
+      "primary_event_types": [
+        "live",
+        "character_show",
+        "workshop",
+        "experience"
+      ],
+      "entity_types": [
+        "group",
+        "talent",
+        "idol",
+        "character",
+        "work",
+        "franchise"
+      ],
+      "region_coverage": "facility",
+      "observed_current_items_min": 4,
+      "family_relevance": "very_high",
+      "notes": "公式エンタメ一覧でCIRRA、サンリオキャラクター大賞ステージショー、書道パフォーマンス、クラシックライブを確認。施設公式detail/主催者公式detailをfixture根拠とし、規約/robots確認前はfetch不可。画像権利は別gate。"
+    }
+  ]
+}

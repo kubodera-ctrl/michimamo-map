@@ -1,0 +1,77 @@
+{
+  "version": "2026-09-28-provider-candidates-v1",
+  "status": "comparison_only_no_contract",
+  "providers": [
+    {
+      "provider": "EventBank",
+      "coverage": "全国",
+      "data_volume": "要見積・サンプル/仕様書提供可",
+      "update_frequency": "毎日",
+      "api": "あり(JSON) / file TSV・CSVも可",
+      "images": "要契約仕様確認",
+      "price": "現行データ提供ページは見積。旧API案内には月額2万円〜表記あり",
+      "free_tier": "確認できず",
+      "commercial_use": "契約条件による",
+      "redistribution": "要契約確認",
+      "cache": "要契約確認",
+      "attribution": "要契約確認",
+      "rate_limit": "要契約確認",
+      "contract_required": true,
+      "decision": "D候補。本人承認前は問い合わせ/契約しない"
+    },
+    {
+      "provider": "connpass API",
+      "coverage": "connpass掲載イベント",
+      "data_volume": "API検索対象",
+      "update_frequency": "リアルタイム相当",
+      "api": "あり",
+      "images": "イベントデータ仕様確認",
+      "price": "法人 月額297,000円 / 年額3,564,000円（税込）",
+      "free_tier": "コミュニティ・個人のみ申請制。企業・法人は利用不可",
+      "commercial_use": "法人有料プラン前提",
+      "redistribution": "API規約確認",
+      "cache": "API規約確認",
+      "attribution": "API規約確認",
+      "rate_limit": "APIキーごとに連続アクセス制限",
+      "contract_required": true,
+      "decision": "費用対効果が合わない限り優先度低"
+    },
+    {
+      "provider": "Doorkeeper API",
+      "coverage": "Doorkeeper公開イベント",
+      "data_volume": "25件/ページ",
+      "update_frequency": "API",
+      "api": "あり・alpha",
+      "images": "Content権利は顧客/Doorkeeperに帰属",
+      "price": "公開API token方式。料金明記なし",
+      "free_tier": "Public API token",
+      "commercial_use": "規約制約あり",
+      "redistribution": "イベント表示時Doorkeeperイベントページへのfollow link必須",
+      "cache": "規約精査必要",
+      "attribution": "イベントページリンク必須",
+      "rate_limit": "例示では5分300回。実際はレスポンスヘッダ確認",
+      "contract_required": false,
+      "decision": "競合製品/サービス開発へのAPI利用禁止条項があるため、まちイベ用途は原則不採用候補"
+    },
+    {
+      "provider": "Peatix",
+      "coverage": "Peatix掲載イベント",
+      "api": "公開イベント集約APIを公式資料で確認できず",
+      "price": "未確認",
+      "free_tier": "未確認",
+      "commercial_use": "未確認",
+      "contract_required": "unknown",
+      "decision": "公開API確認まで収集sourceにしない"
+    },
+    {
+      "provider": "EventRegist",
+      "coverage": "EventRegist掲載イベント",
+      "api": "公開イベント集約APIを公式資料で確認できず",
+      "price": "未確認",
+      "free_tier": "未確認",
+      "commercial_use": "未確認",
+      "contract_required": "unknown",
+      "decision": "公開API確認まで収集sourceにしない"
+    }
+  ]
+}

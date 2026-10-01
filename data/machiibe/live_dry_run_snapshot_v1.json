@@ -1,0 +1,68 @@
+{
+  "version": "2026-09-29-live-dry-run-v1",
+  "status": "non_production_dry_run_evidence",
+  "recorded_at": "2026-09-29T22:10:33+09:00",
+  "source": {
+    "source_key": "mie-pref-events-open-data",
+    "source_name": "三重県 お知らせ・イベント情報一覧 Open Data CSV",
+    "source_stage": "FETCH_ALLOWED",
+    "license": "CC BY 4.0",
+    "attribution": "三重県・出典表示",
+    "feed_url": "https://www.pref.mie.lg.jp/EVENTS/eventsdata.csv",
+    "media_rights": "unknown_separate_fail_closed"
+  },
+  "evidence": {
+    "github_actions_run": 729,
+    "verified_head": "ce73fb5e60943c4264c01cb6d12b6c02b4415867",
+    "database_write": false,
+    "active_write": false,
+    "http_status": 200,
+    "content_type": "application/octet-stream",
+    "bytes_received": 157054,
+    "byte_limit": 10000000,
+    "encoding": "shift_jis",
+    "etag": "\"0bd3ab5b4fdd1:0\"",
+    "last_modified": "Mon, 28 Sep 2026 15:07:14 GMT"
+  },
+  "schema": {
+    "headers": [
+      "カテゴリ",
+      "エリア",
+      "市町",
+      "記事タイトル",
+      "日時",
+      "場所",
+      "申し込み",
+      "料金",
+      "問い合わせ先",
+      "内容",
+      "イベント開始日",
+      "イベント終了日"
+    ],
+    "event_specific_official_url_field": false
+  },
+  "quality": {
+    "parser_warnings": [],
+    "start_parseable": 45,
+    "end_parseable": 45,
+    "with_location": 28,
+    "with_official_url": 0,
+    "duplicates_removed": 0,
+    "ended": 4,
+    "invalid_reasons": {
+      "official_url_missing": 45,
+      "location_missing": 17,
+      "date_range_invalid": 3
+    }
+  },
+  "funnel": {
+    "potential": 66,
+    "fetched": 45,
+    "normalized": 45,
+    "deduped": 45,
+    "valid": 0,
+    "publishable": 0,
+    "active": 0
+  },
+  "conclusion": "Live bytes retrieval, decoding, logical CSV parsing, normalization and exact dedupe are proven. Publishable remains zero because event-specific official URLs are absent; feed URL is intentionally not substituted."
+}

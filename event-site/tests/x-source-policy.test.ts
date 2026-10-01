@@ -1,0 +1,169 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {
+  X_SOURCE_POLICY,assessOfficialXAccount,preferredEvidenceSource,
+  xAutomationAllowed,xFactsOnlyEvidenceAllowed
+} from '../../shared/machiibe-ingestion/x-source-policy';
+
+test('official X registry stays design-only with scraping/API/Production closed',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
+  assert.equal(data.status,'verified_registry_manual_research_no_api_fetch');
+  assert.equal(data.rules.web_scraping_allowed,false);
+  assert.equal(data.rules.website_dom_scripting_allowed,false);
+  assert.equal(data.rules.official_api_fetch_enabled,false);
+  assert.equal(data.rules.oauth_enabled,false);
+  assert.equal(data.rules.recurring_fetch_enabled,false);
+  assert.equal(data.rules.production_ingest_enabled,false);
+  assert.equal(data.rules.x_post_body_reuse_default,false);
+  assert.equal(data.rules.x_media_reuse_default,false);
+  assert.equal(data.rules.blue_check_alone_is_official,false);
+  assert.equal(data.accounts.length,10);
+  assert.ok(data.accounts.every((row:any)=>row.officiality==='verified_official'));
+  assert.ok(data.accounts.every((row:any)=>row.verification_method==='official_site_backlink'));
+  assert.ok(data.accounts.every((row:any)=>row.automated_fetch_allowed===false&&row.api_fetch_enabled===false));
+  assert.ok(data.accounts.every((row:any)=>row.media_reuse_allowed===false&&row.full_post_body_reuse_allowed===false));
+});
+
+test('blue check alone never verifies an official account',()=>{
+  const verdict=assessOfficialXAccount({
+    officialSiteBacklink:false,
+    officialOperatorPageMention:false,
+    officialDomainMatch:false,
+    goldCheckmark:false,
+    greyCheckmark:false,
+    verifiedOrganizationAffiliation:false,
+    blueCheckmark:true,
+    displayNameMatch:true,
+    followerCount:1_000_000
+  });
+  assert.equal(verdict,'needs_review');
+});
+
+test('official-site backlink is sufficient strong evidence for official X account',()=>{
+  const verdict=assessOfficialXAccount({
+    officialSiteBacklink:true,
+    officialOperatorPageMention:false,
+    officialDomainMatch:true,
+    goldCheckmark:false,
+    greyCheckmark:false,
+    verifiedOrganizationAffiliation:false,
+    blueCheckmark:false
+  });
+  assert.equal(verdict,'verified_official');
+});
+
+test('X identity signal still requires official domain consistency when no site backlink exists',()=>{
+  assert.equal(assessOfficialXAccount({
+    officialSiteBacklink:false,
+    officialOperatorPageMention:false,
+    officialDomainMatch:true,
+    goldCheckmark:true,
+    greyCheckmark:false,
+    verifiedOrganizationAffiliation:false,
+    blueCheckmark:false
+  }),'verified_official');
+  assert.equal(assessOfficialXAccount({
+    officialSiteBacklink:false,
+    officialOperatorPageMention:false,
+    officialDomainMatch:false,
+    goldCheckmark:true,
+    greyCheckmark:false,
+    verifiedOrganizationAffiliation:false,
+    blueCheckmark:false
+  }),'needs_review');
+});
+
+test('X-only facts evidence requires public official post, provenance and no body/media reuse or inference',()=>{
+  const allowed=xFactsOnlyEvidenceAllowed({
+    accountVerdict:'verified_official',
+    post:{
+      publicPost:true,
+      sourcePostUrl:'https://x.com/example/status/1234567890',
+      explicitEventFact:true,
+      inferredUnstatedFacts:false,
+      fullPostBodyReused:false,
+      mediaReused:false
+    }
+  });
+  assert.equal(allowed,true);
+  assert.equal(xFactsOnlyEvidenceAllowed({
+    accountVerdict:'needs_review',
+    post:{
+      publicPost:true,
+      sourcePostUrl:'https://x.com/example/status/1234567890',
+      explicitEventFact:true,
+      inferredUnstatedFacts:false,
+      fullPostBodyReused:false,
+      mediaReused:false
+    }
+  }),false);
+  assert.equal(xFactsOnlyEvidenceAllowed({
+    accountVerdict:'verified_official',
+    post:{
+      publicPost:true,
+      sourcePostUrl:'https://x.com/example/status/1234567890',
+      explicitEventFact:true,
+      inferredUnstatedFacts:true,
+      fullPostBodyReused:false,
+      mediaReused:false
+    }
+  }),false);
+});
+
+test('web scraping stays blocked and API needs access, cost and policy approval',()=>{
+  assert.equal(X_SOURCE_POLICY.webScrapingAllowed,false);
+  assert.equal(xAutomationAllowed({mode:'web_scraping',apiAccessApproved:true,apiCostApproved:true,policyReviewed:true}),false);
+  assert.equal(xAutomationAllowed({mode:'official_api',apiAccessApproved:true,apiCostApproved:false,policyReviewed:true}),false);
+  assert.equal(xAutomationAllowed({mode:'official_api',apiAccessApproved:true,apiCostApproved:true,policyReviewed:true}),true);
+  assert.equal(xAutomationAllowed({mode:'manual_research',apiAccessApproved:false,apiCostApproved:false,policyReviewed:false}),true);
+});
+
+test('official web becomes primary evidence when available after X announcement',()=>{
+  assert.equal(preferredEvidenceSource({
+    officialWebEventUrl:'https://official.example/event/1',
+    xFactsAllowed:true
+  }),'official_web_event_page');
+  assert.equal(preferredEvidenceSource({
+    officialWebEventUrl:null,
+    xFactsAllowed:true
+  }),'verified_official_x_post');
+});
+
+
+test('verified X pilot accounts keep official-site provenance and no automation',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
+  const handles=new Set(data.accounts.map((row:any)=>row.handle));
+  assert.deepEqual(handles,new Set(['SanrioGames_JP','SanrioKML_JP','jo1xsanrio','purolandjp','sanrio_ent','eddy_sanrio','kabukinyantaro','namjatown765','animatejoji','animateSt_grt']));
+  for(const row of data.accounts){
+    assert.match(row.profile_url,/^https:\/\/x\.com\/[A-Za-z0-9_]+$/);
+    const evidenceHost=new URL(row.verification_evidence_url).hostname;
+    assert.ok(new Set(['corporate.sanrio.co.jp','www.puroland.jp','bandainamco-am.co.jp','www.animate.co.jp']).has(evidenceHost));
+    assert.equal(row.verification_method,'official_site_backlink');
+    assert.equal(row.user_id,null);
+    assert.equal(row.discovery_use_allowed,true);
+    assert.equal(row.x_only_facts_evidence_allowed,true);
+    assert.equal(row.automated_fetch_allowed,false);
+    assert.equal(row.api_fetch_enabled,false);
+  }
+});
+
+
+test('X API research snapshot stays cost-gated and non-connected',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
+  assert.equal(data.api_research.state,'researched_not_connected');
+  assert.equal(data.api_research.pricing.model,'pay_per_usage');
+  assert.equal(data.api_research.pricing.post_read_usd_per_resource,0.005);
+  assert.equal(data.api_research.pricing.user_read_usd_per_resource,0.010);
+  assert.equal(data.api_research.pricing.rates_subject_to_change,true);
+  assert.equal(data.api_research.pricing.recheck_developer_console_before_enable,true);
+  assert.equal('project_auto_recharge_default' in data.api_research.pricing,false);
+  assert.equal(data.api_research.pricing.auto_recharge_default_state_evidence,'not_established_from_public_docs');
+  assert.equal(data.api_research.pricing.auto_recharge_policy,'do_not_enable_without_owner_approval');
+  assert.equal(data.api_research.pricing.auto_recharge_console_check_required_before_enable,true);
+  assert.equal(data.api_research.recommended_pilot.primary_endpoint,'GET /2/users/{id}/tweets');
+  assert.equal(data.api_research.approvals.api_access_approved,false);
+  assert.equal(data.api_research.approvals.api_cost_approved,false);
+  assert.equal(data.api_research.approvals.oauth_approved,false);
+  assert.equal(data.api_research.approvals.recurring_fetch_approved,false);
+});

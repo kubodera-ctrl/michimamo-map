@@ -1,0 +1,420 @@
+{
+  "version": "2026-10-01-oshi-real-events-v6",
+  "status": "fixture_only_verified_from_official_pages",
+  "checked_at": "2026-10-01",
+  "rules": {
+    "entity_relation_requires_official_evidence": true,
+    "no_auto_inference_from_alias_only": true,
+    "media_reuse": false
+  },
+  "events": [
+    {
+      "id": "sanrio-cinnamoroll-park-2026",
+      "title": "ふわふわんだーシナモロールパーク",
+      "source_url": "https://corporate.sanrio.co.jp/news/20260917.html",
+      "source_kind": "organizer_official",
+      "starts_on": "2026-11-20",
+      "ends_on": "2027-01-17",
+      "venue_name": "Gallery AaMo（東京ドームシティ）",
+      "prefecture": "東京都",
+      "classification_text": "シナモロールの大型体験イベント。XR体験・フォトスポット・巨大すべり台を実施。",
+      "expected_event_types": [
+        "experience"
+      ],
+      "verified_entities": [
+        {
+          "type": "character",
+          "canonical_name": "シナモロール",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "animate-kimishinu-onlyshop-2026",
+      "title": "TVアニメ『きみが死ぬまで恋がしたい』アニメイトオンリーショップ",
+      "source_url": "https://www.animate.co.jp/onlyshop/48420/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-03",
+      "ends_on": "2026-10-25",
+      "venue_name": "アニメイト秋葉原2号館7F",
+      "prefecture": "東京都",
+      "classification_text": "TVアニメ『きみが死ぬまで恋がしたい』アニメイトオンリーショップ。等身大スタンディ展示。",
+      "expected_event_types": [
+        "limited_shop"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "きみが死ぬまで恋がしたい",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "tower-asaka-song-of-life-2026",
+      "title": "亜咲花「Song of LIFE」発売記念イベント ミニライブ＆特典会",
+      "source_url": "https://cdfront.tower.jp/store/event/2026/10/116001",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-31",
+      "ends_on": "2026-10-31",
+      "venue_name": "イオンモール大高1Fグリーンコート",
+      "prefecture": "愛知県",
+      "classification_text": "亜咲花 ミニライブ＆特典会。2部特典会はサイン会。",
+      "expected_event_types": [
+        "mini_live",
+        "live",
+        "signing"
+      ],
+      "verified_entities": [
+        {
+          "type": "talent",
+          "canonical_name": "亜咲花",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "tower-violet-eternal-2026",
+      "title": "VIOLET ETERNAL サイン会・撮影会 リリースイベント",
+      "source_url": "https://cdfront.tower.jp/store/event/2026/10/096014",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-08",
+      "ends_on": "2026-10-08",
+      "venue_name": "タワーレコード梅田NU茶屋町店6Fイベントスペース",
+      "prefecture": "大阪府",
+      "classification_text": "VIOLET ETERNAL サイン会・撮影会",
+      "expected_event_types": [
+        "signing",
+        "photo_session"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "VIOLET ETERNAL",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "lalaport-fukuoka-jujutsu-5th-2026",
+      "title": "アニメ『呪術廻戦』5周年記念！ららぽーと・ラゾーナコラボキャンペーン",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/fukuoka/event/3612399.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-29",
+      "ends_on": "2026-10-14",
+      "venue_name": "ららぽーと福岡",
+      "prefecture": "福岡県",
+      "classification_text": "アニメ『呪術廻戦』5周年記念。特休任務スペシャルPOPUP STOREを期間限定開催。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "呪術廻戦",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "open",
+        "checked_at": "2026-09-30",
+        "source_url": "https://mitsui-shopping-park.com/lalaport/fukuoka/event/3612399.html"
+      }
+    },
+    {
+      "id": "lalaport-numazu-pokemon-card-store-2026",
+      "title": "ポケモンカードストア in ららぽーと沼津",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/numazu/event/3530335.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-16",
+      "ends_on": "2026-10-04",
+      "venue_name": "ららぽーと沼津 1F ひかりの広場",
+      "prefecture": "静岡県",
+      "classification_text": "ポケモンカードストア in ららぽーと沼津。ポケモンカードゲーム・ポケモンセンターオリジナル商品を販売。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "ポケモンカードゲーム",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "lottery",
+        "state": "closed",
+        "checked_at": "2026-09-30",
+        "source_url": "https://mitsui-shopping-park.com/lalaport/numazu/event/3530335.html"
+      }
+    },
+    {
+      "id": "ario-hashimoto-genjibu-love-reason-2026",
+      "title": "原因は自分にある。5thシングル「ラブリーズン」リリースイベント",
+      "source_url": "https://hashimoto.ario.jp/event/2400015142/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-03",
+      "ends_on": "2026-10-03",
+      "venue_name": "アリオ橋本 1F屋外イベント広場",
+      "prefecture": "神奈川県",
+      "classification_text": "原因は自分にある。トークライブ＆特典会。個別ジャケットカードお渡し会。",
+      "expected_event_types": [
+        "live",
+        "handover"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "原因は自分にある。",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "lottery",
+        "state": "closed",
+        "checked_at": "2026-09-30",
+        "source_url": "https://hashimoto.ario.jp/event/2400015142/"
+      }
+    },
+    {
+      "id": "ario-hashimoto-tokusatsu-boyz-2026",
+      "title": "特撮Boyzフリーライブ開催!!",
+      "source_url": "https://hashimoto.ario.jp/event/2400015381/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-11",
+      "ends_on": "2026-10-11",
+      "venue_name": "アリオ橋本 屋外イベント広場",
+      "prefecture": "神奈川県",
+      "classification_text": "特撮Boyz フリーライブ。チェキ・スマホ撮影会。",
+      "expected_event_types": [
+        "live",
+        "photo_session"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "特撮Boyz",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "same_day",
+        "state": "upcoming",
+        "checked_at": "2026-09-30",
+        "source_url": "https://hashimoto.ario.jp/event/2400015381/"
+      }
+    },
+    {
+      "id": "sakuramachi-natsume-kumamoto-2026",
+      "title": "夏目友人帳 in Kumamoto",
+      "source_url": "https://sakuramachi-kumamoto.jp/natsumeyujincho2026/",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-07-01",
+      "ends_on": "2026-09-30",
+      "venue_name": "SAKURA MACHI Kumamoto 1F メインエントランス",
+      "prefecture": "熊本県",
+      "classification_text": "TVアニメ「夏目友人帳」×九州産交グループの大型コラボレーション。サクラマチ クマモトで期間限定ポップアップ、限定グッズ、特設フォトスポット。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "夏目友人帳",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "ldh-cirra-meet-you-saitama-2026",
+      "title": "CIRRA MEET YOU -3rd EP release event-",
+      "source_url": "https://www.ldh.co.jp/news/detail.php?lang=jpn&newsid=0000055515&site=Egirls",
+      "source_kind": "organizer_official",
+      "starts_on": "2026-10-04",
+      "ends_on": "2026-10-04",
+      "venue_name": "イオンレイクタウンmori 1F 木の広場",
+      "prefecture": "埼玉県",
+      "classification_text": "CIRRA 3rd EP発売記念。パフォーマンス2曲＋特典会（お見送り会）。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "CIRRA",
+          "relation": "appearing"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "sapporo-parco-chiikawa-pocket-2026",
+      "title": "ちいかわぽけっと　mini POP UP STORE",
+      "source_url": "https://sapporo.parco.jp/event/detail/?id=38647",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-09-18",
+      "ends_on": "2026-10-04",
+      "venue_name": "札幌PARCO 7F PARCO FACTORY",
+      "prefecture": "北海道",
+      "classification_text": "『ちいかわぽけっと』の期間限定POP UP STORE。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "work",
+          "canonical_name": "ちいかわぽけっと",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "sendai-parco-sakura-momoko-yumeiro-2026",
+      "title": "さくらももこ ゆめいろ商店",
+      "source_url": "https://sendai.parco.jp/event/detail/?id=38290",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-02",
+      "ends_on": "2026-10-12",
+      "venue_name": "仙台PARCO1 5F PARCO FACTORY SENDAI",
+      "prefecture": "宮城県",
+      "classification_text": "『ちびまる子ちゃん』『コジコジ』を中心とした期間限定POP UP STORE。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "character",
+          "canonical_name": "ちびまる子ちゃん",
+          "relation": "subject"
+        },
+        {
+          "type": "character",
+          "canonical_name": "コジコジ",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "lalaport-tokyo-bay-stray-kids-collab-2026",
+      "title": "「Stray Kids」とのスペシャルコラボキャンペーン「LaLaport・LAZONA×Stray Kids」",
+      "source_url": "https://mitsui-shopping-park.com/lalaport/tokyo-bay/event/3618882.html",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-30",
+      "ends_on": "2026-11-08",
+      "venue_name": "ららぽーとTOKYO-BAY",
+      "prefecture": "千葉県",
+      "classification_text": "Stray Kidsのワールドツアー公演を記念した施設コラボイベント。会場内メッセージ映像・館内放送などを実施。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "Stray Kids",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "hiroshima-parco-beatles-get-back-2026",
+      "title": "ビートルズ来日60周年記念 世界最長の歴史を誇る公式グッズ・ストア「GET BACK」",
+      "source_url": "https://hiroshima.parco.jp/event/detail/?id=37258",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-10-23",
+      "ends_on": "2026-11-03",
+      "venue_name": "広島PARCO 本館6F PARCO FACTORY",
+      "prefecture": "広島県",
+      "classification_text": "ビートルズ来日60周年を記念した期間限定POPUPイベント。公式ライセンス商品と英国ロック文化の展示・体験を展開。",
+      "expected_event_types": [
+        "popup_store"
+      ],
+      "verified_entities": [
+        {
+          "type": "group",
+          "canonical_name": "The Beatles",
+          "relation": "subject"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "qs-amagasaki-hololive-joypolis-2026-w1",
+      "title": "『ホロライブ×JOYPOLIS』人気イベント「ホロ×マッチ」",
+      "source_url": "https://qs-mall.jp/amagasaki/event/detail/1155",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-11-07",
+      "ends_on": "2026-11-08",
+      "venue_name": "あまがさきキューズモール",
+      "prefecture": "兵庫県",
+      "classification_text": "『ホロライブ×JOYPOLIS』のイベント「ホロ×マッチ」。公式施設ページで開催日を確認。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "vtuber",
+          "canonical_name": "ホロライブ",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "qs-amagasaki-hololive-joypolis-2026-w2",
+      "title": "『ホロライブ×JOYPOLIS』人気イベント「ホロ×マッチ」",
+      "source_url": "https://qs-mall.jp/amagasaki/event/detail/1155",
+      "source_kind": "venue_operator_official",
+      "starts_on": "2026-11-14",
+      "ends_on": "2026-11-15",
+      "venue_name": "あまがさきキューズモール",
+      "prefecture": "兵庫県",
+      "classification_text": "『ホロライブ×JOYPOLIS』のイベント「ホロ×マッチ」。公式施設ページで開催日を確認。",
+      "expected_event_types": [],
+      "verified_entities": [
+        {
+          "type": "vtuber",
+          "canonical_name": "ホロライブ",
+          "relation": "collaboration"
+        }
+      ],
+      "reservation": {
+        "mode": "unknown",
+        "state": "unknown"
+      }
+    }
+  ]
+}

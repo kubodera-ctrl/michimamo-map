@@ -1,0 +1,33 @@
+{
+  "version": "2026-10-01-cross-source-dedup-v2",
+  "status": "non_production_live_dry_run_evidence",
+  "recorded_at": "2026-10-01T06:40:53+09:00",
+  "evidence": {
+    "github_actions_run": 855,
+    "verified_head": "2efd140eab5fabd6940f356d4ddb13b1500c0b05",
+    "database_write": false,
+    "active_write": false,
+    "production_change": false
+  },
+  "input": {
+    "ready_source_count": 6,
+    "publishable_candidates": 2329,
+    "source_publishable": {
+      "mie-pref-events-open-data": 0,
+      "bodik-okazaki-events": 270,
+      "bodik-osaka-pref-events": 75,
+      "bodik-kadoma-events": 5,
+      "bodik-toyonaka-events": 7,
+      "hamamatsu-current-events-open-data": 1972
+    }
+  },
+  "cross_source_dedup": {
+    "auto_merge_pairs": 0,
+    "review_pairs": 0,
+    "review_by_reason": {},
+    "clusters": 0,
+    "unique_after_auto_merge": 2329,
+    "duplicates_removed_by_auto_merge": 0
+  },
+  "interpretation": "No cross-source duplicate pair reached the current auto-merge or review threshold among 2,329 Publishable candidates in Event Site Check #855. Within-source dedup remains separately applied before this stage."
+}
