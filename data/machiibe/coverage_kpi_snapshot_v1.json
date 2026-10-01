@@ -1,5 +1,5 @@
 {
-  "version": "coverage-kpi-v25",
+  "version": "coverage-kpi-v26",
   "status": "research_and_nonproduction_dry_run",
   "sourceCoverage": {
     "prefectureCandidateCoverage": 47,
@@ -86,7 +86,11 @@
       "yamaguchi-pref-event-calendar",
       "tochigi-pref-event-calendar",
       "fukui-pref-odekake-events"
-    ]
+    ],
+    "officialXVerifiedAccounts": 3,
+    "officialXApiEnabled": false,
+    "officialXWebScrapingAllowed": false,
+    "officialXRegistry": "data/machiibe/official_x_source_registry_v1.json"
   },
   "blockerClasses": {
     "userAction": [

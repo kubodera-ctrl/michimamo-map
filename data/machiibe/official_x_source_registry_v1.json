@@ -1,6 +1,6 @@
 {
-  "version": "2026-10-01-official-x-registry-v1",
-  "status": "design_only_no_api_fetch",
+  "version": "2026-10-01-official-x-registry-v2",
+  "status": "verified_registry_manual_research_no_api_fetch",
   "checked_at": "2026-10-01",
   "policy_sources": [
     "https://help.x.com/en/rules-and-policies/x-automation",
@@ -72,5 +72,78 @@
     "official_x_post_needs_review",
     "nonofficial_social_discovery_only"
   ],
-  "accounts": []
+  "accounts": [
+    {
+      "account_key": "sanrio-games-jp-x",
+      "operator": "株式会社サンリオ",
+      "display_name": "Sanrio Games 公式",
+      "handle": "SanrioGames_JP",
+      "profile_url": "https://x.com/SanrioGames_JP",
+      "source_scope": [
+        "work",
+        "franchise",
+        "game",
+        "event_announcement"
+      ],
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verification_evidence_url": "https://corporate.sanrio.co.jp/news/20260820_01.html",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "notes": "Sanrio corporate release explicitly labels this as Sanrio Games official X. Discovery/facts-only only; API and Production remain off."
+    },
+    {
+      "account_key": "sanrio-kawaii-me-live-jp-x",
+      "operator": "株式会社サンリオ",
+      "display_name": "Sanrio Kawaii Me Live! 公式",
+      "handle": "SanrioKML_JP",
+      "profile_url": "https://x.com/SanrioKML_JP",
+      "source_scope": [
+        "work",
+        "game",
+        "character",
+        "event_announcement"
+      ],
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verification_evidence_url": "https://corporate.sanrio.co.jp/news/20260921.html",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "notes": "Sanrio corporate release explicitly lists the official X account. Discovery/facts-only only; API and Production remain off."
+    },
+    {
+      "account_key": "jochum-official-x",
+      "operator": "株式会社サンリオ / JO1 collaboration",
+      "display_name": "JOCHUM 公式",
+      "handle": "jo1xsanrio",
+      "profile_url": "https://x.com/jo1xsanrio",
+      "source_scope": [
+        "character",
+        "work",
+        "collaboration",
+        "event_announcement"
+      ],
+      "officiality": "verified_official",
+      "verification_method": "official_site_backlink",
+      "verification_evidence_url": "https://corporate.sanrio.co.jp/news/assets/pdf/2025/20250819153913613s.pdf",
+      "verified_at": "2026-10-01",
+      "discovery_use_allowed": true,
+      "x_only_facts_evidence_allowed": true,
+      "automated_fetch_allowed": false,
+      "api_fetch_enabled": false,
+      "media_reuse_allowed": false,
+      "full_post_body_reuse_allowed": false,
+      "notes": "Sanrio corporate press release explicitly identifies JOCHUM official X. Discovery/facts-only only; API and Production remain off."
+    }
+  ]
 }

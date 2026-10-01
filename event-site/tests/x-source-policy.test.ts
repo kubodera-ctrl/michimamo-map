@@ -18,7 +18,11 @@ test('official X registry stays design-only with scraping/API/Production closed'
   assert.equal(data.rules.x_post_body_reuse_default,false);
   assert.equal(data.rules.x_media_reuse_default,false);
   assert.equal(data.rules.blue_check_alone_is_official,false);
-  assert.deepEqual(data.accounts,[]);
+  assert.equal(data.accounts.length,3);
+  assert.ok(data.accounts.every((row:any)=>row.officiality==='verified_official'));
+  assert.ok(data.accounts.every((row:any)=>row.verification_method==='official_site_backlink'));
+  assert.ok(data.accounts.every((row:any)=>row.automated_fetch_allowed===false&&row.api_fetch_enabled===false));
+  assert.ok(data.accounts.every((row:any)=>row.media_reuse_allowed===false&&row.full_post_body_reuse_allowed===false));
 });
 
 test('blue check alone never verifies an official account',()=>{
@@ -124,4 +128,19 @@ test('official web becomes primary evidence when available after X announcement'
     officialWebEventUrl:null,
     xFactsAllowed:true
   }),'verified_official_x_post');
+});
+
+
+test('verified X pilot accounts keep official-site provenance and no automation',()=>{
+  const data=JSON.parse(fs.readFileSync(new URL('../../data/machiibe/official_x_source_registry_v1.json',import.meta.url),'utf8'));
+  const handles=new Set(data.accounts.map((row:any)=>row.handle));
+  assert.deepEqual(handles,new Set(['SanrioGames_JP','SanrioKML_JP','jo1xsanrio']));
+  for(const row of data.accounts){
+    assert.match(row.profile_url,/^https:\/\/x\.com\/[A-Za-z0-9_]+$/);
+    assert.match(row.verification_evidence_url,/^https:\/\/corporate\.sanrio\.co\.jp\//);
+    assert.equal(row.discovery_use_allowed,true);
+    assert.equal(row.x_only_facts_evidence_allowed,true);
+    assert.equal(row.automated_fetch_allowed,false);
+    assert.equal(row.api_fetch_enabled,false);
+  }
 });
