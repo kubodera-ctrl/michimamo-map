@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-01-facility-instances-v5",
+  "version": "2026-10-01-facility-instances-v6",
   "status": "research_only_no_automated_fetch",
   "rules": {
     "automated_fetch_default": false,
