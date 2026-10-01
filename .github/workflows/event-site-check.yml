@@ -109,6 +109,18 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
         run: npm run source:dry-run -- hamamatsu-current-events-open-data
+      - name: Live facts-only dry-run - Kyoto Pref (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- kyoto-pref-current-events
+      - name: Live facts-only dry-run - Ibaraki Kasumigaura ESC (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- ibaraki-kasumigaura-esc-events
+      - name: Live facts-only dry-run - Kyoto Station Building (PR #24 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
+        continue-on-error: true
+        run: npm run source:dry-run-facts-only -- kyoto-station-building-events
       - name: Live READY cross-source dedupe dry-run (PR #24 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 24
         continue-on-error: true
