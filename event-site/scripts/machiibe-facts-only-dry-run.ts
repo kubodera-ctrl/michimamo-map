@@ -57,7 +57,17 @@ function loadRows(){
 }
 
 function fetchUrl(row:FactsOnlyRow){
-  return row.feed_url||row.event_url||row.base_url||row.homepage_url||'';
+  const raw=row.feed_url||row.event_url||row.base_url||row.homepage_url||'';
+  if(row.source_key==='fukui-pref-odekake-events'&&raw){
+    const now=new Date();
+    const year=new Intl.DateTimeFormat('en',{timeZone:'Asia/Tokyo',year:'numeric'}).format(now);
+    const month=new Intl.DateTimeFormat('en',{timeZone:'Asia/Tokyo',month:'numeric'}).format(now);
+    const url=new URL(raw);
+    url.searchParams.set('year',year);
+    url.searchParams.set('month',month);
+    return url.toString();
+  }
+  return raw;
 }
 
 function assertFactsOnly(row:FactsOnlyRow){
@@ -199,6 +209,19 @@ function eventLikeLinkInventory(row:FactsOnlyRow,links:{title:string;url:string}
         && !/(?:\/top\.htm|\/event_schedule20\d{2}\.htm)$/.test(path)
         && item.title.length>=4;
     }
+    if(row.source_key==='fukui-pref-odekake-events'){
+      return path.endsWith('/event/view.php')
+        && url.searchParams.has('event_cod')
+        && item.title.length>=3;
+    }
+    if(row.source_key==='yamaguchi-pref-event-calendar'){
+      return item.title!=='イベント一覧表示'
+        && eventWords.test(item.title);
+    }
+    if(row.source_key==='tochigi-pref-event-calendar'){
+      return !/^(本日のイベント一覧|長期イベント一覧|イベント情報一覧)$/.test(item.title)
+        && eventWords.test(item.title);
+    }
     if(row.source_key==='kyoto-pref-current-events'){
       return eventWords.test(item.title)
         && !/(イベント・募集|イベント検索|イベント一覧|募集情報)$/.test(item.title);
@@ -275,7 +298,16 @@ async function main(){
   const parsed=parseHtmlStructured(html,source);
   const normalized=parsed.items.map(item=>normalizeCommonItem(item,source));
   const links=anchorInventory(html,url);
-  const eventLikeLinks=eventLikeLinkInventory(row,links);
+  let eventLikeLinks=eventLikeLinkInventory(row,links);
+  if(row.source_key==='fukui-pref-odekake-events'){
+    const seenEventCodes=new Set<string>();
+    eventLikeLinks=eventLikeLinks.filter(item=>{
+      const code=new URL(item.url).searchParams.get('event_cod');
+      if(!code||seenEventCodes.has(code))return false;
+      seenEventCodes.add(code);
+      return true;
+    });
+  }
   const pageText=plainText(html);
   const lastModified=response.headers.get('last-modified');
   const dates=dateEvidence(pageText,lastModified);
