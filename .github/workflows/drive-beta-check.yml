@@ -1,0 +1,98 @@
+name: DRIVE Beta Check
+
+on:
+  push:
+    branches:
+      - "feat/dev38-drive-beta"
+      - "preview/dev38-drive-*"
+    paths:
+      - "drive-beta/**"
+      - "api/drive-focus-tokyo.js"
+      - "data/drive/**"
+      - "scripts/drive_enforcement_pipeline.mjs"
+      - "scripts/drive_source_fetch.mjs"
+      - "scripts/drive_public_schedule_pipeline.mjs"
+      - "scripts/drive_focus_area_pipeline.mjs"
+      - "scripts/drive_poll_scheduler.mjs"
+      - "scripts/drive_source_registry.mjs"
+      - "scripts/drive_common_event.mjs"
+      - "scripts/drive_national_parser_matrix.mjs"
+      - "scripts/drive_structured_schedule_adapter.mjs"
+      - "scripts/drive_oita_schedule_parser.mjs"
+      - "scripts/drive_aomori_speed_parser.mjs"
+      - "scripts/drive_parser_trace.mjs"
+      - "scripts/drive_premium_entitlement.mjs"
+      - "scripts/build_drive_preview_snapshot.mjs"
+      - "scripts/build_drive_public_schedule_snapshot.mjs"
+      - "tests/drive_beta.test.cjs"
+      - "tests/drive_focus_tokyo_api.test.cjs"
+      - "tests/drive_focus_tokyo_live.test.cjs"
+      - "tests/drive_enforcement_pipeline.test.mjs"
+      - "tests/drive_source_fetch.test.mjs"
+      - "tests/drive_public_schedule_pipeline.test.mjs"
+      - "tests/drive_poll_scheduler.test.mjs"
+      - "tests/drive_source_registry.test.mjs"
+      - "tests/drive_kanto_staging_e2e.test.mjs"
+      - "tests/drive_national_parser_matrix.test.mjs"
+      - "tests/drive_oita_pipeline.test.mjs"
+      - "tests/drive_aomori_pipeline.test.mjs"
+      - "tests/drive_premium_entitlement.test.mjs"
+      - "evidence/machidora5/**"
+      - "evidence/machidora6/**"
+      - "tests/drive_chiba_pipeline.test.mjs"
+      - "tests/drive_kanagawa_pipeline.test.mjs"
+      - "tests/drive_saitama_pipeline.test.mjs"
+      - "package.json"
+      - ".github/workflows/drive-beta-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drive-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify package JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
+      - name: Tokyo speed-guideline source contract
+        run: node tests/drive_enforcement_pipeline.test.mjs
+      - name: DRIVE source fetch/version gate
+        run: node tests/drive_source_fetch.test.mjs
+      - name: Tokyo monthly public-enforcement contract
+        run: node tests/drive_public_schedule_pipeline.test.mjs
+      - name: Chiba speed-guideline area/multi-window contract
+        run: node tests/drive_chiba_pipeline.test.mjs
+      - name: Kanagawa HTML exact/area contract
+        run: node tests/drive_kanagawa_pipeline.test.mjs
+      - name: Saitama speed and focus-area contract
+        run: node tests/drive_saitama_pipeline.test.mjs
+      - name: Per-source polling scheduler contract
+        run: node tests/drive_poll_scheduler.test.mjs
+      - name: Source Registry to scheduler contract
+        run: node tests/drive_source_registry.test.mjs
+      - name: Kanto four-prefecture staging E2E
+        run: node tests/drive_kanto_staging_e2e.test.mjs
+      - name: Oita CP932 half-month schedule parser contract
+        run: node tests/drive_oita_pipeline.test.mjs
+      - name: Aomori half-year visual-audited PDF parser contract
+        run: node tests/drive_aomori_pipeline.test.mjs
+      - name: Nationwide representative parser contracts
+        run: node tests/drive_national_parser_matrix.test.mjs
+      - name: DRIVE Premium entitlement fail-closed contract
+        run: node tests/drive_premium_entitlement.test.mjs
+      - name: Verify generated DRIVE preview snapshot
+        run: node scripts/build_drive_preview_snapshot.mjs --check
+      - name: Verify generated DRIVE public schedule snapshot
+        run: node scripts/build_drive_public_schedule_snapshot.mjs --check
+      - name: DRIVE Tokyo focus all-area API contract
+        run: node tests/drive_focus_tokyo_api.test.cjs
+      - name: DRIVE Tokyo focus live fetch + geocode
+        run: node tests/drive_focus_tokyo_live.test.cjs
+      - name: DRIVE beta map contract
+        run: node tests/drive_beta.test.cjs

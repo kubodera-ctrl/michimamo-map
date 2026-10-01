@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "kanagawa:takatsu:speed-guideline",
+    "prefectureCode": "14",
+    "policeOrg": "神奈川県警察",
+    "stationName": "高津警察署",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "sourceUrl": "https://www.police.pref.kanagawa.jp/ps/takatsu/entry_2.html",
+    "sourceIndexUrl": "https://www.police.pref.kanagawa.jp/kotsu/jiko_boshi/mesf0280.html",
+    "sourceVersionDate": "2026-09-28",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "HTML_CHANGE_DETECT",
+    "parserVersion": "kanagawa_speed_html_v1",
+    "allowedHosts": ["www.police.pref.kanagawa.jp"]
+  },
+  "records": [
+    {
+      "externalId": "takatsu-r246",
+      "sourceRecordKey": "row-1",
+      "routeName": "国道246号",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "60",
+      "segmentStartText": "槍ケ崎側道側",
+      "segmentEndText": "梶ケ谷交差点",
+      "timeStart": "07:00",
+      "timeEnd": "18:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "takatsu-daisan-keihin-under",
+      "sourceRecordKey": "row-2",
+      "routeName": "第三京浜高架橋下",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "40",
+      "segmentStartText": "橘中学校前交差点",
+      "segmentEndText": "第三京浜入口交差点",
+      "timeStart": "07:00",
+      "timeEnd": "18:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "takatsu-shitte-kurokawa",
+      "sourceRecordKey": "row-3",
+      "routeName": "尻手黒川道路",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "JR貨物ターミナル交差点",
+      "segmentEndText": "梶ケ谷六丁目交差点",
+      "timeStart": "07:00",
+      "timeEnd": "18:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "takatsu-tama-ensen",
+      "sourceRecordKey": "row-4",
+      "routeName": "多摩沿線道路",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "40",
+      "segmentStartText": "二子橋交差点",
+      "segmentEndText": "宇奈根交差点",
+      "timeStart": "07:00",
+      "timeEnd": "18:00",
+      "roadScope": "SEGMENT"
+    }
+  ]
+}

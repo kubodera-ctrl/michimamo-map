@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "kanagawa:kanagawa:speed-guideline",
+    "prefectureCode": "14",
+    "policeOrg": "神奈川県警察",
+    "stationName": "神奈川警察署",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "sourceUrl": "https://www.police.pref.kanagawa.jp/ps/kanagawa/entry_7.html",
+    "sourceIndexUrl": "https://www.police.pref.kanagawa.jp/kotsu/jiko_boshi/mesf0280.html",
+    "sourceVersionDate": "2026-09-28",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "HTML_CHANGE_DETECT",
+    "parserVersion": "kanagawa_speed_html_v1",
+    "allowedHosts": ["www.police.pref.kanagawa.jp"]
+  },
+  "records": [
+    {"externalId":"kanagawa-yokohama-kamiasao-am","sourceRecordKey":"row-1","routeName":"横浜上麻生","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"六角橋付近","timeStart":"07:00","timeEnd":"10:00","roadScope":"AREA"},
+    {"externalId":"kanagawa-yokohama-kamiasao-pm","sourceRecordKey":"row-1","routeName":"横浜上麻生","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"六角橋付近","timeStart":"16:00","timeEnd":"20:00","roadScope":"AREA"},
+    {"externalId":"kanagawa-yokohama-ikuta-am","sourceRecordKey":"row-2","routeName":"横浜生田","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"三枚町付近","timeStart":"08:00","timeEnd":"12:00","roadScope":"AREA"},
+    {"externalId":"kanagawa-yokohama-ikuta-pm","sourceRecordKey":"row-2","routeName":"横浜生田","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"三枚町付近","timeStart":"16:00","timeEnd":"18:00","roadScope":"AREA"},
+    {"externalId":"kanagawa-kan2-am","sourceRecordKey":"row-3","routeName":"環状2号","focusType":"STATION_FOCUS","speedLimitText":"60","areaText":"羽沢南付近","timeStart":"08:00","timeEnd":"10:00","roadScope":"AREA"},
+    {"externalId":"kanagawa-kan2-pm","sourceRecordKey":"row-3","routeName":"環状2号","focusType":"STATION_FOCUS","speedLimitText":"60","areaText":"羽沢南付近","timeStart":"16:00","timeEnd":"18:00","roadScope":"AREA"}
+  ]
+}

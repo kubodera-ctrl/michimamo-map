@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "tokyo:public-enforcement:2026-10",
+    "prefectureCode": "13",
+    "policeOrg": "警視庁",
+    "sourceFamily": "PUBLIC_SCHEDULE",
+    "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/kokai.html",
+    "sourceVersionDate": "2026-10-01",
+    "verifiedAt": "2026-10-01",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "MONTHLY_BOUNDARY",
+    "parserVersion": "tokyo_public_enforcement_monthly_v1",
+    "periodStart": "2026-10-01",
+    "periodEnd": "2026-10-31",
+    "allowedHosts": [
+      "www.keishicho.metro.tokyo.lg.jp"
+    ]
+  },
+  "records": [
+    {
+      "externalId": "speeding",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "速度違反",
+      "timePrecision": "POLICY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "幹線道路等",
+      "timeText": "実施場所の交通事故実態に応じた時間",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "focus-locations",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "重点取締場所",
+      "timePrecision": "POLICY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "交差点等",
+      "timeText": "実施場所の交通実態等に応じた時間",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "pedestrian",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "横断歩行者妨害違反",
+      "timePrecision": "ALL_DAY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "都内一円",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "school-route",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "通学路",
+      "timePrecision": "DAYPART",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "通学路等",
+      "timeText": "児童の登下校の時間帯",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "drink-driving",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "飲酒運転",
+      "timePrecision": "POLICY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "繁華街周辺、幹線道路、高速道路出入口付近、裏通り等",
+      "timeText": "飲酒実態に応じた時間",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "motorcycle",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "二輪車",
+      "timePrecision": "ALL_DAY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "都内一円",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "bicycle",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "自転車",
+      "timePrecision": "ALL_DAY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "都内一円",
+      "displayMode": "POLICY_ONLY"
+    },
+    {
+      "externalId": "electric-mobility",
+      "infoType": "PUBLIC_SCHEDULE",
+      "enforcementType": "電動モビリティ",
+      "timePrecision": "ALL_DAY",
+      "geoPrecision": "PREFECTURE",
+      "areaText": "都内一円",
+      "displayMode": "POLICY_ONLY"
+    }
+  ]
+}

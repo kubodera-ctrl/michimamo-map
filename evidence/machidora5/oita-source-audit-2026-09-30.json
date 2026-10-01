@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "oita:public-enforcement:half-month",
+  "capturedAt": "2026-09-30",
+  "officialIndexUrl": "https://www.pref.oita.jp/site/keisatu/torishimarijouhou2.html",
+  "officialArtifactUrl": "https://www.pref.oita.jp/uploaded/life/2354647_4838648_misc.csv",
+  "sourceArtifactSha256": "f67d374f497ae0046a604b692d0daf326412b4e2a04201d3024417c82774998f8",
+  "periodStart": "2026-10-01",
+  "periodEnd": "2026-10-15",
+  "encoding": "CP932/Shift_JIS",
+  "delimiter": "comma",
+  "lineEnding": "CRLF",
+  "headers": ["日", "曜日", "時間帯", "場所", "取締種別"],
+  "dataRowCount": 105,
+  "blankFieldCount": 0,
+  "routeColumnPresent": false,
+  "fullRawArtifactArchived": false,
+  "fullRawArtifactArchiveBlocker": "The prior runtime captured and hashed the official artifact but did not persist its bytes to Drive or Git. Do not claim raw-fixture archival completion.",
+  "parserContractFixture": "evidence/machidora5/oita-parser-contract-sample.csv"
+}

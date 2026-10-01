@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 2,
+  "source": {
+    "sourceKey": "tokyo:tokyo-wangan:speed-guideline",
+    "prefectureCode": "13",
+    "policeOrg": "警視庁",
+    "stationName": "東京湾岸警察署",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+    "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
+    "sourceVersionDate": "2026-07-30",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "ANNUAL_CHANGE_DETECT",
+    "parserVersion": "tokyo_wangan_official_table_v3",
+    "allowedHosts": [
+      "www.keishicho.metro.tokyo.lg.jp"
+    ]
+  },
+  "records": [
+    {
+      "externalId": "wangan-r357",
+      "routeName": "国道357号",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitText": "60",
+      "segmentStartText": "荒川河口橋上",
+      "segmentEndText": "京浜大橋上",
+      "timeStart": "06:00",
+      "timeEnd": "22:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-harumi",
+      "routeName": "晴海通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitText": "60",
+      "segmentStartText": "東雲交差点",
+      "segmentEndText": "東雲橋上",
+      "timeStart": "16:00",
+      "timeEnd": "18:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-meiji",
+      "routeName": "明治通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitText": "60",
+      "segmentStartText": "夢の島交差点",
+      "segmentEndText": "夢の島大橋上",
+      "timeStart": "06:00",
+      "timeEnd": "10:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-mitsume",
+      "routeName": "三ツ目通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "辰巳交差点",
+      "segmentEndText": "七枝橋上",
+      "timeStart": "16:00",
+      "timeEnd": "20:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-kan2",
+      "routeName": "環二通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitText": "60",
+      "segmentStartText": "有明北橋上",
+      "segmentEndText": "有明中央橋南交差点",
+      "timeStart": "20:00",
+      "timeEnd": "24:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-rinko",
+      "routeName": "臨港道路",
+      "focusType": "METROPOLITAN_FOCUS",
+      "timeStart": "06:00",
+      "timeEnd": "20:00",
+      "roadScope": "SEGMENT",
+      "sourceRecordKey": "wangan-rinko",
+      "segments": [
+        {
+          "externalId": "wangan-rinko-keihin-chuboh",
+          "sourceSubrecordKey": "50kmh",
+          "speedLimitText": "50",
+          "segmentStartText": "京浜大橋北交差点",
+          "segmentEndText": "中央防波堤交差点"
+        },
+        {
+          "externalId": "wangan-rinko-chuboh-shinkiba",
+          "sourceSubrecordKey": "60kmh",
+          "speedLimitText": "60",
+          "segmentStartText": "中央防波堤交差点",
+          "segmentEndText": "新木場交差点"
+        }
+      ]
+    },
+    {
+      "externalId": "wangan-aomi",
+      "routeName": "臨港道路（青海縦貫線）",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "青海3丁目交差点",
+      "segmentEndText": "中央防波堤交差点",
+      "timeStart": "18:00",
+      "timeEnd": "22:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-under",
+      "routeName": "臨港道路（東京湾岸アンダー線）",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "港区台場2丁目1番先",
+      "segmentEndText": "湾岸アンダー出口交差点",
+      "timeStart": "07:00",
+      "timeEnd": "11:00",
+      "roadScope": "SEGMENT"
+    },
+    {
+      "externalId": "wangan-miyako",
+      "routeName": "都橋通り",
+      "focusType": "STATION_FOCUS",
+      "speedLimitText": "50",
+      "segmentStartText": "港区台場1丁目9番先",
+      "segmentEndText": "東雲1丁目交差点",
+      "timeStart": "07:00",
+      "timeEnd": "16:00",
+      "roadScope": "SEGMENT"
+    }
+  ],
+  "geometryCandidates": {
+    "wangan-r357": {
+      "start": [
+        35.647526,
+        139.845068
+      ],
+      "end": [
+        35.575405,
+        139.748282
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "bridge_centerline_crosscheck",
+        "evidence": [
+          "https://www.djq.jp/bridge_liblary/river_arakawa/tokyo_bridge_arakawa034_arakawakakoh.php",
+          "https://www.djq.jp/bridge_liblary/river_keihin/tokyo_bridge_keihin_s003_keijhinoh.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "国道357号",
+        "357",
+        "東京湾岸道路"
+      ]
+    },
+    "wangan-kan2": {
+      "start": [
+        35.642054,
+        139.787168
+      ],
+      "end": [
+        35.6352293,
+        139.7926317
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "bridge_and_intersection_crosscheck",
+        "evidence": [
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome004_ariakekita.php",
+          "https://mapfan.com/spots/SCC%2CJ%2CYN4E"
+        ]
+      },
+      "routeMatchTokens": [
+        "環二通り",
+        "環状二号線",
+        "都道484号",
+        "484"
+      ]
+    },
+    "wangan-meiji": {
+      "start": [
+        35.6461213,
+        139.8255402
+      ],
+      "end": [
+        35.655145,
+        139.824323
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://mapfan.com/spots/SCC%2CJ%2C5TNW",
+          "https://www.djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi002_yumenoshima.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "明治通り",
+        "306",
+        "都道306号"
+      ]
+    },
+    "wangan-rinko-keihin-chuboh": {
+      "start": [
+        35.5784984,
+        139.7567388
+      ],
+      "end": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_official_centerline_crosscheck",
+        "evidence": [
+          "https://mapfan.com/spots/SCC%2CJ%2CG1ZZ",
+          "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf"
+        ]
+      },
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路"
+      ]
+    },
+    "wangan-harumi": {
+      "start": [
+        35.640932,
+        139.802592
+      ],
+      "end": [
+        35.65038,
+        139.800698
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+          "https://www.douroweb.jp/region13021/c030harumi.html",
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome001_shinonome.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "晴海通り",
+        "都道304号",
+        "304"
+      ]
+    },
+    "wangan-mitsume": {
+      "start": [
+        35.644254,
+        139.812714
+      ],
+      "end": [
+        35.654181,
+        139.811308
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "intersection_and_bridge_crosscheck",
+        "evidence": [
+          "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+          "https://www.douroweb.jp/region13025/c045mitsume.html",
+          "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi005_nanaeda.php"
+        ]
+      },
+      "routeMatchTokens": [
+        "三ツ目通り",
+        "都道319号",
+        "319"
+      ]
+    },
+    "wangan-rinko-chuboh-shinkiba": {
+      "start": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "end": [
+        35.64755,
+        139.837498
+      ],
+      "verification": "beta_candidate_endpoint_pair",
+      "endpointVerification": {
+        "status": "CROSS_CHECKED",
+        "verifiedAt": "2026-09-30",
+        "method": "official_centerline_and_intersection_crosscheck",
+        "evidence": [
+          "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf",
+          "https://www.ktr.mlit.go.jp/syuto/syuto00173.html",
+          "https://www.douroweb.jp/region13043/utb_wankan.html"
+        ]
+      },
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路",
+        "東京ゲートブリッジ"
+      ]
+    }
+  },
+  "endpointRegistry": {
+    "荒川河口橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.647526,
+        139.845068
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_arakawa/tokyo_bridge_arakawa034_arakawakakoh.php"
+      ]
+    },
+    "京浜大橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.575405,
+        139.748282
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_keihin/tokyo_bridge_keihin_s003_keijhinoh.php"
+      ]
+    },
+    "東雲交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.640932,
+        139.802592
+      ],
+      "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
+      "evidence": [
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+        "https://www.douroweb.jp/region13021/c030harumi.html",
+        "https://www.google.co.jp/maps/@35.640932,139.802592,16z"
+      ]
+    },
+    "東雲橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.65038,
+        139.800698
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome001_shinonome.php"
+      ]
+    },
+    "夢の島交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6461213,
+        139.8255402
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2C5TNW",
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html"
+      ]
+    },
+    "夢の島大橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.655145,
+        139.824323
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi002_yumenoshima.php"
+      ]
+    },
+    "辰巳交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.644254,
+        139.812714
+      ],
+      "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
+      "evidence": [
+        "https://www.ktr.mlit.go.jp/kawakoku/kawakoku_index034.html",
+        "https://www.douroweb.jp/region13025/c045mitsume.html",
+        "https://www.google.co.jp/maps/@35.644254,139.812714,16z"
+      ]
+    },
+    "七枝橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.654181,
+        139.811308
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_sunamachi005_nanaeda.php"
+      ]
+    },
+    "有明北橋上": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.642054,
+        139.787168
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://djq.jp/bridge_liblary/river_sunamachi/tokyo_bridge_shinonome004_ariakekita.php"
+      ]
+    },
+    "有明中央橋南交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6352293,
+        139.7926317
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2CYN4E"
+      ]
+    },
+    "京浜大橋北交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.5784984,
+        139.7567388
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2CG1ZZ"
+      ]
+    },
+    "中央防波堤交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.59522975,
+        139.79993936111111
+      ],
+      "verifiedAt": "2026-09-30",
+      "method": "official_road_centerline_intersection",
+      "evidence": [
+        "https://www.soumu.metro.tokyo.lg.jp/05gyousei/news/press/291016_chouteinitsuite_ketsugou.pdf"
+      ]
+    },
+    "新木場交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.64755,
+        139.837498
+      ],
+      "verifiedAt": "2026-09-30",
+      "method": "road_reference_google_map_crosscheck",
+      "evidence": [
+        "https://www.ktr.mlit.go.jp/syuto/syuto00173.html",
+        "https://www.douroweb.jp/region13043/utb_wankan.html",
+        "https://www.google.co.jp/maps/@35.647550,139.837498,16z"
+      ]
+    },
+    "青海3丁目交差点": {
+      "status": "NAME_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://portal-tokyoport.jp/information.html?id=30072&tid=AomiA1"
+      ]
+    },
+    "港区台場2丁目1番先": {
+      "status": "ADDRESS_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.kensetsu.metro.tokyo.lg.jp/road/kokyokijunten/seika11"
+      ]
+    },
+    "湾岸アンダー出口交差点": {
+      "status": "NAME_CONFIRMED_VICINITY_COORDINATE_ONLY",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.tptc.co.jp/park/event/detail/1434"
+      ],
+      "vicinityCoordinate": [
+        35.62669080659562,
+        139.7842946967036
+      ],
+      "method": "official_streetview_vicinity_only"
+    },
+    "港区台場1丁目9番先": {
+      "status": "ADDRESS_CONFIRMED_COORDINATE_PENDING",
+      "coordinate": null,
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://www.kensetsu.metro.tokyo.lg.jp/road/kokyokijunten/seika11"
+      ]
+    },
+    "東雲1丁目交差点": {
+      "status": "CROSS_CHECKED",
+      "coordinate": [
+        35.6456116,
+        139.8018667
+      ],
+      "verifiedAt": "2026-09-30",
+      "evidence": [
+        "https://mapfan.com/spots/SCC%2CJ%2C5P80"
+      ]
+    }
+  }
+}

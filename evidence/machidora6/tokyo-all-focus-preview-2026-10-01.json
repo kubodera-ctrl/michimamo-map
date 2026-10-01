@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-01",
+  "change": "tokyo_all_focus_display_enabled_preview",
+  "officialSource": {
+    "page": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+    "csv": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.csv",
+    "updated": "2026-07-01",
+    "reuseTerms": "REVIEWED_ATTRIBUTION_REQUIRED",
+    "attribution": "出典：警視庁ホームページ（当該ページURL）を加工して作成"
+  },
+  "geocoder": {
+    "provider": "Geolonia japanese-addresses-v2",
+    "endpoint": "https://japanese-addresses-v2.geoloniamaps.com/api/ja",
+    "license": "CC BY 4.0",
+    "mode": "SERVER_PREVIEW_CACHE",
+    "personalLocationSent": false
+  },
+  "publication": {
+    "exactVerifiedOverrides": 6,
+    "allTokyoMode": "official locality -> town representative point",
+    "approximateMarkerColor": "green",
+    "approximateDistancePrefix": "約",
+    "disclaimer": "丁目代表点の位置目安。交差点そのものの正確なピンではない。",
+    "currentUserLocationProcessing": "client-only"
+  },
+  "production": "HOLD; self-host address data before Production if required by load/stability"
+}
