@@ -7,6 +7,7 @@ const bundle=JSON.parse(fs.readFileSync(path.join(root,'data/drive/tokyo-wangan-
 const snapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-wangan-preview-v1.json'),'utf8'));
 const scheduleSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-public-enforcement-2026-10-preview-v1.json'),'utf8'));
 const focusSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-focus-locations-wangan-preview-v1.json'),'utf8'));
+const speedStationSnapshot=JSON.parse(fs.readFileSync(path.join(root,'drive-beta/data/tokyo-speed-focus-stations-preview-v1.json'),'utf8'));
 const fromSource=zones.normalizeBundle(bundle);
 const current=zones.normalizeSnapshot(snapshot);
 
@@ -235,5 +236,19 @@ assert.equal(focusSnapshot.events.some(e=>e.placeName==='晴海三丁目交差�
 assert.equal(focusSnapshot.events.some(e=>e.placeName==='三原橋交差点'&&e.policeStation==='築地警察署'),true);
 assert.equal(focusSnapshot.events.some(e=>e.placeName==='木場五丁目交差点'&&e.policeStation==='深川警察署'),true);
 assert.equal(focusSnapshot.events.some(e=>e.placeName==='豊洲駅前交差点'&&e.policeStation==='深川警察署'),true);
+
+assert.equal(speedStationSnapshot.v,1);
+assert.equal(speedStationSnapshot.count,97);
+assert.equal(speedStationSnapshot.data.length,97);
+assert.equal(speedStationSnapshot.data.every(row=>Array.isArray(row)&&row.length===6),true);
+assert.equal(speedStationSnapshot.data.some(row=>row[0]==='新宿警察署'),true);
+assert.equal(speedStationSnapshot.data.some(row=>row[0]==='東京湾岸警察署'),true);
+assert.match(app,/tokyo-speed-focus-stations-preview-v1\.json/);
+assert.match(app,/function stationSummaryActive/);
+assert.match(app,/function renderSpeedStationFocus/);
+assert.match(app,/speedStationActiveMarkers/);
+assert.match(app,/fillColor:active\?'#dc2626':'#f59e0b'/);
+assert.match(app,/署別サマリー/);
+assert.match(app,/警察署所在地/);
 
 console.log('drive beta static + public schedule contract: PASS');

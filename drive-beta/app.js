@@ -8,6 +8,7 @@ const zonesApi=window.MachimamoDriveZones;
 let enforcementZones=[];
 let publicSchedule=null;
 let focusLocations=null;
+let speedStationFocus=null;
 let scheduleTab='public';
 const map=L.map('map',{zoomControl:false,attributionControl:true}).setView([35.6335,139.7875],14);
 L.control.zoom({position:'bottomleft'}).addTo(map);
@@ -19,8 +20,10 @@ const enforcementLayer=L.layerGroup().addTo(map);
 const accidentLayer=L.layerGroup().addTo(map);
 const publicScheduleLayer=L.layerGroup().addTo(map);
 const focusLocationLayer=L.layerGroup().addTo(map);
+const speedStationLayer=L.layerGroup().addTo(map);
 const zoneLines=new Map();
 const publicTodayMarkers=[];
+const speedStationActiveMarkers=[];
 const resolvedGeometries=new Map();
 let enforcementVisible=true,accidentVisible=false,flashOn=true,userMarker=null,lastPosition=null,watchId=null;
 let accidentRequest=0,lastAlert={route:null,at:0};
@@ -78,6 +81,55 @@ function toggleLegendExpanded(){
 
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function activeZones(){return enforcementZones.filter(z=>zonesApi.isZoneActive(z));}
+
+function tokyoMinuteOfDay(date=new Date()){
+  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(date);
+  const hour=Number(parts.find(x=>x.type==='hour')?.value||0)%24;
+  const minute=Number(parts.find(x=>x.type==='minute')?.value||0);
+  return hour*60+minute;
+}
+function stationWindowActive(windowPair,minute=tokyoMinuteOfDay()){
+  const [startHour,endHour]=windowPair;
+  const start=startHour*60,end=endHour===24?1440:endHour*60;
+  if(startHour===0&&endHour===24)return true;
+  if(end>start)return minute>=start&&minute<end;
+  return minute>=start||minute<end;
+}
+function stationSummaryActive(event,minute=tokyoMinuteOfDay()){
+  return event.windows.some(windowPair=>stationWindowActive(windowPair,minute));
+}
+function speedStationRadius(zoom=map.getZoom()){
+  if(zoom<=10)return 3;
+  if(zoom<=12)return 4;
+  return 5;
+}
+function stationWindowText(event){
+  return event.windows.map(([a,b])=>String(a).padStart(2,'0')+':00〜'+String(b===24?24:b).padStart(2,'0')+':00').join(' / ');
+}
+function speedStationPopup(event){
+  const active=stationSummaryActive(event);
+  return '<div class="popup-title">🚓 '+esc(event.station)+'</div>'+
+    '<div class="popup-status '+(active?'on':'off')+'">'+(active?'現在、署内の重点時間帯を含む':'現在は署内重点時間帯外')+'</div>'+
+    '<div class="popup-line">'+esc(event.municipality)+' ／ '+esc(stationWindowText(event))+'</div>'+
+    '<div class="popup-note">都内全域の密度確認用「署別サマリー」です。マーカー位置は警察署所在地で、取締地点や重点路線そのものではありません。</div>'+
+    '<a class="popup-source" href="'+esc(event.sourcePdf)+'" target="_blank" rel="noopener noreferrer">出典：警視庁 速度取締指針</a>';
+}
+function renderSpeedStationFocus(){
+  speedStationLayer.clearLayers();
+  speedStationActiveMarkers.length=0;
+  if(!enforcementVisible||!speedStationFocus?.events?.length)return;
+  const radius=speedStationRadius();
+  for(const event of speedStationFocus.events){
+    const active=stationSummaryActive(event);
+    const marker=L.circleMarker(event.locationPoint,{
+      radius,color:'#fff',weight:1.5,
+      fillColor:active?'#dc2626':'#f59e0b',
+      fillOpacity:active?.90:.78,opacity:.92
+    }).bindPopup(speedStationPopup(event),{autoClose:false,closeOnClick:false});
+    marker.addTo(speedStationLayer);
+    if(active)speedStationActiveMarkers.push(marker);
+  }
+}
 
 function enforcementLabelMode(zoom=map.getZoom()){
   if(zoom>=14)return 'detail';
@@ -200,9 +252,13 @@ function updateStatus(){
   jstClock.textContent=fmt.format(now)+' JST';
   const active=activeZones();
   const mappedActive=active.filter(z=>resolvedGeometries.has(z.id));
-  enforcementToggle.classList.toggle('active-now',mappedActive.length>0);
-  stateDot.classList.toggle('live',active.length>0);
-  if(active.length){
+  const activeStations=speedStationFocus?.events?.filter(event=>stationSummaryActive(event)).length||0;
+  enforcementToggle.classList.toggle('active-now',mappedActive.length>0||activeStations>0);
+  stateDot.classList.toggle('live',active.length>0||activeStations>0);
+  if(activeStations>0){
+    statusTitle.textContent='現在、都内'+activeStations+'署で速度取締重点時間帯を含む';
+    statusCopy.textContent='赤点滅の署別サマリーは警察署所在地で、実際の取締地点や実施中を示すものではありません。検証済み道路区間は別途線で表示します。';
+  }else if(active.length){
     statusTitle.textContent='現在、'+active.length+'重点区間が警視庁の重点時間帯';
     statusCopy.textContent=active.map(z=>z.route+' '+zonesApi.formatWindow(z)).join(' ／ ')+'。実施中の断定ではありません。';
   }else{
@@ -220,6 +276,9 @@ function flashTick(){
   }
   for(const marker of publicTodayMarkers){
     marker.setStyle({opacity:flashOn?1:.35,fillOpacity:flashOn?.96:.18});
+  }
+  for(const marker of speedStationActiveMarkers){
+    marker.setStyle({opacity:flashOn?1:.32,fillOpacity:flashOn?.94:.20});
   }
 }
 
@@ -555,7 +614,17 @@ scheduleFocusTab.addEventListener('click',()=>setScheduleTab('focus'));
 enforcementToggle.addEventListener('click',()=>{
   enforcementVisible=!enforcementVisible;
   enforcementToggle.setAttribute('aria-pressed',String(enforcementVisible));
-  if(enforcementVisible){enforcementLayer.addTo(map);renderEnforcement();}else{enforcementLayer.clearLayers();zoneLines.clear();}
+  if(enforcementVisible){
+    enforcementLayer.addTo(map);
+    speedStationLayer.addTo(map);
+    renderEnforcement();
+    renderSpeedStationFocus();
+  }else{
+    enforcementLayer.clearLayers();
+    speedStationLayer.clearLayers();
+    zoneLines.clear();
+    speedStationActiveMarkers.length=0;
+  }
 });
 accidentToggle.addEventListener('click',()=>{
   accidentVisible=!accidentVisible;
@@ -581,9 +650,35 @@ locationBtn.addEventListener('click',()=>{
 document.getElementById('alertClose').addEventListener('click',()=>alertBox.classList.remove('show'));
 map.on('moveend',()=>{if(accidentVisible)loadAccidents();});
 map.on('zoomend',()=>{
-  if(enforcementVisible)renderEnforcement();
+  if(enforcementVisible){
+    renderEnforcement();
+    renderSpeedStationFocus();
+  }
   renderScheduleMap();
 });
+
+async function loadSpeedStationFocus(){
+  try{
+    const response=await fetch('/drive-beta/data/tokyo-speed-focus-stations-preview-v1.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('speed_station_http_'+response.status);
+    const raw=await response.json();
+    if(raw?.v!==1||!Array.isArray(raw?.data)||raw.data.length<90)throw new Error('speed_station_invalid');
+    speedStationFocus={
+      sourceVersionDate:raw.sourceVersionDate,
+      events:raw.data.map(([station,municipality,lat,lng,windows,slug])=>({
+        station,municipality,locationPoint:[Number(lat),Number(lng)],
+        windows:String(windows).split(',').filter(Boolean).map(pair=>pair.split('-').map(Number)),
+        sourcePdf:'https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/'+slug+'.pdf'
+      }))
+    };
+    renderSpeedStationFocus();
+    updateStatus();
+  }catch(error){
+    console.warn('DRIVE beta Tokyo speed station summary load failed',error);
+    speedStationFocus=null;
+    speedStationLayer.clearLayers();
+  }
+}
 
 async function loadEnforcementSource(){
   statusTitle.textContent='警察公式データを読み込み中';
@@ -608,8 +703,9 @@ async function loadEnforcementSource(){
 accidentLayer.clearLayers();
 startLocation();
 loadEnforcementSource();
+loadSpeedStationFocus();
 loadPublicSchedule();
 loadFocusLocations();
-setInterval(()=>{renderEnforcement();checkProximity();},60000);
+setInterval(()=>{renderEnforcement();renderSpeedStationFocus();checkProximity();},60000);
 setInterval(flashTick,850);
 })();
