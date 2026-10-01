@@ -10,6 +10,7 @@
   --mint:#ff8a00;
   --orange:#ff8a00;
   --yellow:#ffc928;
+  --pink:#ff2e78;
 }
 *{box-sizing:border-box}
 html{background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif}
@@ -106,6 +107,7 @@ a{color:inherit}
 }
 @media(max-width:600px){
   .brand small{display:none}
+  .brand-logo-image{width:112px}
   .hero-inner{padding-top:34px}
   .hero h1{font-size:38px}
   .hero-copy{font-size:14px}
@@ -636,9 +638,14 @@ body::before{
 
 
 /* Home PR + editorial feature cards */
-.brand-shell{display:flex;align-items:center;gap:10px;min-width:0}
-.brand-secret-button{display:grid;place-items:center;width:42px;height:42px;padding:0;border:0;border-radius:14px;background:transparent;cursor:default;flex:0 0 auto}
-.brand-copy{gap:0}
+.brand-shell{position:relative;display:flex;align-items:center;min-width:0;flex:0 0 auto}
+.brand-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0;text-decoration:none}
+.brand-logo-image{display:block;width:118px;height:auto;max-width:none;flex:0 0 auto}
+.brand-secret-button{position:absolute;left:0;top:50%;z-index:2;width:38px;height:46px;transform:translateY(-50%);padding:0;border:0;background:transparent;cursor:default;opacity:0}
+.brand-wordmark-fallback{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.brand-wordmark-fallback svg{display:block;width:28px;height:36px;flex:0 0 auto}
+.brand-wordmark-fallback strong{display:inline-flex;align-items:baseline;white-space:nowrap;font-size:24px;line-height:1;font-weight:950;letter-spacing:-.06em;color:#111827}
+.brand-wordmark-fallback strong b{color:var(--pink);font:inherit}
 .admin-quick-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
 .admin-quick-links a{display:inline-flex;text-decoration:none;border:1px solid #d7dee7;background:rgba(255,255,255,.82);border-radius:999px;padding:8px 11px;font-size:11px;font-weight:900;color:#36506b}
 

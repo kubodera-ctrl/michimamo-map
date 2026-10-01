@@ -1,13 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
-<title>まちイベ</title>
-<defs>
-  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#29a8ef"/>
-    <stop offset="1" stop-color="#ff8a00"/>
-  </linearGradient>
-</defs>
-<rect x="24" y="24" width="464" height="464" rx="112" fill="url(#g)"/>
-<path d="M256 91c-76 0-138 61-138 137 0 111 138 202 138 202s138-91 138-202c0-76-62-137-138-137z" fill="#fff" opacity=".96"/>
-<circle cx="256" cy="226" r="76" fill="#29a8ef"/>
-<path d="M210 226h92M256 180v92" stroke="#fff" stroke-width="28" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">まちイベ</title>
+<desc id="desc">まちイベ正式ロゴのピンク位置ピン</desc>
+<path d="M256 36C145.5 36 56 125.5 56 236c0 151.2 200 329 200 329s200-177.8 200-329C456 125.5 366.5 36 256 36z" fill="#ff2e78"/>
+<circle cx="256" cy="236" r="78" fill="#fff"/>
 </svg>

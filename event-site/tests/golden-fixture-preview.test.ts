@@ -7,6 +7,8 @@ const indexSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtur
 const detailSource=fs.readFileSync(new URL('../app/preview/carousel-golden-fixtures/[fixture]/page.tsx',import.meta.url),'utf8');
 const rendererSource=fs.readFileSync(new URL('../components/MachiibeFinalCarouselRenderer.tsx',import.meta.url),'utf8');
 const iconSource=fs.readFileSync(new URL('../public/machiibe-icon.svg',import.meta.url),'utf8');
+const logoSource=fs.readFileSync(new URL('../public/machiibe-logo.svg',import.meta.url),'utf8');
+const brandNavSource=fs.readFileSync(new URL('../components/BrandNav.tsx',import.meta.url),'utf8');
 const cssSource=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');
 
 test('Golden fixture preview stays synthetic, noindex and disabled when indexing is enabled',()=>{
@@ -37,22 +39,33 @@ test('QA labels stay outside the final Canvas renderer',()=>{
   assert.doesNotMatch(rendererSource,/GOLDEN確認用|文字切れ|文字重なり|safe area/);
 });
 
-test('final Canvas brand uses the shared official machiibe icon asset',()=>{
-  assert.match(rendererSource,/loadImage\('\/machiibe-icon\.svg'\)/);
-  assert.match(rendererSource,/ctx\.drawImage\(icon,/);
+test('final Canvas brand uses the shared approved Golden wordmark asset',()=>{
+  assert.match(rendererSource,/loadImage\('\/machiibe-logo\.svg'\)/);
+  assert.match(rendererSource,/ctx\.drawImage\(logo,/);
   assert.match(rendererSource,/await brand\(ctx,/);
 });
 
-test('official brand asset keeps its outer background transparent',()=>{
-  // Transparent outside the rounded icon tile. Preserve intentional white shapes inside the logo.
-  assert.doesNotMatch(iconSource,/<rect[^>]+(?:width="512"|width="100%")[^>]+fill=["'](?:#fff|white)["']/i);
-  assert.match(iconSource,/<rect x="24" y="24" width="464" height="464" rx="112" fill="url\(#g\)"\/>/);
-  assert.match(iconSource,/fill="#fff"/);
+test('approved Golden wordmark is pink pin + black machi + pink ibe on transparent background',()=>{
+  assert.match(logoSource,/fill="#ff2e78"/);
+  assert.match(logoSource,/>まち<\/tspan>/);
+  assert.match(logoSource,/>イベ<\/tspan>/);
+  assert.match(logoSource,/fill="#111827">まち/);
+  assert.doesNotMatch(logoSource,/<rect[^>]+fill=/i);
+  assert.doesNotMatch(logoSource,/linearGradient/i);
 });
 
-test('official site logo wrapper stays transparent',()=>{
-  assert.match(cssSource,/\.brand-icon-wrap\{padding:0;overflow:hidden;background:transparent\}/);
-  assert.doesNotMatch(cssSource,/\.brand-icon-wrap\{[^}]*background:#fff/);
+test('standalone app icon uses the same pink location-pin mark without the old medical cross tile',()=>{
+  assert.match(iconSource,/fill="#ff2e78"/);
+  assert.match(iconSource,/<circle[^>]+fill="#fff"/);
+  assert.doesNotMatch(iconSource,/linearGradient/i);
+  assert.doesNotMatch(iconSource,/stroke="#fff"/i);
+});
+
+test('site header uses the shared wordmark asset and keeps it on one visual line',()=>{
+  assert.match(brandNavSource,/src="\/machiibe-logo\.svg"/);
+  assert.doesNotMatch(brandNavSource,/<strong>まちイベ<\/strong>/);
+  assert.match(cssSource,/\.brand-logo-image\{[^}]*width:118px/);
+  assert.match(cssSource,/\.brand-wordmark-fallback\{[^}]*white-space:nowrap/);
 });
 
 test('cover period pill is width-aware and keeps a fixed right safe area',()=>{

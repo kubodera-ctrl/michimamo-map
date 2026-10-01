@@ -84,17 +84,19 @@ function pageBadge(ctx:CanvasRenderingContext2D,page:MachiibeRenderPage){
   rounded(ctx,0,0,142,80,0,NAVY);label(ctx,String(page.pageNumber)+'/'+String(page.pageCount),24,12,44,900,'#fff');
 }
 async function brand(ctx:CanvasRenderingContext2D,x:number,y:number,scale=1){
-  const icon=await loadImage('/machiibe-icon.svg');
-  if(icon){
-    const size=72*scale;
-    ctx.drawImage(icon,x,y,size,size);
-    label(ctx,'まちイベ',x+88*scale,y+7*scale,42*scale,900,'#111');
+  const logo=await loadImage('/machiibe-logo.svg');
+  if(logo){
+    ctx.drawImage(logo,x,y,258*scale,75*scale);
     return;
   }
-  // Asset load failure fallback only. Normal Preview/PNG must use the official shared icon.
-  ctx.fillStyle=PINK;ctx.beginPath();ctx.arc(x+26*scale,y+24*scale,23*scale,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.moveTo(x+11*scale,y+39*scale);ctx.lineTo(x+26*scale,y+66*scale);ctx.lineTo(x+41*scale,y+39*scale);ctx.closePath();ctx.fill();
-  label(ctx,'まちイベ',x+60*scale,y,42*scale,900,'#111');
+  // Asset load failure fallback only. Normal Preview/PNG must use the approved Golden wordmark.
+  const pink='#ff2e78';
+  ctx.fillStyle=pink;
+  ctx.beginPath();ctx.arc(x+28*scale,y+27*scale,24*scale,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.moveTo(x+11*scale,y+43*scale);ctx.lineTo(x+28*scale,y+72*scale);ctx.lineTo(x+45*scale,y+43*scale);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x+28*scale,y+27*scale,9*scale,0,Math.PI*2);ctx.fill();
+  label(ctx,'まち',x+70*scale,y+7*scale,42*scale,900,'#111827');
+  label(ctx,'イベ',x+151*scale,y+7*scale,42*scale,900,pink);
 }
 function approvedUrl(event?:CarouselEventInput){
   if(!event?.mediaUrl||event.mediaRightsStatus==='blocked') return null;
