@@ -258,6 +258,29 @@ function parseTochigi(html:string,pageUrl:string){
       }
     }
   }
+  if(out.length)return out;
+
+  // The live calendar can render event entries outside a literal <table>.
+  // In that layout, keep only official Tochigi event-detail routes and map
+  // title + event-specific URL. A date is added only when it is explicit in
+  // the event title/context; we do not infer a day from DOM order.
+  const fallbackYear=pageYear(html,pageUrl);
+  for(const link of links(html,pageUrl)){
+    const url=new URL(link.url);
+    if(!/(^|\.)pref\.tochigi\.lg\.jp$/i.test(url.hostname))continue;
+    if(!/(?:\/kouhou\/|\/koyou\/|\/event\/)/i.test(url.pathname))continue;
+    if(/イベント情報一覧|本日のイベント一覧|長期イベント一覧|サイトマップ/.test(link.title))continue;
+    const context=wrappingContext(html,link);
+    const titleHasMonthDay=/\d{1,2}月\s*\d{1,2}日/.test(link.title);
+    const explicit=explicitDates(plainText(context));
+    const titleDates=titleHasMonthDay?datesWithFallbackYear(link.title,fallbackYear):[];
+    const start=explicit[0]||titleDates[0]||null;
+    out.push(fact(link.title,link.url,context,null,{
+      startAt:start,
+      endAt:explicit.length>1?explicit[1]:null,
+      dateText:firstDateText(link.title)||firstDateText(plainText(context))
+    }));
+  }
   return out;
 }
 

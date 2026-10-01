@@ -40,11 +40,20 @@ test('Yamaguchi calendar maps labeled venue, status and date from one event bloc
 });
 
 test('Tochigi calendar combines explicit page year/month with day cell',()=>{
-  const html='<h1>2026年10月</h1><table><tr><td>12 <a href="https://www.pref.tochigi.lg.jp/a01/event-a.html">親子講座</a></td></tr></table>';
+  const html='<h1>2026年10月</h1><table><tr><td>12 <a href="https://www.pref.tochigi.lg.jp/a01/event/event-a.html">親子講座</a></td></tr></table>';
   const parsed=parseFactsOnlyHtml('tochigi-pref-event-calendar',html,'https://www.event.pref.tochigi.lg.jp/cgi-bin/event_cal/calendar.cgi');
   assert.equal(parsed.items.length,1);
   assert.equal(parsed.items[0].startAt,'2026-10-12');
-  assert.equal(parsed.items[0].officialUrl,'https://www.pref.tochigi.lg.jp/a01/event-a.html');
+  assert.equal(parsed.items[0].officialUrl,'https://www.pref.tochigi.lg.jp/a01/event/event-a.html');
+});
+
+test('Tochigi live-style anchor fallback keeps explicit facts without DOM-order inference',()=>{
+  const html='<main><p>2026年のイベントカレンダー</p><div><a href="https://www.pref.tochigi.lg.jp/d57/kouhou/r8koukaide-.html">【10月3日開催】林業センター公開デー</a></div><div><a href="https://www.pref.tochigi.lg.jp/f06/kouhou/r8ginouten.html">県技能展を開催します</a></div></main>';
+  const parsed=parseFactsOnlyHtml('tochigi-pref-event-calendar',html,'https://www.event.pref.tochigi.lg.jp/cgi-bin/event_cal/calendar.cgi');
+  assert.equal(parsed.items.length,2);
+  assert.equal(parsed.items[0].startAt,'2026-10-03');
+  assert.equal(parsed.items[1].startAt,null);
+  assert.equal(parsed.items[1].officialUrl,'https://www.pref.tochigi.lg.jp/f06/kouhou/r8ginouten.html');
 });
 
 test('Fukui event table maps period and venue from event_cod row',()=>{
