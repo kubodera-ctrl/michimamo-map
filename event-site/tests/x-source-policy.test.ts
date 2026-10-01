@@ -137,7 +137,8 @@ test('verified X pilot accounts keep official-site provenance and no automation'
   assert.deepEqual(handles,new Set(['SanrioGames_JP','SanrioKML_JP','jo1xsanrio','purolandjp','sanrio_ent','eddy_sanrio','kabukinyantaro','namjatown765','animatejoji','animateSt_grt']));
   for(const row of data.accounts){
     assert.match(row.profile_url,/^https:\/\/x\.com\/[A-Za-z0-9_]+$/);
-    assert.match(row.verification_evidence_url,/^https:\/\//);
+    const evidenceHost=new URL(row.verification_evidence_url).hostname;
+    assert.ok(new Set(['corporate.sanrio.co.jp','www.puroland.jp','bandainamco-am.co.jp','www.animate.co.jp']).has(evidenceHost));
     assert.equal(row.verification_method,'official_site_backlink');
     assert.equal(row.user_id,null);
     assert.equal(row.discovery_use_allowed,true);
