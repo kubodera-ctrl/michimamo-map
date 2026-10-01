@@ -19,15 +19,15 @@
       "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
       "directOfficialPdfObservedVersion": "2025-07",
       "priorRecordedFixtureVersion": "2026-07",
-      "versionMismatch": false,
-      "rawArchiveStatus": "READY_FOR_ARCHIVE",
-      "decision": "current official station/highway PDFs are 2025-07 and match the prior 2025-07 fixture lineage; archive exact official bytes before parser promotion",
+      "versionMismatch": true,
+      "rawArchiveStatus": "PENDING_EVIDENCE",
+      "decision": "current official PDFs are 2025-07 (令和7年7月); prior recorded fixture says 2026-07, so do_not_promote until provenance is reconciled",
       "indexUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/torisimari_sisin.html",
       "representativeStationUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/aomori_sisin.pdf",
       "representativeHighwayUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
       "currentIndexLinksVerified": true,
-      "lineageStatus": "RECONCILED_CURRENT_2025_07",
-      "evidenceNote": "2026-10-01 recheck: official highway, Towada, Ooma, Mutsu and Tsugaru PDFs show 令和7年7月; six-month review policy remains documented."
+      "lineageStatus": "PRIOR_2026_07_FIXTURE_METADATA_UNRECONCILED",
+      "evidenceNote": "2026-10-01 recheck: official highway, Towada, Ooma, Mutsu and Tsugaru PDFs show 令和7年7月 (=2025-07). Six-month review policy is documented."
     },
     "kumamoto": {
       "sourceKey": "kumamoto:weekly-public-enforcement",
