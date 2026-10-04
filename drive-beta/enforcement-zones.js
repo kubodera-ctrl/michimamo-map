@@ -217,13 +217,45 @@
     return Object.freeze([...new Set(values)]);
   }
 
+  function roadValueMatchesExpected(value,expected){
+    const normalized=normalizeRoadToken(value);
+    return normalized?expected.includes(normalized):false;
+  }
+
+  function routeStepMatchesExpected(step,expected){
+    const candidates=[];
+    const name=normalizeRoadToken(step?.name);
+    if(name)candidates.push(name);
+    for(const part of clean(step?.ref).split(/[;,/／|]+/)){
+      const normalized=normalizeRoadToken(part);
+      if(normalized)candidates.push(normalized);
+    }
+    if(!candidates.length)return false;
+    return candidates.some(value=>expected.includes(value));
+  }
+
   function routeMatchesExpected(payload,expectedTokens){
-    const expected=(Array.isArray(expectedTokens)?expectedTokens:[])
-      .map(normalizeRoadToken).filter(Boolean);
+    const expected=[...new Set((Array.isArray(expectedTokens)?expectedTokens:[])
+      .map(normalizeRoadToken).filter(Boolean))];
     if(!expected.length)return false;
-    const signature=osrmRouteSignature(payload);
-    if(!signature.length)return false;
-    return expected.some(token=>signature.some(value=>value.includes(token)||token.includes(value)));
+
+    const routes=Array.isArray(payload?.routes)?payload.routes:[];
+    if(!routes.length)return false;
+    let sawStep=false;
+    for(const route of routes){
+      for(const leg of Array.isArray(route?.legs)?route.legs:[]){
+        for(const step of Array.isArray(leg?.steps)?leg.steps:[]){
+          sawStep=true;
+          if(!routeStepMatchesExpected(step,expected))return false;
+        }
+      }
+    }
+    if(!sawStep)return false;
+
+    const waypoints=Array.isArray(payload?.waypoints)?payload.waypoints:[];
+    if(waypoints.length<2)return false;
+    const first=waypoints[0],last=waypoints[waypoints.length-1];
+    return roadValueMatchesExpected(first?.name,expected)&&roadValueMatchesExpected(last?.name,expected);
   }
 
   return Object.freeze({

@@ -77,22 +77,30 @@ assert.deepEqual(zones.normalizeSnapshot(stale),[],'stale public snapshot must f
 const segDistance=zones.distanceToPolylineMeters([35.64115,139.7902],[[35.6400,139.7900],[35.6423,139.7904]]);
 assert.ok(segDistance<50,'proximity must measure to the road segment, not only vertices');
 
-const osrm357={routes:[{legs:[{steps:[
+const osrm357={waypoints:[{name:'東京湾岸道路'},{name:'国道357号'}],routes:[{legs:[{steps:[
   {name:'東京湾岸道路',ref:'国道357号'},
   {name:'湾岸道路',ref:'357'}
 ]}]}]};
-const osrmWrong={routes:[{legs:[{steps:[{name:'首都高速湾岸線',ref:'B'}]}]}]};
+const osrmWrong={waypoints:[{name:'首都高速湾岸線'},{name:'首都高速湾岸線'}],routes:[{legs:[{steps:[{name:'首都高速湾岸線',ref:'B'}]}]}]};
 assert.equal(zones.routeMatchesExpected(osrm357,r357.routeMatchTokens),true,'R357 road signature must match');
 assert.equal(zones.routeMatchesExpected(osrmWrong,r357.routeMatchTokens),false,'unrelated road route must fail closed');
-const osrmMeiji={routes:[{legs:[{steps:[{name:'明治通り',ref:'東京都道306号'}]}]}]};
-const osrmHarumi={routes:[{legs:[{steps:[{name:'晴海通り',ref:'東京都道304号'}]}]}]};
-const osrmMitsume={routes:[{legs:[{steps:[{name:'三ツ目通り',ref:'東京都道319号'}]}]}]};
-const osrmRinko={routes:[{legs:[{steps:[{name:'東京港臨海道路',ref:''},{name:'東京ゲートブリッジ',ref:''}]}]}]};
+const osrmMeiji={waypoints:[{name:'明治通り'},{name:'明治通り'}],routes:[{legs:[{steps:[{name:'明治通り',ref:'306'}]}]}]};
+const osrmHarumi={waypoints:[{name:'晴海通り'},{name:'晴海通り'}],routes:[{legs:[{steps:[{name:'晴海通り',ref:'304'}]}]}]};
+const osrmMitsume={waypoints:[{name:'三ツ目通り'},{name:'三ツ目通り'}],routes:[{legs:[{steps:[{name:'三ツ目通り',ref:'319'}]}]}]};
+const osrmRinko50={waypoints:[{name:'東京港臨海道路'},{name:'東京港臨海道路'}],routes:[{legs:[{steps:[{name:'東京港臨海道路',ref:''}]}]}]};
+const osrmRinko60={waypoints:[{name:'東京港臨海道路'},{name:'東京港臨海道路'}],routes:[{legs:[{steps:[{name:'東京港臨海道路',ref:''},{name:'東京ゲートブリッジ',ref:''}]}]}]};
+const osrmPartialMitsume={waypoints:[{name:'三ツ目通り'},{name:'三ツ目通り'}],routes:[{legs:[{steps:[
+  {name:'首都高速湾岸線',ref:'B'},
+  {name:'三ツ目通り',ref:'319'}
+]}]}]};
+const osrmMissingSnap={waypoints:[{name:''},{name:'東京港臨海道路'}],routes:[{legs:[{steps:[{name:'東京港臨海道路',ref:''}]}]}]};
 assert.equal(zones.routeMatchesExpected(osrmMeiji,meiji.routeMatchTokens),true,'Meiji-dori road signature must match');
 assert.equal(zones.routeMatchesExpected(osrmHarumi,harumi.routeMatchTokens),true,'Harumi-dori road signature must match');
 assert.equal(zones.routeMatchesExpected(osrmMitsume,mitsume.routeMatchTokens),true,'Mitsume-dori road signature must match');
-assert.equal(zones.routeMatchesExpected(osrmRinko,rinko50.routeMatchTokens),true,'Tokyo Port Rinkai Road signature must match');
-assert.equal(zones.routeMatchesExpected(osrmRinko,rinko60.routeMatchTokens),true,'Tokyo Gate Bridge segment signature must match');
+assert.equal(zones.routeMatchesExpected(osrmRinko50,rinko50.routeMatchTokens),true,'Tokyo Port Rinkai Road signature must match');
+assert.equal(zones.routeMatchesExpected(osrmRinko60,rinko60.routeMatchTokens),true,'Tokyo Gate Bridge segment signature must match');
+assert.equal(zones.routeMatchesExpected(osrmPartialMitsume,mitsume.routeMatchTokens),false,'partial expected-road match must not allow a mixed unrelated route');
+assert.equal(zones.routeMatchesExpected(osrmMissingSnap,rinko50.routeMatchTokens),false,'missing endpoint snap names must fail closed');
 assert.equal(zones.routeMatchesExpected({routes:[]},kan2.routeMatchTokens),false,'missing OSRM steps must fail closed');
 
 for(const zone of current){
