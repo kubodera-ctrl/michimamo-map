@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "sourceLabel": "警視庁 東京湾岸警察署速度取締指針",
+  "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+  "sourceIndexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
+  "sourceVersionDate": "2026-07-30",
+  "sourceVerifiedAt": "2026-09-30",
+  "sourceHash": "a91bcdaa7692d97fa8d405963f3530c225a52b545342e0ac0e818938f447b8a8",
+  "freshnessStatus": "CURRENT",
+  "sourceRecordCount": 9,
+  "events": [
+    {
+      "id": "wangan-r357",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-r357",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "国道357号",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "荒川河口橋上",
+      "segmentEndText": "京浜大橋上",
+      "timeStartMinutes": 360,
+      "timeEndMinutes": 1320,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.647526,
+          139.845068
+        ],
+        [
+          35.575405,
+          139.748282
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "国道357号",
+        "357",
+        "東京湾岸道路"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-r357",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-harumi",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-harumi",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "晴海通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "東雲交差点",
+      "segmentEndText": "東雲橋上",
+      "timeStartMinutes": 960,
+      "timeEndMinutes": 1080,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.640932,
+          139.802592
+        ],
+        [
+          35.65038,
+          139.800698
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "晴海通り",
+        "都道304号",
+        "304"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-harumi",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-meiji",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-meiji",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "明治通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "夢の島交差点",
+      "segmentEndText": "夢の島大橋上",
+      "timeStartMinutes": 360,
+      "timeEndMinutes": 600,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.6461213,
+          139.8255402
+        ],
+        [
+          35.655145,
+          139.824323
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "明治通り",
+        "306",
+        "都道306号"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-meiji",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-mitsume",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-mitsume",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "三ツ目通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 50,
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "辰巳交差点",
+      "segmentEndText": "七枝橋上",
+      "timeStartMinutes": 960,
+      "timeEndMinutes": 1200,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.644254,
+          139.812714
+        ],
+        [
+          35.654181,
+          139.811308
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "三ツ目通り",
+        "都道319号",
+        "319"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-mitsume",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-kan2",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-kan2",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "環二通り",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "有明北橋上",
+      "segmentEndText": "有明中央橋南交差点",
+      "timeStartMinutes": 1200,
+      "timeEndMinutes": 1440,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.642054,
+          139.787168
+        ],
+        [
+          35.6352293,
+          139.7926317
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "環二通り",
+        "環状二号線",
+        "都道484号",
+        "484"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-kan2",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-rinko-keihin-chuboh",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-rinko-keihin-chuboh",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "臨港道路",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 50,
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "京浜大橋北交差点",
+      "segmentEndText": "中央防波堤交差点",
+      "timeStartMinutes": 360,
+      "timeEndMinutes": 1200,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.5784984,
+          139.7567388
+        ],
+        [
+          35.59522975,
+          139.79993936111111
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-rinko",
+      "sourceSubrecordKey": "50kmh",
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-rinko-chuboh-shinkiba",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-rinko-chuboh-shinkiba",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "臨港道路",
+      "focusType": "METROPOLITAN_FOCUS",
+      "speedLimitKmh": 60,
+      "speedLimitText": "60",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "中央防波堤交差点",
+      "segmentEndText": "新木場交差点",
+      "timeStartMinutes": 360,
+      "timeEndMinutes": 1200,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": [
+        [
+          35.59522975,
+          139.79993936111111
+        ],
+        [
+          35.64755,
+          139.837498
+        ]
+      ],
+      "endpointVerified": true,
+      "routeMatchTokens": [
+        "東京港臨海道路",
+        "臨港道路",
+        "東京ゲートブリッジ"
+      ],
+      "geometryStatus": "ENDPOINTS_CROSSCHECKED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-rinko",
+      "sourceSubrecordKey": "60kmh",
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-aomi",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-aomi",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "臨港道路(青海縦貫線)",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitKmh": 50,
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "青海3丁目交差点",
+      "segmentEndText": "中央防波堤交差点",
+      "timeStartMinutes": 1080,
+      "timeEndMinutes": 1320,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
+      "geometryStatus": "UNRESOLVED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-aomi",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-under",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-under",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "臨港道路(東京湾岸アンダー線)",
+      "focusType": "METROPOLITAN_AND_STATION_FOCUS",
+      "speedLimitKmh": 50,
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "港区台場2丁目1番先",
+      "segmentEndText": "湾岸アンダー出口交差点",
+      "timeStartMinutes": 420,
+      "timeEndMinutes": 660,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
+      "geometryStatus": "UNRESOLVED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-under",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    },
+    {
+      "id": "wangan-miyako",
+      "eventKey": "tokyo:tokyo-wangan:speed-guideline:wangan-miyako",
+      "agency": "警視庁",
+      "policeStation": "東京湾岸警察署",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "sourceVerifiedAt": "2026-09-30",
+      "freshnessStatus": "CURRENT",
+      "routeName": "都橋通り",
+      "focusType": "STATION_FOCUS",
+      "speedLimitKmh": 50,
+      "speedLimitText": "50",
+      "alternateSpeedKmh": [],
+      "segmentStartText": "港区台場1丁目9番先",
+      "segmentEndText": "東雲1丁目交差点",
+      "timeStartMinutes": 420,
+      "timeEndMinutes": 960,
+      "geoPrecision": "EXACT_SEGMENT",
+      "timePrecision": "EXACT_TIME",
+      "displayMode": "EXACT_SEGMENT_TIMED",
+      "routeEndpoints": null,
+      "endpointVerified": false,
+      "routeMatchTokens": [],
+      "geometryStatus": "UNRESOLVED",
+      "geometryVerified": false,
+      "sourceRecordKey": "wangan-miyako",
+      "sourceSubrecordKey": null,
+      "scheduleChangeNote": "実際の取締実施中を示すものではありません。"
+    }
+  ]
+}

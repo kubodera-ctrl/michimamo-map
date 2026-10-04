@@ -1,0 +1,3 @@
+Tokyo official-source E2E v1
+Current official Tokyo Wangan dataset: 9 routes
+Verified: 2026-09-30

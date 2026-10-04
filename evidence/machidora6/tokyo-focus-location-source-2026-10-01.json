@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-01",
+  "source": {
+    "sourceKey": "tokyo:focus-locations:official-list",
+    "title": "重点取締場所(一覧・地図)",
+    "indexUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+    "csvUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/juten.csv",
+    "updatedDate": "2026-07-01",
+    "format": "CSV + PDF",
+    "observedFields": [
+      "区市町村",
+      "警察署",
+      "場所・地域",
+      "交差点/路線",
+      "理由"
+    ],
+    "coordinateFieldsObserved": false
+  },
+  "distanceSort": {
+    "desired": true,
+    "currentMonthlyScheduleHasCoordinates": false,
+    "contract": "位置座標を証跡付きで持つ項目だけ現在地から距離昇順。座標なしの都内一円/幹線道路等は公式掲載順を維持。",
+    "geocodingRequired": true,
+    "geocodingProviderStatus": "NOT_SELECTED_TERMS_REVIEW_REQUIRED"
+  },
+  "gates": {
+    "termsStatus": "PENDING",
+    "automatedFetchAllowed": false,
+    "productionParser": false
+  }
+}

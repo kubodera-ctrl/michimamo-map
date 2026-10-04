@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "aomori:speed-guideline:representative",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "prefectureCode": "02",
+    "policeOrg": "青森県警察",
+    "stationName": "高速道路交通警察隊",
+    "sourceIndexUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/torisimari_sisin.html",
+    "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
+    "sourceVersionDate": "2026-07",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING"
+  },
+  "sourceArtifactSha256": "e9c4ebae68400bc529cfdda51cbfc0fe46ed8f8a49e86e03a2be78a3dbd190e3",
+  "pageCount": 1,
+  "pageSize": "A4",
+  "documentVersionLabel": "令和8年7月版",
+  "reviewCadence": "HALF_YEAR_APPROX",
+  "visualQa": {
+    "approved": true,
+    "method": "same-day official PDF visual audit recorded in Drive CURRENT during development 4",
+    "columns": [
+      "routeName",
+      "segmentLabelStart",
+      "segmentLabelEnd",
+      "postedSpeedText"
+    ]
+  },
+  "rows": [
+    {
+      "rowNumber": 1,
+      "routeName": "東北自動車道",
+      "segmentLabelStart": "青森IC",
+      "segmentLabelEnd": "大鰐弘前IC",
+      "postedSpeedText": "法定100km/h"
+    },
+    {
+      "rowNumber": 2,
+      "routeName": "東北自動車道",
+      "segmentLabelStart": "大鰐弘前IC",
+      "segmentLabelEnd": "秋田県境",
+      "postedSpeedText": "80km/h"
+    },
+    {
+      "rowNumber": 3,
+      "routeName": "三陸沿岸道路",
+      "segmentLabelStart": "八戸JCT",
+      "segmentLabelEnd": "岩手県境",
+      "postedSpeedText": "70km/h"
+    },
+    {
+      "rowNumber": 4,
+      "routeName": "八戸自動車道",
+      "segmentLabelStart": "八戸IC",
+      "segmentLabelEnd": "岩手県境",
+      "postedSpeedText": "80km/h"
+    }
+  ],
+  "fullRawArtifactArchived": false,
+  "fullRawArtifactArchiveBlocker": "The prior runtime captured and hashed the official PDF but did not persist its bytes to Drive or Git. Visual-audit fixture is reproducible, raw PDF archival remains pending."
+}

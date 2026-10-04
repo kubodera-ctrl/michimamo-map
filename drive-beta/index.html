@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1d91d0">
+<title>まちドラ β｜まちDRIVE</title>
+<link rel="icon" type="image/png" sizes="64x64" href="/drive-beta/assets/machidora-icon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/drive-beta/assets/machidora-icon-180.png">
+<link rel="manifest" href="/drive-beta/manifest.webmanifest">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/drive-beta/drive.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div id="app">
+  <div id="map" aria-label="まちドラ（まちDRIVE）β 地図"></div>
+  <div class="topbar">
+    <div class="brand"><img class="brand-logo" src="/drive-beta/assets/machidora-icon-64.png" width="38" height="38" alt=""><div class="brand-copy"><strong>まちドラ β</strong><span>まちDRIVE｜運転中の安全情報に特化した試作</span></div></div>
+    <div class="clock" id="jstClock">--:--</div>
+  </div>
+  <div class="controls">
+    <button class="chip" id="enforcementToggle" aria-pressed="true">🚓 取締重点</button>
+    <button class="chip" id="accidentToggle" aria-pressed="false">⚠️ 事故多発 OFF</button>
+    <button class="chip" id="scheduleToggle" aria-pressed="false" aria-expanded="false">📅 取締予定</button>
+  </div>
+  <div class="schedule-day-banner" id="scheduleDayBanner" role="status" aria-live="polite" hidden>
+    <strong id="scheduleDayTitle"></strong>
+    <span id="scheduleDayCopy"></span>
+  </div>
+  <section class="schedule-panel" id="schedulePanel" aria-label="警視庁 取締情報" hidden>
+    <div class="schedule-head">
+      <div>
+        <strong>📅 警視庁 取締情報</strong>
+        <span id="schedulePeriod">読み込み中</span>
+      </div>
+      <button id="scheduleClose" class="schedule-close" aria-label="取締情報を閉じる">×</button>
+    </div>
+    <div class="schedule-tabs" role="tablist" aria-label="取締情報の種類">
+      <button id="schedulePublicTab" class="schedule-tab active" type="button" role="tab" aria-selected="true">公開取締予定</button>
+      <button id="scheduleFocusTab" class="schedule-tab" type="button" role="tab" aria-selected="false">重点取締場所</button>
+    </div>
+    <div class="schedule-list" id="scheduleList"></div>
+    <div class="schedule-foot">
+      <span id="scheduleFootCopy">具体的な場所を確認できる情報のみ表示します。</span>
+      <a id="scheduleSource" href="#" target="_blank" rel="noopener noreferrer">警視庁の出典</a>
+      <a id="scheduleGeoSource" href="https://github.com/geolonia/japanese-addresses-v2" target="_blank" rel="noopener noreferrer" hidden>位置データ: Geolonia (CC BY 4.0)</a>
+    </div>
+  </section>
+  <div class="legend" id="mapLegend" aria-label="地図表示の凡例">
+    <button class="legend-item" type="button" data-legend="active" aria-expanded="false" aria-label="現在の重点時間帯">
+      <i class="legend-marker red" aria-hidden="true"></i><span>現在の重点時間帯</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="inactive" aria-expanded="false" aria-label="重点区間（時間外）">
+      <i class="legend-marker orange" aria-hidden="true"></i><span>重点区間（時間外）</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="today" aria-expanded="false" aria-label="本日の公開取締予定">
+      <i class="legend-marker red-dot" aria-hidden="true"></i><span>本日の公開取締予定</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="focus" aria-expanded="false" aria-label="重点取締場所">
+      <i class="legend-marker green-dot" aria-hidden="true"></i><span>重点取締場所</span>
+    </button>
+    <button class="legend-item" type="button" data-legend="accident" aria-expanded="false" aria-label="事故多発エリア">
+      <i class="legend-marker purple" aria-hidden="true"></i><span>事故多発エリア</span>
+    </button>
+  </div>
+  <button class="location-btn" id="locationBtn" aria-label="現在地へ移動">◎</button>
+  <div class="alert-card" id="proximityAlert" role="status" aria-live="polite">
+    <button class="alert-close" id="alertClose" aria-label="閉じる">×</button>
+    <strong id="alertTitle">この先、速度取締重点区間です</strong>
+    <span id="alertBody"></span>
+  </div>
+  <section class="panel collapsed" id="statusPanel" aria-label="現在の重点区間情報" data-state="collapsed">
+    <button class="panel-handle" id="statusPanelHandle" type="button" aria-expanded="false" aria-controls="statusPanelDetails" aria-label="詳細を表示">
+      <span class="panel-grabber" aria-hidden="true"></span>
+    </button>
+    <div class="panel-row">
+      <div class="state-dot" id="stateDot"></div>
+      <div class="panel-content">
+        <div class="panel-title" id="statusTitle">公式の重点時間帯を確認しています</div>
+        <div class="panel-details" id="statusPanelDetails" aria-hidden="true">
+          <div class="panel-copy" id="statusCopy">実際に現場で取締り・検問を実施中であることを示す表示ではありません。</div>
+          <div class="beta-note">β：東京湾岸署の現行公式PDF 9路線を収録。道路線形は検証済み区間から順次表示します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="/drive-beta/enforcement-zones.js"></script>
+<script src="/drive-beta/app.js"></script>
+<!-- drive-beta-ui-v2 -->
+</body>
+</html>

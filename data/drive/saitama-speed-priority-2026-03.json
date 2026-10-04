@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "sourceKey": "saitama:prefecture:speed-priority-2026-03",
+    "prefectureCode": "11",
+    "policeOrg": "埼玉県警察",
+    "sourceFamily": "SPEED_GUIDELINE",
+    "sourceUrl": "https://www.police.pref.saitama.lg.jp/documents/754/r808zyuutennrosen.pdf",
+    "sourceIndexUrl": "https://www.police.pref.saitama.lg.jp/f0020/kotsu/sokudoshishin.html",
+    "sourceVersionDate": "2026-03",
+    "verifiedAt": "2026-09-30",
+    "freshnessStatus": "CURRENT",
+    "termsStatus": "PENDING",
+    "cadenceType": "ANNUAL_CHANGE_DETECT",
+    "parserVersion": "saitama_speed_priority_table_v1",
+    "allowedHosts": ["www.police.pref.saitama.lg.jp"]
+  },
+  "records": [
+    {"externalId":"urawa-cityroad-am","sourceRecordKey":"urawa-row","routeName":"市道","focusType":"STATION_FOCUS","speedLimitText":"30","areaText":"管内全域","timeStart":"07:00","timeEnd":"09:00","roadScope":"AREA"},
+    {"externalId":"urawa-r463-pm","sourceRecordKey":"urawa-row","routeName":"国道463号","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"さいたま市浦和区","timeStart":"16:00","timeEnd":"19:00","roadScope":"AREA"},
+    {"externalId":"hanno-r299-am","sourceRecordKey":"hanno-row","routeName":"国道299号線","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"飯能市大字飯能から飯能市大字坂元まで","timeStart":"06:00","timeEnd":"09:00","roadScope":"AREA"},
+    {"externalId":"hanno-r299-night","sourceRecordKey":"hanno-row","routeName":"国道299号線","focusType":"STATION_FOCUS","speedLimitText":"40","areaText":"飯能市大字飯能から飯能市大字坂元まで","timeStart":"20:30","timeEnd":"23:30","roadScope":"AREA"}
+  ]
+}

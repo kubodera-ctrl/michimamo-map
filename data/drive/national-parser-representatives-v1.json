@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-30",
+  "purpose": "Representative source-type rollout matrix before nationwide parser expansion. Discovery/adapter readiness is not equivalent to Production automation approval.",
+  "representatives": [
+    {
+      "id": "tokyo_wangan_pdf_exact",
+      "prefectureCode": "13",
+      "prefecture": "東京",
+      "sourceKey": "tokyo:tokyo-wangan:speed-guideline",
+      "sourceFamily": "SPEED_GUIDELINE",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "contentFormat": "PDF",
+      "parserState": "COMMON_EVENT_PASS",
+      "cadence": "ANNUAL_CHANGE_DETECT",
+      "geoModes": [
+        "EXACT_SEGMENT"
+      ],
+      "timeModes": [
+        "EXACT_TIME"
+      ],
+      "commonEventPass": true,
+      "provenancePass": true,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Official 9 source rows normalize to 10 events; 7 endpoint pairs cross-checked, all geometryVerified=false."
+    },
+    {
+      "id": "chiba_urayasu_pdf_area",
+      "prefectureCode": "12",
+      "prefecture": "千葉",
+      "sourceKey": "chiba:urayasu:speed-guideline",
+      "sourceFamily": "SPEED_GUIDELINE",
+      "sourceUrl": "https://www.police.pref.chiba.jp/kotsushidoka/traffic-safety_surveillanc.html",
+      "contentFormat": "PDF",
+      "parserState": "COMMON_EVENT_PASS",
+      "cadence": "ANNUAL_CHANGE_DETECT",
+      "geoModes": [
+        "ROAD_AREA"
+      ],
+      "timeModes": [
+        "EXACT_TIME"
+      ],
+      "commonEventPass": true,
+      "provenancePass": true,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "ROAD_AREA and multiple time windows / speed-range handling covered."
+    },
+    {
+      "id": "kanagawa_html_mixed",
+      "prefectureCode": "14",
+      "prefecture": "神奈川",
+      "sourceKey": "kanagawa:representative:speed-guideline",
+      "sourceFamily": "SPEED_GUIDELINE",
+      "sourceUrl": "https://www.police.pref.kanagawa.jp/kotsu/jiko_boshi/mesf0280.html",
+      "contentFormat": "HTML",
+      "parserState": "COMMON_EVENT_PASS",
+      "cadence": "HTML_CHANGE_DETECT",
+      "geoModes": [
+        "EXACT_SEGMENT",
+        "ROAD_AREA"
+      ],
+      "timeModes": [
+        "EXACT_TIME"
+      ],
+      "commonEventPass": true,
+      "provenancePass": true,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Takatsu exact-segment and Kanagawa-station road-area fixtures pass within the same prefecture."
+    },
+    {
+      "id": "tokyo_monthly_html_schedule",
+      "prefectureCode": "13",
+      "prefecture": "東京",
+      "sourceKey": "tokyo:public-enforcement:2026-09",
+      "sourceFamily": "PUBLIC_SCHEDULE",
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/kokai.html",
+      "contentFormat": "HTML",
+      "parserState": "COMMON_EVENT_PASS",
+      "cadence": "MONTHLY_BOUNDARY",
+      "geoModes": [
+        "PREFECTURE"
+      ],
+      "timeModes": [
+        "POLICY",
+        "ALL_DAY",
+        "DAYPART",
+        "DATE_ONLY"
+      ],
+      "commonEventPass": true,
+      "provenancePass": true,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "POLICY_ONLY / PREFECTURE_DATE are kept out of precise road geometry."
+    },
+    {
+      "id": "saitama_focus_pdf_policy",
+      "prefectureCode": "11",
+      "prefecture": "埼玉",
+      "sourceKey": "saitama:focus-areas:urawa",
+      "sourceFamily": "AREA_FOCUS",
+      "sourceUrl": "https://www.police.pref.saitama.lg.jp/f0020/documents/zyuutennrosenn.html",
+      "contentFormat": "PDF",
+      "parserState": "COMMON_EVENT_PASS",
+      "cadence": "ANNUAL_CHANGE_DETECT",
+      "geoModes": [
+        "LOCALITY"
+      ],
+      "timeModes": [
+        "EXACT_TIME",
+        "POLICY",
+        "DAYPART"
+      ],
+      "commonEventPass": true,
+      "provenancePass": true,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "sourceVersionDate is intentionally nullable when the official version date cannot be verified."
+    },
+    {
+      "id": "kumamoto_weekly_html_schedule",
+      "prefectureCode": "43",
+      "prefecture": "熊本",
+      "sourceKey": "kumamoto:weekly-public-enforcement",
+      "sourceFamily": "PUBLIC_SCHEDULE",
+      "sourceUrl": "https://www.pref.kumamoto.jp/site/police/192732.html",
+      "contentFormat": "HTML",
+      "parserState": "BLOCKED_SOURCE_404",
+      "cadence": "WEEKLY_FRIDAY",
+      "geoModes": [
+        "LOCALITY",
+        "ROAD_AREA"
+      ],
+      "timeModes": [
+        "DATE_ONLY",
+        "DAYPART"
+      ],
+      "commonEventPass": false,
+      "provenancePass": false,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Formal source URL from CURRENT returns 404. Current official list is live but presently exposes no fetchable weekly source page; search-index/cache content is not accepted as a fixture. Keep WAITING_EXTERNAL and do not implement parser from cache-only evidence."
+    },
+    {
+      "id": "oita_halfmonth_csv_structured",
+      "prefectureCode": "44",
+      "prefecture": "大分",
+      "sourceKey": "oita:public-enforcement:half-month",
+      "sourceFamily": "PUBLIC_SCHEDULE",
+      "sourceUrl": "https://www.pref.oita.jp/site/keisatu/torishimarijouhou2.html",
+      "contentFormat": "CSV_STRUCTURED",
+      "parserState": "PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING",
+      "cadence": "OPEN_DATA_HALF_MONTH",
+      "geoModes": [
+        "LOCALITY"
+      ],
+      "timeModes": [
+        "DAYPART"
+      ],
+      "commonEventPass": false,
+      "provenancePass": false,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Dedicated CP932/Shift_JIS + YYYY/M/D + weekday + DAYPART parser and contract fixture implemented. Same-day official artifact SHA/105-row schema are recorded, but full raw CSV bytes were not persisted by the prior runtime; keep Common Event pending until raw artifact archival is reproducible."
+    },
+    {
+      "id": "aomori_halfyear_pdf_area",
+      "prefectureCode": "02",
+      "prefecture": "青森",
+      "sourceKey": "aomori:speed-guideline:representative",
+      "sourceFamily": "SPEED_GUIDELINE",
+      "sourceUrl": "https://www.police.pref.aomori.jp/koutubu/sidou/sisin/kosokutai_sisin.pdf",
+      "contentFormat": "PDF",
+      "parserState": "PARSER_IMPLEMENTED_RAW_FIXTURE_ARCHIVE_PENDING",
+      "cadence": "HALF_YEAR",
+      "geoModes": [
+        "ROAD_AREA"
+      ],
+      "timeModes": [
+        "UNSPECIFIED"
+      ],
+      "commonEventPass": false,
+      "provenancePass": false,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Dedicated visual-audited PDF parser implemented from the development-4 same-day official artifact audit (2026-07 version; 4 speed rows). Full raw PDF bytes were not persisted by the prior runtime, so Common Event remains pending until raw artifact archival is reproducible. No time/enforcement-target inference and no LineString."
+    },
+    {
+      "id": "okayama_webmap_dynamic",
+      "prefectureCode": "33",
+      "prefecture": "岡山",
+      "sourceKey": "okayama:traffic-enforcement:webmap",
+      "sourceFamily": "PUBLIC_SCHEDULE",
+      "sourceUrl": "https://www.pref.okayama.jp/page/818192.html",
+      "providerUrl": "https://map.police.okayama.dsvc.jp/",
+      "contentFormat": "WEBMAP",
+      "parserState": "DYNAMIC_PROVIDER_GATE",
+      "cadence": "AD_HOC_SPOT",
+      "geoModes": [
+        "LOCALITY",
+        "ROAD_AREA"
+      ],
+      "timeModes": [
+        "UNKNOWN"
+      ],
+      "commonEventPass": false,
+      "provenancePass": false,
+      "structuredFetchAllowed": false,
+      "termsStatus": "PENDING",
+      "notes": "Do not scrape the rendered WebMap. API/schema/terms must be explicitly validated before parser or automation work."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: DRIVE Tokyo Speed Focus Snapshot
+
+on:
+  push:
+    branches:
+      - "feat/dev38-drive-beta"
+    paths:
+      - "scripts/build_tokyo_speed_focus_station_snapshot.mjs"
+      - ".github/workflows/drive-tokyo-speed-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install one-time PDF parser
+        run: npm install --no-save --ignore-scripts pdf-parse@1.1.1
+      - name: Build all-Tokyo station speed-focus snapshot
+        run: node scripts/build_tokyo_speed_focus_station_snapshot.mjs /tmp/tokyo-speed-focus-stations-preview-v1.json
+      - name: Upload snapshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokyo-speed-focus-stations-preview
+          path: /tmp/tokyo-speed-focus-stations-preview-v1.json
+          if-no-files-found: error

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-01",
+  "lane": "tokyo_focus_display_expansion",
+  "sourceIndex": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+  "sourceIndexUpdated": "2026-07-01",
+  "verifiedOfficialStationMaps": [
+    {
+      "policeStation": "東京湾岸警察署",
+      "officialPdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/tokyowangan.pdf",
+      "visualTargetPresent": true,
+      "previewPublishedVerifiedPoints": 2,
+      "status": "VERIFIED_SUBSET_ACTIVE"
+    },
+    {
+      "policeStation": "月島警察署",
+      "officialPdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/tsukishima.pdf",
+      "visualTargetPresent": true,
+      "coordinateEvidenceStatus": "VERIFIED",
+      "status": "VERIFIED_SUBSET_ACTIVE",
+      "previewPublishedVerifiedPoints": 1
+    },
+    {
+      "policeStation": "築地警察署",
+      "officialPdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/tsukiji.pdf",
+      "visualTargetPresent": true,
+      "coordinateEvidenceStatus": "VERIFIED",
+      "status": "VERIFIED_SUBSET_ACTIVE",
+      "previewPublishedVerifiedPoints": 1
+    },
+    {
+      "policeStation": "深川警察署",
+      "officialPdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.files/fukagawa.pdf",
+      "visualTargetPresent": true,
+      "coordinateEvidenceStatus": "VERIFIED",
+      "status": "VERIFIED_SUBSET_ACTIVE",
+      "previewPublishedVerifiedPoints": 2
+    }
+  ],
+  "expansionRule": "Only publish a focus point after the official focus target and independent coordinate lineage are both verified. Never derive coordinates from the PDF circle alone.",
+  "next": "Continue outward station-by-station from Tokyo Bay using the official focus-place list; publish only named places with independently verified coordinate lineage.",
+  "publishedVerifiedPoints": [
+    {
+      "policeStation": "東京湾岸警察署",
+      "placeName": "千石橋北交差点",
+      "locationPoint": [
+        35.6445442,
+        139.8252532
+      ]
+    },
+    {
+      "policeStation": "東京湾岸警察署",
+      "placeName": "東雲交差点",
+      "locationPoint": [
+        35.640932,
+        139.802592
+      ]
+    },
+    {
+      "policeStation": "月島警察署",
+      "placeName": "晴海三丁目交差点",
+      "locationPoint": [
+        35.6554419,
+        139.7817924
+      ]
+    },
+    {
+      "policeStation": "築地警察署",
+      "placeName": "三原橋交差点",
+      "locationPoint": [
+        35.6694791,
+        139.7671045
+      ]
+    },
+    {
+      "policeStation": "深川警察署",
+      "placeName": "木場五丁目交差点",
+      "locationPoint": [
+        35.6694401,
+        139.8057602
+      ]
+    },
+    {
+      "policeStation": "深川警察署",
+      "placeName": "豊洲駅前交差点",
+      "locationPoint": [
+        35.654445,
+        139.7965058
+      ]
+    }
+  ]
+}
