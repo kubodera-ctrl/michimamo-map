@@ -1,0 +1,5157 @@
+{
+  "schemaVersion": 1,
+  "sourceLabel": "警視庁 重点取締場所（都内全域Preview）",
+  "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+  "sourceVersionDate": "2026-07-01",
+  "sourceVerifiedAt": "2026-10-01",
+  "freshnessStatus": "CURRENT",
+  "scope": "tokyo_all_focus_locality_preview",
+  "locationMethod": "OFFICIAL_LOCALITY_TO_TOWN_REPRESENTATIVE",
+  "locationAttribution": "Geolonia 住所データ (CC BY 4.0)",
+  "sourceRowCount": 214,
+  "publishedCount": 214,
+  "events": [
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOS4ieWuheWdguS6",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOS4ieWuheWdguS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麹町",
+      "localityText": "千代田区永田町1丁目付近",
+      "placeName": "三宅坂交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.675895,
+        139.746306
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOiyoeWLmeecgeS4",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOiyoeWLmeecgeS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麹町",
+      "localityText": "千代田区霞が関2丁目付近",
+      "placeName": "財務省上交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.675551,
+        139.750413
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOerueapi-mrmOmA",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOerueapi-mrmOmA",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麹町",
+      "localityText": "千代田区一ツ橋1丁目付近",
+      "placeName": "竹橋高速下交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.691189,
+        139.757119
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOelneeUsOapi-S6",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOelneeUsOapi-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "丸の内",
+      "localityText": "千代田区皇居外苑1番付近",
+      "placeName": "祝田橋交差点",
+      "reason": "死亡事故発生交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.679944,
+        139.758466
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOelnuS_neeUuuS6",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOelnuS_neeUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "神田",
+      "localityText": "千代田区神田神保町1丁目付近",
+      "placeName": "神保町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.696491,
+        139.759073
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOmnv-ays-WPsOes",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOmnv-ays-WPsOes",
+      "enforcementType": "重点取締場所",
+      "policeStation": "神田",
+      "localityText": "千代田区神田神保町1丁目付近",
+      "placeName": "駿河台第二交差点",
+      "reason": "事故多発交差点であることから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.696491,
+        139.759073
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOa3oei3r-eUuuS6",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOa3oei3r-eUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "神田",
+      "localityText": "千代田区神田淡路町1丁目付近",
+      "placeName": "淡路町交差点",
+      "reason": "事故多発交差点であることから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.695759,
+        139.767031
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOmMpueUuuays-Wy",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOmMpueUuuays-Wy",
+      "enforcementType": "重点取締場所",
+      "policeStation": "神田",
+      "localityText": "千代田区神田錦町3丁目付近",
+      "placeName": "錦町河岸交差点",
+      "reason": "進路変更による事故の発生が懸念されるほか、取締り要望もあるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.692324,
+        139.760722
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOaYreWSjOmAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOaYreWSjOmAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "万世橋",
+      "localityText": "千代田区神田佐久間町1丁目付近",
+      "placeName": "昭和通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.697979,
+        139.774222
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOmgiOeUsOeUuuS6",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOmgiOeUsOeUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "万世橋",
+      "localityText": "千代田区神田須田町1丁目付近",
+      "placeName": "須田町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.696223,
+        139.769841
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y2D5Luj55Sw5Yy6fOelnueUsOmnheWM",
+      "eventKey": "tokyo:focus-locations:all:5Y2D5Luj55Sw5Yy6fOelnueUsOmnheWM",
+      "enforcementType": "重点取締場所",
+      "policeStation": "万世橋",
+      "localityText": "千代田区神田鍛冶町3丁目付近",
+      "placeName": "神田駅北口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.693613,
+        139.770976
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOaxn-aIuOapi-S4gOS4",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOaxn-aIuOapi-S4gOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "中央",
+      "localityText": "中央区日本橋1丁目付近",
+      "placeName": "江戸橋一丁目交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.682904,
+        139.775351
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOaYreWSjOmAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOaYreWSjOmAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "中央",
+      "localityText": "中央区日本橋3丁目付近",
+      "placeName": "昭和通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.679541,
+        139.773747
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOS4oeWbveapi-ilv-S6",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOS4oeWbveapi-ilv-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "久松",
+      "localityText": "中央区東日本橋2丁目付近",
+      "placeName": "両国橋西交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.693487,
+        139.786769
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOawtOWkqeWuruWJjeS6",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOawtOWkqeWuruWJjeS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "久松",
+      "localityText": "中央区日本橋人形町1丁目付近",
+      "placeName": "水天宮前交差点",
+      "reason": "通行量が多く、事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.684835,
+        139.782191
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOS4ieWOn-api-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOS4ieWOn-api-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "築地",
+      "localityText": "中央区銀座4丁目付近",
+      "placeName": "三原橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.67117,
+        139.766249
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit5aSu5Yy6fOaZtOa1t-S4ieS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5Lit5aSu5Yy6fOaZtOa1t-S4ieS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "月島",
+      "localityText": "中央区晴海1丁目付近",
+      "placeName": "晴海三丁目交差点",
+      "reason": "オリンピック関連施設の建設に伴い、工事関係車両の通行増加が予想され、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.659523,
+        139.786164
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOaWsOapi-Wbm-S4geebruad",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOaWsOapi-Wbm-S4geebruad",
+      "enforcementType": "重点取締場所",
+      "policeStation": "愛宕",
+      "localityText": "港区新橋4丁目付近",
+      "placeName": "新橋四丁目東交差点",
+      "reason": "事故発生の可能性が高いことから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.664373,
+        139.755933
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOa1nOadvueUuuS4gOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOa1nOadvueUuuS4gOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "愛宕",
+      "localityText": "港区芝大門1丁目付近",
+      "placeName": "浜松町一丁目交差点",
+      "reason": "工事関係車両等の通過が多い交差点であり、事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.658587,
+        139.753717
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOS4ieeUsOS6jOS4geebruS6",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOS4ieeUsOS6jOS4geebruS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "三田",
+      "localityText": "港区三田3丁目付近",
+      "placeName": "三田二丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.644006,
+        139.742887
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOeUsOeUuumnheilv-WPo-S6",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOeUsOeUuumnheilv-WPo-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "三田",
+      "localityText": "港区芝5丁目付近",
+      "placeName": "田町駅西口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.647133,
+        139.746672
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOa4r-aghOapi-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOa4r-aghOapi-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "三田",
+      "localityText": "港区海岸3丁目付近",
+      "placeName": "港栄橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.640807,
+        139.756877
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOazieWys-WvuuS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOazieWys-WvuuS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高輪",
+      "localityText": "港区高輪2丁目付近",
+      "placeName": "泉岳寺交差点",
+      "reason": "工事関係者等の大型貨物車の通行が増加したことから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.637421,
+        139.736881
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOWTgeW3nemnheWJjeS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOWTgeW3nemnheWJjeS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高輪",
+      "localityText": "港区高輪3丁目付近",
+      "placeName": "品川駅前交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.631804,
+        139.734338
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOaWsOa4r-WNl-api-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOaWsOa4r-WNl-api-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高輪",
+      "localityText": "港区港南1丁目付近",
+      "placeName": "新港南橋交差点",
+      "reason": "海岸通りの抜け道として通行する車両が多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.634002,
+        139.745217
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOS4iuWkp-W0juS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOS4iuWkp-W0juS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高輪",
+      "localityText": "港区白金台5丁目付近",
+      "placeName": "上大崎交差点",
+      "reason": "首都高出口付近で違反も多いことから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.639007,
+        139.719776
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOWFreacrOacqOS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOWFreacrOacqOS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麻布",
+      "localityText": "港区六本木3丁目付近",
+      "placeName": "六本木交差点",
+      "reason": "事故が多発傾向であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.664291,
+        139.736423
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOi1pOe-veapi-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOi1pOe-veapi-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麻布",
+      "localityText": "港区東麻布1丁目付近",
+      "placeName": "赤羽橋交差点",
+      "reason": "工事関係者等の貨物車増加及び事故多発交差点であることから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.656698,
+        139.743777
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOilv-m6u-W4g-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOilv-m6u-W4g-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "麻布",
+      "localityText": "港区西麻布1丁目付近",
+      "placeName": "西麻布交差点",
+      "reason": "交通量も多く、事故多発交差点であることから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.661226,
+        139.725358
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOi1pOWdguS4gOS4geebruS6",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOi1pOWdguS4gOS4geebruS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "赤坂",
+      "localityText": "港区赤坂1丁目付近",
+      "placeName": "赤坂一丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.668589000000004,
+        139.742334
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOWNl-mdkuWxseS4g-S4geeb",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOWNl-mdkuWxseS4g-S4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "赤坂",
+      "localityText": "港区南青山6丁目付近",
+      "placeName": "南青山七丁目交差点",
+      "reason": "事故多発路線であり、交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.660852,
+        139.716026
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riv5Yy6fOODrOOCpOODs-ODnOODvOWF",
+      "eventKey": "tokyo:focus-locations:all:5riv5Yy6fOODrOOCpOODs-ODnOODvOWF",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京湾岸",
+      "localityText": "港区台場2丁目付近",
+      "placeName": "レインボー入口交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.62722,
+        139.775903
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOWNg-efs-api-WMl-S6",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOWNg-efs-api-WMl-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京湾岸",
+      "localityText": "江東区新木場1丁目付近",
+      "placeName": "千石橋北交差点",
+      "reason": "歩行者や交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.643729,
+        139.826503
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOadsembsuS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOadsembsuS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京湾岸",
+      "localityText": "江東区東雲2丁目付近",
+      "placeName": "東雲交差点",
+      "reason": "工事関係車両の通過が多い交差点であり、事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.640503,
+        139.802348
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOWMl-WTgeW3neS6jOS4",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOWMl-WTgeW3neS6jOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "品川",
+      "localityText": "品川区北品川2丁目付近",
+      "placeName": "北品川二丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.618206,
+        139.743093
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOaWsOWFq-ODhOWxseap",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOaWsOWFq-ODhOWxseap",
+      "enforcementType": "重点取締場所",
+      "policeStation": "品川",
+      "localityText": "品川区北品川4丁目付近",
+      "placeName": "新八ツ山橋線",
+      "reason": "事故多発場所付近であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.620245,
+        139.736532
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOijnOWKqTI45Y-357ea",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOijnOWKqTI45Y-357ea",
+      "enforcementType": "重点取締場所",
+      "policeStation": "品川",
+      "localityText": "品川区東品川4丁目付近",
+      "placeName": "補助28号線(池上通り)",
+      "reason": "事故多発場所付近であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.609514,
+        139.748327
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOesrOS4gOS6rOa1nA",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOesrOS4gOS6rOa1nA",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大井",
+      "localityText": "品川区南大井3丁目付近",
+      "placeName": "第一京浜",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.590127,
+        139.73457300000004
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOaWsOa1nOW3neapi-S6",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOaWsOa1nOW3neapi-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大井",
+      "localityText": "品川区勝島3丁目付近",
+      "placeName": "新浜川橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.592171,
+        139.738715
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOWkp-W0juW6g-Wwj-i3",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOWkp-W0juW6g-Wwj-i3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大崎",
+      "localityText": "品川区西五反田1丁目付近",
+      "placeName": "大崎広小路交差点",
+      "reason": "事故多発路線であり、違反も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.624512,
+        139.72313
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOWxseaJi-mAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOWxseaJi-mAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大崎",
+      "localityText": "品川区大崎5丁目付近",
+      "placeName": "山手通り",
+      "reason": "事故多発路線であり、違反も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.622652,
+        139.724801
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOWkp-W0jumDteS-v-Wx",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOWkp-W0jumDteS-v-Wx",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大崎",
+      "localityText": "品川区西五反田7丁目付近",
+      "placeName": "大崎郵便局前交差点",
+      "reason": "事故多発路線であり、違反も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.621641,
+        139.718916
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5ZOB5bed5Yy6fOW5s-Whmuapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5ZOB5bed5Yy6fOW5s-Whmuapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "荏原",
+      "localityText": "品川区西中延1丁目付近",
+      "placeName": "平塚橋交差点",
+      "reason": "重傷事故多発場所付近であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.613415,
+        139.708271
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWkp-ajruadseS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWkp-ajruadseS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大森",
+      "localityText": "大田区大森東1丁目付近",
+      "placeName": "大森東交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.576501,
+        139.738648
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOS4reWOn-ihl-mBkw",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOS4reWOn-ihl-mBkw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "田園調布",
+      "localityText": "大田区田園調布1丁目付近",
+      "placeName": "中原街道",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.589326,
+        139.671359
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOeUsOWckuiqv-W4g-it",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOeUsOWckuiqv-W4g-it",
+      "enforcementType": "重点取締場所",
+      "policeStation": "田園調布",
+      "localityText": "大田区田園調布1丁目付近",
+      "placeName": "田園調布警察前交差点",
+      "reason": "事故多発、死亡事故発生路線のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.589326,
+        139.671359
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWMl-WNg-adn-S6lOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWMl-WNg-adn-S6lOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "田園調布",
+      "localityText": "大田区北千束2丁目付近",
+      "placeName": "北千束五差路交差点",
+      "reason": "事故多発、死亡事故発生路線のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.60701,
+        139.692666
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOesrOS4gOS6rOa1nA",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOesrOS4gOS6rOa1nA",
+      "enforcementType": "重点取締場所",
+      "policeStation": "蒲田",
+      "localityText": "大田区仲六郷4丁目付近",
+      "placeName": "第一京浜",
+      "reason": "信号機もなく、速度超過による事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.540839,
+        139.707751
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWNl-iSsueUsOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWNl-iSsueUsOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "蒲田",
+      "localityText": "大田区南蒲田2丁目付近",
+      "placeName": "南蒲田交差点",
+      "reason": "事故、違反多発交差点であることから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.555352,
+        139.722996
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWkp-mzpeWxheS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWkp-mzpeWxheS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "蒲田",
+      "localityText": "大田区羽田1丁目付近",
+      "placeName": "大鳥居交差点",
+      "reason": "事故、違反多発交差点であることから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.55061500000001,
+        139.742878
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOadvuWOn-api-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOadvuWOn-api-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "池上",
+      "localityText": "大田区東馬込1丁目付近",
+      "placeName": "松原橋交差点",
+      "reason": "主要幹線道路が交わる交差点であり、交通量も多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.597329,
+        139.713425
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOefouWPo-mZuOapiw",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOefouWPo-mZuOapiw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "池上",
+      "localityText": "大田区矢口1丁目付近",
+      "placeName": "矢口陸橋",
+      "reason": "主要幹線道路が交わる交差点であり、交通量も多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.567344,
+        139.692486
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOe-veeUsOepuua4r-S6",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOe-veeUsOepuua4r-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京空港",
+      "localityText": "大田区羽田空港2丁目付近",
+      "placeName": "羽田空港二丁目西交差点",
+      "reason": "大型車の事故発生場所であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.5512,
+        139.764712
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWbveWGhee3mlA06aeQ",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWbveWGhee3mlA06aeQ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京空港",
+      "localityText": "大田区羽田空港3丁目付近",
+      "placeName": "国内線P4駐車場付近",
+      "reason": "合流地点の事故多発場所であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.549786,
+        139.786522
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOW8geWkqeapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOW8geWkqeapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京空港",
+      "localityText": "大田区羽田空港1丁目付近",
+      "placeName": "弁天橋交差点",
+      "reason": "事故多発場所付近であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.554814,
+        139.756936
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSn55Sw5Yy6fOWbvemam-e3muilv-S6",
+      "eventKey": "tokyo:focus-locations:all:5aSn55Sw5Yy6fOWbvemam-e3muilv-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東京空港",
+      "localityText": "大田区羽田空港2丁目付近",
+      "placeName": "国際線西交差点(空港アクセス道路上)",
+      "reason": "重傷事故も発生している交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.5512,
+        139.764712
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOS4iei7kuiMtuWx",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOS4iei7kuiMtuWx",
+      "enforcementType": "重点取締場所",
+      "policeStation": "世田谷",
+      "localityText": "世田谷区三軒茶屋2丁目付近",
+      "placeName": "三軒茶屋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.6417,
+        139.665353
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOS4iummrOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOS4iummrOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "世田谷",
+      "localityText": "世田谷区上馬4丁目付近",
+      "placeName": "上馬交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.636575,
+        139.66114600000003
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOWkp-WOn-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOWkp-WOn-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "北沢",
+      "localityText": "世田谷区大原1丁目付近",
+      "placeName": "大原交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.668848,
+        139.663756
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOeSsOS4g-mAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOeSsOS4g-mAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "北沢",
+      "localityText": "世田谷区代田4丁目付近",
+      "placeName": "環七通り",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.659556,
+        139.657205
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOeArOeUsOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOeArOeUsOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "玉川",
+      "localityText": "世田谷区玉川台2丁目付近",
+      "placeName": "瀬田交差点",
+      "reason": "交通量が多い交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.624329,
+        139.629918
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOesrOS4ieS6rOa1",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOesrOS4ieS6rOa1",
+      "enforcementType": "重点取締場所",
+      "policeStation": "玉川",
+      "localityText": "世田谷区野毛3丁目付近",
+      "placeName": "第三京浜出口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.605583,
+        139.636717
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOW4guWMuueUuuad",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOW4guWMuueUuuad",
+      "enforcementType": "重点取締場所",
+      "policeStation": "成城",
+      "localityText": "世田谷区砧7丁目付近",
+      "placeName": "市区町村道",
+      "reason": "信号機のない交差点で、歩行者も多い上、付近は抜け道で通過車両も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.636148,
+        139.606197
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiW55Sw6LC35Yy6fOeSsOWFq-mAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5LiW55Sw6LC35Yy6fOeSsOWFq-mAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "成城",
+      "localityText": "世田谷区千歳台1丁目付近",
+      "placeName": "環八通り",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.647258,
+        139.615669
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOadvuimi-WdguS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOadvuimi-WdguS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "目黒",
+      "localityText": "目黒区青葉台4丁目付近",
+      "placeName": "松見坂交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.654794,
+        139.69112
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOWkp-api-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOWkp-api-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "目黒",
+      "localityText": "目黒区大橋2丁目付近",
+      "placeName": "大橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.653326,
+        139.686537
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOWkp-api-eXhemZouWF",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOWkp-api-eXhemZouWF",
+      "enforcementType": "重点取締場所",
+      "policeStation": "目黒",
+      "localityText": "目黒区大橋2丁目付近",
+      "placeName": "大橋病院入口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.653326,
+        139.686537
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOS4reagueWwj-mAmuOC",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOS4reagueWwj-mAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区中根1丁目付近",
+      "placeName": "中根小通り",
+      "reason": "歩行者や交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.616015,
+        139.673269
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOafv-OBruacqOWdgumZ",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOafv-OBruacqOWdgumZ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区碑文谷4丁目付近",
+      "placeName": "柿の木坂陸橋交差点",
+      "reason": "歩行者や交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.620316,
+        139.683401
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOebrum7kumDteS-v-Wx",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOebrum7kumDteS-v-Wx",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区目黒本町2丁目周辺",
+      "placeName": "目黒郵便局前",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.624841,
+        139.692463
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOadseS6rOWMu-eZguOC",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOadseS6rOWMu-eZguOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区東が丘2丁目付近",
+      "placeName": "東京医療センター前交差点",
+      "reason": "付近は病院や公園、小学校があり、歩行者等の交通量が多いことから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.628086,
+        139.664591
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOebrum7kumAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOebrum7kumAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区柿の木坂1丁目付近",
+      "placeName": "目黒通り",
+      "reason": "交通量も多く、バスレーンを走行する車両も多いことから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.621011,
+        139.677173
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOeSsOS4g-mAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOeSsOS4g-mAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区南1丁目付近",
+      "placeName": "環七通り",
+      "reason": "取締り要望及び通行禁止規制時間帯の違反が多いため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.614501,
+        139.689037
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55uu6buS5Yy6fOm3ueeVquWwj-Wtpuag",
+      "eventKey": "tokyo:focus-locations:all:55uu6buS5Yy6fOm3ueeVquWwj-Wtpuag",
+      "enforcementType": "重点取締場所",
+      "policeStation": "碑文谷",
+      "localityText": "目黒区鷹番1丁目周辺",
+      "placeName": "鷹番小学校周辺",
+      "reason": "取締り要望及び通行禁止規制時間帯の違反が多いため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.625719,
+        139.687414
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riL6LC35Yy6fOa4i-iwt-mnheadseWP",
+      "eventKey": "tokyo:focus-locations:all:5riL6LC35Yy6fOa4i-iwt-mnheadseWP",
+      "enforcementType": "重点取締場所",
+      "policeStation": "渋谷",
+      "localityText": "渋谷区渋谷2丁目付近",
+      "placeName": "渋谷駅東口交差点",
+      "reason": "交通量が多く、多数の自転車の横断もあることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.659609,
+        139.705829
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riL6LC35Yy6fOelnuWuruWJjeS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5riL6LC35Yy6fOelnuWuruWJjeS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "原宿",
+      "localityText": "渋谷区神宮前6丁目付近",
+      "placeName": "神宮前交差点",
+      "reason": "歩行者や交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.66608,
+        139.70370400000002
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riL6LC35Yy6fOWMl-WPgumBk-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5riL6LC35Yy6fOWMl-WPgumBk-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "原宿",
+      "localityText": "渋谷区千駄ヶ谷4丁目付近",
+      "placeName": "北参道交差点",
+      "reason": "歩行者の通行が多く、事故多発交差点であることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.680447,
+        139.705903
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riL6LC35Yy6fOWvjOODtuiwt-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5riL6LC35Yy6fOWvjOODtuiwt-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "代々木",
+      "localityText": "渋谷区上原1丁目付近",
+      "placeName": "富ヶ谷交差点",
+      "reason": "死亡事故発生路線であるほか、事故多発交差点でもあり、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.668983,
+        139.683921
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5riL6LC35Yy6fOW5oeODtuiwt-mnheWJ",
+      "eventKey": "tokyo:focus-locations:all:5riL6LC35Yy6fOW5oeODtuiwt-mnheWJ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "代々木",
+      "localityText": "渋谷区幡ヶ谷1丁目付近",
+      "placeName": "幡ヶ谷駅前交差点",
+      "reason": "交通量が多い主要幹線道路の事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.674993,
+        139.673218
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOW4guiwt-S7suS5i-eU",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOW4guiwt-S7suS5i-eU",
+      "enforcementType": "重点取締場所",
+      "policeStation": "牛込",
+      "localityText": "新宿区市谷仲之町4番付近",
+      "placeName": "市谷仲之町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.694719,
+        139.723009
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOmjr-eUsOapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOmjr-eUsOapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "牛込",
+      "localityText": "新宿区下宮比町1番付近",
+      "placeName": "飯田橋交差点",
+      "reason": "事故多発交差点であることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.703242,
+        139.743644
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOilv-aWsOWuv-S4ieS4",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOilv-aWsOWuv-S4ieS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "新宿",
+      "localityText": "新宿区西新宿3丁目付近",
+      "placeName": "西新宿三丁目交差点",
+      "reason": "事故多発路線であり、歩行者と車両の通行も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.684529,
+        139.689179
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOilv-aWsOWuv-S4gOS4",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOilv-aWsOWuv-S4gOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "新宿",
+      "localityText": "新宿区西新宿1丁目付近",
+      "placeName": "西新宿一丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.690383,
+        139.697501
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOaWsOWuv-itpuWvn-e9",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOaWsOWuv-itpuWvn-e9",
+      "enforcementType": "重点取締場所",
+      "policeStation": "新宿",
+      "localityText": "新宿区西新宿7丁目付近",
+      "placeName": "新宿警察署前交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.695578,
+        139.697241
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOWwj-a7neapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOWwj-a7neapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "戸塚",
+      "localityText": "新宿区高田馬場3丁目付近",
+      "placeName": "小滝橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.713475,
+        139.697204
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOS4reiQveWQiOS6jOS4",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOS4reiQveWQiOS6jOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "戸塚",
+      "localityText": "新宿区中落合2丁目付近",
+      "placeName": "中落合二丁目交差点",
+      "reason": "交通量が多く、事故多発交差点であることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.71949200000001,
+        139.692223
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOirj-ioqueUuuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOirj-ioqueUuuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "戸塚",
+      "localityText": "新宿区西早稲田2丁目付近",
+      "placeName": "諏訪町交差点",
+      "reason": "横断歩行者、自転車利用者の通行量が多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.708898,
+        139.713041
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOmrmOeUsOmmrOWgtOmn",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOmrmOeUsOmmrOWgtOmn",
+      "enforcementType": "重点取締場所",
+      "policeStation": "戸塚",
+      "localityText": "新宿区高田馬場2丁目付近",
+      "placeName": "高田馬場駅前交差点",
+      "reason": "車両、歩行者、自転車利用者の通行量が多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.712982,
+        139.707511
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paw5a6_5Yy6fOWbm-iwt-Wbm-S4geeb",
+      "eventKey": "tokyo:focus-locations:all:5paw5a6_5Yy6fOWbm-iwt-Wbm-S4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "四谷",
+      "localityText": "新宿区四谷4丁目付近",
+      "placeName": "四谷四丁目交差点",
+      "reason": "事故多発交差点であることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.688582,
+        139.716267
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit6YeO5Yy6fOS4remHjuWdguS4iuS6",
+      "eventKey": "tokyo:focus-locations:all:5Lit6YeO5Yy6fOS4remHjuWdguS4iuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "中野",
+      "localityText": "中野区中央1丁目付近",
+      "placeName": "中野坂上交差点",
+      "reason": "事故多発交差点であり、死亡事故発生交差点でもあることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.698994,
+        139.685658
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit6YeO5Yy6fOWuruS4i-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5Lit6YeO5Yy6fOWuruS4i-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "中野",
+      "localityText": "中野区中央1丁目付近",
+      "placeName": "宮下交差点",
+      "reason": "交通量が多い交差点であるほか、小学校の通学路となっており、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.698994,
+        139.685658
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Lit6YeO5Yy6fOS4remHjumAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:5Lit6YeO5Yy6fOS4remHjumAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "野方",
+      "localityText": "中野区中野4丁目付近",
+      "placeName": "中野通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.707746,
+        139.66175
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOmrmOWGhuWvuumZuOap",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOmrmOWGhuWvuumZuOap",
+      "enforcementType": "重点取締場所",
+      "policeStation": "杉並",
+      "localityText": "杉並区高円寺南2丁目付近",
+      "placeName": "高円寺陸橋下交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.7002,
+        139.651335
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOWkp-S5heS_nemAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOWkp-S5heS_nemAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "杉並",
+      "localityText": "杉並区高円寺南2丁目付近",
+      "placeName": "大久保通り入口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.7002,
+        139.651335
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOS4reOBruapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOS4reOBruapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高井戸",
+      "localityText": "杉並区高井戸東2丁目付近",
+      "placeName": "中の橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.679677,
+        139.616644
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOS4iumrmOS6leaIuOS4",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOS4iumrmOS6leaIuOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高井戸",
+      "localityText": "杉並区上高井戸1丁目付近",
+      "placeName": "上高井戸一丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.67345,
+        139.611224
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOWbm-mdoumBk-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOWbm-mdoumBk-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "荻窪",
+      "localityText": "杉並区清水1丁目付近",
+      "placeName": "四面道交差点",
+      "reason": "事故多発交差点であるほか、付近で死亡事故も発生したことから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.710158,
+        139.617404
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2J5Lim5Yy6fOS7iuW3neS4gOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5p2J5Lim5Yy6fOS7iuW3neS4gOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "荻窪",
+      "localityText": "杉並区清水3丁目付近",
+      "placeName": "今川一丁目交差点",
+      "reason": "事故多発路線上の交差点で、付近で死亡事故も発生したことから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.717614,
+        139.617308
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOaYpeaXpeeUuuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOaYpeaXpeeUuuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "富坂",
+      "localityText": "文京区本郷4丁目付近",
+      "placeName": "春日町交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.709455,
+        139.755239
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOeZveWxseS4i-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOeZveWxseS4i-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "富坂",
+      "localityText": "文京区白山2丁目付近",
+      "placeName": "白山下交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.717379,
+        139.748328
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOmjr-eUsOapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOmjr-eUsOapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "富坂",
+      "localityText": "文京区後楽2丁目付近",
+      "placeName": "飯田橋交差点",
+      "reason": "首都高出口直近の交差点で、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.70557,
+        139.745238
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOWjseWykOWdguS4i-S6",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOWjseWykOWdguS4i-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "富坂",
+      "localityText": "文京区後楽1丁目付近",
+      "placeName": "壱岐坂下交差点",
+      "reason": "事故多発交差点（本年死亡事故発生）であることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.704569,
+        139.750556
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOWNg-efs-S4gOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOWNg-efs-S4gOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "富坂",
+      "localityText": "文京区千石一丁目付近",
+      "placeName": "千石一丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.725835,
+        139.743616
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOitt-WbveWvuuilv-S6",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOitt-WbveWvuuilv-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大塚",
+      "localityText": "文京区大塚5丁目付近",
+      "placeName": "護国寺西交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.722789,
+        139.727301
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOaYpeaXpemAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOaYpeaXpemAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "大塚",
+      "localityText": "文京区大塚3丁目付近",
+      "placeName": "春日通り",
+      "reason": "バスレーンを走行する車両が多く、取締要望もあるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.720831,
+        139.73624
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOacrOmDt-S4ieS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOacrOmDt-S4ieS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "本富士",
+      "localityText": "文京区本郷4丁目付近",
+      "placeName": "本郷三丁目交差点",
+      "reason": "事故多発交差点であり、交通違反も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.709455,
+        139.755239
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOOCteODg-OCq-ODvOOD",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOOCteODg-OCq-ODvOOD",
+      "enforcementType": "重点取締場所",
+      "policeStation": "本富士",
+      "localityText": "文京区本郷3丁目付近",
+      "placeName": "サッカーミュージアム入口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.704428,
+        139.762937
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOmBk-eBjOWxseS4i-S6",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOmBk-eBjOWxseS4i-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "駒込",
+      "localityText": "文京区千駄木3丁目付近",
+      "placeName": "道灌山下交差点",
+      "reason": "歩行者の横断禁止場所横断による事故を抑止するため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.727776,
+        139.762548
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5paH5Lqs5Yy6fOS4iuWvjOWjq-WJjeS6",
+      "eventKey": "tokyo:focus-locations:all:5paH5Lqs5Yy6fOS4iuWvjOWjq-WJjeS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "駒込",
+      "localityText": "文京区本駒込5丁目付近",
+      "placeName": "上富士前交差点",
+      "reason": "歩行者の横断禁止場所横断による事故を抑止するため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.732798,
+        139.751651
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6LGK5bO25Yy6fOilv-W3o-m0qOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:6LGK5bO25Yy6fOilv-W3o-m0qOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "巣鴨",
+      "localityText": "豊島区西巣鴨4丁目付近",
+      "placeName": "西巣鴨交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.74323400000001,
+        139.73037
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6LGK5bO25Yy6fOaYjuayu-mAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:6LGK5bO25Yy6fOaYjuayu-mAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "巣鴨",
+      "localityText": "豊島区西巣鴨1丁目付近",
+      "placeName": "明治通り",
+      "reason": "バスレーンを走行する車両が多く、取締り要望もあるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.737559,
+        139.72526
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6LGK5bO25Yy6fOWFreODg-WPiOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:6LGK5bO25Yy6fOWFreODg-WPiOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "池袋",
+      "localityText": "豊島区東池袋2丁目付近",
+      "placeName": "六ッ又交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.731821,
+        139.722747
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6LGK5bO25Yy6fOWNl-axoOiii-S4gOS4",
+      "eventKey": "tokyo:focus-locations:all:6LGK5bO25Yy6fOWNl-axoOiii-S4gOS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "目白",
+      "localityText": "豊島区南池袋1丁目付近",
+      "placeName": "南池袋一丁目交差点",
+      "reason": "交通量が多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.727299,
+        139.711043
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YyX5Yy6fOmjm-mzpeWxseS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5YyX5Yy6fOmjm-mzpeWxseS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "滝野川",
+      "localityText": "北区王子1丁目付近",
+      "placeName": "飛鳥山交差点",
+      "reason": "複数車線あり、進路変更時の事故も発生していることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.753074,
+        139.739198
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YyX5Yy6fOeOi-WtkOS4ieS4geebruS6",
+      "eventKey": "tokyo:focus-locations:all:5YyX5Yy6fOeOi-WtkOS4ieS4geebruS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "王子",
+      "localityText": "北区王子3丁目付近",
+      "placeName": "王子三丁目交差点",
+      "reason": "変則五差路と首都高出口直近の交差点であることから事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.76111,
+        139.737643
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YyX5Yy6fOi1pOe-veS6pOW3rueCuQ",
+      "eventKey": "tokyo:focus-locations:all:5YyX5Yy6fOi1pOe-veS6pOW3rueCuQ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "赤羽",
+      "localityText": "北区赤羽1丁目付近",
+      "placeName": "赤羽交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.780738,
+        139.720619
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YyX5Yy6fOWuruWggOS6pOW3rueCuQ",
+      "eventKey": "tokyo:focus-locations:all:5YyX5Yy6fOWuruWggOS6pOW3rueCuQ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "赤羽",
+      "localityText": "北区神谷1丁目付近",
+      "placeName": "宮堀交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.768532,
+        139.73412
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOWkp-WSjOeUuuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOWkp-WSjOeUuuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "板橋",
+      "localityText": "板橋区大和町14番付近",
+      "placeName": "大和町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.758799,
+        139.70469
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOeSsOS4g-mAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOeSsOS4g-mAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "板橋",
+      "localityText": "板橋区南常盤台1丁目付近",
+      "placeName": "環七通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.756394,
+        139.689234
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOeGiumHjueUuuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOeGiumHjueUuuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "板橋",
+      "localityText": "板橋区熊野町11番付近",
+      "placeName": "熊野町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.742792,
+        139.7067
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOW_l-adkeS4ieS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOW_l-adkeS4ieS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "志村",
+      "localityText": "板橋区志村3丁目付近",
+      "placeName": "志村三丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.777263,
+        139.684903
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOW_l-adkeWdguS4i-S6",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOW_l-adkeWdguS4i-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "志村",
+      "localityText": "板橋区坂下3丁目付近",
+      "placeName": "志村坂下交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.788344,
+        139.682289
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOeSsOWFq-mrmOmAn-S4",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOeSsOWFq-mrmOmAn-S4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "志村",
+      "localityText": "板橋区相生町16番付近",
+      "placeName": "環八高速下交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.777076,
+        139.67896100000002
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOS4ieWckuS6jOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOS4ieWckuS6jOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高島平",
+      "localityText": "板橋区三園2丁目付近",
+      "placeName": "三園二丁目交差点",
+      "reason": "交通量が多く、事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.794868,
+        139.641964
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2_5qmL5Yy6fOi1pOWhmuaWsOeUuuS4",
+      "eventKey": "tokyo:focus-locations:all:5p2_5qmL5Yy6fOi1pOWhmuaWsOeUuuS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高島平",
+      "localityText": "板橋区赤塚新町3丁目付近",
+      "placeName": "赤塚新町三丁目交差点",
+      "reason": "交通量の多い交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.770802,
+        139.636944
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOixiueOiemZuOapi-S6",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOixiueOiemZuOapi-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "練馬",
+      "localityText": "練馬区豊玉北3丁目付近",
+      "placeName": "豊玉陸橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.734354,
+        139.662232
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOixiueOieWMl-WFreS4",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOixiueOieWMl-WFreS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "練馬",
+      "localityText": "練馬区練馬3丁目付近",
+      "placeName": "豊玉北六丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.738478,
+        139.64763
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOahnOWPsOmnheWJjeS6",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOahnOWPsOmnheWJjeS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "練馬",
+      "localityText": "練馬区桜台1丁目付近",
+      "placeName": "桜台駅前交差点",
+      "reason": "交通量が多い交差点で、歩行者の横断も多いことから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.740005,
+        139.664527
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOiwt-WOn-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOiwt-WOn-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "光が丘",
+      "localityText": "練馬区谷原1丁目付近",
+      "placeName": "谷原交差点",
+      "reason": "交通量が多く、事故多発交差点であるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.75025,
+        139.621484
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOS4iei7kuWvuuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOS4iei7kuWvuuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "光が丘",
+      "localityText": "練馬区三原台2丁目付近",
+      "placeName": "三軒寺交差点",
+      "reason": "関越自動車道出口付近であり、速度抑制を兼ねた事故抑止を行う必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.756226,
+        139.605125
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-57e06aas5Yy6fOWNg-W3nemAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:57e06aas5Yy6fOWNg-W3nemAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "石神井",
+      "localityText": "練馬区下石神井4丁目付近",
+      "placeName": "千川通り",
+      "reason": "取締り要望が多いため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.727752,
+        139.60165
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y-w5p2x5Yy6fOS4iumHjumnheS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5Y-w5p2x5Yy6fOS4iumHjumnheS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "上野",
+      "localityText": "台東区上野7丁目付近",
+      "placeName": "上野駅交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.715876,
+        139.77926
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y-w5p2x5Yy6fOWkp-mWouaoquS4geS6",
+      "eventKey": "tokyo:focus-locations:all:5Y-w5p2x5Yy6fOWkp-mWouaoquS4geS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "下谷",
+      "localityText": "台東区根岸5丁目付近",
+      "placeName": "大関横丁交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.727547,
+        139.787538
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y-w5p2x5Yy6fOWFpeiwt-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:5Y-w5p2x5Yy6fOWFpeiwt-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "下谷",
+      "localityText": "台東区入谷1丁目付近",
+      "placeName": "入谷交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.720535,
+        139.785944
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y-w5p2x5Yy6fOilv-a1heiNieS4ieS4",
+      "eventKey": "tokyo:focus-locations:all:5Y-w5p2x5Yy6fOilv-a1heiNieS4ieS4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "浅草",
+      "localityText": "台東区浅草3丁目付近",
+      "placeName": "西浅草三丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.717281,
+        139.795838
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Y-w5p2x5Yy6fOiUteWJjeS4gOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5Y-w5p2x5Yy6fOiUteWJjeS4gOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "蔵前",
+      "localityText": "台東区蔵前1丁目付近",
+      "placeName": "蔵前一丁目交差点",
+      "reason": "事故多発路線が交差する場所であり事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.700193,
+        139.790573
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6I2S5bed5Yy6fOWwvuS5heapi-mAmuOC",
+      "eventKey": "tokyo:focus-locations:all:6I2S5bed5Yy6fOWwvuS5heapi-mAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "尾久",
+      "localityText": "荒川区東尾久3丁目付近",
+      "placeName": "尾久橋通り",
+      "reason": "見通しが悪く危険であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.746272,
+        139.7712
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6I2S5bed5Yy6fOWNl-WNg-S9j-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:6I2S5bed5Yy6fOWNl-WNg-S9j-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "南千住",
+      "localityText": "荒川区南千住6丁目付近",
+      "placeName": "南千住交差点",
+      "reason": "事故多発路線・地区であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.737924,
+        139.792827
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6I2S5bed5Yy6fOOCteODs-ODkeODvOOD",
+      "eventKey": "tokyo:focus-locations:all:6I2S5bed5Yy6fOOCteODs-ODkeODvOOD",
+      "enforcementType": "重点取締場所",
+      "policeStation": "荒川",
+      "localityText": "荒川区荒川3丁目付近",
+      "placeName": "サンパール荒川前交差点",
+      "reason": "交通量が多く、路線バス専用通行帯の設置もあり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.734245,
+        139.78111500000003
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOWNg-S9j-S6lOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOWNg-S9j-S6lOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "千住",
+      "localityText": "足立区千住5丁目付近",
+      "placeName": "千住五丁目交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.756268,
+        139.804677
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOeSsOS4g-mAmuOCig",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOeSsOS4g-mAmuOCig",
+      "enforcementType": "重点取締場所",
+      "policeStation": "西新井",
+      "localityText": "足立区鹿浜1丁目付近",
+      "placeName": "環七通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.776167,
+        139.748476
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOWwvuerueapi-mAmuOC",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOWwvuerueapi-mAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "西新井",
+      "localityText": "足立区本木1丁目付近",
+      "placeName": "尾竹橋通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.761206,
+        139.785729
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOS_neacqOmWk-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOS_neacqOmWk-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "竹の塚",
+      "localityText": "足立区竹の塚4丁目付近",
+      "placeName": "保木間交差点",
+      "reason": "交通量も多く、事故多発交差点であることから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.793974,
+        139.80005200000002
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOS8iuiIiOeUuuWJjeay",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOS8iuiIiOeUuuWJjeay",
+      "enforcementType": "重点取締場所",
+      "policeStation": "竹の塚",
+      "localityText": "足立区西竹の塚1丁目付近",
+      "placeName": "伊興町前沼交差点",
+      "reason": "事故多発交差点であり事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.792027,
+        139.788406
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Laz56uL5Yy6fOWKoOW5s-S6jOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:6Laz56uL5Yy6fOWKoOW5s-S6jOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "綾瀬",
+      "localityText": "足立区加平2丁目付近",
+      "placeName": "加平二丁目交差点",
+      "reason": "事故多発交差点付近であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.780366,
+        139.826296
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOacqOWgtOS6lOS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOacqOWgtOS6lOS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "深川",
+      "localityText": "江東区木場2丁目付近",
+      "placeName": "木場五丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.67058,
+        139.804051
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOixiua0sumnheWJjeS6",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOixiua0sumnheWJjeS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "深川",
+      "localityText": "江東区豊洲5丁目付近",
+      "placeName": "豊洲駅前交差点",
+      "reason": "多車線の交差点であり、交通量も多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.6511,
+        139.796476
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOS6gOaIuOWbm-S4geeb",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOS6gOaIuOWbm-S4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "城東",
+      "localityText": "江東区亀戸2丁目付近",
+      "placeName": "亀戸四丁目交差点",
+      "reason": "重傷事故も発生している交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.69942,
+        139.822419
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOS6gOaIuOS5neS4geeb",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOS6gOaIuOS5neS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "城東",
+      "localityText": "江東区亀戸9丁目付近",
+      "placeName": "亀戸九丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.698131,
+        139.842157
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOaXpeabueapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOaXpeabueapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "城東",
+      "localityText": "江東区南砂3丁目付近",
+      "placeName": "日曹橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.670909,
+        139.830018
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5p2x5Yy6fOWMuuawkeOCu-ODs-OC",
+      "eventKey": "tokyo:focus-locations:all:5rGf5p2x5Yy6fOWMuuawkeOCu-ODs-OC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "城東",
+      "localityText": "江東区大島3丁目付近",
+      "placeName": "区民センター前交差点",
+      "reason": "工事関係車両等の通過が多い交差点であり、事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.691658,
+        139.828897
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aKo55Sw5Yy6fOmMpuezuOeUuumnheWJ",
+      "eventKey": "tokyo:focus-locations:all:5aKo55Sw5Yy6fOmMpuezuOeUuumnheWJ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "本所",
+      "localityText": "墨田区江東橋3丁目付近",
+      "placeName": "錦糸町駅前交差点",
+      "reason": "歩行者等の通行も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.694649,
+        139.81408
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aKo55Sw5Yy6fOWbm-ODhOebrumAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5aKo55Sw5Yy6fOWbm-ODhOebrumAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "本所",
+      "localityText": "墨田区錦糸4丁目付近",
+      "placeName": "四ツ目通り",
+      "reason": "錦糸公園があり、子供が多く通行することから事故防止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.698602,
+        139.817174
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aKo55Sw5Yy6fOadseWQkeWztuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5aKo55Sw5Yy6fOadseWQkeWztuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "向島",
+      "localityText": "墨田区東向島6丁目付近",
+      "placeName": "東向島交差点",
+      "reason": "交通量が多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.72445,
+        139.822238
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6JGb6aO-5Yy6fOmdkuaIuOWFq-S4geeb",
+      "eventKey": "tokyo:focus-locations:all:6JGb6aO-5Yy6fOmdkuaIuOWFq-S4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "亀有",
+      "localityText": "葛飾区青戸7丁目付近",
+      "placeName": "青戸八丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.755176,
+        139.855608
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6JGb6aO-5Yy6fOmHkeeUuuS4ieS4geeb",
+      "eventKey": "tokyo:focus-locations:all:6JGb6aO-5Yy6fOmHkeeUuuS4ieS4geeb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "亀有",
+      "localityText": "葛飾区金町2丁目付近",
+      "placeName": "金町三丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.764145,
+        139.870315
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6JGb6aO-5Yy6fOWbm-OBpOacqOapi-WM",
+      "eventKey": "tokyo:focus-locations:all:6JGb6aO-5Yy6fOWbm-OBpOacqOapi-WM",
+      "enforcementType": "重点取締場所",
+      "policeStation": "葛飾",
+      "localityText": "葛飾区四つ木2丁目付近",
+      "placeName": "四つ木橋北詰交差点",
+      "reason": "複数車線で交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.736744,
+        139.837762
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOadseWwj-advuW3",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOadseWwj-advuW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小松川",
+      "localityText": "江戸川区中央1丁目付近",
+      "placeName": "東小松川交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.706632,
+        139.869448
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOS6rOiRiemBk-i3",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOS6rOiRiemBk-i3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小松川",
+      "localityText": "江戸川区松島1丁目付近",
+      "placeName": "京葉道路",
+      "reason": "合流地点の事故多発場所であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.704575,
+        139.865021
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOadseiRm-ilv-S4",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOadseiRm-ilv-S4",
+      "enforcementType": "重点取締場所",
+      "policeStation": "葛西",
+      "localityText": "江戸川区東葛西6丁目付近",
+      "placeName": "東葛西七丁目交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.661365,
+        139.877366
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOmVt-WztueUuuS6",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOmVt-WztueUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "葛西",
+      "localityText": "江戸川区中葛西3丁目付近",
+      "placeName": "長島町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.665844,
+        139.870654
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOaftOWPiOaWsOmB",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOaftOWPiOaWsOmB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小岩",
+      "localityText": "江戸川区北小岩2丁目付近",
+      "placeName": "柴又新道口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.739838,
+        139.885646
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOadseWwj-WyqeWb",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOadseWwj-WyqeWb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小岩",
+      "localityText": "江戸川区東小岩5丁目付近",
+      "placeName": "東小岩四丁目交差点",
+      "reason": "死亡事故発生交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.731473,
+        139.888355
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5rGf5oi45bed5Yy6fOaxn-aIuOW3neS6",
+      "eventKey": "tokyo:focus-locations:all:5rGf5oi45bed5Yy6fOaxn-aIuOW3neS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小岩",
+      "localityText": "江戸川区北小岩1丁目付近",
+      "placeName": "江戸川交差点",
+      "reason": "死亡事故発生交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.736276,
+        139.891538
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5pit5bO25biCfOaYreWSjOWFrOWckuad",
+      "eventKey": "tokyo:focus-locations:all:5pit5bO25biCfOaYreWSjOWFrOWckuad",
+      "enforcementType": "重点取締場所",
+      "policeStation": "昭島",
+      "localityText": "昭島市東町2丁目付近",
+      "placeName": "昭和公園東交差点",
+      "reason": "重傷事故発生路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.704304,
+        139.38752200000002
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5pit5bO25biCfOWgguaWueS4iuS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:5pit5bO25biCfOWgguaWueS4iuS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "昭島",
+      "localityText": "昭島市田中町1丁目付近",
+      "placeName": "堂方上交差点",
+      "reason": "事故多発交差点であり、大型貨物車の通行も頻繁にあることから事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.706832,
+        139.352867
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56uL5bed5biCfOaXpemHjuapi-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:56uL5bed5biCfOaXpemHjuapi-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "立川",
+      "localityText": "立川市錦町6丁目付近",
+      "placeName": "日野橋交差点",
+      "reason": "４路線の交わる交差点で事故が多く、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.68667,
+        139.417545
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5Zu956uL5biCfOWbveeri-OCpOODs-OC",
+      "eventKey": "tokyo:focus-locations:all:5Zu956uL5biCfOWbveeri-OCpOODs-OC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "立川",
+      "localityText": "国立市谷保4157番付近",
+      "placeName": "国立インター入口交差点",
+      "reason": "交通量が多く、事故も多いため、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.680331,
+        139.439839
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2x5aSn5ZKM5biCfOiKi-eqquihl-mB",
+      "eventKey": "tokyo:focus-locations:all:5p2x5aSn5ZKM5biCfOiKi-eqquihl-mB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東大和",
+      "localityText": "東大和市上北台1丁目付近",
+      "placeName": "芋窪街道",
+      "reason": "交通量も多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.746322,
+        139.413412
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2x5aSn5ZKM5biCfOWkmuaRqea5luWk",
+      "eventKey": "tokyo:focus-locations:all:5p2x5aSn5ZKM5biCfOWkmuaRqea5luWk",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東大和",
+      "localityText": "東大和市多摩湖1丁目付近",
+      "placeName": "多摩湖外周道路",
+      "reason": "カーブが多く、対向車同士の交通事故を抑止するため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.766944,
+        139.434509
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5q2m6JS15p2R5bGx5biCfOWtpuWckumA",
+      "eventKey": "tokyo:focus-locations:all:5q2m6JS15p2R5bGx5biCfOWtpuWckumA",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東大和",
+      "localityText": "武蔵村山市学園4丁目付近",
+      "placeName": "学園通り",
+      "reason": "小学校通学路であり、小学校や地域住民の要望もあり、通学時の小学生児童等の交通事故を防止するため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.744085,
+        139.400418
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5bqc5Lit5biCfOacrOWuv-S6pOeVquWJ",
+      "eventKey": "tokyo:focus-locations:all:5bqc5Lit5biCfOacrOWuv-S6pOeVquWJ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "府中",
+      "localityText": "府中市本宿町2丁目付近",
+      "placeName": "本宿交番前交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.672654,
+        139.46089
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5bCP6YeR5LqV5biCfOWwj-mHkeS6leWN",
+      "eventKey": "tokyo:focus-locations:all:5bCP6YeR5LqV5biCfOWwj-mHkeS6leWN",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小金井",
+      "localityText": "小金井市貫井南町1丁目付近",
+      "placeName": "小金井南中西交差点",
+      "reason": "死亡事故発生交差点および事故多発交差点であり、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.690227,
+        139.495678
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5bCP6YeR5LqV5biCfOWwj-mHkeS6leap",
+      "eventKey": "tokyo:focus-locations:all:5bCP6YeR5LqV5biCfOWwj-mHkeS6leap",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小金井",
+      "localityText": "小金井市桜町2丁目付近",
+      "placeName": "小金井橋交差点",
+      "reason": "事故が増加しており、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.710317,
+        139.505089
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6KW_5p2x5Lqs5biCfOeUsOeEoemnheWM",
+      "eventKey": "tokyo:focus-locations:all:6KW_5p2x5Lqs5biCfOeUsOeEoemnheWM",
+      "enforcementType": "重点取締場所",
+      "policeStation": "田無",
+      "localityText": "西東京市田無町2丁目付近",
+      "placeName": "田無駅北口地区",
+      "reason": "交通量が多く、取締り要望もあるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.728348,
+        139.543477
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5bCP5bmz5biCfOWwj-W3neeUuuilv-S6",
+      "eventKey": "tokyo:focus-locations:all:5bCP5bmz5biCfOWwj-W3neeUuuilv-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小平",
+      "localityText": "小平市小川町1丁目付近",
+      "placeName": "小川町西交差点",
+      "reason": "交通量が多く、事故多発交差点で、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.729228,
+        139.450032
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5bCP5bmz5biCfOWwj-mHkeS6leihl-mB",
+      "eventKey": "tokyo:focus-locations:all:5bCP5bmz5biCfOWwj-mHkeS6leihl-mB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "小平",
+      "localityText": "小平市花小金井6丁目付近",
+      "placeName": "小金井街道",
+      "reason": "歩行者等の通行が多く、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.728851000000006,
+        139.50873600000003
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5p2x5p2R5bGx5biCfOaWsOmdkuaiheih",
+      "eventKey": "tokyo:focus-locations:all:5p2x5p2R5bGx5biCfOaWsOmdkuaiheih",
+      "enforcementType": "重点取締場所",
+      "policeStation": "東村山",
+      "localityText": "東村山市栄町1丁目付近",
+      "placeName": "新青梅街道",
+      "reason": "側道からの合流もあり、直近の交差点の事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.751641,
+        139.475473
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5q2m6JS16YeO5biCfOS4reWkrumAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5q2m6JS16YeO5biCfOS4reWkrumAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "武蔵野",
+      "localityText": "武蔵野市中町2丁目付近",
+      "placeName": "中央通り",
+      "reason": "児童や高齢者の通行が多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.706481,
+        139.564517
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5q2m6JS16YeO5biCfOWNg-W3nemAmuOC",
+      "eventKey": "tokyo:focus-locations:all:5q2m6JS16YeO5biCfOWNg-W3nemAmuOC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "武蔵野",
+      "localityText": "武蔵野市八幡町3丁目付近",
+      "placeName": "千川通り",
+      "reason": "交通量が多く、児童等の保護の観点から事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.717175,
+        139.552378
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5q2m6JS16YeO5biCfOaWsOatpuiUteWi",
+      "eventKey": "tokyo:focus-locations:all:5q2m6JS16YeO5biCfOaWsOatpuiUteWi",
+      "enforcementType": "重点取締場所",
+      "policeStation": "武蔵野",
+      "localityText": "武蔵野市関前1丁目付近",
+      "placeName": "新武蔵境通り(調布保谷線)",
+      "reason": "車両、自転車、歩行者の通行が多く事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.709122,
+        139.548725
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5q2m6JS16YeO5biCfOacrOeUuuaWsOmB",
+      "eventKey": "tokyo:focus-locations:all:5q2m6JS16YeO5biCfOacrOeUuuaWsOmB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "武蔵野",
+      "localityText": "武蔵野市本町1丁目付近",
+      "placeName": "本町新道、吉祥寺通り、吉祥寺大通り",
+      "reason": "駅前周辺で交通量も多く事故多発地域であることから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.705221,
+        139.580989
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiJ6be55biCfOadj-ael-Wkp-eXhemZ",
+      "eventKey": "tokyo:focus-locations:all:5LiJ6be55biCfOadj-ael-Wkp-eXhemZ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "三鷹",
+      "localityText": "三鷹市新川6丁目付近",
+      "placeName": "杏林大病院北交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.67917,
+        139.565688
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5LiJ6be55biCfOmHjuW0juWFq-W5oeWJ",
+      "eventKey": "tokyo:focus-locations:all:5LiJ6be55biCfOmHjuW0juWFq-W5oeWJ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "三鷹",
+      "localityText": "三鷹市野崎1丁目付近",
+      "placeName": "野崎八幡前交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.682787,
+        139.55313
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Kq_5biD5biCfOmmrOapi-ilv-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:6Kq_5biD5biCfOmmrOapi-ilv-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "調布",
+      "localityText": "調布市国領町2丁目付近",
+      "placeName": "馬橋西交差点",
+      "reason": "信号無視等する車両が多く、取締り要望もあり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.651682,
+        139.559226
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Kq_5biD5biCfOW4guWMuueUuuadkemB",
+      "eventKey": "tokyo:focus-locations:all:6Kq_5biD5biCfOW4guWMuueUuuadkemB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "調布",
+      "localityText": "調布市若葉町2丁目付近",
+      "placeName": "市区町村道",
+      "reason": "新設道路開通により、交通量増加に伴い危険性が増加したことから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.65734,
+        139.588136
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6Z2S5qKF5biCfOmdkuaiheaWsOeUuuS6",
+      "eventKey": "tokyo:focus-locations:all:6Z2S5qKF5biCfOmdkuaiheaWsOeUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "青梅",
+      "localityText": "青梅市新町7丁目付近",
+      "placeName": "青梅新町交差点",
+      "reason": "青梅街道と藤崎小作線は事故多発路線であり、青梅新町交差点はこの２路線に対する交通事故を抑止するための要所であるため。",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.786265,
+        139.313783
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6KW_5aSa5pGp6YOhfOWPpOmHjOmnheWJ",
+      "eventKey": "tokyo:focus-locations:all:6KW_5aSa5pGp6YOhfOWPpOmHjOmnheWJ",
+      "enforcementType": "重点取締場所",
+      "policeStation": "青梅",
+      "localityText": "西多摩郡奥多摩町丹三郎242番付近",
+      "placeName": "古里駅前交差点",
+      "reason": "二輪車事故多発交差点及び路線であることから、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.80717,
+        139.155177
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-44GC44GN44KL6YeO5biCfOWxseeUsOS6",
+      "eventKey": "tokyo:focus-locations:all:44GC44GN44KL6YeO5biCfOWxseeUsOS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "五日市",
+      "localityText": "あきる野市伊奈1042番付近",
+      "placeName": "山田交差点",
+      "reason": "交通量が多く、死亡事故発生場所付近のほか、通学路となっていることから事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.73049700000001,
+        139.250936
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-44GC44GN44KL6YeO5biCfOatpuiUteS6",
+      "eventKey": "tokyo:focus-locations:all:44GC44GN44KL6YeO5biCfOatpuiUteS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "五日市",
+      "localityText": "あきる野市舘谷220番付近",
+      "placeName": "武蔵五日市駅前交差点",
+      "reason": "歩行者、車両の通行が多く、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.729313,
+        139.232786
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6KW_5aSa5pGp6YOhfOOBi-OChOOBj-OB",
+      "eventKey": "tokyo:focus-locations:all:6KW_5aSa5pGp6YOhfOOBi-OChOOBj-OB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "五日市",
+      "localityText": "西多摩郡日の出町大字大久野1100番付近",
+      "placeName": "かやくぼ交差点",
+      "reason": "大型貨物の通行が多く、通学路であり、取締り要望等が多いため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.764089,
+        139.216731
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-6KW_5aSa5pGp6YOhfOeuseagueODtuW0",
+      "eventKey": "tokyo:focus-locations:all:6KW_5aSa5pGp6YOhfOeuseagueODtuW0",
+      "enforcementType": "重点取締場所",
+      "policeStation": "福生",
+      "localityText": "西多摩郡瑞穂町長岡1丁目付近",
+      "placeName": "箱根ヶ崎西交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.77597,
+        139.333329
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOWNg-S6uueUuuS6",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOWNg-S6uueUuuS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "八王子",
+      "localityText": "八王子市千人町2丁目付近",
+      "placeName": "千人町交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.659024,
+        139.311954
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOWkp-WSjOeUsOap",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOWkp-WSjOeUsOap",
+      "enforcementType": "重点取締場所",
+      "policeStation": "八王子",
+      "localityText": "八王子市大和田町3丁目付近",
+      "placeName": "大和田橋南詰交差点",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.660039,
+        139.353073
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOadsea1heW3neS6",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOadsea1heW3neS6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高尾",
+      "localityText": "八王子市東浅川町882番付近",
+      "placeName": "東浅川交差点",
+      "reason": "歩行者、大型車の通行が多く、事故多発交差点であり、事故抑止の必要があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.645253,
+        139.292331
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOWFq-eOi-WtkOWb",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOWFq-eOi-WtkOWb",
+      "enforcementType": "重点取締場所",
+      "policeStation": "高尾",
+      "localityText": "八王子市四谷町863番付近",
+      "placeName": "八王子四谷町交差点",
+      "reason": "交通量が多く、事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.677224,
+        139.296971
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOWbvemBkzE25Y-3",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOWbvemBkzE25Y-3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "南大沢",
+      "localityText": "八王子市北野町593番付近",
+      "placeName": "国道16号(八王子バイパス)",
+      "reason": "交通量が多く、事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.650139,
+        139.354715
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5YWr546L5a2Q5biCfOWkmuaRqeODi-OD",
+      "eventKey": "tokyo:focus-locations:all:5YWr546L5a2Q5biCfOWkmuaRqeODi-OD",
+      "enforcementType": "重点取締場所",
+      "policeStation": "南大沢",
+      "localityText": "八王子市堀之内3丁目付近",
+      "placeName": "多摩ニュータウン通り",
+      "reason": "交通量が多く、事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.627213,
+        139.402637
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55S655Sw5biCfOWdguS4i-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:55S655Sw5biCfOWdguS4i-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "南大沢",
+      "localityText": "町田市相原町675番地周辺",
+      "placeName": "坂下交差点",
+      "reason": "町田街道は事故多発路線で、坂下交差点は八王子バイパスとの交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.612931,
+        139.300727
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55S655Sw5biCfOebuOWOn-S6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:55S655Sw5biCfOebuOWOn-S6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "南大沢",
+      "localityText": "町田市相原町432番地周辺",
+      "placeName": "相原交差点",
+      "reason": "町田街道は事故多発路線で、相原交差点は国道１６号線との交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.612931,
+        139.300727
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55S655Sw5biCfOW4guWMuueUuuadkemB",
+      "eventKey": "tokyo:focus-locations:all:55S655Sw5biCfOW4guWMuueUuuadkemB",
+      "enforcementType": "重点取締場所",
+      "policeStation": "町田",
+      "localityText": "町田市南大谷1428番地付近",
+      "placeName": "市区町村道",
+      "reason": "スクールゾーンであるが、抜け道として利用する違反車両の走行が多数あり、取締要望があるため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.552943,
+        139.459474
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55S655Sw5biCfOS4reWkruapi-WMl-S6",
+      "eventKey": "tokyo:focus-locations:all:55S655Sw5biCfOS4reWkruapi-WMl-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "町田",
+      "localityText": "町田市中町1丁目付近",
+      "placeName": "中央橋北交差点",
+      "reason": "交通量が多く、取締要望が多いため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.548268,
+        139.446242
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-55S655Sw5biCfOaXreeUuuS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:55S655Sw5biCfOaXreeUuuS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "町田",
+      "localityText": "町田市旭町1丁目付近",
+      "placeName": "旭町交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.554672,
+        139.440247
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5pel6YeO5biCfOmHjueMv-ihl-mBkw",
+      "eventKey": "tokyo:focus-locations:all:5pel6YeO5biCfOmHjueMv-ihl-mBkw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "日野",
+      "localityText": "日野市落川1431番付近",
+      "placeName": "野猿街道",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.658368,
+        139.429822
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSa5pGp5biCfOWkmuaRqeODi-ODpeOD",
+      "eventKey": "tokyo:focus-locations:all:5aSa5pGp5biCfOWkmuaRqeODi-ODpeOD",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "多摩市愛宕4丁目付近",
+      "placeName": "多摩ニュータウン通り",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.629481,
+        139.427779
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSa5pGp5biCfOaWsOWkp-agl-api-S6",
+      "eventKey": "tokyo:focus-locations:all:5aSa5pGp5biCfOaWsOWkp-agl-api-S6",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "多摩市関戸3丁目付近",
+      "placeName": "新大栗橋交差点",
+      "reason": "死亡事故発生および事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.64958,
+        139.458539
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSa5pGp5biCfOS5nueUsOaWsOWkp-ap",
+      "eventKey": "tokyo:focus-locations:all:5aSa5pGp5biCfOS5nueUsOaWsOWkp-ap",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "多摩市乞田1240番付近",
+      "placeName": "乞田新大橋交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.632159,
+        139.44
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-5aSa5pGp5biCfOmOjOWAieihl-mBkw",
+      "eventKey": "tokyo:focus-locations:all:5aSa5pGp5biCfOmOjOWAieihl-mBkw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "多摩市永山2丁目付近",
+      "placeName": "鎌倉街道",
+      "reason": "事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.627599,
+        139.445735
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOm2tOW3neihl-mBkw",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOm2tOW3neihl-mBkw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "稲城市東長沼2108番付近",
+      "placeName": "鶴川街道",
+      "reason": "死亡事故発生および事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.634766,
+        139.504256
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOWNl-WkmuaRqeWwvuag",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOWNl-WkmuaRqeWwvuag",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "稲城市若葉台2丁目付近",
+      "placeName": "南多摩尾根幹線",
+      "reason": "死亡事故発生および事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.622238,
+        139.47473100000002
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOefoumHjuWPo-S6pOW3",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOefoumHjuWPo-S6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "稲城市矢野口227番付近",
+      "placeName": "矢野口交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.63386,
+        139.514164
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOW3neW0juihl-mBkw",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOW3neW0juihl-mBkw",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "多摩市大丸1541番付近",
+      "placeName": "川崎街道",
+      "reason": "死亡事故発生および事故多発路線であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.64458400000001,
+        139.477742
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOaWsOWkp-S4uOS6pOW3",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOaWsOWkp-S4uOS6pOW3",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "稲城市大丸1049番付近",
+      "placeName": "新大丸交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.64458400000001,
+        139.477742
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    },
+    {
+      "id": "focus-tokyo-56iy5Z-O5biCfOWkp-S4uOS6pOW3rueC",
+      "eventKey": "tokyo:focus-locations:all:56iy5Z-O5biCfOWkp-S4uOS6pOW3rueC",
+      "enforcementType": "重点取締場所",
+      "policeStation": "多摩中央",
+      "localityText": "稲城市大丸928番付近",
+      "placeName": "大丸交差点",
+      "reason": "事故多発交差点であり、事故抑止のため",
+      "geoPrecision": "LOCALITY",
+      "locationPoint": [
+        35.64458400000001,
+        139.477742
+      ],
+      "coordinatePrecision": "TOWN_REPRESENTATIVE",
+      "coordinateVerified": false,
+      "locationApproximate": true,
+      "coordinateEvidence": [
+        "警視庁 重点取締場所一覧の実施場所",
+        "Geolonia 住所データの町丁目代表点（CC BY 4.0）"
+      ],
+      "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/torishimari/kokai_juten/jutentorishimari.html",
+      "sourceVerifiedAt": "2026-10-01",
+      "freshnessStatus": "CURRENT"
+    }
+  ],
+  "acquisition": {
+    "retrievedAt": "2026-10-05T01:49:13.663Z",
+    "via": "Existing authorized Preview API; origin dates retained, not a fresh official-source verification",
+    "deploymentSha": "b4a4ad8b841e42ee2d0d248ac4fd831fccc30ae0",
+    "url": "https://machimamo-mcep3f6pr-miti4.vercel.app/api/drive-focus-tokyo"
+  }
+}

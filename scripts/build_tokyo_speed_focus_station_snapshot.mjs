@@ -1,7 +1,9 @@
 import fs from 'node:fs/promises';
 import {createRequire} from 'node:module';
+import crypto from 'node:crypto';
+import {pathToFileURL} from 'node:url';
 const require=createRequire(import.meta.url);
-const pdfParse=require('pdf-parse');
+
 
 const INDEX='https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html';
 const BASE='https://www.keishicho.metro.tokyo.lg.jp';
@@ -56,18 +58,10 @@ function parseMunicipalityByStation(sql){
   return out;
 }
 async function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
-async function fetchWithRetry(url,options={},attempts=4){
-  let lastError=null;
-  for(let attempt=1;attempt<=attempts;attempt++){
-    try{
-      const response=await fetch(url,options);
-      if(response.ok)return response;
-      lastError=new Error('http_'+response.status);
-      if(response.status<500&&response.status!==429)throw lastError;
-    }catch(error){lastError=error;}
-    if(attempt<attempts)await sleep(500*attempt);
-  }
-  throw lastError||new Error('fetch_failed');
+async function fetchWithRetry(url,options={}){
+  const response=await fetch(url,options);
+  if(!response.ok)throw new Error('http_'+response.status);
+  return response;
 }
 async function pooled(items,limit,fn){
   const results=new Array(items.length); let next=0;
@@ -81,7 +75,8 @@ async function pooled(items,limit,fn){
   return results;
 }
 
-const outPath=process.argv[2]||'tokyo-speed-focus-stations-preview-v1.json';
+async function buildLive(versionDate,verifiedAt){
+const pdfParse=require('pdf-parse/lib/pdf-parse.js');
 const [indexRes,seedSql]=await Promise.all([
   fetch(INDEX,{headers:{'User-Agent':'machidora-snapshot/1.0','Accept':'text/html'}}),
   fs.readFile(SEED,'utf8')
@@ -100,8 +95,9 @@ const parsed=await pooled(links,2,async item=>{
   const response=await fetchWithRetry(item.href,{headers:{'User-Agent':'machidora-snapshot/1.0','Accept':'application/pdf'}},4);
   const buf=Buffer.from(await response.arrayBuffer());
   const data=await pdfParse(buf,{max:1});
+  const rawSha256=crypto.createHash('sha256').update(buf).digest('hex');
   const windows=parseWindows(data.text);
-  return {...item,municipality,locationPoint:point,windows,pdfBytes:buf.length};
+  return {...item,municipality,locationPoint:point,windows,pdfBytes:buf.length,rawSha256};
 });
 
 const events=parsed.filter(x=>!x?.skip&&!x?.error&&Array.isArray(x.windows)&&x.windows.length>0).map(x=>({
@@ -113,8 +109,10 @@ const events=parsed.filter(x=>!x?.skip&&!x?.error&&Array.isArray(x.windows)&&x.w
   displayPrecision:'STATION_SUMMARY',
   windows:x.windows,
   sourcePdf:x.href,
+  rawSha256:x.rawSha256,
+  rawFetchedAt:verifiedAt,
   sourceIndex:INDEX,
-  sourceVerifiedAt:'2026-10-01',
+  sourceVerifiedAt:verifiedAt,
   freshnessStatus:'CURRENT',
   disclaimer:'警察署ごとの速度取締重点路線・重点時間帯の集約表示。マーカー位置は警察署所在地であり、取締地点そのものではありません。'
 }));
@@ -125,8 +123,8 @@ const snapshot={
   schemaVersion:1,
   sourceLabel:'警視庁 警察署速度取締指針（都内全域サマリー）',
   sourceUrl:INDEX,
-  sourceVersionDate:'2026-07-30',
-  sourceVerifiedAt:'2026-10-01',
+  sourceVersionDate:versionDate,
+  sourceVerifiedAt:verifiedAt,
   freshnessStatus:'CURRENT',
   scope:'tokyo_mainland_police_station_speed_focus_summary',
   displayContract:{
@@ -143,9 +141,36 @@ const snapshot={
   noWindows,
   events
 };
-await fs.writeFile(outPath,JSON.stringify(snapshot,null,2)+'\n');
-console.log('TOKYO_SPEED_PDFS='+links.length);
-console.log('TOKYO_SPEED_STATIONS='+events.length);
-console.log('TOKYO_SPEED_FAILURES='+failures.length);
-console.log('TOKYO_SPEED_NOWINDOW='+noWindows.length);
-console.log('OUTPUT='+outPath);
+if(failures.length||noWindows.length)throw new Error('incomplete_station_acquisition');
+return snapshot;
+}
+
+export {parseWindows,parsePdfLinks};
+export function buildCompactStationSnapshot(source){
+  if(!source?.sourceVersionDate||!source.sourceVerifiedAt||source.freshnessStatus!=='CURRENT'||!Array.isArray(source.events)||source.events.length!==97)throw new Error('invalid_station_source');
+  if(source.failures?.length||source.noWindows?.length)throw new Error('incomplete_station_source');
+  const seen=new Set();
+  const data=source.events.map(e=>{
+    const [lat,lng]=e.locationPoint||[];
+    if(!e.station||!e.municipality||seen.has(e.station)||!Number.isFinite(lat)||!Number.isFinite(lng)||lat<20||lat>46||lng<122||lng>154)throw new Error('invalid_station_record');
+    seen.add(e.station);
+    if(!Array.isArray(e.windows)||!e.windows.length||e.windows.some(w=>!Array.isArray(w)||w.length!==2||w.some(n=>!Number.isInteger(n)||n<0||n>24)||w[0]===w[1]))throw new Error('invalid_station_windows');
+    const pdf=new URL(e.sourcePdf),slug=pdf.pathname.match(/torishimari\.files\/([a-z0-9_-]+)\.pdf$/i)?.[1];
+    if(pdf.origin!=='https://www.keishicho.metro.tokyo.lg.jp'||!slug)throw new Error('invalid_station_pdf');
+    return [e.station,e.municipality,lat,lng,e.windows.map(w=>w.join('-')).join(','),slug];
+  });
+  return {v:1,sourceVersionDate:source.sourceVersionDate,count:data.length,data,audit:{sourceUrl:source.sourceUrl,sourceVerifiedAt:source.sourceVerifiedAt,sourceProvenance:source.provenance??null,sourceStationPdfCount:source.sourceStationPdfCount??null,publishedStationCount:data.length,failedStationCount:source.failures?.length??0,noWindowStationCount:source.noWindows?.length??0,failures:source.failures??[],noWindows:source.noWindows??[],markerLocation:'POLICE_STATION_HQ_SUMMARY_NOT_ENFORCEMENT_POINT',pdfParserVersion:'1.1.1',records:source.events.map(e=>({station:e.station,sourcePdf:e.sourcePdf,rawSha256:e.rawSha256??null,rawFetchedAt:e.rawFetchedAt??null}))}};
+}
+async function main(){
+  const args=process.argv.slice(2),value=k=>{const i=args.indexOf(k);return i>=0?args[i+1]:null;};
+  let source;
+  if(args.includes('--live')){
+    const version=value('--source-version-date'),verified=value('--verified-at');
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(version||'')||!verified||Number.isNaN(Date.parse(verified)))throw new Error('explicit_source_dates_required');
+    source=await buildLive(version,verified);
+  }else source=JSON.parse(await fs.readFile(value('--input')||'data/drive/tokyo-speed-focus-stations-source-v1.json','utf8'));
+  const result=buildCompactStationSnapshot(source),out=value('--out')||'drive-beta/data/tokyo-speed-focus-stations-preview-v1.json';
+  await fs.writeFile(out,JSON.stringify(result)+'\n');
+  console.log('TOKYO_SPEED_STATIONS='+result.count+'; mode='+(args.includes('--live')?'live':'offline'));
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)await main();

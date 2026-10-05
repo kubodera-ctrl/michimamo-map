@@ -1,0 +1,2649 @@
+{
+  "schemaVersion": 1,
+  "sourceVersionDate": "2026-07-30",
+  "sourceVerifiedAt": "2026-10-01",
+  "sourceUrl": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.html",
+  "freshnessStatus": "CURRENT",
+  "provenance": {
+    "kind": "LEGACY_COMPACT_IMPORT",
+    "gitSha": "8ae316c11ced71ddc7a74ec64acf96a758de9013",
+    "artifact": "drive-beta/data/tokyo-speed-focus-stations-preview-v1.json",
+    "sha256": "4486b4a4e3fccc2e4bf27e96e84335e3096b40f143837f794550f313157955c2",
+    "importedAt": "2026-10-05",
+    "rawPdfArchiveAvailable": false,
+    "verificationDateBasis": "Preserved from the original builder; not reverified on import",
+    "limitation": "Offline generation verifies the accepted 97 station facts and compact encoding. It does not reconstruct unavailable original PDF bytes."
+  },
+  "failures": [],
+  "noWindows": [],
+  "events": [
+    {
+      "station": "赤坂警察署",
+      "municipality": "港区",
+      "locationPoint": [
+        35.674904,
+        139.731857
+      ],
+      "windows": [
+        [
+          7,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/akasaka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "赤羽警察署",
+      "municipality": "北区",
+      "locationPoint": [
+        35.774109,
+        139.733353
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/akabane.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "昭島警察署",
+      "municipality": "昭島市",
+      "locationPoint": [
+        35.708893,
+        139.363968
+      ],
+      "windows": [
+        [
+          8,
+          14
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          11,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/akishima.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "麻布警察署",
+      "municipality": "港区",
+      "locationPoint": [
+        35.664356,
+        139.732925
+      ],
+      "windows": [
+        [
+          8,
+          22
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/azabu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "浅草警察署",
+      "municipality": "台東区",
+      "locationPoint": [
+        35.719124,
+        139.797852
+      ],
+      "windows": [
+        [
+          11,
+          19
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          16,
+          19
+        ],
+        [
+          10,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/asakusa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "愛宕警察署",
+      "municipality": "港区",
+      "locationPoint": [
+        35.661217,
+        139.752686
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/atago.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "綾瀬警察署",
+      "municipality": "足立区",
+      "locationPoint": [
+        35.777637,
+        139.830566
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ayase.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "荒川警察署",
+      "municipality": "荒川区",
+      "locationPoint": [
+        35.734612,
+        139.784592
+      ],
+      "windows": [
+        [
+          7,
+          14
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/arakawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "池上警察署",
+      "municipality": "大田区",
+      "locationPoint": [
+        35.574078,
+        139.698425
+      ],
+      "windows": [
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ikegami.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "池袋警察署",
+      "municipality": "豊島区",
+      "locationPoint": [
+        35.728451,
+        139.706909
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ikebukuro.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "板橋警察署",
+      "municipality": "板橋区",
+      "locationPoint": [
+        35.750423,
+        139.710938
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/itabashi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "五日市警察署",
+      "municipality": "あきる野市",
+      "locationPoint": [
+        35.728123,
+        139.21701
+      ],
+      "windows": [
+        [
+          8,
+          11
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          7,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/itsukaichi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "上野警察署",
+      "municipality": "台東区",
+      "locationPoint": [
+        35.712185,
+        139.779144
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ueno.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "牛込警察署",
+      "municipality": "新宿区",
+      "locationPoint": [
+        35.699303,
+        139.731506
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          14,
+          1
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ushigome.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "荏原警察署",
+      "municipality": "品川区",
+      "locationPoint": [
+        35.612091,
+        139.70639
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ebara.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "王子警察署",
+      "municipality": "北区",
+      "locationPoint": [
+        35.759235,
+        139.738235
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/oji.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "青梅警察署",
+      "municipality": "青梅市",
+      "locationPoint": [
+        35.787132,
+        139.2892
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          14,
+          18
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          7,
+          20
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ome.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "大井警察署",
+      "municipality": "品川区",
+      "locationPoint": [
+        35.599072,
+        139.729797
+      ],
+      "windows": [
+        [
+          6,
+          18
+        ],
+        [
+          12,
+          18
+        ],
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/oi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "大崎警察署",
+      "municipality": "品川区",
+      "locationPoint": [
+        35.621765,
+        139.724396
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          8,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/osaki.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "大塚警察署",
+      "municipality": "文京区",
+      "locationPoint": [
+        35.717133,
+        139.728256
+      ],
+      "windows": [
+        [
+          8,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/otsuka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "大森警察署",
+      "municipality": "大田区",
+      "locationPoint": [
+        35.572727,
+        139.733505
+      ],
+      "windows": [
+        [
+          12,
+          17
+        ],
+        [
+          8,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          12,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/omori.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "荻窪警察署",
+      "municipality": "杉並区",
+      "locationPoint": [
+        35.711285,
+        139.607346
+      ],
+      "windows": [
+        [
+          8,
+          17
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ogikubo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "尾久警察署",
+      "municipality": "荒川区",
+      "locationPoint": [
+        35.750507,
+        139.763641
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          14,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/ogu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "葛西警察署",
+      "municipality": "江戸川区",
+      "locationPoint": [
+        35.661583,
+        139.879181
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          12,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kasai.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "葛飾警察署",
+      "municipality": "葛飾区",
+      "locationPoint": [
+        35.737923,
+        139.838638
+      ],
+      "windows": [
+        [
+          7,
+          13
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/katsushika.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "蒲田警察署",
+      "municipality": "大田区",
+      "locationPoint": [
+        35.558304,
+        139.720108
+      ],
+      "windows": [
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          6,
+          22
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kamata.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "亀有警察署",
+      "municipality": "葛飾区",
+      "locationPoint": [
+        35.762093,
+        139.862396
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kameari.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "神田警察署",
+      "municipality": "千代田区",
+      "locationPoint": [
+        35.69265,
+        139.760361
+      ],
+      "windows": [
+        [
+          6,
+          17
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          7,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kanda.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "北沢警察署",
+      "municipality": "世田谷区",
+      "locationPoint": [
+        35.65807,
+        139.652161
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kitazawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "蔵前警察署",
+      "municipality": "台東区",
+      "locationPoint": [
+        35.701443,
+        139.789948
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          20,
+          2
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          15,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kuramae.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "小岩警察署",
+      "municipality": "江戸川区",
+      "locationPoint": [
+        35.733635,
+        139.887741
+      ],
+      "windows": [
+        [
+          8,
+          16
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          8,
+          14
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/koiwa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "麹町警察署",
+      "municipality": "千代田区",
+      "locationPoint": [
+        35.684322,
+        139.743439
+      ],
+      "windows": [
+        [
+          8,
+          14
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kojimachi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "小金井警察署",
+      "municipality": "小金井市",
+      "locationPoint": [
+        35.699657,
+        139.498123
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          7,
+          23
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/koganei.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "小平警察署",
+      "municipality": "小平市",
+      "locationPoint": [
+        35.729179,
+        139.472824
+      ],
+      "windows": [
+        [
+          7,
+          13
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          6,
+          11
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/kodaira.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "駒込警察署",
+      "municipality": "文京区",
+      "locationPoint": [
+        35.731308,
+        139.747986
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/komagome.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "小松川警察署",
+      "municipality": "江戸川区",
+      "locationPoint": [
+        35.702415,
+        139.863647
+      ],
+      "windows": [
+        [
+          7,
+          11
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          7,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/komatsugawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "下谷警察署",
+      "municipality": "台東区",
+      "locationPoint": [
+        35.725784,
+        139.788116
+      ],
+      "windows": [
+        [
+          7,
+          19
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shitaya.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "渋谷警察署",
+      "municipality": "渋谷区",
+      "locationPoint": [
+        35.657772,
+        139.703644
+      ],
+      "windows": [
+        [
+          8,
+          11
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shibuya.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "品川警察署",
+      "municipality": "品川区",
+      "locationPoint": [
+        35.613819,
+        139.744995
+      ],
+      "windows": [
+        [
+          8,
+          19
+        ],
+        [
+          7,
+          19
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          10,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shinagawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "志村警察署",
+      "municipality": "板橋区",
+      "locationPoint": [
+        35.789059,
+        139.685013
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          14,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shimura.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "石神井警察署",
+      "municipality": "練馬区",
+      "locationPoint": [
+        35.742447,
+        139.598907
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          13,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shakujii.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "城東警察署",
+      "municipality": "江東区",
+      "locationPoint": [
+        35.678612,
+        139.82724
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/joto.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "新宿警察署",
+      "municipality": "新宿区",
+      "locationPoint": [
+        35.693539,
+        139.694565
+      ],
+      "windows": [
+        [
+          6,
+          18
+        ],
+        [
+          20,
+          2
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          8,
+          14
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          10,
+          18
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          8,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/shinjuku.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "巣鴨警察署",
+      "municipality": "豊島区",
+      "locationPoint": [
+        35.731274,
+        139.732254
+      ],
+      "windows": [
+        [
+          6,
+          13
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          8,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/sugamo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "杉並警察署",
+      "municipality": "杉並区",
+      "locationPoint": [
+        35.699024,
+        139.636307
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/suginami.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "成城警察署",
+      "municipality": "世田谷区",
+      "locationPoint": [
+        35.65184,
+        139.61618
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/seijo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "世田谷警察署",
+      "municipality": "世田谷区",
+      "locationPoint": [
+        35.640167,
+        139.666733
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/setagaya.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "千住警察署",
+      "municipality": "足立区",
+      "locationPoint": [
+        35.747028,
+        139.803497
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          12,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/senju.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "高井戸警察署",
+      "municipality": "杉並区",
+      "locationPoint": [
+        35.690594,
+        139.61142
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takaido.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "高尾警察署",
+      "municipality": "八王子市",
+      "locationPoint": [
+        35.649197,
+        139.2957
+      ],
+      "windows": [
+        [
+          9,
+          12
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          8,
+          11
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takao.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "高島平警察署",
+      "municipality": "板橋区",
+      "locationPoint": [
+        35.786449,
+        139.658936
+      ],
+      "windows": [
+        [
+          10,
+          16
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          8,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takashimadaira.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "高輪警察署",
+      "municipality": "港区",
+      "locationPoint": [
+        35.634117,
+        139.733353
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takanawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "滝野川警察署",
+      "municipality": "北区",
+      "locationPoint": [
+        35.746986,
+        139.741486
+      ],
+      "windows": [
+        [
+          8,
+          12
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          7,
+          11
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takinogawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "竹の塚警察署",
+      "municipality": "足立区",
+      "locationPoint": [
+        35.790947,
+        139.80278
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/takenotsuka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "立川警察署",
+      "municipality": "立川市",
+      "locationPoint": [
+        35.706291,
+        139.407944
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          18,
+          4
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tachikawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "田無警察署",
+      "municipality": "西東京市",
+      "locationPoint": [
+        35.729919,
+        139.538605
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tanashi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "玉川警察署",
+      "municipality": "世田谷区",
+      "locationPoint": [
+        35.61356,
+        139.64801
+      ],
+      "windows": [
+        [
+          6,
+          11
+        ],
+        [
+          14,
+          17
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tamagawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "多摩中央警察署",
+      "municipality": "多摩市",
+      "locationPoint": [
+        35.622555,
+        139.420776
+      ],
+      "windows": [
+        [
+          6,
+          10
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          16,
+          22
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tamachuo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "中央警察署",
+      "municipality": "中央区",
+      "locationPoint": [
+        35.680511,
+        139.776825
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/chuo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "調布警察署",
+      "municipality": "調布市",
+      "locationPoint": [
+        35.652634,
+        139.56221
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          8,
+          14
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          10,
+          16
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          8,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/chofu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "月島警察署",
+      "municipality": "中央区",
+      "locationPoint": [
+        35.653233,
+        139.778305
+      ],
+      "windows": [
+        [
+          8,
+          15
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          8,
+          11
+        ],
+        [
+          16,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tsukishima.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "築地警察署",
+      "municipality": "中央区",
+      "locationPoint": [
+        35.6702,
+        139.771179
+      ],
+      "windows": [
+        [
+          7,
+          9
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tsukiji.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "田園調布警察署",
+      "municipality": "大田区",
+      "locationPoint": [
+        35.589111,
+        139.677567
+      ],
+      "windows": [
+        [
+          7,
+          11
+        ],
+        [
+          18,
+          24
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          15,
+          21
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/denenchofu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "東京空港警察署",
+      "municipality": "大田区",
+      "locationPoint": [
+        35.55489,
+        139.784454
+      ],
+      "windows": [
+        [
+          9,
+          17
+        ],
+        [
+          21,
+          24
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyokuko.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "東京湾岸警察署",
+      "municipality": "江東区",
+      "locationPoint": [
+        35.61887,
+        139.774872
+      ],
+      "windows": [
+        [
+          6,
+          22
+        ],
+        [
+          16,
+          18
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tokyowangan.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "戸塚警察署",
+      "municipality": "新宿区",
+      "locationPoint": [
+        35.713505,
+        139.710999
+      ],
+      "windows": [
+        [
+          6,
+          13
+        ],
+        [
+          12,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/totsuka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "富坂警察署",
+      "municipality": "文京区",
+      "locationPoint": [
+        35.71043,
+        139.746872
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/tomisaka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "中野警察署",
+      "municipality": "中野区",
+      "locationPoint": [
+        35.697693,
+        139.677643
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          16,
+          20
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/nakano.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "西新井警察署",
+      "municipality": "足立区",
+      "locationPoint": [
+        35.773499,
+        139.789444
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          13,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/nishiarai.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "練馬警察署",
+      "municipality": "練馬区",
+      "locationPoint": [
+        35.736797,
+        139.655548
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          8,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/nerima.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "野方警察署",
+      "municipality": "中野区",
+      "locationPoint": [
+        35.709797,
+        139.660461
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/nogata.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "八王子警察署",
+      "municipality": "八王子市",
+      "locationPoint": [
+        35.665054,
+        139.317032
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          13,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/hachioji.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "原宿警察署",
+      "municipality": "渋谷区",
+      "locationPoint": [
+        35.671825,
+        139.707825
+      ],
+      "windows": [
+        [
+          7,
+          11
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/harajuku.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "東村山警察署",
+      "municipality": "東村山市",
+      "locationPoint": [
+        35.755348,
+        139.46788
+      ],
+      "windows": [
+        [
+          5,
+          11
+        ],
+        [
+          12,
+          18
+        ],
+        [
+          21,
+          3
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/higashimurayama.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "東大和警察署",
+      "municipality": "東大和市",
+      "locationPoint": [
+        35.748825,
+        139.411194
+      ],
+      "windows": [
+        [
+          10,
+          12
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          14,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/higashiyamato.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "光が丘警察署",
+      "municipality": "練馬区",
+      "locationPoint": [
+        35.75914,
+        139.630356
+      ],
+      "windows": [
+        [
+          8,
+          20
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          14,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/hikarigaoka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "久松警察署",
+      "municipality": "中央区",
+      "locationPoint": [
+        35.688137,
+        139.784698
+      ],
+      "windows": [
+        [
+          18,
+          23
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          13,
+          19
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          13,
+          15
+        ],
+        [
+          7,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/hisamatsu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "日野警察署",
+      "municipality": "日野市",
+      "locationPoint": [
+        35.677208,
+        139.409698
+      ],
+      "windows": [
+        [
+          8,
+          18
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/hino.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "碑文谷警察署",
+      "municipality": "目黒区",
+      "locationPoint": [
+        35.620804,
+        139.681046
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/himonya.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "深川警察署",
+      "municipality": "江東区",
+      "locationPoint": [
+        35.673668,
+        139.806473
+      ],
+      "windows": [
+        [
+          8,
+          14
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          7,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/fukagawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "府中警察署",
+      "municipality": "府中市",
+      "locationPoint": [
+        35.673615,
+        139.481323
+      ],
+      "windows": [
+        [
+          9,
+          12
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          10,
+          18
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/fuchu.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "福生警察署",
+      "municipality": "福生市",
+      "locationPoint": [
+        35.748718,
+        139.320679
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          16,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/fussa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "本所警察署",
+      "municipality": "墨田区",
+      "locationPoint": [
+        35.705189,
+        139.815033
+      ],
+      "windows": [
+        [
+          20,
+          23
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          15,
+          18
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/honjo.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "町田警察署",
+      "municipality": "町田市",
+      "locationPoint": [
+        35.554695,
+        139.443558
+      ],
+      "windows": [
+        [
+          8,
+          10
+        ],
+        [
+          14,
+          18
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/machida.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "丸の内警察署",
+      "municipality": "千代田区",
+      "locationPoint": [
+        35.675224,
+        139.760529
+      ],
+      "windows": [
+        [
+          7,
+          20
+        ],
+        [
+          7,
+          23
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/marunouchi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "万世橋警察署",
+      "municipality": "千代田区",
+      "locationPoint": [
+        35.697449,
+        139.771805
+      ],
+      "windows": [
+        [
+          6,
+          12
+        ],
+        [
+          21,
+          3
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/manseibashi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "三田警察署",
+      "municipality": "港区",
+      "locationPoint": [
+        35.641785,
+        139.744537
+      ],
+      "windows": [
+        [
+          7,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/mita.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "三鷹警察署",
+      "municipality": "三鷹市",
+      "locationPoint": [
+        35.686588,
+        139.558838
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          15,
+          20
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          20,
+          1
+        ],
+        [
+          20,
+          22
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/mitaka.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "南大沢警察署",
+      "municipality": "八王子市",
+      "locationPoint": [
+        35.616241,
+        139.381363
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/minamiosawa.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "南千住警察署",
+      "municipality": "荒川区",
+      "locationPoint": [
+        35.735249,
+        139.791763
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/minamisenju.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "向島警察署",
+      "municipality": "墨田区",
+      "locationPoint": [
+        35.711674,
+        139.827423
+      ],
+      "windows": [
+        [
+          9,
+          15
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          8,
+          14
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/mukojima.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "武蔵野警察署",
+      "municipality": "武蔵野市",
+      "locationPoint": [
+        35.706181,
+        139.560562
+      ],
+      "windows": [
+        [
+          6,
+          17
+        ],
+        [
+          6,
+          12
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/musashino.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "目黒警察署",
+      "municipality": "目黒区",
+      "locationPoint": [
+        35.637871,
+        139.704849
+      ],
+      "windows": [
+        [
+          7,
+          10
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          17,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/meguro.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "目白警察署",
+      "municipality": "豊島区",
+      "locationPoint": [
+        35.719955,
+        139.711288
+      ],
+      "windows": [
+        [
+          7,
+          13
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          5,
+          11
+        ],
+        [
+          16,
+          23
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          15,
+          19
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/mejiro.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "本富士警察署",
+      "municipality": "文京区",
+      "locationPoint": [
+        35.707661,
+        139.763657
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          9,
+          15
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/motofuji.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "四谷警察署",
+      "municipality": "新宿区",
+      "locationPoint": [
+        35.68663,
+        139.720734
+      ],
+      "windows": [
+        [
+          7,
+          13
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          8,
+          20
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/yotsuya.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    },
+    {
+      "station": "代々木警察署",
+      "municipality": "渋谷区",
+      "locationPoint": [
+        35.679604,
+        139.683212
+      ],
+      "windows": [
+        [
+          7,
+          12
+        ],
+        [
+          18,
+          22
+        ]
+      ],
+      "sourcePdf": "https://www.keishicho.metro.tokyo.lg.jp/kotsu/jikoboshi/torikumi/sokudokanri/torishimari.files/yoyogi.pdf",
+      "geoPrecision": "POLICE_STATION_HQ_SUMMARY"
+    }
+  ]
+}

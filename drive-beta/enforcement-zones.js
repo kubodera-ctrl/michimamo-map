@@ -123,6 +123,7 @@
           :null,
         geometryStatus:event.geometryStatus,
         geometryVerified:event.geometryVerified===true,
+        staticGeometry:Array.isArray(event.staticGeometry)?event.staticGeometry.map(p=>Array.isArray(p)?[...p]:p):null,
         agency:event.agency,
         policeStation:event.policeStation,
         sourceVerifiedAt:event.sourceVerifiedAt,
@@ -258,8 +259,15 @@
     return roadValueMatchesExpected(first?.name,expected)&&roadValueMatchesExpected(last?.name,expected);
   }
 
+  function verifiedStaticGeometry(zone){
+    if(zone?.geometryVerified!==true||zone?.endpointVerified!==true||zone?.geometryStatus!=='VERIFIED'||zone?.freshnessStatus!=='CURRENT')return null;
+    const points=zone.staticGeometry;
+    if(!Array.isArray(points)||points.length<2||points.some(p=>!Array.isArray(p)||p.length!==2||!p.every(Number.isFinite)||p[0]<-90||p[0]>90||p[1]<-180||p[1]>180))return null;
+    return points;
+  }
+
   return Object.freeze({
-    clean,parseClock,parseSpeed,normalizeBundle,normalizeSnapshot,
+    verifiedStaticGeometry,clean,parseClock,parseSpeed,normalizeBundle,normalizeSnapshot,
     minutesInTokyo,isMinuteInWindow,isZoneActive,formatWindow,
     distanceMeters,distancePointToSegmentMeters,distanceToPolylineMeters,
     normalizeRoadToken,osrmRouteSignature,routeMatchesExpected

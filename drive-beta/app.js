@@ -12,8 +12,8 @@ let speedStationFocus=null;
 let scheduleTab='public';
 const map=L.map('map',{zoomControl:false,attributionControl:true}).setView([35.6335,139.7875],14);
 L.control.zoom({position:'bottomleft'}).addTo(map);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-  maxZoom:19,attribution:'&copy; OpenStreetMap contributors'
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
 }).addTo(map);
 
 const enforcementLayer=L.layerGroup().addTo(map);
@@ -163,7 +163,7 @@ function zonePopup(zone){
     '<div class="popup-status '+(active?'on':'off')+'">'+(active?'現在、重点時間帯':'重点時間帯外')+'</div>'+
     '<div class="popup-line">'+esc(zone.startLabel)+' 〜 '+esc(zone.endLabel)+'</div>'+
     '<div class="popup-line">重点時間 '+esc(zonesApi.formatWindow(zone))+' ／ 規制速度 '+esc(zone.speedKmh)+'km/h</div>'+
-    (routed?'<div class="popup-note">始終点を外部資料で照合し、実道路ルーティングへ追従させたQA前の候補線です。</div>':'')+
+    (routed?'<div class="popup-note">始終点と道路形状を確認済みの区間です。</div>':'')+
     '<div class="popup-note">警視庁が公表する速度取締重点路線・重点時間帯です。現在その場所で取締りを実施中であることを示すものではありません。</div>'+
     '<a class="popup-source" href="'+esc(zone.sourcePdf)+'" target="_blank" rel="noopener noreferrer">出典：警視庁 東京湾岸警察署速度取締指針</a>';
 }
@@ -175,7 +175,7 @@ function renderEnforcement(){
   const lineWeights=enforcementLineWeights();
   for(const zone of enforcementZones){
     const geometry=resolvedGeometries.get(zone.id);
-    if(!geometry)continue;
+    if(!zonesApi.verifiedStaticGeometry(zone)||!geometry)continue;
     const active=zonesApi.isZoneActive(zone);
     const popupHtml=zonePopup(zone);
     const line=L.polyline(geometry,{
@@ -211,36 +211,11 @@ function renderEnforcement(){
   updateStatus();
 }
 
-async function resolveRoadGeometry(zone){
-  if(!zone.endpointVerified||!zone.routeEndpoints||zone.routeEndpoints.length!==2)return null;
-  if(!Array.isArray(zone.routeMatchTokens)||!zone.routeMatchTokens.length)return null;
-  const [[lat1,lng1],[lat2,lng2]]=zone.routeEndpoints;
-  const url='https://router.project-osrm.org/route/v1/driving/'+
-    encodeURIComponent(lng1+','+lat1+';'+lng2+','+lat2)+
-    '?overview=full&geometries=geojson&steps=true';
-  try{
-    const response=await fetch(url,{headers:{Accept:'application/json'}});
-    if(!response.ok)throw new Error('route_http_'+response.status);
-    const payload=await response.json();
-    if(!zonesApi.routeMatchesExpected(payload,zone.routeMatchTokens)){
-      throw new Error('route_signature_mismatch');
-    }
-    const coords=payload?.routes?.[0]?.geometry?.coordinates;
-    if(!Array.isArray(coords)||coords.length<2)throw new Error('route_geometry_missing');
-    return coords.map(([lng,lat])=>[lat,lng]);
-  }catch(error){
-    console.warn('DRIVE beta road routing failed',zone.id,error);
-    return null;
-  }
-}
-
-async function hydrateRoadGeometries(){
-  const routable=enforcementZones.filter(z=>
-    z.endpointVerified===true&&Array.isArray(z.routeEndpoints)&&z.routeMatchTokens.length>0
-  );
-  const results=await Promise.all(routable.map(async zone=>[zone.id,await resolveRoadGeometry(zone)]));
-  for(const [id,geometry] of results){
-    if(Array.isArray(geometry)&&geometry.length>1)resolvedGeometries.set(id,geometry);
+function hydrateRoadGeometries(){
+  resolvedGeometries.clear();
+  for(const zone of enforcementZones){
+    const geometry=zonesApi.verifiedStaticGeometry(zone);
+    if(geometry)resolvedGeometries.set(zone.id,geometry);
   }
   renderEnforcement();
   checkProximity();
@@ -294,7 +269,7 @@ function renderUserPosition(coords){
 function checkProximity(){
   if(!lastPosition||!enforcementVisible)return;
   const candidates=enforcementZones
-    .filter(z=>resolvedGeometries.has(z.id)&&zonesApi.isZoneActive(z))
+    .filter(z=>zonesApi.verifiedStaticGeometry(z)&&resolvedGeometries.has(z.id)&&zonesApi.isZoneActive(z))
     .map(z=>({zone:z,d:zonesApi.distanceToPolylineMeters(lastPosition,resolvedGeometries.get(z.id))}))
     .filter(x=>x.d<=500)
     .sort((a,b)=>a.d-b.d);
@@ -534,10 +509,10 @@ async function loadFocusLocations(){
     console.warn('DRIVE beta verified focus snapshot load failed',error);
   }
   try{
-    const response=await fetch('/api/drive-focus-tokyo',{cache:'no-store'});
+    const response=await fetch('/drive-beta/data/tokyo-focus-locations-all-v1.json',{cache:'no-store'});
     if(!response.ok)throw new Error('focus_tokyo_http_'+response.status);
     const snapshot=await response.json();
-    if(snapshot?.freshnessStatus!=='CURRENT'||!Array.isArray(snapshot?.events))throw new Error('focus_tokyo_not_current');
+    if(snapshot?.freshnessStatus!=='CURRENT'||snapshot.sourceRowCount!==214||snapshot.publishedCount!==214||!Array.isArray(snapshot?.events)||snapshot.events.length!==214)throw new Error('focus_tokyo_not_current');
     allTokyo=snapshot;
   }catch(error){
     console.warn('DRIVE beta all-Tokyo focus load failed; verified subset fallback',error);
@@ -662,7 +637,7 @@ async function loadSpeedStationFocus(){
     const response=await fetch('/drive-beta/data/tokyo-speed-focus-stations-preview-v1.json',{cache:'no-store'});
     if(!response.ok)throw new Error('speed_station_http_'+response.status);
     const raw=await response.json();
-    if(raw?.v!==1||!Array.isArray(raw?.data)||raw.data.length<90)throw new Error('speed_station_invalid');
+    if(raw?.v!==1||raw.count!==97||!Array.isArray(raw?.data)||raw.data.length!==97||raw.data.some(row=>!Array.isArray(row)||row.length!==6||!Number.isFinite(row[2])||!Number.isFinite(row[3])||!/^(?:[0-9]{1,2}-[0-9]{1,2})(?:,[0-9]{1,2}-[0-9]{1,2})*$/.test(row[4])))throw new Error('speed_station_invalid');
     speedStationFocus={
       sourceVersionDate:raw.sourceVersionDate,
       events:raw.data.map(([station,municipality,lat,lng,windows,slug])=>({

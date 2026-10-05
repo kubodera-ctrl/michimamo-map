@@ -167,18 +167,21 @@ assert.match(html,/警視庁 取締情報/);
 assert.match(html,/実際に現場で取締り・検問を実施中であることを示す表示ではありません/);
 assert.match(app,/accident_hotspots_in_view/);
 assert.match(app,/watchPosition/);
-assert.match(app,/router\.project-osrm\.org\/route\/v1\/driving/);
-assert.match(app,/steps=true/);
-assert.match(app,/routeMatchesExpected/);
-assert.match(app,/route_signature_mismatch/);
-assert.match(app,/endpointVerified/);
+
+
+
+
+
 assert.match(app,/resolvedGeometries/);
+assert.doesNotMatch(app,/router\.project-osrm\.org/);
+assert.match(app,/verifiedStaticGeometry/);
+assert.match(app,/tokyo-focus-locations-all-v1\.json/);
 assert.match(app,/\/drive-beta\/data\/tokyo-wangan-preview-v1\.json/);
 assert.match(app,/\/drive-beta\/data\/tokyo-public-enforcement-2026-10-preview-v1\.json/);
 assert.match(app,/loadPublicSchedule/);
 assert.match(app,/loadFocusLocations/);
 assert.match(app,/tokyo-focus-locations-wangan-preview-v1\.json/);
-assert.match(app,/\/api\/drive-focus-tokyo/);
+
 assert.match(app,/function mergeFocusEvents/);
 assert.match(app,/locationApproximate/);
 assert.match(html,/id="scheduleGeoSource"/);
