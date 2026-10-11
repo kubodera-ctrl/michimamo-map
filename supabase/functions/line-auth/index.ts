@@ -551,6 +551,11 @@ export default {
             url.searchParams.get('error')
 
 
+          const redirectFrontend =
+            state
+              ? resolveStateFrontendOrigin(state)
+              : null
+
           if (
             lineError ||
             !code ||
@@ -558,21 +563,13 @@ export default {
           ) {
 
             return Response.redirect(
-              `${FRONTEND_URL}/?error=line_auth_failed`,
+              `${redirectFrontend || FRONTEND_URL}/?error=line_auth_failed`,
               302
             )
           }
 
 
-          // stateは32 bytesのBase64URL
-          // 通常43文字
-          if (
-            !isValidBase64Url(
-              state,
-              43,
-              43
-            )
-          ) {
+          if (!redirectFrontend) {
 
             return Response.redirect(
               `${FRONTEND_URL}/?error=invalid_state`,
