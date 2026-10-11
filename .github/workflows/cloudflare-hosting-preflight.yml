@@ -1,0 +1,65 @@
+name: Cloudflare Hosting Preflight
+
+on:
+  pull_request:
+    paths:
+      - 'hosting/cloudflare/**'
+      - 'scripts/build_cloudflare_pages.mjs'
+      - 'supabase/functions/client-error-log/index.ts'
+      - 'supabase/functions/line-auth/index.ts'
+      - 'supabase/functions/account-deletion/index.ts'
+      - 'supabase/functions/camera-evidence-retention/index.ts'
+      - 'supabase/functions/aed-image-check/index.ts'
+      - '.github/workflows/cloudflare-hosting-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hosting-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build isolated Pages output
+        run: node scripts/build_cloudflare_pages.mjs
+      - name: Assert private/source-only trees are excluded
+        shell: bash
+        run: |
+          test -f .cloudflare-pages-dist/index.html
+          test -f .cloudflare-pages-dist/terms.html
+          test -f .cloudflare-pages-dist/privacy.html
+          test -f .cloudflare-pages-dist/manifest.webmanifest
+          test -f .cloudflare-pages-dist/_headers
+          test -f .cloudflare-pages-dist/_redirects
+          test ! -e .cloudflare-pages-dist/vercel.json
+          test ! -e .cloudflare-pages-dist/supabase
+          test ! -e .cloudflare-pages-dist/tests
+          test ! -e .cloudflare-pages-dist/planning
+          test ! -e .cloudflare-pages-dist/tools
+          test ! -e .cloudflare-pages-dist/data
+      - name: Assert Pages route and header controls
+        shell: bash
+        run: |
+          grep -Fx '/terms /terms.html 200' .cloudflare-pages-dist/_redirects
+          grep -Fx '/privacy /privacy.html 200' .cloudflare-pages-dist/_redirects
+          grep -F 'X-Content-Type-Options: nosniff' .cloudflare-pages-dist/_headers
+          grep -F 'Referrer-Policy: strict-origin-when-cross-origin' .cloudflare-pages-dist/_headers
+      - name: Assert exact-origin migration contract
+        shell: bash
+        run: |
+          grep -F "Deno.env.get('FRONTEND_ORIGINS')" supabase/functions/client-error-log/index.ts
+          grep -F "Deno.env.get('FRONTEND_ORIGINS')" supabase/functions/line-auth/index.ts
+          grep -F "Deno.env.get('FRONTEND_ORIGINS')" supabase/functions/account-deletion/index.ts
+          grep -F "Deno.env.get('FRONTEND_ORIGINS')" supabase/functions/camera-evidence-retention/index.ts
+          grep -F "Deno.env.get('FRONTEND_ORIGINS')" supabase/functions/aed-image-check/index.ts
+          grep -F 'createOAuthState(origin)' supabase/functions/line-auth/index.ts
+          grep -F 'resolveStateFrontendOrigin(state)' supabase/functions/line-auth/index.ts
+          if grep -RFn --include='*.ts' --include='*.js' '*.pages.dev' supabase/functions; then
+            echo 'Wildcard pages.dev origin is forbidden'
+            exit 1
+          fi

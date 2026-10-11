@@ -15,16 +15,45 @@ const EDGE_CALLBACK_URL =
   Deno.env.get('EDGE_CALLBACK_URL') ||
   'https://ckftozjhdszlwqnylmxv.supabase.co/functions/v1/line-auth/callback'
 
+const configuredFrontendOrigins = (Deno.env.get('FRONTEND_ORIGINS') || '')
+  .split(',')
+  .map((value) => value.trim())
+  .filter((value) => /^https:\/\/[A-Za-z0-9.-]+(?::\d+)?$/.test(value))
+
+const ALLOWED_FRONTEND_ORIGINS = new Set([
+  FRONTEND_URL,
+  ...configuredFrontendOrigins,
+])
+
 
 // ==========================================
 // CORS
 // ==========================================
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': FRONTEND_URL,
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Content-Type': 'application/json',
+function isAllowedFrontendOrigin(
+  origin: string | null
+): origin is string {
+  return Boolean(
+    origin &&
+    ALLOWED_FRONTEND_ORIGINS.has(origin)
+  )
+}
+
+function corsHeadersForOrigin(
+  origin: string | null
+) {
+  return {
+    'Access-Control-Allow-Origin':
+      isAllowedFrontendOrigin(origin)
+        ? origin
+        : FRONTEND_URL,
+    'Access-Control-Allow-Methods':
+      'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers':
+      'Content-Type',
+    'Content-Type': 'application/json',
+    'Vary': 'Origin',
+  }
 }
 
 
@@ -148,6 +177,83 @@ function generateRandomString(
   return base64UrlEncodeBuf(array)
 }
 
+function base64UrlEncodeText(
+  value: string
+): string {
+  return base64UrlEncodeBuf(
+    new TextEncoder().encode(value)
+  )
+}
+
+function base64UrlDecodeText(
+  value: string
+): string | null {
+  try {
+    const base64 = value
+      .replace(/-/g, '+')
+      .replace(/_/g, '/')
+      .padEnd(
+        Math.ceil(value.length / 4) * 4,
+        '='
+      )
+
+    const binary = atob(base64)
+    const bytes = Uint8Array.from(
+      binary,
+      (char) => char.charCodeAt(0)
+    )
+
+    return new TextDecoder().decode(bytes)
+  } catch {
+    return null
+  }
+}
+
+function createOAuthState(
+  frontendOrigin: string
+): string {
+  return [
+    generateRandomString(32),
+    base64UrlEncodeText(frontendOrigin),
+  ].join('.')
+}
+
+function resolveStateFrontendOrigin(
+  state: string
+): string | null {
+  // Backward compatibility for in-flight states created
+  // before multi-origin support was deployed.
+  if (isValidBase64Url(state, 43, 43)) {
+    return FRONTEND_URL
+  }
+
+  const parts = state.split('.')
+  if (parts.length !== 2) {
+    return null
+  }
+
+  const [nonce, encodedOrigin] = parts
+  if (
+    !isValidBase64Url(nonce, 43, 43) ||
+    !isValidBase64Url(
+      encodedOrigin,
+      8,
+      512
+    )
+  ) {
+    return null
+  }
+
+  const frontendOrigin =
+    base64UrlDecodeText(encodedOrigin)
+
+  return isAllowedFrontendOrigin(
+    frontendOrigin
+  )
+    ? frontendOrigin
+    : null
+}
+
 
 // ==========================================
 // 入力値検証
@@ -201,6 +307,9 @@ export default {
       const origin =
         req.headers.get('origin')
 
+      const corsHeaders =
+        corsHeadersForOrigin(origin)
+
 
       // ======================================
       // CORS Preflight
@@ -210,7 +319,7 @@ export default {
 
         if (
           origin &&
-          origin !== FRONTEND_URL
+          !isAllowedFrontendOrigin(origin)
         ) {
           return new Response(
             'Forbidden',
@@ -290,7 +399,7 @@ export default {
           req.method === 'POST'
         ) {
 
-          if (origin !== FRONTEND_URL) {
+          if (!isAllowedFrontendOrigin(origin)) {
 
             return new Response(
               JSON.stringify({
@@ -334,7 +443,7 @@ export default {
 
           // OAuth state
           const state =
-            generateRandomString(32)
+            createOAuthState(origin)
 
           const state_hash =
             await sha256Hex(state)
@@ -442,6 +551,11 @@ export default {
             url.searchParams.get('error')
 
 
+          const redirectFrontend =
+            state
+              ? resolveStateFrontendOrigin(state)
+              : null
+
           if (
             lineError ||
             !code ||
@@ -449,21 +563,13 @@ export default {
           ) {
 
             return Response.redirect(
-              `${FRONTEND_URL}/?error=line_auth_failed`,
+              `${redirectFrontend || FRONTEND_URL}/?error=line_auth_failed`,
               302
             )
           }
 
 
-          // stateは32 bytesのBase64URL
-          // 通常43文字
-          if (
-            !isValidBase64Url(
-              state,
-              43,
-              43
-            )
-          ) {
+          if (!redirectFrontend) {
 
             return Response.redirect(
               `${FRONTEND_URL}/?error=invalid_state`,
@@ -480,7 +586,7 @@ export default {
           ) {
 
             return Response.redirect(
-              `${FRONTEND_URL}/?error=invalid_code`,
+              `${redirectFrontend}/?error=invalid_code`,
               302
             )
           }
@@ -509,7 +615,7 @@ export default {
           if (rpcErr) {
 
             return Response.redirect(
-              `${FRONTEND_URL}/?error=invalid_or_expired_state`,
+              `${redirectFrontend}/?error=invalid_or_expired_state`,
               302
             )
           }
@@ -522,7 +628,7 @@ export default {
           if (!challenge) {
 
             return Response.redirect(
-              `${FRONTEND_URL}/?error=invalid_or_expired_state`,
+              `${redirectFrontend}/?error=invalid_or_expired_state`,
               302
             )
           }
@@ -834,7 +940,7 @@ export default {
           // Tokenではなく
           // 短命login_codeのみFrontendへ渡す
           return Response.redirect(
-            `${FRONTEND_URL}/?login_code=${encodeURIComponent(login_code)}`,
+            `${redirectFrontend}/?login_code=${encodeURIComponent(login_code)}`,
             302
           )
         }
@@ -851,7 +957,7 @@ export default {
         ) {
 
           if (
-            origin !== FRONTEND_URL
+            !isAllowedFrontendOrigin(origin)
           ) {
 
             return new Response(

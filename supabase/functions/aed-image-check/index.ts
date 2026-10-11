@@ -3,11 +3,20 @@ import { analyzeImage, model } from './analyze.mjs';
 
 // Product decision: keep paid processing off regardless of environment settings.
 const PAID_IMAGE_AI_PAUSED = true;
-const origin = 'https://machimamo-map.vercel.app';
+const defaultOrigin = 'https://machimamo-map.vercel.app';
+const allowedOrigins = new Set([
+  defaultOrigin,
+  ...(Deno.env.get('FRONTEND_ORIGINS') || '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter((value) => /^https:\/\/[A-Za-z0-9.-]+(?::\d+)?$/.test(value)),
+]);
 Deno.serve(async (req: Request) => {
-    const headers = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Vary': 'Origin' };
+    const requestOrigin = req.headers.get('origin');
+    const responseOrigin = requestOrigin && allowedOrigins.has(requestOrigin) ? requestOrigin : defaultOrigin;
+    const headers = { 'Access-Control-Allow-Origin': responseOrigin, 'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Vary': 'Origin' };
     const reply = (body: object, status = 200) => new Response(JSON.stringify(body), { status, headers });
-    if (req.headers.get('origin') && req.headers.get('origin') !== origin) return reply({ error: 'origin_denied' }, 403);
+    if (requestOrigin && !allowedOrigins.has(requestOrigin)) return reply({ error: 'origin_denied' }, 403);
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers });
     if (req.method !== 'POST') return reply({ error: 'method_not_allowed' }, 405);
     const authorization = req.headers.get('Authorization') || '';

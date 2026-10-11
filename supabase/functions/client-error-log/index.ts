@@ -3,10 +3,17 @@ import { withSupabase } from 'npm:@supabase/server@^1'
 const SUPABASE_SERVICE_ROLE_KEY =
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
 
+const DEFAULT_ORIGIN = 'https://machimamo-map.vercel.app'
+const configuredOrigins = (Deno.env.get('FRONTEND_ORIGINS') || '')
+  .split(',')
+  .map((value) => value.trim())
+  .filter((value) => /^https:\/\/[A-Za-z0-9.-]+(?::\d+)?$/.test(value))
+
 const ALLOWED_ORIGINS = new Set([
-  'https://machimamo-map.vercel.app',
+  DEFAULT_ORIGIN,
   'https://michimamo-map.vercel.app',
   'https://machimamo-map-miti4.vercel.app',
+  ...configuredOrigins,
 ])
 
 const ALLOWED_KINDS = new Set([
@@ -21,7 +28,7 @@ const SAFE_TOKEN = /^[a-z0-9][a-z0-9._:-]{0,63}$/i
 function headers(origin: string | null) {
   const allowed = origin && ALLOWED_ORIGINS.has(origin)
     ? origin
-    : 'https://machimamo-map.vercel.app'
+    : DEFAULT_ORIGIN
 
   return {
     'Access-Control-Allow-Origin': allowed,
