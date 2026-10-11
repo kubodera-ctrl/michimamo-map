@@ -1,7 +1,11 @@
 import { createClient } from 'npm:@supabase/supabase-js@2.57.4';
 import { runRetention } from './worker.mjs';
 
-const allowedOrigin='https://machimamo-map.vercel.app';
+const defaultOrigin='https://machimamo-map.vercel.app';
+const allowedOrigins=new Set([
+ defaultOrigin,
+ ...(Deno.env.get('FRONTEND_ORIGINS')||'').split(',').map((value)=>value.trim()).filter((value)=>/^https:\/\/[A-Za-z0-9.-]+(?::\d+)?$/.test(value)),
+]);
 
 Deno.serve(async(req:Request)=>{
  const headers={
@@ -13,8 +17,7 @@ Deno.serve(async(req:Request)=>{
   'Vary':'Origin'
  };
  const reply=(body:object,status=200)=>new Response(JSON.stringify(body),{status,headers});
- const requestOrigin=req.headers.get('origin');
- if(requestOrigin&&requestOrigin!==allowedOrigin)return reply({error:'origin_denied'},403);
+ if(requestOrigin&&!allowedOrigins.has(requestOrigin))return reply({error:'origin_denied'},403);
  if(req.method==='OPTIONS')return new Response(null,{status:204,headers});
  if(req.method!=='POST')return reply({error:'method_not_allowed'},405);
 
