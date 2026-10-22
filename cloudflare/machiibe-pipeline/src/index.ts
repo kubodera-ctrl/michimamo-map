@@ -205,7 +205,7 @@ async function handleIngest(message:Message<PipelineMessage>,env:Env){
   }
   const response=await fetch(sourceUrl,{
     redirect:'manual',
-    headers:{'user-agent':'MachiibeBot/1.0 (+https://machiibe-preview.kubodera.workers.dev/partners)'}
+    headers:{'user-agent':'MachiibeBot/1.0 (+https://machiibe.sumion.net/partners)'}
   });
   if(response.status>=300&&response.status<400)throw new Error('source_redirect_blocked');
   if(!response.ok) throw new Error('source_fetch_failed:'+response.status);
