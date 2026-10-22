@@ -48,7 +48,6 @@ const legacy=findings.filter(x=>x.keys.includes('legacy_account_subdomain'));
 const workers=findings.filter(x=>x.keys.includes('workers_dev_any'));
 const related=findings.filter(x=>x.keys.includes('cors_callback_webhook_access_search'));
 const expectedLegacyRuntime=new Set([
-  'cloudflare/machiibe-pipeline/src/index.ts:95',
   'event-site/wrangler.jsonc:17'
 ]);
 const legacyRuntime=legacy.filter((item)=>!item.path.startsWith('docs/')&&!item.path.startsWith('scripts/'));
