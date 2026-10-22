@@ -1,0 +1,59 @@
+name: Machiibe R36 NonProd Code Gate
+
+on:
+  push:
+    branches:
+      - feat/machiibe-r36-nonprod-gate-20261022
+    paths:
+      - 'cloudflare/machiibe-pipeline/**'
+      - 'event-site/tests/machiibe-*'
+      - 'supabase/nonprod/**'
+      - '.github/workflows/machiibe-r36-nonprod-ci.yml'
+  pull_request:
+    branches:
+      - feat/machiibe-national-ingestion-foundation
+    paths:
+      - 'cloudflare/machiibe-pipeline/**'
+      - 'event-site/tests/machiibe-*'
+      - 'supabase/nonprod/**'
+      - '.github/workflows/machiibe-r36-nonprod-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  worker-typecheck-dryrun:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: cloudflare/machiibe-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Worker dependencies
+        run: npm install --no-audit --no-fund
+      - name: Official Worker typecheck
+        run: npm run typecheck
+      - name: Wrangler compile only (no deployment or Cloudflare credential)
+        run: npx wrangler deploy --dry-run --outdir ./r36-dist
+  isolated-source-tests:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: event-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned event-site dependencies
+        run: npm install --no-audit --no-fund
+      - name: Focused R34-R36 tests without any cloud secrets or deploy
+        run: node --test --import=tsx tests/machiibe-ingest-receipts.test.ts tests/machiibe-pipeline-*.test.ts tests/machiibe-r34-*.test.ts tests/machiibe-r35-*.test.ts tests/machiibe-r36-*.test.ts
