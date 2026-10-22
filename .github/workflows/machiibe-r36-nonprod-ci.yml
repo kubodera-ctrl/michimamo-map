@@ -57,3 +57,26 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Focused R34-R36 tests without any cloud secrets or deploy
         run: node --test --import=tsx tests/machiibe-ingest-receipts.test.ts tests/machiibe-pipeline-*.test.ts tests/machiibe-r34-*.test.ts tests/machiibe-r35-*.test.ts tests/machiibe-r36-*.test.ts
+
+  official-source-readonly-preflight:
+    # Limited official open data fetches; absolutely no DB/Cloudflare writes.
+    # Runs on review only and does not certify Hosted ingestion.
+    if: github.event_name == 'pull_request' && github.base_ref == 'feat/machiibe-national-ingestion-foundation'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: event-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install event-site read-only CLI
+        run: npm install --no-audit --no-fund
+      - name: Probe licensed Mie direct CSV (Shift-JIS)
+        continue-on-error: true
+        run: npm run source:dry-run -- mie-pref-events-open-data
+      - name: Probe licensed Okazaki direct CSV
+        continue-on-error: true
+        run: npm run source:dry-run -- bodik-okazaki-events
