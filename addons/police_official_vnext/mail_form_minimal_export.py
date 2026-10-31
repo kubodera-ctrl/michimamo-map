@@ -136,8 +136,21 @@ def capture_schema_via_official_ui() -> dict:
           format:document.querySelector('#format')?.value||''
         })""")
         if not verify_hidden_bound_date(form_bound):
-            # Never click submit if the rendered control didn't update hidden date fields.
-            raise ValueError("visible date picker did not bind exact 1-day hidden range")
+            # Diagnostic logs only date control strings, NEVER source row values,
+            # token/cookie content or document data. Abort before any submit.
+            def safe_date_control(v):
+                v=str(v or '')[:48]
+                return v if re.fullmatch(r'[0-9 /:\-TZ+.]*',v) else '[unknown date control]'
+            widget = page.evaluate("""() => {
+              const p=window.jQuery?.('#daterangepicker')?.data('daterangepicker');
+              return {locale:p?.locale?.format||'',
+                start:p?.startDate?.format('YYYY-MM-DD')||'',
+                end:p?.endDate?.format('YYYY-MM-DD')||'',
+                visible:document.querySelector('#daterangepicker')?.value||''};
+            }""")
+            hint={k:safe_date_control(v) for k,v in form_bound.items()}
+            hint.update({k:safe_date_control(v) for k,v in widget.items()})
+            raise ValueError('date binding mismatch BEFORE POST: '+json.dumps(hint,ensure_ascii=False))
         with tempfile.TemporaryDirectory(prefix="police_mail_export_private_") as temp:
             try:
                 with page.expect_download(timeout=30000) as download_info:
