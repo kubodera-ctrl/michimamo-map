@@ -32,6 +32,10 @@ def parse_visible_date(value: str) -> dt.date:
     v = str(value or "").strip()
     m = re.fullmatch(r"(20\d\d)[/-](\d{1,2})[/-](\d{1,2})(?:\s+00:00(?::00)?)?", v)
     if not m:
+        # OBSERVED official POST payload: 20261020 / 20261021.
+        # Exact eight digits only; never infer epoch seconds or display years.
+        m = re.fullmatch(r"(20\d\d)(\d{2})(\d{2})", v)
+    if not m:
         raise ValueError("unknown datepicker hidden binding format")
     return dt.date(*map(int, m.groups()))
 

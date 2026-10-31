@@ -10,6 +10,11 @@ class MinimalPublicExportGateTests(unittest.TestCase):
  def good(self):return dict(sdate=DAY.isoformat(),edate=NEXT.isoformat(),format='csv',topic='',region='')
  def test_one_day_form_can_pass(self):
   self.assertTrue(safe_form_fields(urlencode(self.good())))
+  # Verified native form POST uses YYYYMMDD, not locale display format.
+  payload=dict(self.good(),sdate='20261020',edate='20261021')
+  self.assertTrue(safe_form_fields(urlencode(payload)))
+  payload['edate']='20261022'
+  self.assertFalse(safe_form_fields(urlencode(payload)))
  def test_wide_or_wrong_date_blocked(self):
   for key,value in [('sdate','2026-01-01'),('edate','2026-11-01')]:
    d=self.good();d[key]=value;self.assertFalse(safe_form_fields(urlencode(d)))
