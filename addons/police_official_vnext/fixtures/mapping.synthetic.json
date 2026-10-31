@@ -1,0 +1,17 @@
+{
+  "source_record_id": "source_record_id",
+  "title": "title",
+  "summary": "summary",
+  "area_label": "area_label",
+  "event_type": "event_type",
+  "published_at": "published_at",
+  "occurred_at": "occurred_at",
+  "recognized_at": "recognized_at",
+  "revision": "revision",
+  "source_status": "source_status",
+  "correction_of": "correction_of",
+  "location_precision": "location_precision",
+  "latitude": "latitude",
+  "longitude": "longitude",
+  "location_source": "location_source"
+}
