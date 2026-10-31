@@ -154,3 +154,43 @@ The receipt JSON itself is metadata, not proof of origin; users must inspect the
 - `validateReviewedMailCards()` はクライアント側の防御的表示検証であって、発行元真正性・人手レビューの実施・原本の本人情報確認・公式訂正/削除を証明しない。**サーバー側の監査済み提供工程が未実装の間、このフラグをONにしない。**
 - 警視庁の公開データから許諾を確認した範囲の情報のみ使う。出典：警視庁「メールけいしちょう Open DATA」（CC BY 4.0）／まちまもが要約・加工、警視庁監修ではない。地図素材と被害者情報は使わない。
 - **非本番だけ**で架空カードの安全表示・期限切れ・外部URL・原文フィールド混入・HTML文字列無実行・既存47県/交番/AEDリンクを差分確認。実配信本文、公開用feed、DB migration、Cloudflare Hosted、実機Safari、Productionは未反映。
+
+## R15（2026-11-01）：既存MAPカードの「非公開・人手審査」接続候補
+
+**確定済みの方針を維持**：独立アプリ・DB・新管理画面・Cronは作らない。R14既存MAPの見せ方と142ファイル本体は変更しない。`MACHIMAMO_REVIEWED_POLICE_MAIL_CARDS_ENABLED` は **OFF**、本番/Preview配備・実DB・ASP・SNS・ポイント変更なし。この段階では**警察の実データも公開用JSONも一切保存・配信しない**。
+
+`mail_manual_review_template.py` は、既に取得済みの **R9実5列** の原本JSON、同一原本から作られた非公開R9レビュー、R11の最新配信期間履歴を突合し、全件 `hold`・チェックリスト未確認の**非公開審査用ワークシート**を生成する。原文をワークシートへ転記しない。人が対象メッセージを原典で読んで、候補にする行だけ明示的に `include` に変更する。被害者・実名・詳細住所・電話などの特定可能情報を除き、事実と異なる要約を作らず、出典・加工明記・第三者権利・当該配信の訂正情報を確認すること。どれか不確実なら `hold` とし、無理に公開しない。
+
+`mail_manual_review_candidate.py` は上記の手動審査ファイルを、元の原本、R9レビュー、R11最新期間履歴と再照合。**旧版の審査の流用・公式事案ID捏造・同一文面の自動重複消去・消息不明を取消と推定・時刻/町丁目からピン推定**を拒否する。チェックが全て真、確認日時が最近、要約は原文の長い転載や電話番号/詳細住所らしい文字列を含まない場合だけ、**非公開のカード候補**を所有者限定フォルダ内へ原子的に保存する。自動の機密検知は完全でなく、人間の実質的な審査の代わりにならない。
+
+### ローカルでの審査方法（非公開、実データをGitHub/Drive/チャットへ絶対送らない）
+
+同一の端末で、既存リポジトリの **外** に末尾 `_private` の権限0700フォルダを用意し、下記ファイルを所有者限定0600で保管する。
+
+- `original.json`：公式フォームから人が取得した原本。既存R9の私的レビューと**同じバイト列**。
+- `packet.json`：R9の `mail_json_private_review.py` が作ったレビュー、本文等を含むので非公開。
+- `history.json`：R11の最新の期間履歴。別日の情報を勝手に連結しない。
+- `review-template.json`：上記ツールで作る非公開審査ワークシート。元の識別子ではなく行ごとのローカル参照のみを使用する。
+
+```bash
+chmod 700 /path/to/mail_source_private
+chmod 600 /path/to/mail_source_private/{original,packet,history}.json
+python mail_manual_review_template.py \
+  --original /path/to/mail_source_private/original.json \
+  --packet /path/to/mail_source_private/packet.json \
+  --window-history /path/to/mail_source_private/history.json \
+  --output /path/to/mail_source_private/review-template.json
+# 本人の手動審査後、include行のみ headline / summary / category /
+# delivered_at(+09:00) / display_area 等と全確認項目を入力。未確認行はhold。
+chmod 600 /path/to/mail_source_private/review-template.json
+python mail_manual_review_candidate.py \
+  --original /path/to/mail_source_private/original.json \
+  --packet /path/to/mail_source_private/packet.json \
+  --window-history /path/to/mail_source_private/history.json \
+  --decisions /path/to/mail_source_private/review-template.json \
+  --output /path/to/mail_source_private/private-candidate.json
+```
+
+**重要**：候補中の `candidate_for_existing_map_private_only` は R14カードJSONのフィールド形状に合わせるが、`publication_enabled=false` かつ `release_authorized=false` / `deployable=false` を固定。直接 `/data/police-reviewed-mail-cards.json` に設置する・スイッチON・公開する操作は**厳禁**。ファイルを書き換えて `true` にしても真正な管理者承認とはならない。実MAPの管理者認証・訂正時の取り下げ/再審査・サーバ側の公開ゲートと権限監査、Hosted/Safari E2Eは未実装。公式利用条件による一般的な再利用許諾は、個別配信の真偽・匿名性・訂正追従を保証しない。
+
+**検証**：合成データだけで `python -m unittest discover -s tests -p 'test_mail_manual_review_candidate.py'`、`python tests/generate_manual_candidate_synthetic.py /tmp/r15-synthetic.json`、`node tests/test_manual_candidate_r14_bridge.cjs /tmp/r15-synthetic.json`。外部情報の再取得や実DBの接続なし。R14の画面/フラグ、Production、既存アプリの通常β公開ゲートには手を触れない。

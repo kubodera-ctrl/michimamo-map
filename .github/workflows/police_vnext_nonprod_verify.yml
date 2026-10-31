@@ -63,6 +63,9 @@ jobs:
           node tests/test_source_only.cjs
           node tests/test_source_quick_navigation.cjs
           node tests/test_reviewed_mail_cards.cjs
+          # R15: synthetic private review -> R14 contract, never publishes or reads real mail.
+          python tests/generate_manual_candidate_synthetic.py "$RUNNER_TEMP/r15_synthetic_private_candidate.json"
+          node tests/test_manual_candidate_r14_bridge.cjs "$RUNNER_TEMP/r15_synthetic_private_candidate.json"
           node tests/test_layer.cjs
           node tests/test_admin_hub.cjs
           node tests/test_mail_identity_admin.cjs
