@@ -22,3 +22,18 @@
 .police-official-source-row,.police-official-entry{padding:8px;border-radius:9px;background:#fff;border:1px solid #e2e8f0}
 .police-official-source-row small{display:block;color:#64748b;margin-top:3px}
 .police-official-admin{border:1px solid #86efac;padding:12px;border-radius:12px;background:#fff;margin:12px 0}
+
+/* Low-risk official-source links inside the existing MAP filter, no police logo. */
+.filter-chip.police-official-hub-toggle {border-color:#99d5c8;color:#0d6255;font-weight:700}
+.filter-chip.police-official-hub-toggle.active {background:#0f766e;color:#fff;border-color:#0f766e}
+.police-official-hub[data-source-only="true"] .police-official-hub-data a {
+ display:block; border:1px solid #d6e9e3; background:#f5fbf9; border-radius:10px;
+ padding:10px 12px; min-height:40px; font-weight:650; text-decoration:none;
+}
+.police-official-hub[data-source-only="true"] .police-official-hub-data a:focus-visible,
+.police-official-hub-tabs button:focus-visible,
+.filter-chip.police-official-hub-toggle:focus-visible {outline:3px solid #38bdf8;outline-offset:2px}
+@media(max-width:600px){
+ .police-official-hub{width:calc(100vw - 24px);right:12px;left:12px;bottom:calc(var(--machimamo-bottom-nav-height, 66px) + 10px);max-height:68dvh}
+ .police-official-hub-tabs button{min-height:39px}
+}

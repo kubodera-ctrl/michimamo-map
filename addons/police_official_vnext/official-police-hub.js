@@ -7,7 +7,9 @@ const SOURCE_PAGES=Object.freeze({
  precursor:'https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html',
  town_stats:'https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/ninchikensu.html',
  fraud:'https://www.keishicho.metro.tokyo.lg.jp/jiken_jiko/hassei/map_annai.html',
- opendata:'https://mail.keishicho.metro.tokyo.lg.jp/opendata/'
+ opendata:'https://mail.keishicho.metro.tokyo.lg.jp/opendata/',
+ national:'https://www.npa.go.jp/toukei/seianki/hanzaiopendatalink.html',
+ rights:'https://www.keishicho.metro.tokyo.lg.jp/about/kenri_link.html'
 });
 function isSafeSourceUrl(value){
  try{const url=new URL(value);return url.protocol==='https:' && !url.username && !url.password && !url.port &&
@@ -87,36 +89,45 @@ function renderRows(doc,container,rows,dataset,limit){
  }
  if(rows.length>cap)container.append(text(doc,'p',`表示上限 ${cap}件です。詳細は公式資料をご確認ください。`));
 }
-function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
+function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false}){
  if(!enabled)return null;
- if(!doc||!map||!leaflet||!doc.querySelector('#filterWrapper .filter-content')||!doc.getElementById('map-container'))throw new Error('existing MAP unavailable');
+ if(!doc||(!sourceOnly&&(!map||!leaflet))||!doc.querySelector('#filterWrapper .filter-content')||!doc.getElementById('map-container'))throw new Error('existing MAP unavailable');
  if(doc.getElementById('policeOfficialHubToggle'))return null;
  const bar=doc.querySelector('#filterWrapper .filter-content');
  const mapHost=doc.getElementById('map-container');
- const chip=text(doc,'button','防犯公表・統計','filter-chip police-official-hub-toggle');chip.id='policeOfficialHubToggle';chip.type='button';chip.setAttribute('aria-expanded','false');
+ const chip=text(doc,'button',sourceOnly?'公式防犯・データ':'防犯公表・統計','filter-chip police-official-hub-toggle');chip.id='policeOfficialHubToggle';chip.type='button';chip.setAttribute('aria-expanded','false');chip.setAttribute('aria-controls','policeOfficialHubPanel');
  const panel=text(doc,'aside',undefined,'police-official-panel police-official-hub');panel.id='policeOfficialHubPanel';panel.hidden=true;
- panel.setAttribute('aria-label','警察公表・犯罪統計');
- const top=text(doc,'div',undefined,'police-official-heading');const close=text(doc,'button','閉じる','police-official-close');close.type='button';top.append(text(doc,'strong','警察公表・犯罪統計'),close);
+ panel.setAttribute('aria-label',sourceOnly?'警察公式情報の確認先':'警察公表・犯罪統計');if(sourceOnly)panel.setAttribute('data-source-only','true');
+ const top=text(doc,'div',undefined,'police-official-heading');const close=text(doc,'button','閉じる','police-official-close');close.type='button';top.append(text(doc,'strong',sourceOnly?'警察公式情報を探す':'警察公表・犯罪統計'),close);
  const tabbar=text(doc,'div',undefined,'police-official-hub-tabs');
  const info=text(doc,'div',undefined,'police-official-hub-data');
  const status=text(doc,'p','公開データの接続状況を確認してください。','police-official-status');status.setAttribute('role','status');
  const caution=text(doc,'p','警察公表と利用者投稿は別情報です。公式情報に投稿ポイントは付きません。表示の少なさや0件は、安全の保証ではありません。','police-official-disclaimer');
  panel.append(top,tabbar,status,caution,info);
  bar.append(chip);mapHost.append(panel);
- let precursor=null,stats=null,directory=null,selected='precursor';
- const tabs=[['precursor','前兆事案'],['town_stats','町丁目統計'],['fraud','特殊詐欺・アポ電'],['national','全国47都道府県'],['about','出典と注意']];
+ let precursor=null,stats=null,directory=null,selected=sourceOnly?'mail':'precursor';
+ const tabs=[['mail','防犯情報'],['precursor','前兆事案'],['town_stats','町丁目統計'],['fraud','特殊詐欺・アポ電'],['national','全国47都道府県'],['about','出典と注意']];
  function render(){
   info.replaceChildren();tabbar.replaceChildren();
   for(const [key,label] of tabs){const button=text(doc,'button',label);button.type='button';button.setAttribute('aria-pressed',String(key===selected));button.addEventListener('click',()=>{selected=key;render();});tabbar.append(button);}
   try{
-   if(selected==='precursor'){
-    const rows=precursor?visibleReleaseRows(precursor,'precursor'):[];
-    status.textContent=`前兆事案：承認済み ${rows.length}件／月累計（新規件数ではありません）`;
-    renderRows(doc,info,rows,'precursor',100);info.append(a(doc,'警視庁・前兆事案の認知情報',SOURCE_PAGES.precursor));
+   if(selected==='mail'){
+    status.textContent=sourceOnly?'警視庁の防犯配信：公式公開元を確認':'メールけいしちょう・公式情報';
+    info.append(text(doc,'p','犯罪発生や子どもの安全に関する警視庁の配信情報を確認できます。対象情報はCC BY 4.0。'),
+      a(doc,'メールけいしちょう Open DATA（公式）',SOURCE_PAGES.opendata),
+      text(doc,'small','出典：警視庁「メールけいしちょう Open DATA」。まちまもMAPは警視庁の監修サービスではありません。'));
+   }else if(selected==='precursor'){
+    const rows=sourceOnly?[]:precursor?visibleReleaseRows(precursor,'precursor'):[];
+    status.textContent=sourceOnly?'前兆事案：警視庁の最新公表元を確認':`前兆事案：承認済み ${rows.length}行／年内認知累計（新規事件数ではありません）`;
+    if(sourceOnly)info.append(text(doc,'p','子どもや女性への声かけ・つきまといなどの公表情報です。認知された年の累計であり、個々の現在地の危険性を表すものではありません。'));
+    else renderRows(doc,info,rows,'precursor',100);
+    info.append(a(doc,'警視庁・前兆事案の認知情報（公式CSV）',SOURCE_PAGES.precursor));
    }else if(selected==='town_stats'){
-    const rows=stats?visibleReleaseRows(stats,'town_stats'):[];
-    status.textContent=`町丁目統計：承認済み ${rows.length}行／月累計のスナップショット`;
-    renderRows(doc,info,rows,'town_stats',100);info.append(a(doc,'警視庁・町丁別犯罪認知件数',SOURCE_PAGES.town_stats));
+    const rows=sourceOnly?[]:stats?visibleReleaseRows(stats,'town_stats'):[];
+    status.textContent=sourceOnly?'町丁目統計：警視庁の最新公表元を確認':`町丁目統計：承認済み ${rows.length}行／年内認知累計`;
+    if(sourceOnly)info.append(text(doc,'p','自転車盗などの犯罪種別・手口別の町丁目集計です。月間の新規発生件数や個々の犯行地点を示すものではありません。'));
+    else renderRows(doc,info,rows,'town_stats',100);
+    info.append(a(doc,'警視庁・町丁別犯罪認知件数（公式CSV）',SOURCE_PAGES.town_stats));
    }else if(selected==='fraud'){
     status.textContent='特殊詐欺・アポ電：警視庁の公式案内へのリンク';
     info.append(text(doc,'p','アポ電は特殊詐欺につながる予兆電話です。警視庁犯罪情報マップに公式の確認先があります。警察情報マップの画像・ピンは転載していません。'),a(doc,'警視庁犯罪情報マップ（アポ電を確認）',SOURCE_PAGES.fraud));
@@ -124,15 +135,19 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
     status.textContent='全国窃盗7手口：47都道府県の公式出典案内（年次データ、速報ではありません）';
     if(directory){for(const p of visibleDirectory(directory)){const line=text(doc,'div',undefined,'police-official-source-row');line.append(a(doc,p.prefecture+'の公開元',p.source_page),text(doc,'small','年次・出典のみ／再利用権とデータ更新は県別確認待ち'));info.append(line);}}
     else info.append(empty(doc,'全国出典一覧は未読込です。'));
+    info.append(a(doc,'警察庁・全国警察オープンデータの公式案内',SOURCE_PAGES.national));
    }else{
     status.textContent='公式の出典と確認条件';
-    info.append(text(doc,'p','メールけいしちょうOpen DATA：CC BY 4.0対象情報のみ。警視庁がまちまもMAPを監修したものではありません。'),a(doc,'メールけいしちょうOpen DATA',SOURCE_PAGES.opendata),
-       text(doc,'p','前兆事案CSV・町丁目統計CSVは、メールけいしちょうの利用規約を自動適用しません。公開前に資料別の権利と列の確認が必要です。'));
+    info.append(text(doc,'p','出典：警視庁。メールけいしちょうOpen DATAの対象情報はCC BY 4.0。統計CSVは資料ごとに利用条件を確認します。警視庁がまちまもMAPを監修したものではありません。'),
+      a(doc,'メールけいしちょう Open DATA利用規約',SOURCE_PAGES.opendata+'policy'),
+      a(doc,'警視庁ホームページの権利・出典表示',SOURCE_PAGES.rights),
+      text(doc,'p','加工して表示する場合は出典・加工の明記が必要です。地図素材・警察マークは転用せず、町丁目から正確な発生地点を推定しません。')); 
    }
   }catch(_){status.textContent='公式データを検証できませんでした。前回の表示と出典リンクを確認してください。';info.append(a(doc,'警視庁・公開元',SOURCE_PAGES.opendata));}
  }
  function toggle(state){panel.hidden=!state;chip.classList.toggle('active',state);chip.setAttribute('aria-expanded',String(state));if(state)render();}
  chip.addEventListener('click',()=>toggle(panel.hidden));close.addEventListener('click',()=>toggle(false));
+ panel.addEventListener('keydown',e=>{if(e.key==='Escape'){toggle(false);chip.focus?.();}});
  async function loadFromSameOrigin(url,key){
   const p=new URL(url,location.href);
   if(p.origin!==location.origin||!/^https?:$/.test(p.protocol)||p.username||p.password)throw new Error('same-origin only');
@@ -145,6 +160,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
   return obj;
  }
  async function refresh(config){
+  if(sourceOnly&&(config?.precursor||config?.town_stats))throw new Error('source-only mode does not fetch unreviewed data');
   const next={precursor,stats,directory}; const errs=[];
   for(const [name,key] of [['precursor','precursor'],['town_stats','town_stats'],['national','national']]){
    if(!config||typeof config[name]!=='string')continue;
@@ -156,6 +172,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
   return {error_sources:errs,retained_previous:errs.length>0};
  }
  function setSyntheticBundle(data){
+  if(sourceOnly)throw new Error('source-only mode cannot publish records');
   if(data.precursor)visibleReleaseRows(data.precursor,'precursor');
   if(data.town_stats)visibleReleaseRows(data.town_stats,'town_stats');
   if(data.registry)visibleDirectory(data.registry);
@@ -163,6 +180,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
   if(!panel.hidden)render();
  }
  async function loadAdmin({password, rpc, isCurrent}){
+  if(sourceOnly)return; // no admin RPC and no credential handling in public source directory
   const adminArea=doc.getElementById('adminDashboardArea');
   if(!adminArea||adminArea.style.display==='none'||typeof rpc!=='function'||!password)return;
   let container=doc.getElementById('adminPoliceOfficialSection');
@@ -233,7 +251,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
   }catch(_){container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),empty(doc,'管理者用公式データRPCは未接続です。既存投稿とポイントには影響しません。'));}
  }
  render();
- return {refresh,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,precursor:!!precursor,stats:!!stats,directory:!!directory})};
+ return {refresh,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory})};
 }
 const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,mount};
 if(typeof module==='object'&&module.exports)module.exports=api;else root.MachimamoPoliceHub=api;

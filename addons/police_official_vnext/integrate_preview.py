@@ -17,33 +17,48 @@ PREFIX = "<!-- police-official-vnext:nonprod -->"
 SUFFIX = "<!-- /police-official-vnext:nonprod -->"
 INSERT_HEAD = '<link rel="stylesheet" href="official-police-layer.css?v=vnext01" />'
 INSERT_BODY = '''<script src="official-police-layer.js?v=vnext02"></script>
-<script src="official-police-hub.js?v=vnext02"></script>
+<script src="official-police-hub.js?v=sourceonly01"></script>
 <script>
 (function mountPoliceOfficialInExistingMap() {
-  // Keep existing MAP beta unaffected until verified data+admin boundary exists.
-  if (window.MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED !== true) return;
-  const start = function() {
-    if (window.MachimamoPoliceOfficialController || window.MachimamoPoliceHubController) return;
+  // Reuse the current MAP filter and dashboard. Public links only by default;
+  // no real incidents, DB queries, credit/points, new site or new DB.
+  function mountOfficialSourceLinks(){
     try {
-      var options = {doc: document, map: map, leaflet: L, fetcher: fetch.bind(window),
-        location: window.location, enabled: true, db: db};
-      var mail = window.MachimamoPoliceOfficial.createController(options);
-      var hub = window.MachimamoPoliceHub.mount(options);
-      if (!mail || !hub) return;
-      window.MachimamoPoliceOfficialController = mail;
+      if (!window.MachimamoPoliceHub) return;
+      const hub = window.MachimamoPoliceHub.mount({doc:document, map:null, leaflet:null,
+        fetcher:fetch.bind(window), location:window.location, enabled:true, sourceOnly:true});
+      if (!hub) return;
       window.MachimamoPoliceHubController = hub;
-      if (typeof window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH === 'string') {
+      hub.refresh({national:'official_source_registry.json'}).catch(()=>{});
+    } catch (_) { /* The original MAP must remain usable on add-on failure. */ }
+  }
+  // Data integration remains separately gated. This branch never enables the flag.
+  function mountReviewedPoliceData(){
+    if(window.MachimamoPoliceOfficialController || window.MachimamoPoliceHubController)return;
+    try {
+      const options={doc:document,map:map,leaflet:L,fetcher:fetch.bind(window),
+        location:window.location,enabled:true,db:db};
+      const mail=window.MachimamoPoliceOfficial.createController(options);
+      const hub=window.MachimamoPoliceHub.mount(options);
+      if(!mail||!hub)return;
+      window.MachimamoPoliceOfficialController=mail;
+      window.MachimamoPoliceHubController=hub;
+      if(typeof window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH==='string'){
         mail.refresh(window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH);
       }
-      var configured = window.MACHIMAMO_POLICE_CUMULATIVE_PATHS || {};
-      hub.refresh({precursor: configured.precursor, town_stats: configured.town_stats,
-        national: 'official_source_registry.json'});
-    } catch (err) { console.warn('Police Open DATA MAP add-on not available', err); }
-  };
-  if (window.MachimamoInitialLoadReady) start();
-  else window.addEventListener('machimamo:initial-ready', start, {once: true});
+      const config=window.MACHIMAMO_POLICE_CUMULATIVE_PATHS||{};
+      hub.refresh({precursor:config.precursor,town_stats:config.town_stats,
+        national:'official_source_registry.json'});
+    } catch (_) { /* No impact to existing spots, news, AED, police boxes or points. */ }
+  }
+  if(window.MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED===true){
+    if(window.MachimamoInitialLoadReady)mountReviewedPoliceData();
+    else window.addEventListener('machimamo:initial-ready',mountReviewedPoliceData,{once:true});
+  }else if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',mountOfficialSourceLinks,{once:true});
+  }else mountOfficialSourceLinks();
 })();
-</script>'''
+</script>''' 
 
 # The existing admin_get_dashboard MUST succeed before adding police review status.
 ADMIN_ANCHOR = "document.getElementById('adminDashboardArea').style.display = 'block';"
@@ -91,6 +106,8 @@ def build(original: bytes, root: Path) -> tuple[bytes, dict]:
         if z.testzip() is not None: raise ValueError("output CRC error")
     manifest = {
         'status': 'TEST_ONLY_UNDEPLOYABLE', 'base_sha256': EXPECTED,
+        'default_ui': 'OFFICIAL_SOURCE_LINKS_ONLY', 'real_police_rows_published': False,
+        'live_db_operations_added': False, 'points_calls_added': False,
         'added': ['official-police-layer.js', 'official-police-hub.js', 'official-police-layer.css', 'official_source_registry.json'],
         'changed': ['index.html'], 'unchanged_files': 141,
         'file_count': len(files), 'preview_zip_sha256': hashlib.sha256(output.getvalue()).hexdigest(),

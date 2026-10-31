@@ -124,3 +124,14 @@ The receipt JSON itself is metadata, not proof of origin; users must inspect the
 `sql/NONPROD_PROPOSAL_NOT_APPLIED_mail_window_R11.sql` is **NOT A MIGRATION** and **must never run on any existing Supabase project without separately specified approval**. It proposes a private-schema metadata table only: no raw message, no exposed Data API, no public view/definer RPC, forced RLS, no public grants, permanently false publish/identity flags. CI tests this only in a disposable PostgreSQL17 container. The existing admin UI/RPC and real DB are unchanged and **not E2E-tested** by R11. Existing MAP beta/Production has no extra release gate from this proposal.
 
 **R11 acceptance boundary:** candidate code and isolated PostgreSQL contract tests PASS is not hosted/real-Auth PASS. A MAP-only isolated DB or protected Hosted/Safari integration needs explicit scope, no real Production DB/Secrets, rollback and the appropriate separate approval. Legal rights for 2026 precursor/town CSV and nationwide sources, and the town-statistics two ambiguous rows, remain independently unresolved. `R10` production `142` baseline and no-points contract stay intact.
+
+## R12｜既存まちまもMAPの公式防犯データ導線を即使えるようにする（2026-10-31）
+
+- **本体は1つ**：新アプリ・新Supabase・別管理画面・Cronは不要。前のR7〜R11成果物を保持する。
+- `integrate_preview.py` は従来の正規 **142ファイル候補ZIP**（固定SHA）を読み取り、差分 `index.html`＋**4追加ファイル**だけで146ファイルの**実MAP内統合試験候補**を作る。従来141ファイルはbyte一致。
+- デフォルトは新しい公式防犯導線 **`sourceOnly=true`**（前兆事案、町丁目認知統計、アポ電、警視庁メール、全国47都道府県）、承認前の実事件本文・生CSV・個別ピン表示は全てOFF。HTMLの地図フィルターに「公式防犯・データ」を追加し、既存MAPのAED・交番・地域投稿・ポイント・防犯ニュースと混同しない。
+- 東京警視庁の公式Open DATAは対象範囲にCC BY 4.0が明記される（地図情報・URL記述・問合せ先は対象外）。公式サイト本文・CSVは資料ごとに再利用条件、出典、加工表示、第三者権利を確認。原典にない事件座標や公式事案IDを捏造しない。
+- 公式サイトリンクと出典表示は即利用可能、統計の数値を自前で再配信する場合は該当資料の権利・列・版・集計の審査を要する。全国47県は県別リンクのみ、勝手に全県データ取込とは表記しない。
+- `MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED===true` による**フルデータ表示は別途審査・環境整備・個別承認が必要**。source-onlyは `refresh` の前兆/町丁目ファイル取込を拒否、管理者RPCを呼ばず、原文を表示しない。
+- 本スクリプトの出力は `test_only_not_for_upload/` で包んだ**配備禁止ZIP**。既存本番SupabaseがHTMLに含まれるため、Cloudflareにそのまま配置・一般公開しない。保護付きHostedとSafari実機QA・復旧IDは未実施。
+- テスト：`node tests/test_source_only.cjs`、`node tests/test_hub.cjs`、`node tests/test_admin_hub.cjs`、既存142ファイルの固定SHAで `integrate_preview.py` 生成の byte-preservation / CRC確認。ローカルChromium DOMの公式リンク確認は模擬通信で行い、外部ネットワーク0・実DB操作0。

@@ -120,7 +120,10 @@ class IngestTests(unittest.TestCase):
         with zipfile.ZipFile(io.BytesIO(patched)) as z:
             self.assertIsNone(z.testzip())
             x=z.read('test_only_not_for_upload/index.html').decode()
-            self.assertIn('MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED !== true',x)
+            self.assertIn('MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED===true',x)
+            self.assertIn('sourceOnly:true',x)
+            self.assertIn('mountOfficialSourceLinks',x)
+            self.assertFalse(manifest['real_police_rows_published'])
             self.assertIn('MachimamoPoliceOfficial.createController',x)
             self.assertIn('id="filterWrapper"',x)
             with zipfile.ZipFile(io.BytesIO(data)) as base:
