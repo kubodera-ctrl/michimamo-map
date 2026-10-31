@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from mail_form_minimal_export import parse_visible_date,safe_form_fields,verify_hidden_bound_date,DAY,NEXT
+from mail_form_minimal_export import parse_visible_date,safe_form_fields,verify_hidden_bound_date,verify_picker_dates,DAY,NEXT
 
 class MinimalPublicExportGateTests(unittest.TestCase):
  def good(self):return dict(sdate=DAY.isoformat(),edate=NEXT.isoformat(),format='csv',topic='',region='')
@@ -23,6 +23,9 @@ class MinimalPublicExportGateTests(unittest.TestCase):
   self.assertEqual(parse_visible_date('2026/10/20'),DAY)
   with self.assertRaises(ValueError):parse_visible_date('10/20/2026')
   with self.assertRaises(ValueError):parse_visible_date('1792454400')
+ def test_calendar_date_selected_exact(self):
+  self.assertTrue(verify_picker_dates({'start':DAY.isoformat(),'end':NEXT.isoformat()}))
+  self.assertFalse(verify_picker_dates({'start':DAY.isoformat(),'end':'2026-10-30'}))
  def test_dom_bound_exact(self):
   self.assertTrue(verify_hidden_bound_date(self.good()))
   self.assertFalse(verify_hidden_bound_date({'sdate':DAY.isoformat()}))

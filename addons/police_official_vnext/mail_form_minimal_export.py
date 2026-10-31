@@ -64,6 +64,14 @@ def verify_hidden_bound_date(form: dict) -> bool:
         return False
 
 
+def verify_picker_dates(widget: dict) -> bool:
+    """Visible UI selected exact day; POST payload is verified separately."""
+    try:
+        return parse_visible_date(widget["start"]) == DAY and parse_visible_date(widget["end"]) == NEXT
+    except (ValueError, KeyError, TypeError):
+        return False
+
+
 def capture_schema_via_official_ui() -> dict:
     from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
     receipts = {"safe_post_sent": 0, "blocked_post": 0, "foreign_host_denied": 0}
@@ -135,29 +143,26 @@ def capture_schema_via_official_ui() -> dict:
           edate:document.querySelector('input[name=edate]')?.value||'',
           format:document.querySelector('#format')?.value||''
         })""")
-        if not verify_hidden_bound_date(form_bound):
-            # Diagnostic logs only date control strings, NEVER source row values,
-            # token/cookie content or document data. Abort before any submit.
-            def safe_date_control(v):
-                v=str(v or '')[:48]
-                return v if re.fullmatch(r'[0-9 /:\-TZ+.]*',v) else '[unknown date control]'
-            widget = page.evaluate("""() => {
-              const p=window.jQuery?.('#daterangepicker')?.data('daterangepicker');
-              return {locale:p?.locale?.format||'',
-                start:p?.startDate?.format('YYYY-MM-DD')||'',
-                end:p?.endDate?.format('YYYY-MM-DD')||'',
-                visible:document.querySelector('#daterangepicker')?.value||''};
-            }""")
-            hint={k:safe_date_control(v) for k,v in form_bound.items()}
-            hint.update({k:safe_date_control(v) for k,v in widget.items()})
-            raise ValueError('date binding mismatch BEFORE POST: '+json.dumps(hint,ensure_ascii=False))
+        widget = page.evaluate("""() => {
+          const p=window.jQuery?.('#daterangepicker')?.data('daterangepicker');
+          return {start:p?.startDate?.format('YYYY-MM-DD')||'',
+                  end:p?.endDate?.format('YYYY-MM-DD')||''};
+        }""")
+        if not verify_picker_dates(widget):
+            raise ValueError('visible calendar dates do not match exact one-day range (NO POST)')
+        # On this official page the hidden sdate/edate fields are blank until
+        # the normal submit handler runs. Never set hidden values manually.
+        # The network route guard is the final safety check and blocks ALL
+        # outgoing POSTs unless the transmitted payload is exact one-day data.
+        if any(form_bound.get(k) for k in ('sdate','edate')) and not verify_hidden_bound_date(form_bound):
+            raise ValueError('preexisting hidden date fields conflict with visible range (NO POST)')
         with tempfile.TemporaryDirectory(prefix="police_mail_export_private_") as temp:
             try:
-                with page.expect_download(timeout=30000) as download_info:
+                with page.expect_download(timeout=15000) as download_info:
                     page.locator("form button[type=submit], form input[type=submit]").first.click()
                 downloaded = download_info.value
             except PlaywrightTimeoutError as exc:
-                raise ValueError("official form did not return a download; no export bytes retained") from exc
+                raise ValueError(f"official form did not return a download: safe_post={receipts['safe_post_sent']} blocked_post={receipts['blocked_post']}") from exc
             if receipts["safe_post_sent"] != 1 or receipts["blocked_post"]:
                 raise ValueError("unsafe or missing form POST; download discarded")
             filename = downloaded.suggested_filename
