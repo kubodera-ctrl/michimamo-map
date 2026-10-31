@@ -63,6 +63,7 @@ jobs:
           node tests/test_layer.cjs
           node tests/test_admin_hub.cjs
           node tests/test_mail_identity_admin.cjs
+          # R11 window review tests are discovered by test_*.py above (no network).
           node --check official-police-hub.js
           node --check official-police-layer.js
       - name: SQL execution in disposable PostgreSQL container ONLY
@@ -75,7 +76,9 @@ jobs:
           TEST='addons/police_official_vnext/tests/postgres_ephemeral'
           docker run --rm --network host -e PGPASSWORD="$PGPASSWORD" -v "$PWD:/work:ro" postgres:17-alpine \
             psql -h 127.0.0.1 -U postgres -d postgres -X -v ON_ERROR_STOP=1 -f "/work/$TEST/setup.sql" \
-            -f "/work/$SQL" -f "/work/$TEST/smoke.sql"
+            -f "/work/$SQL" -f "/work/$TEST/smoke.sql" \
+            -f "/work/addons/police_official_vnext/sql/NONPROD_PROPOSAL_NOT_APPLIED_mail_window_R11.sql" \
+            -f "/work/$TEST/mail_window_r11.sql"
       - name: Probe official CSVs READ ONLY and store headers only in output logs
         if: github.event_name == 'workflow_dispatch' && inputs.verify_real_csv == true
         shell: bash

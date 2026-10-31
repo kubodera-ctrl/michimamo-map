@@ -101,3 +101,26 @@ python mail_json_private_review.py --input /tmp/mail_source_private/input.json -
 * The **existing MAP admin panel**, not a new management system, now shows an explicit `公式事案ID未確認` hold for unverified mail source IDs. All approve/reject buttons stay absent for unverified IDs. An R10 Node test validates the hidden admin panel, role-bound RPC access, stale login and empty approval buttons.
 * Nonproduction tests: `python -m unittest discover -s tests -p 'test_mail_identity_reconcile.py'`, `node tests/test_mail_identity_admin.cjs`. Use real private packets **only off-repository and offline**. Never upload their body to public source control or Drive.
 * Remaining: obtain official identity/correction/withdrawal semantics or design a legally reviewed manual correction path; dataset-specific reuse scope; isolated MAP-only nonproduction Auth/DB and Cloudflare Hosted/Safari checks. Existing `machiibe-p5-nonprod` is a different service; do not repurpose it. Feature/production/publication remain OFF.
+
+## R11 2026-10-31: delivery-message WINDOW snapshots, not police event records
+
+**PROPOSAL/PROOF ONLY — THIS DOES NOT CHANGE THE APPROVED PUBLIC FEATURES.**
+The R9 public-form JSON had 5 columns and no police-issued stable incident ID, revision, or cancellation reference. R10 explicitly disallowed text-hash "event IDs." R11 models a **local export window** (one day, from a guarded official FORM export receipt) and compares entire export FILE versions, not individual incidents. Each window's candidate state remains **PRIVATE**, `publication_enabled=false`, `supabase_stage_allowed=false`, `official_event_identity_verified=false`, and `source_period_verified=false` (a CI JSON receipt is not an independently signed official attestation). `send_at` is not an incident date and `send_to` is not an exact location.
+
+`mail_period_snapshot.py` verifies: R9 private packet source SHA, row digest and occurrence counts; schema-only official JSON receipt matching the packet SHA and count; precisely ONE requested form day; exactly one checked source POST; no published status; no unverified licenses silently treated as verified. It keeps one private history per export **day**, and on changed source bytes appends a new **pending** version while retaining the previous version as superseded review history. Same-source replay does not rewrite. Disappeared messages are NOT withdrawals; changed text is NOT an official correction. Data from two days cannot be merged into one event lineage. File updates use owner-only `0700` directory, `0600` output/lock, `flock` and atomic replacement. It logs only counts/status and no message bodies.
+
+**Example** (test/local approved-origin packet only; NEVER upload a private packet or real original to GitHub, Google Drive, the MAP site or chat):
+
+```bash
+mkdir -p -m 700 /tmp/mail_source_private
+python mail_period_snapshot.py \
+  --packet /tmp/mail_source_private/previous_review.json \
+  --guarded-receipt /tmp/mail_source_private/form_receipt.json \
+  --history /tmp/mail_source_private/period_review_history.json
+```
+
+The receipt JSON itself is metadata, not proof of origin; users must inspect the actual public-form run. No operation on this candidate can approve a single incident, enable public display, stage source rows in Supabase, or award points. Historical file-SHA changes trigger **manual** re-review, not automatic correction or removal.
+
+`sql/NONPROD_PROPOSAL_NOT_APPLIED_mail_window_R11.sql` is **NOT A MIGRATION** and **must never run on any existing Supabase project without separately specified approval**. It proposes a private-schema metadata table only: no raw message, no exposed Data API, no public view/definer RPC, forced RLS, no public grants, permanently false publish/identity flags. CI tests this only in a disposable PostgreSQL17 container. The existing admin UI/RPC and real DB are unchanged and **not E2E-tested** by R11. Existing MAP beta/Production has no extra release gate from this proposal.
+
+**R11 acceptance boundary:** candidate code and isolated PostgreSQL contract tests PASS is not hosted/real-Auth PASS. A MAP-only isolated DB or protected Hosted/Safari integration needs explicit scope, no real Production DB/Secrets, rollback and the appropriate separate approval. Legal rights for 2026 precursor/town CSV and nationwide sources, and the town-statistics two ambiguous rows, remain independently unresolved. `R10` production `142` baseline and no-points contract stay intact.
