@@ -53,7 +53,31 @@ def browser_probe() -> dict:
         response = page.goto(PUBLIC_URL, wait_until="domcontentloaded", timeout=35000)
         if not response or response.status != 200:
             raise RuntimeError("Official public page did not load normally")
-        page.wait_for_timeout(3500)  # allow ordinary UI rendering; no clicks
+        page.wait_for_timeout(3500)  # allow ordinary UI rendering; no submission
+        # Open the publicly visible calendar in the normal user interface.
+        # No date is chosen here and no form is submitted.
+        calendar_meta = {'visible_popup_count': 0, 'calendar_buttons': [],
+                         'calendar_input_controls': [], 'calendar_month_headers': []}
+        if page.locator('#daterangepicker').count() == 1:
+            page.locator('#daterangepicker').click(timeout=5000)
+            page.wait_for_timeout(350)
+            calendar_meta = page.evaluate("""() => {
+              const live = Array.from(document.querySelectorAll('.daterangepicker')).filter(el => {
+                const s=getComputedStyle(el);return s.display!=='none' && s.visibility!=='hidden';
+              });
+              return {
+                visible_popup_count:live.length,
+                calendar_buttons:live.flatMap(el=>Array.from(el.querySelectorAll('button')).slice(0,25)
+                  .map(b=>({type:b.type, label:String(b.innerText||b.title||'').trim().slice(0,60),
+                             class_hint:String(b.className||'').slice(0,60)}))),
+                calendar_input_controls:live.flatMap(el=>Array.from(el.querySelectorAll('input,select')).slice(0,20)
+                  .map(i=>({type:i.type, name:i.name||'', id:i.id||'',
+                             placeholder:String(i.placeholder||'').slice(0,60)}))),
+                calendar_month_headers:live.flatMap(el=>Array.from(el.querySelectorAll('th.month')).slice(0,4)
+                  .map(th=>String(th.textContent||'').trim().slice(0,50))),
+                date_table_count:live.reduce((n,el)=>n+el.querySelectorAll('td.available').length,0)
+              };
+            }""")
         raw = page.evaluate("""() => {
           const trim = value => String(value || '').replace(/\\s+/g,' ').trim().slice(0,100);
           const labelFor = el => {
@@ -100,6 +124,7 @@ def browser_probe() -> dict:
         "status": "OFFICIAL_FORM_DOM_READ_ONLY_NOT_EXPORT",
         "source": PUBLIC_URL,
         "document": raw,
+        "calendar": calendar_meta,
         "request_guard": {"same_origin_GET_only": True, **denied},
         "form_submitted": False,
         "download_attempted": False,
