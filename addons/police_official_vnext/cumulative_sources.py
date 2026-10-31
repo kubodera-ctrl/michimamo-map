@@ -153,14 +153,21 @@ def reshape_verified_combined_town_rows(rows: list[dict], config: dict) -> list[
     out=[]
     for row in rows:
         place=clean(row[area_col],110)
-        if not place or place in ('合計','計','総数','小計') or place.endswith('合計'):
-            raise ValueError('Unknown/aggregate area: manual source review required')
+        if not place:
+            raise ValueError('Missing town area: manual source review required')
+        # The official source mixes city/town records with cumulative subtotal
+        # rows. Never include them as additional neighborhoods (double count).
+        # Their number is recorded by the private contract verifier.
+        if place in ('合計','計','総数','小計') or place.endswith('合計'):
+            continue
         for label,col in metrics.items():
             value=clean(row[col],15).replace(',','')
             if not re.fullmatch(r'\d{1,10}',value):
                 raise ValueError('Missing/non-numeric official count: source review')
             out.append({'municipality':region,'town':place,'crime_type':label,'count':value})
             if len(out)>MAX_ROWS:raise ValueError('Cumulative expansion exceeds cap')
+    if not out:
+        raise ValueError('No actual town rows after official aggregate exclusion')
     return out
 
 

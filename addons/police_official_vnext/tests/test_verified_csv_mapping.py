@@ -59,6 +59,8 @@ class VerifiedSchemaTests(unittest.TestCase):
   self.assertTrue(all(x['municipality']=='東京都' and x['town']=='架空区架空一丁目' for x in pivot))
   row2={**row,'非侵入窃盗自転車盗':'-'}
   with self.assertRaises(ValueError):reshape_verified_combined_town_rows([row2],TOWN['combined_town_columns'])
+  mixed=reshape_verified_combined_town_rows([row,{**row,'市区町丁':'合計'}],TOWN['combined_town_columns'])
+  self.assertEqual(mixed,pivot)
   with self.assertRaises(ValueError):reshape_verified_combined_town_rows([{**row,'市区町丁':'合計'}],TOWN['combined_town_columns'])
  def test_counts_and_privacy_held_on_unknown_real_contract(self):
   fake=[{'発生区市町村':'','発生場所':'不明','事案名':'声かけ'}]

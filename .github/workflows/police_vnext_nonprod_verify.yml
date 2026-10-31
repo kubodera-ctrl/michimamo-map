@@ -84,7 +84,6 @@ jobs:
           # Raw CSV files stay only in disposable runner private dir; never upload.
       - name: Validate real official CSV schema + privacy-safe aggregate mapping only
         shell: bash
-        continue-on-error: true
         run: |
           set -euo pipefail
           cd addons/police_official_vnext

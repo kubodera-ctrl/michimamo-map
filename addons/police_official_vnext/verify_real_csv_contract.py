@@ -42,12 +42,26 @@ def verify(private_dir:Path, *, profile=PROFILE)->dict:
                 if total!=meta['rows']:
                     raise ValueError('source CSV row count mismatch; report not publishable')
             else:
+                # Count only the exact official subtotal/aggregate labels; they
+                # are not independent neighborhoods and cannot be added again.
+                from cumulative_sources import decode_csv
+                original=decode_csv(raw,meta['encoding'])
+                official_area_field='市区町丁'
+                subtotal=sum(1 for row in original if row[official_area_field] in
+                    ('合計','計','総数','小計') or row[official_area_field].endswith('合計'))
+                if subtotal>250:
+                    raise ValueError('Unusually many subtotal rows; manual source review')
+                missing=sum(1 for row in original if not row[official_area_field].strip())
+                if missing:
+                    raise ValueError('Blank area rows require review; cannot silently drop')
                 total=sum(1 for row in latest if row['crime_type']=='自転車盗')
-                if total!=meta['rows']:
-                    raise ValueError('source statistical area rows mismatch; report not publishable')
+                if total+subtotal!=meta['rows']:
+                    raise ValueError('Town row count does not reconcile with official CSV')
             result['datasets'][dataset]={
                 'source_sha256':meta['sha256'], 'original_csv_rows':meta['rows'],
-                'normalized_review_rows':len(latest),'row_coverage_pass':True,
+                'normalized_review_rows':len(latest),
+                'subtotal_rows_excluded':subtotal if dataset=='town_stats' else 0,
+                'row_coverage_pass':True,
                 'publication_enabled':False,'rights_status':'unverified'
             }
     return result
