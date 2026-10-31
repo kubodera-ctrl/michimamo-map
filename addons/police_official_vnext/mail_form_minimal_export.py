@@ -17,7 +17,8 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from inspect_mail_export import inspect_bytes
-from mail_csv_shape_profile import profile_bytes
+from mail_csv_shape_profile import profile_bytes as profile_csv_shape
+from mail_json_shape_profile import profile_bytes as profile_json_shape
 
 SITE = "https://mail.keishicho.metro.tokyo.lg.jp/opendata/"
 DOWNLOAD = "https://mail.keishicho.metro.tokyo.lg.jp/opendata/download"
@@ -41,7 +42,7 @@ def parse_visible_date(value: str) -> dt.date:
     return dt.date(*map(int, m.groups()))
 
 
-def safe_form_fields(data: str) -> bool:
+def safe_form_fields(data: str, output_format: str = "csv") -> bool:
     """Allow exactly one day, bounded form fields. No user data in the POST."""
     d = parse_qs(data, keep_blank_values=True, strict_parsing=False)
     if not d or set(d) - {"sdate", "edate", "format", "topic", "region", "_token"}:
@@ -53,8 +54,8 @@ def safe_form_fields(data: str) -> bool:
             return False
     except ValueError:
         return False
-    if len(d.get("format", [])) != 1 or d["format"][0].lower() not in ("csv", "0"):
-        # Actual form option value unknown: fail closed; don't coerce guess.
+    known_values={"csv":("csv","0"),"json":("json","1")}
+    if output_format not in known_values or len(d.get("format", [])) != 1 or d["format"][0].lower() not in known_values[output_format]:
         return False
     for key in ("topic", "region"):
         if len(d.get(key, [""])) != 1 or len(d.get(key,[""])[0]) > 1000:
@@ -77,7 +78,8 @@ def verify_picker_dates(widget: dict) -> bool:
         return False
 
 
-def capture_schema_via_official_ui() -> dict:
+def capture_schema_via_official_ui(output_format: str = "csv") -> dict:
+    if output_format not in ("csv","json"): raise ValueError("unknown output format")
     from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
     receipts = {"safe_post_sent": 0, "blocked_post": 0, "foreign_host_denied": 0}
     with sync_playwright() as pw:
@@ -89,7 +91,7 @@ def capture_schema_via_official_ui() -> dict:
             u = urlparse(req.url)
             if req.method == "POST":
                 if (req.url == DOWNLOAD and receipts["safe_post_sent"] == 0 and
-                        req.post_data and safe_form_fields(req.post_data)):
+                        req.post_data and safe_form_fields(req.post_data, output_format)):
                     receipts["safe_post_sent"] += 1
                     route.continue_()
                 else:
@@ -126,10 +128,11 @@ def capture_schema_via_official_ui() -> dict:
         })""")
         if form_contract["method"] != "POST" or form_contract["action"] != DOWNLOAD:
             raise ValueError("official form action changed")
-        csv_options = [x for x in form_contract["format_options"] if "CSV" in x["label"]]
-        if len(csv_options) != 1 or csv_options[0]["value"].lower() not in ("csv", "0"):
-            raise ValueError("CSV form value changed; no submission permitted")
-        page.locator("#format").select_option(csv_options[0]["value"])
+        selected_options = [x for x in form_contract["format_options"] if output_format.upper() in x["label"].upper()]
+        known_values={"csv":("csv","0"),"json":("json","1")}
+        if len(selected_options) != 1 or selected_options[0]["value"].lower() not in known_values[output_format]:
+            raise ValueError("Official format option changed; no submission permitted")
+        page.locator("#format").select_option(selected_options[0]["value"])
         page.locator("#daterangepicker").click()
         if page.locator(".daterangepicker:visible").count() != 1:
             raise ValueError("visible official calendar unavailable")
@@ -184,24 +187,25 @@ def capture_schema_via_official_ui() -> dict:
             if receipts["safe_post_sent"] != 1 or receipts["blocked_post"]:
                 raise ValueError("unsafe or missing form POST; download discarded")
             filename = downloaded.suggested_filename
-            if not filename.lower().endswith(".csv"):
-                raise ValueError("official download format is not CSV")
-            out = Path(temp)/"official_schema_only.csv"
+            if not filename.lower().endswith("."+output_format):
+                raise ValueError("official download filename does not match selected output format")
+            out = Path(temp)/("official_schema_only."+output_format)
             downloaded.save_as(str(out))
             if out.stat().st_size > MAX_EXPORT_BYTES:
                 raise ValueError("unexpectedly large export; delete without processing")
             raw = out.read_bytes()
             try:
-                schema = inspect_bytes(raw, "csv")
+                schema = inspect_bytes(raw, output_format)
                 status = "OFFICIAL_MAIL_MINIMAL_UI_EXPORT_SCHEMA_ONLY"
             except ValueError:
-                # Real export may be nonrectangular; do NOT repair or import.
-                schema = profile_bytes(raw)
+                # Never repair raw row values or infer official case IDs.
+                schema = profile_csv_shape(raw) if output_format=="csv" else profile_json_shape(raw)
                 status = "OFFICIAL_MAIL_DOWNLOADED_BUT_SCHEMA_REVIEW_REQUIRED"
         browser.close()
         return {
           "status": status,
           "official_form":SITE,
+          "selected_format":output_format,
           "export_day":DAY.isoformat(),
           "date_to_exclusive":NEXT.isoformat(),
           "schema":schema,
@@ -215,7 +219,11 @@ def capture_schema_via_official_ui() -> dict:
 
 if __name__ == "__main__":
     try:
-        print(json.dumps(capture_schema_via_official_ui(), ensure_ascii=False, sort_keys=True))
+        import argparse
+        parser=argparse.ArgumentParser(description='One-day public official UI schema inspection; never store incident rows')
+        parser.add_argument('--format',choices=('csv','json'),default='csv')
+        args=parser.parse_args()
+        print(json.dumps(capture_schema_via_official_ui(args.format), ensure_ascii=False, sort_keys=True))
     except (ValueError, RuntimeError) as exc:
         # A HOLD is a safe result; no blind retries or large-source fallback.
         print(json.dumps({"status":"SAFE_HOLD_NEEDS_FORM_REVIEW","reason":str(exc)[:500],

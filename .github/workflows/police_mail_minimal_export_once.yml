@@ -27,4 +27,4 @@ jobs:
         run: python -m pip install --disable-pip-version-check --no-input playwright==1.56.0
       - name: One day public CSV form, schema ONLY (single conditional POST)
         working-directory: addons/police_official_vnext
-        run: python mail_form_minimal_export.py
+        run: python mail_form_minimal_export.py --format json

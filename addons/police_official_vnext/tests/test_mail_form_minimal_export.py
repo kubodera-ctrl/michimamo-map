@@ -22,6 +22,8 @@ class MinimalPublicExportGateTests(unittest.TestCase):
   d=self.good();d['account']='abc';self.assertFalse(safe_form_fields(urlencode(d)))
  def test_wrong_format_blocks(self):
   d=self.good();d['format']='json';self.assertFalse(safe_form_fields(urlencode(d)))
+  self.assertTrue(safe_form_fields(urlencode(d), 'json'))
+  self.assertFalse(safe_form_fields(urlencode(self.good()), 'json'))
  def test_missing_date_blocks(self):
   d=self.good();del d['sdate'];self.assertFalse(safe_form_fields(urlencode(d)))
  def test_datetime_safe_and_ambiguous_rejected(self):
