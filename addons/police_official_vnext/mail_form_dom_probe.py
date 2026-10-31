@@ -32,6 +32,7 @@ def safe_control_name(value: object) -> str:
 def browser_probe() -> dict:
     from playwright.sync_api import sync_playwright
     denied = {"foreign_host": 0, "non_get": 0}
+    blocked_hosts: set[str] = set()
     with sync_playwright() as pw:
         browser = pw.chromium.launch(channel="chrome", headless=True, args=["--no-sandbox"])
         context = browser.new_context(accept_downloads=False)
@@ -45,6 +46,7 @@ def browser_probe() -> dict:
                 route.abort()
             elif parsed.scheme != "https" or parsed.hostname != HOST or parsed.port not in (None, 443):
                 denied["foreign_host"] += 1
+                if parsed.hostname: blocked_hosts.add(parsed.hostname[:120])
                 route.abort()
             else:
                 route.continue_()
@@ -101,6 +103,15 @@ def browser_probe() -> dict:
               type:el.type, label:trim(el.innerText || el.getAttribute('aria-label') || el.getAttribute('value'))
             })),
             date_inputs: document.querySelectorAll('input[type=date]').length,
+            resources: [...document.querySelectorAll('script[src],link[rel=stylesheet]')].slice(0,35).map(el=>{
+              try {const u=new URL(el.src||el.href,location.href);return {host:u.hostname,
+                path:u.pathname.slice(0,140),kind:el.tagName.toLowerCase()};}
+              catch(_) {return {host:'unknown',path:'',kind:'unknown'}}
+            }),
+            download_form: [...document.querySelectorAll('form')].slice(0,3).map(el=>{
+              const url=new URL(el.action||location.href,location.href);
+              return {method:el.method.toUpperCase(),host:url.hostname,path:url.pathname};
+            }),
             downloaded_files:0
           }
         }""")
@@ -125,7 +136,7 @@ def browser_probe() -> dict:
         "source": PUBLIC_URL,
         "document": raw,
         "calendar": calendar_meta,
-        "request_guard": {"same_origin_GET_only": True, **denied},
+        "request_guard": {"same_origin_GET_only": True, **denied, "blocked_hosts": sorted(blocked_hosts)[:20]},
         "form_submitted": False,
         "download_attempted": False,
         "credential_use": False,
