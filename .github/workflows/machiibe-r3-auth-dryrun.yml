@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout exact PR43 based branch
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 4
       - name: Set up fixed Node 22.23.2
         uses: actions/setup-node@v4
         with:
@@ -31,7 +33,11 @@ jobs:
       - name: Verify fixed base and pinned versions
         shell: bash
         run: |
-          test '$(git rev-parse HEAD^)' = '5e0497206b4fcd06a82a931ca4b191b91ad0e45f'
+          base='5e0497206b4fcd06a82a931ca4b191b91ad0e45f'
+          git cat-file -e "$base^{commit}"
+          git merge-base --is-ancestor "$base" HEAD
+          changed="$(git diff --name-only "$base" HEAD)"
+          test "$changed" = '.github/workflows/machiibe-r3-auth-dryrun.yml'
           node --version | grep '^v22\.23\.2$'
           node -e "const p=require('./event-site/package.json'); if(p.dependencies.next!=='16.4.2'||p.devDependencies['@opennextjs/cloudflare']!=='1.20.13'||p.devDependencies.wrangler!=='4.151.1')process.exit(3)"
       - name: Install existing pinned event-site packages
