@@ -74,3 +74,20 @@ Python 12件（オフライン ingest・重複/訂正/取消/失敗時保全・�
 - `tests/browser_local_chromium_smoke.py` は実Chrome系ブラウザの完全ネットワーク遮断テスト（架空データ・既存MAPコンテナに相当するDOM要素）。**Cloudflare Hosted・Safari試験ではない。**
 - GitHub CIの実CSV再取得はSource修正時に`workflow_dispatch`と`verify_real_csv=true`を明示した場合に限る。過去の実CSV検証Run `41171579593`を正本として保持、無意味な同一原本の繰返し取得なし。
 - 現時点で本番DB/Auth/Secrets/Production、既存RSS Cron、ポイント、ASP、SNSへの変更なし。
+
+
+## R9 2026-10-31: 公式メール実ファイル確認と非公開レビュー専用アダプタ
+
+* 公式公開フォームをChromeで通常操作し、2026-10-20から2026-10-21（翌日0時、終了側排他）の**1日分のみ**取得して一時ランナーで形式確認（実際に送信する日付 `20261020` / `20261021` をチェック）。原文・被害者情報はログ・GitHub・Driveに保存しない。
+* **CSV**: 47データ行・5ヘッダー（配信日時／配信表題／配信本文／配信元／配信先）、うち3行は列数不一致につき取込禁止。修復推測・サイレント改変をしない。
+* **JSON**: 同じ1日分47件、実際の5キー `message/send_at/send_by/send_to/subject`。定形JSONとして検証済み。**警視庁の安定ID・訂正・取消・発生地点・日時書式の真正な意味は未確認**、掲載は不可。
+* `mail_json_private_review.py` は上記実5キーのみを許可し、非公開レビュー用データを所有者専用0700ディレクトリ内の0600ファイルへ原子的に保存。出典発行IDを生成せず、内部レビューキーを「公式事案ID」と誤認しない。`review_status=pending_identity` / `rights_status=unverified` / 位置不明 / 公開OFF / DB転送不可。CLI stdoutにはSHA・件数等のメタデータのみ。出力内容には本文が含まれるため、**Git/Drive/サイト/チャットへのアップロードは禁止**。
+* ローカル利用例（結果ファイルはGitHub作業ツリーの**外**に置くこと）：
+
+```bash
+mkdir -m 700 -p /tmp/mail_source_private
+# 本人管理下の正規エクスポートJSONを /tmp/mail_source_private/input.json に配置
+python mail_json_private_review.py --input /tmp/mail_source_private/input.json --output /tmp/mail_source_private/review.json
+```
+
+* 本番反映条件：個別の訂正/取消照合とID審査、資料別著作権、管理者認証・監査を伴う実DB審査、Cloudflare保護付きHosted・Safari・既存MAP回帰、復旧IDと限定承認。**従来β公開の新Gateにしない**。
