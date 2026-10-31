@@ -206,6 +206,6 @@ if __name__ == "__main__":
         print(json.dumps(capture_schema_via_official_ui(), ensure_ascii=False, sort_keys=True))
     except (ValueError, RuntimeError) as exc:
         # A HOLD is a safe result; no blind retries or large-source fallback.
-        print(json.dumps({"status":"SAFE_HOLD_NEEDS_FORM_REVIEW","reason":str(exc)[:160],
+        print(json.dumps({"status":"SAFE_HOLD_NEEDS_FORM_REVIEW","reason":str(exc)[:500],
                           "form_submission_status":"unconfirmed_in_safe_hold","publication_enabled":False,
                           "db_changed":False},ensure_ascii=False,sort_keys=True))
