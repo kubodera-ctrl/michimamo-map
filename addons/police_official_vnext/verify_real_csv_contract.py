@@ -54,14 +54,23 @@ def verify(private_dir:Path, *, profile=PROFILE)->dict:
                 missing=sum(1 for row in original if not row[official_area_field].strip())
                 if missing:
                     raise ValueError('Blank area rows require review; cannot silently drop')
+                from collections import Counter
+                label_counts=Counter(row[official_area_field].strip() for row in original)
+                duplicate_labels={k for k,v in label_counts.items() if v>1 and
+                    k not in ('合計','計','総数','小計') and not k.endswith('合計')}
+                held=sum(label_counts[k] for k in duplicate_labels)
                 total=sum(1 for row in latest if row['crime_type']=='自転車盗')
-                if total+subtotal!=meta['rows']:
+                if total+subtotal+held!=meta['rows']:
                     raise ValueError('Town row count does not reconcile with official CSV')
+                if snapshot['releases'][-1].get('requires_review') != bool(held):
+                    raise ValueError('Ambiguous area quarantine gate mismatch')
             result['datasets'][dataset]={
                 'source_sha256':meta['sha256'], 'original_csv_rows':meta['rows'],
                 'normalized_review_rows':len(latest),
                 'subtotal_rows_excluded':subtotal if dataset=='town_stats' else 0,
+                'ambiguous_area_rows_held':held if dataset=='town_stats' else 0,
                 'row_coverage_pass':True,
+                'publication_eligible':False,
                 'publication_enabled':False,'rights_status':'unverified'
             }
     return result

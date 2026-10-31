@@ -150,6 +150,14 @@ def reshape_verified_combined_town_rows(rows: list[dict], config: dict) -> list[
     area_col=config['area_column']; region=config['display_region']; metrics=config['metrics']
     if not rows or not isinstance(area_col,str) or area_col not in rows[0] or region!='東京都' or       not isinstance(metrics,dict) or not 1<=len(metrics)<=12 or len(set(metrics.values()))!=len(metrics) or       not all(isinstance(k,str) and isinstance(v,str) and v in rows[0] for k,v in metrics.items()):
         raise ValueError('Unverified combined town CSV columns')
+    # The official combined area can be ambiguous, e.g. a label reused in
+    # different administrative scopes. Never sum duplicates or invent location.
+    from collections import Counter
+    labels=[clean(row[area_col],110) for row in rows]
+    ambiguous={name for name,num in Counter(labels).items() if num>1 and
+        name not in ('合計','計','総数','小計') and not name.endswith('合計')}
+    if sum(1 for x in labels if x in ambiguous)>max(250,len(rows)//10):
+        raise ValueError('Too many ambiguous official town rows to safely publish')
     out=[]
     for row in rows:
         place=clean(row[area_col],110)
@@ -158,7 +166,8 @@ def reshape_verified_combined_town_rows(rows: list[dict], config: dict) -> list[
         # The official source mixes city/town records with cumulative subtotal
         # rows. Never include them as additional neighborhoods (double count).
         # Their number is recorded by the private contract verifier.
-        if place in ('合計','計','総数','小計') or place.endswith('合計'):
+        if place in ('合計','計','総数','小計') or place.endswith('合計') or place in ambiguous:
+            # All ambiguous same-name areas are withheld for separate review.
             continue
         for label,col in metrics.items():
             value=clean(row[col],15).replace(',','')
@@ -315,6 +324,18 @@ def run(input_path: Path, mapping_path: Path, snapshot_path: Path, report_path: 
     new = {"dataset": dataset, "year": year, "through_month": through_month,
            "fetched_at": now, "revision": 1, "superseded": False, "review_status": "pending",
            "source_file_sha256": hashlib.sha256(source_data).hexdigest(), "records": clean_rows}
+    if dataset == 'town_stats' and 'combined_town_columns' in config:
+        from collections import Counter
+        area_col=config['combined_town_columns']['area_column']
+        labels=[clean(row[area_col],110) for row in decode_csv(source_data,encoding)]
+        grouped=Counter(labels)
+        ambiguous={label for label,count in grouped.items() if count>1 and
+          label not in ('合計','計','総数','小計') and not label.endswith('合計')}
+        excluded=sum(grouped[x] for x in ambiguous)
+        # Absence from the published rows must not be masked as full coverage.
+        new['requires_review']=bool(excluded)
+        new['review_flags']={'ambiguous_area_rows_held':excluded,
+                             'ambiguous_area_labels_held':len(ambiguous)}
     new["content_hash"] = json_sha(clean_rows)
     old = json.loads(snapshot_path.read_text(encoding="utf-8")) if snapshot_path.exists() else None
     merged, stats = update_history(old, new)

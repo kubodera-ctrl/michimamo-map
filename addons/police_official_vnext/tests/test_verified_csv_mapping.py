@@ -61,6 +61,9 @@ class VerifiedSchemaTests(unittest.TestCase):
   with self.assertRaises(ValueError):reshape_verified_combined_town_rows([row2],TOWN['combined_town_columns'])
   mixed=reshape_verified_combined_town_rows([row,{**row,'市区町丁':'合計'}],TOWN['combined_town_columns'])
   self.assertEqual(mixed,pivot)
+  dup=reshape_verified_combined_town_rows([row,{**row,'市区町丁':'重複場所','非侵入窃盗自転車盗':'2'},
+      {**row,'市区町丁':'重複場所','非侵入窃盗自転車盗':'3'}],TOWN['combined_town_columns'])
+  self.assertEqual(dup,pivot) # Both ambiguous rows withheld, never added together
   with self.assertRaises(ValueError):reshape_verified_combined_town_rows([{**row,'市区町丁':'合計'}],TOWN['combined_town_columns'])
  def test_counts_and_privacy_held_on_unknown_real_contract(self):
   fake=[{'発生区市町村':'','発生場所':'不明','事案名':'声かけ'}]
