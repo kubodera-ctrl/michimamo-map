@@ -22,7 +22,8 @@
     return n;
   };
   const visible = (r) => r && r.source_id === SOURCE_ID && ['active', 'corrected'].includes(r.source_status)
-    && r.review_status === 'approved' && r.identity_verified === true && r.is_fixture !== true;
+    && r.review_status === 'approved' && r.rights_status === 'verified'
+    && r.identity_verified === true && r.is_fixture !== true;
   const exactPoint = (r) => visible(r) && r.location_precision === 'exact'
     && r.location_source === 'police_explicit_coordinates'
     && Number.isFinite(Number(r.latitude)) && Number.isFinite(Number(r.longitude))

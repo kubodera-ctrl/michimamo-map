@@ -4,7 +4,7 @@ const api = require('../official-police-layer.js');
 const base = {schema_version: 1, source_id: api.SOURCE_ID, last_success_at:'2026-10-31T00:00:00Z', records:[]};
 const event = {source_id: api.SOURCE_ID, id: 'official1', title:'【架空】声かけ事案',
  summary: '<script>alert(1)</script> これは架空の単体テスト', area_label:'東京都の架空地域',
- source_status:'active', review_status:'approved', identity_verified:true, is_fixture:false,
+ source_status:'active', review_status:'approved', rights_status:'verified', identity_verified:true, is_fixture:false,
  location_precision:'municipality', location_source:'geocoder_centroid', latitude:35.69, longitude:139.76,
  published_at:'2026-10-31', occurred_at:null, recognized_at:null,
  source_url:'https://not-authorized.example.org/bad'};
@@ -13,6 +13,7 @@ assert.equal(api.exactPoint(event),false,'Municipality centroid must not pin');
 assert.equal(api.exactPoint({...event,location_precision:'exact'}),false,'Geocoded exact is not sufficient');
 assert.equal(api.exactPoint({...event,location_precision:'exact',location_source:'police_explicit_coordinates'}),true);
 assert.equal(api.visible({...event, review_status:'pending'}),false);
+assert.equal(api.visible({...event, rights_status:'unverified'}),false,'unverified rights must not render');
 assert.equal(api.visible({...event, is_fixture:true}),false);
 assert.equal(api.visible({...event, source_status:'withdrawn'}),false);
 assert.equal(api.visible({...event, source_status:'corrected'}),true);
@@ -53,5 +54,5 @@ assert.equal(add,1);
  await assert.rejects(()=>ctrl.refresh('https://evil.example.com/records'),/同一オリジン/);
  response={ok:true,json:async()=>({...base,records:[{...event,source_status:'withdrawn'}]})};
  r=await ctrl.refresh('/police.json');assert.equal(r.visible,0);assert.equal(ctrl.getState().exact_markers,0);
- console.log('official-police-layer: 16 targeted assertions PASS');
+ console.log('official-police-layer: 17 targeted assertions PASS');
 })().catch(e=>{console.error(e);process.exitCode=1});

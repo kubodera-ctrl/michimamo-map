@@ -16,30 +16,44 @@ EXPECTED = "57e38f00304f541c10002c7ea34f2341acc1671ba62be2b15dbdcf936bc5cb90"
 PREFIX = "<!-- police-official-vnext:nonprod -->"
 SUFFIX = "<!-- /police-official-vnext:nonprod -->"
 INSERT_HEAD = '<link rel="stylesheet" href="official-police-layer.css?v=vnext01" />'
-INSERT_BODY = '''<script src="official-police-layer.js?v=vnext01"></script>
+INSERT_BODY = '''<script src="official-police-layer.js?v=vnext02"></script>
+<script src="official-police-hub.js?v=vnext02"></script>
 <script>
-(function mountPoliceOfficialNonprod() {
-    // Feature disabled unless an approved non-production config opts in.
-    // The source URL MUST be a same-origin review-approved snapshot; never live police API.
-    if (window.MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED !== true) return;
-    var run = function() {
-        if (window.MachimamoPoliceOfficialController) return;
-        try {
-            var controller = window.MachimamoPoliceOfficial.createController({
-                doc: document, map: map, leaflet: L, fetcher: fetch.bind(window),
-                location: window.location, enabled: true
-            });
-            if (!controller) return;
-            window.MachimamoPoliceOfficialController = controller;
-            if (typeof window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH === 'string') {
-                controller.refresh(window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH);
-            }
-        } catch (err) { console.warn('Official police vNext unavailable', err); }
-    };
-    if (window.MachimamoInitialLoadReady) run();
-    else window.addEventListener('machimamo:initial-ready', run, {once: true});
+(function mountPoliceOfficialInExistingMap() {
+  // Keep existing MAP beta unaffected until verified data+admin boundary exists.
+  if (window.MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED !== true) return;
+  const start = function() {
+    if (window.MachimamoPoliceOfficialController || window.MachimamoPoliceHubController) return;
+    try {
+      var options = {doc: document, map: map, leaflet: L, fetcher: fetch.bind(window),
+        location: window.location, enabled: true, db: db};
+      var mail = window.MachimamoPoliceOfficial.createController(options);
+      var hub = window.MachimamoPoliceHub.mount(options);
+      if (!mail || !hub) return;
+      window.MachimamoPoliceOfficialController = mail;
+      window.MachimamoPoliceHubController = hub;
+      if (typeof window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH === 'string') {
+        mail.refresh(window.MACHIMAMO_POLICE_OFFICIAL_SNAPSHOT_PATH);
+      }
+      var configured = window.MACHIMAMO_POLICE_CUMULATIVE_PATHS || {};
+      hub.refresh({precursor: configured.precursor, town_stats: configured.town_stats,
+        national: 'official_source_registry.json'});
+    } catch (err) { console.warn('Police Open DATA MAP add-on not available', err); }
+  };
+  if (window.MachimamoInitialLoadReady) start();
+  else window.addEventListener('machimamo:initial-ready', start, {once: true});
 })();
 </script>'''
+
+# The existing admin_get_dashboard MUST succeed before adding police review status.
+ADMIN_ANCHOR = "document.getElementById('adminDashboardArea').style.display = 'block';"
+ADMIN_ADDITION = """document.getElementById('adminDashboardArea').style.display = 'block';
+        window.MachimamoPoliceHubController?.loadAdmin({
+            password: password,
+            rpc: (...args) => db.rpc(...args),
+            isCurrent: () => request === adminDashboardRequest && authUser === currentAuthUserId
+        });"""
+
 
 
 def build(original: bytes, root: Path) -> tuple[bytes, dict]:
@@ -56,12 +70,14 @@ def build(original: bytes, root: Path) -> tuple[bytes, dict]:
         raise ValueError("already patched baseline; use clean original")
     if html.count('</head>') != 1 or html.count('</body>') != 1:
         raise ValueError("unexpected HTML structure")
-    if 'id="filterWrapper"' not in html or 'const map = L.map(' not in html or 'machimamo:initial-ready' not in html:
+    if 'id="filterWrapper"' not in html or 'const map = L.map(' not in html or 'machimamo:initial-ready' not in html or html.count(ADMIN_ANCHOR) != 1:
         raise ValueError("integration anchors changed; STOP")
     html = html.replace('</head>', f'{PREFIX}\n{INSERT_HEAD}\n{SUFFIX}\n</head>')
     html = html.replace('</body>', f'{PREFIX}\n{INSERT_BODY}\n{SUFFIX}\n</body>')
+    html = html.replace(ADMIN_ANCHOR, ADMIN_ADDITION)
+    html = html.replace('fa-solid fa-shield-halved"></i> 警察情報</button>', 'fa-solid fa-shield-halved"></i> 防犯ニュース</button>')
     files['index.html'] = html.encode()
-    for name in ('official-police-layer.js', 'official-police-layer.css'):
+    for name in ('official-police-layer.js', 'official-police-hub.js', 'official-police-layer.css', 'official_source_registry.json'):
         if name in files:
             raise ValueError("unexpected filename collision")
         files[name] = (root / name).read_bytes()
@@ -75,7 +91,7 @@ def build(original: bytes, root: Path) -> tuple[bytes, dict]:
         if z.testzip() is not None: raise ValueError("output CRC error")
     manifest = {
         'status': 'TEST_ONLY_UNDEPLOYABLE', 'base_sha256': EXPECTED,
-        'added': ['official-police-layer.js', 'official-police-layer.css'],
+        'added': ['official-police-layer.js', 'official-police-hub.js', 'official-police-layer.css', 'official_source_registry.json'],
         'changed': ['index.html'], 'unchanged_files': 141,
         'file_count': len(files), 'preview_zip_sha256': hashlib.sha256(output.getvalue()).hexdigest(),
         'warning': 'No Hosted QA; original app points at production Supabase. DO NOT UPLOAD ZIP. Feature flag OFF.'

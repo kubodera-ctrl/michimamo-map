@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "source_sheet": "https://docs.google.com/spreadsheets/d/1hSmQQFXoMrKH680kOoPLkTGgVvi_bDfWbP8G1xP9h74/edit",
+  "national_index": "https://www.npa.go.jp/toukei/seianki/hanzaiopendatalink.html",
+  "source_kind": "theft_seven_methods_annual_directory",
+  "data_ingestion_enabled": false,
+  "sources": [
+    {
+      "jis": "01",
+      "prefecture": "北海道",
+      "source_page": "https://www.harp.lg.jp/opendata/dataset/bunya/kurashi/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "02",
+      "prefecture": "青森県",
+      "source_page": "https://www.police.pref.aomori.jp/seianbu/seian_kikaku/hanyoku/hanyoku_opendate.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "03",
+      "prefecture": "岩手県",
+      "source_page": "https://www.pref.iwate.jp/kenkei/koho/opendata/3000711.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "04",
+      "prefecture": "宮城県",
+      "source_page": "https://www.police.pref.miyagi.jp/seian/opendata.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "05",
+      "prefecture": "秋田県",
+      "source_page": "https://www.police.pref.akita.lg.jp/kenkei/statistics",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "06",
+      "prefecture": "山形県",
+      "source_page": "https://www.pref.yamagata.jp/020051/kensei/shoukai/toukeijouhou/tokeijoho-opendate/opendata/cata1.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "07",
+      "prefecture": "福島県",
+      "source_page": "https://www.police.pref.fukushima.jp/seianki/homepage/top_page/R04custom.crime_open_data.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "13",
+      "prefecture": "東京都",
+      "source_page": "https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/hanzaihasseijyouhou.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "08",
+      "prefecture": "茨城県",
+      "source_page": "https://www.ibaraki-opendata.jp/index.php",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "09",
+      "prefecture": "栃木県",
+      "source_page": "https://odcs.bodik.jp/090000/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "10",
+      "prefecture": "群馬県",
+      "source_page": "https://www.police.pref.gunma.jp/site/police/28701.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "11",
+      "prefecture": "埼玉県",
+      "source_page": "https://www.police.pref.saitama.lg.jp/c0011/kurashi/0pendata2019/opendate-2019.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "12",
+      "prefecture": "千葉県",
+      "source_page": "https://www.police.pref.chiba.jp/seisoka/safe-life_publicspace-statistics_00002.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "14",
+      "prefecture": "神奈川県",
+      "source_page": "https://www.police.pref.kanagawa.jp/tokei/hanzai_tokei/mesd0145.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "15",
+      "prefecture": "新潟県",
+      "source_page": "https://www.pref.niigata.lg.jp/site/kenkei/anzen-ansin-open-open.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "19",
+      "prefecture": "山梨県",
+      "source_page": "https://www.pref.yamanashi.jp/police/p_anzen/hanzai_opendate.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "20",
+      "prefecture": "長野県",
+      "source_page": "https://www.pref.nagano.lg.jp/police/toukei/hanzai/opendata.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "22",
+      "prefecture": "静岡県",
+      "source_page": "https://www.pref.shizuoka.jp/police/kurashi/hanzai/nenkan/opendata.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "16",
+      "prefecture": "富山県",
+      "source_page": "https://opendata.pref.toyama.jp/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "17",
+      "prefecture": "石川県",
+      "source_page": "https://www2.police.pref.ishikawa.lg.jp/security/security24/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "18",
+      "prefecture": "福井県",
+      "source_page": "https://www.pref.fukui.lg.jp/kenkei/doc/kenkei/naka2-naka1600.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "21",
+      "prefecture": "岐阜県",
+      "source_page": "https://gifu-opendata.pref.gifu.lg.jp/dataset/c18879-007",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "23",
+      "prefecture": "愛知県",
+      "source_page": "https://www.pref.aichi.jp/police/anzen/toukei/opendata/seian-s/crimeopendata.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "24",
+      "prefecture": "三重県",
+      "source_page": "https://www.police.pref.mie.jp/safety_info/op_data_index.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "25",
+      "prefecture": "滋賀県",
+      "source_page": "https://www.pref.shiga.lg.jp/police/seikatu/seikatu/anmachi/306453.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "26",
+      "prefecture": "京都府",
+      "source_page": "https://data.bodik.jp/organization/260002?q=%E7%8A%AF%E7%BD%AA%E3%83%87%E3%83%BC%E3%82%BF",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "27",
+      "prefecture": "大阪府",
+      "source_page": "https://www.police.pref.osaka.lg.jp/seikatsu/9290.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "28",
+      "prefecture": "兵庫県",
+      "source_page": "https://web.pref.hyogo.lg.jp/kk26/johoseisaku/opendata.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "29",
+      "prefecture": "奈良県",
+      "source_page": "https://www.police.pref.nara.jp/0000003672.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "30",
+      "prefecture": "和歌山県",
+      "source_page": "https://www.police.pref.wakayama.lg.jp/04_toukei/index.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "31",
+      "prefecture": "鳥取県",
+      "source_page": "https://www.pref.tottori.lg.jp/286309.htm",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "32",
+      "prefecture": "島根県",
+      "source_page": "https://shimane-opendata.jp/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "33",
+      "prefecture": "岡山県",
+      "source_page": "https://www.okayama-opendata.jp/datasets?tag=%E9%98%B2%E7%8A%AF",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "34",
+      "prefecture": "広島県",
+      "source_page": "https://hiroshima-opendata.dataeye.jp/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "35",
+      "prefecture": "山口県",
+      "source_page": "https://yamaguchi-opendata.jp/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "36",
+      "prefecture": "徳島県",
+      "source_page": "https://www.police.pref.tokushima.jp/28opendata/index.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "37",
+      "prefecture": "香川県",
+      "source_page": "https://opendata.pref.kagawa.lg.jp/dataset/bunya/bosai/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "38",
+      "prefecture": "愛媛県",
+      "source_page": "https://www.police.pref.ehime.jp/seiki/mokuji/fusegou.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "39",
+      "prefecture": "高知県",
+      "source_page": "https://www.police.pref.kochi.lg.jp/docs/2023111400109/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "40",
+      "prefecture": "福岡県",
+      "source_page": "https://www.police.pref.fukuoka.jp/tokei/index.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "41",
+      "prefecture": "佐賀県",
+      "source_page": "https://data.bodik.jp/dataset/410004_hanzaijyouhou",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "42",
+      "prefecture": "長崎県",
+      "source_page": "https://www.police.pref.nagasaki.jp/",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "43",
+      "prefecture": "熊本県",
+      "source_page": "https://www.pref.kumamoto.jp/soshiki/211/82808.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "44",
+      "prefecture": "大分県",
+      "source_page": "https://www.pref.oita.jp/site/keisatu/seianki-toukei123.html",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "45",
+      "prefecture": "宮崎県",
+      "source_page": "https://data.bodik.jp/dataset/450006_1069",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "46",
+      "prefecture": "鹿児島県",
+      "source_page": "https://data.bodik.jp/dataset/460001_hanzaihassei_2024",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    },
+    {
+      "jis": "47",
+      "prefecture": "沖縄県",
+      "source_page": "https://www.police.pref.okinawa.jp/category/bunya/tokei",
+      "publication_kind": "annual_not_real_time",
+      "rights_status": "pending_per_prefecture",
+      "data_status": "link_only",
+      "display_note": "過去の窃盗7手口の出典案内。新しい事件や現在の危険度を示しません。"
+    }
+  ],
+  "tokyo_sources": [
+    {
+      "key": "tokyo_mail_keishicho_opendata",
+      "title": "メールけいしちょうOpen DATA",
+      "source_page": "https://mail.keishicho.metro.tokyo.lg.jp/opendata/",
+      "rights_status": "CC_BY_4_0_for_scope_only",
+      "kind": "official_mail"
+    },
+    {
+      "key": "tokyo_precursor_cumulative",
+      "title": "前兆事案の認知情報（月累計）",
+      "source_page": "https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html",
+      "rights_status": "pending_dataset_check",
+      "kind": "precursor_cumulative"
+    },
+    {
+      "key": "tokyo_town_crime_cumulative",
+      "title": "町丁別の罪種別・手口別認知件数（月累計）",
+      "source_page": "https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/ninchikensu.html",
+      "rights_status": "pending_dataset_check",
+      "kind": "stats_cumulative"
+    },
+    {
+      "key": "tokyo_police_crime_map",
+      "title": "警視庁犯罪情報マップ（前兆事案・アポ電・犯罪情報）",
+      "source_page": "https://www.keishicho.metro.tokyo.lg.jp/jiken_jiko/hassei/map_annai.html",
+      "rights_status": "link_only_no_map_republication",
+      "kind": "external_official_map"
+    }
+  ],
+  "not_in_scope": [
+    "reusing DigiPolice app assets",
+    "traffic_accident_map ingestion",
+    "new children-110 data pipeline"
+  ]
+}

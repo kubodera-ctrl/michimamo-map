@@ -30,6 +30,7 @@ class IngestTests(unittest.TestCase):
         self.assertEqual(r['source_id'],SOURCE_ID)
         self.assertNotIn(r['source_id'], ['spots','official','local_anomaly','police_safety'])
         self.assertEqual(r['review_status'],'pending')
+        self.assertEqual(r['rights_status'],'unverified')
         self.assertTrue(r['is_fixture'])
         self.assertIsNone(r['latitude'])
     def test_repeat_import_idempotency(self):
@@ -114,7 +115,7 @@ class IngestTests(unittest.TestCase):
         data=p.read_bytes();self.assertEqual(hashlib.sha256(data).hexdigest(),EXPECTED)
         patched,manifest=build(data,ROOT)
         self.assertEqual(manifest['unchanged_files'],141)
-        self.assertEqual(manifest['file_count'],144)
+        self.assertEqual(manifest['file_count'],146)
         import io,zipfile
         with zipfile.ZipFile(io.BytesIO(patched)) as z:
             self.assertIsNone(z.testzip())

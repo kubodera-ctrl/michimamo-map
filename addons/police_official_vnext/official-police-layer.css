@@ -11,3 +11,14 @@
 .police-official-detail a { text-decoration:underline; color:#1d4ed8; }
 .police-official-disclaimer { background:#f1f5f9; border-radius:8px; padding:8px; color:#475569; }
 .police-official-status { font-weight:800; color:#155e75; }
+
+/* Existing map's compact filter/menu, no new app or site */
+.police-official-hub{max-height:min(74dvh,620px);overflow:auto;-webkit-overflow-scrolling:touch}
+.police-official-hub-tabs{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}
+.police-official-hub-tabs button{border:1px solid #d1d5db;background:#f8fafc;border-radius:9px;font-size:.75rem;padding:7px 9px;cursor:pointer}
+.police-official-hub-tabs button[aria-pressed="true"]{color:white;background:#0f766e;border-color:#0f766e}
+.police-official-hub-data{display:grid;gap:8px;overflow-wrap:anywhere;font-size:.8rem}
+.police-official-hub-data a{color:#0f766e;text-decoration:underline}
+.police-official-source-row,.police-official-entry{padding:8px;border-radius:9px;background:#fff;border:1px solid #e2e8f0}
+.police-official-source-row small{display:block;color:#64748b;margin-top:3px}
+.police-official-admin{border:1px solid #86efac;padding:12px;border-radius:12px;background:#fff;margin:12px 0}

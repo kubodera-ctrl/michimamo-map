@@ -114,7 +114,7 @@ def normalize(row: dict, mapping: dict[str, str], *, fixture: bool = False) -> d
         lat, lon = None, None
     normalized = dict(source_id=SOURCE_ID, id=rec_id, source_record_id=original or None,
         source_name="警視庁・メールけいしちょうOpen DATA", source_url=SOURCE_URL,
-        source_policy_url=POLICY_URL, license="CC BY 4.0", attribution=ATTRIBUTION,
+        source_policy_url=POLICY_URL, license="CC BY 4.0", rights_status="unverified", attribution=ATTRIBUTION,
         title=title, summary=summary, area_label=area, event_type=category,
         published_at=published, occurred_at=occurred, recognized_at=recognized,
         source_status=state, revision=rev, correction_of=correction_of or None,
