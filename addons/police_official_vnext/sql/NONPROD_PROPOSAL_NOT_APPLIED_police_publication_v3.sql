@@ -178,9 +178,30 @@ returns jsonb language sql stable security definer set search_path='' as $$
     'schema_version',1,
     'source_id','tokyo_mail_keishicho_opendata',
     'last_success_at',max(d.imported_at),
-    'records',coalesce(jsonb_agg(d.payload || jsonb_build_object(
-      'review_status','approved','rights_status','verified','is_fixture',false,
-      'source_id','tokyo_mail_keishicho_opendata','identity_verified',true
+    -- Public output is an explicit allowlist. Raw original payload may contain
+    -- personal data or unreviewed extra keys; NEVER return it wholesale.
+    'records',coalesce(jsonb_agg(jsonb_build_object(
+      'id',d.record_key,'source_id','tokyo_mail_keishicho_opendata',
+      'title',left(coalesce(d.payload->>'title',''),200),
+      'summary',left(coalesce(d.payload->>'summary',''),1400),
+      'area_label',left(coalesce(d.payload->>'area_label',''),200),
+      'event_type',left(coalesce(d.payload->>'event_type',''),100),
+      'published_at',d.payload->>'published_at',
+      'occurred_at',d.payload->>'occurred_at',
+      'recognized_at',d.payload->>'recognized_at',
+      'location_precision',case when d.payload->>'location_precision' in ('exact','town','municipality','unknown')
+                                  then d.payload->>'location_precision' else 'unknown' end,
+      'location_source',d.payload->>'location_source',
+      'latitude',case when d.payload->>'location_precision'='exact' and
+        d.payload->>'location_source'='police_explicit_coordinates'
+        then d.payload->'latitude' else 'null'::jsonb end,
+      'longitude',case when d.payload->>'location_precision'='exact' and
+        d.payload->>'location_source'='police_explicit_coordinates'
+        then d.payload->'longitude' else 'null'::jsonb end,
+      'source_url',d.source_url,
+      'source_status',d.source_status,'revision',d.revision,
+      'review_status','approved','rights_status','verified',
+      'is_fixture',false,'identity_verified',true
     )) filter (where d.id is not null),'[]'::jsonb))
   from public.police_official_documents d
   where d.dataset='mail' and d.latest and d.review_status='approved'
@@ -219,8 +240,33 @@ begin
   then
     raise exception 'coordinates not allowed for cumulative data';
   end if;
-  select coalesce(jsonb_agg(r || jsonb_build_object('review_status','approved','rights_status','verified')),'[]'::jsonb)
-    into rows from jsonb_array_elements(chosen.payload->'records') r;
+  -- Never disclose raw per-source fields or unknown columns. Keep only
+  -- the specific approved aggregate presentation fields.
+  if p_dataset='town_stats' and exists (
+    select 1 from jsonb_array_elements(chosen.payload->'records') r
+    where coalesce(r->>'recognized_count_cumulative','') !~ '^[0-9]{1,10}$'
+  ) then raise exception 'invalid cumulative count'; end if;
+  if p_dataset='precursor' then
+    select coalesce(jsonb_agg(jsonb_build_object(
+       'municipality',left(coalesce(r->>'municipality',''),80),
+       'area_label',left(coalesce(r->>'area_label',''),110),
+       'event_type',left(coalesce(r->>'event_type',''),90),
+       'occurred_at',r->>'occurred_at',
+       'recognized_at',r->>'recognized_at',
+       'published_at',r->>'published_at',
+       'latitude',null,'longitude',null,
+       'review_status','approved','rights_status','verified'
+     )),'[]'::jsonb) into rows from jsonb_array_elements(chosen.payload->'records') r;
+  else
+    select coalesce(jsonb_agg(jsonb_build_object(
+       'municipality',left(coalesce(r->>'municipality',''),80),
+       'town',left(coalesce(r->>'town',''),110),
+       'crime_type',left(coalesce(r->>'crime_type',''),90),
+       'recognized_count_cumulative',(r->>'recognized_count_cumulative')::bigint,
+       'latitude',null,'longitude',null,
+       'review_status','approved','rights_status','verified'
+     )),'[]'::jsonb) into rows from jsonb_array_elements(chosen.payload->'records') r;
+  end if;
   return jsonb_build_object(
     'schema_version',1,'dataset',p_dataset,'publication_enabled',true,
     'releases',jsonb_build_array(jsonb_build_object(

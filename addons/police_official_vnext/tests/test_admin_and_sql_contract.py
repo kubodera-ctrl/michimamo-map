@@ -33,6 +33,12 @@ class PublicationSqlStatic(unittest.TestCase):
   self.assertIn('for update;',SQL)
   self.assertIn('rights_evidence_url',SQL)
   self.assertIn('p_action not in',SQL)
+ def test_only_allowlisted_public_fields(self):
+  self.assertNotIn('jsonb_agg(d.payload ||',SQL)
+  self.assertNotIn('jsonb_agg(r ||',SQL)
+  self.assertIn('Raw original payload may contain',SQL)
+  self.assertIn('record_key',SQL)
+  self.assertIn("'identity_verified',true",SQL)
  def test_existing_admin_script_no_points_calls(self):
   for keyword in ('submit_spot_once','admin_adjust_points','point_transactions','SNS_POST'):
    self.assertNotIn(keyword,HUB)
