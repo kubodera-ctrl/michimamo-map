@@ -43,6 +43,9 @@ function visibleReleaseRows(snapshot,dataset){
  for(const record of newest.records){
   if(record.review_status!=='approved'||record.rights_status!=='verified')continue;
   if(record.latitude!=null||record.longitude!=null)throw new Error('cumulative area data must not contain coordinates');
+  if(dataset==='precursor' && record.record_count_basis==='official_csv_rows_cumulative_not_unique_incidents' &&
+     (!Number.isSafeInteger(record.recognized_count_cumulative)||record.recognized_count_cumulative<0))
+     throw new Error('invalid official precursor cumulative row count');
   if(dataset==='town_stats' && (!Number.isSafeInteger(record.recognized_count_cumulative)||record.recognized_count_cumulative<0))throw new Error('invalid official cumulative count');
   items.push({...record,year:newest.year,through_month:newest.through_month});
  }
@@ -71,8 +74,10 @@ function renderRows(doc,container,rows,dataset,limit){
   const entry=text(doc,'article',undefined,'police-official-entry');
   if(dataset==='precursor'){
    entry.append(text(doc,'strong','前兆事案／警視庁公表'),
-     text(doc,'p',`${r.municipality} ${r.area_label}｜${r.event_type}`),
-     text(doc,'small',`発生：${safeDate(r.occurred_at)}／認知：${safeDate(r.recognized_at)}／掲載期間：${r.year}年${r.through_month}月累計`));
+     text(doc,'p',`${r.municipality}｜場所区分：${r.area_label}｜${r.event_type}`),
+     text(doc,'small',r.record_count_basis==='official_csv_rows_cumulative_not_unique_incidents'
+       ? `元CSV掲載行数 ${Number(r.recognized_count_cumulative).toLocaleString('ja-JP')}行（${r.year}年${r.through_month}月までの累計）。個別の事件数・速報件数ではありません。`
+       : `発生：${safeDate(r.occurred_at)}／認知：${safeDate(r.recognized_at)}／掲載期間：${r.year}年${r.through_month}月累計`));
   }else{
    entry.append(text(doc,'strong',`${r.crime_type}：${Number(r.recognized_count_cumulative).toLocaleString('ja-JP')}件（累計）`),
      text(doc,'p',`${r.municipality} ${r.town}｜${r.year}年${r.through_month}月までの認知件数`));

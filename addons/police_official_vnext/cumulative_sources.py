@@ -26,7 +26,7 @@ REQUIRED = {
     "precursor": ("municipality", "area_label", "event_type"),
     "town_stats": ("municipality", "town", "crime_type", "count"),
 }
-OPTIONAL = {"precursor": ("source_record_id", "occurred_at", "recognized_at", "published_at"), "town_stats": ()}
+OPTIONAL = {"precursor": ("source_record_id", "occurred_at", "recognized_at", "published_at", "recognized_count_cumulative"), "town_stats": ()}
 MAX_BYTES = 5_000_000
 MAX_ROWS = 100_000
 MAX_COLUMN_LENGTH = 140
@@ -110,6 +110,60 @@ def reshape_wide_town_rows(rows: list[dict], wide_mapping: dict) -> list[dict]:
         raise ValueError("Expanded official CSV empty")
     return result
 
+
+
+def reshape_verified_precursor_cumulative(rows: list[dict], config: dict) -> list[dict]:
+    """2026-09 police CSV: aggregate displayed row counts; NEVER infer event IDs.
+
+    Original individual records have no stable IDs. Aggregates are identified
+    only by municipality, situation and category. No victim attributes survive.
+    Values are CSV row counts, not deduplicated incidents or monthly new cases.
+    """
+    if set(config) != {'municipality', 'place_kind', 'event_type'}:
+        raise ValueError('Explicit precursor aggregate mapping required')
+    if not rows or len(rows)>MAX_ROWS or len(set(config.values()))!=3 or any(
+        not isinstance(v,str) or v not in rows[0] for v in config.values()
+    ):
+        raise ValueError('Official precursor headers changed')
+    groups = {}
+    for row in rows:
+        city = clean(row[config['municipality']],80)
+        place = clean(row[config['place_kind']],110)
+        kind = clean(row[config['event_type']],90)
+        if not city or not kind:
+            raise ValueError('Unrecognized precursor area or category')
+        # Empty place column is a missing situation, not a location.
+        group_key=(city, place or '場所区分不明', kind)
+        groups[group_key]=groups.get(group_key,0)+1
+    return [{'municipality':city,'area_label':place,'event_type':kind,
+        'recognized_count_cumulative':str(count)} for (city,place,kind),count in sorted(groups.items())]
+
+
+def reshape_verified_combined_town_rows(rows: list[dict], config: dict) -> list[dict]:
+    """Preserve official 市区町丁 verbatim; do not invent municipality boundaries.
+
+    Municipality display slot is the explicitly supplied prefecture label only.
+    The full official 市区町丁 is the location label; NEVER geocode from it.
+    """
+    if not isinstance(config,dict) or set(config)!={'area_column','display_region','metrics'}:
+        raise ValueError('Explicit verified combined town mapping required')
+    area_col=config['area_column']; region=config['display_region']; metrics=config['metrics']
+    if not rows or not isinstance(area_col,str) or area_col not in rows[0] or region!='東京都' or       not isinstance(metrics,dict) or not 1<=len(metrics)<=12 or len(set(metrics.values()))!=len(metrics) or       not all(isinstance(k,str) and isinstance(v,str) and v in rows[0] for k,v in metrics.items()):
+        raise ValueError('Unverified combined town CSV columns')
+    out=[]
+    for row in rows:
+        place=clean(row[area_col],110)
+        if not place or place in ('合計','計','総数','小計') or place.endswith('合計'):
+            raise ValueError('Unknown/aggregate area: manual source review required')
+        for label,col in metrics.items():
+            value=clean(row[col],15).replace(',','')
+            if not re.fullmatch(r'\d{1,10}',value):
+                raise ValueError('Missing/non-numeric official count: source review')
+            out.append({'municipality':region,'town':place,'crime_type':label,'count':value})
+            if len(out)>MAX_ROWS:raise ValueError('Cumulative expansion exceeds cap')
+    return out
+
+
 def normalize_rows(rows: list[dict], *, dataset: str, mapping: dict, year: int, through_month: int) -> list[dict]:
     if dataset not in SOURCE_PAGES:
         raise ValueError("unknown dataset")
@@ -150,14 +204,23 @@ def normalize_rows(rows: list[dict], *, dataset: str, mapping: dict, year: int, 
             explicit_id = clean(row[mapping["source_record_id"]], 120) if "source_record_id" in mapping else ""
             dates = {field: clean(row[mapping[field]], 60) if field in mapping else None
                      for field in ("occurred_at", "recognized_at", "published_at")}
+            # For official cumulative CSV without event IDs: aggregate counts
+            # are source rows, NOT verified unique incidents. Never expose victim columns.
+            has_aggregate = "recognized_count_cumulative" in mapping
+            raw_aggregate = clean(row[mapping["recognized_count_cumulative"]], 15) if has_aggregate else ""
+            if has_aggregate and not re.fullmatch(r"\d{1,10}", raw_aggregate):
+                raise ValueError("invalid precursor official row count")
             # No direct address, full raw descriptions, victim details or point location.
             ident = (explicit_id or json_sha([municipality, area, kind, dates])[:24],)
             normalized = {"municipality": municipality, "area_label": area, "event_type": kind,
                           **dates, "source_record_id": explicit_id or None,
                           "identity_verified": bool(explicit_id),
-                          "location_precision": "town_or_wider", "latitude": None, "longitude": None,
-                          "review_status": "pending" if explicit_id else "pending_identity",
+                          "location_precision": "municipality", "latitude": None, "longitude": None,
+                          "review_status": "pending" if has_aggregate or explicit_id else "pending_identity",
                           "rights_status": "unverified"}
+            if has_aggregate:
+                normalized["recognized_count_cumulative"] = int(raw_aggregate)
+                normalized["record_count_basis"] = "official_csv_rows_cumulative_not_unique_incidents"
         key = json_sha([dataset, year, through_month, ident])[:32]
         if key in out and out[key] != normalized:
             raise ValueError("same period has conflicting duplicate rows")
@@ -232,6 +295,14 @@ def run(input_path: Path, mapping_path: Path, snapshot_path: Path, report_path: 
         if set(config) != {"dataset", "wide_columns", "columns"}:
             raise ValueError("Unknown wide source mapping options")
         rows = reshape_wide_town_rows(rows, config["wide_columns"])
+    if dataset == "town_stats" and "combined_town_columns" in config:
+        if set(config) != {"dataset", "combined_town_columns", "columns"}:
+            raise ValueError("Unknown combined town source mapping options")
+        rows = reshape_verified_combined_town_rows(rows,config["combined_town_columns"])
+    if dataset == "precursor" and "precursor_aggregate_columns" in config:
+        if set(config) != {"dataset", "precursor_aggregate_columns", "columns"}:
+            raise ValueError("Unknown precursor aggregate source mapping options")
+        rows = reshape_verified_precursor_cumulative(rows,config["precursor_aggregate_columns"])
     clean_rows = normalize_rows(rows, dataset=dataset, mapping=config["columns"], year=year, through_month=through_month)
     now = datetime.now(timezone.utc).isoformat()
     new = {"dataset": dataset, "year": year, "through_month": through_month,

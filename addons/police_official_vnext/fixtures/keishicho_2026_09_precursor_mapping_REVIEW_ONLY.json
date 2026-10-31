@@ -1,0 +1,14 @@
+{
+  "dataset": "precursor",
+  "precursor_aggregate_columns": {
+    "municipality": "発生区市町村",
+    "place_kind": "発生場所",
+    "event_type": "事案名"
+  },
+  "columns": {
+    "municipality": "municipality",
+    "area_label": "area_label",
+    "event_type": "event_type",
+    "recognized_count_cumulative": "recognized_count_cumulative"
+  }
+}

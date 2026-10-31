@@ -1,0 +1,23 @@
+{
+  "dataset": "town_stats",
+  "combined_town_columns": {
+    "area_column": "市区町丁",
+    "display_region": "東京都",
+    "metrics": {
+      "総合計": "総合計",
+      "強盗": "凶悪犯強盗",
+      "暴行": "粗暴犯暴行",
+      "自転車盗": "非侵入窃盗自転車盗",
+      "自動車盗": "非侵入窃盗自動車盗",
+      "オートバイ盗": "非侵入窃盗オートバイ盗",
+      "車上ねらい": "非侵入窃盗車上ねらい",
+      "詐欺": "その他詐欺"
+    }
+  },
+  "columns": {
+    "municipality": "municipality",
+    "town": "town",
+    "crime_type": "crime_type",
+    "count": "count"
+  }
+}

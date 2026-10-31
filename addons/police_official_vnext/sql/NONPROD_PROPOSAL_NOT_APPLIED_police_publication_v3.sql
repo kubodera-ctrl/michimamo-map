@@ -246,11 +246,20 @@ begin
     select 1 from jsonb_array_elements(chosen.payload->'records') r
     where coalesce(r->>'recognized_count_cumulative','') !~ '^[0-9]{1,10}$'
   ) then raise exception 'invalid cumulative count'; end if;
+  if p_dataset='precursor' and exists (
+      select 1 from jsonb_array_elements(chosen.payload->'records') r
+      where r ? 'recognized_count_cumulative' and
+        coalesce(r->>'recognized_count_cumulative','') !~ '^[0-9]{1,10}$'
+    ) then raise exception 'invalid precursor CSV aggregate';end if;
   if p_dataset='precursor' then
     select coalesce(jsonb_agg(jsonb_build_object(
        'municipality',left(coalesce(r->>'municipality',''),80),
        'area_label',left(coalesce(r->>'area_label',''),110),
        'event_type',left(coalesce(r->>'event_type',''),90),
+       'recognized_count_cumulative',case when r ? 'recognized_count_cumulative' then
+          (r->>'recognized_count_cumulative')::bigint else null end,
+       'record_count_basis',case when r->>'record_count_basis'='official_csv_rows_cumulative_not_unique_incidents'
+          then 'official_csv_rows_cumulative_not_unique_incidents' else null end,
        'occurred_at',r->>'occurred_at',
        'recognized_at',r->>'recognized_at',
        'published_at',r->>'published_at',

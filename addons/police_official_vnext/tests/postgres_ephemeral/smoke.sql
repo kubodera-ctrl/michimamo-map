@@ -6,6 +6,7 @@ do $$begin
  if has_table_privilege('authenticated','public.police_official_documents','select') then raise exception 'Authenticated has raw SELECT';end if;
  if has_table_privilege('anon','public.police_official_documents','select') then raise exception 'Anon should not access raw records';end if;
  if has_function_privilege('anon','public.admin_review_police_official(text,bigint,text,text,text,text,text)','execute') then raise exception 'Anon can review data';end if;
+ if has_function_privilege('anon','public.admin_get_police_official_review(text)','execute') then raise exception 'Anon can list review queue';end if;
 end;$$;
 set role anon;
 do $$declare r jsonb;begin
@@ -88,4 +89,48 @@ do $$begin
   raise exception 'Existing admin audit integration missing';
  end if;
 end;$$;
+-- Synthetic cumulative-file test. NO real incidents or DB writes outside this disposable DB.
+set role service_role;
+do $$declare r jsonb;begin
+ r:=public.police_stage_official_document(jsonb_build_object(
+  'dataset','precursor','record_key','precursor:2026:09','revision',1,
+  'source_url','https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html',
+  'source_file_sha256',repeat('e',64),'content_hash',repeat('f',64),
+  'period_year',2026,'period_month',9,
+  'payload',jsonb_build_object('records',jsonb_build_array(jsonb_build_object(
+      'municipality','架空市','area_label','路上','event_type','声かけ',
+      'recognized_count_cumulative',2,
+      'record_count_basis','official_csv_rows_cumulative_not_unique_incidents',
+      'private_victim_attribute','SHOULD_NOT_LEAK',
+      'latitude',null,'longitude',null))),
+  'source_status','active','source_id_verified',false,'is_fixture',false,'requires_review',false));
+ if r->>'status'<>'staged_pending_review' then raise exception 'Precursory cumulative staging failure';end if;
+ perform set_config('machimamo.test_precursor_doc_id',r->>'document_id',false);
+end;$$;
+reset role;
+set role authenticated;
+do $$declare r jsonb;begin
+ r:=public.admin_review_police_official('EXAMPLE_TEST_PASSWORD_ONLY',
+  current_setting('machimamo.test_precursor_doc_id')::bigint,
+  'approve',repeat('f',64),repeat('e',64),
+  'https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html',
+  'synthetic_precursor_approved_in_ephemeral_only');
+ if r->>'reviewed'<>'true' then raise exception 'Synthetic precursor approval failed';end if;
+end;$$;
+reset role;
+-- Enabling for a single SELECT in this disposable database is SAFE (never persistent).
+update public.police_official_release_gate set enabled=true where id=true;
+set role anon;
+do $$declare j jsonb;declare item jsonb;begin
+ j:=public.police_official_public_cumulative('precursor');
+ if (j->>'publication_enabled')::boolean is distinct from true then raise exception 'Precursor public gate missing';end if;
+ if jsonb_array_length(j->'releases')<>1 then raise exception 'Missing unique cumulative snapshot';end if;
+ item:=j->'releases'->0->'records'->0;
+ if (item->>'recognized_count_cumulative')::bigint<>2 then raise exception 'Cumulative count lost';end if;
+ if item ? 'private_victim_attribute' then raise exception 'Sensitive precursor field leaked';end if;
+ if item->>'record_count_basis'<>'official_csv_rows_cumulative_not_unique_incidents' then raise exception 'CSV row count distinction lost';end if;
+ if item->>'latitude' is not null then raise exception 'Approximate crime point exposed';end if;
+end;$$;
+reset role;
+update public.police_official_release_gate set enabled=false where id=true;
 select 'EPHEMERAL_DB_SQL_CHECK_PASS' as result;
