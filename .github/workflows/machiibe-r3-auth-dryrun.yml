@@ -119,3 +119,103 @@ jobs:
           printf 'OFFICIAL_WRANGLER_DRY_RUN_PASS; bundle file count: '
           find r3-auth-dryrun-bundle -type f | wc -l
           echo 'HOSTED_AUTH_CPU_QUEUE_R2_DB: NOT_TESTED'
+      - name: Real local workerd missing-Secret and asset-first rejection
+        working-directory: event-site
+        shell: bash
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          test ! -f .dev.vars
+          npx wrangler dev --local --config wrangler.auth-local-dryrun.jsonc --port 8788 --ip 127.0.0.1 --show-interactive-dev-session=false --log-level error > r3-workerd-missing.log 2>&1 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          node --input-type=module <<'JSCODE'
+          import assert from 'node:assert/strict';
+          import {readdirSync,statSync} from 'node:fs';
+          import {join,relative,sep} from 'node:path';
+          const walk = (dir) => readdirSync(dir).flatMap(name=>{const p=join(dir,name);return statSync(p).isDirectory()?walk(p):[p]});
+          const all = walk('.open-next/assets/_next/static');
+          const asset = all.find(p=>p.endsWith('.js'));
+          assert.ok(asset,'no JS asset for genuine asset gate');
+          const route='/'+relative('.open-next/assets',asset).split(sep).join('/');
+          const get=async(path,method='GET')=>fetch('http://127.0.0.1:8788'+path,{method,redirect:'manual',signal:AbortSignal.timeout(2000)});
+          const wait=async()=>{for(let i=0;i<80;i++){try{const r=await get('/');if(r.status===503)return;}catch{}await new Promise(r=>setTimeout(r,250));}throw Error('workerd did not serve expected 503 in 20 seconds');};
+          await wait();
+          for(const routePath of ['/',route]){
+            const r=await get(routePath);
+            assert.equal(r.status,503,`missing secret must fail closed: ${routePath} got ${r.status}`);
+            assert.match(r.headers.get('cache-control')||'',/no-store/);
+            assert.match(r.headers.get('x-robots-tag')||'',/noindex/);
+          }
+          console.log('REAL_WORKERD_MISSING_SECRET_2_PATHS_503_PASS');
+          JSCODE
+          kill "$PID" 2>/dev/null || true
+          wait "$PID" 2>/dev/null || true
+          trap - EXIT
+      - name: Real local workerd Basic auth, JS asset routing, HEAD and SSR
+        working-directory: event-site
+        shell: bash
+        timeout-minutes: 4
+        run: |
+          set -euo pipefail
+          test ! -f .dev.vars
+          npx wrangler dev --local --config wrangler.auth-local-dryrun.jsonc --port 8789 --ip 127.0.0.1 --show-interactive-dev-session=false --log-level error --var BETA_PASSWORD:syntheticCIpasswordONLY1234 > r3-workerd-configured.log 2>&1 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          node --input-type=module <<'JSCODE'
+          import assert from 'node:assert/strict';
+          import {readdirSync,statSync,readFileSync,writeFileSync} from 'node:fs';
+          import {join,relative,sep} from 'node:path';
+          const walk = dir => readdirSync(dir).flatMap(name=>{const p=join(dir,name);return statSync(p).isDirectory()?walk(p):[p]});
+          const candidates=walk('.open-next/assets/_next/static').filter(p=>p.endsWith('.js')).sort();
+          assert.ok(candidates.length>0,'static JS asset required');
+          const asset=candidates[0];
+          const assetPath='/'+relative('.open-next/assets',asset).split(sep).join('/');
+          const basic='Basic '+Buffer.from('beta:syntheticCIpasswordONLY1234').toString('base64');
+          const get=(path,method='GET',auth)=>fetch('http://127.0.0.1:8789'+path,{method,redirect:'manual',headers:auth?{Authorization:auth}:{},signal:AbortSignal.timeout(4000)});
+          const wait=async()=>{for(let i=0;i<100;i++){try{const r=await get('/');if(r.status===401)return;}catch{}await new Promise(r=>setTimeout(r,250));}throw Error('workerd did not serve expected 401 in 25 seconds');};
+          await wait();
+          const checks=[];
+          const checked=async(p,method,auth,status)=>{const r=await get(p,method,auth);assert.equal(r.status,status,`${method} ${p} expected ${status} actual ${r.status}`);assert.match(r.headers.get('cache-control')||'',/no-store/);assert.match(r.headers.get('x-robots-tag')||'',/noindex/);checks.push({path:p,method,status});return r;};
+          await checked('/', 'GET', null,401);
+          await checked(assetPath,'GET',null,401);
+          await checked(assetPath,'HEAD',null,401);
+          await checked(assetPath,'GET','Basic invalid',401);
+          const assetResult=await checked(assetPath,'GET',basic,200);
+          assert.deepEqual(Buffer.from(await assetResult.arrayBuffer()),readFileSync(asset),'real static asset bytes mismatch');
+          const h=await checked(assetPath,'HEAD',basic,200);
+          assert.equal((await h.arrayBuffer()).byteLength,0,'HEAD must have empty body');
+          const saved=await checked('/saved','GET',basic,200);
+          assert.match(saved.headers.get('content-type')||'',/text\/html/);
+          const html=await saved.text();assert.match(html,/SAVED|保存|行きたい/);
+          checks.push({path:'/saved',check:'SSR HTML body',status:'PASS'});
+          writeFileSync('r3-workerd-result.json',JSON.stringify({status:'LOCAL_WORKERD_PASS',checks,asset_bytes:statSync(asset).size,asset_path:assetPath,hosted:false,cloudflare_deploy:false,secret_values_used:'synthetic_only'},null,2)+'\n');
+          console.log(`REAL_WORKERD_AUTH_ASSET_HEAD_SSR_PASS ${checks.length} checks`);
+          JSCODE
+          kill "$PID" 2>/dev/null || true
+          wait "$PID" 2>/dev/null || true
+          trap - EXIT
+      - name: Preserve generated isolated runtime source for next gate (no deploy)
+        if: success()
+        working-directory: event-site
+        shell: bash
+        run: |
+          test -f r3-workerd-result.json
+          test -f .open-next/auth-entry.mjs
+          test -f wrangler.auth-local-dryrun.jsonc
+          tar czf r3-auth-nonprod-build-TEST-ONLY.tgz .open-next wrangler.auth-local-dryrun.jsonc r3-workerd-result.json
+          sha256sum r3-auth-nonprod-build-TEST-ONLY.tgz > r3-auth-nonprod-build-TEST-ONLY.sha256
+          echo 'ARTIFACT_PACKED_TEST_ONLY_NO_SECRETS_NO_DEPLOY'
+      - name: Upload isolated workerd logs and optional build (never secrets)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: machiibe-r3-auth-workerd-${{ github.run_id }}
+          path: |
+            event-site/r3-workerd-missing.log
+            event-site/r3-workerd-configured.log
+            event-site/r3-workerd-result.json
+            event-site/r3-auth-nonprod-build-TEST-ONLY.tgz
+            event-site/r3-auth-nonprod-build-TEST-ONLY.sha256
+          retention-days: 7
+          if-no-files-found: warn
