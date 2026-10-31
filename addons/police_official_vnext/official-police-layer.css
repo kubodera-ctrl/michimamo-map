@@ -1,0 +1,13 @@
+/* Scoped to the existing MAP view; only used when explicitly enabled in nonprod. */
+.filter-chip.police-official-filter { color:#155e75; border-color:#99f6e4; }
+.filter-chip.police-official-filter.active { background:#155e75; color:white; border-color:#155e75; }
+.police-official-panel[hidden] { display:none !important; }
+.police-official-panel { position:absolute; z-index:1400; right:10px; bottom:18px; width:min(430px,calc(100vw - 20px)); max-height:min(65vh,620px); overflow-y:auto; overscroll-behavior:contain; touch-action:pan-y; -webkit-overflow-scrolling:touch; background:white; border:1px solid #cbd5e1; border-radius:16px; padding:14px; box-shadow:0 12px 28px rgba(15,23,42,.23); color:#17212b; font-size:13px; line-height:1.55; }
+.police-official-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.police-official-close { border:1px solid #cbd5e1; background:white; border-radius:8px; padding:8px 12px; cursor:pointer; font:inherit; }
+.police-official-source-badge { display:block; color:#115e59; font-weight:900; font-size:12px; margin-bottom:6px; }
+.police-official-detail { margin-top:12px; border:1px solid #e2e8f0; border-radius:10px; padding:10px; background:white; word-wrap:break-word; }
+.police-official-detail p { margin:7px 0; }
+.police-official-detail a { text-decoration:underline; color:#1d4ed8; }
+.police-official-disclaimer { background:#f1f5f9; border-radius:8px; padding:8px; color:#475569; }
+.police-official-status { font-weight:800; color:#155e75; }
