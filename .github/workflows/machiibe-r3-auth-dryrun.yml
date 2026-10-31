@@ -1,0 +1,115 @@
+# Isolated code-only CI. Created with user GO; no Cloudflare deployment, credentials, or production changes.
+name: Machiibe R3 Auth Wrapper Official Compile Only
+on:
+  push:
+    branches:
+      - 'chore/machiibe-r3-auth-dryrun-20261031'
+    paths:
+      - '.github/workflows/machiibe-r3-auth-dryrun.yml'
+permissions:
+  contents: read
+concurrency:
+  group: machiibe-r3-auth-dryrun-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  official-dry-run:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CI: 'true'
+      NEXT_TELEMETRY_DISABLED: '1'
+      WRANGLER_SEND_METRICS: 'false'
+      NEXT_PUBLIC_ALLOW_INDEXING: 'false'
+    steps:
+      - name: Checkout exact PR43 based branch
+        uses: actions/checkout@v4
+      - name: Set up fixed Node 22.23.2
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.2'
+      - name: Verify fixed base and pinned versions
+        shell: bash
+        run: |
+          test '$(git rev-parse HEAD^)' = '5e0497206b4fcd06a82a931ca4b191b91ad0e45f'
+          node --version | grep '^v22\.23\.2$'
+          node -e "const p=require('./event-site/package.json'); if(p.dependencies.next!=='16.4.2'||p.devDependencies['@opennextjs/cloudflare']!=='1.20.13'||p.devDependencies.wrangler!=='4.151.1')process.exit(3)"
+      - name: Install existing pinned event-site packages
+        working-directory: event-site
+        run: npm install --no-audit --no-fund
+      - name: Build PR43 Next16 OpenNext (no release)
+        working-directory: event-site
+        run: npm run cf:build
+      - name: Prepare isolated auth wrapper + config, never deploy
+        shell: bash
+        run: |
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import base64, hashlib, json, re
+          base=Path('event-site')
+          a=base/'.open-next'
+          assert (a/'worker.js').is_file(), 'PR43 OpenNext output missing; stop'
+          assert (a/'assets').is_dir(), 'PR43 ASSETS missing; stop'
+          wrapper=base64.b64decode('Ly8gSXNvbGF0ZWQgc291cmNlIGFkYXB0YXRpb24gb2YgdGhlIGV4YWN0IHdyYXBwZXIgZm91bmQgYXQgdGhlIGVuZCBvZiB0aGUKLy8gc2F2ZWQgMjAyNi0xMC0yMyBQYWdlcyBfd29ya2VyLmpzIGJ1bmRsZS4gVGhpcyBpcyB0ZXN0YWJsZSBnbHVlLCBub3QgYQovLyBnZW5lcmF0ZWQgUGFnZXMgdXBsb2FkIGVudHJ5cG9pbnQgYW5kIG5vdCB5ZXQgY29ubmVjdGVkIHRvIHRoZSBjdXJyZW50IGJ1aWxkLgpjb25zdCBDSEFMTEVOR0U9J0Jhc2ljIHJlYWxtPSJNYWNoaWliZSBCZXRhIiwgY2hhcnNldD0iVVRGLTgiJzsKY29uc3QgTUFYX0FVVEhPUklaQVRJT05fTEVOR1RIPTMwMDsKCmZ1bmN0aW9uIHZhbGlkU2VjcmV0KHNlY3JldCl7CiAgcmV0dXJuIHR5cGVvZiBzZWNyZXQ9PT0nc3RyaW5nJyYmc2VjcmV0Lmxlbmd0aD49MjAmJnNlY3JldC5sZW5ndGg8PTEyOCYmL15bXHgyMS1ceDdlXSskLy50ZXN0KHNlY3JldCk7Cn0KCmZ1bmN0aW9uIGNvbnN0YW50VGltZUVxdWFsKGxlZnQscmlnaHQpewogIGxldCBkaWZmZXJlbmNlPWxlZnQubGVuZ3RoXnJpZ2h0Lmxlbmd0aDsKICBjb25zdCBsZW5ndGg9TWF0aC5tYXgobGVmdC5sZW5ndGgscmlnaHQubGVuZ3RoKTsKICBmb3IobGV0IGluZGV4PTA7aW5kZXg8bGVuZ3RoO2luZGV4Kz0xKQogICAgZGlmZmVyZW5jZXw9KGxlZnQuY2hhckNvZGVBdChpbmRleCl8fDApXihyaWdodC5jaGFyQ29kZUF0KGluZGV4KXx8MCk7CiAgcmV0dXJuIGRpZmZlcmVuY2U9PT0wOwp9CgpmdW5jdGlvbiBkZW5pZWQoc3RhdHVzLG1lc3NhZ2UsZXh0cmFIZWFkZXJzPXt9KXsKICByZXR1cm4gbmV3IFJlc3BvbnNlKG1lc3NhZ2Use3N0YXR1cyxoZWFkZXJzOnsKICAgICdDb250ZW50LVR5cGUnOid0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04JywKICAgICdDYWNoZS1Db250cm9sJzoncHJpdmF0ZSwgbm8tc3RvcmUnLAogICAgJ1gtUm9ib3RzLVRhZyc6J25vaW5kZXgsIG5vZm9sbG93LCBub2FyY2hpdmUnLAogICAgLi4uZXh0cmFIZWFkZXJzCiAgfX0pOwp9CgpmdW5jdGlvbiBiZXRhQXV0aFJlc3BvbnNlKHJlcXVlc3QscGFzc3dvcmQpewogIGlmKCF2YWxpZFNlY3JldChwYXNzd29yZCkpcmV0dXJuIGRlbmllZCg1MDMsJ0JldGEgYWNjZXNzIGlzIG5vdCBjb25maWd1cmVkLicpOwogIGNvbnN0IGF1dGhvcml6YXRpb249cmVxdWVzdC5oZWFkZXJzLmdldCgnQXV0aG9yaXphdGlvbicpPz8nJzsKICBjb25zdCBtYXRjaD0vXkJhc2ljXHMrKFtBLVphLXowLTkrL10rPXswLDJ9KSQvaS5leGVjKGF1dGhvcml6YXRpb24pOwogIGlmKCFtYXRjaHx8bWF0Y2hbMV0ubGVuZ3RoPk1BWF9BVVRIT1JJWkFUSU9OX0xFTkdUSCkKICAgIHJldHVybiBkZW5pZWQoNDAxLCdBdXRoZW50aWNhdGlvbiByZXF1aXJlZC4nLHsnV1dXLUF1dGhlbnRpY2F0ZSc6Q0hBTExFTkdFfSk7CiAgY29uc3QgZXhwZWN0ZWQ9YnRvYShgYmV0YToke3Bhc3N3b3JkfWApOwogIGlmKCFjb25zdGFudFRpbWVFcXVhbChtYXRjaFsxXSxleHBlY3RlZCkpCiAgICByZXR1cm4gZGVuaWVkKDQwMSwnQXV0aGVudGljYXRpb24gcmVxdWlyZWQuJyx7J1dXVy1BdXRoZW50aWNhdGUnOkNIQUxMRU5HRX0pOwogIHJldHVybiBudWxsOwp9CgpmdW5jdGlvbiBhZGRCZXRhU2FmZXR5SGVhZGVycyhyZXNwb25zZSl7CiAgY29uc3QgaGVhZGVycz1uZXcgSGVhZGVycyhyZXNwb25zZS5oZWFkZXJzKTsKICBoZWFkZXJzLnNldCgnQ2FjaGUtQ29udHJvbCcsJ3ByaXZhdGUsIG5vLXN0b3JlJyk7CiAgaGVhZGVycy5zZXQoJ1gtUm9ib3RzLVRhZycsJ25vaW5kZXgsIG5vZm9sbG93LCBub2FyY2hpdmUnKTsKICByZXR1cm4gbmV3IFJlc3BvbnNlKHJlc3BvbnNlLmJvZHkse3N0YXR1czpyZXNwb25zZS5zdGF0dXMsc3RhdHVzVGV4dDpyZXNwb25zZS5zdGF0dXNUZXh0LGhlYWRlcnN9KTsKfQoKLyoqCiAqIFJlcGxheXMgdGhlIG9sZCBQYWdlcyBhZHZhbmNlZC1tb2RlIHdyYXBwZXIgY29udHJhY3QgYWdhaW5zdCBpbmplY3RlZCBtb2Nrcy4KICogYGVudi5BU1NFVFMuZmV0Y2hgIGhhbmRsZXMgc3RhdGljIGFzc2V0czsgYGFwcGxpY2F0aW9uV29ya2VyLmZldGNoYCBpcyB0aGUKICogZHluYW1pYyBPcGVuTmV4dCB3b3JrZXIgZGVsZWdhdGUuIFRoZSBjYWxsZXIgbXVzdCBzdXBwbHkgdGhlIGV4YWN0IHJ1bnRpbWUKICogYmluZGluZ3MgYW5kIGdlbmVyYXRlZCB3b3JrZXIgd2hlbiBpbnRlZ3JhdGluZyB0aGlzIGludG8gYSByZWxlYXNlIGJ1aWxkLgogKi8KZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGJldGFQYWdlc1dyYXBwZXJGZXRjaChyZXF1ZXN0LGVudixjdHgsYXBwbGljYXRpb25Xb3JrZXIpewogIGNvbnN0IGJsb2NrZWQ9YmV0YUF1dGhSZXNwb25zZShyZXF1ZXN0LGVudj8uQkVUQV9QQVNTV09SRCk7CiAgaWYoYmxvY2tlZClyZXR1cm4gYmxvY2tlZDsKICBpZigocmVxdWVzdC5tZXRob2Q9PT0nR0VUJ3x8cmVxdWVzdC5tZXRob2Q9PT0nSEVBRCcpJiZlbnY/LkFTU0VUUz8uZmV0Y2gpewogICAgY29uc3QgYXNzZXQ9YXdhaXQgZW52LkFTU0VUUy5mZXRjaChyZXF1ZXN0KTsKICAgIGlmKGFzc2V0LnN0YXR1cyE9PTQwNClyZXR1cm4gYWRkQmV0YVNhZmV0eUhlYWRlcnMoYXNzZXQpOwogIH0KICBpZighYXBwbGljYXRpb25Xb3JrZXJ8fHR5cGVvZiBhcHBsaWNhdGlvbldvcmtlci5mZXRjaCE9PSdmdW5jdGlvbicpCiAgICByZXR1cm4gZGVuaWVkKDUwMywnQmV0YSBhcHBsaWNhdGlvbiBydW50aW1lIGlzIHVuYXZhaWxhYmxlLicpOwogIGNvbnN0IHJlc3BvbnNlPWF3YWl0IGFwcGxpY2F0aW9uV29ya2VyLmZldGNoKHJlcXVlc3QsZW52LGN0eCk7CiAgcmV0dXJuIGFkZEJldGFTYWZldHlIZWFkZXJzKHJlc3BvbnNlKTsKfQoKZXhwb3J0IGNvbnN0IGJldGFXcmFwcGVyVGVzdEludGVybmFscz17dmFsaWRTZWNyZXR9Owo=')
+          expected='2de2a1f479c6c9162b9fb7ba8d7b4e2dde22201804099519b7c0a5eb5cd057dc'
+          assert hashlib.sha256(wrapper).hexdigest()==expected,'Wrapper source mismatch STOP'
+          assert b'BETA_PASSWORD' in wrapper and b'Cache-Control' in wrapper
+          (a/'beta-pages-wrapper.mjs').write_bytes(wrapper)
+          (a/'auth-entry.mjs').write_text("import applicationWorker from './worker.js';\nimport { betaPagesWrapperFetch } from './beta-pages-wrapper.mjs';\nexport { DOQueueHandler, DOShardedTagCache, BucketCachePurge } from './worker.js';\nexport default { fetch(request, env, ctx) { return betaPagesWrapperFetch(request,env,ctx,applicationWorker); } };\n",encoding='utf-8')
+          config={
+            'name':'machiibe-r3-ci-dryrun-only',
+            'main':'.open-next/auth-entry.mjs',
+            'compatibility_date':'2026-09-19',
+            'compatibility_flags':['nodejs_compat'],
+            'assets':{'directory':'.open-next/assets','binding':'ASSETS','run_worker_first':True},
+            'vars':{'NEXT_PUBLIC_ALLOW_INDEXING':'false'},
+            'observability':{'enabled':False},
+            'preview_urls':False
+          }
+          assert all(x not in config for x in ('routes','route','triggers','queues','r2_buckets','account_id','env'))
+          (base/'wrangler.auth-local-dryrun.jsonc').write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
+          init=a/'cloudflare'/'init.js'
+          if init.exists():
+            txt=init.read_text(encoding='utf-8')
+            if '__ASSETS_RUN_WORKER_FIRST__: false' in txt:
+              print('GENERATED_INTERNAL_FLAG_FALSE (expected mismatch preserved; Hosted routing not proven)')
+          print('STAGING_SOURCE_SHA_MATCH',expected)
+          print('AUTH_FIRST_ROUTING_IN_WRANGLER_CONFIG',config['assets']['run_worker_first'])
+          print('NO_DEPLOYMENT_NO_SECRETS')
+          PYCODE
+      - name: Targeted wrapper boundary smoke (synthetic only)
+        working-directory: event-site
+        shell: bash
+        run: |
+          node --input-type=module <<'JSCODE'
+          import assert from 'node:assert/strict';
+          import {betaPagesWrapperFetch} from './.open-next/beta-pages-wrapper.mjs';
+          const password = 'syntheticCIpasswordONLY1234';
+          const auth = 'Basic '+btoa('beta:'+password);
+          let appCalls=0,assetCalls=0;
+          const app={fetch:async()=>{appCalls++;return new Response('HTML',{status:200,headers:{'Content-Type':'text/html'}})}};
+          const env={BETA_PASSWORD:password,ASSETS:{fetch:async(request)=>{assetCalls++;return new URL(request.url).pathname.startsWith('/_next/static/')?new Response('CSS',{status:200}):new Response('missing',{status:404})}}};
+          const req=(path,authorization)=>new Request('https://machiibe-r3.invalid'+path,{headers:authorization?{Authorization:authorization}:{}});
+          let r=await betaPagesWrapperFetch(req('/'),{}, {},app);
+          assert.equal(r.status,503);assert.equal(appCalls,0);assert.equal(assetCalls,0);
+          r=await betaPagesWrapperFetch(req('/'),env,{},app);
+          assert.equal(r.status,401);assert.equal(appCalls,0);assert.equal(assetCalls,0);
+          r=await betaPagesWrapperFetch(req('/_next/static/ci.css','Basic incorrect'),env,{},app);
+          assert.equal(r.status,401);assert.equal(appCalls,0);assert.equal(assetCalls,0);
+          r=await betaPagesWrapperFetch(req('/_next/static/ci.css',auth),env,{},app);
+          assert.equal(r.status,200);assert.equal(await r.text(),'CSS');assert.equal(appCalls,0);assert.equal(assetCalls,1);
+          assert.match(r.headers.get('Cache-Control'),/no-store/);assert.match(r.headers.get('X-Robots-Tag'),/noindex/);
+          r=await betaPagesWrapperFetch(req('/saved',auth),env,{},app);
+          assert.equal(r.status,200);assert.equal(await r.text(),'HTML');assert.equal(appCalls,1);assert.equal(assetCalls,2);
+          console.log('WRAPPER_SOURCE_CI_TARGETED_5_CASES_PASS; HOSTED_UNVERIFIED');
+          JSCODE
+      - name: Wrangler 4.151.1 official dry-run, no deployment
+        working-directory: event-site
+        shell: bash
+        run: |
+          npx wrangler deploy --dry-run --config wrangler.auth-local-dryrun.jsonc --outdir ./r3-auth-dryrun-bundle
+          test -d r3-auth-dryrun-bundle
+          test "$(find r3-auth-dryrun-bundle -type f | wc -l)" -ge 1
+          printf 'OFFICIAL_WRANGLER_DRY_RUN_PASS; bundle file count: '
+          find r3-auth-dryrun-bundle -type f | wc -l
+          echo 'HOSTED_AUTH_CPU_QUEUE_R2_DB: NOT_TESTED'
