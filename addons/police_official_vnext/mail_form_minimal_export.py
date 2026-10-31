@@ -17,6 +17,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from inspect_mail_export import inspect_bytes
+from mail_csv_shape_profile import profile_bytes
 
 SITE = "https://mail.keishicho.metro.tokyo.lg.jp/opendata/"
 DOWNLOAD = "https://mail.keishicho.metro.tokyo.lg.jp/opendata/download"
@@ -189,10 +190,17 @@ def capture_schema_via_official_ui() -> dict:
             downloaded.save_as(str(out))
             if out.stat().st_size > MAX_EXPORT_BYTES:
                 raise ValueError("unexpectedly large export; delete without processing")
-            schema = inspect_bytes(out.read_bytes(), "csv")
+            raw = out.read_bytes()
+            try:
+                schema = inspect_bytes(raw, "csv")
+                status = "OFFICIAL_MAIL_MINIMAL_UI_EXPORT_SCHEMA_ONLY"
+            except ValueError:
+                # Real export may be nonrectangular; do NOT repair or import.
+                schema = profile_bytes(raw)
+                status = "OFFICIAL_MAIL_DOWNLOADED_BUT_SCHEMA_REVIEW_REQUIRED"
         browser.close()
         return {
-          "status": "OFFICIAL_MAIL_MINIMAL_UI_EXPORT_SCHEMA_ONLY",
+          "status": status,
           "official_form":SITE,
           "export_day":DAY.isoformat(),
           "date_to_exclusive":NEXT.isoformat(),
