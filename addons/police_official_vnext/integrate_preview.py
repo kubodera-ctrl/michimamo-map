@@ -15,9 +15,9 @@ from pathlib import Path
 EXPECTED = "57e38f00304f541c10002c7ea34f2341acc1671ba62be2b15dbdcf936bc5cb90"
 PREFIX = "<!-- police-official-vnext:nonprod -->"
 SUFFIX = "<!-- /police-official-vnext:nonprod -->"
-INSERT_HEAD = '<link rel="stylesheet" href="official-police-layer.css?v=vnext01" />'
+INSERT_HEAD = '<link rel="stylesheet" href="official-police-layer.css?v=sourceonly02" />'
 INSERT_BODY = '''<script src="official-police-layer.js?v=vnext02"></script>
-<script src="official-police-hub.js?v=sourceonly01"></script>
+<script src="official-police-hub.js?v=sourceonly02"></script>
 <script>
 (function mountPoliceOfficialInExistingMap() {
   // Reuse the current MAP filter and dashboard. Public links only by default;
@@ -26,7 +26,9 @@ INSERT_BODY = '''<script src="official-police-layer.js?v=vnext02"></script>
     try {
       if (!window.MachimamoPoliceHub) return;
       const hub = window.MachimamoPoliceHub.mount({doc:document, map:null, leaflet:null,
-        fetcher:fetch.bind(window), location:window.location, enabled:true, sourceOnly:true});
+        fetcher:fetch.bind(window), location:window.location, enabled:true, sourceOnly:true,
+        openNearby:typeof window.openNearbySafety==='function'
+          ? (kind)=>window.openNearbySafety(kind) : undefined});
       if (!hub) return;
       window.MachimamoPoliceHubController = hub;
       hub.refresh({national:'official_source_registry.json'}).catch(()=>{});

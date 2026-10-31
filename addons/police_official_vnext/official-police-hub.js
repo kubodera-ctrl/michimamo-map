@@ -89,7 +89,7 @@ function renderRows(doc,container,rows,dataset,limit){
  }
  if(rows.length>cap)container.append(text(doc,'p',`表示上限 ${cap}件です。詳細は公式資料をご確認ください。`));
 }
-function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false}){
+function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false, openNearby}){
  if(!enabled)return null;
  if(!doc||(!sourceOnly&&(!map||!leaflet))||!doc.querySelector('#filterWrapper .filter-content')||!doc.getElementById('map-container'))throw new Error('existing MAP unavailable');
  if(doc.getElementById('policeOfficialHubToggle'))return null;
@@ -99,17 +99,43 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
  const panel=text(doc,'aside',undefined,'police-official-panel police-official-hub');panel.id='policeOfficialHubPanel';panel.hidden=true;
  panel.setAttribute('aria-label',sourceOnly?'警察公式情報の確認先':'警察公表・犯罪統計');if(sourceOnly)panel.setAttribute('data-source-only','true');
  const top=text(doc,'div',undefined,'police-official-heading');const close=text(doc,'button','閉じる','police-official-close');close.type='button';top.append(text(doc,'strong',sourceOnly?'警察公式情報を探す':'警察公表・犯罪統計'),close);
+ const quickNav=text(doc,'nav',undefined,'police-official-quick-nav');
+ quickNav.setAttribute('aria-label','調べたい防犯情報から探す');
+ const quickButtons=[];
  const tabbar=text(doc,'div',undefined,'police-official-hub-tabs');
  const info=text(doc,'div',undefined,'police-official-hub-data');
  const status=text(doc,'p','公開データの接続状況を確認してください。','police-official-status');status.setAttribute('role','status');
  const caution=text(doc,'p','警察公表と利用者投稿は別情報です。公式情報に投稿ポイントは付きません。表示の少なさや0件は、安全の保証ではありません。','police-official-disclaimer');
- panel.append(top,tabbar,status,caution,info);
+ panel.append(top,...(sourceOnly?[quickNav]:[]),tabbar,status,caution,info);
  bar.append(chip);mapHost.append(panel);
- let precursor=null,stats=null,directory=null,selected=sourceOnly?'mail':'precursor';
+ let precursor=null,stats=null,directory=null,selected=sourceOnly?'mail':'precursor',prefectureQuery='';
  const tabs=[['mail','防犯情報'],['precursor','前兆事案'],['town_stats','町丁目統計'],['fraud','特殊詐欺・アポ電'],['national','全国47都道府県'],['about','出典と注意']];
+ function changeTab(key){selected=key;render();}
+ if(sourceOnly){
+   quickNav.append(text(doc,'strong','今、何を確認したい？','police-official-quick-title'));
+   const actions=[['子ども・通学','mail'],['不審者・声かけ','precursor'],['詐欺・アポ電','fraud'],['自転車盗','town_stats'],['全国の統計','national']];
+   for(const [label,key] of actions){
+     const button=text(doc,'button',label,'police-official-quick-action');button.type='button';
+     button.setAttribute('data-police-topic',key);
+     button.addEventListener('click',()=>changeTab(key));quickNav.append(button);quickButtons.push([button,key]);
+   }
+   if(typeof openNearby==='function'){
+     quickNav.append(text(doc,'p','まちまもの地図ですぐ探す','police-official-quick-caption'));
+     for(const [label,kind] of [['近くの交番','police'],['近くのAED','aed']]){
+       const button=text(doc,'button',label,'police-official-map-action');button.type='button';
+       button.setAttribute('data-police-map-action',kind);
+       button.addEventListener('click',()=>{
+         toggle(false);
+         try { openNearby(kind); }catch(_){ /* The original MAP remains unchanged on optional navigation failure. */ }
+       });
+       quickNav.append(button);
+     }
+   }
+ }
  function render(){
   info.replaceChildren();tabbar.replaceChildren();
-  for(const [key,label] of tabs){const button=text(doc,'button',label);button.type='button';button.setAttribute('aria-pressed',String(key===selected));button.addEventListener('click',()=>{selected=key;render();});tabbar.append(button);}
+  for(const [key,label] of tabs){const button=text(doc,'button',label);button.type='button';button.setAttribute('aria-pressed',String(key===selected));button.addEventListener('click',()=>changeTab(key));tabbar.append(button);}
+  for(const [button,key] of quickButtons)button.setAttribute('aria-pressed',String(key===selected));
   try{
    if(selected==='mail'){
     status.textContent=sourceOnly?'警視庁の防犯配信：公式公開元を確認':'メールけいしちょう・公式情報';
@@ -133,8 +159,33 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
     info.append(text(doc,'p','アポ電は特殊詐欺につながる予兆電話です。警視庁犯罪情報マップに公式の確認先があります。警察情報マップの画像・ピンは転載していません。'),a(doc,'警視庁犯罪情報マップ（アポ電を確認）',SOURCE_PAGES.fraud));
    }else if(selected==='national'){
     status.textContent='全国窃盗7手口：47都道府県の公式出典案内（年次データ、速報ではありません）';
-    if(directory){for(const p of visibleDirectory(directory)){const line=text(doc,'div',undefined,'police-official-source-row');line.append(a(doc,p.prefecture+'の公開元',p.source_page),text(doc,'small','年次・出典のみ／再利用権とデータ更新は県別確認待ち'));info.append(line);}}
-    else info.append(empty(doc,'全国出典一覧は未読込です。'));
+    if(directory){
+      const sourceRows=visibleDirectory(directory);
+      const searchRow=text(doc,'div',undefined,'police-official-prefecture-search');
+      const label=text(doc,'label','都道府県名で検索（例：東京・千葉）');
+      const input=doc.createElement('input');input.type='search';input.value=prefectureQuery;
+      input.setAttribute('aria-label','都道府県名で公式データ公開元を検索');
+      input.setAttribute('placeholder','例：東京・千葉・大阪');input.setAttribute('maxlength','30');
+      const count=text(doc,'p',undefined,'police-official-search-count');count.setAttribute('role','status');
+      const results=text(doc,'div',undefined,'police-official-prefecture-results');
+      const draw=()=>{
+        const query=String(prefectureQuery||'').normalize('NFKC').trim().slice(0,30);
+        const matched=sourceRows.filter(p=>String(p.prefecture).normalize('NFKC').includes(query)||p.jis===query);
+        results.replaceChildren();count.textContent=`${matched.length} / ${sourceRows.length} 都道府県の公開元`;
+        for(const p of matched){
+          const line=text(doc,'div',undefined,'police-official-source-row');
+          line.append(a(doc,p.prefecture+'の公式データ公開元',p.source_page),
+            text(doc,'small','年次の窃盗統計・出典案内。新しい事件の速報ではありません。県別の再利用条件は確認待ち。'));
+          results.append(line);
+        }
+        if(!matched.length)results.append(empty(doc,'一致する都道府県がありません。地域名を変えてください。'));
+      };
+      input.addEventListener('input',()=>{prefectureQuery=String(input.value||'').slice(0,30);draw();});
+      const reset=text(doc,'button','クリア','police-official-search-reset');reset.type='button';
+      reset.addEventListener('click',()=>{prefectureQuery='';input.value='';draw();input.focus?.();});
+      label.append(input);searchRow.append(label,reset);
+      info.append(searchRow,count,results);draw();
+    }else info.append(empty(doc,'全国の公式公開元リストを読み込めませんでした。警察庁の原典から確認できます。'));
     info.append(a(doc,'警察庁・全国警察オープンデータの公式案内',SOURCE_PAGES.national));
    }else{
     status.textContent='公式の出典と確認条件';

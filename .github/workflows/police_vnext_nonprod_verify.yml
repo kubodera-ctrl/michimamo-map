@@ -61,6 +61,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_*.py'
           node tests/test_hub.cjs
           node tests/test_source_only.cjs
+          node tests/test_source_quick_navigation.cjs
           node tests/test_layer.cjs
           node tests/test_admin_hub.cjs
           node tests/test_mail_identity_admin.cjs

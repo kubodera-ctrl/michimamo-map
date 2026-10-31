@@ -37,3 +37,19 @@
  .police-official-hub{width:calc(100vw - 24px);right:12px;left:12px;bottom:calc(var(--machimamo-bottom-nav-height, 66px) + 10px);max-height:68dvh}
  .police-official-hub-tabs button{min-height:39px}
 }
+
+/* R13: source-first discovery and existing MAP safety navigation; no new backend. */
+.police-official-quick-nav{display:flex;flex-wrap:wrap;gap:7px;padding:9px 0;border-bottom:1px solid #e2e8f0}
+.police-official-quick-title{width:100%;font-size:.84rem;color:#164e47}
+.police-official-quick-action,.police-official-map-action{font:inherit;font-weight:650;border:1px solid #cbd5e1;border-radius:999px;background:#f8fafc;color:#155e75;padding:8px 11px;min-height:40px;cursor:pointer}
+.police-official-quick-action[aria-pressed="true"]{background:#0f766e;color:white;border-color:#0f766e}
+.police-official-map-action{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.police-official-quick-caption{width:100%;margin:3px 0 0;font-size:.75rem;color:#64748b}
+.police-official-prefecture-search{display:flex;gap:8px;align-items:end;flex-wrap:wrap}
+.police-official-prefecture-search label{display:grid;flex:1;gap:5px;min-width:170px;font-size:.8rem;font-weight:650}
+.police-official-prefecture-search input{width:100%;min-height:42px;border:1px solid #94a3b8;border-radius:10px;padding:9px 11px;font:inherit;font-size:16px}
+.police-official-search-reset{border:1px solid #cbd5e1;border-radius:10px;background:white;padding:9px 11px;min-height:42px;font:inherit;cursor:pointer}
+.police-official-search-count{font-size:.76rem;color:#475569;margin:3px 0}
+.police-official-prefecture-results{display:grid;gap:7px}
+.police-official-quick-action:focus-visible,.police-official-map-action:focus-visible,.police-official-search-reset:focus-visible,.police-official-prefecture-search input:focus-visible{outline:3px solid #38bdf8;outline-offset:2px}
+@media(max-width:600px){.police-official-quick-nav{gap:6px}.police-official-quick-action,.police-official-map-action{min-height:42px}}

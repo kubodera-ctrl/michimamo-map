@@ -135,3 +135,12 @@ The receipt JSON itself is metadata, not proof of origin; users must inspect the
 - `MACHIMAMO_POLICE_OFFICIAL_VNEXT_ENABLED===true` による**フルデータ表示は別途審査・環境整備・個別承認が必要**。source-onlyは `refresh` の前兆/町丁目ファイル取込を拒否、管理者RPCを呼ばず、原文を表示しない。
 - 本スクリプトの出力は `test_only_not_for_upload/` で包んだ**配備禁止ZIP**。既存本番SupabaseがHTMLに含まれるため、Cloudflareにそのまま配置・一般公開しない。保護付きHostedとSafari実機QA・復旧IDは未実施。
 - テスト：`node tests/test_source_only.cjs`、`node tests/test_hub.cjs`、`node tests/test_admin_hub.cjs`、既存142ファイルの固定SHAで `integrate_preview.py` 生成の byte-preservation / CRC確認。ローカルChromium DOMの公式リンク確認は模擬通信で行い、外部ネットワーク0・実DB操作0。
+
+
+## R13｜既存まちまもMAPの目的別安全情報・近くの交番/AEDを連結（2026-10-31）
+
+- **同じMAP内の追加UI**：既存「公式防犯・データ」フィルターに「子ども・通学」「不審者・声かけ」「詐欺・アポ電」「自転車盗」「全国の統計」のクイック選択を追加。各ボタンは既存の警察公式出典タブを開くだけで、新規の配信・点数付与はしない。
+- **近くの交番・AED**：既存MAPの `window.openNearbySafety('police'|'aed')` が実在する場合のみショートカットを表示。新規地図や位置推定を作らず、表示パネルを閉じて既存の安全スポットUIへ引き渡す。該当機能が無い環境ではボタンを非表示。
+- **全国47都道府県を検索**：既存 `official_source_registry.json` を同一オリジンから読込。都道府県名で前方・部分一致して公開元のみ絞り込み、結果件数とクリアを表示。個別事件のヒートマップ・最新速報とは称しない。
+- **保護条件**：従来の sourceOnly=true、公式事案ID未確認の管理者承認禁止、RSS/警察公表の区別、CC BYと資料別権利確認、原典不明の正確な位置ピンを作らない、Production Supabase参照のテストZIP配備禁止、一般公開前のSafari/Hosted検証未完を維持。
+- **確認**：`node tests/test_source_quick_navigation.cjs`。架空のブラウザDOMと実142ファイルHTMLのスクリプト遮断試験で目的別操作・47県検索・既存交番/AED callback・閉じる・未知の実データ取得拒否を確認。
