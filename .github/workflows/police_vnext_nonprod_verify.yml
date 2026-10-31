@@ -1,0 +1,84 @@
+name: MAP Police vNext isolated delta checks
+
+on:
+  push:
+    branches:
+      - feat/map-police-opendata-vnext-nonprod-20261031
+    paths:
+      - 'addons/police_official_vnext/**'
+      - '.github/workflows/police_vnext_nonprod_verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  targeted-nonprod-only:
+    if: github.repository == 'kubodera-ctrl/michimamo-map'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: EXAMPLE_EPHEMERAL_ONLY
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 12
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Restrict to exact isolated branch
+        shell: bash
+        run: |
+          test "$GITHUB_REF_NAME" = 'feat/map-police-opendata-vnext-nonprod-20261031'
+          echo "test_sha=$(git rev-parse HEAD)"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Official data adapter unit and admin safeguards (no network)
+        shell: bash
+        run: |
+          cd addons/police_official_vnext
+          python -m unittest discover -s tests -p 'test_*.py'
+          node tests/test_hub.cjs
+          node tests/test_layer.cjs
+          node tests/test_admin_hub.cjs
+          node --check official-police-hub.js
+          node --check official-police-layer.js
+      - name: SQL execution in disposable PostgreSQL container ONLY
+        shell: bash
+        env:
+          PGPASSWORD: EXAMPLE_EPHEMERAL_ONLY
+        run: |
+          set -euo pipefail
+          SQL='addons/police_official_vnext/sql/NONPROD_PROPOSAL_NOT_APPLIED_police_publication_v3.sql'
+          TEST='addons/police_official_vnext/tests/postgres_ephemeral'
+          docker run --rm --network host -e PGPASSWORD="$PGPASSWORD" -v "$PWD:/work:ro" postgres:17-alpine \
+            psql -h 127.0.0.1 -U postgres -d postgres -X -v ON_ERROR_STOP=1 -f "/work/$TEST/setup.sql" \
+            -f "/work/$SQL" -f "/work/$TEST/smoke.sql"
+      - name: Probe official CSVs READ ONLY and store headers only in output logs
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          cd addons/police_official_vnext
+          mkdir -p "$RUNNER_TEMP/police_source_private"
+          # Two official source pages, at most one public CSV download per source.
+          # If provider page/API changes, hold the source rather than guessing.
+          python source_acquisition.py --dataset precursor --year 2026 --month 9 \
+            --private-dir "$RUNNER_TEMP/police_source_private" --fetch || echo 'PRECURSOR_SOURCE_HOLD'
+          python source_acquisition.py --dataset town_stats --year 2026 --month 9 \
+            --private-dir "$RUNNER_TEMP/police_source_private" --fetch || echo 'TOWN_STATS_SOURCE_HOLD'
+          # Raw CSV files stay only in disposable runner private dir; never upload.

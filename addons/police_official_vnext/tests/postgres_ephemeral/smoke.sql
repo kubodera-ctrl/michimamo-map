@@ -1,0 +1,72 @@
+-- Only run in public GitHub Actions ephemeral postgres:17 container.
+\set ON_ERROR_STOP on
+select set_config('machimamo.test_uid','00000000-0000-0000-0000-000000000001',false);
+do $$begin
+ if (select enabled from public.police_official_release_gate) then raise exception 'Release gate must default OFF';end if;
+ if has_table_privilege('anon','public.police_official_documents','select') then raise exception 'Anon should not access raw records';end if;
+ if has_function_privilege('anon','public.admin_review_police_official(text,bigint,text,text,text,text,text)','execute') then raise exception 'Anon can review data';end if;
+end;$$;
+set role anon;
+do $$declare r jsonb;begin
+ r:=public.police_official_public_mail();
+ if jsonb_array_length(r->'records')<>0 then raise exception 'Disabled release leaked rows';end if;
+end;$$;
+reset role;
+set role service_role;
+do $$declare r jsonb;begin
+ r:=public.police_stage_official_document(jsonb_build_object(
+  'dataset','mail','record_key','demo-case-00001','revision',1,
+  'source_url','https://mail.keishicho.metro.tokyo.lg.jp/opendata/',
+  'source_file_sha256',repeat('a',64),'content_hash',repeat('b',64),
+  'payload',jsonb_build_object('source_id','tokyo_mail_keishicho_opendata','location_precision','municipality',
+                             'latitude',null,'longitude',null,'title','架空の試験データ','area_label','架空区'),
+  'source_status','active','source_id_verified',true,'is_fixture',false,'requires_review',false));
+ if r->>'status'<>'staged_pending_review' then raise exception 'Initial stage failed';end if;
+ r:=public.police_stage_official_document(jsonb_build_object(
+  'dataset','mail','record_key','demo-case-00001','revision',1,
+  'source_url','https://mail.keishicho.metro.tokyo.lg.jp/opendata/',
+  'source_file_sha256',repeat('a',64),'content_hash',repeat('b',64),
+  'payload',jsonb_build_object('source_id','tokyo_mail_keishicho_opendata','location_precision','municipality'),
+  'source_status','active','source_id_verified',true,'is_fixture',false,'requires_review',false));
+ if r->>'status'<>'duplicate' then raise exception 'Idempotence failed';end if;
+end;$$;
+reset role;
+set role authenticated;
+do $$declare r jsonb;begin
+ r:=public.admin_get_police_official_review('EXAMPLE_TEST_PASSWORD_ONLY');
+ if (r->>'pending')::int<>1 or jsonb_array_length(r->'queue')<>1 then raise exception 'Reviewer queue missing';end if;
+ r:=public.admin_review_police_official('EXAMPLE_TEST_PASSWORD_ONLY',
+  (select id from public.police_official_documents where record_key='demo-case-00001'),
+  'approve',repeat('b',64),repeat('a',64),'https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy','fixture_review_test');
+ if r->>'reviewed'<>'true' then raise exception 'Approval failed';end if;
+ if jsonb_array_length(public.police_official_public_mail()->'records')<>0 then
+  raise exception 'Approved but release gate OFF should not show data';
+ end if;
+end;$$;
+reset role;
+set role service_role;
+do $$declare r jsonb;begin
+ r:=public.police_stage_official_document(jsonb_build_object(
+  'dataset','mail','record_key','demo-case-00001','revision',2,
+  'source_url','https://mail.keishicho.metro.tokyo.lg.jp/opendata/',
+  'source_file_sha256',repeat('c',64),'content_hash',repeat('d',64),
+  'payload',jsonb_build_object('source_id','tokyo_mail_keishicho_opendata','location_precision','municipality'),
+  'source_status','withdrawn','source_id_verified',true,'is_fixture',false,'requires_review',false));
+ if r->>'status'<>'staged_pending_review' then raise exception 'New revision failed';end if;
+end;$$;
+reset role;
+do $$begin
+ if (select count(*) from public.police_official_documents where latest)<>1 then
+  raise exception 'Previous version still latest';
+ end if;
+ if (select count(*) from public.police_official_documents where latest and review_status='approved')<>0 then
+  raise exception 'Withdrawn revision left public approval';
+ end if;
+ if (select count(*) from public.police_official_review_audit)<>1 then
+  raise exception 'Review audit missing';
+ end if;
+ if (select count(*) from public.admin_audit_log where action='police_official_approve')<>1 then
+  raise exception 'Existing admin audit integration missing';
+ end if;
+end;$$;
+select 'EPHEMERAL_DB_SQL_CHECK_PASS' as result;

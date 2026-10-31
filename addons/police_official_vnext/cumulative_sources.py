@@ -74,6 +74,42 @@ def clean(raw: Any, maxlen: int = MAX_COLUMN_LENGTH) -> str:
     return s
 
 
+def reshape_wide_town_rows(rows: list[dict], wide_mapping: dict) -> list[dict]:
+    """Explicitly reshape one town per row, multiple offense columns to long records.
+
+    DO NOT assume current Tokyo CSV has this layout/column names. Only run after
+    official-header verification + manually approved exact mapping.
+    """
+    if not isinstance(wide_mapping, dict) or set(wide_mapping) != {"municipality", "town", "metrics"}:
+        raise ValueError("An explicit wide-town mapping is required")
+    municipality_col, town_col = wide_mapping["municipality"], wide_mapping["town"]
+    metrics = wide_mapping["metrics"]
+    if (not isinstance(municipality_col, str) or not isinstance(town_col, str)
+        or not isinstance(metrics, dict) or not 1 <= len(metrics) <= 50
+        or len(set([municipality_col, town_col, *metrics.values()])) != 2 + len(metrics)
+        or not all(isinstance(name, str) and name and isinstance(col, str) and col
+                   for name, col in metrics.items())):
+        raise ValueError("Unverified wide-town column mapping")
+    header = set(rows[0]) if rows else set()
+    if not set([municipality_col, town_col, *metrics.values()]).issubset(header):
+        raise ValueError("Official CSV headers changed; no automatic remapping")
+    result = []
+    for row in rows:
+        municipality, town = clean(row[municipality_col], 80), clean(row[town_col], 110)
+        if not municipality or not town or town in ("合計", "計", "総数", "小計"):
+            raise ValueError("Unidentified municipality/town or aggregate row; manual review")
+        for label, col in metrics.items():
+            count = clean(row[col], 15).replace(",", "")
+            if not re.fullmatch(r"\d{1,10}", count):
+                raise ValueError("Non-numeric/blank/negative official count")
+            result.append({"municipality": municipality, "town": town,
+                           "crime_type": label, "count": count})
+            if len(result) > MAX_ROWS:
+                raise ValueError("Expanded official CSV exceeds safe row budget")
+    if not result:
+        raise ValueError("Expanded official CSV empty")
+    return result
+
 def normalize_rows(rows: list[dict], *, dataset: str, mapping: dict, year: int, through_month: int) -> list[dict]:
     if dataset not in SOURCE_PAGES:
         raise ValueError("unknown dataset")
@@ -192,6 +228,10 @@ def run(input_path: Path, mapping_path: Path, snapshot_path: Path, report_path: 
     config = json.loads(mapping_path.read_text(encoding="utf-8"))
     if config.get("dataset") != dataset or not isinstance(config.get("columns"), dict):
         raise ValueError("mapping dataset mismatched")
+    if dataset == "town_stats" and "wide_columns" in config:
+        if set(config) != {"dataset", "wide_columns", "columns"}:
+            raise ValueError("Unknown wide source mapping options")
+        rows = reshape_wide_town_rows(rows, config["wide_columns"])
     clean_rows = normalize_rows(rows, dataset=dataset, mapping=config["columns"], year=year, through_month=through_month)
     now = datetime.now(timezone.utc).isoformat()
     new = {"dataset": dataset, "year": year, "through_month": through_month,

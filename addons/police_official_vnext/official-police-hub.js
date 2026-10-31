@@ -32,16 +32,19 @@ function visibleReleaseRows(snapshot,dataset){
   if(old&&release.revision===old.revision) throw new Error('duplicate release revision');
   if(!old||release.revision>old.revision)latestByPeriod.set(id,release);
  }
+ // A monthly cumulative dataset is a *replacement snapshot*, not a series of
+ // independent incident counts. Select only the newest release in this dataset,
+ // and do NOT fall back to an older, approved month when a newer month/correction
+ // is still pending. This fails closed instead of displaying outdated figures.
+ const newest=[...latestByPeriod.values()].sort((a,b)=>b.year-a.year || b.through_month-a.through_month)[0];
  const items=[];
- for(const release of [...latestByPeriod.values()]){
-  // Rights and review must be verified server-side. Client-side filtering is a second guard.
-  if(release.review_status!=='approved'||release.rights_status!=='verified'||release.superseded===true||release.requires_review===true)continue;
-  for(const record of release.records){
-   if(record.review_status!=='approved'||record.rights_status!=='verified')continue;
-   // Statistical/precursor CSV never produces exact incident coordinates.
-   if(record.latitude!=null||record.longitude!=null)throw new Error('cumulative area data must not contain coordinates');
-   items.push({...record, year:release.year, through_month:release.through_month});
-  }
+ if(!newest) return items;
+ if(newest.review_status!=='approved'||newest.rights_status!=='verified'||newest.superseded===true||newest.requires_review===true)return items;
+ for(const record of newest.records){
+  if(record.review_status!=='approved'||record.rights_status!=='verified')continue;
+  if(record.latitude!=null||record.longitude!=null)throw new Error('cumulative area data must not contain coordinates');
+  if(dataset==='town_stats' && (!Number.isSafeInteger(record.recognized_count_cumulative)||record.recognized_count_cumulative<0))throw new Error('invalid official cumulative count');
+  items.push({...record,year:newest.year,through_month:newest.through_month});
  }
  return items;
 }
@@ -165,7 +168,52 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
    if(error||!data||data.scope!=='police_official_review')throw new Error('admin official RPC unavailable');
    const statusNode=text(doc,'p',`未審査 ${Number(data.pending||0)}／訂正・取消 ${Number(data.corrections||0)}／出典要確認 ${Number(data.rights_pending||0)}／位置不明 ${Number(data.area_only||0)}`);
    container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),statusNode,
-      text(doc,'p','公表データの承認操作は既存権限を検証したサーバーRPCでのみ実行します。JSONの直接編集による承認は認めません。'));
+      text(doc,'p','新規・訂正を1件ずつ確認してください。原典の当該ファイル／ハッシュ／利用条件を実際に確認してから承認します。承認後も公開スイッチは別途OFFのままです。'));
+   const allowedEvidence={mail:'https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy',
+      precursor:SOURCE_PAGES.precursor,
+      town_stats:'https://catalog.data.metro.tokyo.lg.jp/dataset/t000022d1700000021'};
+   for(const item of (Array.isArray(data.queue)?data.queue:[]).slice(0,30)){
+     const row=text(doc,'section',undefined,'police-official-source-row');
+     row.append(text(doc,'strong',String(item.title||'公式データ')+'｜'+String(item.dataset||'')),
+       text(doc,'p','ファイルSHA256：'+String(item.source_file_sha256||'不明')),
+       text(doc,'p','内容SHA256：'+String(item.content_hash||'不明')),
+       a(doc,'公式の出所を確認',item.source_url));
+     if(item.is_fixture===true||item.requires_review===true||
+        (item.dataset==='mail'&&item.source_id_verified!==true)){
+       row.append(text(doc,'p','要照合／架空データ・識別子未確定・累計値の逆転等のため、自動承認不可。'));
+       container.append(row);continue;
+     }
+     const label=text(doc,'label',undefined,'police-official-admin-check');
+     const check=doc.createElement('input');check.type='checkbox';check.checked=false;
+     label.append(check,text(doc,'span','このファイルの内容・発生地域・訂正・利用条件を原典で確認しました。'));
+     const approve=text(doc,'button','確認済みとして承認','police-official-admin-approve');approve.type='button';
+     const reject=text(doc,'button','非表示／却下','police-official-admin-reject');reject.type='button';
+     const msg=text(doc,'p','操作待ち','police-official-status');
+     async function decide(action){
+       if(typeof isCurrent==='function'&&!isCurrent())return;
+       if(action==='approve'&&!check.checked){msg.textContent='原典を確認するまで承認できません。';return;}
+       // Direct human interaction only, never an automatic job/effect.
+       const confirmFn=doc.defaultView&&doc.defaultView.confirm;
+       if(typeof confirmFn!=='function'||!confirmFn(`公式データの${action==='approve'?'承認':'却下'}を実行しますか？`))return;
+       approve.disabled=true;reject.disabled=true;
+       try{
+         const result=await rpc('admin_review_police_official',{
+          p_password:password,p_document_id:item.id,p_action:action,
+          p_expected_hash:item.content_hash,p_verified_source_sha256:item.source_file_sha256,
+          p_rights_evidence_url:allowedEvidence[item.dataset]||null,
+          p_reason:action==='reject'?'管理者による非表示':'原典と当該資料の利用条件を確認'
+         });
+         if(typeof isCurrent==='function'&&!isCurrent())return;
+         if(result.error||result.data?.reviewed!==true)throw new Error('review_failed');
+         msg.textContent='反映しました。最新の承認一覧を再取得してください。';
+         await loadAdmin({password,rpc,isCurrent});
+       }catch(_){msg.textContent='承認処理に失敗しました。状態を再確認してください。';
+         approve.disabled=false;reject.disabled=false;}
+     }
+     approve.addEventListener('click',()=>decide('approve'));
+     reject.addEventListener('click',()=>decide('reject'));
+     row.append(label,approve,reject,msg);container.append(row);
+   }
   }catch(_){container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),empty(doc,'管理者用公式データRPCは未接続です。既存投稿とポイントには影響しません。'));}
  }
  render();

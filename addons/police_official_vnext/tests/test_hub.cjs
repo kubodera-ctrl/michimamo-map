@@ -25,6 +25,11 @@ ok(lib.visibleReleaseRows({...snap,releases:[{...release,requires_review:true}]}
 assert.throws(()=>lib.visibleReleaseRows({...snap,releases:[{...release,records:[{...record,latitude:35.6}]}]},'town_stats'),/coordinates/);count++;
 ok(lib.visibleReleaseRows({...snap,releases:[{...release,revision:1},{...release,revision:2}]},'town_stats').length===1,'latest revision only');
 ok(lib.visibleReleaseRows({...snap,releases:[{...release,revision:1},{...release,revision:2,review_status:'pending'}]},'town_stats').length===0,'new pending correction suppresses prior');
+const oldMonth={...release,through_month:8,records:[{...record,recognized_count_cumulative:2}]};
+ok(lib.visibleReleaseRows({...snap,releases:[oldMonth,release]},'town_stats').length===1,'only latest cumulative month, no double counts');
+ok(lib.visibleReleaseRows({...snap,releases:[oldMonth,{...release,review_status:'pending'}]},'town_stats').length===0,'pending newer month suppresses older public cumulative');
+assert.throws(()=>lib.visibleReleaseRows({...snap,releases:[{...release,records:[{...record,recognized_count_cumulative:-2}]}]},'town_stats'),/count/);count++;
+
 assert.throws(()=>lib.visibleReleaseRows({...snap,releases:[release,release]},'town_stats'),/duplicate release revision/);count++;
 // No in-place native map changes or posting/point APIs in module.
 const code=fs.readFileSync(path.join(__dirname,'../official-police-hub.js'),'utf8');
