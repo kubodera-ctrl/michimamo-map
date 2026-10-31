@@ -62,6 +62,7 @@ jobs:
           node tests/test_hub.cjs
           node tests/test_layer.cjs
           node tests/test_admin_hub.cjs
+          node tests/test_mail_identity_admin.cjs
           node --check official-police-hub.js
           node --check official-police-layer.js
       - name: SQL execution in disposable PostgreSQL container ONLY

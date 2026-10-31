@@ -91,3 +91,13 @@ python mail_json_private_review.py --input /tmp/mail_source_private/input.json -
 ```
 
 * 本番反映条件：個別の訂正/取消照合とID審査、資料別著作権、管理者認証・監査を伴う実DB審査、Cloudflare保護付きHosted・Safari・既存MAP回帰、復旧IDと限定承認。**従来β公開の新Gateにしない**。
+
+
+## R10 2026-10-31: official-ID absent, safe candidate reconciliation (no live DB)
+
+* The official JSON exports confirmed in R9 have only `message`, `send_at`, `send_by`, `send_to`, `subject`. They do **not** contain a stable police-issued event ID, official revision, or withdrawal reference. A message checksum or timestamp is **not** an event identity.
+* `mail_identity_reconcile.py` accepts two R9 **local owner-only private review packets** and checks every row checksum, row number, 0700 directory, 0600 output, origin flags, and nonpublication boundary. Equal text is labeled only `possible_exact_text_overlap`. Content changes are **not** treated as edits; disappeared items are **not** treated as withdrawals. Repeated identical bodies remain separate occurrences for human review.
+* Only private candidate handles and counters are written; no incident body leaks to stdout, ZIP, GitHub, Drive or MAP. The source period is explicitly *unverified*, because R9 private review packets do not carry a trusted official export-window receipt. No stage-to-Supabase or automatic moderator approval is provided.
+* The **existing MAP admin panel**, not a new management system, now shows an explicit `公式事案ID未確認` hold for unverified mail source IDs. All approve/reject buttons stay absent for unverified IDs. An R10 Node test validates the hidden admin panel, role-bound RPC access, stale login and empty approval buttons.
+* Nonproduction tests: `python -m unittest discover -s tests -p 'test_mail_identity_reconcile.py'`, `node tests/test_mail_identity_admin.cjs`. Use real private packets **only off-repository and offline**. Never upload their body to public source control or Drive.
+* Remaining: obtain official identity/correction/withdrawal semantics or design a legally reviewed manual correction path; dataset-specific reuse scope; isolated MAP-only nonproduction Auth/DB and Cloudflare Hosted/Safari checks. Existing `machiibe-p5-nonprod` is a different service; do not repurpose it. Feature/production/publication remain OFF.

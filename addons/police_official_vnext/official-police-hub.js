@@ -188,8 +188,15 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
        row.append(text(doc,'p','資料別の2026年版利用条件・出所との対応が未確定です。公式ページへのリンクだけでは権利確認にならないため、現段階は承認不可。'));
        container.append(row);continue;
      }
-     if(item.is_fixture===true||item.requires_review===true||item.source_id_verified!==true){
-       row.append(text(doc,'p','要照合／架空データ・識別子未確定・累計値の逆転等のため、自動承認不可。'));
+     // Mail Open DATA's verified JSON export has only send_at/subject/message/
+     // send_by/send_to. It contains NO official stable incident identifier.
+     // Similar text, timestamps, or our local review hash cannot authorize approval.
+     if(item.source_id_verified!==true){
+       row.append(text(doc,'p','公式事案ID未確認：本文や配信日時の一致を同一事件・訂正・取消の根拠にしません。非公開の確認待ちです。','police-official-identity-hold'));
+       container.append(row);continue;
+     }
+     if(item.is_fixture===true||item.requires_review===true){
+       row.append(text(doc,'p','架空データ・確認事項残存のため承認不可。管理者の審査が必要です。','police-official-review-hold'));
        container.append(row);continue;
      }
      const label=text(doc,'label',undefined,'police-official-admin-check');
