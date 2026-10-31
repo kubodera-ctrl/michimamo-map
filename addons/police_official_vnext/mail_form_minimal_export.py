@@ -89,6 +89,14 @@ def capture_schema_via_official_ui() -> dict:
                     route.continue_()
                 else:
                     receipts["blocked_post"] += 1
+                    # Observe ONLY public date/filter structure, never token/body.
+                    raw_fields = parse_qs(req.post_data or '', keep_blank_values=True)
+                    receipts['blocked_field_names'] = sorted(raw_fields)[:15]
+                    receipts['blocked_content_type'] = req.headers.get('content-type','').split(';',1)[0][:60]
+                    receipts['blocked_public_dates'] = {
+                        name: str(raw_fields.get(name,[''])[0])[:32]
+                        for name in ('sdate','edate','format')
+                    }
                     route.abort()
             elif req.method != "GET" or u.scheme != "https" or u.port not in (None, 443):
                 route.abort()
@@ -162,7 +170,12 @@ def capture_schema_via_official_ui() -> dict:
                     page.locator("form button[type=submit], form input[type=submit]").first.click()
                 downloaded = download_info.value
             except PlaywrightTimeoutError as exc:
-                raise ValueError(f"official form did not return a download: safe_post={receipts['safe_post_sent']} blocked_post={receipts['blocked_post']}") from exc
+                raise ValueError('official form did not return download: '+json.dumps({
+                    'safe_post':receipts['safe_post_sent'],'blocked_post':receipts['blocked_post'],
+                    'field_names':receipts.get('blocked_field_names'),
+                    'public_dates_and_format':receipts.get('blocked_public_dates'),
+                    'content_type':receipts.get('blocked_content_type'),
+                }, ensure_ascii=False)) from exc
             if receipts["safe_post_sent"] != 1 or receipts["blocked_post"]:
                 raise ValueError("unsafe or missing form POST; download discarded")
             filename = downloaded.suggested_filename
