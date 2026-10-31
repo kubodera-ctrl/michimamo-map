@@ -62,6 +62,7 @@ jobs:
           node tests/test_hub.cjs
           node tests/test_source_only.cjs
           node tests/test_source_quick_navigation.cjs
+          node tests/test_reviewed_mail_cards.cjs
           node tests/test_layer.cjs
           node tests/test_admin_hub.cjs
           node tests/test_mail_identity_admin.cjs

@@ -64,6 +64,82 @@ function visibleDirectory(registry){
  if(seen.size!==47)throw new Error('expected 47 prefectures');
  return registry.sources;
 }
+// R14: only locally curated, human-reviewed delivery-message summaries can appear.
+// This is NOT an automatic police feed, police event ID, geocode, or consent proof.
+const REVIEWED_MAIL_PATH='/data/police-reviewed-mail-cards.json';
+const REVIEWED_MAIL_KIND='police_mail_delivery_messages_manual_review';
+const REVIEWED_MAIL_CATEGORIES=new Set(['子どもの安全','声かけ等','特殊詐欺','防犯情報','その他']);
+function exactFields(object,fields){
+ return object&&typeof object==='object'&&!Array.isArray(object)&&
+   Object.keys(object).length===fields.length&&fields.every(k=>Object.prototype.hasOwnProperty.call(object,k));
+}
+function safeReviewedString(value,max){
+ return typeof value==='string'&&value.length>0&&value.length<=max&&
+  !/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/.test(value)&&value.trim()===value;
+}
+function parsedJst(value){
+ if(typeof value!=='string'||!/^20\d{2}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+09:00$/.test(value))return NaN;
+ const timestamp=Date.parse(value);
+ // Date.parse can silently normalize 2026-02-30, so verify the formatted roundtrip.
+ return Number.isFinite(timestamp)&&new Date(timestamp+9*60*60*1000).toISOString().slice(0,19)===value.slice(0,19)?timestamp:NaN;
+}
+function validateReviewedMailCards(feed,now=Date.now()){
+ const expected=['schema_version','kind','source_url','policy_url','license','identity_scope',
+  'publication_enabled','human_review_completed','privacy_review_completed',
+  'correction_check_completed','original_export_sha256','reviewed_at','expires_at','cards'];
+ if(!exactFields(feed,expected)||feed.schema_version!==1||feed.kind!==REVIEWED_MAIL_KIND||
+    feed.source_url!==SOURCE_PAGES.opendata||feed.policy_url!==SOURCE_PAGES.opendata+'policy'||
+    feed.license!=='CC-BY-4.0'||feed.identity_scope!=='delivery_message_not_incident'||
+    feed.publication_enabled!==true||feed.human_review_completed!==true||
+    feed.privacy_review_completed!==true||feed.correction_check_completed!==true||
+    typeof feed.original_export_sha256!=='string'||!/^[0-9a-f]{64}$/.test(feed.original_export_sha256)||
+    !Array.isArray(feed.cards)||feed.cards.length<1||feed.cards.length>50)throw new Error('reviewed mail feed not approved');
+ const checked=parsedJst(feed.reviewed_at),expires=parsedJst(feed.expires_at);
+ if(!Number.isFinite(now)||!Number.isFinite(checked)||!Number.isFinite(expires)||
+    checked>now||expires<=now||expires-checked>72*3600*1000||expires-checked<60*1000)
+    throw new Error('reviewed mail approval expired or invalid');
+ const keys=new Set(),safe=[];
+ for(const card of feed.cards){
+  const fields=['local_card_ref','headline','summary','category','delivered_at','delivery_time_reviewed',
+   'display_area','area_reviewed','manual_review_status','privacy_review_status','correction_review_status'];
+  if(!exactFields(card,fields)||!safeReviewedString(card.local_card_ref,38)||
+     !/^local-[0-9a-f]{24}$/.test(card.local_card_ref)||keys.has(card.local_card_ref)||
+     !safeReviewedString(card.headline,90)||!safeReviewedString(card.summary,260)||
+     !REVIEWED_MAIL_CATEGORIES.has(card.category)||card.delivery_time_reviewed!==true||
+     card.manual_review_status!=='approved'||card.privacy_review_status!=='approved'||
+     card.correction_review_status!=='checked'||
+     !(card.display_area===null||(card.area_reviewed===true&&safeReviewedString(card.display_area,32)
+       &&/^[^\d\n\r<>]{1,31}(?:都|道|府|県|市|区|町|村)$/.test(card.display_area)))||
+     (card.display_area===null&&card.area_reviewed!==false))
+   throw new Error('unreviewed or overprecise card');
+  const sent=parsedJst(card.delivered_at);
+  if(!Number.isFinite(sent)||sent>checked||sent>now||checked-sent>30*24*3600*1000)
+    throw new Error('delivery timestamp not verified');
+  keys.add(card.local_card_ref);
+  safe.push({headline:card.headline,summary:card.summary,category:card.category,
+   delivered_at:card.delivered_at,display_area:card.display_area});
+ }
+ // Only these display-safe fields may leave validation. No raw message, recipient,
+ // police event ID, private source body, URL, coordinates or original export rows.
+ return safe;
+}
+function renderReviewedMailCards(doc,container,cards,reviewedAt){
+ const section=text(doc,'section',undefined,'police-reviewed-mail-cards');
+ section.append(text(doc,'strong',`まちまも確認済みの配信カード：${cards.length}件`,'police-reviewed-heading'),
+   text(doc,'p',`最終確認：${reviewedAt.replace('T',' ').replace(':00+09:00','')}（日本時間）。カード表示件数は事件数・速報件数・正確な発生地点ではありません。`,'police-reviewed-notice'));
+ for(const card of cards){
+  const article=text(doc,'article',undefined,'police-reviewed-mail-card');
+  article.append(text(doc,'small',card.category,'police-reviewed-category'),
+   text(doc,'strong',card.headline,'police-reviewed-title'),
+   text(doc,'small',`配信日時：${card.delivered_at.replace('T',' ').replace(':00+09:00','')}（日本時間）`,'police-reviewed-date'),
+   text(doc,'p',card.summary,'police-reviewed-summary'),
+   text(doc,'small',card.display_area?`確認済み対象地域：${card.display_area}（位置ピンではありません）`:'配信対象地域：未確認'),
+   a(doc,'配信元：警視庁「メールけいしちょう Open DATA」',SOURCE_PAGES.opendata),
+   text(doc,'small','まちまもMAPが内容を確認して要約・加工しています。警視庁による監修ではありません。'));
+  section.append(article);
+ }
+ container.append(section);
+}
 function text(doc,tag,value,css){const node=doc.createElement(tag);if(value!==undefined)node.textContent=String(value);if(css)node.className=css;return node;}
 function a(doc,value,url){const node=text(doc,'a',value);if(isSafeSourceUrl(url)){node.href=url;node.target='_blank';node.rel='noopener noreferrer';}return node;}
 function empty(doc,message){return text(doc,'p',message,'police-official-empty');}
@@ -89,7 +165,7 @@ function renderRows(doc,container,rows,dataset,limit){
  }
  if(rows.length>cap)container.append(text(doc,'p',`表示上限 ${cap}件です。詳細は公式資料をご確認ください。`));
 }
-function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false, openNearby}){
+function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false, openNearby, reviewedCardsEnabled=false}){
  if(!enabled)return null;
  if(!doc||(!sourceOnly&&(!map||!leaflet))||!doc.querySelector('#filterWrapper .filter-content')||!doc.getElementById('map-container'))throw new Error('existing MAP unavailable');
  if(doc.getElementById('policeOfficialHubToggle'))return null;
@@ -108,7 +184,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
  const caution=text(doc,'p','警察公表と利用者投稿は別情報です。公式情報に投稿ポイントは付きません。表示の少なさや0件は、安全の保証ではありません。','police-official-disclaimer');
  panel.append(top,...(sourceOnly?[quickNav]:[]),tabbar,status,caution,info);
  bar.append(chip);mapHost.append(panel);
- let precursor=null,stats=null,directory=null,selected=sourceOnly?'mail':'precursor',prefectureQuery='';
+ let precursor=null,stats=null,directory=null,reviewedMailCards=null,reviewedMailHold=false,reviewedExpiryTimer=null,selected=sourceOnly?'mail':'precursor',prefectureQuery='';
  const tabs=[['mail','防犯情報'],['precursor','前兆事案'],['town_stats','町丁目統計'],['fraud','特殊詐欺・アポ電'],['national','全国47都道府県'],['about','出典と注意']];
  function changeTab(key){selected=key;render();}
  if(sourceOnly){
@@ -139,8 +215,18 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
   try{
    if(selected==='mail'){
     status.textContent=sourceOnly?'警視庁の防犯配信：公式公開元を確認':'メールけいしちょう・公式情報';
-    info.append(text(doc,'p','犯罪発生や子どもの安全に関する警視庁の配信情報を確認できます。対象情報はCC BY 4.0。'),
-      a(doc,'メールけいしちょう Open DATA（公式）',SOURCE_PAGES.opendata),
+     info.append(text(doc,'p','犯罪発生や子どもの安全に関する警視庁の配信情報を確認できます。対象情報はCC BY 4.0。'));
+     if(sourceOnly){
+       let cards=null;
+       if(reviewedMailCards){
+         try{cards=validateReviewedMailCards(reviewedMailCards);}catch(_){reviewedMailCards=null;reviewedMailHold=true;}
+       }
+       if(cards){renderReviewedMailCards(doc,info,cards,reviewedMailCards.reviewed_at);status.textContent=`配信情報：人手確認済みカード ${cards.length}件（事件数ではありません）`;}
+       else info.append(empty(doc,reviewedMailHold?
+        '確認済み配信の検証・有効期限を確認できません。表示を停止しました。警視庁の原典をご利用ください。':
+        'まちまもMAP内で人手確認済みの配信は、まだ公開していません。警視庁の公式サイトで確認できます。'));
+     }
+     info.append(a(doc,'メールけいしちょう Open DATA（公式）',SOURCE_PAGES.opendata),
       text(doc,'small','出典：警視庁「メールけいしちょう Open DATA」。まちまもMAPは警視庁の監修サービスではありません。'));
    }else if(selected==='precursor'){
     const rows=sourceOnly?[]:precursor?visibleReleaseRows(precursor,'precursor'):[];
@@ -209,6 +295,35 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
   if(key==='town_stats')visibleReleaseRows(obj,'town_stats');
   if(key==='national')visibleDirectory(obj);
   return obj;
+ }
+ async function refreshReviewedMailCards(){
+  if(!sourceOnly||reviewedCardsEnabled!==true)throw new Error('reviewed card delivery disabled');
+  try{
+   if(typeof fetcher!=='function'||!location)throw new Error('no same-origin fetch');
+   const source=new URL(REVIEWED_MAIL_PATH,location.href);
+   if(source.origin!==location.origin)throw new Error('mail card feed not same origin');
+   const response=await fetcher(source.pathname,{credentials:'same-origin',cache:'no-store'});
+   const length=Number(response.headers?.get?.('content-length'));
+   if(!response.ok||(Number.isFinite(length)&&length>100000))throw new Error('no approved card feed');
+   const feed=await response.json();
+   validateReviewedMailCards(feed);
+   if(reviewedExpiryTimer!==null)clearTimeout(reviewedExpiryTimer);
+   reviewedMailCards=feed;reviewedMailHold=false;
+   // Strict live expiration: a card visible in an open MAP must disappear at
+   // the review deadline even if the user does not change tabs or refresh.
+   reviewedExpiryTimer=setTimeout(()=>{
+    if(reviewedMailCards===feed){reviewedMailCards=null;reviewedMailHold=true;
+      if(selected==='mail'&&!panel.hidden)render();}
+   },Math.max(1,Date.parse(feed.expires_at)-Date.now()+1));
+   reviewedExpiryTimer.unref?.();
+  }catch(_){
+   if(reviewedExpiryTimer!==null){clearTimeout(reviewedExpiryTimer);reviewedExpiryTimer=null;}
+   reviewedMailCards=null;reviewedMailHold=true;
+   if(selected==='mail'&&!panel.hidden)render();
+   return {visible:0,review_required:true};
+  }
+  if(selected==='mail'&&!panel.hidden)render();
+  return {visible:reviewedMailCards.cards.length,review_required:false};
  }
  async function refresh(config){
   if(sourceOnly&&(config?.precursor||config?.town_stats))throw new Error('source-only mode does not fetch unreviewed data');
@@ -302,8 +417,8 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
   }catch(_){container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),empty(doc,'管理者用公式データRPCは未接続です。既存投稿とポイントには影響しません。'));}
  }
  render();
- return {refresh,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory})};
+ return {refresh,refreshReviewedMailCards,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory,reviewedCards:reviewedMailCards?.cards?.length||0,reviewedMailHold})};
 }
-const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,mount};
+const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,validateReviewedMailCards,mount};
 if(typeof module==='object'&&module.exports)module.exports=api;else root.MachimamoPoliceHub=api;
 })(typeof window!=='undefined'?window:globalThis);

@@ -53,3 +53,16 @@
 .police-official-prefecture-results{display:grid;gap:7px}
 .police-official-quick-action:focus-visible,.police-official-map-action:focus-visible,.police-official-search-reset:focus-visible,.police-official-prefecture-search input:focus-visible{outline:3px solid #38bdf8;outline-offset:2px}
 @media(max-width:600px){.police-official-quick-nav{gap:6px}.police-official-quick-action,.police-official-map-action{min-height:42px}}
+
+/* R14 reviewed delivery cards in original MAP; no incident pins, no second app. */
+.police-reviewed-mail-cards{display:grid;gap:10px;margin-top:10px}
+.police-reviewed-heading{font-size:.92rem;color:#0f4f48}
+.police-reviewed-notice{font-size:.75rem;color:#475569;margin:0}
+.police-reviewed-mail-card{display:grid;gap:5px;border:1px solid #94d4c3;background:#f8fffd;border-radius:14px;padding:12px}
+.police-reviewed-title{font-size:.92rem;line-height:1.45;color:#152b32}
+.police-reviewed-category{color:#0f766e;font-weight:800}
+.police-reviewed-date{color:#475569}
+.police-reviewed-summary{margin:3px 0;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}
+.police-reviewed-mail-card a{font-size:.78rem;font-weight:700;color:#0369a1}
+.police-reviewed-mail-card small{line-height:1.5}
+@media(max-width:600px){.police-reviewed-mail-card{padding:12px}.police-reviewed-title{font-size:.95rem}}

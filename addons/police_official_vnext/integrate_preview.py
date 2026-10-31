@@ -28,10 +28,15 @@ INSERT_BODY = '''<script src="official-police-layer.js?v=vnext02"></script>
       const hub = window.MachimamoPoliceHub.mount({doc:document, map:null, leaflet:null,
         fetcher:fetch.bind(window), location:window.location, enabled:true, sourceOnly:true,
         openNearby:typeof window.openNearbySafety==='function'
-          ? (kind)=>window.openNearbySafety(kind) : undefined});
+          ? (kind)=>window.openNearbySafety(kind) : undefined,
+        // R14: safe only after a separately reviewed/approved static mail feed exists.
+        // This R14 candidate does not enable the switch.
+        reviewedCardsEnabled:window.MACHIMAMO_REVIEWED_POLICE_MAIL_CARDS_ENABLED===true});
       if (!hub) return;
       window.MachimamoPoliceHubController = hub;
       hub.refresh({national:'official_source_registry.json'}).catch(()=>{});
+      if(window.MACHIMAMO_REVIEWED_POLICE_MAIL_CARDS_ENABLED===true)
+        hub.refreshReviewedMailCards().catch(()=>{});
     } catch (_) { /* The original MAP must remain usable on add-on failure. */ }
   }
   // Data integration remains separately gated. This branch never enables the flag.
