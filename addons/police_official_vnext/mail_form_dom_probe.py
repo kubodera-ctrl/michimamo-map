@@ -13,6 +13,9 @@ from urllib.parse import urlparse
 
 PUBLIC_URL = "https://mail.keishicho.metro.tokyo.lg.jp/opendata/"
 HOST = "mail.keishicho.metro.tokyo.lg.jp"
+# Explicitly observed <script>/<link> dependencies from public landing markup.
+# Analytics, external fonts, API/XHR, images and any other domains remain blocked.
+STATIC_HOSTS = {"code.jquery.com", "maxcdn.bootstrapcdn.com"}
 
 
 def clean_control_text(value: object, limit: int = 100) -> str:
@@ -44,7 +47,12 @@ def browser_probe() -> dict:
             if req.method != "GET":
                 denied["non_get"] += 1
                 route.abort()
-            elif parsed.scheme != "https" or parsed.hostname != HOST or parsed.port not in (None, 443):
+            elif parsed.scheme != "https" or parsed.port not in (None, 443) or not (
+                parsed.hostname == HOST or (
+                    parsed.hostname in STATIC_HOSTS
+                    and req.resource_type in ("script", "stylesheet")
+                    and parsed.path.lower().endswith((".js", ".css"))
+                )):
                 denied["foreign_host"] += 1
                 if parsed.hostname: blocked_hosts.add(parsed.hostname[:120])
                 route.abort()
@@ -136,7 +144,7 @@ def browser_probe() -> dict:
         "source": PUBLIC_URL,
         "document": raw,
         "calendar": calendar_meta,
-        "request_guard": {"same_origin_GET_only": True, **denied, "blocked_hosts": sorted(blocked_hosts)[:20]},
+        "request_guard": {"GET_only_official_and_observed_static_CDN": True, **denied, "blocked_hosts": sorted(blocked_hosts)[:20]},
         "form_submitted": False,
         "download_attempted": False,
         "credential_use": False,
