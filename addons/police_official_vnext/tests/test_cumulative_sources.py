@@ -35,6 +35,40 @@ class CumulativeTests(unittest.TestCase):
   new={**base,'through_month':9,'revision':1,'content_hash':'new','records':[{'municipality':'港区','town':'台場一丁目','crime_type':'自転車盗','recognized_count_cumulative':7}]}
   old,_=update_history(None,base); snap,_=update_history(old,new)
   self.assertTrue(new['requires_review']);self.assertEqual(new['review_flags']['cumulative_decreases'],1)
+ def test_quarantine_survives_comparison_with_previous_month(self):
+  # Regression: the prior implementation overwrote requires_review=False
+  # whenever counts increased, clearing the held ambiguous-area warning.
+  old_rel={'dataset':'town_stats','year':2026,'through_month':8,'revision':1,
+           'content_hash':'aug','records':[{'municipality':'東京都','town':'架空一丁目',
+             'crime_type':'自転車盗','recognized_count_cumulative':2}],
+           'review_status':'approved','fetched_at':'2026-10-31T00:00:00Z'}
+  old_snap,_=update_history(None,old_rel)
+  next_rel={**old_rel,'through_month':9,'content_hash':'sep',
+            'records':[{'municipality':'東京都','town':'架空一丁目',
+             'crime_type':'自転車盗','recognized_count_cumulative':3}],
+            'review_status':'pending','requires_review':True,
+            'review_flags':{'ambiguous_area_rows_held':2,'ambiguous_area_labels_held':1}}
+  merged,_=update_history(old_snap,next_rel)
+  current=merged['releases'][-1]
+  self.assertTrue(current['requires_review'])
+  self.assertEqual(current['review_flags']['ambiguous_area_rows_held'],2)
+  self.assertEqual(current['review_flags']['ambiguous_area_labels_held'],1)
+  self.assertEqual(current['review_flags']['cumulative_decreases'],0)
+  self.assertEqual(current['review_flags']['missing_groups'],0)
+ def test_quarantine_and_count_regression_both_preserved(self):
+  base={'dataset':'town_stats','year':2026,'through_month':8,'revision':1,
+        'content_hash':'aug','records':[{'municipality':'東京都','town':'架空一丁目',
+           'crime_type':'自転車盗','recognized_count_cumulative':5}],
+        'review_status':'approved','fetched_at':'2026-10-31T00:00:00Z'}
+  snap,_=update_history(None,base)
+  nxt={**base,'through_month':9,'content_hash':'sep',
+       'records':[{'municipality':'東京都','town':'架空一丁目',
+           'crime_type':'自転車盗','recognized_count_cumulative':4}],
+       'requires_review':True,'review_flags':{'ambiguous_area_rows_held':2}}
+  update_history(snap,nxt)
+  self.assertTrue(nxt['requires_review'])
+  self.assertEqual(nxt['review_flags']['ambiguous_area_rows_held'],2)
+  self.assertEqual(nxt['review_flags']['cumulative_decreases'],1)
  def test_same_period_correction_requires_review(self):
   rel={'dataset':'town_stats','year':2026,'through_month':9,'revision':1,'content_hash':'a','records':[],'fetched_at':'2026-10-31T00:00:00Z'}
   old,_=update_history(None,rel.copy())

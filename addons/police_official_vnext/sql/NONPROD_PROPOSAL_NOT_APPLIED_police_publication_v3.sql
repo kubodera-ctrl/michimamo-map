@@ -338,6 +338,13 @@ begin
     raise exception 'stale_or_invalid_document';
   end if;
   if p_action='approve' then
+    -- The 2026 precursor page does not document a reuse license; the official
+    -- Tokyo catalog CC BY result concerns earlier statistics resources.
+    -- Until exact file rights are verified by a separately reviewed contract,
+    -- no admin can approve these cumulative datasets by supplying a URL alone.
+    if d.dataset in ('precursor','town_stats') then
+      raise exception 'dataset_specific_rights_pending' using errcode='42501';
+    end if;
     if d.is_fixture or d.requires_review or d.source_status='withdrawn' or
       (d.dataset='mail' and not d.source_id_verified) then
       raise exception 'source_not_eligible_for_approval';

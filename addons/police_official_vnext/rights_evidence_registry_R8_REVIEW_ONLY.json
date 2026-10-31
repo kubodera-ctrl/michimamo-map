@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-31",
+  "status": "REVIEW_REQUIRED__NOT_AN_AUTOMATIC_LICENSE_OR_RELEASE_AUTHORIZATION",
+  "rule": "Actual dataset and precise file license must be verified; the mere presence of an official link never approves the record or the release gate.",
+  "datasets": [
+    {
+      "dataset": "mail",
+      "source": "https://mail.keishicho.metro.tokyo.lg.jp/opendata/",
+      "policy_url": "https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy",
+      "scope": "mail_keishicho_open_data_target_information_only",
+      "evidence": "Official policy explicitly grants CC BY 4.0 for covered target information and excludes map material and descriptions of hyperlinks.",
+      "status": "POLICY_CONFIRMED__REAL_EXPORT_SCHEMA_ID_PENDING",
+      "automatic_publication_allowed": false
+    },
+    {
+      "dataset": "precursor",
+      "source": "https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html",
+      "policy_url": null,
+      "scope": "2026_R8_precursor_csv",
+      "evidence": "Official page provides CSV downloads but reuse terms are not explicitly stated in the checked source.",
+      "status": "LICENSE_SCOPE_PENDING",
+      "automatic_publication_allowed": false
+    },
+    {
+      "dataset": "town_stats",
+      "source": "https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/ninchikensu.html",
+      "policy_url": "https://spec.api.metro.tokyo.lg.jp/spec/t000022d1700000021-b99bfa8bef8f263002b149b0e5f09ccf-0",
+      "scope": "historical_R5_resource_in_official_catalog__R8_license_not_inferred",
+      "evidence": "Official Tokyo Open Data API catalog lists the older town-crime monthly dataset as CC BY. Coverage of the exact 2026 R8 CSV still requires verification.",
+      "status": "HISTORICAL_CATALOG_CC_BY__2026_FILE_SCOPE_PENDING",
+      "automatic_publication_allowed": false
+    },
+    {
+      "dataset": "nationwide_theft_seven",
+      "source": "https://www.npa.go.jp/toukei/seianki/hanzaiopendatalink.html",
+      "policy_url": null,
+      "scope": "47_prefecture_separate_source_files",
+      "evidence": "National official index is a directory and does not grant a blanket license for linked files.",
+      "status": "PER_PREFECTURE_PENDING",
+      "automatic_publication_allowed": false
+    }
+  ],
+  "excluded_from_reuse": [
+    "DigiPolice native assets or private API",
+    "Police map tiles and logos",
+    "Victim identifying details",
+    "Unverified pinpoint incident locations"
+  ]
+}

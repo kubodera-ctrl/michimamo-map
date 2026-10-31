@@ -32,5 +32,18 @@ function find(node,tag){if(node.tag===tag)return [node];return node.children.fla
  assert.equal(approvals[0].args.p_verified_source_sha256,record.source_file_sha256);
  assert.equal(approvals[0].args.p_rights_evidence_url,'https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy');
  assert.equal(confirms,1);
- console.log('admin-hub nonproduction targeted: 7 assertions PASS');
+ // An official URL is NOT rights evidence for the 2026 precursor CSV, and the
+ // historical town-statistics CC BY catalog record does not cover R8 by itself.
+ const stagedRights=[{...record,id:7,dataset:'precursor',title:'架空：前兆事案'},
+     {...record,id:8,dataset:'town_stats',title:'架空：町丁目統計'}];
+ async function rightsPendingRpc(method,args){
+     if(method==='admin_get_police_official_review')return {data:{scope:'police_official_review',pending:2,queue:stagedRights}};
+     throw new Error('Blocked by rights gate');
+ }
+ root.replaceChildren(); // The test DOM mock does not track dynamically-created IDs.
+ await hub.loadAdmin({password:'dummy-only',rpc:rightsPendingRpc,isCurrent:()=>true});
+ assert.equal(find(root,'button').length,0,'Unverified datasets must have no approval buttons');
+ assert.equal(find(root,'input').length,0,'Unverified datasets must have no rights checkbox');
+ assert.equal(find(root,'p').filter(n=>n.textContent.includes('現段階は承認不可')).length,2);
+ console.log('admin-hub nonproduction targeted: 10 assertions PASS');
 })().catch(e=>{console.error(e);process.exitCode=1});

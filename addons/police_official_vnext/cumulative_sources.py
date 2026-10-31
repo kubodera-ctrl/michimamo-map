@@ -277,8 +277,19 @@ def update_history(old: dict | None, new: dict) -> tuple[dict, dict]:
                 after = {(x["municipality"], x["town"], x["crime_type"]): x["recognized_count_cumulative"] for x in new["records"]}
                 regressions = [key for key, value in after.items() if key in before and value < before[key]]
                 omissions = [key for key in before if key not in after]
-                new["requires_review"] = bool(regressions or omissions)
-                new["review_flags"] = {"cumulative_decreases": len(regressions), "missing_groups": len(omissions)}
+                # Never clear source-level quarantine flags (e.g. duplicated town
+                # labels) when comparing with last month's cumulative snapshot.
+                # The earlier code overwrote requires_review here, incorrectly
+                # making an incomplete later month appear publication-eligible.
+                preserved_flags = new.get("review_flags", {})
+                if not isinstance(preserved_flags, dict):
+                    raise ValueError("invalid source review flags")
+                new["requires_review"] = bool(new.get("requires_review") or regressions or omissions)
+                new["review_flags"] = {
+                    **preserved_flags,
+                    "cumulative_decreases": len(regressions),
+                    "missing_groups": len(omissions),
+                }
     snapshot = {"schema_version": 1, "dataset": new["dataset"], "source_url": SOURCE_PAGES[new["dataset"]],
                 "release_mode": "annual_recognized_cumulative", "last_success_at": new["fetched_at"],
                 "releases": releases, "publication_enabled": False,

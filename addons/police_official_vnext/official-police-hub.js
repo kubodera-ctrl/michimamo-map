@@ -174,17 +174,21 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db}){
    const statusNode=text(doc,'p',`未審査 ${Number(data.pending||0)}／訂正・取消 ${Number(data.corrections||0)}／出典要確認 ${Number(data.rights_pending||0)}／位置不明 ${Number(data.area_only||0)}`);
    container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),statusNode,
       text(doc,'p','新規・訂正を1件ずつ確認してください。原典の当該ファイル／ハッシュ／利用条件を実際に確認してから承認します。承認後も公開スイッチは別途OFFのままです。'));
-   const allowedEvidence={mail:'https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy',
-      precursor:SOURCE_PAGES.precursor,
-      town_stats:'https://catalog.data.metro.tokyo.lg.jp/dataset/t000022d1700000021'};
+   // A source page is not a license. Tokyo's catalog identifies historical
+   // town-statistics resources as CC BY, but 2026 CSV scope is not yet proven.
+   // Never turn a link into an automatic rights approval.
+   const allowedEvidence={mail:'https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy'};
    for(const item of (Array.isArray(data.queue)?data.queue:[]).slice(0,30)){
      const row=text(doc,'section',undefined,'police-official-source-row');
      row.append(text(doc,'strong',String(item.title||'公式データ')+'｜'+String(item.dataset||'')),
        text(doc,'p','ファイルSHA256：'+String(item.source_file_sha256||'不明')),
        text(doc,'p','内容SHA256：'+String(item.content_hash||'不明')),
        a(doc,'公式の出所を確認',item.source_url));
-     if(item.is_fixture===true||item.requires_review===true||
-        (item.dataset==='mail'&&item.source_id_verified!==true)){
+     if(item.dataset!=='mail'){
+       row.append(text(doc,'p','資料別の2026年版利用条件・出所との対応が未確定です。公式ページへのリンクだけでは権利確認にならないため、現段階は承認不可。'));
+       container.append(row);continue;
+     }
+     if(item.is_fixture===true||item.requires_review===true||item.source_id_verified!==true){
        row.append(text(doc,'p','要照合／架空データ・識別子未確定・累計値の逆転等のため、自動承認不可。'));
        container.append(row);continue;
      }

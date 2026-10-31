@@ -109,15 +109,25 @@ do $$declare r jsonb;begin
 end;$$;
 reset role;
 set role authenticated;
-do $$declare r jsonb;begin
- r:=public.admin_review_police_official('EXAMPLE_TEST_PASSWORD_ONLY',
-  current_setting('machimamo.test_precursor_doc_id')::bigint,
-  'approve',repeat('f',64),repeat('e',64),
-  'https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html',
-  'synthetic_precursor_approved_in_ephemeral_only');
- if r->>'reviewed'<>'true' then raise exception 'Synthetic precursor approval failed';end if;
+do $$declare denied boolean:=false;begin
+ begin
+  perform public.admin_review_police_official('EXAMPLE_TEST_PASSWORD_ONLY',
+    current_setting('machimamo.test_precursor_doc_id')::bigint,
+    'approve',repeat('f',64),repeat('e',64),
+    'https://www.keishicho.metro.tokyo.lg.jp/about_mpd/jokyo_tokei/jokyo/zencho.html',
+    'source page is not a license, should reject');
+ exception when sqlstate '42501' then
+  denied:=true;
+ end;
+ if not denied then raise exception 'Undocumented precursor approval permitted';end if;
 end;$$;
 reset role;
+-- The next UPDATE bypasses the admin rights contract ONLY in this throwaway
+-- PostgreSQL container to test public read/RLS sanitization. This is NOT
+-- permissible for a real dataset, persistent DB, or a hosted environment.
+update public.police_official_documents
+   set review_status='approved', rights_status='verified'
+ where record_key='precursor:2026:09' and not is_fixture and not requires_review;
 -- Enabling for a single SELECT in this disposable database is SAFE (never persistent).
 update public.police_official_release_gate set enabled=true where id=true;
 set role anon;

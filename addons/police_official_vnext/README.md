@@ -65,3 +65,12 @@ Python 12件（オフライン ingest・重複/訂正/取消/失敗時保全・�
 **未達（反映前に必要）:** 警視庁実エクスポート列の確認と更新/訂正ID契約、前兆・町丁目CSVのライセンス確認、47県それぞれのデータ実体への適合、既存管理者による真正な承認＋サーバ側公開RPCと履歴、独立した非本番DB/Hosted/Safari差分検証。警視庁元サイトの地図画像・DigiPolice独自素材やAPIは転用しない。これらは従来のまちまもβ公開Gateを増やさない。
 
 **配備禁止:** この成果の ZIP は `test_only_not_for_upload/` 内に146のファイルを持つが、HTML内の参照先は現行Production Supabaseのまま。機能フラグはデフォルトOFF。Cloudflare、実DB、Source ON、Secrets/Auth/DNS、広告/SNS/ポイントに変更なし。実データと適法性、管理者審査と復旧計画の確認後に、初めて通常の公開候補へ移す。
+
+## R8 差分: 権利境界と累計レビューの保全（2026-10-31）
+
+- `rights_evidence_registry_R8_REVIEW_ONLY.json` に**元資料ごと**の根拠と未確認を区別。メールけいしちょうOpen DATAの対象情報は明示的なCC BY 4.0、町丁目統計の公式東京都APIカタログは過年度リソースについてCC BYと記載。**2026年R8に機械的に転用せず**、前兆事案CSVも元ページのリンク自体を権利許諾に代用しない。
+- 上記不確かな `precursor` / `town_stats` は、管理画面から承認操作を表示せず、SQL `admin_review_police_official` 側でも `dataset_specific_rights_pending` により拒否。これは**実データ権利が確認できたら審査・変更するための明示的な保留**であり、ソース/掲載をOFFのまま保つ。
+- `cumulative_sources.update_history` は月を跨ぐ件数比較の際、`ambiguous_area_rows_held` などのソース由来の要審査フラグを消さないよう修正。保留2行が自動的に解除されないことを再現テストで確認。
+- `tests/browser_local_chromium_smoke.py` は実Chrome系ブラウザの完全ネットワーク遮断テスト（架空データ・既存MAPコンテナに相当するDOM要素）。**Cloudflare Hosted・Safari試験ではない。**
+- GitHub CIの実CSV再取得はSource修正時に`workflow_dispatch`と`verify_real_csv=true`を明示した場合に限る。過去の実CSV検証Run `41171579593`を正本として保持、無意味な同一原本の繰返し取得なし。
+- 現時点で本番DB/Auth/Secrets/Production、既存RSS Cron、ポイント、ASP、SNSへの変更なし。

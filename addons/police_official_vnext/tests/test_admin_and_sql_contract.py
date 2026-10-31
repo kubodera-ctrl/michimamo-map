@@ -42,6 +42,12 @@ class PublicationSqlStatic(unittest.TestCase):
  def test_existing_admin_script_no_points_calls(self):
   for keyword in ('submit_spot_once','admin_adjust_points','point_transactions','SNS_POST'):
    self.assertNotIn(keyword,HUB)
+ def test_dataset_rights_pending_blocks_cumulative_approval(self):
+  self.assertIn("if d.dataset in ('precursor','town_stats') then",SQL)
+  self.assertIn("raise exception 'dataset_specific_rights_pending'",SQL)
+  self.assertNotIn('precursor:SOURCE_PAGES.precursor',HUB)
+  self.assertNotIn("town_stats:'https://catalog.data.metro.tokyo.lg.jp",HUB)
+  self.assertIn("const allowedEvidence={mail:",HUB)
  def test_no_grant_public_table_write(self):
   self.assertNotIn('grant insert on public.police_official_documents to anon',SQL)
   self.assertNotIn('grant update on public.police_official_documents to authenticated',SQL)
