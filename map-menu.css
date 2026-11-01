@@ -26,3 +26,9 @@
  .filter-content .filter-chip { padding:8px 10px;min-height:40px;font-size:13px;box-shadow:none;gap:6px; }
 }
 @media(prefers-reduced-motion:reduce) { #mapMenuModal,#mapMenuModal .sheet { transition:none; } }
+
+/* Two original additions to the same MAP menu; no separate navigation app. */
+#mapMenuModal .map-menu-sheet{overflow-y:auto;overscroll-behavior:contain}
+.map-menu-item[data-map-action="official-safety"]{background:#ecfdf5;color:#065f46;border-color:#a7f3d0}
+.map-menu-item[data-map-action="safety-assist"]{background:#fef2f2;color:#991b1b;border-color:#fecaca}
+@media(max-height:620px){#mapMenuModal .map-menu-sheet{max-height:80dvh}.map-menu-item{min-height:85px;padding:12px}}

@@ -208,3 +208,16 @@ python mail_manual_review_candidate.py \
 テスト：`python -m unittest discover -s tests -p 'test_mail_simple_digest.py'` と `node tests/test_mail_simple_digest.cjs`（架空データのみ）。既存R14の人手審査フィードの独立テストも維持する。
 
 **判定：SOURCE_ONLY / NONPROD / REAL_DATA_OFF / NO_UPLOAD_DEPLOY / NO_PRODUCTION。通常の既存まちまもβ公開の追加Gateにはしない。**
+
+
+## R17 (2026-11-01): Source-directory access and original emergency help in the SAME MAP
+
+R16 remains the authoritative addon source. R17 places a **same-origin, source-only** copy of `official-police-hub.js`, its existing CSS, and the 47 prefecture link registry at the MAP root, and adds an ORIGINAL `safety-assist.js`/CSS module. Only `map-menu.js` and `map-menu.css` are changed among the existing MAP source files. Original menu actions WBGT / AED / police box / AI camera are preserved. Menu assets load only after the user selects one of the two new actions. No app, DB, paid service, news Cron, direct police API or backend login is added.
+
+**Official information:** Clicking `公式防犯・データ` opens `MachimamoPoliceHub.mount({sourceOnly:true})` in the EXISTING map/filter layout; R16 reviewed-feed switches stay off, no raw mail/CSV is published, no admin RPC is called, 47 prefecture links stay link-only. Any future actual publication is a separately authorized source/host operation. Current data is not live synchronized; do not describe it as automatic updates.
+
+**Original SOS UX:** `緊急サポート` offers on-screen assistance, a user-started/30-second bounded sound, opt-in geolocation and opt-in second-click share, and clickable `tel:110` / `tel:119` links. No automatic emergency call, message, recording, position upload, police affiliation, or app point accrual. The browser/OS may refuse audio, geolocation, clipboard or web-share; do NOT claim reliable emergency-service operation until actual device QA. Closing clears location and stops sound.
+
+**Nonprod tests:** `node tests/safety_assist_offline.test.cjs`; `node tests/police_menu_safety_offline.test.cjs` from the repository root. A separate 147-file test-only MAP ZIP is deliberately wrapped under `test_only_not_for_upload/`; it still contains original Production Supabase references and MUST NOT be deployed. Current static local Chromium smoke executes only the original map markup with all production scripts/network stripped; it is NOT Hosted or real iOS/Safari E2E.
+
+**Rollout boundary:** This is a nonproduction Git branch change only. Cloudflare auto-build should be skipped with `[CF-Pages-Skip]` on the commit. No Main merge, Cloudflare/Pages publish, Production Supabase change, Source ON, Auth/Secrets/DNS change, SNS/ASP/points change. Existing MAP beta release must not be delayed by the addon.

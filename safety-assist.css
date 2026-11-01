@@ -1,0 +1,22 @@
+/* Original Machimamo MAP emergency assist: no copied DigiPolice artwork. */
+.mm-sos-backdrop[hidden], .mm-sos-big-message[hidden], .mm-sos-share[hidden] {display:none!important}
+.mm-sos-backdrop {position:fixed;inset:0;z-index:11000;background:rgba(7,18,32,.8);display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box}
+.mm-sos-panel {width:min(510px,100%);max-height:calc(100dvh - 28px);overflow-y:auto;background:white;color:#111827;border-radius:18px;box-shadow:0 18px 50px #0007;padding:18px;box-sizing:border-box;display:grid;gap:10px;font-family:system-ui,-apple-system,sans-serif;overscroll-behavior:contain}
+.mm-sos-header {display:flex;justify-content:space-between;align-items:center;gap:10px}.mm-sos-header h2 {margin:0;font-size:1.1rem}
+.mm-sos-panel button,.mm-sos-panel .mm-sos-call {font:inherit;font-weight:800;border-radius:10px;min-height:49px;padding:12px;border:1px solid #cbd5e1;cursor:pointer}
+.mm-sos-panel button:focus-visible,.mm-sos-panel a:focus-visible {outline:3px solid #2563eb;outline-offset:2px}
+.mm-sos-close {background:white;color:#334155;min-height:42px!important}
+.mm-sos-notice {font-size:.87rem;color:#7f1d1d;background:#fef2f2;border:1px solid #fecaca;padding:11px;border-radius:10px;margin:0}
+.mm-sos-help {background:#b91c1c;border-color:#991b1b!important;color:white}
+.mm-sos-secondary {background:#fff1f2;color:#9f1239;border-color:#fecdd3!important}
+.mm-sos-big-message {background:#b91c1c;color:#fff;font-size:clamp(1.3rem,5vw,2.15rem);font-weight:900;text-align:center;padding:20px 10px;border-radius:12px;line-height:1.4;margin:0}
+.mm-sos-buzzer {background:#0f172a;color:#fff;border-color:#0f172a!important}
+.mm-sos-buzzer[aria-pressed="true"] {background:#facc15;color:#111827;border-color:#facc15!important}
+.mm-sos-calls {display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mm-sos-call {display:flex;align-items:center;justify-content:center;text-decoration:none!important;background:#1d4ed8;color:white!important;border-color:#1d4ed8!important;text-align:center}
+.mm-sos-call-alt {background:#0369a1;border-color:#0369a1!important}
+.mm-sos-location,.mm-sos-share {background:#eff6ff;color:#1e40af}
+.mm-sos-privacy {font-size:.78rem;color:#475569;margin:0}
+.mm-sos-status {font-size:.82rem;color:#0f766e;margin:0;min-height:20px}
+@media(max-width:370px){.mm-sos-panel{padding:12px}.mm-sos-calls{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.mm-sos-panel{scroll-behavior:auto}}

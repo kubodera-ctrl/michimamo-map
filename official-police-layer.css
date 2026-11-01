@@ -1,0 +1,68 @@
+/* Scoped to the existing MAP view; only used when explicitly enabled in nonprod. */
+.filter-chip.police-official-filter { color:#155e75; border-color:#99f6e4; }
+.filter-chip.police-official-filter.active { background:#155e75; color:white; border-color:#155e75; }
+.police-official-panel[hidden] { display:none !important; }
+.police-official-panel { position:absolute; z-index:1400; right:10px; bottom:18px; width:min(430px,calc(100vw - 20px)); max-height:min(65vh,620px); overflow-y:auto; overscroll-behavior:contain; touch-action:pan-y; -webkit-overflow-scrolling:touch; background:white; border:1px solid #cbd5e1; border-radius:16px; padding:14px; box-shadow:0 12px 28px rgba(15,23,42,.23); color:#17212b; font-size:13px; line-height:1.55; }
+.police-official-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.police-official-close { border:1px solid #cbd5e1; background:white; border-radius:8px; padding:8px 12px; cursor:pointer; font:inherit; }
+.police-official-source-badge { display:block; color:#115e59; font-weight:900; font-size:12px; margin-bottom:6px; }
+.police-official-detail { margin-top:12px; border:1px solid #e2e8f0; border-radius:10px; padding:10px; background:white; word-wrap:break-word; }
+.police-official-detail p { margin:7px 0; }
+.police-official-detail a { text-decoration:underline; color:#1d4ed8; }
+.police-official-disclaimer { background:#f1f5f9; border-radius:8px; padding:8px; color:#475569; }
+.police-official-status { font-weight:800; color:#155e75; }
+
+/* Existing map's compact filter/menu, no new app or site */
+.police-official-hub{max-height:min(74dvh,620px);overflow:auto;-webkit-overflow-scrolling:touch}
+.police-official-hub-tabs{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}
+.police-official-hub-tabs button{border:1px solid #d1d5db;background:#f8fafc;border-radius:9px;font-size:.75rem;padding:7px 9px;cursor:pointer}
+.police-official-hub-tabs button[aria-pressed="true"]{color:white;background:#0f766e;border-color:#0f766e}
+.police-official-hub-data{display:grid;gap:8px;overflow-wrap:anywhere;font-size:.8rem}
+.police-official-hub-data a{color:#0f766e;text-decoration:underline}
+.police-official-source-row,.police-official-entry{padding:8px;border-radius:9px;background:#fff;border:1px solid #e2e8f0}
+.police-official-source-row small{display:block;color:#64748b;margin-top:3px}
+.police-official-admin{border:1px solid #86efac;padding:12px;border-radius:12px;background:#fff;margin:12px 0}
+
+/* Low-risk official-source links inside the existing MAP filter, no police logo. */
+.filter-chip.police-official-hub-toggle {border-color:#99d5c8;color:#0d6255;font-weight:700}
+.filter-chip.police-official-hub-toggle.active {background:#0f766e;color:#fff;border-color:#0f766e}
+.police-official-hub[data-source-only="true"] .police-official-hub-data a {
+ display:block; border:1px solid #d6e9e3; background:#f5fbf9; border-radius:10px;
+ padding:10px 12px; min-height:40px; font-weight:650; text-decoration:none;
+}
+.police-official-hub[data-source-only="true"] .police-official-hub-data a:focus-visible,
+.police-official-hub-tabs button:focus-visible,
+.filter-chip.police-official-hub-toggle:focus-visible {outline:3px solid #38bdf8;outline-offset:2px}
+@media(max-width:600px){
+ .police-official-hub{width:calc(100vw - 24px);right:12px;left:12px;bottom:calc(var(--machimamo-bottom-nav-height, 66px) + 10px);max-height:68dvh}
+ .police-official-hub-tabs button{min-height:39px}
+}
+
+/* R13: source-first discovery and existing MAP safety navigation; no new backend. */
+.police-official-quick-nav{display:flex;flex-wrap:wrap;gap:7px;padding:9px 0;border-bottom:1px solid #e2e8f0}
+.police-official-quick-title{width:100%;font-size:.84rem;color:#164e47}
+.police-official-quick-action,.police-official-map-action{font:inherit;font-weight:650;border:1px solid #cbd5e1;border-radius:999px;background:#f8fafc;color:#155e75;padding:8px 11px;min-height:40px;cursor:pointer}
+.police-official-quick-action[aria-pressed="true"]{background:#0f766e;color:white;border-color:#0f766e}
+.police-official-map-action{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.police-official-quick-caption{width:100%;margin:3px 0 0;font-size:.75rem;color:#64748b}
+.police-official-prefecture-search{display:flex;gap:8px;align-items:end;flex-wrap:wrap}
+.police-official-prefecture-search label{display:grid;flex:1;gap:5px;min-width:170px;font-size:.8rem;font-weight:650}
+.police-official-prefecture-search input{width:100%;min-height:42px;border:1px solid #94a3b8;border-radius:10px;padding:9px 11px;font:inherit;font-size:16px}
+.police-official-search-reset{border:1px solid #cbd5e1;border-radius:10px;background:white;padding:9px 11px;min-height:42px;font:inherit;cursor:pointer}
+.police-official-search-count{font-size:.76rem;color:#475569;margin:3px 0}
+.police-official-prefecture-results{display:grid;gap:7px}
+.police-official-quick-action:focus-visible,.police-official-map-action:focus-visible,.police-official-search-reset:focus-visible,.police-official-prefecture-search input:focus-visible{outline:3px solid #38bdf8;outline-offset:2px}
+@media(max-width:600px){.police-official-quick-nav{gap:6px}.police-official-quick-action,.police-official-map-action{min-height:42px}}
+
+/* R14 reviewed delivery cards in original MAP; no incident pins, no second app. */
+.police-reviewed-mail-cards{display:grid;gap:10px;margin-top:10px}
+.police-reviewed-heading{font-size:.92rem;color:#0f4f48}
+.police-reviewed-notice{font-size:.75rem;color:#475569;margin:0}
+.police-reviewed-mail-card{display:grid;gap:5px;border:1px solid #94d4c3;background:#f8fffd;border-radius:14px;padding:12px}
+.police-reviewed-title{font-size:.92rem;line-height:1.45;color:#152b32}
+.police-reviewed-category{color:#0f766e;font-weight:800}
+.police-reviewed-date{color:#475569}
+.police-reviewed-summary{margin:3px 0;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}
+.police-reviewed-mail-card a{font-size:.78rem;font-weight:700;color:#0369a1}
+.police-reviewed-mail-card small{line-height:1.5}
+@media(max-width:600px){.police-reviewed-mail-card{padding:12px}.police-reviewed-title{font-size:.95rem}}

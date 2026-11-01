@@ -7,6 +7,15 @@ on:
     paths:
       - 'addons/police_official_vnext/**'
       - '.github/workflows/police_vnext_nonprod_verify.yml'
+      - 'map-menu.js'
+      - 'map-menu.css'
+      - 'safety-assist.js'
+      - 'safety-assist.css'
+      - 'official-police-hub.js'
+      - 'official-police-layer.css'
+      - 'official_source_registry.json'
+      - 'tests/safety_assist_offline.test.cjs'
+      - 'tests/police_menu_safety_offline.test.cjs'
   workflow_dispatch:
     inputs:
       verify_real_csv:
@@ -73,6 +82,12 @@ jobs:
           # R11 window review tests are discovered by test_*.py above (no network).
           node --check official-police-hub.js
           node --check official-police-layer.js
+          # R17: actual MAP menu source and original safety module, isolated synthetic only.
+          node ../../tests/safety_assist_offline.test.cjs
+          node ../../tests/police_menu_safety_offline.test.cjs
+          node --check ../../map-menu.js
+          node --check ../../safety-assist.js
+          node --check ../../official-police-hub.js
       - name: SQL execution in disposable PostgreSQL container ONLY
         shell: bash
         env:
