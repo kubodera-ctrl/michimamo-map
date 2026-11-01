@@ -527,7 +527,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
  if(sourceOnly&&root?.MACHIMAMO_POLICE_MAIL_DIGEST_ENABLED===true){
   Promise.resolve().then(()=>refreshOfficialMailDigest()).catch(()=>{});
  }
- return {refresh,refreshReviewedMailCards,refreshOfficialMailDigest,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory,reviewedCards:reviewedMailCards?.cards?.length||0,reviewedMailHold,officialDigestVisible:officialMailDigest?.total_deliveries||0,officialDigestHold})};
+ return {refresh,refreshReviewedMailCards,refreshOfficialMailDigest,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory,reviewedCards:reviewedMailCards?.cards?.length||0,reviewedMailHold,officialDigestVisible:officialMailDigest?.total_deliveries||0,officialMailDigestHold})};
 }
 const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,validateReviewedMailCards,validateOfficialMailDigest,mount};
 if(typeof module==='object'&&module.exports)module.exports=api;else root.MachimamoPoliceHub=api;
