@@ -194,3 +194,17 @@ python mail_manual_review_candidate.py \
 **重要**：候補中の `candidate_for_existing_map_private_only` は R14カードJSONのフィールド形状に合わせるが、`publication_enabled=false` かつ `release_authorized=false` / `deployable=false` を固定。直接 `/data/police-reviewed-mail-cards.json` に設置する・スイッチON・公開する操作は**厳禁**。ファイルを書き換えて `true` にしても真正な管理者承認とはならない。実MAPの管理者認証・訂正時の取り下げ/再審査・サーバ側の公開ゲートと権限監査、Hosted/Safari E2Eは未実装。公式利用条件による一般的な再利用許諾は、個別配信の真偽・匿名性・訂正追従を保証しない。
 
 **検証**：合成データだけで `python -m unittest discover -s tests -p 'test_mail_manual_review_candidate.py'`、`python tests/generate_manual_candidate_synthetic.py /tmp/r15-synthetic.json`、`node tests/test_manual_candidate_r14_bridge.cjs /tmp/r15-synthetic.json`。外部情報の再取得や実DBの接続なし。R14の画面/フラグ、Production、既存アプリの通常β公開ゲートには手を触れない。
+
+
+## R16（2026-11-01）：公開済み警察情報の軽量な分類・集計（審査画面追加なし）
+
+- **判断変更**：警視庁「メールけいしちょう Open DATA」の対象情報は、元規約でCC BY 4.0の再利用が認められている。全件の人手承認を一般公開の必須工程にしない。以前のR9〜R15の非公開審査ツールは削除・書き換えず、必要時の任意補助として保全する。既存MAP・既存問合せ/削除申請窓口だけを使い、新DB、管理画面、Cron、サイトは作らない。
+- `mail_simple_digest.py` は、警視庁の**正規公開フォーム**から取得した1日分のJSONと、その取得時の**形式・ハッシュ・日付の記録**を照合するオフライン処理。元配信件名から固定の安全なテーマ語を選び、配信通数を数える。**個別メールの原文・件名・配信先・被害者の属性・住所・地図座標・公式事案IDは一切出力しない。** 「配信通数」は事件件数ではない。訂正・取消等の通知も独立分類で、元の事件との自動紐付けはしない。
+- 候補ファイルはリポジトリ外の0700ディレクトリ内0600ファイルに原子的に保存し、`publication_enabled=false` 固定。正規フォームの取得ログは**発信元の電子署名ではない**ため、実配信の真正性や訂正完了の証明として扱わない。配信日の古さが2日を超えた候補は拒否。失敗時は以前のファイルを勝手に公開せず、そのまま保全。
+- `official-police-hub.js` の**既存**「公式防犯・データ」→「防犯情報」にカテゴリ別配信通数の表示を追加。以前の人手審査カード表示契約・全国47都道府県・交番/AEDリンクは残す。今は `MACHIMAMO_POLICE_MAIL_DIGEST_ENABLED` がデフォルトOFFで、**新しいネットワーク通信を発生させない**。将来、公開範囲と元データの更新方法が確定している場合のみ、既存MAP内の固定同一オリジン `/data/police-official-mail-digest.json` を読み込める。登録済み利用者のDBや個人情報には触れない。
+- UIは構造・利用条件・当日性・表示期限（最大24時間）・固定カテゴリ・件数合計を厳格に確認し、想定外または期限切れなら**全体を非表示**にして公式リンクを案内。更新・訂正が原典へ反映された場合は**最新の1日分を再取得して集計ファイルごと置換**する。単純な削除申請だけで原典訂正に対応したことにはしない。実データ更新の自動運用/監視・Cloudflare Hosted/Safari・本番公開は**未実施**。
+- 対象ライセンス：<https://mail.keishicho.metro.tokyo.lg.jp/opendata/policy>。地図素材・URL本文・問い合わせ先の記載は対象情報から除外。前兆/町丁目2026 CSV・全国47県別データには同じ許諾を転用しない。警視庁監修アプリと誤認させない。
+
+テスト：`python -m unittest discover -s tests -p 'test_mail_simple_digest.py'` と `node tests/test_mail_simple_digest.cjs`（架空データのみ）。既存R14の人手審査フィードの独立テストも維持する。
+
+**判定：SOURCE_ONLY / NONPROD / REAL_DATA_OFF / NO_UPLOAD_DEPLOY / NO_PRODUCTION。通常の既存まちまもβ公開の追加Gateにはしない。**

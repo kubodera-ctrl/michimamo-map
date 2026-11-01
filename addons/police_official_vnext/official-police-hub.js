@@ -69,6 +69,78 @@ function visibleDirectory(registry){
 const REVIEWED_MAIL_PATH='/data/police-reviewed-mail-cards.json';
 const REVIEWED_MAIL_KIND='police_mail_delivery_messages_manual_review';
 const REVIEWED_MAIL_CATEGORIES=new Set(['子どもの安全','声かけ等','特殊詐欺','防犯情報','その他']);
+// R16: optional aggregate of public official delivery metadata. This is not an
+// individual incident/feed, not a new database, and never contains raw mail fields.
+const OFFICIAL_DIGEST_PATH='/data/police-official-mail-digest.json';
+const OFFICIAL_DIGEST_KIND='police_mail_official_distribution_digest';
+const OFFICIAL_DIGEST_LABEL_KIND='locally_classified_delivery_count_not_official_crime_type';
+const OFFICIAL_DIGEST_TOPICS=new Set([
+ '子ども関連の配信','声かけ等の配信','特殊詐欺関連の配信','盗難関連の配信',
+ '防犯情報の配信','その他の配信','訂正・取消等の配信'
+]);
+function validateOfficialMailDigest(feed,now=Date.now()){
+ const names=['schema_version','kind','source_url','policy_url','license','identity_scope',
+  'publication_enabled','raw_subjects_or_bodies_included','personal_locations_included',
+  'official_event_id_present','independent_case_deduplication','source_export_sha256',
+  'export_window_start','export_window_end_exclusive','checked_at','expires_at',
+  'total_deliveries','topic_groups','classification_basis','points_awarded','database_changed'];
+ if(!exactFields(feed,names)||feed.schema_version!==1||feed.kind!==OFFICIAL_DIGEST_KIND||
+    feed.source_url!==SOURCE_PAGES.opendata||feed.policy_url!==SOURCE_PAGES.opendata+'policy'||
+    feed.license!=='CC-BY-4.0'||feed.identity_scope!=='delivered_messages_not_incidents'||
+    feed.publication_enabled!==true||feed.raw_subjects_or_bodies_included!==false||
+    feed.personal_locations_included!==false||feed.official_event_id_present!==false||
+    feed.independent_case_deduplication!==false||feed.points_awarded!==false||
+    feed.database_changed!==false||feed.classification_basis!==OFFICIAL_DIGEST_LABEL_KIND||
+    !/^[0-9a-f]{64}$/.test(feed.source_export_sha256)||
+    !Number.isSafeInteger(feed.total_deliveries)||feed.total_deliveries<1||feed.total_deliveries>20000||
+    !Array.isArray(feed.topic_groups)||feed.topic_groups.length<1||feed.topic_groups.length>OFFICIAL_DIGEST_TOPICS.size){
+   throw new Error('untrusted mail digest');
+ }
+ const dateOnly=v=>typeof v==='string'&&/^20\d{2}-\d{2}-\d{2}$/.test(v)&&
+   Number.isFinite(Date.parse(v+'T00:00:00Z'))&&
+   new Date(Date.parse(v+'T00:00:00Z')).toISOString().slice(0,10)===v;
+ if(!dateOnly(feed.export_window_start)||!dateOnly(feed.export_window_end_exclusive))
+   throw new Error('invalid export dates');
+ const start=Date.parse(feed.export_window_start+'T00:00:00Z');
+ const end=Date.parse(feed.export_window_end_exclusive+'T00:00:00Z');
+ const checked=parsedJst(feed.checked_at),expires=parsedJst(feed.expires_at);
+ if(end-start!==86400000||!Number.isFinite(now)||!Number.isFinite(checked)||
+    !Number.isFinite(expires)||checked>now||expires<=now||
+    expires-checked>86400000||expires-checked<60000||
+    checked<start-86400000||checked-start>3*86400000){
+   throw new Error('stale/invalid official export snapshot');
+ }
+ const seen=new Set();let total=0;const groups=[];
+ for(const item of feed.topic_groups){
+   if(!exactFields(item,['topic','deliveries','basis'])||
+      !OFFICIAL_DIGEST_TOPICS.has(item.topic)||seen.has(item.topic)||
+      item.basis!==OFFICIAL_DIGEST_LABEL_KIND||
+      !Number.isSafeInteger(item.deliveries)||item.deliveries<1||item.deliveries>feed.total_deliveries)
+      throw new Error('invalid digest group');
+   seen.add(item.topic);total+=item.deliveries;
+   groups.push({topic:item.topic,deliveries:item.deliveries});
+ }
+ if(total!==feed.total_deliveries)throw new Error('digest totals do not match');
+ // Only static known labels and integers are rendered. Raw subject/body/recipient
+ // can never cross into DOM. These values are mail deliveries, not criminal cases.
+ return {day:feed.export_window_start,total:feed.total_deliveries,checkedAt:feed.checked_at,groups};
+}
+function renderOfficialMailDigest(doc,container,digest){
+ const section=text(doc,'section',undefined,'police-official-digest');
+ section.append(text(doc,'strong',`警視庁の配信：${digest.total}通（事件数ではありません）`),
+   text(doc,'p',`${digest.day}の配信を対象とした集計。まちまもによる件名キーワードの参考分類です。`,
+        'police-official-disclaimer'));
+ for(const group of digest.groups){
+   const row=text(doc,'div',undefined,'police-official-source-row');
+   row.append(text(doc,'strong',`${group.topic}：${group.deliveries}通`));section.append(row);
+ }
+ section.append(text(doc,'small',`データ確認：${digest.checkedAt.replace('T',' ').replace('+09:00','')}（日本時間）`),
+  text(doc,'p','個別の発生件数・現在の危険度・発生場所を示すものではありません。訂正等の内容や詳細は警視庁の原典で確認してください。',
+       'police-official-disclaimer'),
+  a(doc,'警視庁「メールけいしちょう Open DATA」',SOURCE_PAGES.opendata));
+ container.append(section);
+}
+
 function exactFields(object,fields){
  return object&&typeof object==='object'&&!Array.isArray(object)&&
    Object.keys(object).length===fields.length&&fields.every(k=>Object.prototype.hasOwnProperty.call(object,k));
@@ -165,7 +237,8 @@ function renderRows(doc,container,rows,dataset,limit){
  }
  if(rows.length>cap)container.append(text(doc,'p',`表示上限 ${cap}件です。詳細は公式資料をご確認ください。`));
 }
-function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false, openNearby, reviewedCardsEnabled=false}){
+function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOnly=false, openNearby, reviewedCardsEnabled=false, officialDigestEnabled=false}){
+ const digestEnabled=officialDigestEnabled===true||(root&&root.MACHIMAMO_POLICE_MAIL_DIGEST_ENABLED===true);
  if(!enabled)return null;
  if(!doc||(!sourceOnly&&(!map||!leaflet))||!doc.querySelector('#filterWrapper .filter-content')||!doc.getElementById('map-container'))throw new Error('existing MAP unavailable');
  if(doc.getElementById('policeOfficialHubToggle'))return null;
@@ -184,7 +257,7 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
  const caution=text(doc,'p','警察公表と利用者投稿は別情報です。公式情報に投稿ポイントは付きません。表示の少なさや0件は、安全の保証ではありません。','police-official-disclaimer');
  panel.append(top,...(sourceOnly?[quickNav]:[]),tabbar,status,caution,info);
  bar.append(chip);mapHost.append(panel);
- let precursor=null,stats=null,directory=null,reviewedMailCards=null,reviewedMailHold=false,reviewedExpiryTimer=null,selected=sourceOnly?'mail':'precursor',prefectureQuery='';
+ let precursor=null,stats=null,directory=null,reviewedMailCards=null,reviewedMailHold=false,reviewedExpiryTimer=null,officialMailDigest=null,officialMailDigestHold=false,officialDigestExpiryTimer=null,selected=sourceOnly?'mail':'precursor',prefectureQuery='';
  const tabs=[['mail','防犯情報'],['precursor','前兆事案'],['town_stats','町丁目統計'],['fraud','特殊詐欺・アポ電'],['national','全国47都道府県'],['about','出典と注意']];
  function changeTab(key){selected=key;render();}
  if(sourceOnly){
@@ -221,10 +294,16 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
        if(reviewedMailCards){
          try{cards=validateReviewedMailCards(reviewedMailCards);}catch(_){reviewedMailCards=null;reviewedMailHold=true;}
        }
+       let publicDigest=null;
+       if(officialMailDigest){
+         try{publicDigest=validateOfficialMailDigest(officialMailDigest);}catch(_){officialMailDigest=null;officialMailDigestHold=true;}
+       }
        if(cards){renderReviewedMailCards(doc,info,cards,reviewedMailCards.reviewed_at);status.textContent=`配信情報：人手確認済みカード ${cards.length}件（事件数ではありません）`;}
-       else info.append(empty(doc,reviewedMailHold?
+       if(publicDigest){renderOfficialMailDigest(doc,info,publicDigest);status.textContent=`警視庁の配信参考集計 ${publicDigest.total}通（事件数ではありません）`;}
+       if(!cards&&!publicDigest)info.append(empty(doc,officialMailDigestHold?
+        '警察公式配信の集計が更新・確認できません。表示を停止しました。原典をご確認ください。':reviewedMailHold?
         '確認済み配信の検証・有効期限を確認できません。表示を停止しました。警視庁の原典をご利用ください。':
-        'まちまもMAP内で人手確認済みの配信は、まだ公開していません。警視庁の公式サイトで確認できます。'));
+        '警察公式配信の集計は現在未公開です。警視庁の公式サイトで最新情報を確認できます。'));
      }
      info.append(a(doc,'メールけいしちょう Open DATA（公式）',SOURCE_PAGES.opendata),
       text(doc,'small','出典：警視庁「メールけいしちょう Open DATA」。まちまもMAPは警視庁の監修サービスではありません。'));
@@ -295,6 +374,32 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
   if(key==='town_stats')visibleReleaseRows(obj,'town_stats');
   if(key==='national')visibleDirectory(obj);
   return obj;
+ }
+ async function refreshOfficialMailDigest(){
+  if(!sourceOnly||!digestEnabled)throw new Error('official metadata digest disabled');
+  try{
+   if(typeof fetcher!=='function'||!location)throw new Error('no same-origin digest fetch');
+   const address=new URL(OFFICIAL_DIGEST_PATH,location.href);
+   if(address.origin!==location.origin||address.username||address.password)throw new Error('foreign digest URL');
+   const response=await fetcher(address.pathname,{credentials:'same-origin',cache:'no-store'});
+   const size=Number(response.headers?.get?.('content-length'));
+   if(!response.ok||(Number.isFinite(size)&&size>16000))throw new Error('official digest fetch failed');
+   const feed=await response.json();const safe=validateOfficialMailDigest(feed);
+   if(officialDigestExpiryTimer!==null)clearTimeout(officialDigestExpiryTimer);
+   officialMailDigest=feed;officialMailDigestHold=false;
+   officialDigestExpiryTimer=setTimeout(()=>{
+    if(officialMailDigest===feed){officialMailDigest=null;officialMailDigestHold=true;
+      if(selected==='mail'&&!panel.hidden)render();}
+   },Math.max(1,Date.parse(feed.expires_at)-Date.now()+1));
+   officialDigestExpiryTimer.unref?.();
+   if(selected==='mail'&&!panel.hidden)render();
+   return {visible:safe.total,publication_mode:'official_delivery_digest'};
+  }catch(_){
+   if(officialDigestExpiryTimer!==null){clearTimeout(officialDigestExpiryTimer);officialDigestExpiryTimer=null;}
+   officialMailDigest=null;officialMailDigestHold=true;
+   if(selected==='mail'&&!panel.hidden)render();
+   return {visible:0,hold:true};
+  }
  }
  async function refreshReviewedMailCards(){
   if(!sourceOnly||reviewedCardsEnabled!==true)throw new Error('reviewed card delivery disabled');
@@ -417,8 +522,13 @@ function mount({doc, map, leaflet, fetcher, location, enabled=true, db, sourceOn
   }catch(_){container.replaceChildren(text(doc,'h3','警視庁公表データ｜取込・訂正・承認状況'),empty(doc,'管理者用公式データRPCは未接続です。既存投稿とポイントには影響しません。'));}
  }
  render();
- return {refresh,refreshReviewedMailCards,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory,reviewedCards:reviewedMailCards?.cards?.length||0,reviewedMailHold})};
+ // Existing R14 integrator mounts this same hub. Only opt in through a separately
+ // approved, explicit global switch. No new HTML, DB, cron or API endpoint.
+ if(sourceOnly&&root?.MACHIMAMO_POLICE_MAIL_DIGEST_ENABLED===true){
+  Promise.resolve().then(()=>refreshOfficialMailDigest()).catch(()=>{});
+ }
+ return {refresh,refreshReviewedMailCards,refreshOfficialMailDigest,setSyntheticBundle,loadAdmin,close:()=>toggle(false),getState:()=>({mounted:true,sourceOnly,precursor:!!precursor,stats:!!stats,directory:!!directory,reviewedCards:reviewedMailCards?.cards?.length||0,reviewedMailHold,officialDigestVisible:officialMailDigest?.total_deliveries||0,officialDigestHold})};
 }
-const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,validateReviewedMailCards,mount};
+const api={SOURCE_PAGES,isSafeSourceUrl,visibleReleaseRows,visibleDirectory,validateReviewedMailCards,validateOfficialMailDigest,mount};
 if(typeof module==='object'&&module.exports)module.exports=api;else root.MachimamoPoliceHub=api;
 })(typeof window!=='undefined'?window:globalThis);
